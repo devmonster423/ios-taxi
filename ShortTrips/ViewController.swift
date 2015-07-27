@@ -9,17 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+  @IBOutlet var statusButton: UIButton!
+  private class var statusCornerRadius : CGFloat { return 15.0 }
+  private class var statusBorderWidth : CGFloat { return 1.0 }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    statusButton.layer.cornerRadius = ViewController.statusCornerRadius
+    statusButton.layer.borderWidth = ViewController.statusBorderWidth
+    statusButton.layer.borderColor = view.tintColor.CGColor
+  }
 }
-
