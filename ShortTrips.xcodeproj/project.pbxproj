@@ -9,11 +9,53 @@
 /* Begin PBXBuildFile section */
 		01937E5EB89C54E6045C76F1 /* Pods_ShortTrips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81AB3E7D2C8CBBF8AF294E13 /* Pods_ShortTrips.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C2DFE5C81B56D2CB0090B55F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DFE5C71B56D2CB0090B55F /* AppDelegate.swift */; };
-		C2DFE5CA1B56D2CB0090B55F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DFE5C91B56D2CB0090B55F /* ViewController.swift */; };
+		C2DFE5CA1B56D2CB0090B55F /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DFE5C91B56D2CB0090B55F /* DashboardVC.swift */; };
 		C2DFE5CD1B56D2CB0090B55F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */; };
 		C2DFE5CF1B56D2CB0090B55F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5CE1B56D2CB0090B55F /* Images.xcassets */; };
 		C2DFE5D21B56D2CB0090B55F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */; };
 		C2DFE5DE1B56D2CB0090B55F /* ShortTripsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DFE5DD1B56D2CB0090B55F /* ShortTripsTests.swift */; };
+		E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */; };
+		E1CDE7891B66E95E00AB27D2 /* MyriadPro-SemiExtIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7611B66E95E00AB27D2 /* MyriadPro-SemiExtIt.otf */; };
+		E1CDE78A1B66E95E00AB27D2 /* MyriadPro-SemiExt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7621B66E95E00AB27D2 /* MyriadPro-SemiExt.otf */; };
+		E1CDE78B1B66E95E00AB27D2 /* MyriadPro-SemiCnIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7631B66E95E00AB27D2 /* MyriadPro-SemiCnIt.otf */; };
+		E1CDE78C1B66E95E00AB27D2 /* MyriadPro-SemiCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7641B66E95E00AB27D2 /* MyriadPro-SemiCn.otf */; };
+		E1CDE78D1B66E95E00AB27D2 /* MyriadPro-SemiboldSemiExtIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7651B66E95E00AB27D2 /* MyriadPro-SemiboldSemiExtIt.otf */; };
+		E1CDE78E1B66E95E00AB27D2 /* MyriadPro-SemiboldSemiExt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7661B66E95E00AB27D2 /* MyriadPro-SemiboldSemiExt.otf */; };
+		E1CDE78F1B66E95E00AB27D2 /* MyriadPro-SemiboldSemiCnIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7671B66E95E00AB27D2 /* MyriadPro-SemiboldSemiCnIt.otf */; };
+		E1CDE7901B66E95E00AB27D2 /* MyriadPro-SemiboldSemiCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7681B66E95E00AB27D2 /* MyriadPro-SemiboldSemiCn.otf */; };
+		E1CDE7911B66E95E00AB27D2 /* MyriadPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7691B66E95E00AB27D2 /* MyriadPro-SemiboldIt.otf */; };
+		E1CDE7921B66E95E00AB27D2 /* MyriadPro-SemiboldCondIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76A1B66E95E00AB27D2 /* MyriadPro-SemiboldCondIt.otf */; };
+		E1CDE7931B66E95E00AB27D2 /* MyriadPro-SemiboldCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76B1B66E95E00AB27D2 /* MyriadPro-SemiboldCond.otf */; };
+		E1CDE7941B66E95E00AB27D2 /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76C1B66E95E00AB27D2 /* MyriadPro-Semibold.otf */; };
+		E1CDE7951B66E95E00AB27D2 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */; };
+		E1CDE7961B66E95E00AB27D2 /* MyriadPro-LightSemiExtIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76E1B66E95E00AB27D2 /* MyriadPro-LightSemiExtIt.otf */; };
+		E1CDE7971B66E95E00AB27D2 /* MyriadPro-LightSemiExt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76F1B66E95E00AB27D2 /* MyriadPro-LightSemiExt.otf */; };
+		E1CDE7981B66E95E00AB27D2 /* MyriadPro-LightSemiCnIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7701B66E95E00AB27D2 /* MyriadPro-LightSemiCnIt.otf */; };
+		E1CDE7991B66E95E00AB27D2 /* MyriadPro-LightSemiCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7711B66E95E00AB27D2 /* MyriadPro-LightSemiCn.otf */; };
+		E1CDE79A1B66E95E00AB27D2 /* MyriadPro-LightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7721B66E95E00AB27D2 /* MyriadPro-LightIt.otf */; };
+		E1CDE79B1B66E95E00AB27D2 /* MyriadPro-LightCondIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7731B66E95E00AB27D2 /* MyriadPro-LightCondIt.otf */; };
+		E1CDE79C1B66E95E00AB27D2 /* MyriadPro-LightCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7741B66E95E00AB27D2 /* MyriadPro-LightCond.otf */; };
+		E1CDE79D1B66E95E00AB27D2 /* MyriadPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7751B66E95E00AB27D2 /* MyriadPro-Light.otf */; };
+		E1CDE79E1B66E95E00AB27D2 /* MyriadPro-It.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7761B66E95E00AB27D2 /* MyriadPro-It.otf */; };
+		E1CDE79F1B66E95E00AB27D2 /* MyriadPro-CondIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7771B66E95E00AB27D2 /* MyriadPro-CondIt.otf */; };
+		E1CDE7A01B66E95E00AB27D2 /* MyriadPro-Cond.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7781B66E95E00AB27D2 /* MyriadPro-Cond.otf */; };
+		E1CDE7A11B66E95E00AB27D2 /* MyriadPro-BoldSemiExtIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7791B66E95E00AB27D2 /* MyriadPro-BoldSemiExtIt.otf */; };
+		E1CDE7A21B66E95E00AB27D2 /* MyriadPro-BoldSemiExt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE77A1B66E95E00AB27D2 /* MyriadPro-BoldSemiExt.otf */; };
+		E1CDE7A31B66E95E00AB27D2 /* MyriadPro-BoldSemiCnIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE77B1B66E95E00AB27D2 /* MyriadPro-BoldSemiCnIt.otf */; };
+		E1CDE7A41B66E95E00AB27D2 /* MyriadPro-BoldSemiCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE77C1B66E95E00AB27D2 /* MyriadPro-BoldSemiCn.otf */; };
+		E1CDE7A51B66E95E00AB27D2 /* MyriadPro-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE77D1B66E95E00AB27D2 /* MyriadPro-BoldIt.otf */; };
+		E1CDE7A61B66E95E00AB27D2 /* MyriadPro-BoldCondIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE77E1B66E95E00AB27D2 /* MyriadPro-BoldCondIt.otf */; };
+		E1CDE7A71B66E95E00AB27D2 /* MyriadPro-BoldCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE77F1B66E95E00AB27D2 /* MyriadPro-BoldCond.otf */; };
+		E1CDE7A81B66E95E00AB27D2 /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */; };
+		E1CDE7A91B66E95E00AB27D2 /* MyriadPro-BlackSemiExtIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7811B66E95E00AB27D2 /* MyriadPro-BlackSemiExtIt.otf */; };
+		E1CDE7AA1B66E95E00AB27D2 /* MyriadPro-BlackSemiExt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7821B66E95E00AB27D2 /* MyriadPro-BlackSemiExt.otf */; };
+		E1CDE7AB1B66E95E00AB27D2 /* MyriadPro-BlackSemiCnIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7831B66E95E00AB27D2 /* MyriadPro-BlackSemiCnIt.otf */; };
+		E1CDE7AC1B66E95E00AB27D2 /* MyriadPro-BlackSemiCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7841B66E95E00AB27D2 /* MyriadPro-BlackSemiCn.otf */; };
+		E1CDE7AD1B66E95E00AB27D2 /* MyriadPro-BlackIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7851B66E95E00AB27D2 /* MyriadPro-BlackIt.otf */; };
+		E1CDE7AE1B66E95E00AB27D2 /* MyriadPro-BlackCondIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7861B66E95E00AB27D2 /* MyriadPro-BlackCondIt.otf */; };
+		E1CDE7AF1B66E95E00AB27D2 /* MyriadPro-BlackCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7871B66E95E00AB27D2 /* MyriadPro-BlackCond.otf */; };
+		E1CDE7B01B66E95E00AB27D2 /* MyriadPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7881B66E95E00AB27D2 /* MyriadPro-Black.otf */; };
+		E1D08D161B67DB2400559618 /* CartoGothicStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1D08D151B67DB2400559618 /* CartoGothicStd-Book.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +74,7 @@
 		C2DFE5C21B56D2CB0090B55F /* ShortTrips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShortTrips.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2DFE5C61B56D2CB0090B55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2DFE5C71B56D2CB0090B55F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C2DFE5C91B56D2CB0090B55F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C2DFE5C91B56D2CB0090B55F /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		C2DFE5CC1B56D2CB0090B55F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C2DFE5CE1B56D2CB0090B55F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C2DFE5D11B56D2CB0090B55F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -40,6 +82,48 @@
 		C2DFE5DC1B56D2CB0090B55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2DFE5DD1B56D2CB0090B55F /* ShortTripsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortTripsTests.swift; sourceTree = "<group>"; };
 		D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
+		E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiConstants.swift; sourceTree = "<group>"; };
+		E1CDE7611B66E95E00AB27D2 /* MyriadPro-SemiExtIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiExtIt.otf"; sourceTree = "<group>"; };
+		E1CDE7621B66E95E00AB27D2 /* MyriadPro-SemiExt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiExt.otf"; sourceTree = "<group>"; };
+		E1CDE7631B66E95E00AB27D2 /* MyriadPro-SemiCnIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiCnIt.otf"; sourceTree = "<group>"; };
+		E1CDE7641B66E95E00AB27D2 /* MyriadPro-SemiCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiCn.otf"; sourceTree = "<group>"; };
+		E1CDE7651B66E95E00AB27D2 /* MyriadPro-SemiboldSemiExtIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiboldSemiExtIt.otf"; sourceTree = "<group>"; };
+		E1CDE7661B66E95E00AB27D2 /* MyriadPro-SemiboldSemiExt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiboldSemiExt.otf"; sourceTree = "<group>"; };
+		E1CDE7671B66E95E00AB27D2 /* MyriadPro-SemiboldSemiCnIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiboldSemiCnIt.otf"; sourceTree = "<group>"; };
+		E1CDE7681B66E95E00AB27D2 /* MyriadPro-SemiboldSemiCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiboldSemiCn.otf"; sourceTree = "<group>"; };
+		E1CDE7691B66E95E00AB27D2 /* MyriadPro-SemiboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiboldIt.otf"; sourceTree = "<group>"; };
+		E1CDE76A1B66E95E00AB27D2 /* MyriadPro-SemiboldCondIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiboldCondIt.otf"; sourceTree = "<group>"; };
+		E1CDE76B1B66E95E00AB27D2 /* MyriadPro-SemiboldCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiboldCond.otf"; sourceTree = "<group>"; };
+		E1CDE76C1B66E95E00AB27D2 /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
+		E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
+		E1CDE76E1B66E95E00AB27D2 /* MyriadPro-LightSemiExtIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-LightSemiExtIt.otf"; sourceTree = "<group>"; };
+		E1CDE76F1B66E95E00AB27D2 /* MyriadPro-LightSemiExt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-LightSemiExt.otf"; sourceTree = "<group>"; };
+		E1CDE7701B66E95E00AB27D2 /* MyriadPro-LightSemiCnIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-LightSemiCnIt.otf"; sourceTree = "<group>"; };
+		E1CDE7711B66E95E00AB27D2 /* MyriadPro-LightSemiCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-LightSemiCn.otf"; sourceTree = "<group>"; };
+		E1CDE7721B66E95E00AB27D2 /* MyriadPro-LightIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-LightIt.otf"; sourceTree = "<group>"; };
+		E1CDE7731B66E95E00AB27D2 /* MyriadPro-LightCondIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-LightCondIt.otf"; sourceTree = "<group>"; };
+		E1CDE7741B66E95E00AB27D2 /* MyriadPro-LightCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-LightCond.otf"; sourceTree = "<group>"; };
+		E1CDE7751B66E95E00AB27D2 /* MyriadPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Light.otf"; sourceTree = "<group>"; };
+		E1CDE7761B66E95E00AB27D2 /* MyriadPro-It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-It.otf"; sourceTree = "<group>"; };
+		E1CDE7771B66E95E00AB27D2 /* MyriadPro-CondIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-CondIt.otf"; sourceTree = "<group>"; };
+		E1CDE7781B66E95E00AB27D2 /* MyriadPro-Cond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Cond.otf"; sourceTree = "<group>"; };
+		E1CDE7791B66E95E00AB27D2 /* MyriadPro-BoldSemiExtIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldSemiExtIt.otf"; sourceTree = "<group>"; };
+		E1CDE77A1B66E95E00AB27D2 /* MyriadPro-BoldSemiExt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldSemiExt.otf"; sourceTree = "<group>"; };
+		E1CDE77B1B66E95E00AB27D2 /* MyriadPro-BoldSemiCnIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldSemiCnIt.otf"; sourceTree = "<group>"; };
+		E1CDE77C1B66E95E00AB27D2 /* MyriadPro-BoldSemiCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldSemiCn.otf"; sourceTree = "<group>"; };
+		E1CDE77D1B66E95E00AB27D2 /* MyriadPro-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldIt.otf"; sourceTree = "<group>"; };
+		E1CDE77E1B66E95E00AB27D2 /* MyriadPro-BoldCondIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldCondIt.otf"; sourceTree = "<group>"; };
+		E1CDE77F1B66E95E00AB27D2 /* MyriadPro-BoldCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BoldCond.otf"; sourceTree = "<group>"; };
+		E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.otf"; sourceTree = "<group>"; };
+		E1CDE7811B66E95E00AB27D2 /* MyriadPro-BlackSemiExtIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BlackSemiExtIt.otf"; sourceTree = "<group>"; };
+		E1CDE7821B66E95E00AB27D2 /* MyriadPro-BlackSemiExt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BlackSemiExt.otf"; sourceTree = "<group>"; };
+		E1CDE7831B66E95E00AB27D2 /* MyriadPro-BlackSemiCnIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BlackSemiCnIt.otf"; sourceTree = "<group>"; };
+		E1CDE7841B66E95E00AB27D2 /* MyriadPro-BlackSemiCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BlackSemiCn.otf"; sourceTree = "<group>"; };
+		E1CDE7851B66E95E00AB27D2 /* MyriadPro-BlackIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BlackIt.otf"; sourceTree = "<group>"; };
+		E1CDE7861B66E95E00AB27D2 /* MyriadPro-BlackCondIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BlackCondIt.otf"; sourceTree = "<group>"; };
+		E1CDE7871B66E95E00AB27D2 /* MyriadPro-BlackCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-BlackCond.otf"; sourceTree = "<group>"; };
+		E1CDE7881B66E95E00AB27D2 /* MyriadPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Black.otf"; sourceTree = "<group>"; };
+		E1D08D151B67DB2400559618 /* CartoGothicStd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CartoGothicStd-Book.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,10 +186,9 @@
 			isa = PBXGroup;
 			children = (
 				C2DFE5C71B56D2CB0090B55F /* AppDelegate.swift */,
-				C2DFE5C91B56D2CB0090B55F /* ViewController.swift */,
 				C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */,
-				C2DFE5CE1B56D2CB0090B55F /* Images.xcassets */,
-				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
+				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
+				C2DFE5C91B56D2CB0090B55F /* DashboardVC.swift */,
 				C2DFE5C51B56D2CB0090B55F /* Supporting Files */,
 			);
 			path = ShortTrips;
@@ -114,6 +197,9 @@
 		C2DFE5C51B56D2CB0090B55F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E1CDE7101B66DF0600AB27D2 /* Fonts */,
+				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
+				C2DFE5CE1B56D2CB0090B55F /* Images.xcassets */,
 				C2DFE5C61B56D2CB0090B55F /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -134,6 +220,54 @@
 				C2DFE5DC1B56D2CB0090B55F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1CDE7101B66DF0600AB27D2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E1D08D151B67DB2400559618 /* CartoGothicStd-Book.otf */,
+				E1CDE7611B66E95E00AB27D2 /* MyriadPro-SemiExtIt.otf */,
+				E1CDE7621B66E95E00AB27D2 /* MyriadPro-SemiExt.otf */,
+				E1CDE7631B66E95E00AB27D2 /* MyriadPro-SemiCnIt.otf */,
+				E1CDE7641B66E95E00AB27D2 /* MyriadPro-SemiCn.otf */,
+				E1CDE7651B66E95E00AB27D2 /* MyriadPro-SemiboldSemiExtIt.otf */,
+				E1CDE7661B66E95E00AB27D2 /* MyriadPro-SemiboldSemiExt.otf */,
+				E1CDE7671B66E95E00AB27D2 /* MyriadPro-SemiboldSemiCnIt.otf */,
+				E1CDE7681B66E95E00AB27D2 /* MyriadPro-SemiboldSemiCn.otf */,
+				E1CDE7691B66E95E00AB27D2 /* MyriadPro-SemiboldIt.otf */,
+				E1CDE76A1B66E95E00AB27D2 /* MyriadPro-SemiboldCondIt.otf */,
+				E1CDE76B1B66E95E00AB27D2 /* MyriadPro-SemiboldCond.otf */,
+				E1CDE76C1B66E95E00AB27D2 /* MyriadPro-Semibold.otf */,
+				E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */,
+				E1CDE76E1B66E95E00AB27D2 /* MyriadPro-LightSemiExtIt.otf */,
+				E1CDE76F1B66E95E00AB27D2 /* MyriadPro-LightSemiExt.otf */,
+				E1CDE7701B66E95E00AB27D2 /* MyriadPro-LightSemiCnIt.otf */,
+				E1CDE7711B66E95E00AB27D2 /* MyriadPro-LightSemiCn.otf */,
+				E1CDE7721B66E95E00AB27D2 /* MyriadPro-LightIt.otf */,
+				E1CDE7731B66E95E00AB27D2 /* MyriadPro-LightCondIt.otf */,
+				E1CDE7741B66E95E00AB27D2 /* MyriadPro-LightCond.otf */,
+				E1CDE7751B66E95E00AB27D2 /* MyriadPro-Light.otf */,
+				E1CDE7761B66E95E00AB27D2 /* MyriadPro-It.otf */,
+				E1CDE7771B66E95E00AB27D2 /* MyriadPro-CondIt.otf */,
+				E1CDE7781B66E95E00AB27D2 /* MyriadPro-Cond.otf */,
+				E1CDE7791B66E95E00AB27D2 /* MyriadPro-BoldSemiExtIt.otf */,
+				E1CDE77A1B66E95E00AB27D2 /* MyriadPro-BoldSemiExt.otf */,
+				E1CDE77B1B66E95E00AB27D2 /* MyriadPro-BoldSemiCnIt.otf */,
+				E1CDE77C1B66E95E00AB27D2 /* MyriadPro-BoldSemiCn.otf */,
+				E1CDE77D1B66E95E00AB27D2 /* MyriadPro-BoldIt.otf */,
+				E1CDE77E1B66E95E00AB27D2 /* MyriadPro-BoldCondIt.otf */,
+				E1CDE77F1B66E95E00AB27D2 /* MyriadPro-BoldCond.otf */,
+				E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */,
+				E1CDE7811B66E95E00AB27D2 /* MyriadPro-BlackSemiExtIt.otf */,
+				E1CDE7821B66E95E00AB27D2 /* MyriadPro-BlackSemiExt.otf */,
+				E1CDE7831B66E95E00AB27D2 /* MyriadPro-BlackSemiCnIt.otf */,
+				E1CDE7841B66E95E00AB27D2 /* MyriadPro-BlackSemiCn.otf */,
+				E1CDE7851B66E95E00AB27D2 /* MyriadPro-BlackIt.otf */,
+				E1CDE7861B66E95E00AB27D2 /* MyriadPro-BlackCondIt.otf */,
+				E1CDE7871B66E95E00AB27D2 /* MyriadPro-BlackCond.otf */,
+				E1CDE7881B66E95E00AB27D2 /* MyriadPro-Black.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +353,50 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1CDE7A31B66E95E00AB27D2 /* MyriadPro-BoldSemiCnIt.otf in Resources */,
+				E1CDE78A1B66E95E00AB27D2 /* MyriadPro-SemiExt.otf in Resources */,
+				E1CDE7A81B66E95E00AB27D2 /* MyriadPro-Bold.otf in Resources */,
+				E1CDE7AA1B66E95E00AB27D2 /* MyriadPro-BlackSemiExt.otf in Resources */,
+				E1CDE7A61B66E95E00AB27D2 /* MyriadPro-BoldCondIt.otf in Resources */,
+				E1CDE7A91B66E95E00AB27D2 /* MyriadPro-BlackSemiExtIt.otf in Resources */,
+				E1CDE7B01B66E95E00AB27D2 /* MyriadPro-Black.otf in Resources */,
+				E1CDE78C1B66E95E00AB27D2 /* MyriadPro-SemiCn.otf in Resources */,
+				E1CDE7981B66E95E00AB27D2 /* MyriadPro-LightSemiCnIt.otf in Resources */,
+				E1CDE7951B66E95E00AB27D2 /* MyriadPro-Regular.otf in Resources */,
+				E1CDE78F1B66E95E00AB27D2 /* MyriadPro-SemiboldSemiCnIt.otf in Resources */,
 				C2DFE5CD1B56D2CB0090B55F /* Main.storyboard in Resources */,
+				E1CDE7961B66E95E00AB27D2 /* MyriadPro-LightSemiExtIt.otf in Resources */,
+				E1CDE7AC1B66E95E00AB27D2 /* MyriadPro-BlackSemiCn.otf in Resources */,
+				E1CDE7A11B66E95E00AB27D2 /* MyriadPro-BoldSemiExtIt.otf in Resources */,
+				E1CDE7921B66E95E00AB27D2 /* MyriadPro-SemiboldCondIt.otf in Resources */,
+				E1D08D161B67DB2400559618 /* CartoGothicStd-Book.otf in Resources */,
+				E1CDE79F1B66E95E00AB27D2 /* MyriadPro-CondIt.otf in Resources */,
+				E1CDE7A41B66E95E00AB27D2 /* MyriadPro-BoldSemiCn.otf in Resources */,
 				C2DFE5D21B56D2CB0090B55F /* LaunchScreen.xib in Resources */,
+				E1CDE7A51B66E95E00AB27D2 /* MyriadPro-BoldIt.otf in Resources */,
+				E1CDE7931B66E95E00AB27D2 /* MyriadPro-SemiboldCond.otf in Resources */,
+				E1CDE79A1B66E95E00AB27D2 /* MyriadPro-LightIt.otf in Resources */,
+				E1CDE79B1B66E95E00AB27D2 /* MyriadPro-LightCondIt.otf in Resources */,
+				E1CDE7941B66E95E00AB27D2 /* MyriadPro-Semibold.otf in Resources */,
+				E1CDE7A21B66E95E00AB27D2 /* MyriadPro-BoldSemiExt.otf in Resources */,
+				E1CDE7AB1B66E95E00AB27D2 /* MyriadPro-BlackSemiCnIt.otf in Resources */,
+				E1CDE7991B66E95E00AB27D2 /* MyriadPro-LightSemiCn.otf in Resources */,
+				E1CDE7AD1B66E95E00AB27D2 /* MyriadPro-BlackIt.otf in Resources */,
+				E1CDE79D1B66E95E00AB27D2 /* MyriadPro-Light.otf in Resources */,
+				E1CDE7971B66E95E00AB27D2 /* MyriadPro-LightSemiExt.otf in Resources */,
+				E1CDE78E1B66E95E00AB27D2 /* MyriadPro-SemiboldSemiExt.otf in Resources */,
+				E1CDE7A71B66E95E00AB27D2 /* MyriadPro-BoldCond.otf in Resources */,
+				E1CDE78B1B66E95E00AB27D2 /* MyriadPro-SemiCnIt.otf in Resources */,
+				E1CDE7AE1B66E95E00AB27D2 /* MyriadPro-BlackCondIt.otf in Resources */,
+				E1CDE79C1B66E95E00AB27D2 /* MyriadPro-LightCond.otf in Resources */,
+				E1CDE7A01B66E95E00AB27D2 /* MyriadPro-Cond.otf in Resources */,
+				E1CDE79E1B66E95E00AB27D2 /* MyriadPro-It.otf in Resources */,
+				E1CDE78D1B66E95E00AB27D2 /* MyriadPro-SemiboldSemiExtIt.otf in Resources */,
+				E1CDE7891B66E95E00AB27D2 /* MyriadPro-SemiExtIt.otf in Resources */,
 				C2DFE5CF1B56D2CB0090B55F /* Images.xcassets in Resources */,
+				E1CDE7AF1B66E95E00AB27D2 /* MyriadPro-BlackCond.otf in Resources */,
+				E1CDE7901B66E95E00AB27D2 /* MyriadPro-SemiboldSemiCn.otf in Resources */,
+				E1CDE7911B66E95E00AB27D2 /* MyriadPro-SemiboldIt.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +462,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2DFE5CA1B56D2CB0090B55F /* ViewController.swift in Sources */,
+				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
+				C2DFE5CA1B56D2CB0090B55F /* DashboardVC.swift in Sources */,
 				C2DFE5C81B56D2CB0090B55F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
