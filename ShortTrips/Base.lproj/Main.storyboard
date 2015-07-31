@@ -49,7 +49,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="highlightedColor" red="0.29019607843137252" green="0.56470588235294117" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundDashboard" translatesAutoresizingMaskIntoConstraints="NO" id="ldF-jZ-ON6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundDashboard" translatesAutoresizingMaskIntoConstraints="NO" id="ldF-jZ-ON6">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="388"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ti2-pJ-Ea2" userLabel="spacer">
