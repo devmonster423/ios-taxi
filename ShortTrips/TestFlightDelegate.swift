@@ -51,6 +51,8 @@ class TestFlightDelegate: NSObject, UITableViewDataSource, UITableViewDelegate {
     flightTableView.reloadData()
   }
   
+  // MARK: protocol conformance
+  
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return filteredFlights.count
   }

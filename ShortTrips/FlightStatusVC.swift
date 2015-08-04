@@ -22,6 +22,8 @@ class FlightStatusVC: UIViewController {
     testFlightDelegate = TestFlightDelegate(flightTableView: flightTable)
   }
   
+  // MARK: IBActions and helper
+  
   @IBAction func showDomestic() {
     if testFlightDelegate.domesticOrInternational == DomesticOrInternational.International {
       testFlightDelegate.domesticOrInternational = DomesticOrInternational.Domestic
