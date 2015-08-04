@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 struct Flight {
   let airline: Airline
