@@ -14,6 +14,14 @@
 		C2DFE5CF1B56D2CB0090B55F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5CE1B56D2CB0090B55F /* Images.xcassets */; };
 		C2DFE5D21B56D2CB0090B55F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */; };
 		C2DFE5DE1B56D2CB0090B55F /* ShortTripsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DFE5DD1B56D2CB0090B55F /* ShortTripsTests.swift */; };
+		E191B31B1B6FD6DE005A5B93 /* DomesticOrInternational.swift in Sources */ = {isa = PBXBuildFile; fileRef = E191B31A1B6FD6DE005A5B93 /* DomesticOrInternational.swift */; };
+		E1A2EBA01B6BEF3900C27EB2 /* FlightStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */; };
+		E1A2EBA21B6C218D00C27EB2 /* FlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */; };
+		E1A2EBA71B6C645400C27EB2 /* TestFlightDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBA61B6C645400C27EB2 /* TestFlightDelegate.swift */; };
+		E1A2EBA91B6D747F00C27EB2 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBA81B6D747F00C27EB2 /* Flight.swift */; };
+		E1A2EBAB1B6D767000C27EB2 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAA1B6D767000C27EB2 /* Airline.swift */; };
+		E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAC1B6E8FEF00C27EB2 /* FlightStatus.swift */; };
+		E1A2EBAF1B6E920500C27EB2 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAE1B6E920500C27EB2 /* Terminal.swift */; };
 		E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */; };
 		E1CDE7891B66E95E00AB27D2 /* MyriadPro-SemiExtIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7611B66E95E00AB27D2 /* MyriadPro-SemiExtIt.otf */; };
 		E1CDE78A1B66E95E00AB27D2 /* MyriadPro-SemiExt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7621B66E95E00AB27D2 /* MyriadPro-SemiExt.otf */; };
@@ -82,6 +90,14 @@
 		C2DFE5DC1B56D2CB0090B55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2DFE5DD1B56D2CB0090B55F /* ShortTripsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortTripsTests.swift; sourceTree = "<group>"; };
 		D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
+		E191B31A1B6FD6DE005A5B93 /* DomesticOrInternational.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomesticOrInternational.swift; sourceTree = "<group>"; };
+		E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatusVC.swift; sourceTree = "<group>"; };
+		E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightCell.swift; sourceTree = "<group>"; };
+		E1A2EBA61B6C645400C27EB2 /* TestFlightDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFlightDelegate.swift; sourceTree = "<group>"; };
+		E1A2EBA81B6D747F00C27EB2 /* Flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
+		E1A2EBAA1B6D767000C27EB2 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
+		E1A2EBAC1B6E8FEF00C27EB2 /* FlightStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatus.swift; sourceTree = "<group>"; };
+		E1A2EBAE1B6E920500C27EB2 /* Terminal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
 		E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiConstants.swift; sourceTree = "<group>"; };
 		E1CDE7611B66E95E00AB27D2 /* MyriadPro-SemiExtIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiExtIt.otf"; sourceTree = "<group>"; };
 		E1CDE7621B66E95E00AB27D2 /* MyriadPro-SemiExt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiExt.otf"; sourceTree = "<group>"; };
@@ -185,10 +201,9 @@
 		C2DFE5C41B56D2CB0090B55F /* ShortTrips */ = {
 			isa = PBXGroup;
 			children = (
-				C2DFE5C71B56D2CB0090B55F /* AppDelegate.swift */,
-				C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */,
-				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
-				C2DFE5C91B56D2CB0090B55F /* DashboardVC.swift */,
+				E1A2EBA31B6C2AA400C27EB2 /* Controllers */,
+				E1A2EBA41B6C2B3600C27EB2 /* Models */,
+				E1A2EBA51B6C2BC600C27EB2 /* Views */,
 				C2DFE5C51B56D2CB0090B55F /* Supporting Files */,
 			);
 			path = ShortTrips;
@@ -197,6 +212,7 @@
 		C2DFE5C51B56D2CB0090B55F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C2DFE5C71B56D2CB0090B55F /* AppDelegate.swift */,
 				E1CDE7101B66DF0600AB27D2 /* Fonts */,
 				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
 				C2DFE5CE1B56D2CB0090B55F /* Images.xcassets */,
@@ -220,6 +236,38 @@
 				C2DFE5DC1B56D2CB0090B55F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1A2EBA31B6C2AA400C27EB2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */,
+				C2DFE5C91B56D2CB0090B55F /* DashboardVC.swift */,
+				E1A2EBA61B6C645400C27EB2 /* TestFlightDelegate.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E1A2EBA41B6C2B3600C27EB2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E1A2EBAA1B6D767000C27EB2 /* Airline.swift */,
+				E191B31A1B6FD6DE005A5B93 /* DomesticOrInternational.swift */,
+				E1A2EBA81B6D747F00C27EB2 /* Flight.swift */,
+				E1A2EBAC1B6E8FEF00C27EB2 /* FlightStatus.swift */,
+				E1A2EBAE1B6E920500C27EB2 /* Terminal.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		E1A2EBA51B6C2BC600C27EB2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */,
+				C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */,
+				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		E1CDE7101B66DF0600AB27D2 /* Fonts */ = {
@@ -463,8 +511,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
+				E1A2EBAF1B6E920500C27EB2 /* Terminal.swift in Sources */,
+				E1A2EBA71B6C645400C27EB2 /* TestFlightDelegate.swift in Sources */,
 				C2DFE5CA1B56D2CB0090B55F /* DashboardVC.swift in Sources */,
 				C2DFE5C81B56D2CB0090B55F /* AppDelegate.swift in Sources */,
+				E1A2EBAB1B6D767000C27EB2 /* Airline.swift in Sources */,
+				E1A2EBA01B6BEF3900C27EB2 /* FlightStatusVC.swift in Sources */,
+				E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */,
+				E191B31B1B6FD6DE005A5B93 /* DomesticOrInternational.swift in Sources */,
+				E1A2EBA21B6C218D00C27EB2 /* FlightCell.swift in Sources */,
+				E1A2EBA91B6D747F00C27EB2 /* Flight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

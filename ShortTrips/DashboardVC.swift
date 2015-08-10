@@ -17,4 +17,16 @@ class DashboardVC: UIViewController {
     statusButton.layer.borderWidth = UiConstants.statusBorderWidth
     statusButton.layer.borderColor = UiConstants.SfoColor
   }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+    navigationController?.navigationBar.shadowImage = UIImage()
+    let backButton = UIBarButtonItem(image: UIImage(named: "backButton"), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("goBack"))
+  }
+  
+  func goBack() {
+    navigationController?.popViewControllerAnimated(true)
+  }
+
 }
