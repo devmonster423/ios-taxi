@@ -58,8 +58,8 @@ class TestFlightDelegate: NSObject, UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    var cell = tableView.dequeueReusableCellWithIdentifier("flightCell") as? FlightCell
-    cell?.displayFlight(filteredFlights[indexPath.row])
-    return cell!
+    let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as! FlightCell
+    cell.displayFlight(filteredFlights[indexPath.row])
+    return cell
   }
 }
