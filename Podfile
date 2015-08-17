@@ -3,7 +3,8 @@ platform :ios, '8.0'
 use_frameworks!
 
 target 'ShortTrips' do
-  pod 'Alamofire', '1.2.3'
+  pod 'Alamofire', '~> 1.3'
+  pod 'AlamofireObjectMapper', '~> 0.7'
 end
 
 target 'ShortTripsTests' do

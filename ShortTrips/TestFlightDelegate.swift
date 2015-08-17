@@ -16,21 +16,21 @@ class TestFlightDelegate: NSObject, UITableViewDataSource, UITableViewDelegate {
   
   // In the real app, this data will come from the API.
   let flights: [Flight] = [
-    Flight(airline: Airline.DeltaAirlines, landingTime: NSDate(), flightStatus: FlightStatus.Delayed, terminal: Terminal.One, flightNumber: 123),
-    Flight(airline: Airline.VirginAmerica, landingTime: NSDate(), flightStatus: FlightStatus.Landed, terminal: Terminal.Two, flightNumber: 321),
-    Flight(airline: Airline.UnitedAirlines, landingTime: NSDate(), flightStatus: FlightStatus.Landed, terminal: Terminal.Three, flightNumber: 4242),
-    Flight(airline: Airline.AerLingus, landingTime: NSDate(), flightStatus: FlightStatus.OnTime, terminal: Terminal.International, flightNumber: 1922),
-    Flight(airline: Airline.BritishAirways, landingTime: NSDate(), flightStatus: FlightStatus.OnTime, terminal: Terminal.International, flightNumber: 1707),
-    Flight(airline: Airline.Lufthansa, landingTime: NSDate(), flightStatus: FlightStatus.Landing, terminal: Terminal.International, flightNumber: 1871),
-    Flight(airline: Airline.AirFrance, landingTime: NSDate(), flightStatus: FlightStatus.OnTime, terminal: Terminal.International, flightNumber: 1958),
-    Flight(airline: Airline.DeltaAirlines, landingTime: NSDate(), flightStatus: FlightStatus.Delayed, terminal: Terminal.One, flightNumber: 456),
-    Flight(airline: Airline.VirginAmerica, landingTime: NSDate(), flightStatus: FlightStatus.OnTime, terminal: Terminal.Two, flightNumber: 654),
-    Flight(airline: Airline.UnitedAirlines, landingTime: NSDate(), flightStatus: FlightStatus.Landed, terminal: Terminal.Three, flightNumber: 333),
-    Flight(airline: Airline.DeltaAirlines, landingTime: NSDate(), flightStatus: FlightStatus.Landing, terminal: Terminal.One, flightNumber: 666),
-    Flight(airline: Airline.UnitedAirlines, landingTime: NSDate(), flightStatus: FlightStatus.Delayed, terminal: Terminal.Two, flightNumber: 42),
-    Flight(airline: Airline.AerLingus, landingTime: NSDate(), flightStatus: FlightStatus.OnTime, terminal: Terminal.International, flightNumber: 111),
-    Flight(airline: Airline.AirFrance, landingTime: NSDate(), flightStatus: FlightStatus.Landing, terminal: Terminal.International, flightNumber: 777),
-    Flight(airline: Airline.Lufthansa, landingTime: NSDate(), flightStatus: FlightStatus.Delayed, terminal: Terminal.International, flightNumber: 802)
+    Flight(airline: Airline.DeltaAirlines, landingTime: NSDate(), flightStatus: FlightStatus.Delayed, terminalId: TerminalId.One, flightNumber: 123),
+    Flight(airline: Airline.VirginAmerica, landingTime: NSDate(), flightStatus: FlightStatus.Landed, terminalId: TerminalId.Two, flightNumber: 321),
+    Flight(airline: Airline.UnitedAirlines, landingTime: NSDate(), flightStatus: FlightStatus.Landed, terminalId: TerminalId.Three, flightNumber: 4242),
+    Flight(airline: Airline.AerLingus, landingTime: NSDate(), flightStatus: FlightStatus.OnTime, terminalId: TerminalId.International, flightNumber: 1922),
+    Flight(airline: Airline.BritishAirways, landingTime: NSDate(), flightStatus: FlightStatus.OnTime, terminalId: TerminalId.International, flightNumber: 1707),
+    Flight(airline: Airline.Lufthansa, landingTime: NSDate(), flightStatus: FlightStatus.Landing, terminalId: TerminalId.International, flightNumber: 1871),
+    Flight(airline: Airline.AirFrance, landingTime: NSDate(), flightStatus: FlightStatus.OnTime, terminalId: TerminalId.International, flightNumber: 1958),
+    Flight(airline: Airline.DeltaAirlines, landingTime: NSDate(), flightStatus: FlightStatus.Delayed, terminalId: TerminalId.One, flightNumber: 456),
+    Flight(airline: Airline.VirginAmerica, landingTime: NSDate(), flightStatus: FlightStatus.OnTime, terminalId: TerminalId.Two, flightNumber: 654),
+    Flight(airline: Airline.UnitedAirlines, landingTime: NSDate(), flightStatus: FlightStatus.Landed, terminalId: TerminalId.Three, flightNumber: 333),
+    Flight(airline: Airline.DeltaAirlines, landingTime: NSDate(), flightStatus: FlightStatus.Landing, terminalId: TerminalId.One, flightNumber: 666),
+    Flight(airline: Airline.UnitedAirlines, landingTime: NSDate(), flightStatus: FlightStatus.Delayed, terminalId: TerminalId.Two, flightNumber: 42),
+    Flight(airline: Airline.AerLingus, landingTime: NSDate(), flightStatus: FlightStatus.OnTime, terminalId: TerminalId.International, flightNumber: 111),
+    Flight(airline: Airline.AirFrance, landingTime: NSDate(), flightStatus: FlightStatus.Landing, terminalId: TerminalId.International, flightNumber: 777),
+    Flight(airline: Airline.Lufthansa, landingTime: NSDate(), flightStatus: FlightStatus.Delayed, terminalId: TerminalId.International, flightNumber: 802)
   ]
   
   init(flightTableView: UITableView) {
@@ -43,10 +43,10 @@ class TestFlightDelegate: NSObject, UITableViewDataSource, UITableViewDelegate {
   
   func filterFlights() {
     if domesticOrInternational == DomesticOrInternational.Domestic {
-      filteredFlights = flights.filter { $0.terminal != Terminal.International }
+      filteredFlights = flights.filter { $0.terminalId != TerminalId.International }
     }
     else {
-      filteredFlights = flights.filter { $0.terminal == Terminal.International }
+      filteredFlights = flights.filter { $0.terminalId == TerminalId.International }
     }
     flightTableView.reloadData()
   }

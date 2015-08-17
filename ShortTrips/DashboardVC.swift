@@ -23,10 +23,15 @@ class DashboardVC: UIViewController {
     navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
     navigationController?.navigationBar.shadowImage = UIImage()
     let backButton = UIBarButtonItem(image: UIImage(named: "backButton"), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("goBack"))
+    
+    SfoInfoRequester.requestLotStatus { (status, error) -> Void in
+      if let status = status {
+        println("status: \(status.lotStatus)")
+      }
+    }
   }
   
   func goBack() {
     navigationController?.popViewControllerAnimated(true)
-  }
-
+  }  
 }

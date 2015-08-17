@@ -22,6 +22,19 @@ class FlightStatusVC: UIViewController {
     testFlightDelegate = TestFlightDelegate(flightTableView: flightTable)
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    SfoInfoRequester.requestFlights { (flights, error) -> Void in
+      if let flights = flights {
+        println("flight 0: \(flights[0].flightStatus)")
+      }
+      else {
+        println("error: \(error)")
+      }
+    }
+  }
+  
   // MARK: IBActions and helper
   
   @IBAction func showDomestic() {
