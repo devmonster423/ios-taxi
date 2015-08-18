@@ -22,4 +22,30 @@ class TerminalSummaryVC: UIViewController {
       }
     }
   }
+/*
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    selectedRun = indexPath.row
+    if logType == .History {
+      performSegueWithIdentifier("pan details from log", sender: self)
+    }
+    else if logType == .Simulate {
+      performSegueWithIdentifier("pan run from log", sender: self)
+    }
+  }
+*/
+/*
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "pan details from log" {
+      var runDetailsVC: RunDetailsVC = segue.destinationViewController as! RunDetailsVC
+      runDetailsVC.run = runs[selectedRun]
+      runDetailsVC.logType = .History
+    }
+    else {
+      if segue.identifier == "pan run from log" {
+        var runVC: RunVC = segue.destinationViewController as! RunVC
+        runVC.runToSimulate = runs[selectedRun]
+      }
+    }
+  }
+*/
 }

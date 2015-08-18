@@ -159,6 +159,7 @@
                                             <outlet property="countLabel" destination="x1B-gs-6Jf" id="oWQ-xy-yLH"/>
                                             <outlet property="delayedLabel" destination="yWM-8e-5Dd" id="jxA-7T-0Ei"/>
                                             <outlet property="terminalLabel" destination="sbn-Wr-CLs" id="RPS-Eo-rYx"/>
+                                            <segue destination="bMq-SJ-wft" kind="show" id="35D-Cp-pas"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

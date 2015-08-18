@@ -14,6 +14,7 @@ class FlightStatusVC: UIViewController {
   @IBOutlet var flightTable: UITableView!
   @IBOutlet var domesticButton: UIButton!
   @IBOutlet var internationalButton: UIButton!
+  var terminal: Int?
   
   var testFlightDelegate: TestFlightDelegate!
   
@@ -25,14 +26,14 @@ class FlightStatusVC: UIViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
-    SfoInfoRequester.requestFlights { (flights, error) -> Void in
+    SfoInfoRequester.requestFlights({ (flights, error) -> Void in
       if let flights = flights {
         println("flight 0: \(flights[0].flightStatus)")
       }
       else {
         println("error: \(error)")
       }
-    }
+    }, terminal: 1)
   }
   
   // MARK: IBActions and helper
