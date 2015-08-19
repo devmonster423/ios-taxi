@@ -43,6 +43,7 @@ class SfoInfoRequester {
   
   class func requestFlights(response: FlightResponseClosure, terminal: Int) {
     println("requesting flights: \(baseUrl + flightUrl)?terminal_id=1&hour=1")
-    Alamofire.request(.GET, baseUrl + flightUrl + "?terminal_id=" + "\(terminal)" + "&hour=1", parameters: nil).responseArray(response)
+    let params = ["terminal_id" : terminal, "hour" : 1] // + "?terminal_id=" + "\(terminal)" + "&hour=1"
+    Alamofire.request(.GET, baseUrl + flightUrl, parameters: params).responseArray(response)
   }
 }

@@ -12,3 +12,9 @@
 "Landing" = "Landing";
 "Landed" = "Landed";
 "Delayed" = "Delayed";
+
+/* Come to SFO? */
+
+"yes" = "YES";
+"no" = "NO";
+"maybe" = "MAYBE";

@@ -37,6 +37,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     case .International:
       terminal = 4
     }
+    
     SfoInfoRequester.requestFlights({ (flights, error) -> Void in
       if flights != nil {
         self.flights = flights
@@ -45,8 +46,8 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
       else {
         println("error: \(error)")
         self.createFlights()
-        self.flightTable.reloadData()
       }
+      self.flightTable.reloadData()
       self.computeDelay()
       
       self.delayLabel.text = String(format: "%.1f", self.delayRatio! * 100.0)

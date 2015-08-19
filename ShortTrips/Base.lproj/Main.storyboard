@@ -96,6 +96,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="0eV-Cv-hRF"/>
                     <connections>
+                        <outlet property="comeToSfoLabel" destination="ZEc-He-imK" id="mb4-uE-bZv"/>
                         <outlet property="statusButton" destination="LgR-Pk-a6K" id="RIp-JY-ZT3"/>
                     </connections>
                 </viewController>

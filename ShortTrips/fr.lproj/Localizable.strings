@@ -12,3 +12,9 @@
 "Landing" = "Atterissant";
 "Landed" = "Atterri";
 "Delayed" = "En retard";
+
+/* Come to SFO? */
+
+"yes" = "OUI";
+"no" = "NON";
+"maybe" = "PEUT-ETRE";
