@@ -17,8 +17,6 @@
             <string>MyriadPro-Regular</string>
             <string>MyriadPro-Regular</string>
             <string>MyriadPro-Regular</string>
-            <string>MyriadPro-Regular</string>
-            <string>MyriadPro-Regular</string>
         </mutableArray>
         <mutableArray key="MyriadPro-Semibold.otf">
             <string>MyriadPro-Semibold</string>
@@ -128,20 +126,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1B-gs-6Jf">
-                                                    <rect key="frame" x="262" y="13" width="44" height="17"/>
-                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="17"/>
+                                                    <rect key="frame" x="269" y="16" width="31" height="12"/>
+                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delayed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWM-8e-5Dd">
-                                                    <rect key="frame" x="502" y="13" width="58" height="17"/>
-                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="17"/>
+                                                    <rect key="frame" x="519" y="16" width="41" height="12"/>
+                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terminal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbn-Wr-CLs">
-                                                    <rect key="frame" x="8" y="13" width="62" height="17"/>
-                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="17"/>
+                                                    <rect key="frame" x="8" y="16" width="44" height="12"/>
+                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -159,7 +157,7 @@
                                             <outlet property="countLabel" destination="x1B-gs-6Jf" id="oWQ-xy-yLH"/>
                                             <outlet property="delayedLabel" destination="yWM-8e-5Dd" id="jxA-7T-0Ei"/>
                                             <outlet property="terminalLabel" destination="sbn-Wr-CLs" id="RPS-Eo-rYx"/>
-                                            <segue destination="bMq-SJ-wft" kind="show" id="35D-Cp-pas"/>
+                                            <segue destination="bMq-SJ-wft" kind="show" identifier="show flights" id="35D-Cp-pas"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -173,6 +171,9 @@
                             <constraint firstItem="SfQ-6g-VCg" firstAttribute="leading" secondItem="JFx-qv-nSk" secondAttribute="leading" constant="16" id="zDR-94-9mz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="terminalTable" destination="SfQ-6g-VCg" id="UbI-pB-fIL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rAV-TL-L5F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -181,7 +182,7 @@
         <!--Flight StatusVC-->
         <scene sceneID="zzl-5K-kIc">
             <objects>
-                <viewController id="bMq-SJ-wft" customClass="FlightStatusVC" customModule="ShortTrips" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="flights" id="bMq-SJ-wft" customClass="FlightStatusVC" customModule="ShortTrips" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mC0-bf-HZL"/>
                         <viewControllerLayoutGuide type="bottom" id="60A-i2-2PS"/>
@@ -202,35 +203,6 @@
                                     <constraint firstAttribute="height" constant="233" id="CF4-Kp-rkV"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poi-jN-E48">
-                                <rect key="frame" x="0.0" y="232" width="298" height="45"/>
-                                <color key="backgroundColor" red="0.29019607843137252" green="0.56470588235294117" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="hrl-ei-iRt"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
-                                <state key="normal" title="Domestic">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showDomestic" destination="bMq-SJ-wft" eventType="touchUpInside" id="tbR-VT-BkE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iax-wH-zPn">
-                                <rect key="frame" x="302" y="232" width="298" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="5Cd-at-vEO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
-                                <state key="normal" title="International">
-                                    <color key="titleColor" red="0.2901960784" green="0.56470588239999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showInternational" destination="bMq-SJ-wft" eventType="touchUpInside" id="6U6-yv-HNV"/>
-                                </connections>
-                            </button>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMS-Wh-wBP">
                                 <rect key="frame" x="298" y="0.0" width="4" height="600"/>
                                 <constraints>
@@ -241,7 +213,7 @@
                                 <rect key="frame" x="16" y="578" width="568" height="2"/>
                             </progressView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="52q-cI-A5j">
-                                <rect key="frame" x="0.0" y="277" width="600" height="274"/>
+                                <rect key="frame" x="0.0" y="241" width="600" height="310"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="flightCell" id="2pn-iU-QKv" customClass="FlightCell" customModule="ShortTrips" customModuleProvider="target">
@@ -307,8 +279,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2% Delayed Flights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZP-F2-kDp">
-                                <rect key="frame" x="241" y="150" width="119" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% Delayed Flights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZP-F2-kDp">
+                                <rect key="frame" x="244" y="150" width="112" height="15"/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -318,9 +290,7 @@
                         <constraints>
                             <constraint firstItem="uZP-F2-kDp" firstAttribute="top" secondItem="IJH-VS-WaT" secondAttribute="bottom" constant="8" id="296-jT-NW9"/>
                             <constraint firstAttribute="trailing" secondItem="hUJ-6F-PMl" secondAttribute="trailing" constant="16" id="A7v-Z6-5Es"/>
-                            <constraint firstItem="bMS-Wh-wBP" firstAttribute="leading" secondItem="poi-jN-E48" secondAttribute="trailing" id="BXH-oN-BcT"/>
                             <constraint firstAttribute="trailing" secondItem="52q-cI-A5j" secondAttribute="trailing" id="Cb4-tB-BnE"/>
-                            <constraint firstItem="52q-cI-A5j" firstAttribute="top" secondItem="poi-jN-E48" secondAttribute="bottom" id="Cy3-en-Rkt"/>
                             <constraint firstItem="YxH-dZ-9bL" firstAttribute="top" secondItem="Vbq-o9-Nyw" secondAttribute="top" id="DDv-xN-JL0"/>
                             <constraint firstItem="hUJ-6F-PMl" firstAttribute="top" secondItem="Djl-2a-Za2" secondAttribute="bottom" constant="8" id="I9h-Ww-6kl"/>
                             <constraint firstItem="bMS-Wh-wBP" firstAttribute="top" secondItem="Vbq-o9-Nyw" secondAttribute="top" id="JHr-Uv-Yyp"/>
@@ -330,24 +300,18 @@
                             <constraint firstAttribute="trailing" secondItem="YxH-dZ-9bL" secondAttribute="trailing" id="SLk-wl-ObA"/>
                             <constraint firstAttribute="centerX" secondItem="IJH-VS-WaT" secondAttribute="centerX" id="W0U-go-ULJ"/>
                             <constraint firstAttribute="centerX" secondItem="uZP-F2-kDp" secondAttribute="centerX" id="WBM-Wq-iwL"/>
-                            <constraint firstItem="iax-wH-zPn" firstAttribute="top" secondItem="YxH-dZ-9bL" secondAttribute="bottom" constant="-1" id="WkR-Zz-wWw"/>
                             <constraint firstItem="IJH-VS-WaT" firstAttribute="top" secondItem="Vbq-o9-Nyw" secondAttribute="top" constant="102" id="X4L-xE-IZN"/>
-                            <constraint firstItem="poi-jN-E48" firstAttribute="top" secondItem="YxH-dZ-9bL" secondAttribute="bottom" constant="-1" id="aIB-vY-1uv"/>
-                            <constraint firstAttribute="trailing" secondItem="iax-wH-zPn" secondAttribute="trailing" id="aSo-74-Bdu"/>
-                            <constraint firstItem="52q-cI-A5j" firstAttribute="top" secondItem="iax-wH-zPn" secondAttribute="bottom" id="arz-az-jc3"/>
-                            <constraint firstItem="iax-wH-zPn" firstAttribute="leading" secondItem="bMS-Wh-wBP" secondAttribute="trailing" id="cwS-jT-etl"/>
+                            <constraint firstItem="52q-cI-A5j" firstAttribute="top" secondItem="YxH-dZ-9bL" secondAttribute="bottom" constant="8" id="cpe-LJ-jMu"/>
                             <constraint firstAttribute="centerX" secondItem="bMS-Wh-wBP" secondAttribute="centerX" id="hTx-Lu-RkR"/>
                             <constraint firstAttribute="bottom" secondItem="bMS-Wh-wBP" secondAttribute="bottom" id="jBm-yS-RGm"/>
                             <constraint firstItem="hUJ-6F-PMl" firstAttribute="leading" secondItem="Vbq-o9-Nyw" secondAttribute="leading" constant="16" id="rL2-Ft-e2I"/>
                             <constraint firstAttribute="centerX" secondItem="Djl-2a-Za2" secondAttribute="centerX" id="sRZ-gV-9OM"/>
-                            <constraint firstItem="poi-jN-E48" firstAttribute="leading" secondItem="Vbq-o9-Nyw" secondAttribute="leading" id="sr4-by-FO5"/>
                             <constraint firstItem="YxH-dZ-9bL" firstAttribute="leading" secondItem="Vbq-o9-Nyw" secondAttribute="leading" id="u8t-7k-ddB"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="domesticButton" destination="poi-jN-E48" id="Jvz-Bd-eIT"/>
+                        <outlet property="delayLabel" destination="uZP-F2-kDp" id="tcd-R4-K6o"/>
                         <outlet property="flightTable" destination="52q-cI-A5j" id="cbg-5W-MOT"/>
-                        <outlet property="internationalButton" destination="iax-wH-zPn" id="OEr-Xa-xYR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="avJ-ct-Jg7" userLabel="First Responder" sceneMemberID="firstResponder"/>

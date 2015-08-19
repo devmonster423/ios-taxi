@@ -9,43 +9,62 @@
 import Foundation
 import UIKit
 
-class TerminalSummaryVC: UIViewController {
+class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+  var terminals: [Terminal]?
+  var selectedTerminalId: TerminalId?
+  var flightStatusVC: FlightStatusVC?
+  
+  @IBOutlet var terminalTable: UITableView!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    terminalTable.delegate = self
+    terminalTable.dataSource = self
+  }
+  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
     SfoInfoRequester.requestTerminals { (terminals, error) -> Void in
       if let terminals = terminals {
         println("terminal 0 delayed count: \(terminals[0].delayedCount)")
+        self.terminals = terminals
       }
       else {
         println("error: \(error)")
+        self.terminals = [Terminal(terminalId: TerminalId.International, count: 2, delayedCount: 3),
+        Terminal(terminalId: TerminalId.One, count: 3, delayedCount: 2),
+        Terminal(terminalId: TerminalId.Two, count: 5, delayedCount: 4),
+        Terminal(terminalId: TerminalId.Three, count: 7, delayedCount: 6)]
+        self.terminalTable.reloadData()
       }
     }
   }
-/*
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    selectedRun = indexPath.row
-    if logType == .History {
-      performSegueWithIdentifier("pan details from log", sender: self)
-    }
-    else if logType == .Simulate {
-      performSegueWithIdentifier("pan run from log", sender: self)
-    }
-  }
-*/
-/*
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "pan details from log" {
-      var runDetailsVC: RunDetailsVC = segue.destinationViewController as! RunDetailsVC
-      runDetailsVC.run = runs[selectedRun]
-      runDetailsVC.logType = .History
+  
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if terminals == nil {
+      return 0
     }
     else {
-      if segue.identifier == "pan run from log" {
-        var runVC: RunVC = segue.destinationViewController as! RunVC
-        runVC.runToSimulate = runs[selectedRun]
-      }
+      return terminals!.count
     }
   }
-*/
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    var cell = tableView.dequeueReusableCellWithIdentifier("terminalCell") as? TerminalCell
+    cell?.setTerminal(terminals![indexPath.row])
+    return cell!
+  }
+
+
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    flightStatusVC!.selectedTerminalId = terminals![indexPath.row].terminalId
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "show flights" {
+      flightStatusVC = segue.destinationViewController as? FlightStatusVC
+    }
+  }
 }

@@ -32,8 +32,8 @@
 /* Class = "UIButton"; normalTitle = "Domestic"; ObjectID = "poi-jN-E48"; */
 "poi-jN-E48.normalTitle" = "Domestique";
 
-/* Class = "UILabel"; text = "2% Delayed Flights"; ObjectID = "uZP-F2-kDp"; */
-"uZP-F2-kDp.text" = "2% Vols en Retard";
+/* Class = "UILabel"; text = "% Delayed Flights"; ObjectID = "uZP-F2-kDp"; */
+"uZP-F2-kDp.text" = "% Vols en Retard";
 
 /* Class = "UILabel"; text = "Short Queue"; ObjectID = "vvl-Fh-zWY"; */
 "vvl-Fh-zWY.text" = "Queue Courte";
