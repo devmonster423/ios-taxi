@@ -115,5 +115,4 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
       return UiConstants.flightCellHeight
     }
   }
-  
 }
