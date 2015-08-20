@@ -27,23 +27,20 @@ typealias FlightResponseClosure = ([Flight]?, NSError?) -> Void
 class SfoInfoRequester {
   private class var baseUrl : String { return "http://localhost:8181/taxiws/services/taxi/" }
   private class var lotStatusUrl : String { return "lot_status" }
-  private class var terminalUrl : String { return "flight/summary?(hour)" }
+  private class var terminalUrl : String { return "flight/summary" }
   private class var flightUrl : String { return "flight/arrival/details" }
 
-  
   class func requestLotStatus(response: LotStatusResponseClosure) {
-    println("requesting lot status: \(baseUrl + lotStatusUrl)")
     Alamofire.request(.GET, baseUrl + lotStatusUrl, parameters: nil).responseObject(response)
   }
   
-  class func requestTerminals(response: TerminalResponseClosure) {
-    println("requesting terminals: \(baseUrl + terminalUrl)")
-    Alamofire.request(.GET, baseUrl + terminalUrl, parameters: nil).responseArray(response)
+  class func requestTerminals(response: TerminalResponseClosure, hour: Float) {
+    let params = ["hour": hour]
+    Alamofire.request(.GET, baseUrl + terminalUrl, parameters: params).responseArray(response)
   }
   
-  class func requestFlights(response: FlightResponseClosure, terminal: Int) {
-    println("requesting flights: \(baseUrl + flightUrl)?terminal_id=1&hour=1")
-    let params = ["terminal_id" : terminal, "hour" : 1] // + "?terminal_id=" + "\(terminal)" + "&hour=1"
+  class func requestFlights(response: FlightResponseClosure, terminal: Int, time: Float) {
+    let params: [String: String] = ["terminal_id": "\(terminal)", "hour" : "\(time)"]
     Alamofire.request(.GET, baseUrl + flightUrl, parameters: params).responseArray(response)
   }
 }

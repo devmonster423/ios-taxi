@@ -35,8 +35,5 @@
 /* Class = "UILabel"; text = "% Delayed Flights"; ObjectID = "uZP-F2-kDp"; */
 "uZP-F2-kDp.text" = "% Vols en Retard";
 
-/* Class = "UILabel"; text = "Short Queue"; ObjectID = "vvl-Fh-zWY"; */
-"vvl-Fh-zWY.text" = "Queue Courte";
-
-/* Class = "UILabel"; text = "Long Queue"; ObjectID = "xm9-lL-BiY"; */
-"xm9-lL-BiY.text" = "Queue Longue";
+/* Class = "UILabel"; text = "Current Terminal Status"; ObjectID = "de4-5Z-1iH"; */
+"de4-5Z-1iH.text" = "Statut actuel du terminal";

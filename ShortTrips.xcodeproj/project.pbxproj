@@ -95,7 +95,6 @@
 		C2DFE5DC1B56D2CB0090B55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2DFE5DD1B56D2CB0090B55F /* ShortTripsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortTripsTests.swift; sourceTree = "<group>"; };
 		D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
-		E122649A1B7957B5002B36CA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		E122649F1B795A65002B36CA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E12264A11B795A6F002B36CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryVC.swift; sourceTree = "<group>"; };
@@ -108,6 +107,7 @@
 		E1B8271B1B7CEF4200CC32EF /* SfoInfoRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SfoInfoRequester.swift; sourceTree = "<group>"; };
 		E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusResponse.swift; sourceTree = "<group>"; };
 		E1C4DA571B7FE96B007FBDD8 /* TerminalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalCell.swift; sourceTree = "<group>"; };
+		E1C6123C1B8634DD00A3847A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiConstants.swift; sourceTree = "<group>"; };
 		E1CDE7611B66E95E00AB27D2 /* MyriadPro-SemiExtIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiExtIt.otf"; sourceTree = "<group>"; };
 		E1CDE7621B66E95E00AB27D2 /* MyriadPro-SemiExt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiExt.otf"; sourceTree = "<group>"; };
@@ -583,7 +583,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C2DFE5CC1B56D2CB0090B55F /* Base */,
-				E122649A1B7957B5002B36CA /* fr */,
+				E1C6123C1B8634DD00A3847A /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
