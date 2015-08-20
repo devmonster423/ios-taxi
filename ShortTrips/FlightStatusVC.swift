@@ -13,11 +13,14 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   
   @IBOutlet var flightTable: UITableView!
   @IBOutlet var delayLabel: UILabel!
+  @IBOutlet var updateLabel: UILabel!
+  @IBOutlet var updateProgress: UIProgressView!
   
   var selectedTerminalId: TerminalId?
   var currentTime: Float?
   var flights: [Flight]?
   var delayRatio: Double?
+  var terminal: Int?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,7 +30,6 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    let terminal: Int
     switch selectedTerminalId! {
     case .One:
       terminal = 1
@@ -38,7 +40,16 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     case .International:
       terminal = 4
     }
-    
+    updateFlightTable()
+    UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateFlightTable)
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    UpdateTimer.stop()
+  }
+  
+  func updateFlightTable() {
     SfoInfoRequester.requestFlights({ (flights, error) -> Void in
       if flights != nil {
         self.flights = flights
@@ -49,7 +60,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         self.flights = FlightMock.mockFlights()
       }
       self.flightTable.reloadData()
-      }, terminal: terminal, time: currentTime!)
+      }, terminal: terminal!, time: currentTime!)
   }
   
   func computeDelay() {

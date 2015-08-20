@@ -10,9 +10,9 @@ import UIKit
 
 class DashboardVC: UIViewController {
   @IBOutlet var statusButton: UIButton!
-  
   @IBOutlet var comeToSfoLabel: UILabel!
-  
+  @IBOutlet var updateLabel: UILabel!
+  @IBOutlet var updateProgress: UIProgressView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,7 +26,16 @@ class DashboardVC: UIViewController {
     navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
     navigationController?.navigationBar.shadowImage = UIImage()
     let backButton = UIBarButtonItem(image: UIImage(named: "backButton"), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("goBack"))
-    
+    requestLotStatus()
+    UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: requestLotStatus)
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    UpdateTimer.stop()
+  }
+  
+  func requestLotStatus() {
     SfoInfoRequester.requestLotStatus { (status, error) -> Void in
       if status != nil {
         self.comeToSfoLabel.text = NSLocalizedString(status!.lotStatus!.rawValue, comment: "")

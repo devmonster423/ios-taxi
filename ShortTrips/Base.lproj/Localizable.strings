@@ -39,3 +39,9 @@
 "Term. Two Currently" = "Term. Two Currently";
 "Term. Three Currently" = "Term. Three Currently";
 "Inter. Term. Currently" = "Internat. Term. Currently";
+
+/* Update Progress */
+
+"LAST UPDATED LESS THAN A MINUTE AGO" = "LAST UPDATED LESS THAN A MINUTE AGO";
+"LAST UPDATED A MINUTE AGO" = "LAST UPDATED A MINUTE AGO";
+"LAST UPDATED %d MINUTES AGO" = "LAST UPDATED %d MINUTES AGO";

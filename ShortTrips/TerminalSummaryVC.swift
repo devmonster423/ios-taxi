@@ -16,9 +16,12 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
   var flightStatusVC: FlightStatusVC?
   var currentTime: Float?
   
+  
   @IBOutlet var terminalTable: UITableView!
   @IBOutlet var timeLabel: UILabel!
   @IBOutlet var timeSlider: UISlider!
+  @IBOutlet var updateLabel: UILabel!
+  @IBOutlet var updateProgress: UIProgressView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -30,6 +33,12 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
     super.viewWillAppear(animated)
     currentTime = timeSlider.value
     updateTerminalTable()
+    UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateTerminalTable)
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    UpdateTimer.stop()
   }
   
   func updateTerminalTable() {
