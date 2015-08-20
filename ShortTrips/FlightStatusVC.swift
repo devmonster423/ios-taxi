@@ -39,7 +39,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     SfoInfoRequester.requestFlights({ (flights, error) -> Void in
-      if flights != nil {
+      if let flights = flights {
         self.flights = flights
         println("Successfully retrieved flights.")
       }
