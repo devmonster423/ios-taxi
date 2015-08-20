@@ -22,9 +22,6 @@
 		E1A2EBAB1B6D767000C27EB2 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAA1B6D767000C27EB2 /* Airline.swift */; };
 		E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAC1B6E8FEF00C27EB2 /* FlightStatus.swift */; };
 		E1A2EBAF1B6E920500C27EB2 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAE1B6E920500C27EB2 /* Terminal.swift */; };
-		E1B827171B7BE7EC00CC32EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B827141B7BE7EC00CC32EF /* ViewController.swift */; };
-		E1B827181B7BE7EC00CC32EF /* WeatherRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B827151B7BE7EC00CC32EF /* WeatherRequester.swift */; };
-		E1B827191B7BE7EC00CC32EF /* WeatherResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B827161B7BE7EC00CC32EF /* WeatherResponse.swift */; };
 		E1B8271C1B7CEF4200CC32EF /* SfoInfoRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8271B1B7CEF4200CC32EF /* SfoInfoRequester.swift */; };
 		E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */; };
 		E1C4DA581B7FE96B007FBDD8 /* TerminalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C4DA571B7FE96B007FBDD8 /* TerminalCell.swift */; };
@@ -71,6 +68,7 @@
 		E1CDE7B01B66E95E00AB27D2 /* MyriadPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7881B66E95E00AB27D2 /* MyriadPro-Black.otf */; };
 		E1D08D161B67DB2400559618 /* CartoGothicStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1D08D151B67DB2400559618 /* CartoGothicStd-Book.otf */; };
 		E1FA66151B853C4800FD18C6 /* FlightMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA66141B853C4800FD18C6 /* FlightMock.swift */; };
+		E1FA66171B85558300FD18C6 /* BackgroundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA66161B85558300FD18C6 /* BackgroundCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,9 +105,6 @@
 		E1A2EBAA1B6D767000C27EB2 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		E1A2EBAC1B6E8FEF00C27EB2 /* FlightStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatus.swift; sourceTree = "<group>"; };
 		E1A2EBAE1B6E920500C27EB2 /* Terminal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
-		E1B827141B7BE7EC00CC32EF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../AOMDemo/AOMDemo/ViewController.swift; sourceTree = "<group>"; };
-		E1B827151B7BE7EC00CC32EF /* WeatherRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherRequester.swift; path = ../../AOMDemo/AOMDemo/WeatherRequester.swift; sourceTree = "<group>"; };
-		E1B827161B7BE7EC00CC32EF /* WeatherResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherResponse.swift; path = ../../AOMDemo/AOMDemo/WeatherResponse.swift; sourceTree = "<group>"; };
 		E1B8271B1B7CEF4200CC32EF /* SfoInfoRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SfoInfoRequester.swift; sourceTree = "<group>"; };
 		E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusResponse.swift; sourceTree = "<group>"; };
 		E1C4DA571B7FE96B007FBDD8 /* TerminalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalCell.swift; sourceTree = "<group>"; };
@@ -156,6 +151,7 @@
 		E1CDE7881B66E95E00AB27D2 /* MyriadPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Black.otf"; sourceTree = "<group>"; };
 		E1D08D151B67DB2400559618 /* CartoGothicStd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CartoGothicStd-Book.otf"; sourceTree = "<group>"; };
 		E1FA66141B853C4800FD18C6 /* FlightMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightMock.swift; sourceTree = "<group>"; };
+		E1FA66161B85558300FD18C6 /* BackgroundCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,7 +224,6 @@
 		C2DFE5C51B56D2CB0090B55F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				E1B8271A1B7BE7FA00CC32EF /* AOM */,
 				C2DFE5C71B56D2CB0090B55F /* AppDelegate.swift */,
 				E1CDE7101B66DF0600AB27D2 /* Fonts */,
 				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
@@ -283,22 +278,13 @@
 		E1A2EBA51B6C2BC600C27EB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E1FA66161B85558300FD18C6 /* BackgroundCell.swift */,
 				E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */,
 				E1C4DA571B7FE96B007FBDD8 /* TerminalCell.swift */,
 				C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */,
 				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
 			);
 			name = Views;
-			sourceTree = "<group>";
-		};
-		E1B8271A1B7BE7FA00CC32EF /* AOM */ = {
-			isa = PBXGroup;
-			children = (
-				E1B827141B7BE7EC00CC32EF /* ViewController.swift */,
-				E1B827151B7BE7EC00CC32EF /* WeatherRequester.swift */,
-				E1B827161B7BE7EC00CC32EF /* WeatherResponse.swift */,
-			);
-			name = AOM;
 			sourceTree = "<group>";
 		};
 		E1CDE7101B66DF0600AB27D2 /* Fonts */ = {
@@ -542,10 +528,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1B827181B7BE7EC00CC32EF /* WeatherRequester.swift in Sources */,
 				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
 				E1A2EBAF1B6E920500C27EB2 /* Terminal.swift in Sources */,
-				E1B827191B7BE7EC00CC32EF /* WeatherResponse.swift in Sources */,
 				E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */,
 				E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */,
 				E1B8271C1B7CEF4200CC32EF /* SfoInfoRequester.swift in Sources */,
@@ -553,8 +537,8 @@
 				E1FA66151B853C4800FD18C6 /* FlightMock.swift in Sources */,
 				C2DFE5C81B56D2CB0090B55F /* AppDelegate.swift in Sources */,
 				E1A2EBAB1B6D767000C27EB2 /* Airline.swift in Sources */,
-				E1B827171B7BE7EC00CC32EF /* ViewController.swift in Sources */,
 				E1A2EBA01B6BEF3900C27EB2 /* FlightStatusVC.swift in Sources */,
+				E1FA66171B85558300FD18C6 /* BackgroundCell.swift in Sources */,
 				E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */,
 				E1C4DA581B7FE96B007FBDD8 /* TerminalCell.swift in Sources */,
 				E1A2EBA21B6C218D00C27EB2 /* FlightCell.swift in Sources */,
