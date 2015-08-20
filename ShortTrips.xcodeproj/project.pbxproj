@@ -96,6 +96,7 @@
 		C2DFE5D71B56D2CB0090B55F /* ShortTripsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShortTripsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2DFE5DC1B56D2CB0090B55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2DFE5DD1B56D2CB0090B55F /* ShortTripsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortTripsTests.swift; sourceTree = "<group>"; };
+		C2E62FBE1B86496300E9DC8E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
 		E122649A1B7957B5002B36CA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		E122649F1B795A65002B36CA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -594,6 +595,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C2DFE5D11B56D2CB0090B55F /* Base */,
+				C2E62FBE1B86496300E9DC8E /* fr */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
