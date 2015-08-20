@@ -62,10 +62,10 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
     let newTime: Float = timeSlider.value
     if newTime > currentTime! + UiConstants.timeTolerance || newTime < currentTime! - UiConstants.timeTolerance {
       if newTime < 0.0 {
-        timeLabel.text = String(format: NSLocalizedString("Terminal Status %.02f Hours Ago", comment: ""), newTime * -1.0)
+        timeLabel.text = String(format: NSLocalizedString("Terminal Status %.01f Hours Ago", comment: ""), newTime * -1.0)
       }
       else if newTime > 0.0 {
-        timeLabel.text = String(format: NSLocalizedString("Terminal Status %.02f Hours in the Future", comment: ""), newTime)
+        timeLabel.text = String(format: NSLocalizedString("Terminal Status %.01f Hours in the Future", comment: ""), newTime)
       }
       else if newTime == 0.0 {
         timeLabel.text = String(format: NSLocalizedString("Current Terminal Status", comment: ""), newTime)

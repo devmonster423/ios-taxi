@@ -16,5 +16,5 @@ class UiConstants {
   class var flightCellHeight: CGFloat { return 80.0 }
   class var timeTolerance: Float { return 0.25 }
   class var updatePeriod: Int { return 300 }
-  class var updateInterval: NSTimeInterval { return 0.2 }
+  class var updateInterval: NSTimeInterval { return 1.0 }
 }
