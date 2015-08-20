@@ -76,16 +76,16 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if flights == nil {
-      return 0
-    }
-    else {
+    if let flights = flights {
       if section == 0 {
         return 1
       }
       else {
-        return flights!.count
+        return flights.count
       }
+    }
+    else {
+      return 0
     }
   }
   
@@ -94,7 +94,9 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     if indexPath.section == 1 {
       let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as! FlightCell
-      cell.displayFlight(flights![indexPath.row])
+      if let flights = flights {
+        cell.displayFlight(flights[indexPath.row])
+      }
       return cell
     }
     else {
