@@ -27,7 +27,8 @@ class DashboardVC: UIViewController {
     super.viewWillAppear(animated)
     //navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
     //navigationController?.navigationBar.shadowImage = UIImage()
-    navigationController?.navigationBar.barTintColor = UIColor(CGColor: UiConstants.SfoColor)
+    //navigationController?.navigationBar.barTintColor = UIColor(CGColor: UiConstants.SfoColor)
+    
     requestLotStatus()
     UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: requestLotStatus)
   }

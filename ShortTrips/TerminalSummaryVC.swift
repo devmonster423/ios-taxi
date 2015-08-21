@@ -28,7 +28,7 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
     terminalTable.delegate = self
     terminalTable.dataSource = self
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-    //self.navigationController?.navigationBar.barTintColor = UIColor(CGColor: UiConstants.SfoColor)
+    navigationItem.title = NSLocalizedString("Flights", comment: "")
   }
   
   override func viewWillAppear(animated: Bool) {

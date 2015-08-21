@@ -17,7 +17,6 @@
             <string>MyriadPro-Regular</string>
             <string>MyriadPro-Regular</string>
             <string>MyriadPro-Regular</string>
-            <string>MyriadPro-Regular</string>
         </mutableArray>
         <mutableArray key="MyriadPro-Semibold.otf">
             <string>MyriadPro-Semibold</string>
@@ -259,16 +258,23 @@
                                 <rect key="frame" x="16" y="578" width="568" height="2"/>
                             </progressView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="52q-cI-A5j">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="blankCell" rowHeight="64" id="lYu-K1-jvT" customClass="BlankCell" customModule="ShortTrips" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lYu-K1-jvT" id="i4X-Cz-RaR">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="backgroundCell" rowHeight="100" id="RlU-gZ-RQJ" customClass="BackgroundCell" customModule="ShortTrips" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RlU-gZ-RQJ" id="UY3-gM-msQ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundFlights" translatesAutoresizingMaskIntoConstraints="NO" id="2Wi-hc-BTP">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundFlights" translatesAutoresizingMaskIntoConstraints="NO" id="2Wi-hc-BTP">
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% Delayed Flights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZP-F2-kDp">
@@ -277,27 +283,18 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJH-VS-WaT">
-                                                    <rect key="frame" x="236" y="8" width="130" height="25"/>
-                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="25"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="centerX" secondItem="IJH-VS-WaT" secondAttribute="centerX" constant="-1" id="6iu-QO-6Ub"/>
+                                                <constraint firstItem="2Wi-hc-BTP" firstAttribute="top" secondItem="UY3-gM-msQ" secondAttribute="top" id="Ogm-Kk-AY1"/>
                                                 <constraint firstAttribute="bottom" secondItem="2Wi-hc-BTP" secondAttribute="bottom" id="WCj-el-6Wg"/>
                                                 <constraint firstItem="2Wi-hc-BTP" firstAttribute="leading" secondItem="UY3-gM-msQ" secondAttribute="leading" id="bAT-9g-TfM"/>
-                                                <constraint firstItem="2Wi-hc-BTP" firstAttribute="top" secondItem="UY3-gM-msQ" secondAttribute="top" id="iBh-K4-BeB"/>
                                                 <constraint firstAttribute="centerX" secondItem="uZP-F2-kDp" secondAttribute="centerX" id="nPs-U1-nxj"/>
-                                                <constraint firstItem="IJH-VS-WaT" firstAttribute="top" secondItem="UY3-gM-msQ" secondAttribute="top" constant="8" id="nWU-B8-YLQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="2Wi-hc-BTP" secondAttribute="trailing" id="vbj-ZS-fkX"/>
                                                 <constraint firstAttribute="bottom" secondItem="uZP-F2-kDp" secondAttribute="bottom" constant="8" id="ziB-2L-Y3W"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="delayedLabel" destination="uZP-F2-kDp" id="Hd2-jm-P7W"/>
-                                            <outlet property="titleLabel" destination="IJH-VS-WaT" id="Mr3-Vg-J5m"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="flightCell" rowHeight="80" id="2pn-iU-QKv" customClass="FlightCell" customModule="ShortTrips" customModuleProvider="target">
@@ -363,7 +360,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hUJ-6F-PMl" secondAttribute="trailing" constant="16" id="A7v-Z6-5Es"/>
                             <constraint firstAttribute="trailing" secondItem="52q-cI-A5j" secondAttribute="trailing" id="Cb4-tB-BnE"/>
-                            <constraint firstItem="52q-cI-A5j" firstAttribute="top" secondItem="Vbq-o9-Nyw" secondAttribute="top" constant="64" id="Eup-Lt-aye"/>
+                            <constraint firstItem="52q-cI-A5j" firstAttribute="top" secondItem="Vbq-o9-Nyw" secondAttribute="top" id="Eup-Lt-aye"/>
                             <constraint firstItem="hUJ-6F-PMl" firstAttribute="top" secondItem="Djl-2a-Za2" secondAttribute="bottom" constant="8" id="I9h-Ww-6kl"/>
                             <constraint firstItem="bMS-Wh-wBP" firstAttribute="top" secondItem="Vbq-o9-Nyw" secondAttribute="top" id="JHr-Uv-Yyp"/>
                             <constraint firstItem="Djl-2a-Za2" firstAttribute="top" secondItem="52q-cI-A5j" secondAttribute="bottom" constant="8" id="MEr-Ia-LQE"/>

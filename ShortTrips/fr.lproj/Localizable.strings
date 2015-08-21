@@ -45,3 +45,8 @@
 "LAST UPDATED LESS THAN A MINUTE AGO" = "Réactualisé il y a moins d'une minute";
 "LAST UPDATED A MINUTE AGO" = "Réactualisé il y a une minute";
 "LAST UPDATED %d MINUTES AGO" = "Réactualisé il y a %d minutes";
+
+/* Navigation Bar */
+
+"Flights" = "Vols";
+

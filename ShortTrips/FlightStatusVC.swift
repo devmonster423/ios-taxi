@@ -42,11 +42,56 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     updateFlightTable()
     UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateFlightTable)
+    navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: UiConstants.navControllerFont, size: UiConstants.navControllerFontSizeSmall)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+    setupTitle()
   }
   
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
+    navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: UiConstants.navControllerFont, size: UiConstants.navControllerFontSizeNormal)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
     UpdateTimer.stop()
+  }
+  
+  func setupTitle() {
+    var title: String = ""
+    if currentTime < 0.0 {
+      currentTime = currentTime! * -1.0
+      switch selectedTerminalId! {
+      case .One:
+        title = String(format: NSLocalizedString("Term. One %.1f Hours Ago", comment: ""), currentTime!)
+      case .Two:
+        title = String(format: NSLocalizedString("Term. Two %.1f Hours Ago", comment: ""), currentTime!)
+      case .Three:
+        title = String(format: NSLocalizedString("Term. Three %.1f Hours Ago", comment: ""), currentTime!)
+      case .International:
+        title = String(format: NSLocalizedString("Inter. Term. %.1f Hours Ago", comment: ""), currentTime!)
+      }
+    }
+    else if currentTime > 0.0 {
+      switch selectedTerminalId! {
+      case .One:
+        title = String(format: NSLocalizedString("Term. One in %.1f Hours", comment: ""), currentTime!)
+      case .Two:
+        title = String(format: NSLocalizedString("Term. Two in %.1f Hours", comment: ""), currentTime!)
+      case .Three:
+        title = String(format: NSLocalizedString("Term. Three in %.1f Hours", comment: ""), currentTime!)
+      case .International:
+        title = String(format: NSLocalizedString("Inter. Term. in %.1f Hours", comment: ""), currentTime!)
+      }
+    }
+    else if currentTime == 0.0 {
+      switch selectedTerminalId! {
+      case .One:
+        title = NSLocalizedString("Term. One Currently", comment: "")
+      case .Two:
+        title = NSLocalizedString("Term. Two Currently", comment: "")
+      case .Three:
+        title = NSLocalizedString("Term. Three Currently", comment: "")
+      case .International:
+        title = NSLocalizedString("Inter. Term. Currently", comment: "")
+      }
+    }
+    navigationItem.title = title
   }
   
   func updateFlightTable() {
@@ -82,13 +127,15 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     delayRatio = Double(delayedFlights) / Double(totalFlights)
   }
   
+  // MARK: UITableView
+  
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 2
+    return 3
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let flights = flights {
-      if section == 0 {
+      if section == 0 || section == 1 {
         return 1
       }
       else {
@@ -100,30 +147,36 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     }
   }
   
-  // MARK: UITableView
-  
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    if indexPath.section == 1 {
+    if indexPath.section == 2 {
       let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as! FlightCell
       if let flights = flights {
         cell.displayFlight(flights[indexPath.row])
       }
       return cell
     }
-    else {
+    else if indexPath.section == 1 {
       let cell = tableView.dequeueReusableCellWithIdentifier("backgroundCell", forIndexPath: indexPath) as! BackgroundCell
       computeDelay()
-      cell.displayFlightTableTitle(delayRatio!, terminal: selectedTerminalId!, hour: currentTime!)
+      cell.displayFlightTableTitle(delayRatio!)
       return cell
+    }
+    else { // indexPath.section == 0
+      return tableView.dequeueReusableCellWithIdentifier("blankCell", forIndexPath: indexPath) as! BlankCell
     }
   }
   
+  
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     if indexPath.section == 0 {
+      return UiConstants.blankCellHeight
+    }
+    else if indexPath.section == 1 {
       return UiConstants.backgroundCellHeight
     }
-    else {
+    else { // indexPath.section == 2
       return UiConstants.flightCellHeight
     }
   }
+
 }
