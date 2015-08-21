@@ -20,7 +20,6 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   
   var selectedTerminalId: TerminalId!
   var flights: [Flight]?
-  var delayRatio: Double?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,31 +51,22 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         self.flights = FlightMock.mockFlights()
       }
       self.flightTable.reloadData()
-      self.computeDelay()
-      
     }, terminal: terminal)
   }
   
-  func computeDelay() {
+  func computeDelay() -> Double {
     var totalFlights = 0
     var delayedFlights = 0
     if let flights = flights {
-        for flight in flights {
-            switch flight.flightStatus {
-            case .Some(.Delayed):
-                totalFlights++
-                delayedFlights++
-            case .Some(.Landing):
-                totalFlights++
-            case .Some(.OnTime):
-                totalFlights++
-            default:
-                break
-            }
+      for flight in flights {
+        totalFlights++
+        if flight.flightStatus == .Some(.Delayed) {
+          delayedFlights++
         }
+      }
     }
     
-    delayRatio = Double(delayedFlights) / Double(totalFlights)
+    return Double(delayedFlights) / Double(totalFlights)
   }
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -107,17 +97,15 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     else {
       let cell = tableView.dequeueReusableCellWithIdentifier("backgroundCell", forIndexPath: indexPath) as! BackgroundCell
-      computeDelay()
-      cell.displayDelay(delayRatio!)
+      cell.displayDelay(computeDelay())
       return cell
     }
   }
   
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    if indexPath.section == 0 {
+    if indexPath.section == TableSection.Header.rawValue {
       return UiConstants.backgroundCellHeight
-    }
-    else {
+    } else {
       return UiConstants.flightCellHeight
     }
   }
