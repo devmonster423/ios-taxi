@@ -19,13 +19,15 @@ class DashboardVC: UIViewController {
     statusButton.layer.cornerRadius = UiConstants.statusCornerRadius
     statusButton.layer.borderWidth = UiConstants.statusBorderWidth
     statusButton.layer.borderColor = UiConstants.SfoColor
+    navigationController!.navigationBar.tintColor = UIColor.whiteColor()
+    navigationItem.title = "";
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-    navigationController?.navigationBar.shadowImage = UIImage()
-    let backButton = UIBarButtonItem(image: UIImage(named: "backButton"), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("goBack"))
+    //navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+    //navigationController?.navigationBar.shadowImage = UIImage()
+    navigationController?.navigationBar.barTintColor = UIColor(CGColor: UiConstants.SfoColor)
     requestLotStatus()
     UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: requestLotStatus)
   }
@@ -45,8 +47,4 @@ class DashboardVC: UIViewController {
       }
     }
   }
-  
-  func goBack() {
-    navigationController?.popViewControllerAnimated(true)
-  }  
 }

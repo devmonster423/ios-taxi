@@ -15,16 +15,16 @@ enum FlightStatus: String {
   case Landing = "Landing"
   case Landed = "Landed"
   
-  func getColor() -> UIColor {
+  func getColor() -> CGColor {
     switch self {
     case .Delayed:
-      return UIColor.redColor()
+      return UiConstants.delayedColor
     case .OnTime:
-      return UIColor.greenColor()
+      return UiConstants.onTimeColor
     case .Landing:
-      return UIColor.blueColor()
+      return UiConstants.landingColor
     case Landed:
-      return UIColor.blackColor()
+      return UiConstants.landedColor
     }
   }
 }

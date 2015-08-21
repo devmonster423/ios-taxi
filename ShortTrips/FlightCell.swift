@@ -24,7 +24,13 @@ class FlightCell: UITableViewCell {
       dateFormatter.dateFormat = "hh:mm a"
     }
     landingTimeLabel.text = dateFormatter.stringFromDate(flight.landingTime!)
-    flightStatusLabel.textColor = flight.flightStatus!.getColor()
     flightStatusLabel.text = NSLocalizedString(flight.flightStatus!.rawValue, comment: "")
+    
+    let statusColor: CGColor = flight.flightStatus!.getColor()
+    flightStatusLabel.textColor = UIColor(CGColor: statusColor)
+    if flight.flightStatus == .Delayed {
+      landingTimeLabel.textColor = UIColor(CGColor: statusColor)
+      flightNumberLabel.textColor = UIColor(CGColor: statusColor)
+    }
   }
 }
