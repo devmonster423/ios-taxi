@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F25a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2Tk-wi-8Cr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2Tk-wi-8Cr">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -198,12 +198,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundFlights" translatesAutoresizingMaskIntoConstraints="NO" id="YxH-dZ-9bL">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="233"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="233" id="CF4-Kp-rkV"/>
-                                </constraints>
-                            </imageView>
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMS-Wh-wBP">
                                 <rect key="frame" x="298" y="0.0" width="4" height="600"/>
                                 <constraints>
@@ -214,35 +208,72 @@
                                 <rect key="frame" x="16" y="578" width="568" height="2"/>
                             </progressView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="52q-cI-A5j">
-                                <rect key="frame" x="0.0" y="241" width="600" height="310"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="flightCell" id="2pn-iU-QKv" customClass="FlightCell" customModule="ShortTrips" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="backgroundCell" rowHeight="100" id="RlU-gZ-RQJ" customClass="BackgroundCell" customModule="ShortTrips" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RlU-gZ-RQJ" id="UY3-gM-msQ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backgroundFlights" translatesAutoresizingMaskIntoConstraints="NO" id="2Wi-hc-BTP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% Delayed Flights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZP-F2-kDp">
+                                                    <rect key="frame" x="244" y="76" width="112" height="15"/>
+                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJH-VS-WaT">
+                                                    <rect key="frame" x="197" y="8" width="207" height="40"/>
+                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="40"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerX" secondItem="IJH-VS-WaT" secondAttribute="centerX" id="6iu-QO-6Ub"/>
+                                                <constraint firstAttribute="bottom" secondItem="2Wi-hc-BTP" secondAttribute="bottom" id="WCj-el-6Wg"/>
+                                                <constraint firstItem="2Wi-hc-BTP" firstAttribute="leading" secondItem="UY3-gM-msQ" secondAttribute="leading" id="bAT-9g-TfM"/>
+                                                <constraint firstItem="2Wi-hc-BTP" firstAttribute="top" secondItem="UY3-gM-msQ" secondAttribute="top" id="iBh-K4-BeB"/>
+                                                <constraint firstAttribute="centerX" secondItem="uZP-F2-kDp" secondAttribute="centerX" id="nPs-U1-nxj"/>
+                                                <constraint firstItem="IJH-VS-WaT" firstAttribute="top" secondItem="UY3-gM-msQ" secondAttribute="top" constant="8" id="nWU-B8-YLQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="2Wi-hc-BTP" secondAttribute="trailing" id="vbj-ZS-fkX"/>
+                                                <constraint firstAttribute="bottom" secondItem="uZP-F2-kDp" secondAttribute="bottom" constant="8" id="ziB-2L-Y3W"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="delayedLabel" destination="uZP-F2-kDp" id="Hd2-jm-P7W"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="flightCell" rowHeight="80" id="2pn-iU-QKv" customClass="FlightCell" customModule="ShortTrips" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2pn-iU-QKv" id="8GK-sm-pZq">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pYI-lh-NfO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="79"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="nmD-4k-iG4"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#01234" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAT-1W-mAb">
-                                                    <rect key="frame" x="90" y="0.0" width="170" height="43"/>
+                                                    <rect key="frame" x="90" y="0.0" width="170" height="79"/>
                                                     <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:40 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSz-o5-SSY">
-                                                    <rect key="frame" x="260" y="0.0" width="170" height="43"/>
+                                                    <rect key="frame" x="260" y="0.0" width="170" height="79"/>
                                                     <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DELAYED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5X-Yn-gNT">
-                                                    <rect key="frame" x="430" y="0.0" width="170" height="43"/>
+                                                    <rect key="frame" x="430" y="0.0" width="170" height="79"/>
                                                     <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -274,44 +305,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJH-VS-WaT">
-                                <rect key="frame" x="197" y="102" width="207" height="40"/>
-                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% Delayed Flights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZP-F2-kDp">
-                                <rect key="frame" x="244" y="150" width="112" height="15"/>
-                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uZP-F2-kDp" firstAttribute="top" secondItem="IJH-VS-WaT" secondAttribute="bottom" constant="8" id="296-jT-NW9"/>
                             <constraint firstAttribute="trailing" secondItem="hUJ-6F-PMl" secondAttribute="trailing" constant="16" id="A7v-Z6-5Es"/>
                             <constraint firstAttribute="trailing" secondItem="52q-cI-A5j" secondAttribute="trailing" id="Cb4-tB-BnE"/>
-                            <constraint firstItem="YxH-dZ-9bL" firstAttribute="top" secondItem="Vbq-o9-Nyw" secondAttribute="top" id="DDv-xN-JL0"/>
+                            <constraint firstItem="52q-cI-A5j" firstAttribute="top" secondItem="Vbq-o9-Nyw" secondAttribute="top" constant="64" id="Eup-Lt-aye"/>
                             <constraint firstItem="hUJ-6F-PMl" firstAttribute="top" secondItem="Djl-2a-Za2" secondAttribute="bottom" constant="8" id="I9h-Ww-6kl"/>
                             <constraint firstItem="bMS-Wh-wBP" firstAttribute="top" secondItem="Vbq-o9-Nyw" secondAttribute="top" id="JHr-Uv-Yyp"/>
                             <constraint firstItem="Djl-2a-Za2" firstAttribute="top" secondItem="52q-cI-A5j" secondAttribute="bottom" constant="8" id="MEr-Ia-LQE"/>
                             <constraint firstItem="52q-cI-A5j" firstAttribute="leading" secondItem="Vbq-o9-Nyw" secondAttribute="leading" id="OO6-qW-0Lh"/>
                             <constraint firstAttribute="bottom" secondItem="hUJ-6F-PMl" secondAttribute="bottom" constant="20" id="OxI-OL-6Cf"/>
-                            <constraint firstAttribute="trailing" secondItem="YxH-dZ-9bL" secondAttribute="trailing" id="SLk-wl-ObA"/>
-                            <constraint firstAttribute="centerX" secondItem="IJH-VS-WaT" secondAttribute="centerX" id="W0U-go-ULJ"/>
-                            <constraint firstAttribute="centerX" secondItem="uZP-F2-kDp" secondAttribute="centerX" id="WBM-Wq-iwL"/>
-                            <constraint firstItem="IJH-VS-WaT" firstAttribute="top" secondItem="Vbq-o9-Nyw" secondAttribute="top" constant="102" id="X4L-xE-IZN"/>
-                            <constraint firstItem="52q-cI-A5j" firstAttribute="top" secondItem="YxH-dZ-9bL" secondAttribute="bottom" constant="8" id="cpe-LJ-jMu"/>
                             <constraint firstAttribute="centerX" secondItem="bMS-Wh-wBP" secondAttribute="centerX" id="hTx-Lu-RkR"/>
                             <constraint firstAttribute="bottom" secondItem="bMS-Wh-wBP" secondAttribute="bottom" id="jBm-yS-RGm"/>
                             <constraint firstItem="hUJ-6F-PMl" firstAttribute="leading" secondItem="Vbq-o9-Nyw" secondAttribute="leading" constant="16" id="rL2-Ft-e2I"/>
                             <constraint firstAttribute="centerX" secondItem="Djl-2a-Za2" secondAttribute="centerX" id="sRZ-gV-9OM"/>
-                            <constraint firstItem="YxH-dZ-9bL" firstAttribute="leading" secondItem="Vbq-o9-Nyw" secondAttribute="leading" id="u8t-7k-ddB"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="delayLabel" destination="uZP-F2-kDp" id="tcd-R4-K6o"/>
                         <outlet property="flightTable" destination="52q-cI-A5j" id="cbg-5W-MOT"/>
                     </connections>
                 </viewController>
