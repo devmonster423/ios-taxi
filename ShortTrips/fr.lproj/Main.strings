@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "42"; ObjectID = "7lz-UA-hdb"; */
+"7lz-UA-hdb.text" = "42";
+
+/* Class = "UILabel"; text = "LAST UPDATED 3 MINUTES AGO"; ObjectID = "Djl-2a-Za2"; */
+"Djl-2a-Za2.text" = "MIS AU COURANT IL Y A 3 MINUTES";
+
+/* Class = "UILabel"; text = "Flight Status"; ObjectID = "IJH-VS-WaT"; */
+"IJH-VS-WaT.text" = "Statuts des Vols";
+
+/* Class = "UILabel"; text = "64 CABS NEEDED"; ObjectID = "Ktz-7G-VRq"; */
+"Ktz-7G-VRq.text" = "64 TAXIS";
+
+/* Class = "UIButton"; normalTitle = "     FLIGHT STATUS     "; ObjectID = "LgR-Pk-a6K"; */
+"LgR-Pk-a6K.normalTitle" = "   STATUTS DES VOLS   ";
+
+/* Class = "UILabel"; text = "DELAYED"; ObjectID = "U5X-Yn-gNT"; */
+"U5X-Yn-gNT.text" = "EN RETARD";
+
+/* Class = "UILabel"; text = "22"; ObjectID = "Vsh-N0-exz"; */
+"Vsh-N0-exz.text" = "22";
+
+/* Class = "UILabel"; text = "#01234"; ObjectID = "fAT-1W-mAb"; */
+"fAT-1W-mAb.text" = "#01234";
+
+/* Class = "UIButton"; normalTitle = "International"; ObjectID = "iax-wH-zPn"; */
+"iax-wH-zPn.normalTitle" = "International";
+
+/* Class = "UILabel"; text = "9:40 AM"; ObjectID = "mSz-o5-SSY"; */
+"mSz-o5-SSY.text" = "9:40 AM";
+
+/* Class = "UIButton"; normalTitle = "Domestic"; ObjectID = "poi-jN-E48"; */
+"poi-jN-E48.normalTitle" = "Domestique";
+
+/* Class = "UILabel"; text = "% Delayed Flights"; ObjectID = "uZP-F2-kDp"; */
+"uZP-F2-kDp.text" = "% Vols en Retard";
+
+/* Class = "UILabel"; text = "Short Queue"; ObjectID = "vvl-Fh-zWY"; */
+"vvl-Fh-zWY.text" = "Queue Courte";
+
+/* Class = "UILabel"; text = "Long Queue"; ObjectID = "xm9-lL-BiY"; */
+"xm9-lL-BiY.text" = "Queue Longue";

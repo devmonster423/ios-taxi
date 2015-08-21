@@ -11,6 +11,9 @@ import UIKit
 class DashboardVC: UIViewController {
   @IBOutlet var statusButton: UIButton!
   
+  @IBOutlet var comeToSfoLabel: UILabel!
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     statusButton.layer.cornerRadius = UiConstants.statusCornerRadius
@@ -23,10 +26,17 @@ class DashboardVC: UIViewController {
     navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
     navigationController?.navigationBar.shadowImage = UIImage()
     let backButton = UIBarButtonItem(image: UIImage(named: "backButton"), style: UIBarButtonItemStyle.Plain, target: self, action: Selector("goBack"))
+    
+    SfoInfoRequester.requestLotStatus { (status, error) -> Void in
+      if let status = status, let lotStatus = status.lotStatus {
+        self.comeToSfoLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
+      } else {
+        self.comeToSfoLabel.text = NSLocalizedString("maybe", comment: "")
+      }
+    }
   }
   
   func goBack() {
     navigationController?.popViewControllerAnimated(true)
-  }
-
+  }  
 }

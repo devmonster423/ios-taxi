@@ -25,6 +25,6 @@ class FlightCell: UITableViewCell {
     }
     landingTimeLabel.text = dateFormatter.stringFromDate(flight.landingTime)
     flightStatusLabel.textColor = flight.flightStatus.getColor()
-    flightStatusLabel.text = flight.flightStatus.rawValue
+    flightStatusLabel.text = NSLocalizedString(flight.flightStatus.rawValue, comment: "")
   }
 }

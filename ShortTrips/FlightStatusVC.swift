@@ -9,46 +9,98 @@
 import Foundation
 import UIKit
 
-class FlightStatusVC: UIViewController {
+class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+  enum TableSection: Int {
+    case Header = 0
+    case Content = 1
+  }
   
   @IBOutlet var flightTable: UITableView!
-  @IBOutlet var domesticButton: UIButton!
-  @IBOutlet var internationalButton: UIButton!
+  @IBOutlet var delayLabel: UILabel!
   
-  var testFlightDelegate: TestFlightDelegate!
+  var selectedTerminalId: TerminalId!
+  var flights: [Flight]?
+  var delayRatio: Double?
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    testFlightDelegate = TestFlightDelegate(flightTableView: flightTable)
+    flightTable.dataSource = self
+    flightTable.delegate = self
   }
   
-  // MARK: IBActions and helper
-  
-  @IBAction func showDomestic() {
-    if testFlightDelegate.domesticOrInternational == DomesticOrInternational.International {
-      testFlightDelegate.domesticOrInternational = DomesticOrInternational.Domestic
-      testFlightDelegate.filterFlights()
-      invertDomesticAndInternationalButtonColors()
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    let terminal: Int
+    switch selectedTerminalId! {
+    case .One:
+      terminal = 1
+    case .Two:
+      terminal = 2
+    case .Three:
+      terminal = 3
+    case .International:
+      terminal = 4
     }
-  }
-  
-  @IBAction func showInternational() {
-    if testFlightDelegate.domesticOrInternational == DomesticOrInternational.Domestic {
-      testFlightDelegate.domesticOrInternational = DomesticOrInternational.International
-      testFlightDelegate.filterFlights()
-      invertDomesticAndInternationalButtonColors()
-    }
-  }
-  
-  func invertDomesticAndInternationalButtonColors() {
-    let newDomesticTextColor = internationalButton.titleColorForState(UIControlState.Normal)
-    let newDomesticBackgroundColor = internationalButton.backgroundColor
-    let newInternationalTextColor = domesticButton.titleColorForState(UIControlState.Normal)
-    let newInternationalBackgroundColor = domesticButton.backgroundColor
+    
+    SfoInfoRequester.requestFlights({ (flights, error) -> Void in
+      if let flights = flights {
+        self.flights = flights
+        println("Successfully retrieved flights.")
+      }
+      else {
+        println("error: \(error)")
+        self.flights = FlightMock.mockFlights()
+      }
+      self.flightTable.reloadData()
+      self.computeDelay()
+      
+      self.delayLabel.text = String(format: NSLocalizedString("%.1f%% Delayed Flights", comment: ""), self.delayRatio! * 100.0)
 
-    domesticButton.setTitleColor(newDomesticTextColor, forState: UIControlState.Normal)
-    domesticButton.backgroundColor = newDomesticBackgroundColor
-    internationalButton.setTitleColor(newInternationalTextColor, forState: UIControlState.Normal)
-    internationalButton.backgroundColor = newInternationalBackgroundColor
+    }, terminal: terminal)
+  }
+  
+  func computeDelay() {
+    var totalFlights = 0
+    var delayedFlights = 0
+    if let flights = flights {
+        for flight in flights {
+            switch flight.flightStatus {
+            case .Some(.Delayed):
+                totalFlights++
+                delayedFlights++
+            case .Some(.Landing):
+                totalFlights++
+            case .Some(.OnTime):
+                totalFlights++
+            default:
+                break
+            }
+        }
+    }
+    
+    delayRatio = Double(delayedFlights) / Double(totalFlights)
+  }
+  
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    if let flights = flights {
+      if section == TableSection.Header.rawValue {
+        return 1
+      }
+      else {
+        return flights.count
+      }
+    }
+    else {
+      return 0
+    }
+  }
+  
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as! FlightCell
+    if let flights = flights {
+      cell.displayFlight(flights[indexPath.row])
+    }
+    return cell
   }
 }

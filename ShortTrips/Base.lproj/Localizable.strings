@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  ShortTrips
+
+  Created by Joshua Adams on 8/10/15.
+  Copyright (c) 2015 SFO. All rights reserved.
+*/
+
+/* Flight Statuses */
+
+"%.1f%% Delayed Flights" = "%.1f%% Delayed Flights";
+"On Time" = "On Time";
+"Landing" = "Landing";
+"Landed" = "Landed";
+"Delayed" = "Delayed";
+
+/* Come to SFO? */
+
+"yes" = "YES";
+"no" = "NO";
+"maybe" = "MAYBE";
