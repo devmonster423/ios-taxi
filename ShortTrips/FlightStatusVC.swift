@@ -58,19 +58,22 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   func computeDelay() {
     var totalFlights = 0
     var delayedFlights = 0
-    for flight in flights! {
-      switch flight.flightStatus! {
-      case .Delayed:
-        totalFlights++
-        delayedFlights++
-      case .Landing:
-        totalFlights++
-      case .OnTime:
-        totalFlights++
-      default:
-        break
-      }
+    if let flights = flights {
+        for flight in flights {
+            switch flight.flightStatus {
+            case .Some(.Delayed):
+                totalFlights++
+                delayedFlights++
+            case .Some(.Landing):
+                totalFlights++
+            case .Some(.OnTime):
+                totalFlights++
+            default:
+                break
+            }
+        }
     }
+    
     delayRatio = Double(delayedFlights) / Double(totalFlights)
   }
   
