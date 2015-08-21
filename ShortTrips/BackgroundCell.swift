@@ -13,7 +13,6 @@ class BackgroundCell: UITableViewCell {
   @IBOutlet var delayedLabel: UILabel!
 
   func displayDelay(delay: Double) {
-    delayedLabel.text = String(format: "%.1f", delay * 100.0)
-    delayedLabel.text = delayedLabel.text! + NSLocalizedString("% Delayed Flights", comment: "")
+    delayedLabel.text = String(format: NSLocalizedString("%.1f%% Delayed Flights", comment: ""), delay * 100.0)
   }
 }

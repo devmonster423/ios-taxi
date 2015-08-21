@@ -1,5 +1,5 @@
 //
-//  Terminal.swift
+//  TerminalSummary.swift
 //  ShortTrips
 //
 //  Created by Joshua Adams on 8/2/15.
@@ -21,13 +21,13 @@ enum TerminalId: String {
   case International = "International"
 }
 
-struct Terminal: Mappable {
-  var terminalId: TerminalId?
-  var count: Int?
-  var delayedCount: Int?
+struct TerminalSummary: Mappable {
+  var terminalId: TerminalId!
+  var count: Int!
+  var delayedCount: Int!
   
   static func newInstance(map: Map) -> Mappable? {
-    return Terminal()
+    return TerminalSummary()
   }
   
   mutating func mapping(map: Map) {

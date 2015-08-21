@@ -10,11 +10,15 @@ import Foundation
 import UIKit
 
 class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+  enum TableSection: Int {
+    case Header = 0
+    case Content = 1
+  }
   
   @IBOutlet var flightTable: UITableView!
-  @IBOutlet var delayLabel: UILabel!
   
-  var selectedTerminalId: TerminalId?
+  var selectedTerminalId: TerminalId!
   var flights: [Flight]?
   var delayRatio: Double?
   
@@ -39,7 +43,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     SfoInfoRequester.requestFlights({ (flights, error) -> Void in
-      if flights != nil {
+      if let flights = flights {
         self.flights = flights
         println("Successfully retrieved flights.")
       }
@@ -48,25 +52,30 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         self.flights = FlightMock.mockFlights()
       }
       self.flightTable.reloadData()
+      self.computeDelay()
+      
     }, terminal: terminal)
   }
   
   func computeDelay() {
     var totalFlights = 0
     var delayedFlights = 0
-    for flight in flights! {
-      switch flight.flightStatus! {
-      case .Delayed:
-        totalFlights++
-        delayedFlights++
-      case .Landing:
-        totalFlights++
-      case .OnTime:
-        totalFlights++
-      default:
-        break
-      }
+    if let flights = flights {
+        for flight in flights {
+            switch flight.flightStatus {
+            case .Some(.Delayed):
+                totalFlights++
+                delayedFlights++
+            case .Some(.Landing):
+                totalFlights++
+            case .Some(.OnTime):
+                totalFlights++
+            default:
+                break
+            }
+        }
     }
+    
     delayRatio = Double(delayedFlights) / Double(totalFlights)
   }
   
@@ -75,24 +84,26 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if flights == nil {
-      return 0
-    }
-    else {
-      if section == 0 {
+    if let flights = flights {
+      if section == TableSection.Header.rawValue {
         return 1
       }
       else {
-        return flights!.count
+        return flights.count
       }
+    }
+    else {
+      return 0
     }
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    if indexPath.section == 1 {
-      let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as! FlightCell
-      cell.displayFlight(flights![indexPath.row])
-      return cell
+    if indexPath.section == TableSection.Content.rawValue {
+        let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as! FlightCell
+        if let flights = flights {
+            cell.displayFlight(flights[indexPath.row])
+        }
+        return cell
     }
     else {
       let cell = tableView.dequeueReusableCellWithIdentifier("backgroundCell", forIndexPath: indexPath) as! BackgroundCell
