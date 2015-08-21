@@ -109,8 +109,9 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         self.flights = FlightMock.mockFlights()
       }
       self.flightTable.reloadData()
-      
-      self.computeDelay()      
+      let path: NSIndexPath = NSIndexPath(forRow: 0, inSection: 1)
+      self.flightTable.scrollToRowAtIndexPath(path, atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+      self.computeDelay()
       }, terminal: terminal!, time: currentTime!)
   }
   
