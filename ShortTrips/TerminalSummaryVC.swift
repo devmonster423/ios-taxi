@@ -11,7 +11,7 @@ import UIKit
 
 class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-  var terminals: [Terminal]?
+  var terminals: [TerminalSummary]?
   var selectedTerminalId: TerminalId?
   var flightStatusVC: FlightStatusVC?
   var currentTime: Float?
@@ -40,10 +40,12 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
       }
       else {
         println("error: \(error)")
-        self.terminals = [Terminal(terminalId: TerminalId.International, count: 2, delayedCount: 3),
-          Terminal(terminalId: TerminalId.One, count: 3, delayedCount: 2),
-          Terminal(terminalId: TerminalId.Two, count: 5, delayedCount: 4),
-          Terminal(terminalId: TerminalId.Three, count: 7, delayedCount: 6)]
+        self.terminals = [
+          TerminalSummary(terminalId: TerminalId.International, count: 2, delayedCount: 3),
+          TerminalSummary(terminalId: TerminalId.One, count: 3, delayedCount: 2),
+          TerminalSummary(terminalId: TerminalId.Two, count: 5, delayedCount: 4),
+          TerminalSummary(terminalId: TerminalId.Three, count: 7, delayedCount: 6)
+        ]
       }
       self.terminalTable.reloadData()
     }, hour: currentTime!)
@@ -75,22 +77,26 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
   // MARK: UITableView
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if terminals == nil {
+    if let terminals = terminals {
+      return terminals.count
+    } else {
       return 0
-    }
-    else {
-      return terminals!.count
     }
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    var cell = tableView.dequeueReusableCellWithIdentifier("terminalCell") as? TerminalCell
-    cell?.setTerminal(terminals![indexPath.row])
-    return cell!
+    var cell = tableView.dequeueReusableCellWithIdentifier("terminalCell") as! TerminalCell
+    if let terminals = terminals {
+        cell.setTerminalSummary(terminals[indexPath.row])
+    }
+    return cell
   }
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     flightStatusVC!.selectedTerminalId = terminals![indexPath.row].terminalId
     flightStatusVC!.currentTime = currentTime
+    if let terminals = terminals {
+        flightStatusVC?.selectedTerminalId = terminals[indexPath.row].terminalId
+    }
   }
 }

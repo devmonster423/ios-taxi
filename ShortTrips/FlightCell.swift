@@ -18,13 +18,13 @@ class FlightCell: UITableViewCell {
   let dateFormatter = NSDateFormatter()
   
   func displayFlight(flight: Flight) {
-    airlineIcon.image = flight.airline!.icon()
-    flightNumberLabel.text = "#\(flight.flightNumber!)"
+    airlineIcon.image = flight.airline.icon()
+    flightNumberLabel.text = "#\(flight.flightNumber)"
     if dateFormatter.dateFormat == "" {
       dateFormatter.dateFormat = "hh:mm a"
     }
-    landingTimeLabel.text = dateFormatter.stringFromDate(flight.landingTime!)
-    flightStatusLabel.textColor = flight.flightStatus!.getColor()
-    flightStatusLabel.text = NSLocalizedString(flight.flightStatus!.rawValue, comment: "")
+    landingTimeLabel.text = dateFormatter.stringFromDate(flight.landingTime)
+    flightStatusLabel.textColor = flight.flightStatus.getColor()
+    flightStatusLabel.text = NSLocalizedString(flight.flightStatus.rawValue, comment: "")
   }
 }

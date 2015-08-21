@@ -16,7 +16,7 @@ enum LotStatus: String {
 }
 
 struct LotStatusResponse: Mappable {
-  var lotStatus: LotStatus?
+  var lotStatus: LotStatus!
   
   static func newInstance(map: Map) -> Mappable? {
     return LotStatusResponse()

@@ -13,9 +13,9 @@ class TerminalCell: UITableViewCell {
   @IBOutlet var countLabel: UILabel!
   @IBOutlet var delayedLabel: UILabel!
 
-  func setTerminal(terminal: Terminal) {
-    terminalLabel.text = "Term: \(terminal.terminalId!.rawValue)"
-    countLabel.text = "Count: \(terminal.count!)"
-    delayedLabel.text = "Delayed: \(terminal.delayedCount!)"
+  func setTerminalSummary(terminalSummary: TerminalSummary) {
+    terminalLabel.text = "Term: \(terminalSummary.terminalId.rawValue)"
+    countLabel.text = "Count: \(terminalSummary.count)"
+    delayedLabel.text = "Delayed: \(terminalSummary.delayedCount)"
   }
 }

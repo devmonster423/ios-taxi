@@ -10,11 +10,11 @@ import Foundation
 import ObjectMapper
 
 struct Flight: Mappable {
-  var airline: Airline?
-  var landingTime: NSDate?
-  var flightStatus: FlightStatus?
-  var terminalId: TerminalId?
-  var flightNumber: Int?
+  var airline: Airline!
+  var landingTime: NSDate!
+  var flightStatus: FlightStatus!
+  var terminalId: TerminalId!
+  var flightNumber: Int!
   
   init(airline: Airline, landingTime: NSDate, flightStatus: FlightStatus, terminalId: TerminalId, flightNumber: Int) {
     self.airline = airline
