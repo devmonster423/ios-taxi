@@ -10,13 +10,17 @@ import Foundation
 import UIKit
 
 class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+  enum TableSection: Int {
+    case Header = 0
+    case Content = 1
+  }
   
   @IBOutlet var flightTable: UITableView!
-  @IBOutlet var delayLabel: UILabel!
   @IBOutlet var updateLabel: UILabel!
   @IBOutlet var updateProgress: UIProgressView!
   
-  var selectedTerminalId: TerminalId?
+  var selectedTerminalId: TerminalId!
   var currentTime: Float?
   var flights: [Flight]?
   var delayRatio: Double?
@@ -96,7 +100,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   
   func updateFlightTable() {
     SfoInfoRequester.requestFlights({ (flights, error) -> Void in
-      if flights != nil {
+      if let flights = flights {
         self.flights = flights
         println("Successfully retrieved flights.")
       }
@@ -105,25 +109,30 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         self.flights = FlightMock.mockFlights()
       }
       self.flightTable.reloadData()
+      
+      self.computeDelay()      
       }, terminal: terminal!, time: currentTime!)
   }
   
   func computeDelay() {
     var totalFlights = 0
     var delayedFlights = 0
-    for flight in flights! {
-      switch flight.flightStatus! {
-      case .Delayed:
-        totalFlights++
-        delayedFlights++
-      case .Landing:
-        totalFlights++
-      case .OnTime:
-        totalFlights++
-      default:
-        break
-      }
+    if let flights = flights {
+        for flight in flights {
+            switch flight.flightStatus {
+            case .Some(.Delayed):
+                totalFlights++
+                delayedFlights++
+            case .Some(.Landing):
+                totalFlights++
+            case .Some(.OnTime):
+                totalFlights++
+            default:
+                break
+            }
+        }
     }
+    
     delayRatio = Double(delayedFlights) / Double(totalFlights)
   }
   

@@ -8,6 +8,7 @@
 
 /* Flight Statuses */
 
+"%.1f%% Delayed Flights" = "%.1f%% Delayed Flights";
 "On Time" = "On Time";
 "Landing" = "Landing";
 "Landed" = "Landed";

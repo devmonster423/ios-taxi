@@ -12,7 +12,7 @@ import ObjectMapper
 import AlamofireObjectMapper
 
 typealias LotStatusResponseClosure = (LotStatusResponse?, NSError?) -> Void
-typealias TerminalResponseClosure = ([Terminal]?, NSError?) -> Void
+typealias TerminalResponseClosure = ([TerminalSummary]?, NSError?) -> Void
 typealias FlightResponseClosure = ([Flight]?, NSError?) -> Void
 
 // /taxi/flight/summary

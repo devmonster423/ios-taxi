@@ -40,10 +40,9 @@ class DashboardVC: UIViewController {
   
   func requestLotStatus() {
     SfoInfoRequester.requestLotStatus { (status, error) -> Void in
-      if status != nil {
-        self.comeToSfoLabel.text = NSLocalizedString(status!.lotStatus!.rawValue, comment: "")
-      }
-      else {
+      if let status = status, let lotStatus = status.lotStatus {
+        self.comeToSfoLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
+      } else {
         self.comeToSfoLabel.text = NSLocalizedString("maybe", comment: "")
       }
     }
