@@ -21,7 +21,7 @@
 		E1A2EBA91B6D747F00C27EB2 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBA81B6D747F00C27EB2 /* Flight.swift */; };
 		E1A2EBAB1B6D767000C27EB2 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAA1B6D767000C27EB2 /* Airline.swift */; };
 		E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAC1B6E8FEF00C27EB2 /* FlightStatus.swift */; };
-		E1A2EBAF1B6E920500C27EB2 /* Terminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAE1B6E920500C27EB2 /* Terminal.swift */; };
+		E1A2EBAF1B6E920500C27EB2 /* TerminalSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAE1B6E920500C27EB2 /* TerminalSummary.swift */; };
 		E1B8271C1B7CEF4200CC32EF /* SfoInfoRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8271B1B7CEF4200CC32EF /* SfoInfoRequester.swift */; };
 		E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */; };
 		E1C4DA581B7FE96B007FBDD8 /* TerminalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C4DA571B7FE96B007FBDD8 /* TerminalCell.swift */; };
@@ -104,7 +104,7 @@
 		E1A2EBA81B6D747F00C27EB2 /* Flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		E1A2EBAA1B6D767000C27EB2 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		E1A2EBAC1B6E8FEF00C27EB2 /* FlightStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatus.swift; sourceTree = "<group>"; };
-		E1A2EBAE1B6E920500C27EB2 /* Terminal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Terminal.swift; sourceTree = "<group>"; };
+		E1A2EBAE1B6E920500C27EB2 /* TerminalSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummary.swift; sourceTree = "<group>"; };
 		E1B8271B1B7CEF4200CC32EF /* SfoInfoRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SfoInfoRequester.swift; sourceTree = "<group>"; };
 		E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusResponse.swift; sourceTree = "<group>"; };
 		E1C4DA571B7FE96B007FBDD8 /* TerminalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalCell.swift; sourceTree = "<group>"; };
@@ -267,7 +267,7 @@
 				E1A2EBAA1B6D767000C27EB2 /* Airline.swift */,
 				E1A2EBA81B6D747F00C27EB2 /* Flight.swift */,
 				E1A2EBAC1B6E8FEF00C27EB2 /* FlightStatus.swift */,
-				E1A2EBAE1B6E920500C27EB2 /* Terminal.swift */,
+				E1A2EBAE1B6E920500C27EB2 /* TerminalSummary.swift */,
 				E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */,
 				E1FA66141B853C4800FD18C6 /* FlightMock.swift */,
 			);
@@ -527,7 +527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
-				E1A2EBAF1B6E920500C27EB2 /* Terminal.swift in Sources */,
+				E1A2EBAF1B6E920500C27EB2 /* TerminalSummary.swift in Sources */,
 				E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */,
 				E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */,
 				E1B8271C1B7CEF4200CC32EF /* SfoInfoRequester.swift in Sources */,

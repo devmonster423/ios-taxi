@@ -10,11 +10,16 @@ import Foundation
 import UIKit
 
 class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+  enum TableSection: Int {
+    case Header = 0
+    case Content = 1
+  }
   
   @IBOutlet var flightTable: UITableView!
   @IBOutlet var delayLabel: UILabel!
   
-  var selectedTerminalId: TerminalId?
+  var selectedTerminalId: TerminalId!
   var flights: [Flight]?
   var delayRatio: Double?
   
@@ -79,7 +84,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let flights = flights {
-      if section == 0 {
+      if section == TableSection.Header.rawValue {
         return 1
       }
       else {
