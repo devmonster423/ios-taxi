@@ -52,7 +52,6 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
       
       self.delayLabel.text = String(format: "%.1f", self.delayRatio! * 100.0)
       self.delayLabel.text = self.delayLabel.text! + NSLocalizedString("% Delayed Flights", comment: "")
-      //flightStatusLabel.text = NSLocalizedString(flight.flightStatus!.rawValue, comment: "")
 
     }, terminal: terminal)
   }
