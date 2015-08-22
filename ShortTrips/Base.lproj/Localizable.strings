@@ -27,6 +27,7 @@
 
 /* Terminal Status */
 
+"Terminals" = "Terminals";
 "Terminal Status %f Hours Ago" = "Terminal Status %f Hours Ago";
 "Terminal Status %f Hours in the Future" = "Terminal Status %f Hours in the Future";
 "Current Terminal Status" = "Current Terminal Status";

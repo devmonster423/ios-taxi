@@ -53,7 +53,7 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
   func configureTitle() {
     
     let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 240, height: 30))
-    titleLabel.text = NSLocalizedString("Flights", comment: "")
+    titleLabel.text = NSLocalizedString("Terminals", comment: "")
     titleLabel.textAlignment = .Center
     titleLabel.font = UIFont(name: UiConstants.navControllerFont, size: UiConstants.navControllerFontSizeNormal)!
     titleLabel.textColor = UIColor.whiteColor()
