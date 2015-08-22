@@ -41,7 +41,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" image="backgroundDashboard" translatesAutoresizingMaskIntoConstraints="NO" id="ldF-jZ-ON6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ldF-jZ-ON6" userLabel="Background">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="432"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="388" id="nXR-HA-bzS"/>
@@ -52,10 +52,6 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jm-fW-d05" userLabel="ColorView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="432"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAYBE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEc-He-imK">
                                 <rect key="frame" x="25" y="189" width="200" height="80"/>
                                 <constraints>
@@ -128,7 +124,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ldF-jZ-ON6" firstAttribute="bottom" secondItem="3jm-fW-d05" secondAttribute="bottom" id="094-rv-ZE8"/>
                             <constraint firstAttribute="trailing" secondItem="QLd-nK-gsb" secondAttribute="trailing" constant="16" id="1Ds-HN-nLa"/>
                             <constraint firstItem="bV8-UG-Zoj" firstAttribute="top" secondItem="Zm7-Vs-kht" secondAttribute="bottom" constant="5" id="3gc-ee-dww"/>
                             <constraint firstAttribute="centerX" secondItem="8X4-6C-6wk" secondAttribute="centerX" id="4cN-wY-8kT"/>
@@ -136,25 +131,20 @@
                             <constraint firstItem="ldF-jZ-ON6" firstAttribute="bottom" secondItem="bV8-UG-Zoj" secondAttribute="bottom" constant="5" id="LC0-Ad-x4O"/>
                             <constraint firstItem="6el-Bu-7ud" firstAttribute="top" secondItem="ldF-jZ-ON6" secondAttribute="top" constant="25" id="Las-6V-AGz"/>
                             <constraint firstAttribute="trailing" secondItem="ldF-jZ-ON6" secondAttribute="trailing" id="M2b-Gh-OQS"/>
-                            <constraint firstItem="ldF-jZ-ON6" firstAttribute="top" secondItem="3jm-fW-d05" secondAttribute="top" id="Nc9-ei-awa"/>
                             <constraint firstAttribute="centerX" secondItem="6el-Bu-7ud" secondAttribute="centerX" id="ODP-K3-lLW"/>
                             <constraint firstItem="ZEc-He-imK" firstAttribute="bottom" secondItem="sNX-lR-U2j" secondAttribute="topMargin" constant="5" id="PBB-hq-Asj"/>
                             <constraint firstAttribute="bottom" secondItem="QLd-nK-gsb" secondAttribute="bottom" constant="20" id="QwT-KJ-WEH"/>
                             <constraint firstItem="Zm7-Vs-kht" firstAttribute="top" secondItem="sNX-lR-U2j" secondAttribute="bottom" constant="5" id="RCD-vz-qJk"/>
-                            <constraint firstItem="ldF-jZ-ON6" firstAttribute="height" secondItem="3jm-fW-d05" secondAttribute="height" id="RYg-1h-1GZ"/>
                             <constraint firstAttribute="centerX" secondItem="LgR-Pk-a6K" secondAttribute="centerX" id="S6m-yD-fMt"/>
                             <constraint firstItem="8X4-6C-6wk" firstAttribute="top" secondItem="LgR-Pk-a6K" secondAttribute="bottom" constant="22" id="Ugf-7X-1tR"/>
-                            <constraint firstItem="ldF-jZ-ON6" firstAttribute="width" secondItem="3jm-fW-d05" secondAttribute="width" id="WY4-8x-oMw"/>
                             <constraint firstItem="LgR-Pk-a6K" firstAttribute="top" secondItem="ldF-jZ-ON6" secondAttribute="bottom" constant="25" id="Xv9-UD-WET"/>
                             <constraint firstAttribute="centerX" secondItem="bV8-UG-Zoj" secondAttribute="centerX" id="aI2-sg-NXY"/>
                             <constraint firstItem="ldF-jZ-ON6" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="abi-VI-oKu"/>
                             <constraint firstItem="LgR-Pk-a6K" firstAttribute="top" secondItem="ZEc-He-imK" secondAttribute="bottom" constant="20" id="bkq-n1-cuQ"/>
-                            <constraint firstItem="ldF-jZ-ON6" firstAttribute="trailing" secondItem="3jm-fW-d05" secondAttribute="trailing" id="eRL-88-ozs"/>
                             <constraint firstItem="bV8-UG-Zoj" firstAttribute="leading" secondItem="ldF-jZ-ON6" secondAttribute="leading" constant="25" id="fQQ-3J-KCg"/>
                             <constraint firstItem="ldF-jZ-ON6" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="h1Q-ah-Z5Z"/>
                             <constraint firstItem="QLd-nK-gsb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="oFO-Bs-dmr"/>
                             <constraint firstItem="sNX-lR-U2j" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="25" id="rJH-6b-973"/>
-                            <constraint firstItem="ldF-jZ-ON6" firstAttribute="leading" secondItem="3jm-fW-d05" secondAttribute="leading" id="tlI-CC-ZIM"/>
                             <constraint firstItem="Zm7-Vs-kht" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="25" id="uts-MP-09g"/>
                             <constraint firstItem="QLd-nK-gsb" firstAttribute="top" secondItem="8X4-6C-6wk" secondAttribute="bottom" constant="8" id="vKv-IF-LDq"/>
                             <constraint firstItem="ZEc-He-imK" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="25" id="xC7-qg-EZL"/>
@@ -162,8 +152,6 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="RYg-1h-1GZ"/>
-                                <exclude reference="WY4-8x-oMw"/>
                                 <exclude reference="zNb-fU-mZG"/>
                                 <exclude reference="aI2-sg-NXY"/>
                                 <exclude reference="fQQ-3J-KCg"/>
@@ -173,7 +161,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="0eV-Cv-hRF"/>
                     <connections>
-                        <outlet property="colorView" destination="3jm-fW-d05" id="yXo-Vz-cKq"/>
+                        <outlet property="backgroundImageView" destination="ldF-jZ-ON6" id="zot-R8-b5s"/>
                         <outlet property="comeToSfoLabel" destination="sNX-lR-U2j" id="Kjn-3i-Zdn"/>
                         <outlet property="directionLabel" destination="ZEc-He-imK" id="DiY-8J-i4K"/>
                         <outlet property="explanationLabel" destination="bV8-UG-Zoj" id="yCJ-1O-Odx"/>
@@ -467,7 +455,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backgroundDashboard" width="750" height="836"/>
         <image name="backgroundFlights" width="745" height="564"/>
         <image name="sfo_logo" width="133" height="73"/>
     </resources>

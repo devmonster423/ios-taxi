@@ -9,7 +9,7 @@
 import UIKit
 
 class DashboardVC: UIViewController {
-  @IBOutlet var colorView: UIView!
+  @IBOutlet var backgroundImageView: UIImageView!
   @IBOutlet var directionLabel: UILabel!
   @IBOutlet var statusButton: UIButton!
   @IBOutlet var comeToSfoLabel: UILabel!
@@ -53,22 +53,22 @@ class DashboardVC: UIViewController {
     switch lotStatus {
       
     case .Yes:
-      self.colorView.backgroundColor = UiConstants.statusColorGreen
-      self.comeToSfoLabel.text = NSLocalizedString("Go To SFO", comment: "")
-      self.directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
-      self.explanationLabel.text = NSLocalizedString("Lot capacity is not full", comment: "")
+      backgroundImageView.image = UIImage(named: "green_bg.jpg")
+      comeToSfoLabel.text = NSLocalizedString("Go To SFO", comment: "")
+      directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
+      explanationLabel.text = NSLocalizedString("Lot capacity is not full", comment: "")
       
     case .Maybe:
-      self.colorView.backgroundColor = UiConstants.statusColorYellow
-      self.comeToSfoLabel.text = NSLocalizedString("Go To SFO", comment: "")
-      self.directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
-      self.explanationLabel.text = NSLocalizedString("Lot capacity is almost full", comment: "")
+      backgroundImageView.image = UIImage(named: "yellow_bg.jpg")
+      comeToSfoLabel.text = NSLocalizedString("Go To SFO", comment: "")
+      directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
+      explanationLabel.text = NSLocalizedString("Lot capacity is almost full", comment: "")
       
     case .No:
-      self.colorView.backgroundColor = UiConstants.statusColorRed
-      self.comeToSfoLabel.text = NSLocalizedString("Don't Go To SFO", comment: "")
-      self.directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
-      self.explanationLabel.text = NSLocalizedString("Lot capacity is full", comment: "")
+      backgroundImageView.image = UIImage(named: "red_bg.jpg")
+      comeToSfoLabel.text = NSLocalizedString("Don't Go To SFO", comment: "")
+      directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
+      explanationLabel.text = NSLocalizedString("Lot capacity is full", comment: "")
     }
   }
 }
