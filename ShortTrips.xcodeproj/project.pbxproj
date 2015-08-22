@@ -74,6 +74,7 @@
 		FA32EC081B8836B7001428B5 /* green_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC051B8836B7001428B5 /* green_bg.jpg */; };
 		FA32EC091B8836B7001428B5 /* red_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC061B8836B7001428B5 /* red_bg.jpg */; };
 		FA32EC0A1B8836B7001428B5 /* yellow_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC071B8836B7001428B5 /* yellow_bg.jpg */; };
+		FA32EC0E1B883B44001428B5 /* terminal_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC0D1B883B44001428B5 /* terminal_bg.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,7 @@
 		FA32EC051B8836B7001428B5 /* green_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green_bg.jpg; sourceTree = "<group>"; };
 		FA32EC061B8836B7001428B5 /* red_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red_bg.jpg; sourceTree = "<group>"; };
 		FA32EC071B8836B7001428B5 /* yellow_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yellow_bg.jpg; sourceTree = "<group>"; };
+		FA32EC0D1B883B44001428B5 /* terminal_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = terminal_bg.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +362,7 @@
 		FA32EC041B8836A5001428B5 /* JPEG */ = {
 			isa = PBXGroup;
 			children = (
+				FA32EC0D1B883B44001428B5 /* terminal_bg.jpg */,
 				FA32EC051B8836B7001428B5 /* green_bg.jpg */,
 				FA32EC061B8836B7001428B5 /* red_bg.jpg */,
 				FA32EC071B8836B7001428B5 /* yellow_bg.jpg */,
@@ -478,6 +481,7 @@
 				E1CDE7941B66E95E00AB27D2 /* MyriadPro-Semibold.otf in Resources */,
 				E1CDE7A21B66E95E00AB27D2 /* MyriadPro-BoldSemiExt.otf in Resources */,
 				E1CDE7AB1B66E95E00AB27D2 /* MyriadPro-BlackSemiCnIt.otf in Resources */,
+				FA32EC0E1B883B44001428B5 /* terminal_bg.jpg in Resources */,
 				E1CDE7991B66E95E00AB27D2 /* MyriadPro-LightSemiCn.otf in Resources */,
 				E1CDE7AD1B66E95E00AB27D2 /* MyriadPro-BlackIt.otf in Resources */,
 				E1CDE79D1B66E95E00AB27D2 /* MyriadPro-Light.otf in Resources */,

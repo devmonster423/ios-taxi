@@ -17,9 +17,6 @@
             <string>MyriadPro-Regular</string>
             <string>MyriadPro-Regular</string>
             <string>MyriadPro-Regular</string>
-            <string>MyriadPro-Regular</string>
-            <string>MyriadPro-Regular</string>
-            <string>MyriadPro-Regular</string>
         </mutableArray>
         <mutableArray key="MyriadPro-Semibold.otf">
             <string>MyriadPro-Semibold</string>
@@ -186,53 +183,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SfQ-6g-VCg">
-                                <rect key="frame" x="16" y="135" width="568" height="416"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="terminalCell" id="G5o-q1-I93" customClass="TerminalCell" customModule="ShortTrips" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="568" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G5o-q1-I93" id="bsI-hM-T6D">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1B-gs-6Jf">
-                                                    <rect key="frame" x="269" y="16" width="31" height="12"/>
-                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delayed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWM-8e-5Dd">
-                                                    <rect key="frame" x="519" y="16" width="41" height="12"/>
-                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terminal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbn-Wr-CLs">
-                                                    <rect key="frame" x="8" y="16" width="44" height="12"/>
-                                                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="sbn-Wr-CLs" firstAttribute="leading" secondItem="bsI-hM-T6D" secondAttribute="leading" constant="8" id="69k-NG-pjP"/>
-                                                <constraint firstAttribute="trailing" secondItem="yWM-8e-5Dd" secondAttribute="trailing" constant="8" id="9Wl-6M-wKD"/>
-                                                <constraint firstAttribute="centerY" secondItem="yWM-8e-5Dd" secondAttribute="centerY" id="SWO-zA-rPN"/>
-                                                <constraint firstAttribute="centerY" secondItem="x1B-gs-6Jf" secondAttribute="centerY" id="q2P-kL-3EH"/>
-                                                <constraint firstAttribute="centerX" secondItem="x1B-gs-6Jf" secondAttribute="centerX" id="teO-AA-j5v"/>
-                                                <constraint firstAttribute="centerY" secondItem="sbn-Wr-CLs" secondAttribute="centerY" id="xkn-lk-7sn"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="countLabel" destination="x1B-gs-6Jf" id="oWQ-xy-yLH"/>
-                                            <outlet property="delayedLabel" destination="yWM-8e-5Dd" id="jxA-7T-0Ei"/>
-                                            <outlet property="terminalLabel" destination="sbn-Wr-CLs" id="RPS-Eo-rYx"/>
-                                            <segue destination="bMq-SJ-wft" kind="show" identifier="show flights" id="35D-Cp-pas"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terminal_bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4Ep-pw-AcE" userLabel="Background">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-2" maxValue="10" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUd-zl-qM7">
                                 <rect key="frame" x="14" y="72" width="572" height="31"/>
                                 <connections>
@@ -254,27 +207,86 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terminal_1" translatesAutoresizingMaskIntoConstraints="NO" id="UJr-5r-Lya">
+                                <rect key="frame" x="25" y="164" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Rhk-ni-0WM"/>
+                                    <constraint firstAttribute="width" constant="100" id="Xk0-6e-xb7"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terminal_2" translatesAutoresizingMaskIntoConstraints="NO" id="951-3t-CoQ">
+                                <rect key="frame" x="475" y="164" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="T4p-WD-MJ6"/>
+                                    <constraint firstAttribute="height" constant="45" id="pf6-m6-6kY"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="T4p-WD-MJ6"/>
+                                        <exclude reference="pf6-m6-6kY"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terminal_3" translatesAutoresizingMaskIntoConstraints="NO" id="aDa-AP-HT1">
+                                <rect key="frame" x="25" y="325" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="SCC-O8-oHy"/>
+                                    <constraint firstAttribute="height" constant="45" id="glQ-AK-d6l"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="SCC-O8-oHy"/>
+                                        <exclude reference="glQ-AK-d6l"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terminal_intl" translatesAutoresizingMaskIntoConstraints="NO" id="ppk-vM-vqI">
+                                <rect key="frame" x="475" y="325" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="hgK-CW-h0l"/>
+                                    <constraint firstAttribute="width" constant="150" id="jc0-bM-ggJ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="hgK-CW-h0l"/>
+                                        <exclude reference="jc0-bM-ggJ"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LTp-WV-fHN" firstAttribute="top" secondItem="SfQ-6g-VCg" secondAttribute="bottom" constant="8" id="7Ig-gg-0Xj"/>
+                            <constraint firstItem="UJr-5r-Lya" firstAttribute="width" secondItem="aDa-AP-HT1" secondAttribute="width" id="4hD-XP-Ig4"/>
+                            <constraint firstItem="ppk-vM-vqI" firstAttribute="width" secondItem="aDa-AP-HT1" secondAttribute="width" id="63y-pm-r9g"/>
                             <constraint firstAttribute="bottom" secondItem="4h1-gP-bus" secondAttribute="bottom" constant="20" id="7vr-2t-GCP"/>
+                            <constraint firstItem="aDa-AP-HT1" firstAttribute="top" secondItem="UJr-5r-Lya" secondAttribute="bottom" constant="131" id="Aqt-DR-Pfh"/>
                             <constraint firstItem="4h1-gP-bus" firstAttribute="leading" secondItem="JFx-qv-nSk" secondAttribute="leading" constant="16" id="Cy1-vK-kRQ"/>
+                            <constraint firstItem="ADQ-xY-EeU" firstAttribute="top" secondItem="4Ep-pw-AcE" secondAttribute="bottom" id="E0c-6k-vMb"/>
+                            <constraint firstAttribute="trailing" secondItem="951-3t-CoQ" secondAttribute="trailing" constant="25" id="F2Y-0z-EXF"/>
                             <constraint firstAttribute="trailing" secondItem="4h1-gP-bus" secondAttribute="trailing" constant="16" id="Goz-79-6LG"/>
                             <constraint firstItem="de4-5Z-1iH" firstAttribute="leading" secondItem="JFx-qv-nSk" secondAttribute="leading" constant="16" id="GqH-ev-byj"/>
+                            <constraint firstItem="UJr-5r-Lya" firstAttribute="centerY" secondItem="951-3t-CoQ" secondAttribute="centerY" id="LLe-6Y-f6q"/>
                             <constraint firstItem="4h1-gP-bus" firstAttribute="top" secondItem="LTp-WV-fHN" secondAttribute="bottom" constant="8" id="NCA-NX-DYf"/>
+                            <constraint firstItem="UJr-5r-Lya" firstAttribute="centerX" secondItem="aDa-AP-HT1" secondAttribute="centerX" id="SB1-3J-bC6"/>
+                            <constraint firstItem="UJr-5r-Lya" firstAttribute="leading" secondItem="JFx-qv-nSk" secondAttribute="leadingMargin" constant="9" id="WaW-d2-MQ9"/>
+                            <constraint firstAttribute="trailing" secondItem="4Ep-pw-AcE" secondAttribute="trailing" id="XbN-4E-X6q"/>
                             <constraint firstItem="lUd-zl-qM7" firstAttribute="top" secondItem="JFx-qv-nSk" secondAttribute="top" constant="72" id="asz-d6-Kmk"/>
                             <constraint firstAttribute="trailing" secondItem="lUd-zl-qM7" secondAttribute="trailing" constant="16" id="c2Q-jH-1UU"/>
+                            <constraint firstItem="4Ep-pw-AcE" firstAttribute="leading" secondItem="JFx-qv-nSk" secondAttribute="leading" id="eyN-n1-3SG"/>
                             <constraint firstItem="de4-5Z-1iH" firstAttribute="top" secondItem="lUd-zl-qM7" secondAttribute="bottom" constant="8" id="fTh-e7-Kaq"/>
-                            <constraint firstItem="SfQ-6g-VCg" firstAttribute="top" secondItem="de4-5Z-1iH" secondAttribute="bottom" constant="8" id="nxA-VQ-oSr"/>
+                            <constraint firstItem="UJr-5r-Lya" firstAttribute="height" secondItem="951-3t-CoQ" secondAttribute="height" id="hdn-pM-A9Z"/>
+                            <constraint firstItem="ppk-vM-vqI" firstAttribute="centerY" secondItem="aDa-AP-HT1" secondAttribute="centerY" id="iLY-bg-B0E"/>
+                            <constraint firstItem="951-3t-CoQ" firstAttribute="height" secondItem="aDa-AP-HT1" secondAttribute="height" id="jLH-KK-ouY"/>
+                            <constraint firstItem="UJr-5r-Lya" firstAttribute="width" secondItem="951-3t-CoQ" secondAttribute="width" id="k0l-JD-EeV"/>
                             <constraint firstAttribute="centerX" secondItem="LTp-WV-fHN" secondAttribute="centerX" id="oIS-Aa-uxv"/>
-                            <constraint firstAttribute="trailing" secondItem="SfQ-6g-VCg" secondAttribute="trailing" constant="16" id="olf-6U-whR"/>
                             <constraint firstItem="lUd-zl-qM7" firstAttribute="leading" secondItem="JFx-qv-nSk" secondAttribute="leading" constant="16" id="pYB-zT-E2x"/>
-                            <constraint firstItem="SfQ-6g-VCg" firstAttribute="leading" secondItem="JFx-qv-nSk" secondAttribute="leading" constant="16" id="zDR-94-9mz"/>
+                            <constraint firstItem="UJr-5r-Lya" firstAttribute="top" secondItem="xlq-1I-Qog" secondAttribute="bottom" constant="100" id="ug0-wp-xOB"/>
+                            <constraint firstItem="ppk-vM-vqI" firstAttribute="height" secondItem="aDa-AP-HT1" secondAttribute="height" id="xnc-Nh-mgx"/>
+                            <constraint firstItem="ppk-vM-vqI" firstAttribute="centerX" secondItem="951-3t-CoQ" secondAttribute="centerX" id="zHr-cz-BcY"/>
+                            <constraint firstItem="4Ep-pw-AcE" firstAttribute="top" secondItem="xlq-1I-Qog" secondAttribute="top" constant="-64" id="zRo-2n-xOg"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="terminalTable" destination="SfQ-6g-VCg" id="UbI-pB-fIL"/>
                         <outlet property="timeLabel" destination="de4-5Z-1iH" id="SPE-ig-cLD"/>
                         <outlet property="timeSlider" destination="lUd-zl-qM7" id="bbE-3q-Jfs"/>
                         <outlet property="updateLabel" destination="LTp-WV-fHN" id="XJi-rv-aAI"/>
@@ -457,5 +469,10 @@
     <resources>
         <image name="backgroundFlights" width="745" height="564"/>
         <image name="sfo_logo" width="133" height="73"/>
+        <image name="terminal_1" width="301" height="90"/>
+        <image name="terminal_2" width="301" height="90"/>
+        <image name="terminal_3" width="301" height="91"/>
+        <image name="terminal_bg.jpg" width="2253" height="3024"/>
+        <image name="terminal_intl" width="301" height="90"/>
     </resources>
 </document>

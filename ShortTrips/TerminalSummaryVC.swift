@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TerminalSummaryVC: UIViewController {
 
   var terminals: [TerminalSummary]?
   var selectedTerminalId: TerminalId?
@@ -17,7 +17,6 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
   var currentTime: Float?
   
   
-  @IBOutlet var terminalTable: UITableView!
   @IBOutlet var timeLabel: UILabel!
   @IBOutlet var timeSlider: UISlider!
   @IBOutlet var updateLabel: UILabel!
@@ -25,8 +24,6 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    terminalTable.delegate = self
-    terminalTable.dataSource = self
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
   }
   
@@ -77,7 +74,6 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
             TerminalSummary(terminalId: TerminalId.Three, count: 7, delayedCount: 6)
           ]
         }
-        self.terminalTable.reloadData()
         }, hour: currentTime)
     }
   }
