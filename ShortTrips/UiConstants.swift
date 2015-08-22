@@ -31,7 +31,7 @@ class UiConstants {
   class var statusBorderWidth: CGFloat { return 1.0 }
   class var backgroundCellHeight: CGFloat { return 200.0 }
   class var flightCellHeight: CGFloat { return 80.0 }
-  class var timeTolerance: Float { return 0.25 }
+  class var timeTolerance: Float { return 0.5 }
   class var updatePeriod: Int { return 300 }
   class var updateInterval: NSTimeInterval { return 1.0 }
   class var SfoColor: CGColor { return CGColorCreate(CGColorSpaceCreateDeviceRGB(), [74.0 / 255.0, 144.0 / 255.0, 255.0 / 255.0, 1.0]) }

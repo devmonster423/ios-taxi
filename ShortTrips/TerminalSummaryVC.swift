@@ -15,7 +15,6 @@ class TerminalSummaryVC: UIViewController {
   var flightStatusVC: FlightStatusVC?
   var currentTime: Float?
   
-  
   @IBOutlet var ontime1Label: UILabel!
   @IBOutlet var delayed1Label: UILabel!
   @IBOutlet var ontime2Label: UILabel!
@@ -24,6 +23,11 @@ class TerminalSummaryVC: UIViewController {
   @IBOutlet var delayed3Label: UILabel!
   @IBOutlet var ontime4Label: UILabel!
   @IBOutlet var delayed4Label: UILabel!
+  
+  @IBOutlet var terminal1Button: UIButton!
+  @IBOutlet var terminal2Button: UIButton!
+  @IBOutlet var terminal3Button: UIButton!
+  @IBOutlet var terminal4Button: UIButton!
   
   @IBOutlet var timeLabel: UILabel!
   @IBOutlet var timeSlider: UISlider!
@@ -92,10 +96,10 @@ class TerminalSummaryVC: UIViewController {
     let newTime: Float = timeSlider.value
     if newTime > currentTime! + UiConstants.timeTolerance || newTime < currentTime! - UiConstants.timeTolerance {
       if newTime < 0.0 {
-        timeLabel.text = String(format: NSLocalizedString("Terminal Status %.01f Hours Ago", comment: ""), newTime * -1.0)
+        timeLabel.text = String(format: NSLocalizedString("Terminal Status %.1f Hours Ago", comment: ""), newTime * -1.0)
       }
       else if newTime > 0.0 {
-        timeLabel.text = String(format: NSLocalizedString("Terminal Status %.01f Hours in the Future", comment: ""), newTime)
+        timeLabel.text = String(format: NSLocalizedString("Terminal Status %.1f Hours in the Future", comment: ""), newTime)
       }
       else if newTime == 0.0 {
         timeLabel.text = String(format: NSLocalizedString("Current Terminal Status", comment: ""), newTime)
@@ -103,6 +107,30 @@ class TerminalSummaryVC: UIViewController {
       currentTime = newTime
       updateTerminalTable()
     }
+  }
+  
+  @IBAction func selectTerminal(button: UIButton) {
+    
+    var terminalId: TerminalId
+    
+    switch button {
+    case terminal1Button:
+      terminalId = .One
+    case terminal2Button:
+      terminalId = .Two
+    case terminal3Button:
+      terminalId = .Three
+    case terminal4Button:
+      terminalId = .International
+    default:
+      terminalId = .One
+      assertionFailure("unknown button")
+    }
+    
+    let destinationVC = FlightStatusVC()
+    destinationVC.currentTime = currentTime
+    destinationVC.selectedTerminalId = terminalId
+    navigationController?.pushViewController(destinationVC, animated: true)
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
