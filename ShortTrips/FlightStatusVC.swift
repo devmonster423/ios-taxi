@@ -99,9 +99,6 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
       }
       self.flightTable.reloadData()
       
-      let path: NSIndexPath = NSIndexPath(forRow: 0, inSection: 1)
-      self.flightTable.scrollToRowAtIndexPath(path, atScrollPosition: UITableViewScrollPosition.Top, animated: false)
-      
       }, terminal: selectedTerminalId.intValue, time: currentTime)
   }
   
