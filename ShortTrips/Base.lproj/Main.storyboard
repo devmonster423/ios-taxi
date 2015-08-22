@@ -8,9 +8,9 @@
     <customFonts key="customFonts">
         <mutableArray key="MyriadPro-Bold.otf">
             <string>MyriadPro-Bold</string>
+            <string>MyriadPro-Bold</string>
         </mutableArray>
         <mutableArray key="MyriadPro-Regular.otf">
-            <string>MyriadPro-Regular</string>
             <string>MyriadPro-Regular</string>
             <string>MyriadPro-Regular</string>
             <string>MyriadPro-Regular</string>
@@ -68,7 +68,7 @@
                                     <constraint firstAttribute="height" constant="80" id="e03-Bs-Rm5"/>
                                     <constraint firstAttribute="width" constant="270" id="mzq-G4-6W7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
