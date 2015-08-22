@@ -26,6 +26,7 @@ struct TerminalSummary: Mappable {
   var count: Int!
   var delayedCount: Int!
   
+  
   static func newInstance(map: Map) -> Mappable? {
     return TerminalSummary()
   }

@@ -14,4 +14,5 @@ class UiConstants {
   class var SfoColor: CGColor { return CGColorCreate(CGColorSpaceCreateDeviceRGB(), [74.0 / 255.0, 144.0 / 255.0, 255.0 / 255.0, 1.0]) }
   class var backgroundCellHeight: CGFloat { return 100.0 }
   class var flightCellHeight: CGFloat { return 80.0 }
+  class var timeTolerance: Float { return 0.25 }
 }

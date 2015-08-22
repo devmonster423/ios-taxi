@@ -18,3 +18,24 @@
 "yes" = "OUI";
 "no" = "NON";
 "maybe" = "PEUT-ETRE";
+
+/* Terminal Status */
+
+"Terminal Status %f Hours Ago" = "Statut du terminal il y a %f heures";
+"Terminal Status %f Hours in the Future" = "Statut du terminal dans %f heures";
+"Current Terminal Status" = "Statut actuel des terminals";
+
+/* Flight Status */
+
+"Term. One %.1f Hours Ago" = "Term. un il y a %.1f heures";
+"Term. Two %.1f Hours Ago" = "Term. deux il y a %.1f heures";
+"Term. Three %.1f Hours Ago" = "Term. trois il y a %.1f heures";
+"Inter. Term. %.1f Hours Ago" = "Term. Inter. il y a %.1f heures";
+"Term. One in %.1f Hours" = "Term. un dans %.1f Hours";
+"Term. Two in %.1f Hours" = "Term. deux dans %.1f Hours";
+"Term. Three in %.1f Hours" = "Term. trois dans %.1f Hours";
+"Inter. Term. in %.1f Hours" = "Term. inter. dans %.1f Hours";
+"Term. One Currently" = "Term. un actuellement";
+"Term. Two Currently" = "Term. deux actuellement";
+"Term. Three Currently" = "Term. trois actuellement";
+"Inter. Term. Currently" = "Term. inter. actuellement";
