@@ -16,6 +16,8 @@
 		C2DFE5DE1B56D2CB0090B55F /* ShortTripsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DFE5DD1B56D2CB0090B55F /* ShortTripsTests.swift */; };
 		E122649E1B795A65002B36CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12264A01B795A65002B36CA /* Localizable.strings */; };
 		E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */; };
+		E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */; };
+		E14DBDDB1B867A8400819C91 /* UpdateTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14DBDDA1B867A8400819C91 /* UpdateTimer.swift */; };
 		E1A2EBA01B6BEF3900C27EB2 /* FlightStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */; };
 		E1A2EBA21B6C218D00C27EB2 /* FlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */; };
 		E1A2EBA91B6D747F00C27EB2 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBA81B6D747F00C27EB2 /* Flight.swift */; };
@@ -99,6 +101,8 @@
 		E122649F1B795A65002B36CA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E12264A11B795A6F002B36CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryVC.swift; sourceTree = "<group>"; };
+		E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+initWithColor.swift"; sourceTree = "<group>"; };
+		E14DBDDA1B867A8400819C91 /* UpdateTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTimer.swift; sourceTree = "<group>"; };
 		E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatusVC.swift; sourceTree = "<group>"; };
 		E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightCell.swift; sourceTree = "<group>"; };
 		E1A2EBA81B6D747F00C27EB2 /* Flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
@@ -259,6 +263,7 @@
 				E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */,
 				C2DFE5C91B56D2CB0090B55F /* DashboardVC.swift */,
 				E1B8271B1B7CEF4200CC32EF /* SfoInfoRequester.swift */,
+				E14DBDDA1B867A8400819C91 /* UpdateTimer.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 				E1C4DA571B7FE96B007FBDD8 /* TerminalCell.swift */,
 				C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */,
 				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
+				E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -529,12 +535,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E14DBDDB1B867A8400819C91 /* UpdateTimer.swift in Sources */,
 				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
 				E1A2EBAF1B6E920500C27EB2 /* TerminalSummary.swift in Sources */,
 				E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */,
 				E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */,
 				E1B8271C1B7CEF4200CC32EF /* SfoInfoRequester.swift in Sources */,
 				C2DFE5CA1B56D2CB0090B55F /* DashboardVC.swift in Sources */,
+				E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */,
 				E1FA66151B853C4800FD18C6 /* FlightMock.swift in Sources */,
 				C2DFE5C81B56D2CB0090B55F /* AppDelegate.swift in Sources */,
 				E1A2EBAB1B6D767000C27EB2 /* Airline.swift in Sources */,

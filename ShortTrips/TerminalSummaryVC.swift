@@ -16,20 +16,49 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
   var flightStatusVC: FlightStatusVC?
   var currentTime: Float?
   
+  
   @IBOutlet var terminalTable: UITableView!
   @IBOutlet var timeLabel: UILabel!
   @IBOutlet var timeSlider: UISlider!
+  @IBOutlet var updateLabel: UILabel!
+  @IBOutlet var updateProgress: UIProgressView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     terminalTable.delegate = self
     terminalTable.dataSource = self
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    configureTitle()
+    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor(CGColor: UiConstants.SfoColorWithAlpha)!), forBarMetrics: .Default)
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
+    
     currentTime = timeSlider.value
     updateTerminalTable()
+    UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateTerminalTable)
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    UpdateTimer.stop()
+  }
+  
+  func configureTitle() {
+    
+    let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 240, height: 30))
+    titleLabel.text = NSLocalizedString("Flights", comment: "")
+    titleLabel.textAlignment = .Center
+    titleLabel.font = UIFont(name: UiConstants.navControllerFont, size: UiConstants.navControllerFontSizeNormal)!
+    titleLabel.textColor = UIColor.whiteColor()
+    
+    navigationItem.titleView = titleLabel
   }
   
   func updateTerminalTable() {
@@ -57,10 +86,10 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
     let newTime: Float = timeSlider.value
     if newTime > currentTime! + UiConstants.timeTolerance || newTime < currentTime! - UiConstants.timeTolerance {
       if newTime < 0.0 {
-        timeLabel.text = String(format: NSLocalizedString("Terminal Status %.02f Hours Ago", comment: ""), newTime * -1.0)
+        timeLabel.text = String(format: NSLocalizedString("Terminal Status %.01f Hours Ago", comment: ""), newTime * -1.0)
       }
       else if newTime > 0.0 {
-        timeLabel.text = String(format: NSLocalizedString("Terminal Status %.02f Hours in the Future", comment: ""), newTime)
+        timeLabel.text = String(format: NSLocalizedString("Terminal Status %.01f Hours in the Future", comment: ""), newTime)
       }
       else if newTime == 0.0 {
         timeLabel.text = String(format: NSLocalizedString("Current Terminal Status", comment: ""), newTime)
@@ -95,11 +124,9 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
   }
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    if let flightStatusVC = flightStatusVC {
+    if let flightStatusVC = flightStatusVC, let terminals = terminals {
       flightStatusVC.currentTime = currentTime
-      if let terminals = terminals {
-        flightStatusVC.selectedTerminalId = terminals[indexPath.row].terminalId
-      }
+      flightStatusVC.selectedTerminalId = terminals[indexPath.row].terminalId
     }
   }
 }

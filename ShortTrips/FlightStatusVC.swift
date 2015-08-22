@@ -17,6 +17,8 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   }
   
   @IBOutlet var flightTable: UITableView!
+  @IBOutlet var updateLabel: UILabel!
+  @IBOutlet var updateProgress: UIProgressView!
   
   var selectedTerminalId: TerminalId!
   var currentTime: Float!
@@ -30,18 +32,63 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    let terminal: Int
-    switch selectedTerminalId! {
-    case .One:
-      terminal = 1
-    case .Two:
-      terminal = 2
-    case .Three:
-      terminal = 3
-    case .International:
-      terminal = 4
-    }
     
+    updateFlightTable()
+    UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateFlightTable)
+    navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: UiConstants.navControllerFont, size: UiConstants.navControllerFontSizeSmall)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+    setupTitle()
+    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor(CGColor: UiConstants.SfoColorWithAlpha)!), forBarMetrics: .Default)
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: UiConstants.navControllerFont, size: UiConstants.navControllerFontSizeNormal)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+    UpdateTimer.stop()
+  }
+  
+  func setupTitle() {
+    var title: String = ""
+    if currentTime < 0.0 {
+      currentTime = currentTime * -1.0
+      switch selectedTerminalId! {
+      case .One:
+        title = String(format: NSLocalizedString("Term. One %.1f Hours Ago", comment: ""), currentTime)
+      case .Two:
+        title = String(format: NSLocalizedString("Term. Two %.1f Hours Ago", comment: ""), currentTime)
+      case .Three:
+        title = String(format: NSLocalizedString("Term. Three %.1f Hours Ago", comment: ""), currentTime)
+      case .International:
+        title = String(format: NSLocalizedString("Inter. Term. %.1f Hours Ago", comment: ""), currentTime)
+      }
+    }
+    else if currentTime > 0.0 {
+      switch selectedTerminalId! {
+      case .One:
+        title = String(format: NSLocalizedString("Term. One in %.1f Hours", comment: ""), currentTime)
+      case .Two:
+        title = String(format: NSLocalizedString("Term. Two in %.1f Hours", comment: ""), currentTime)
+      case .Three:
+        title = String(format: NSLocalizedString("Term. Three in %.1f Hours", comment: ""), currentTime)
+      case .International:
+        title = String(format: NSLocalizedString("Inter. Term. in %.1f Hours", comment: ""), currentTime)
+      }
+    }
+    else if currentTime == 0.0 {
+      switch selectedTerminalId! {
+      case .One:
+        title = NSLocalizedString("Term. One Currently", comment: "")
+      case .Two:
+        title = NSLocalizedString("Term. Two Currently", comment: "")
+      case .Three:
+        title = NSLocalizedString("Term. Three Currently", comment: "")
+      case .International:
+        title = NSLocalizedString("Inter. Term. Currently", comment: "")
+      }
+    }
+    navigationItem.title = title
+  }
+  
+  func updateFlightTable() {
     SfoInfoRequester.requestFlights({ (flights, error) -> Void in
       if let flights = flights {
         self.flights = flights
@@ -52,7 +99,8 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         self.flights = FlightMock.mockFlights()
       }
       self.flightTable.reloadData()
-      }, terminal: terminal, time: currentTime)
+      
+      }, terminal: selectedTerminalId.intValue, time: currentTime)
   }
   
   func computeDelay() -> Double {
@@ -70,6 +118,8 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     return Double(delayedFlights) / Double(totalFlights)
   }
   
+  // MARK: UITableView
+  
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return 2
   }
@@ -86,8 +136,6 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     }
   }
   
-  // MARK: UITableView
-  
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     if indexPath.section == TableSection.Content.rawValue {
         let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as! FlightCell
@@ -97,7 +145,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     } else {
       let cell = tableView.dequeueReusableCellWithIdentifier("backgroundCell", forIndexPath: indexPath) as! BackgroundCell
-      cell.displayFlightTableTitle(computeDelay(), terminal: selectedTerminalId, hour: currentTime)
+      cell.displayDelay(computeDelay())
       return cell
     }
   }

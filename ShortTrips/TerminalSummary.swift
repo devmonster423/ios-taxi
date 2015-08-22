@@ -19,13 +19,25 @@ enum TerminalId: String {
   case Two = "Two"
   case Three = "Three"
   case International = "International"
+  
+  var intValue: Int {
+    switch self {
+    case .One:
+      return 1
+    case .Two:
+      return 2
+    case .Three:
+      return 3
+    case .International:
+      return 4
+    }
+  }
 }
 
 struct TerminalSummary: Mappable {
   var terminalId: TerminalId!
   var count: Int!
   var delayedCount: Int!
-  
   
   static func newInstance(map: Map) -> Mappable? {
     return TerminalSummary()
