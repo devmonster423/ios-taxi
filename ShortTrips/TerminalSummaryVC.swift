@@ -109,33 +109,26 @@ class TerminalSummaryVC: UIViewController {
     }
   }
   
-  @IBAction func selectTerminal(button: UIButton) {
-    
-    var terminalId: TerminalId
-    
-    switch button {
-    case terminal1Button:
-      terminalId = .One
-    case terminal2Button:
-      terminalId = .Two
-    case terminal3Button:
-      terminalId = .Three
-    case terminal4Button:
-      terminalId = .International
-    default:
-      terminalId = .One
-      assertionFailure("unknown button")
-    }
-    
-    let destinationVC = FlightStatusVC()
-    destinationVC.currentTime = currentTime
-    destinationVC.selectedTerminalId = terminalId
-    navigationController?.pushViewController(destinationVC, animated: true)
-  }
-  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "show flights" {
+    if segue.identifier == "show_flights" {
       flightStatusVC = segue.destinationViewController as? FlightStatusVC
+  
+      if let flightStatusVC = flightStatusVC {
+        flightStatusVC.currentTime = currentTime
+        
+        switch sender as! UIButton {
+        case terminal1Button:
+          flightStatusVC.selectedTerminalId = .One
+        case terminal2Button:
+          flightStatusVC.selectedTerminalId = .Two
+        case terminal3Button:
+          flightStatusVC.selectedTerminalId = .Three
+        case terminal4Button:
+          flightStatusVC.selectedTerminalId = .International
+        default:
+          assertionFailure("unknown sender")
+        }
+      }
     }
   }
   

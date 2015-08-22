@@ -491,7 +491,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="selectTerminal:" destination="EG5-op-m31" eventType="touchUpInside" id="DZT-ao-GXa"/>
+                                    <segue destination="bMq-SJ-wft" kind="show" identifier="show_flights" id="3zl-Jw-gxQ"/>
                                 </connections>
                             </button>
                         </subviews>
