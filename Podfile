@@ -5,6 +5,8 @@ use_frameworks!
 target 'ShortTrips' do
   pod 'Alamofire', '~> 1.3'
   pod 'AlamofireObjectMapper', '~> 0.7'
+  pod 'Crashlytics'
+  pod 'Fabric'
 end
 
 target 'ShortTripsTests' do
