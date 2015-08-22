@@ -48,28 +48,28 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   func setupTitle() {
     var title: String = ""
     if currentTime < 0.0 {
-      currentTime = currentTime! * -1.0
+      currentTime = currentTime * -1.0
       switch selectedTerminalId! {
       case .One:
-        title = String(format: NSLocalizedString("Term. One %.1f Hours Ago", comment: ""), currentTime!)
+        title = String(format: NSLocalizedString("Term. One %.1f Hours Ago", comment: ""), currentTime)
       case .Two:
-        title = String(format: NSLocalizedString("Term. Two %.1f Hours Ago", comment: ""), currentTime!)
+        title = String(format: NSLocalizedString("Term. Two %.1f Hours Ago", comment: ""), currentTime)
       case .Three:
-        title = String(format: NSLocalizedString("Term. Three %.1f Hours Ago", comment: ""), currentTime!)
+        title = String(format: NSLocalizedString("Term. Three %.1f Hours Ago", comment: ""), currentTime)
       case .International:
-        title = String(format: NSLocalizedString("Inter. Term. %.1f Hours Ago", comment: ""), currentTime!)
+        title = String(format: NSLocalizedString("Inter. Term. %.1f Hours Ago", comment: ""), currentTime)
       }
     }
     else if currentTime > 0.0 {
       switch selectedTerminalId! {
       case .One:
-        title = String(format: NSLocalizedString("Term. One in %.1f Hours", comment: ""), currentTime!)
+        title = String(format: NSLocalizedString("Term. One in %.1f Hours", comment: ""), currentTime)
       case .Two:
-        title = String(format: NSLocalizedString("Term. Two in %.1f Hours", comment: ""), currentTime!)
+        title = String(format: NSLocalizedString("Term. Two in %.1f Hours", comment: ""), currentTime)
       case .Three:
-        title = String(format: NSLocalizedString("Term. Three in %.1f Hours", comment: ""), currentTime!)
+        title = String(format: NSLocalizedString("Term. Three in %.1f Hours", comment: ""), currentTime)
       case .International:
-        title = String(format: NSLocalizedString("Inter. Term. in %.1f Hours", comment: ""), currentTime!)
+        title = String(format: NSLocalizedString("Inter. Term. in %.1f Hours", comment: ""), currentTime)
       }
     }
     else if currentTime == 0.0 {

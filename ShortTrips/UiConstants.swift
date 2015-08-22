@@ -13,7 +13,6 @@ class UiConstants {
   class var statusBorderWidth: CGFloat { return 1.0 }
   class var backgroundCellHeight: CGFloat { return 100.0 }
   class var flightCellHeight: CGFloat { return 80.0 }
-  class var blankCellHeight: CGFloat { return 64.0 }
   class var timeTolerance: Float { return 0.25 }
   class var updatePeriod: Int { return 300 }
   class var updateInterval: NSTimeInterval { return 1.0 }
