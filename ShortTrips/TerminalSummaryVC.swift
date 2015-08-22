@@ -11,11 +11,19 @@ import UIKit
 
 class TerminalSummaryVC: UIViewController {
 
-  var terminals: [TerminalSummary]?
   var selectedTerminalId: TerminalId?
   var flightStatusVC: FlightStatusVC?
   var currentTime: Float?
   
+  
+  @IBOutlet var ontime1Label: UILabel!
+  @IBOutlet var delayed1Label: UILabel!
+  @IBOutlet var ontime2Label: UILabel!
+  @IBOutlet var delayed2Label: UILabel!
+  @IBOutlet var ontime3Label: UILabel!
+  @IBOutlet var delayed3Label: UILabel!
+  @IBOutlet var ontime4Label: UILabel!
+  @IBOutlet var delayed4Label: UILabel!
   
   @IBOutlet var timeLabel: UILabel!
   @IBOutlet var timeSlider: UISlider!
@@ -59,20 +67,22 @@ class TerminalSummaryVC: UIViewController {
   }
   
   func updateTerminalTable() {
+    
     if let currentTime = currentTime {
       SfoInfoRequester.requestTerminals ({ (terminals, error) -> Void in
         if let terminals = terminals {
           println("terminal 0 delayed count: \(terminals[0].delayedCount)")
-          self.terminals = terminals
+          self.reloadViews(terminals)
         }
         else {
           println("error: \(error)")
-          self.terminals = [
+          let terminals = [
             TerminalSummary(terminalId: TerminalId.International, count: 2, delayedCount: 3),
             TerminalSummary(terminalId: TerminalId.One, count: 3, delayedCount: 2),
             TerminalSummary(terminalId: TerminalId.Two, count: 5, delayedCount: 4),
             TerminalSummary(terminalId: TerminalId.Three, count: 7, delayedCount: 6)
           ]
+          self.reloadViews(terminals)
         }
         }, hour: currentTime)
     }
@@ -101,28 +111,18 @@ class TerminalSummaryVC: UIViewController {
     }
   }
   
-  // MARK: UITableView
-  
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if let terminals = terminals {
-      return terminals.count
-    } else {
-      return 0
-    }
-  }
-  
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    var cell = tableView.dequeueReusableCellWithIdentifier("terminalCell") as! TerminalCell
-    if let terminals = terminals {
-        cell.setTerminalSummary(terminals[indexPath.row])
-    }
-    return cell
-  }
-
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    if let flightStatusVC = flightStatusVC, let terminals = terminals {
-      flightStatusVC.currentTime = currentTime
-      flightStatusVC.selectedTerminalId = terminals[indexPath.row].terminalId
-    }
+  func reloadViews(summaries: [TerminalSummary]) {
+    
+    ontime1Label.text = "\(summaries[0].count)"
+    delayed1Label.text = "\(summaries[0].delayedCount)"
+    
+    ontime2Label.text = "\(summaries[1].count)"
+    delayed2Label.text = "\(summaries[1].delayedCount)"
+    
+    ontime3Label.text = "\(summaries[2].count)"
+    delayed3Label.text = "\(summaries[2].delayedCount)"
+    
+    ontime4Label.text = "\(summaries[3].count)"
+    delayed4Label.text = "\(summaries[3].delayedCount)"
   }
 }

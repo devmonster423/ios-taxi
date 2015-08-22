@@ -579,6 +579,14 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="delayed1Label" destination="xtn-vI-PIt" id="6lY-1b-MzZ"/>
+                        <outlet property="delayed2Label" destination="HYB-sO-gZb" id="Guh-7T-W5r"/>
+                        <outlet property="delayed3Label" destination="N96-ah-ZfX" id="W0P-VU-5Am"/>
+                        <outlet property="delayed4Label" destination="sAd-Hb-2Ho" id="qPV-Et-0aL"/>
+                        <outlet property="ontime1Label" destination="QrH-xE-onI" id="vJw-cj-Yyq"/>
+                        <outlet property="ontime2Label" destination="1aL-Kr-zfb" id="0hw-36-V0x"/>
+                        <outlet property="ontime3Label" destination="sg3-Jz-YUn" id="OLb-XQ-YsS"/>
+                        <outlet property="ontime4Label" destination="Yq0-Bz-Ysi" id="fEH-of-ywu"/>
                         <outlet property="timeLabel" destination="de4-5Z-1iH" id="SPE-ig-cLD"/>
                         <outlet property="timeSlider" destination="lUd-zl-qM7" id="bbE-3q-Jfs"/>
                         <outlet property="updateLabel" destination="LTp-WV-fHN" id="XJi-rv-aAI"/>

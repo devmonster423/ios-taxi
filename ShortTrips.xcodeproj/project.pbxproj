@@ -26,7 +26,6 @@
 		E1A2EBAF1B6E920500C27EB2 /* TerminalSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAE1B6E920500C27EB2 /* TerminalSummary.swift */; };
 		E1B8271C1B7CEF4200CC32EF /* SfoInfoRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8271B1B7CEF4200CC32EF /* SfoInfoRequester.swift */; };
 		E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */; };
-		E1C4DA581B7FE96B007FBDD8 /* TerminalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C4DA571B7FE96B007FBDD8 /* TerminalCell.swift */; };
 		E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */; };
 		E1CDE7891B66E95E00AB27D2 /* MyriadPro-SemiExtIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7611B66E95E00AB27D2 /* MyriadPro-SemiExtIt.otf */; };
 		E1CDE78A1B66E95E00AB27D2 /* MyriadPro-SemiExt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7621B66E95E00AB27D2 /* MyriadPro-SemiExt.otf */; };
@@ -115,7 +114,6 @@
 		E1A2EBAE1B6E920500C27EB2 /* TerminalSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummary.swift; sourceTree = "<group>"; };
 		E1B8271B1B7CEF4200CC32EF /* SfoInfoRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SfoInfoRequester.swift; sourceTree = "<group>"; };
 		E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusResponse.swift; sourceTree = "<group>"; };
-		E1C4DA571B7FE96B007FBDD8 /* TerminalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalCell.swift; sourceTree = "<group>"; };
 		E1C6123C1B8634DD00A3847A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiConstants.swift; sourceTree = "<group>"; };
 		E1CDE7611B66E95E00AB27D2 /* MyriadPro-SemiExtIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-SemiExtIt.otf"; sourceTree = "<group>"; };
@@ -292,7 +290,6 @@
 				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
 				E1FA66161B85558300FD18C6 /* BackgroundCell.swift */,
 				E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */,
-				E1C4DA571B7FE96B007FBDD8 /* TerminalCell.swift */,
 				C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */,
 				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
 				E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */,
@@ -581,7 +578,6 @@
 				E1A2EBA01B6BEF3900C27EB2 /* FlightStatusVC.swift in Sources */,
 				E1FA66171B85558300FD18C6 /* BackgroundCell.swift in Sources */,
 				E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */,
-				E1C4DA581B7FE96B007FBDD8 /* TerminalCell.swift in Sources */,
 				E1A2EBA21B6C218D00C27EB2 /* FlightCell.swift in Sources */,
 				E1A2EBA91B6D747F00C27EB2 /* Flight.swift in Sources */,
 			);
