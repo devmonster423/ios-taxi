@@ -9,6 +9,7 @@
         <mutableArray key="MyriadPro-Bold.otf">
             <string>MyriadPro-Bold</string>
             <string>MyriadPro-Bold</string>
+            <string>MyriadPro-Bold</string>
         </mutableArray>
         <mutableArray key="MyriadPro-Regular.otf">
             <string>MyriadPro-Regular</string>
@@ -19,6 +20,7 @@
             <string>MyriadPro-Regular</string>
         </mutableArray>
         <mutableArray key="MyriadPro-Semibold.otf">
+            <string>MyriadPro-Semibold</string>
             <string>MyriadPro-Semibold</string>
             <string>MyriadPro-Semibold</string>
             <string>MyriadPro-Semibold</string>
@@ -253,14 +255,46 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ON TIME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDu-lW-Tmr" userLabel="Terminal 1 ON TIME">
+                                <rect key="frame" x="63" y="208" width="70" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="EkV-Cv-xtG"/>
+                                    <constraint firstAttribute="width" constant="70" id="sLv-pz-Pnf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="12"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_circle" translatesAutoresizingMaskIntoConstraints="NO" id="hdh-ga-SBs">
+                                <rect key="frame" x="25" y="214" width="8" height="8"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="Q2g-PB-2kj"/>
+                                    <constraint firstAttribute="width" constant="8" id="dSX-H7-DFm"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrH-xE-onI" userLabel="Terminal 1 ontime number">
+                                <rect key="frame" x="38" y="208" width="20" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Nf0-cp-Isg"/>
+                                    <constraint firstAttribute="width" constant="20" id="z4r-qT-DyH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="hdh-ga-SBs" firstAttribute="centerY" secondItem="QrH-xE-onI" secondAttribute="centerY" id="3CM-PH-iaw"/>
                             <constraint firstItem="UJr-5r-Lya" firstAttribute="width" secondItem="aDa-AP-HT1" secondAttribute="width" id="4hD-XP-Ig4"/>
                             <constraint firstItem="ppk-vM-vqI" firstAttribute="width" secondItem="aDa-AP-HT1" secondAttribute="width" id="63y-pm-r9g"/>
                             <constraint firstAttribute="bottom" secondItem="4h1-gP-bus" secondAttribute="bottom" constant="20" id="7vr-2t-GCP"/>
+                            <constraint firstItem="WDu-lW-Tmr" firstAttribute="top" secondItem="UJr-5r-Lya" secondAttribute="bottom" constant="8" id="8Ny-OT-GP1"/>
+                            <constraint firstItem="QrH-xE-onI" firstAttribute="leading" secondItem="hdh-ga-SBs" secondAttribute="trailing" constant="5" id="AZP-eO-CYA"/>
                             <constraint firstItem="aDa-AP-HT1" firstAttribute="top" secondItem="UJr-5r-Lya" secondAttribute="bottom" constant="131" id="Aqt-DR-Pfh"/>
+                            <constraint firstItem="hdh-ga-SBs" firstAttribute="top" secondItem="UJr-5r-Lya" secondAttribute="bottom" constant="20" id="C7O-3P-ZbW"/>
                             <constraint firstItem="4h1-gP-bus" firstAttribute="leading" secondItem="JFx-qv-nSk" secondAttribute="leading" constant="16" id="Cy1-vK-kRQ"/>
+                            <constraint firstItem="hdh-ga-SBs" firstAttribute="leading" secondItem="UJr-5r-Lya" secondAttribute="leading" id="DPp-ri-iPN"/>
                             <constraint firstItem="ADQ-xY-EeU" firstAttribute="top" secondItem="4Ep-pw-AcE" secondAttribute="bottom" id="E0c-6k-vMb"/>
                             <constraint firstAttribute="trailing" secondItem="951-3t-CoQ" secondAttribute="trailing" constant="25" id="F2Y-0z-EXF"/>
                             <constraint firstAttribute="trailing" secondItem="4h1-gP-bus" secondAttribute="trailing" constant="16" id="Goz-79-6LG"/>
@@ -275,16 +309,25 @@
                             <constraint firstItem="4Ep-pw-AcE" firstAttribute="leading" secondItem="JFx-qv-nSk" secondAttribute="leading" id="eyN-n1-3SG"/>
                             <constraint firstItem="de4-5Z-1iH" firstAttribute="top" secondItem="lUd-zl-qM7" secondAttribute="bottom" constant="8" id="fTh-e7-Kaq"/>
                             <constraint firstItem="UJr-5r-Lya" firstAttribute="height" secondItem="951-3t-CoQ" secondAttribute="height" id="hdn-pM-A9Z"/>
+                            <constraint firstItem="WDu-lW-Tmr" firstAttribute="centerY" secondItem="QrH-xE-onI" secondAttribute="centerY" id="hsd-Ij-abj"/>
                             <constraint firstItem="ppk-vM-vqI" firstAttribute="centerY" secondItem="aDa-AP-HT1" secondAttribute="centerY" id="iLY-bg-B0E"/>
                             <constraint firstItem="951-3t-CoQ" firstAttribute="height" secondItem="aDa-AP-HT1" secondAttribute="height" id="jLH-KK-ouY"/>
                             <constraint firstItem="UJr-5r-Lya" firstAttribute="width" secondItem="951-3t-CoQ" secondAttribute="width" id="k0l-JD-EeV"/>
                             <constraint firstAttribute="centerX" secondItem="LTp-WV-fHN" secondAttribute="centerX" id="oIS-Aa-uxv"/>
                             <constraint firstItem="lUd-zl-qM7" firstAttribute="leading" secondItem="JFx-qv-nSk" secondAttribute="leading" constant="16" id="pYB-zT-E2x"/>
+                            <constraint firstItem="WDu-lW-Tmr" firstAttribute="trailing" secondItem="UJr-5r-Lya" secondAttribute="trailing" constant="-5" id="sX5-DX-O4m"/>
                             <constraint firstItem="UJr-5r-Lya" firstAttribute="top" secondItem="xlq-1I-Qog" secondAttribute="bottom" constant="100" id="ug0-wp-xOB"/>
                             <constraint firstItem="ppk-vM-vqI" firstAttribute="height" secondItem="aDa-AP-HT1" secondAttribute="height" id="xnc-Nh-mgx"/>
                             <constraint firstItem="ppk-vM-vqI" firstAttribute="centerX" secondItem="951-3t-CoQ" secondAttribute="centerX" id="zHr-cz-BcY"/>
                             <constraint firstItem="4Ep-pw-AcE" firstAttribute="top" secondItem="xlq-1I-Qog" secondAttribute="top" constant="-64" id="zRo-2n-xOg"/>
+                            <constraint firstItem="WDu-lW-Tmr" firstAttribute="leading" secondItem="QrH-xE-onI" secondAttribute="trailing" constant="5" id="zpo-yX-Ct9"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8Ny-OT-GP1"/>
+                                <exclude reference="sX5-DX-O4m"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="timeLabel" destination="de4-5Z-1iH" id="SPE-ig-cLD"/>
@@ -468,6 +511,7 @@
     </scenes>
     <resources>
         <image name="backgroundFlights" width="745" height="564"/>
+        <image name="green_circle" width="16" height="15"/>
         <image name="sfo_logo" width="133" height="73"/>
         <image name="terminal_1" width="301" height="90"/>
         <image name="terminal_2" width="301" height="90"/>
