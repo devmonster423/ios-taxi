@@ -37,6 +37,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateFlightTable)
     navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: UiConstants.navControllerFont, size: UiConstants.navControllerFontSizeSmall)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
     setupTitle()
+    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor(CGColor: UiConstants.SfoColorWithAlpha)!), forBarMetrics: .Default)
   }
   
   override func viewWillDisappear(animated: Bool) {

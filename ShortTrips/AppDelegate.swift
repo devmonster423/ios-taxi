@@ -15,12 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
       UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-      
-      let backgroundImage = UIImage.imageWithColor(UIColor(CGColor: UiConstants.SfoColorWithAlpha)!)
-      UINavigationBar.appearance().setBackgroundImage(backgroundImage, forBarMetrics: UIBarMetrics.Default)
-      UINavigationBar.appearance().barStyle = UIBarStyle.Default
-      UINavigationBar.appearance().titleTextAttributes = [ NSFontAttributeName: UIFont(name: UiConstants.navControllerFont, size: UiConstants.navControllerFontSizeNormal)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
-
       return true
     }
 

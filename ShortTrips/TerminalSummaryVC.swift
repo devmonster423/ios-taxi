@@ -28,11 +28,18 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
     terminalTable.delegate = self
     terminalTable.dataSource = self
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-    navigationItem.title = NSLocalizedString("Flights", comment: "")
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    configureTitle()
+    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor(CGColor: UiConstants.SfoColorWithAlpha)!), forBarMetrics: .Default)
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
+    
     currentTime = timeSlider.value
     updateTerminalTable()
     UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateTerminalTable)
@@ -41,6 +48,17 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     UpdateTimer.stop()
+  }
+  
+  func configureTitle() {
+    
+    let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 240, height: 30))
+    titleLabel.text = NSLocalizedString("Flights", comment: "")
+    titleLabel.textAlignment = .Center
+    titleLabel.font = UIFont(name: UiConstants.navControllerFont, size: UiConstants.navControllerFontSizeNormal)!
+    titleLabel.textColor = UIColor.whiteColor()
+    
+    navigationItem.titleView = titleLabel
   }
   
   func updateTerminalTable() {

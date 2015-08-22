@@ -25,10 +25,8 @@ class DashboardVC: UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    //navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-    //navigationController?.navigationBar.shadowImage = UIImage()
-    //navigationController?.navigationBar.barTintColor = UIColor(CGColor: UiConstants.SfoColor)
     
+    navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
     requestLotStatus()
     UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: requestLotStatus)
   }
