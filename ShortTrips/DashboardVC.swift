@@ -9,8 +9,11 @@
 import UIKit
 
 class DashboardVC: UIViewController {
+  @IBOutlet var colorView: UIView!
+  @IBOutlet var directionLabel: UIView!
   @IBOutlet var statusButton: UIButton!
   @IBOutlet var comeToSfoLabel: UILabel!
+  @IBOutlet var explanationLabel: UILabel!
   @IBOutlet var updateLabel: UILabel!
   @IBOutlet var updateProgress: UIProgressView!
   
