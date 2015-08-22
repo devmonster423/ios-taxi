@@ -13,6 +13,17 @@ enum LotStatus: String {
   case Yes = "yes"
   case No = "no"
   case Maybe = "maybe"
+  
+  static func random() -> LotStatus {
+    switch arc4random_uniform(3) {
+    case 0:
+      return .Yes
+    case 1:
+      return .Maybe
+    default:
+      return .No
+    }
+  }
 }
 
 struct LotStatusResponse: Mappable {

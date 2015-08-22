@@ -16,12 +16,18 @@
 
 /* Come to SFO? */
 
+"Don't Go To SFO" = "Don't Go To SFO";
+"Go To SFO" = "Go To SFO";
+"Lot capacity is full" = "Lot capacity is full";
+"Lot capacity is not full" = "Lot capacity is not full";
+"Lot capacity is almost full" = "Lot capacity is almost full";
 "yes" = "YES";
 "no" = "NO";
 "maybe" = "MAYBE";
 
 /* Terminal Status */
 
+"Terminals" = "Terminals";
 "Terminal Status %f Hours Ago" = "Terminal Status %f Hours Ago";
 "Terminal Status %f Hours in the Future" = "Terminal Status %f Hours in the Future";
 "Current Terminal Status" = "Current Terminal Status";

@@ -9,8 +9,11 @@
 import UIKit
 
 class DashboardVC: UIViewController {
+  @IBOutlet var backgroundImageView: UIImageView!
+  @IBOutlet var directionLabel: UILabel!
   @IBOutlet var statusButton: UIButton!
   @IBOutlet var comeToSfoLabel: UILabel!
+  @IBOutlet var explanationLabel: UILabel!
   @IBOutlet var updateLabel: UILabel!
   @IBOutlet var updateProgress: UIProgressView!
   
@@ -19,7 +22,6 @@ class DashboardVC: UIViewController {
     statusButton.layer.cornerRadius = UiConstants.statusCornerRadius
     statusButton.layer.borderWidth = UiConstants.statusBorderWidth
     statusButton.layer.borderColor = UiConstants.SfoColor
-    navigationController!.navigationBar.tintColor = UIColor.whiteColor()
     navigationItem.title = "";
   }
   
@@ -27,6 +29,7 @@ class DashboardVC: UIViewController {
     super.viewWillAppear(animated)
     
     navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+    navigationController?.navigationBar.shadowImage = UIImage()
     requestLotStatus()
     UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: requestLotStatus)
   }
@@ -39,10 +42,33 @@ class DashboardVC: UIViewController {
   func requestLotStatus() {
     SfoInfoRequester.requestLotStatus { (status, error) -> Void in
       if let status = status, let lotStatus = status.lotStatus {
-        self.comeToSfoLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
+        self.updateStatusUI(lotStatus)
       } else {
-        self.comeToSfoLabel.text = NSLocalizedString("maybe", comment: "")
+        self.updateStatusUI(LotStatus.random())
       }
+    }
+  }
+  
+  func updateStatusUI(lotStatus: LotStatus) {
+    switch lotStatus {
+      
+    case .Yes:
+      backgroundImageView.image = UIImage(named: "green_bg.jpg")
+      comeToSfoLabel.text = NSLocalizedString("Go To SFO", comment: "")
+      directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
+      explanationLabel.text = NSLocalizedString("Lot capacity is not full", comment: "")
+      
+    case .Maybe:
+      backgroundImageView.image = UIImage(named: "yellow_bg.jpg")
+      comeToSfoLabel.text = NSLocalizedString("Go To SFO", comment: "")
+      directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
+      explanationLabel.text = NSLocalizedString("Lot capacity is almost full", comment: "")
+      
+    case .No:
+      backgroundImageView.image = UIImage(named: "red_bg.jpg")
+      comeToSfoLabel.text = NSLocalizedString("Don't Go To SFO", comment: "")
+      directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
+      explanationLabel.text = NSLocalizedString("Lot capacity is full", comment: "")
     }
   }
 }
