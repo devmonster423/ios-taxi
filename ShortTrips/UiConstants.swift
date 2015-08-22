@@ -11,7 +11,7 @@ import UIKit
 class UiConstants {
   class var statusCornerRadius: CGFloat { return 15.0 }
   class var statusBorderWidth: CGFloat { return 1.0 }
-  class var backgroundCellHeight: CGFloat { return 100.0 }
+  class var backgroundCellHeight: CGFloat { return 200.0 }
   class var flightCellHeight: CGFloat { return 80.0 }
   class var timeTolerance: Float { return 0.25 }
   class var updatePeriod: Int { return 300 }
