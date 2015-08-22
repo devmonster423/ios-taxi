@@ -44,20 +44,24 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
   }
   
   func updateTerminalTable() {
-    SfoInfoRequester.requestTerminals ({ (terminals, error) -> Void in
-      if let terminals = terminals {
-        println("terminal 0 delayed count: \(terminals[0].delayedCount)")
-        self.terminals = terminals
-      }
-      else {
-        println("error: \(error)")
-        self.terminals = [TerminalSummary(terminalId: TerminalId.International, count: 2, delayedCount: 3),
-          TerminalSummary(terminalId: TerminalId.One, count: 3, delayedCount: 2),
-          TerminalSummary(terminalId: TerminalId.Two, count: 5, delayedCount: 4),
-          TerminalSummary(terminalId: TerminalId.Three, count: 7, delayedCount: 6)]
-      }
-      self.terminalTable.reloadData()
-    }, hour: currentTime!)
+    if let currentTime = currentTime {
+      SfoInfoRequester.requestTerminals ({ (terminals, error) -> Void in
+        if let terminals = terminals {
+          println("terminal 0 delayed count: \(terminals[0].delayedCount)")
+          self.terminals = terminals
+        }
+        else {
+          println("error: \(error)")
+          self.terminals = [
+            TerminalSummary(terminalId: TerminalId.International, count: 2, delayedCount: 3),
+            TerminalSummary(terminalId: TerminalId.One, count: 3, delayedCount: 2),
+            TerminalSummary(terminalId: TerminalId.Two, count: 5, delayedCount: 4),
+            TerminalSummary(terminalId: TerminalId.Three, count: 7, delayedCount: 6)
+          ]
+        }
+        self.terminalTable.reloadData()
+        }, hour: currentTime)
+    }
   }
   
   @IBAction func updateTime() {
@@ -102,9 +106,9 @@ class TerminalSummaryVC: UIViewController, UITableViewDataSource, UITableViewDel
   }
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    if let terminals = terminals {
-        flightStatusVC?.selectedTerminalId = terminals[indexPath.row].terminalId
-        flightStatusVC?.currentTime = currentTime
+    if let flightStatusVC = flightStatusVC, let terminals = terminals {
+      flightStatusVC.currentTime = currentTime
+      flightStatusVC.selectedTerminalId = terminals[indexPath.row].terminalId
     }
   }
 }

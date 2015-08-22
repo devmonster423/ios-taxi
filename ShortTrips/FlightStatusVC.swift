@@ -21,10 +21,8 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   @IBOutlet var updateProgress: UIProgressView!
   
   var selectedTerminalId: TerminalId!
-  var currentTime: Float?
+  var currentTime: Float!
   var flights: [Flight]?
-  var delayRatio: Double?
-  var terminal: Int?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,16 +32,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    switch selectedTerminalId! {
-    case .One:
-      terminal = 1
-    case .Two:
-      terminal = 2
-    case .Three:
-      terminal = 3
-    case .International:
-      terminal = 4
-    }
+    
     updateFlightTable()
     UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateFlightTable)
     navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: UiConstants.navControllerFont, size: UiConstants.navControllerFontSizeSmall)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -109,84 +98,65 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         self.flights = FlightMock.mockFlights()
       }
       self.flightTable.reloadData()
+      
       let path: NSIndexPath = NSIndexPath(forRow: 0, inSection: 1)
       self.flightTable.scrollToRowAtIndexPath(path, atScrollPosition: UITableViewScrollPosition.Top, animated: false)
-      self.computeDelay()
-      }, terminal: terminal!, time: currentTime!)
+      
+      }, terminal: selectedTerminalId.intValue, time: currentTime)
   }
   
-  func computeDelay() {
+  func computeDelay() -> Double {
     var totalFlights = 0
     var delayedFlights = 0
     if let flights = flights {
-        for flight in flights {
-            switch flight.flightStatus {
-            case .Some(.Delayed):
-                totalFlights++
-                delayedFlights++
-            case .Some(.Landing):
-                totalFlights++
-            case .Some(.OnTime):
-                totalFlights++
-            default:
-                break
-            }
+      for flight in flights {
+        totalFlights++
+        if flight.flightStatus == .Some(.Delayed) {
+          delayedFlights++
         }
+      }
     }
     
-    delayRatio = Double(delayedFlights) / Double(totalFlights)
+    return Double(delayedFlights) / Double(totalFlights)
   }
   
   // MARK: UITableView
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 3
+    return 2
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let flights = flights {
-      if section == 0 || section == 1 {
+      if section == TableSection.Header.rawValue {
         return 1
-      }
-      else {
+      } else {
         return flights.count
       }
-    }
-    else {
+    } else {
       return 0
     }
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    if indexPath.section == 2 {
-      let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as! FlightCell
-      if let flights = flights {
-        cell.displayFlight(flights[indexPath.row])
-      }
-      return cell
-    }
-    else if indexPath.section == 1 {
+    if indexPath.section == TableSection.Content.rawValue {
+        let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as! FlightCell
+        if let flights = flights {
+            cell.displayFlight(flights[indexPath.row])
+        }
+        return cell
+    } else {
       let cell = tableView.dequeueReusableCellWithIdentifier("backgroundCell", forIndexPath: indexPath) as! BackgroundCell
-      computeDelay()
-      cell.displayFlightTableTitle(delayRatio!)
+      cell.displayFlightTableTitle(computeDelay(), terminal: selectedTerminalId, hour: currentTime)
       return cell
-    }
-    else { // indexPath.section == 0
-      return tableView.dequeueReusableCellWithIdentifier("blankCell", forIndexPath: indexPath) as! BlankCell
     }
   }
   
-  
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    if indexPath.section == 0 {
-      return UiConstants.blankCellHeight
-    }
-    else if indexPath.section == 1 {
+    if indexPath.section == TableSection.Header.rawValue {
       return UiConstants.backgroundCellHeight
-    }
-    else { // indexPath.section == 2
+    } else {
       return UiConstants.flightCellHeight
     }
   }
-
 }
