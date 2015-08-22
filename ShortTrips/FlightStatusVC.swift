@@ -19,7 +19,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   @IBOutlet var flightTable: UITableView!
   
   var selectedTerminalId: TerminalId!
-  var currentTime: Float?
+  var currentTime: Float!
   var flights: [Flight]?
   
   override func viewDidLoad() {
@@ -52,7 +52,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         self.flights = FlightMock.mockFlights()
       }
       self.flightTable.reloadData()
-      }, terminal: terminal, time: currentTime!)
+      }, terminal: terminal, time: currentTime)
   }
   
   func computeDelay() -> Double {
@@ -97,7 +97,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     } else {
       let cell = tableView.dequeueReusableCellWithIdentifier("backgroundCell", forIndexPath: indexPath) as! BackgroundCell
-      cell.displayFlightTableTitle(computeDelay(), terminal: selectedTerminalId!, hour: currentTime!)
+      cell.displayFlightTableTitle(computeDelay(), terminal: selectedTerminalId, hour: currentTime)
       return cell
     }
   }
