@@ -272,9 +272,9 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% Delayed Flights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZP-F2-kDp">
-                                                    <rect key="frame" x="244" y="76" width="112" height="15"/>
+                                                    <rect key="frame" x="200" y="76" width="200" height="15"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="112" id="7rO-vL-mSr"/>
+                                                        <constraint firstAttribute="width" constant="200" id="7rO-vL-mSr"/>
                                                         <constraint firstAttribute="height" constant="15" id="Cx2-nq-VSr"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
