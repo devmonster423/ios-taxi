@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2Tk-wi-8Cr">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="MyriadPro-Bold.otf">
@@ -261,13 +262,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="blankCell" rowHeight="64" id="lYu-K1-jvT" customClass="BlankCell" customModule="ShortTrips" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lYu-K1-jvT" id="i4X-Cz-RaR">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="backgroundCell" rowHeight="100" id="RlU-gZ-RQJ" customClass="BackgroundCell" customModule="ShortTrips" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
@@ -279,6 +273,10 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% Delayed Flights" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZP-F2-kDp">
                                                     <rect key="frame" x="244" y="76" width="112" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="112" id="7rO-vL-mSr"/>
+                                                        <constraint firstAttribute="height" constant="15" id="Cx2-nq-VSr"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="15"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -287,7 +285,9 @@
                                             <constraints>
                                                 <constraint firstItem="2Wi-hc-BTP" firstAttribute="top" secondItem="UY3-gM-msQ" secondAttribute="top" id="Ogm-Kk-AY1"/>
                                                 <constraint firstAttribute="bottom" secondItem="2Wi-hc-BTP" secondAttribute="bottom" id="WCj-el-6Wg"/>
+                                                <constraint firstAttribute="centerX" secondItem="uZP-F2-kDp" secondAttribute="centerX" id="Wj6-0C-456"/>
                                                 <constraint firstItem="2Wi-hc-BTP" firstAttribute="leading" secondItem="UY3-gM-msQ" secondAttribute="leading" id="bAT-9g-TfM"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="uZP-F2-kDp" secondAttribute="bottom" constant="1" id="kKe-8L-mxO"/>
                                                 <constraint firstAttribute="centerX" secondItem="uZP-F2-kDp" secondAttribute="centerX" id="nPs-U1-nxj"/>
                                                 <constraint firstAttribute="trailing" secondItem="2Wi-hc-BTP" secondAttribute="trailing" id="vbj-ZS-fkX"/>
                                                 <constraint firstAttribute="bottom" secondItem="uZP-F2-kDp" secondAttribute="bottom" constant="8" id="ziB-2L-Y3W"/>

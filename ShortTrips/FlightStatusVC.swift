@@ -147,7 +147,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     } else {
       let cell = tableView.dequeueReusableCellWithIdentifier("backgroundCell", forIndexPath: indexPath) as! BackgroundCell
-      cell.displayFlightTableTitle(computeDelay(), terminal: selectedTerminalId, hour: currentTime)
+      cell.displayDelay(computeDelay())
       return cell
     }
   }
