@@ -163,6 +163,7 @@
 		FA32EC061B8836B7001428B5 /* red_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red_bg.jpg; sourceTree = "<group>"; };
 		FA32EC071B8836B7001428B5 /* yellow_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yellow_bg.jpg; sourceTree = "<group>"; };
 		FA32EC0D1B883B44001428B5 /* terminal_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = terminal_bg.jpg; sourceTree = "<group>"; };
+		FA32EC0F1B885B92001428B5 /* ShortTrips.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ShortTrips.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +225,7 @@
 		C2DFE5C41B56D2CB0090B55F /* ShortTrips */ = {
 			isa = PBXGroup;
 			children = (
+				FA32EC0F1B885B92001428B5 /* ShortTrips.entitlements */,
 				C2DFE5C71B56D2CB0090B55F /* AppDelegate.swift */,
 				FA32EC031B88362F001428B5 /* Resources */,
 				E1A2EBA31B6C2AA400C27EB2 /* Controllers */,
@@ -419,6 +421,12 @@
 				TargetAttributes = {
 					C2DFE5C11B56D2CB0090B55F = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = HLT4EP89K7;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+						};
 					};
 					C2DFE5D61B56D2CB0090B55F = {
 						CreatedOnToolsVersion = 6.4;
@@ -718,9 +726,12 @@
 			baseConfigurationReference = D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ShortTrips/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -729,9 +740,12 @@
 			baseConfigurationReference = 6C387AE349CA07C52915EF9A /* Pods-ShortTrips.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ShortTrips/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "2af594e2-fdf3-44f8-9f2a-0a7c9c0e89f3";
 			};
 			name = Release;
 		};
