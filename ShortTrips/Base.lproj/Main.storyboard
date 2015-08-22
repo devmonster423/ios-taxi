@@ -54,7 +54,7 @@
                             </imageView>
                             <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jm-fW-d05" userLabel="ColorView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="432"/>
-                                <color key="backgroundColor" red="0.29322278579636035" green="0.67974668560606055" blue="0.24380592543437518" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAYBE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEc-He-imK">
                                 <rect key="frame" x="25" y="189" width="200" height="80"/>
@@ -67,10 +67,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Holding Lot Capacity is almost full" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bV8-UG-Zoj" userLabel="Explanation">
-                                <rect key="frame" x="25" y="347" width="200" height="80"/>
+                                <rect key="frame" x="25" y="347" width="270" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="e03-Bs-Rm5"/>
-                                    <constraint firstAttribute="width" constant="200" id="mzq-G4-6W7"/>
+                                    <constraint firstAttribute="width" constant="270" id="mzq-G4-6W7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="20"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

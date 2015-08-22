@@ -9,6 +9,24 @@
 import UIKit
 
 class UiConstants {
+  class var statusColorGreen: UIColor {
+    return UIColor(red: 21/255.0,
+      green: 155/255.0,
+      blue: 32/255.0,
+      alpha: 1.0)
+  }
+  class var statusColorYellow: UIColor {
+    return UIColor(red: 233/255.0,
+      green: 181/255.0,
+      blue: 46/255.0,
+      alpha: 1.0)
+  }
+  class var statusColorRed: UIColor {
+    return UIColor(red: 242/255.0,
+      green: 40/255.0,
+      blue: 41/255.0,
+      alpha: 1.0)
+  }
   class var statusCornerRadius: CGFloat { return 15.0 }
   class var statusBorderWidth: CGFloat { return 1.0 }
   class var backgroundCellHeight: CGFloat { return 200.0 }
