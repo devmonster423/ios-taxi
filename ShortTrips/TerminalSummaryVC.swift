@@ -37,13 +37,15 @@ class TerminalSummaryVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+    navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .Plain, target: self, action: "goBack")
+    navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor(CGColor: UiConstants.SfoColorWithAlpha)!), forBarMetrics: .Default)
   }
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
     configureTitle()
-    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor(CGColor: UiConstants.SfoColorWithAlpha)!), forBarMetrics: .Default)
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -57,6 +59,10 @@ class TerminalSummaryVC: UIViewController {
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     UpdateTimer.stop()
+  }
+  
+  func goBack() {
+    navigationController?.popViewControllerAnimated(true)
   }
   
   func configureTitle() {
