@@ -218,7 +218,7 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Terminal Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="de4-5Z-1iH">
-                                <rect key="frame" x="16" y="110" width="166" height="17"/>
+                                <rect key="frame" x="16" y="110" width="165.5" height="17"/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -233,14 +233,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terminal_1" translatesAutoresizingMaskIntoConstraints="NO" id="UJr-5r-Lya">
-                                <rect key="frame" x="25" y="164" width="140" height="40"/>
+                                <rect key="frame" x="20" y="164" width="130" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Rhk-ni-0WM"/>
-                                    <constraint firstAttribute="width" constant="140" id="Xk0-6e-xb7"/>
+                                    <constraint firstAttribute="width" constant="130" id="Xk0-6e-xb7"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terminal_2" translatesAutoresizingMaskIntoConstraints="NO" id="951-3t-CoQ">
-                                <rect key="frame" x="435" y="164" width="140" height="40"/>
+                                <rect key="frame" x="450" y="164" width="130" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="T4p-WD-MJ6"/>
                                     <constraint firstAttribute="height" constant="45" id="pf6-m6-6kY"/>
@@ -253,7 +253,7 @@
                                 </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terminal_3" translatesAutoresizingMaskIntoConstraints="NO" id="aDa-AP-HT1">
-                                <rect key="frame" x="25" y="335" width="140" height="40"/>
+                                <rect key="frame" x="20" y="304" width="130" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="SCC-O8-oHy"/>
                                     <constraint firstAttribute="height" constant="45" id="glQ-AK-d6l"/>
@@ -266,7 +266,7 @@
                                 </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terminal_intl" translatesAutoresizingMaskIntoConstraints="NO" id="ppk-vM-vqI">
-                                <rect key="frame" x="435" y="335" width="140" height="40"/>
+                                <rect key="frame" x="450" y="304" width="130" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="hgK-CW-h0l"/>
                                     <constraint firstAttribute="width" constant="150" id="jc0-bM-ggJ"/>
@@ -279,7 +279,7 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ON TIME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WDu-lW-Tmr" userLabel="Terminal 1 ON TIME">
-                                <rect key="frame" x="85" y="218" width="90" height="21"/>
+                                <rect key="frame" x="60" y="218" width="90" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="EkV-Cv-xtG"/>
                                     <constraint firstAttribute="width" constant="90" id="sLv-pz-Pnf"/>
@@ -289,24 +289,24 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_circle" translatesAutoresizingMaskIntoConstraints="NO" id="hdh-ga-SBs" userLabel="green_circle 1">
-                                <rect key="frame" x="25" y="224" width="10" height="10"/>
+                                <rect key="frame" x="10" y="224" width="10" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="Q2g-PB-2kj"/>
                                     <constraint firstAttribute="width" constant="10" id="dSX-H7-DFm"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrH-xE-onI" userLabel="Terminal 1 ontime number">
-                                <rect key="frame" x="40" y="218" width="40" height="21"/>
+                                <rect key="frame" x="25" y="218" width="30" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Nf0-cp-Isg"/>
-                                    <constraint firstAttribute="width" constant="40" id="z4r-qT-DyH"/>
+                                    <constraint firstAttribute="width" constant="30" id="z4r-qT-DyH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DELAYED" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMo-KY-Lol" userLabel="Terminal 1 DELAYED">
-                                <rect key="frame" x="85" y="247" width="90" height="21"/>
+                                <rect key="frame" x="60" y="247" width="90" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="ovp-W5-kUb"/>
                                     <constraint firstAttribute="width" constant="90" id="x5X-kl-SHf"/>
@@ -316,42 +316,54 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_circle" translatesAutoresizingMaskIntoConstraints="NO" id="eGv-Dy-kWK" userLabel="red_circle 1">
-                                <rect key="frame" x="25" y="252" width="10" height="10"/>
+                                <rect key="frame" x="10" y="252" width="10" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="10" id="0t2-3L-TEl"/>
                                     <constraint firstAttribute="height" constant="10" id="jNV-rP-4o2"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtn-vI-PIt" userLabel="Terminal 1 delayed number">
-                                <rect key="frame" x="40" y="247" width="40" height="21"/>
+                                <rect key="frame" x="25" y="247" width="30" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Sz8-ze-aEX"/>
                                     <constraint firstAttribute="height" constant="21" id="dDD-M4-TBm"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Sz8-ze-aEX"/>
+                                        <exclude reference="dDD-M4-TBm"/>
+                                    </mask>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ON TIME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzb-BD-znp" userLabel="Terminal 2 ON TIME">
-                                <rect key="frame" x="493" y="218" width="90" height="21"/>
+                                <rect key="frame" x="500" y="218" width="90" height="21"/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="22"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_circle" translatesAutoresizingMaskIntoConstraints="NO" id="N9N-N9-bYA" userLabel="green_circle 2">
-                                <rect key="frame" x="435" y="225" width="8" height="8"/>
+                                <rect key="frame" x="450" y="224" width="10" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="8" id="4fr-Tt-zb3"/>
                                     <constraint firstAttribute="height" constant="8" id="mFs-yw-pUR"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="4fr-Tt-zb3"/>
+                                        <exclude reference="mFs-yw-pUR"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aL-Kr-zfb" userLabel="Terminal 2 ontime number">
-                                <rect key="frame" x="448" y="218" width="40" height="21"/>
+                                <rect key="frame" x="465" y="218" width="30" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="VYB-uM-bjE"/>
                                     <constraint firstAttribute="width" constant="20" id="wPb-TR-qg7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -362,7 +374,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DELAYED" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Juj-fo-rcq" userLabel="Terminal 2 DELAYED">
-                                <rect key="frame" x="494" y="247" width="90" height="21"/>
+                                <rect key="frame" x="500" y="247" width="90" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="Hm2-8r-rKs"/>
                                     <constraint firstAttribute="height" constant="21" id="nKA-er-oyo"/>
@@ -378,19 +390,19 @@
                                 </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_circle" translatesAutoresizingMaskIntoConstraints="NO" id="7f7-0P-qpT" userLabel="red_circle 2">
-                                <rect key="frame" x="434" y="252" width="10" height="10"/>
+                                <rect key="frame" x="450" y="252" width="10" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="10" id="erJ-Kt-6JK"/>
                                     <constraint firstAttribute="width" constant="10" id="kUY-4a-Ur9"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYB-sO-gZb" userLabel="Terminal 2 delayed number">
-                                <rect key="frame" x="449" y="247" width="40" height="21"/>
+                                <rect key="frame" x="465" y="247" width="30" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="CPk-xl-FUA"/>
                                     <constraint firstAttribute="width" constant="20" id="pkr-Dj-vqs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -401,7 +413,7 @@
                                 </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_circle" translatesAutoresizingMaskIntoConstraints="NO" id="Flt-Aw-K7c" userLabel="green_circle 3">
-                                <rect key="frame" x="25" y="395" width="10" height="10"/>
+                                <rect key="frame" x="10" y="364" width="10" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="8" id="GF0-cH-Jlj"/>
                                     <constraint firstAttribute="height" constant="8" id="TyA-1T-dqH"/>
@@ -414,7 +426,7 @@
                                 </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_circle" translatesAutoresizingMaskIntoConstraints="NO" id="lKs-XK-4o3" userLabel="red_circle 3">
-                                <rect key="frame" x="25" y="423" width="10" height="10"/>
+                                <rect key="frame" x="10" y="392" width="10" height="10"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="8" id="SXr-H7-QqY"/>
                                     <constraint firstAttribute="width" constant="8" id="kbG-SJ-W5x"/>
@@ -427,7 +439,7 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ON TIME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYh-Ge-VB9" userLabel="Terminal 3 ON TIME">
-                                <rect key="frame" x="85" y="389" width="90" height="21"/>
+                                <rect key="frame" x="60" y="358" width="90" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="ElE-lV-83Y"/>
                                     <constraint firstAttribute="height" constant="21" id="LLT-WW-p2Q"/>
@@ -443,12 +455,12 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sg3-Jz-YUn" userLabel="Terminal 3 ontime number">
-                                <rect key="frame" x="40" y="389" width="40" height="21"/>
+                                <rect key="frame" x="25" y="358" width="30" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="5oy-kO-Qa4"/>
                                     <constraint firstAttribute="height" constant="21" id="OCT-NJ-biv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -459,7 +471,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DELAYED" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWr-Pr-7PL" userLabel="Terminal 3 DELAYED">
-                                <rect key="frame" x="85" y="417" width="90" height="21"/>
+                                <rect key="frame" x="60" y="386" width="90" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="6A7-t5-fb4"/>
                                     <constraint firstAttribute="width" constant="70" id="vTP-5y-kXJ"/>
@@ -475,12 +487,12 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N96-ah-ZfX" userLabel="Terminal 3 delayed number">
-                                <rect key="frame" x="40" y="417" width="40" height="21"/>
+                                <rect key="frame" x="25" y="386" width="30" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="VZb-gf-XUV"/>
                                     <constraint firstAttribute="width" constant="20" id="bhO-IQ-RMm"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -491,14 +503,14 @@
                                 </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_circle" translatesAutoresizingMaskIntoConstraints="NO" id="I6N-yy-eHJ" userLabel="red_circle 4">
-                                <rect key="frame" x="435" y="417" width="8" height="8"/>
+                                <rect key="frame" x="450" y="393" width="8" height="8"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="8" id="R2D-WW-tMT"/>
                                     <constraint firstAttribute="width" constant="8" id="nx1-UL-qcP"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ON TIME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cA9-lw-aSZ" userLabel="Terminal 4 ON TIME">
-                                <rect key="frame" x="493" y="389" width="90" height="21"/>
+                                <rect key="frame" x="500" y="358" width="90" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="BmQ-wp-QJE"/>
                                     <constraint firstAttribute="height" constant="21" id="xFn-LN-1XU"/>
@@ -514,12 +526,12 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yq0-Bz-Ysi" userLabel="Terminal 4 ontime number">
-                                <rect key="frame" x="449" y="389" width="40" height="21"/>
+                                <rect key="frame" x="465" y="358" width="30" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="b4M-rr-pLf"/>
                                     <constraint firstAttribute="height" constant="21" id="ygM-5l-Rge"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -530,7 +542,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DELAYED" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00n-jn-rGb" userLabel="Terminal 4 DELAYED">
-                                <rect key="frame" x="494" y="411" width="90" height="21"/>
+                                <rect key="frame" x="500" y="387" width="90" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="UJg-Bb-r9Q"/>
                                     <constraint firstAttribute="width" constant="70" id="hGf-kQ-B5T"/>
@@ -546,12 +558,12 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAd-Hb-2Ho" userLabel="Terminal 4 delayed number">
-                                <rect key="frame" x="449" y="411" width="40" height="21"/>
+                                <rect key="frame" x="465" y="387" width="30" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="5PI-0F-z6l"/>
                                     <constraint firstAttribute="height" constant="21" id="EG4-O1-bdv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="27"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -562,14 +574,14 @@
                                 </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_circle" translatesAutoresizingMaskIntoConstraints="NO" id="TBm-41-PAb" userLabel="green_circle 4">
-                                <rect key="frame" x="435" y="395" width="8" height="8"/>
+                                <rect key="frame" x="450" y="364" width="8" height="8"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="8" id="9xu-qd-kUC"/>
                                     <constraint firstAttribute="width" constant="8" id="cqy-Xt-6SK"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5g-j8-2ye" userLabel="Terminal 1">
-                                <rect key="frame" x="25" y="153" width="140" height="115"/>
+                                <rect key="frame" x="20" y="153" width="130" height="115"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -578,7 +590,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28c-c4-lU7" userLabel="Terminal 3">
-                                <rect key="frame" x="25" y="335" width="140" height="30"/>
+                                <rect key="frame" x="20" y="304" width="130" height="30"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -587,7 +599,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUT-oA-a3k" userLabel="Terminal 2">
-                                <rect key="frame" x="435" y="164" width="140" height="104"/>
+                                <rect key="frame" x="450" y="164" width="130" height="104"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -596,7 +608,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vli-TV-oiw" userLabel="Terminal 4">
-                                <rect key="frame" x="435" y="335" width="140" height="97"/>
+                                <rect key="frame" x="450" y="304" width="130" height="104"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -621,6 +633,7 @@
                             <constraint firstItem="UJr-5r-Lya" firstAttribute="width" secondItem="aDa-AP-HT1" secondAttribute="width" id="4hD-XP-Ig4"/>
                             <constraint firstItem="TBm-41-PAb" firstAttribute="leading" secondItem="ppk-vM-vqI" secondAttribute="leading" id="5LP-VS-19C"/>
                             <constraint firstItem="sg3-Jz-YUn" firstAttribute="width" secondItem="1aL-Kr-zfb" secondAttribute="width" id="5Sm-oF-uKs"/>
+                            <constraint firstItem="xtn-vI-PIt" firstAttribute="height" secondItem="QrH-xE-onI" secondAttribute="height" id="5UD-lX-zM7"/>
                             <constraint firstItem="NMo-KY-Lol" firstAttribute="centerY" secondItem="xtn-vI-PIt" secondAttribute="centerY" id="5kz-aO-Syn"/>
                             <constraint firstItem="ppk-vM-vqI" firstAttribute="width" secondItem="aDa-AP-HT1" secondAttribute="width" id="63y-pm-r9g"/>
                             <constraint firstItem="FYh-Ge-VB9" firstAttribute="centerX" secondItem="cA9-lw-aSZ" secondAttribute="centerX" constant="-389" id="7JO-BB-n1r"/>
@@ -630,9 +643,10 @@
                             <constraint firstItem="N9N-N9-bYA" firstAttribute="centerY" secondItem="hdh-ga-SBs" secondAttribute="centerY" id="8uc-VE-fm8"/>
                             <constraint firstItem="Yq0-Bz-Ysi" firstAttribute="width" secondItem="sg3-Jz-YUn" secondAttribute="width" id="97b-Uv-06o"/>
                             <constraint firstItem="Juj-fo-rcq" firstAttribute="centerY" secondItem="HYB-sO-gZb" secondAttribute="centerY" id="9At-rH-rCf"/>
+                            <constraint firstItem="hdh-ga-SBs" firstAttribute="width" secondItem="N9N-N9-bYA" secondAttribute="width" id="9Y3-P3-GHb"/>
                             <constraint firstItem="bWr-Pr-7PL" firstAttribute="bottom" secondItem="28c-c4-lU7" secondAttribute="bottom" id="ASs-Ir-HgX"/>
                             <constraint firstItem="QrH-xE-onI" firstAttribute="leading" secondItem="hdh-ga-SBs" secondAttribute="trailing" constant="5" id="AZP-eO-CYA"/>
-                            <constraint firstItem="aDa-AP-HT1" firstAttribute="top" secondItem="UJr-5r-Lya" secondAttribute="bottom" constant="131" id="Aqt-DR-Pfh"/>
+                            <constraint firstItem="aDa-AP-HT1" firstAttribute="top" secondItem="UJr-5r-Lya" secondAttribute="bottom" constant="100" id="Aqt-DR-Pfh"/>
                             <constraint firstItem="Juj-fo-rcq" firstAttribute="width" secondItem="lzb-BD-znp" secondAttribute="width" id="BLJ-ZE-7BV"/>
                             <constraint firstItem="FYh-Ge-VB9" firstAttribute="height" secondItem="cA9-lw-aSZ" secondAttribute="height" id="BS9-Bf-NLk"/>
                             <constraint firstItem="aDa-AP-HT1" firstAttribute="leading" secondItem="28c-c4-lU7" secondAttribute="leading" id="BWb-Jx-RX0"/>
@@ -640,14 +654,15 @@
                             <constraint firstItem="hdh-ga-SBs" firstAttribute="top" secondItem="UJr-5r-Lya" secondAttribute="bottom" constant="20" id="C7O-3P-ZbW"/>
                             <constraint firstItem="Juj-fo-rcq" firstAttribute="centerX" secondItem="00n-jn-rGb" secondAttribute="centerX" id="Chq-DS-VzM"/>
                             <constraint firstItem="4h1-gP-bus" firstAttribute="leading" secondItem="JFx-qv-nSk" secondAttribute="leading" constant="16" id="Cy1-vK-kRQ"/>
-                            <constraint firstItem="hdh-ga-SBs" firstAttribute="leading" secondItem="UJr-5r-Lya" secondAttribute="leading" id="DPp-ri-iPN"/>
+                            <constraint firstItem="hdh-ga-SBs" firstAttribute="leading" secondItem="UJr-5r-Lya" secondAttribute="leading" constant="-10" id="DPp-ri-iPN"/>
                             <constraint firstItem="ADQ-xY-EeU" firstAttribute="top" secondItem="4Ep-pw-AcE" secondAttribute="bottom" id="E0c-6k-vMb"/>
                             <constraint firstItem="sg3-Jz-YUn" firstAttribute="height" secondItem="1aL-Kr-zfb" secondAttribute="height" id="Ec6-gC-qbl"/>
                             <constraint firstItem="eGv-Dy-kWK" firstAttribute="centerX" secondItem="hdh-ga-SBs" secondAttribute="centerX" id="Eh8-nS-3HF"/>
-                            <constraint firstAttribute="trailing" secondItem="951-3t-CoQ" secondAttribute="trailing" constant="25" id="F2Y-0z-EXF"/>
+                            <constraint firstAttribute="trailing" secondItem="951-3t-CoQ" secondAttribute="trailing" constant="20" id="F2Y-0z-EXF"/>
                             <constraint firstItem="WDu-lW-Tmr" firstAttribute="height" secondItem="lzb-BD-znp" secondAttribute="height" id="FG4-hL-cZe"/>
                             <constraint firstItem="bWr-Pr-7PL" firstAttribute="width" secondItem="00n-jn-rGb" secondAttribute="width" id="FRT-C4-52d"/>
                             <constraint firstItem="I6N-yy-eHJ" firstAttribute="top" secondItem="TBm-41-PAb" secondAttribute="bottom" constant="14" id="G4W-bQ-Vmz"/>
+                            <constraint firstItem="I6N-yy-eHJ" firstAttribute="centerY" secondItem="lKs-XK-4o3" secondAttribute="centerY" id="GYO-Of-J7i"/>
                             <constraint firstItem="bWr-Pr-7PL" firstAttribute="width" secondItem="FYh-Ge-VB9" secondAttribute="width" id="GYR-mV-8TX"/>
                             <constraint firstAttribute="trailing" secondItem="4h1-gP-bus" secondAttribute="trailing" constant="16" id="Goz-79-6LG"/>
                             <constraint firstItem="de4-5Z-1iH" firstAttribute="leading" secondItem="JFx-qv-nSk" secondAttribute="leading" constant="16" id="GqH-ev-byj"/>
@@ -665,6 +680,7 @@
                             <constraint firstItem="eGv-Dy-kWK" firstAttribute="top" secondItem="hdh-ga-SBs" secondAttribute="bottom" constant="18" id="MNv-MN-MJO"/>
                             <constraint firstItem="4h1-gP-bus" firstAttribute="top" secondItem="LTp-WV-fHN" secondAttribute="bottom" constant="8" id="NCA-NX-DYf"/>
                             <constraint firstItem="N9N-N9-bYA" firstAttribute="centerY" secondItem="1aL-Kr-zfb" secondAttribute="centerY" id="Nt2-K1-jRZ"/>
+                            <constraint firstItem="xtn-vI-PIt" firstAttribute="width" secondItem="QrH-xE-onI" secondAttribute="width" id="OVE-q0-mfP"/>
                             <constraint firstItem="cA9-lw-aSZ" firstAttribute="centerY" secondItem="Yq0-Bz-Ysi" secondAttribute="centerY" id="Otm-R1-RxH"/>
                             <constraint firstItem="cA9-lw-aSZ" firstAttribute="leading" secondItem="Yq0-Bz-Ysi" secondAttribute="trailing" constant="5" id="Pf3-2H-RkR"/>
                             <constraint firstItem="lzb-BD-znp" firstAttribute="centerX" secondItem="cA9-lw-aSZ" secondAttribute="centerX" id="RB7-cV-vMn"/>
@@ -674,7 +690,7 @@
                             <constraint firstItem="HYB-sO-gZb" firstAttribute="leading" secondItem="7f7-0P-qpT" secondAttribute="trailing" constant="5" id="U7u-bF-UmF"/>
                             <constraint firstItem="Juj-fo-rcq" firstAttribute="leading" secondItem="HYB-sO-gZb" secondAttribute="trailing" constant="5" id="UwX-UA-7KV"/>
                             <constraint firstItem="bWr-Pr-7PL" firstAttribute="leading" secondItem="N96-ah-ZfX" secondAttribute="trailing" constant="5" id="VBi-gc-GI3"/>
-                            <constraint firstItem="UJr-5r-Lya" firstAttribute="leading" secondItem="JFx-qv-nSk" secondAttribute="leadingMargin" constant="9" id="WaW-d2-MQ9"/>
+                            <constraint firstItem="UJr-5r-Lya" firstAttribute="leading" secondItem="JFx-qv-nSk" secondAttribute="leading" constant="20" id="WaW-d2-MQ9"/>
                             <constraint firstItem="7f7-0P-qpT" firstAttribute="height" secondItem="Flt-Aw-K7c" secondAttribute="height" id="XRc-LO-17i"/>
                             <constraint firstAttribute="trailing" secondItem="4Ep-pw-AcE" secondAttribute="trailing" id="XbN-4E-X6q"/>
                             <constraint firstItem="Flt-Aw-K7c" firstAttribute="height" secondItem="lKs-XK-4o3" secondAttribute="height" id="YXY-0Z-Gno"/>
@@ -726,6 +742,7 @@
                             <constraint firstItem="xtn-vI-PIt" firstAttribute="width" secondItem="1aL-Kr-zfb" secondAttribute="width" id="t6T-Ko-ypb"/>
                             <constraint firstItem="xtn-vI-PIt" firstAttribute="leading" secondItem="eGv-Dy-kWK" secondAttribute="trailing" constant="5" id="uFc-dG-guY"/>
                             <constraint firstItem="UJr-5r-Lya" firstAttribute="top" secondItem="xlq-1I-Qog" secondAttribute="bottom" constant="100" id="ug0-wp-xOB"/>
+                            <constraint firstItem="hdh-ga-SBs" firstAttribute="height" secondItem="N9N-N9-bYA" secondAttribute="height" id="ur5-BN-adb"/>
                             <constraint firstItem="lKs-XK-4o3" firstAttribute="centerX" secondItem="Flt-Aw-K7c" secondAttribute="centerX" id="ure-8J-0ci"/>
                             <constraint firstItem="bWr-Pr-7PL" firstAttribute="height" secondItem="00n-jn-rGb" secondAttribute="height" id="v8y-iC-Ut3"/>
                             <constraint firstItem="bWr-Pr-7PL" firstAttribute="height" secondItem="FYh-Ge-VB9" secondAttribute="height" id="vWr-fA-Ru8"/>
@@ -751,6 +768,7 @@
                                 <exclude reference="4LI-8c-0dw"/>
                                 <exclude reference="Ll8-dR-LEg"/>
                                 <exclude reference="bA2-qB-waO"/>
+                                <exclude reference="G4W-bQ-Vmz"/>
                                 <exclude reference="Pf3-2H-RkR"/>
                                 <exclude reference="rQ7-dV-nZx"/>
                             </mask>
