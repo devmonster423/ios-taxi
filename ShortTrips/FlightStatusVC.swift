@@ -28,6 +28,11 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     super.viewDidLoad()
     flightTable.dataSource = self
     flightTable.delegate = self
+    
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+    navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .Plain, target: self, action: "goBack")
+    navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor(CGColor: UiConstants.SfoColorWithAlpha)!), forBarMetrics: .Default)
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -37,13 +42,15 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateFlightTable)
     navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: UiConstants.navControllerFont, size: UiConstants.navControllerFontSizeSmall)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
     setupTitle()
-    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor(CGColor: UiConstants.SfoColorWithAlpha)!), forBarMetrics: .Default)
   }
   
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
-    navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: UiConstants.navControllerFont, size: UiConstants.navControllerFontSizeNormal)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
     UpdateTimer.stop()
+  }
+
+  func goBack() {
+    navigationController?.popViewControllerAnimated(true)
   }
   
   func setupTitle() {
