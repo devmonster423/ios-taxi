@@ -55,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ldF-jZ-ON6" userLabel="Background">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="432"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="422"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="388" id="nXR-HA-bzS"/>
@@ -67,11 +67,11 @@
                                 </variation>
                             </imageView>
                             <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kej-yy-lQM">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="432"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="422"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAYBE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEc-He-imK">
-                                <rect key="frame" x="25" y="179" width="200" height="80"/>
+                                <rect key="frame" x="25" y="169" width="200" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="led-6H-pjo"/>
                                     <constraint firstAttribute="width" constant="200" id="n0Z-5B-BqF"/>
@@ -81,7 +81,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lot Capacity is almost full" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bV8-UG-Zoj" userLabel="Explanation">
-                                <rect key="frame" x="25" y="347" width="270" height="80"/>
+                                <rect key="frame" x="25" y="337" width="270" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="e03-Bs-Rm5"/>
                                     <constraint firstAttribute="width" constant="270" id="mzq-G4-6W7"/>
@@ -91,7 +91,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Come to SFO? " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNX-lR-U2j" userLabel="Come to SFO?">
-                                <rect key="frame" x="25" y="246" width="270" height="80"/>
+                                <rect key="frame" x="25" y="236" width="270" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="CTO-NF-m0v"/>
                                     <constraint firstAttribute="width" constant="270" id="n3f-kE-6zq"/>
@@ -103,14 +103,14 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QLd-nK-gsb">
                                 <rect key="frame" x="16" y="578" width="568" height="2"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST UPDATED 3 MINUTES AGO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8X4-6C-6wk">
-                                <rect key="frame" x="225" y="559" width="151" height="11"/>
-                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="11"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UPDATED &lt;1 MINUTE AGO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8X4-6C-6wk">
+                                <rect key="frame" x="180" y="549" width="240" height="21"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="21"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgR-Pk-a6K">
-                                <rect key="frame" x="200" y="457" width="200" height="80"/>
+                                <rect key="frame" x="200" y="447" width="200" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="2ZO-z7-59V"/>
@@ -132,7 +132,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zm7-Vs-kht" userLabel="Separator">
-                                <rect key="frame" x="25" y="331" width="200" height="1"/>
+                                <rect key="frame" x="25" y="321" width="200" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="1Jr-Au-zKZ"/>
@@ -218,7 +218,7 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Terminal Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="de4-5Z-1iH">
-                                <rect key="frame" x="16" y="110" width="165.5" height="17"/>
+                                <rect key="frame" x="16" y="110" width="166" height="17"/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -226,9 +226,9 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4h1-gP-bus">
                                 <rect key="frame" x="16" y="578" width="568" height="2"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST UPDATED 3 MINUTES AGO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTp-WV-fHN">
-                                <rect key="frame" x="225" y="559" width="151" height="11"/>
-                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="11"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UPDATED &lt;1 MINUTE AGO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTp-WV-fHN">
+                                <rect key="frame" x="180" y="549" width="240" height="21"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -810,8 +810,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST UPDATED 3 MINUTES AGO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djl-2a-Za2">
-                                <rect key="frame" x="225" y="559" width="151" height="11"/>
-                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="11"/>
+                                <rect key="frame" x="156" y="549" width="288" height="21"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Semibold" family="Myriad Pro" pointSize="21"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -825,7 +825,7 @@
                                 <rect key="frame" x="16" y="578" width="568" height="2"/>
                             </progressView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="52q-cI-A5j">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="541"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="backgroundCell" rowHeight="199" id="RlU-gZ-RQJ" customClass="BackgroundCell" customModule="ShortTrips" customModuleProvider="target">
