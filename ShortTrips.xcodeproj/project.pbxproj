@@ -731,9 +731,11 @@
 			baseConfigurationReference = D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ShortTrips/ShortTrips.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ShortTrips/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -745,12 +747,14 @@
 			baseConfigurationReference = 6C387AE349CA07C52915EF9A /* Pods-ShortTrips.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = ShortTrips/ShortTrips.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Exygy (HLT4EP89K7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Exygy (HLT4EP89K7)";
 				INFOPLIST_FILE = ShortTrips/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2af594e2-fdf3-44f8-9f2a-0a7c9c0e89f3";
+				PROVISIONING_PROFILE = "858c8a1b-85b8-4958-a9e6-50100dd3a238";
 			};
 			name = Release;
 		};
