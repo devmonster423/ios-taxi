@@ -34,13 +34,13 @@ class SfoInfoRequester {
     Alamofire.request(.GET, baseUrl + lotStatusUrl, parameters: nil).responseObject(response)
   }
   
-  class func requestTerminals(response: TerminalResponseClosure, hour: Float) {
+  class func requestTerminals(response: TerminalResponseClosure, hour: Int) {
     let params = ["hour": hour]
     Alamofire.request(.GET, baseUrl + terminalUrl, parameters: params).responseArray(response)
   }
   
-  class func requestFlights(response: FlightResponseClosure, terminal: Int, time: Float) {
-    let params: [String: String] = ["terminal_id": "\(terminal)", "hour" : "\(time)"]
+  class func requestFlights(response: FlightResponseClosure, terminal: Int, hour: Int) {
+    let params: [String: String] = ["terminal_id": "\(terminal)", "hour" : "\(hour)"]
     Alamofire.request(.GET, baseUrl + flightUrl, parameters: params).responseArray(response)
   }
 }

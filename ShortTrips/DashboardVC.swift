@@ -27,7 +27,6 @@ class DashboardVC: UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    
     navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
     navigationController?.navigationBar.shadowImage = UIImage()
     requestLotStatus()
