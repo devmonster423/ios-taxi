@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F25a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2Tk-wi-8Cr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2Tk-wi-8Cr">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -628,10 +628,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2H3-fn-7qt">
-                                        <rect key="frame" x="8" y="33" width="45" height="45"/>
+                                        <rect key="frame" x="8" y="16" width="80" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="45" id="IYI-AZ-bVm"/>
-                                            <constraint firstAttribute="height" constant="45" id="Ue1-4p-0jS"/>
+                                            <constraint firstAttribute="width" constant="80" id="IYI-AZ-bVm"/>
+                                            <constraint firstAttribute="height" constant="80" id="Ue1-4p-0jS"/>
                                         </constraints>
                                         <state key="normal" image="minus">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -641,10 +641,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVX-XI-u4r">
-                                        <rect key="frame" x="547" y="33" width="45" height="45"/>
+                                        <rect key="frame" x="512" y="16" width="80" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="45" id="3hf-uv-a95"/>
-                                            <constraint firstAttribute="height" constant="45" id="np4-mv-hQn"/>
+                                            <constraint firstAttribute="width" constant="80" id="3hf-uv-a95"/>
+                                            <constraint firstAttribute="height" constant="80" id="np4-mv-hQn"/>
                                         </constraints>
                                         <state key="normal" image="plus">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
