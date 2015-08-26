@@ -45,7 +45,7 @@ class TerminalSummaryVC: UIViewController {
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .Plain, target: self, action: "goBack")
     navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor(CGColor: UiConstants.SfoColorWithAlpha)!), forBarMetrics: .Default)
+    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UiConstants.SfoColorWithAlpha), forBarMetrics: .Default)
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -56,6 +56,7 @@ class TerminalSummaryVC: UIViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     currentHour = 0
+    resetHourButtons()
     updateHourPickerLabels()
     updateTerminalTable()
     UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateTerminalTable)
@@ -68,6 +69,13 @@ class TerminalSummaryVC: UIViewController {
   
   func goBack() {
     navigationController?.popViewControllerAnimated(true)
+  }
+  
+  private func resetHourButtons() {
+    increaseHourButton.enabled = true
+    increaseHourButton.alpha = 1.0
+    decreaseHourButton.enabled = true
+    decreaseHourButton.alpha = 1.0
   }
   
   private func configureTitle() {

@@ -27,24 +27,43 @@ class UiConstants {
       blue: 41/255.0,
       alpha: 1.0)
   }
-  class var SfoColor: CGColor {
-    return CGColorCreate(CGColorSpaceCreateDeviceRGB(), [74.0 / 255.0, 144.0 / 255.0, 255.0 / 255.0, 1.0])
+  class var SfoColor: UIColor {
+    return UIColor(red: 74.0/255.0,
+      green: 144.0/255.0,
+      blue: 255.0/255.0,
+      alpha: 1.0)
   }
-  class var SfoColorWithAlpha: CGColor {
-    return CGColorCreate(CGColorSpaceCreateDeviceRGB(), [74.0 / 255.0, 144.0 / 255.0, 255.0 / 255.0, 0.5])
+  class var SfoColorWithAlpha: UIColor {
+    return UIColor(red: 74.0/255.0,
+      green: 144.0/255.0,
+      blue: 255.0/255.0,
+      alpha: 0.5)
   }
-  class var onTimeColor: CGColor {
-    return CGColorCreate(CGColorSpaceCreateDeviceRGB(), [74.0 / 255.0, 144.0 / 255.0, 255.0 / 255.0, 1.0])
+  class var onTimeColor: UIColor {
+    return UIColor(red: 74.0/255.0,
+      green: 144.0/255.0,
+      blue: 255.0/255.0,
+      alpha: 1.0)
   }
-  class var delayedColor: CGColor {
-    return CGColorCreate(CGColorSpaceCreateDeviceRGB(), [208.0 / 255.0, 2.0 / 255.0, 27.0 / 255.0, 1.0])
+  class var delayedColor: UIColor {
+    return UIColor(red: 208.0/255.0,
+      green: 2.0/255.0,
+      blue: 27.0/255.0,
+      alpha: 1.0)
   }
-  class var landingColor: CGColor {
-    return CGColorCreate(CGColorSpaceCreateDeviceRGB(), [126.0 / 255.0, 211.0 / 255.0, 33.0 / 255.0, 1.0])
+  class var landingColor: UIColor {
+    return UIColor(red: 126.0/255.0,
+      green: 211.0/255.0,
+      blue: 33.0/255.0,
+      alpha: 1.0)
   }
-  class var landedColor: CGColor {
-    return CGColorCreate(CGColorSpaceCreateDeviceRGB(), [74.0 / 255.0, 74.0 / 255.0, 74.0 / 255.0, 1.0])
+  class var landedColor: UIColor {
+    return UIColor(red: 74.0/255.0,
+      green: 74.0/255.0,
+      blue: 74.0/255.0,
+      alpha: 1.0)
   }
+
   class var statusCornerRadius: CGFloat { return 15.0 }
   class var statusBorderWidth: CGFloat { return 1.0 }
   class var fadeDuration: NSTimeInterval { return 1.0 }

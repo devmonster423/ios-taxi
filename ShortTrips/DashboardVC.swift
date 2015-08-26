@@ -21,7 +21,7 @@ class DashboardVC: UIViewController {
     super.viewDidLoad()
     statusButton.layer.cornerRadius = UiConstants.statusCornerRadius
     statusButton.layer.borderWidth = UiConstants.statusBorderWidth
-    statusButton.layer.borderColor = UiConstants.SfoColor
+    statusButton.layer.borderColor = UiConstants.SfoColor.CGColor
     navigationItem.title = "";
   }
   
