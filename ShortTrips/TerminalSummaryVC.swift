@@ -14,6 +14,7 @@ class TerminalSummaryVC: UIViewController {
   var selectedTerminalId: TerminalId?
   var flightStatusVC: FlightStatusVC?
   var currentHour: Int = 0
+  var firstAppearance = true
   static let minHour = -2
   static let maxHour = 10
   
@@ -55,9 +56,11 @@ class TerminalSummaryVC: UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    currentHour = 0
-    resetHourButtons()
-    updateHourPickerLabels()
+    if firstAppearance {
+      resetHourButtons()
+      updateHourPickerLabels()
+      firstAppearance = false
+    }
     updateTerminalTable()
     UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateTerminalTable)
   }
