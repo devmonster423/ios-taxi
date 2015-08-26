@@ -25,10 +25,10 @@ typealias FlightResponseClosure = ([Flight]?, NSError?) -> Void
 
 
 class SfoInfoRequester {
-  private class var baseUrl : String { return "http://localhost:8181/taxiws/services/taxi/" }
-  private class var lotStatusUrl : String { return "lot_status" }
-  private class var terminalUrl : String { return "flight/summary" }
-  private class var flightUrl : String { return "flight/arrival/details" }
+  private static let baseUrl = "http://localhost:8181/taxiws/services/taxi/"
+  private static let lotStatusUrl = "lot_status"
+  private static let terminalUrl = "flight/summary"
+  private static let flightUrl = "flight/arrival/details"
 
   class func requestLotStatus(response: LotStatusResponseClosure) {
     Alamofire.request(.GET, baseUrl + lotStatusUrl, parameters: nil).responseObject(response)

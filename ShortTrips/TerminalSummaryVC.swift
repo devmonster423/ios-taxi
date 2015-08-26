@@ -14,8 +14,8 @@ class TerminalSummaryVC: UIViewController {
   var selectedTerminalId: TerminalId?
   var flightStatusVC: FlightStatusVC?
   var currentHour: Int = 0
-  class var minHour: Int { return -2 }
-  class var maxHour: Int { return 10 }
+  static let minHour = -2
+  static let maxHour = 10
   
   @IBOutlet var ontime1Label: UILabel!
   @IBOutlet var delayed1Label: UILabel!
