@@ -14,7 +14,6 @@ class TerminalSummaryVC: UIViewController {
   var selectedTerminalId: TerminalId?
   var flightStatusVC: FlightStatusVC?
   var currentHour: Int = 0
-  var firstAppearance = true
   static let minHour = -2
   static let maxHour = 10
   
@@ -47,6 +46,8 @@ class TerminalSummaryVC: UIViewController {
     navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .Plain, target: self, action: "goBack")
     navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UiConstants.SfoColorWithAlpha), forBarMetrics: .Default)
+    resetHourButtons()
+    updateHourPickerLabels()
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -56,11 +57,6 @@ class TerminalSummaryVC: UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    if firstAppearance {
-      resetHourButtons()
-      updateHourPickerLabels()
-      firstAppearance = false
-    }
     updateTerminalTable()
     UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateTerminalTable)
   }
