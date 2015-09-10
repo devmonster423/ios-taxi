@@ -13,7 +13,9 @@ class TerminalSummaryVC: UIViewController {
 
   var selectedTerminalId: TerminalId?
   var flightStatusVC: FlightStatusVC?
-  var currentTime: Float?
+  var currentHour: Int = 0
+  static let minHour = -2
+  static let maxHour = 10
   
   @IBOutlet var ontime1Label: UILabel!
   @IBOutlet var delayed1Label: UILabel!
@@ -29,8 +31,12 @@ class TerminalSummaryVC: UIViewController {
   @IBOutlet var terminal3Button: UIButton!
   @IBOutlet var terminal4Button: UIButton!
   
-  @IBOutlet var timeLabel: UILabel!
-  @IBOutlet var timeSlider: UISlider!
+  @IBOutlet var topHourPickerLabel: UILabel!
+  @IBOutlet var centralHourPickerLabel: UILabel!
+  @IBOutlet var bottomHourPickerLabel: UILabel!
+  @IBOutlet var decreaseHourButton: UIButton!
+  @IBOutlet var increaseHourButton: UIButton!
+  
   @IBOutlet var updateLabel: UILabel!
   @IBOutlet var updateProgress: UIProgressView!
   
@@ -39,19 +45,18 @@ class TerminalSummaryVC: UIViewController {
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .Plain, target: self, action: "goBack")
     navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor(CGColor: UiConstants.SfoColorWithAlpha)!), forBarMetrics: .Default)
+    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UiConstants.SfoColorWithAlpha), forBarMetrics: .Default)
+    resetHourButtons()
+    updateHourPickerLabels()
   }
   
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
-    
     configureTitle()
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    
-    currentTime = timeSlider.value
     updateTerminalTable()
     UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateTerminalTable)
   }
@@ -65,20 +70,23 @@ class TerminalSummaryVC: UIViewController {
     navigationController?.popViewControllerAnimated(true)
   }
   
-  func configureTitle() {
-    
+  private func resetHourButtons() {
+    increaseHourButton.enabled = true
+    increaseHourButton.alpha = 1.0
+    decreaseHourButton.enabled = true
+    decreaseHourButton.alpha = 1.0
+  }
+  
+  private func configureTitle() {
     let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 240, height: 30))
     titleLabel.text = NSLocalizedString("Terminals", comment: "")
     titleLabel.textAlignment = .Center
     titleLabel.font = UIFont(name: UiConstants.navControllerFont, size: UiConstants.navControllerFontSizeNormal)!
     titleLabel.textColor = UIColor.whiteColor()
-    
     navigationItem.titleView = titleLabel
   }
   
-  func updateTerminalTable() {
-    
-    if let currentTime = currentTime {
+  private func updateTerminalTable() {
       SfoInfoRequester.requestTerminals ({ (terminals, error) -> Void in
         if let terminals = terminals {
           println("terminal 0 delayed count: \(terminals[0].delayedCount)")
@@ -94,34 +102,57 @@ class TerminalSummaryVC: UIViewController {
           ]
           self.reloadViews(terminals)
         }
-        }, hour: currentTime)
+        }, hour: currentHour)
+  }
+  
+  @IBAction func decreaseHour() {
+    updateHour(-1)
+    updateHourPickerLabels()
+  }
+  
+  @IBAction func increaseHour() {
+    updateHour(1)
+    updateHourPickerLabels()
+  }
+  
+  private func updateHourPickerLabels() {
+    if currentHour == 0 {
+      topHourPickerLabel.text = NSLocalizedString("Flights", comment: "")
+      centralHourPickerLabel.text = NSLocalizedString("Now", comment: "")
+      bottomHourPickerLabel.text = ""
+    }
+    else if currentHour < 0 {
+      topHourPickerLabel.text = NSLocalizedString("Flights", comment: "")
+      centralHourPickerLabel.text = String(format: NSLocalizedString("%dH", comment: ""), currentHour * -1)
+      bottomHourPickerLabel.text = NSLocalizedString("Ago", comment: "")
+    }
+    else if currentHour > 0 {
+      topHourPickerLabel.text = NSLocalizedString("Flights In", comment: "")
+      centralHourPickerLabel.text = String(format: NSLocalizedString("%dH", comment: ""), currentHour)
+      bottomHourPickerLabel.text = ""
     }
   }
   
-  @IBAction func updateTime() {
-    let newTime: Float = timeSlider.value
-    if newTime > currentTime! + UiConstants.timeTolerance || newTime < currentTime! - UiConstants.timeTolerance {
-      if newTime < 0.0 {
-        timeLabel.text = String(format: NSLocalizedString("Terminal Status %.1f Hours Ago", comment: ""), newTime * -1.0)
-      }
-      else if newTime > 0.0 {
-        timeLabel.text = String(format: NSLocalizedString("Terminal Status %.1f Hours in the Future", comment: ""), newTime)
-      }
-      else if newTime == 0.0 {
-        timeLabel.text = String(format: NSLocalizedString("Current Terminal Status", comment: ""), newTime)
-      }
-      currentTime = newTime
-      updateTerminalTable()
+  private func updateHour(hourDelta: Int) {
+    currentHour += hourDelta
+    if currentHour == TerminalSummaryVC.minHour {
+      UiHelpers.disableWidgetWithAnimation(decreaseHourButton)
+    }
+    else if currentHour == TerminalSummaryVC.maxHour {
+      UiHelpers.disableWidgetWithAnimation(increaseHourButton)
+    }
+    else if currentHour == TerminalSummaryVC.minHour + 1 && hourDelta == 1 {
+      UiHelpers.enableWidgetWithAnimation(decreaseHourButton)
+    }
+    else if currentHour == TerminalSummaryVC.maxHour - 1 && hourDelta == -1 {
+      UiHelpers.enableWidgetWithAnimation(increaseHourButton)
     }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    
     flightStatusVC = segue.destinationViewController as? FlightStatusVC
-
     if let flightStatusVC = flightStatusVC {
-      flightStatusVC.currentTime = currentTime
-      
+      flightStatusVC.currentHour = currentHour
       switch sender as! UIButton {
       case terminal1Button:
         flightStatusVC.selectedTerminalId = .One
@@ -137,17 +168,13 @@ class TerminalSummaryVC: UIViewController {
     }
   }
   
-  func reloadViews(summaries: [TerminalSummary]) {
-    
+  private func reloadViews(summaries: [TerminalSummary]) {
     ontime1Label.text = "\(summaries[0].count)"
     delayed1Label.text = "\(summaries[0].delayedCount)"
-    
     ontime2Label.text = "\(summaries[1].count)"
     delayed2Label.text = "\(summaries[1].delayedCount)"
-    
     ontime3Label.text = "\(summaries[2].count)"
     delayed3Label.text = "\(summaries[2].delayedCount)"
-    
     ontime4Label.text = "\(summaries[3].count)"
     delayed4Label.text = "\(summaries[3].delayedCount)"
   }

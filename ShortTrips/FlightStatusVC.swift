@@ -21,7 +21,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   @IBOutlet var updateProgress: UIProgressView!
   
   var selectedTerminalId: TerminalId!
-  var currentTime: Float!
+  var currentHour: Int!
   var flights: [Flight]?
   
   override func viewDidLoad() {
@@ -32,7 +32,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .Plain, target: self, action: "goBack")
     navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UIColor(CGColor: UiConstants.SfoColorWithAlpha)!), forBarMetrics: .Default)
+    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UiConstants.SfoColorWithAlpha), forBarMetrics: .Default)
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -55,32 +55,32 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   
   func setupTitle() {
     var title: String = ""
-    if currentTime < 0.0 {
-      currentTime = currentTime * -1.0
+    if currentHour < 0 {
+      currentHour = currentHour * -1
       switch selectedTerminalId! {
       case .One:
-        title = String(format: NSLocalizedString("Term. One %.1f Hours Ago", comment: ""), currentTime)
+        title = String(format: NSLocalizedString("Term. One %d Hours Ago", comment: ""), currentHour)
       case .Two:
-        title = String(format: NSLocalizedString("Term. Two %.1f Hours Ago", comment: ""), currentTime)
+        title = String(format: NSLocalizedString("Term. Two %d Hours Ago", comment: ""), currentHour)
       case .Three:
-        title = String(format: NSLocalizedString("Term. Three %.1f Hours Ago", comment: ""), currentTime)
+        title = String(format: NSLocalizedString("Term. Three %d Hours Ago", comment: ""), currentHour)
       case .International:
-        title = String(format: NSLocalizedString("Inter. Term. %.1f Hours Ago", comment: ""), currentTime)
+        title = String(format: NSLocalizedString("Inter. Term. %d Hours Ago", comment: ""), currentHour)
       }
     }
-    else if currentTime > 0.0 {
+    else if currentHour > 0 {
       switch selectedTerminalId! {
       case .One:
-        title = String(format: NSLocalizedString("Term. One in %.1f Hours", comment: ""), currentTime)
+        title = String(format: NSLocalizedString("Term. One in %d Hours", comment: ""), currentHour)
       case .Two:
-        title = String(format: NSLocalizedString("Term. Two in %.1f Hours", comment: ""), currentTime)
+        title = String(format: NSLocalizedString("Term. Two in %d Hours", comment: ""), currentHour)
       case .Three:
-        title = String(format: NSLocalizedString("Term. Three in %.1f Hours", comment: ""), currentTime)
+        title = String(format: NSLocalizedString("Term. Three in %d Hours", comment: ""), currentHour)
       case .International:
-        title = String(format: NSLocalizedString("Inter. Term. in %.1f Hours", comment: ""), currentTime)
+        title = String(format: NSLocalizedString("Inter. Term. in %d Hours", comment: ""), currentHour)
       }
     }
-    else if currentTime == 0.0 {
+    else if currentHour == 0 {
       switch selectedTerminalId! {
       case .One:
         title = NSLocalizedString("Term. One Currently", comment: "")
@@ -106,8 +106,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         self.flights = FlightMock.mockFlights()
       }
       self.flightTable.reloadData()
-      
-      }, terminal: selectedTerminalId.intValue, time: currentTime)
+      }, terminal: selectedTerminalId.intValue, hour: currentHour)
   }
   
   func computeDelay() -> Double {

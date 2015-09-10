@@ -15,7 +15,7 @@
 
 /* Come to SFO? */
 
-"Don't Go To SFO" = "N'allez pas à SFO";
+"Don't Go To SFO" = "Evitez SFO";
 "Go To SFO" = "Allez à SFO";
 "Lot capacity is full" = "Parkings sont pleins";
 "Lot capacity is not full" = "Parkings ne sont pas pleins";
@@ -26,25 +26,30 @@
 
 /* Terminal Status */
 
+"Terminal Status %d Hours Ago" = "Statut du terminal il y a %d heures";
+"Terminal Status %d Hours in the Future" = "Statut du terminal dans %d heures";
+"Current Terminal Status" = "Statut actuel des terminals";
 "Terminals" = "Aérogares";
-"Terminal Status %.1f Hours Ago" = "Statuts des aérogares il y a %.1f heures";
-"Terminal Status %.1f Hours in the Future" = "Statuts des aérogares dans %.1f heures";
-"Current Terminal Status" = "Statuts actuels des aérogares";
 
 /* Flight Status */
 
-"Term. One %.1f Hours Ago" = "Aér. un il y a %.1f heures";
-"Term. Two %.1f Hours Ago" = "Aér. deux il y a %.1f heures";
-"Term. Three %.1f Hours Ago" = "Aér. trois il y a %.1f heures";
-"Inter. Term. %.1f Hours Ago" = "Aér. Inter. il y a %.1f heures";
-"Term. One in %.1f Hours" = "Aér. un dans %.1f Hours";
-"Term. Two in %.1f Hours" = "Aér. deux dans %.1f Hours";
-"Term. Three in %.1f Hours" = "Aér. trois dans %.1f Hours";
-"Inter. Term. in %.1f Hours" = "Aér. inter. dans %.1f Hours";
-"Term. One Currently" = "Aér. un maintenant";
-"Term. Two Currently" = "Aér. deux maintenant";
-"Term. Three Currently" = "Aér. trois maintenant";
-"Inter. Term. Currently" = "Aér. inter. maintenant";
+"Term. One %d Hours Ago" = "Term. un il y a %d heures";
+"Term. Two %d Hours Ago" = "Term. deux il y a %d heures";
+"Term. Three %d Hours Ago" = "Term. trois il y a %d heures";
+"Inter. Term. %d Hours Ago" = "Term. Inter. il y a %d heures";
+"Term. One in %d Hours" = "Term. un dans %d Hours";
+"Term. Two in %d Hours" = "Term. deux dans %d Hours";
+"Term. Three in %d Hours" = "Term. trois dans %d Hours";
+"Inter. Term. in %d Hours" = "Term. inter. dans %d Hours";
+"Term. One Currently" = "Term. un actuellement";
+"Term. Two Currently" = "Term. deux actuellement";
+"Term. Three Currently" = "Term. trois actuellement";
+"Inter. Term. Currently" = "Term. inter. actuellement";
+"Flights" = "Vols";
+"Flights In" = "Vols Dans";
+"Now" = "Maintenant";
+"Ago" = "Au Passé";
+"%dH" = "%dH";
 
 /* Update Progress */
 
@@ -55,3 +60,4 @@
 /* Navigation Bar */
 
 "Flights" = "Vols";
+
