@@ -23,4 +23,4 @@ Dependencies are managed with CocoaPods. See the `Podfile` for the list of depen
 
 Tests
 -----
-Tests will be run by Travis-CI.
+Tests will be run by [Travis-CI](https://magnum.travis-ci.com/ExygySFO/sfo-short-trips-ios/).
