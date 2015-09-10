@@ -20,3 +20,7 @@ As much as makes sense, this repository follows the [RW Swift Style Guide](https
 Dependencies
 ------------
 Dependencies are managed with CocoaPods. See the `Podfile` for the list of dependencies and versions.
+
+Tests
+-----
+Tests will be run by Travis-CI.
