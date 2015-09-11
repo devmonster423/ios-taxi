@@ -8,16 +8,16 @@
 
 import UIKit
 
-class DashboardVC: UIViewController {
+public class DashboardVC: UIViewController {
   @IBOutlet var backgroundImageView: UIImageView!
   @IBOutlet var directionLabel: UILabel!
-  @IBOutlet var statusButton: UIButton!
+  @IBOutlet public var statusButton: UIButton!
   @IBOutlet var comeToSfoLabel: UILabel!
   @IBOutlet var explanationLabel: UILabel!
   @IBOutlet var updateLabel: UILabel!
   @IBOutlet var updateProgress: UIProgressView!
   
-  override func viewDidLoad() {
+  public override func viewDidLoad() {
     super.viewDidLoad()
     statusButton.layer.cornerRadius = UiConstants.statusCornerRadius
     statusButton.layer.borderWidth = UiConstants.statusBorderWidth
@@ -25,7 +25,7 @@ class DashboardVC: UIViewController {
     navigationItem.title = "";
   }
   
-  override func viewWillAppear(animated: Bool) {
+  public override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
     navigationController?.navigationBar.shadowImage = UIImage()
@@ -33,7 +33,7 @@ class DashboardVC: UIViewController {
     UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: requestLotStatus)
   }
   
-  override func viewWillDisappear(animated: Bool) {
+  public override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     UpdateTimer.stop()
   }

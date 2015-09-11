@@ -8,5 +8,7 @@ target 'ShortTrips' do
 end
 
 target 'ShortTripsTests' do
-
+    # Will change with Xcode 7 / Swift 2
+    pod 'Quick', '~> 0.3.0'
+    pod 'Nimble', '~> 1.0.0'
 end
