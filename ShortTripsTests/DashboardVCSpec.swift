@@ -9,6 +9,7 @@
 import ShortTrips
 import Quick
 import Nimble
+import PivotalCoreKit
 
 class DashboardVCSpec: QuickSpec {
     override func spec() {
@@ -27,6 +28,16 @@ class DashboardVCSpec: QuickSpec {
         
         it("has a terminal status button") {
             expect(viewController.statusButton).toNot(beNil())
+        }
+        
+        describe("tapping on the terminal status button") {
+            beforeEach {
+                viewController.statusButton.tap()
+            }
+            
+            it("should present a terminal status screen") {
+                // TODO
+            }
         }
     }
 }

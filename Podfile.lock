@@ -5,19 +5,34 @@ PODS:
     - ObjectMapper (~> 0.12)
   - Nimble (1.0.0)
   - ObjectMapper (0.15)
+  - PivotalCoreKit (0.3.0):
+    - PivotalCoreKit/Core (= 0.3.0)
+  - PivotalCoreKit/Core (0.3.0):
+    - PivotalCoreKit/Foundation/Core
+    - PivotalCoreKit/UIKit/Core
+  - PivotalCoreKit/Foundation/Core (0.3.0)
+  - PivotalCoreKit/UIKit/Core (0.3.0):
+    - PivotalCoreKit/UIKit/Core/Core-arc (= 0.3.0)
+  - PivotalCoreKit/UIKit/Core/Core-arc (0.3.0)
+  - PivotalCoreKit/UIKit/SpecHelper/Extensions (0.3.0):
+    - PivotalCoreKit/UIKit/SpecHelper/Support
+  - PivotalCoreKit/UIKit/SpecHelper/Support (0.3.0)
   - Quick (0.3.1)
 
 DEPENDENCIES:
   - Alamofire (~> 1.3)
   - AlamofireObjectMapper (~> 0.7)
-  - Nimble (~> 1.0.0)
-  - Quick (~> 0.3.0)
+  - Nimble (= 1.0.0)
+  - PivotalCoreKit (= 0.3.0)
+  - PivotalCoreKit/UIKit/SpecHelper/Extensions
+  - Quick (= 0.3.1)
 
 SPEC CHECKSUMS:
   Alamofire: e4ab637e3195b645c814b87a652373439e59f2a4
   AlamofireObjectMapper: b07339a5ce5f609230df61080e55c1f6fc9551ee
   Nimble: 8bee528e5fcc403653076545db562d2b5db7bb87
   ObjectMapper: 0656dc1c155825897e5acfcd25362c6b61786dcb
+  PivotalCoreKit: 3dab7cf9bff77eb49ce7ffc7a84e57fa8591f033
   Quick: 824572d3d198d51e52cf4aa722cebf7e59952a35
 
 COCOAPODS: 0.38.2
