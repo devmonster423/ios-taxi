@@ -24,6 +24,7 @@
 "yes" = "YES";
 "no" = "NO";
 "maybe" = "MAYBE";
+"Terminal Status" = "Terminal Status";
 
 /* Terminal Status */
 

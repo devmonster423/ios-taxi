@@ -39,7 +39,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     super.viewWillAppear(animated)
     
     updateFlightTable()
-    UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateFlightTable)
+// TODO:    UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateFlightTable)
     navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: UiConstants.navControllerFont, size: UiConstants.navControllerFontSizeSmall)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
     setupTitle()
   }

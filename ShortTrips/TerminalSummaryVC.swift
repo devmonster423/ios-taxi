@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-public class TerminalSummaryVC: UIViewController {
-  
+class TerminalSummaryVC: UIViewController {
+
   var selectedTerminalId: TerminalId?
   var flightStatusVC: FlightStatusVC?
   var currentHour: Int = 0
@@ -40,7 +40,7 @@ public class TerminalSummaryVC: UIViewController {
   @IBOutlet var updateLabel: UILabel!
   @IBOutlet var updateProgress: UIProgressView!
   
-  public override func viewDidLoad() {
+  override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .Plain, target: self, action: "goBack")
@@ -50,18 +50,18 @@ public class TerminalSummaryVC: UIViewController {
     updateHourPickerLabels()
   }
   
-  public override func viewDidAppear(animated: Bool) {
+  override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     configureTitle()
   }
   
-  public override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     updateTerminalTable()
-    UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateTerminalTable)
+// TODO:    UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateTerminalTable)
   }
   
-  public override func viewWillDisappear(animated: Bool) {
+  override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     UpdateTimer.stop()
   }
@@ -151,7 +151,7 @@ public class TerminalSummaryVC: UIViewController {
     }
   }
   
-  public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     flightStatusVC = segue.destinationViewController as? FlightStatusVC
     if let flightStatusVC = flightStatusVC {
       flightStatusVC.currentHour = currentHour

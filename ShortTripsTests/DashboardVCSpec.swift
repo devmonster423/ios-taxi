@@ -6,32 +6,34 @@
 //  Copyright (c) 2015 SFO. All rights reserved.
 //
 
-import ShortTrips
 import Quick
 import Nimble
 import PivotalCoreKit
 
 class DashboardVCSpec: QuickSpec {
+
   override func spec() {
+
     var viewController: DashboardVC!
     
     beforeEach {
-      let storyboard = UIStoryboard(name: "Main", bundle: NSBundle(forClass: self.dynamicType))
-      let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
-      viewController = navigationController.topViewController as! DashboardVC
+      viewController = DashboardVC()
+      let navigationController = UINavigationController(rootViewController: viewController)
       
       UIApplication.sharedApplication().keyWindow!.rootViewController = navigationController
       let _ = navigationController.view
       let _ = viewController.view
     }
     
-    it("has a terminal status button") {
-      expect(viewController.statusButton).toNot(beNil())
+    describe("when view loads") {
+      it("has a terminal status button") {
+        expect(viewController.dashboardView().terminalStatusBtn).toNot(beNil())
+      }
     }
     
     describe("tapping on the terminal status button") {
       beforeEach {
-        viewController.statusButton.tap()
+        viewController.dashboardView().terminalStatusBtn.tap()
       }
       
       xit("should present a terminal status screen") {
