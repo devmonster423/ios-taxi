@@ -36,10 +36,16 @@ class DashboardVCSpec: QuickSpec {
         viewController.dashboardView().terminalStatusBtn.tap()
       }
       
-      xit("should present a terminal status screen") {
-        // TODO: This test will actually fail now, so the it above was changed to xit.
-        // Will change xit to it when storyboards have been converted to code.
-        expect(viewController.navigationController!.topViewController).to(beAnInstanceOf(TerminalSummaryVC.self))
+      it("should present a terminal status screen") {
+
+        // wait for animation to be totally done
+        let seconds = 4.0
+        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+        var dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+
+        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+          expect(viewController.navigationController!.topViewController).to(beAnInstanceOf(TerminalSummaryVC.self))
+        })
       }
     }
   }

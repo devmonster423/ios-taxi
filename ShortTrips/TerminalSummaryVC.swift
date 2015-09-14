@@ -17,28 +17,33 @@ class TerminalSummaryVC: UIViewController {
   static let minHour = -2
   static let maxHour = 10
   
-  @IBOutlet var ontime1Label: UILabel!
-  @IBOutlet var delayed1Label: UILabel!
-  @IBOutlet var ontime2Label: UILabel!
-  @IBOutlet var delayed2Label: UILabel!
-  @IBOutlet var ontime3Label: UILabel!
-  @IBOutlet var delayed3Label: UILabel!
-  @IBOutlet var ontime4Label: UILabel!
-  @IBOutlet var delayed4Label: UILabel!
-  
-  @IBOutlet var terminal1Button: UIButton!
-  @IBOutlet var terminal2Button: UIButton!
-  @IBOutlet var terminal3Button: UIButton!
-  @IBOutlet var terminal4Button: UIButton!
-  
-  @IBOutlet var topHourPickerLabel: UILabel!
-  @IBOutlet var centralHourPickerLabel: UILabel!
-  @IBOutlet var bottomHourPickerLabel: UILabel!
-  @IBOutlet var decreaseHourButton: UIButton!
-  @IBOutlet var increaseHourButton: UIButton!
-  
-  @IBOutlet var updateLabel: UILabel!
-  @IBOutlet var updateProgress: UIProgressView!
+//  @IBOutlet var ontime1Label: UILabel!
+//  @IBOutlet var delayed1Label: UILabel!
+//  @IBOutlet var ontime2Label: UILabel!
+//  @IBOutlet var delayed2Label: UILabel!
+//  @IBOutlet var ontime3Label: UILabel!
+//  @IBOutlet var delayed3Label: UILabel!
+//  @IBOutlet var ontime4Label: UILabel!
+//  @IBOutlet var delayed4Label: UILabel!
+//
+//  @IBOutlet var terminal1Button: UIButton!
+//  @IBOutlet var terminal2Button: UIButton!
+//  @IBOutlet var terminal3Button: UIButton!
+//  @IBOutlet var terminal4Button: UIButton!
+//
+//  @IBOutlet var topHourPickerLabel: UILabel!
+//  @IBOutlet var centralHourPickerLabel: UILabel!
+//  @IBOutlet var bottomHourPickerLabel: UILabel!
+//  @IBOutlet var decreaseHourButton: UIButton!
+//  @IBOutlet var increaseHourButton: UIButton!
+//
+//  @IBOutlet var updateLabel: UILabel!
+//  @IBOutlet var updateProgress: UIProgressView!
+
+  override func loadView() {
+    let terminalSummaryView = TerminalSummaryView(frame: UIScreen.mainScreen().bounds)
+    view = terminalSummaryView
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -71,10 +76,10 @@ class TerminalSummaryVC: UIViewController {
   }
   
   private func resetHourButtons() {
-    increaseHourButton.enabled = true
-    increaseHourButton.alpha = 1.0
-    decreaseHourButton.enabled = true
-    decreaseHourButton.alpha = 1.0
+//    increaseHourButton.enabled = true
+//    increaseHourButton.alpha = 1.0
+//    decreaseHourButton.enabled = true
+//    decreaseHourButton.alpha = 1.0
   }
   
   private func configureTitle() {
@@ -119,65 +124,65 @@ class TerminalSummaryVC: UIViewController {
   
   private func updateHourPickerLabels() {
     if currentHour == 0 {
-      topHourPickerLabel.text = NSLocalizedString("Flights", comment: "")
-      centralHourPickerLabel.text = NSLocalizedString("Now", comment: "")
-      bottomHourPickerLabel.text = ""
+//      topHourPickerLabel.text = NSLocalizedString("Flights", comment: "")
+//      centralHourPickerLabel.text = NSLocalizedString("Now", comment: "")
+//      bottomHourPickerLabel.text = ""
     }
     else if currentHour < 0 {
-      topHourPickerLabel.text = NSLocalizedString("Flights", comment: "")
-      centralHourPickerLabel.text = String(format: NSLocalizedString("%dH", comment: ""), currentHour * -1)
-      bottomHourPickerLabel.text = NSLocalizedString("Ago", comment: "")
+//      topHourPickerLabel.text = NSLocalizedString("Flights", comment: "")
+//      centralHourPickerLabel.text = String(format: NSLocalizedString("%dH", comment: ""), currentHour * -1)
+//      bottomHourPickerLabel.text = NSLocalizedString("Ago", comment: "")
     }
     else if currentHour > 0 {
-      topHourPickerLabel.text = NSLocalizedString("Flights In", comment: "")
-      centralHourPickerLabel.text = String(format: NSLocalizedString("%dH", comment: ""), currentHour)
-      bottomHourPickerLabel.text = ""
+//      topHourPickerLabel.text = NSLocalizedString("Flights In", comment: "")
+//      centralHourPickerLabel.text = String(format: NSLocalizedString("%dH", comment: ""), currentHour)
+//      bottomHourPickerLabel.text = ""
     }
   }
   
   private func updateHour(hourDelta: Int) {
     currentHour += hourDelta
     if currentHour == TerminalSummaryVC.minHour {
-      UiHelpers.disableWidgetWithAnimation(decreaseHourButton)
+//      UiHelpers.disableWidgetWithAnimation(decreaseHourButton)
     }
     else if currentHour == TerminalSummaryVC.maxHour {
-      UiHelpers.disableWidgetWithAnimation(increaseHourButton)
+//      UiHelpers.disableWidgetWithAnimation(increaseHourButton)
     }
     else if currentHour == TerminalSummaryVC.minHour + 1 && hourDelta == 1 {
-      UiHelpers.enableWidgetWithAnimation(decreaseHourButton)
+//      UiHelpers.enableWidgetWithAnimation(decreaseHourButton)
     }
     else if currentHour == TerminalSummaryVC.maxHour - 1 && hourDelta == -1 {
-      UiHelpers.enableWidgetWithAnimation(increaseHourButton)
+//      UiHelpers.enableWidgetWithAnimation(increaseHourButton)
     }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    flightStatusVC = segue.destinationViewController as? FlightStatusVC
-    if let flightStatusVC = flightStatusVC {
-      flightStatusVC.currentHour = currentHour
-      switch sender as! UIButton {
-      case terminal1Button:
-        flightStatusVC.selectedTerminalId = .One
-      case terminal2Button:
-        flightStatusVC.selectedTerminalId = .Two
-      case terminal3Button:
-        flightStatusVC.selectedTerminalId = .Three
-      case terminal4Button:
-        flightStatusVC.selectedTerminalId = .International
-      default:
-        assertionFailure("unknown sender")
-      }
-    }
+//    flightStatusVC = segue.destinationViewController as? FlightStatusVC
+//    if let flightStatusVC = flightStatusVC {
+//      flightStatusVC.currentHour = currentHour
+//      switch sender as! UIButton {
+//      case terminal1Button:
+//        flightStatusVC.selectedTerminalId = .One
+//      case terminal2Button:
+//        flightStatusVC.selectedTerminalId = .Two
+//      case terminal3Button:
+//        flightStatusVC.selectedTerminalId = .Three
+//      case terminal4Button:
+//        flightStatusVC.selectedTerminalId = .International
+//      default:
+//        assertionFailure("unknown sender")
+//      }
+//    }
   }
   
   private func reloadViews(summaries: [TerminalSummary]) {
-    ontime1Label.text = "\(summaries[0].count)"
-    delayed1Label.text = "\(summaries[0].delayedCount)"
-    ontime2Label.text = "\(summaries[1].count)"
-    delayed2Label.text = "\(summaries[1].delayedCount)"
-    ontime3Label.text = "\(summaries[2].count)"
-    delayed3Label.text = "\(summaries[2].delayedCount)"
-    ontime4Label.text = "\(summaries[3].count)"
-    delayed4Label.text = "\(summaries[3].delayedCount)"
+//    ontime1Label.text = "\(summaries[0].count)"
+//    delayed1Label.text = "\(summaries[0].delayedCount)"
+//    ontime2Label.text = "\(summaries[1].count)"
+//    delayed2Label.text = "\(summaries[1].delayedCount)"
+//    ontime3Label.text = "\(summaries[2].count)"
+//    delayed3Label.text = "\(summaries[2].delayedCount)"
+//    ontime4Label.text = "\(summaries[3].count)"
+//    delayed4Label.text = "\(summaries[3].delayedCount)"
   }
 }

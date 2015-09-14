@@ -12,7 +12,9 @@ class DashboardVC: UIViewController {
   
   override func loadView() {
     let dashboardView = DashboardView(frame: UIScreen.mainScreen().bounds)
-    // TODO: configure
+    dashboardView.terminalStatusBtn.addTarget(self,
+      action: "showTerminalStatus",
+      forControlEvents: .TouchUpInside)
     view = dashboardView
   }
 
@@ -47,5 +49,9 @@ class DashboardVC: UIViewController {
         self.dashboardView().updateStatusUI(LotStatus.random())
       }
     }
+  }
+
+  func showTerminalStatus() {
+    navigationController?.pushViewController(TerminalSummaryVC(), animated: true)
   }
 }
