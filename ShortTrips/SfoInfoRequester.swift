@@ -16,6 +16,7 @@ typealias TerminalResponseClosure = ([TerminalSummary]?, NSError?) -> Void
 typealias FlightResponseClosure = ([Flight]?, NSError?) -> Void
 typealias AllGeofencesResponseClosure = (AllGeofencesResponse?, NSError?) -> Void
 typealias GeofenceResponseClosure = (GeofenceResponse?, NSError?) -> Void
+typealias DriverResponseClosure = (Driver?, NSError?) -> Void
 
 // /taxi/flight/summary
 // Endpoint URL: http://localhost:8181/taxiws/services/taxi/flight/summary
@@ -33,6 +34,7 @@ class SfoInfoRequester {
   private static let flightUrl = "flight/arrival/details"
   private static let geofenceUrl = "geofence"
   private static let locationUrl = "location"
+  private static let driverLoginUrl = "driver/login"
 
   class func requestLotStatus(response: LotStatusResponseClosure) {
     Alamofire.request(.GET, baseUrl + lotStatusUrl, parameters: nil).responseObject(response)
@@ -59,5 +61,10 @@ class SfoInfoRequester {
   
   class func requestGeofenceForId(id: Int, response: GeofenceResponseClosure) {
     Alamofire.request(.GET, baseUrl + geofenceUrl + "/" + "\(id)", parameters: nil).responseObject(response)
+  }
+
+  class func requestDriver(response: DriverResponseClosure, username: String, password: String) {
+    let params: [String: String] = ["username": "\(username)", "password" : "\(password)"]
+    Alamofire.request(.GET, baseUrl + driverLoginUrl, parameters: params).responseObject(response)
   }
 }
