@@ -30,8 +30,8 @@ class SfoInfoRequester {
   private static let lotStatusUrl = "lot_status"
   private static let terminalUrl = "flight/summary"
   private static let flightUrl = "flight/arrival/details"
-  private class var geofenceUrl: String { return "geofence" }
-  private class var locationUrl: String { return "location" }
+  private static let geofenceUrl = "geofence"
+  private static let locationUrl = "location"
 
   class func requestLotStatus(response: LotStatusResponseClosure) {
     Alamofire.request(.GET, baseUrl + lotStatusUrl, parameters: nil).responseObject(response)
