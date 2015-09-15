@@ -14,7 +14,10 @@ import AlamofireObjectMapper
 typealias LotStatusResponseClosure = (LotStatusResponse?, NSError?) -> Void
 typealias TerminalResponseClosure = ([TerminalSummary]?, NSError?) -> Void
 typealias FlightResponseClosure = ([Flight]?, NSError?) -> Void
-typealias ReferenceConfigResponseClosure = (ReferenceConfig?, NSError?) -> Void
+typealias ReferenceConfigResponseClosure = (ReferenceConfigResponse?, NSError?) -> Void
+typealias AllGeofencesResponseClosure = (AllGeofencesResponse?, NSError?) -> Void
+typealias GeofenceResponseClosure = (GeofenceResponse?, NSError?) -> Void
+typealias DriverResponseClosure = (DriverResponse?, NSError?) -> Void
 
 // /taxi/flight/summary
 // Endpoint URL: http://localhost:8181/taxiws/services/taxi/flight/summary
@@ -26,27 +29,48 @@ typealias ReferenceConfigResponseClosure = (ReferenceConfig?, NSError?) -> Void
 
 
 class SfoInfoRequester {
-  private static let baseUrl = "http://localhost:8181/taxiws/services/taxi/"
+  private static let baseUrl = "https://216.9.96.29:9000/taxiws/services/taxi/"
   private static let lotStatusUrl = "lot_status"
   private static let terminalUrl = "flight/summary"
   private static let flightUrl = "flight/arrival/details"
   private static let referenceConfigUrl = "reference/config"
-  
+  private static let geofenceUrl = "geofence"
+  private static let locationUrl = "location"
+  private static let driverLoginUrl = "driver/login"
+
   class func requestLotStatus(response: LotStatusResponseClosure) {
     Alamofire.request(.GET, baseUrl + lotStatusUrl, parameters: nil).responseObject(response)
   }
   
-  class func requestTerminals(response: TerminalResponseClosure, hour: Int) {
+  class func requestTerminals(hour: Int, response: TerminalResponseClosure) {
     let params = ["hour": hour]
     Alamofire.request(.GET, baseUrl + terminalUrl, parameters: params).responseArray(response)
   }
   
-  class func requestFlights(response: FlightResponseClosure, terminal: Int, hour: Int) {
-    let params: [String: String] = ["terminal_id": "\(terminal)", "hour" : "\(hour)"]
+  class func requestFlights(terminal: Int, hour: Int, response: FlightResponseClosure) {
+    let params = ["terminal_id": terminal, "hour" : hour]
     Alamofire.request(.GET, baseUrl + flightUrl, parameters: params).responseArray(response)
   }
   
   class func requestReferenceConfig(response: ReferenceConfigResponseClosure) {
     Alamofire.request(.GET, baseUrl + referenceConfigUrl, parameters: nil).responseObject(response)
+  }
+  
+  class func requestAllGeofences(response: AllGeofencesResponseClosure) {
+    Alamofire.request(.GET, baseUrl + geofenceUrl, parameters: nil).responseObject(response)
+  }
+  
+  class func requestGeofenceForLocation(longitude: Float, latitude: Float, buffer: Float, response: GeofenceResponseClosure) {
+    let params = ["longitude": longitude, "latitude": latitude, "buffer": buffer]
+    Alamofire.request(.GET, baseUrl + geofenceUrl + "/" + locationUrl, parameters: params).responseObject(response)
+  }
+  
+  class func requestGeofenceForId(id: Int, response: GeofenceResponseClosure) {
+    Alamofire.request(.GET, baseUrl + geofenceUrl + "/" + "\(id)", parameters: nil).responseObject(response)
+  }
+
+  class func requestDriver(username: String, password: String, response: DriverResponseClosure) {
+    let params = ["username": username, "password": password]
+    Alamofire.request(.GET, baseUrl + driverLoginUrl, parameters: params).responseObject(response)
   }
 }
