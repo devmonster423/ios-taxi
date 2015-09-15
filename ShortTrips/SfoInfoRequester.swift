@@ -14,7 +14,8 @@ import AlamofireObjectMapper
 typealias LotStatusResponseClosure = (LotStatusResponse?, NSError?) -> Void
 typealias TerminalResponseClosure = ([TerminalSummary]?, NSError?) -> Void
 typealias FlightResponseClosure = ([Flight]?, NSError?) -> Void
-typealias GeofencesResponseClosure = ([Geofence]?, NSError?) -> Void
+typealias AllGeofencesResponseClosure = (AllGeofencesResponse?, NSError?) -> Void
+typealias GeofenceResponseClosure = (GeofenceResponse?, NSError?) -> Void
 
 // /taxi/flight/summary
 // Endpoint URL: http://localhost:8181/taxiws/services/taxi/flight/summary
@@ -47,16 +48,16 @@ class SfoInfoRequester {
     Alamofire.request(.GET, baseUrl + flightUrl, parameters: params).responseArray(response)
   }
   
-  class func requestAllGeofences(response: GeofencesResponseClosure) {
-    Alamofire.request(.GET, baseUrl + geofenceUrl, parameters: nil).responseArray(response)
+  class func requestAllGeofences(response: AllGeofencesResponseClosure) {
+    Alamofire.request(.GET, baseUrl + geofenceUrl, parameters: nil).responseObject(response)
   }
   
-  class func requestGeofenceForLocation(longitude: Float, latitude: Float, buffer: Float, response: GeofencesResponseClosure) {
+  class func requestGeofenceForLocation(longitude: Float, latitude: Float, buffer: Float, response: GeofenceResponseClosure) {
     let params = ["longitude": longitude, "latitude": latitude, "buffer": buffer]
-    Alamofire.request(.GET, baseUrl + geofenceUrl + "/" + locationUrl, parameters: params).responseArray(response)
+    Alamofire.request(.GET, baseUrl + geofenceUrl + "/" + locationUrl, parameters: params).responseObject(response)
   }
   
-  class func requestGeofenceForId(id: Int, response: GeofencesResponseClosure) {
-    Alamofire.request(.GET, baseUrl + geofenceUrl + "/" + "\(id)", parameters: nil).responseArray(response)
+  class func requestGeofenceForId(id: Int, response: GeofenceResponseClosure) {
+    Alamofire.request(.GET, baseUrl + geofenceUrl + "/" + "\(id)", parameters: nil).responseObject(response)
   }
 }

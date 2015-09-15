@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 SFO. All rights reserved.
 //
 
-import Foundation
 import ObjectMapper
 
 enum Category: String {
