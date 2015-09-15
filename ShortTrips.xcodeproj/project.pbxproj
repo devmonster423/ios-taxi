@@ -16,6 +16,7 @@
 		C2DFE5CD1B56D2CB0090B55F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */; };
 		C2DFE5CF1B56D2CB0090B55F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5CE1B56D2CB0090B55F /* Images.xcassets */; };
 		C2DFE5D21B56D2CB0090B55F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */; };
+		E108B1751BA7C1DE00481AF1 /* ReferenceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */; };
 		E122649E1B795A65002B36CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12264A01B795A65002B36CA /* Localizable.strings */; };
 		E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */; };
 		E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */; };
@@ -107,6 +108,7 @@
 		C2DFE5DC1B56D2CB0090B55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2E62FBE1B86496300E9DC8E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
+		E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConfig.swift; sourceTree = "<group>"; };
 		E122649F1B795A65002B36CA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E12264A11B795A6F002B36CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E12B26301B8D1F6700879B17 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
@@ -289,10 +291,11 @@
 			children = (
 				E1A2EBAA1B6D767000C27EB2 /* Airline.swift */,
 				E1A2EBA81B6D747F00C27EB2 /* Flight.swift */,
+				E1FA66141B853C4800FD18C6 /* FlightMock.swift */,
 				E1A2EBAC1B6E8FEF00C27EB2 /* FlightStatus.swift */,
+				E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */,
 				E1A2EBAE1B6E920500C27EB2 /* TerminalSummary.swift */,
 				E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */,
-				E1FA66141B853C4800FD18C6 /* FlightMock.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */,
 				E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */,
 				E1B8271C1B7CEF4200CC32EF /* SfoInfoRequester.swift in Sources */,
+				E108B1751BA7C1DE00481AF1 /* ReferenceConfig.swift in Sources */,
 				C2DFE5CA1B56D2CB0090B55F /* DashboardVC.swift in Sources */,
 				E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */,
 				E1FA66151B853C4800FD18C6 /* FlightMock.swift in Sources */,
