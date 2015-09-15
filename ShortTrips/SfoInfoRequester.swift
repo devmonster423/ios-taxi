@@ -37,13 +37,13 @@ class SfoInfoRequester {
     Alamofire.request(.GET, baseUrl + lotStatusUrl, parameters: nil).responseObject(response)
   }
   
-  class func requestTerminals(response: TerminalResponseClosure, hour: Int) {
+  class func requestTerminals(hour: Int, response: TerminalResponseClosure) {
     let params = ["hour": hour]
     Alamofire.request(.GET, baseUrl + terminalUrl, parameters: params).responseArray(response)
   }
   
-  class func requestFlights(response: FlightResponseClosure, terminal: Int, hour: Int) {
-    let params: [String: String] = ["terminal_id": "\(terminal)", "hour" : "\(hour)"]
+  class func requestFlights(terminal: Int, hour: Int, response: FlightResponseClosure) {
+    let params = ["terminal_id": terminal, "hour" : hour]
     Alamofire.request(.GET, baseUrl + flightUrl, parameters: params).responseArray(response)
   }
   
@@ -51,12 +51,12 @@ class SfoInfoRequester {
     Alamofire.request(.GET, baseUrl + geofenceUrl, parameters: nil).responseArray(response)
   }
   
-  class func requestGeofenceForLocation(response: GeofencesResponseClosure, longitude: Float, latitude: Float, buffer: Float) {
-    let params: [String: String] = ["longitude": "\(longitude)", "latitude": "\(latitude)", "buffer": "\(buffer)"]
+  class func requestGeofenceForLocation(longitude: Float, latitude: Float, buffer: Float, response: GeofencesResponseClosure) {
+    let params = ["longitude": longitude, "latitude": latitude, "buffer": buffer]
     Alamofire.request(.GET, baseUrl + geofenceUrl + "/" + locationUrl, parameters: params).responseArray(response)
   }
   
-  class func requestGeofenceForId(response: GeofencesResponseClosure, id: Int) {
+  class func requestGeofenceForId(id: Int, response: GeofencesResponseClosure) {
     Alamofire.request(.GET, baseUrl + geofenceUrl + "/" + "\(id)", parameters: nil).responseArray(response)
   }
 }

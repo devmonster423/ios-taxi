@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public class TerminalSummaryVC: UIViewController {
-
+  
   var selectedTerminalId: TerminalId?
   var flightStatusVC: FlightStatusVC?
   var currentHour: Int = 0
@@ -87,7 +87,9 @@ public class TerminalSummaryVC: UIViewController {
   }
   
   private func updateTerminalTable() {
-      SfoInfoRequester.requestTerminals ({ (terminals, error) -> Void in
+    SfoInfoRequester.requestTerminals (currentHour,
+      response: { (terminals, error) -> Void in
+        
         if let terminals = terminals {
           println("terminal 0 delayed count: \(terminals[0].delayedCount)")
           self.reloadViews(terminals)
@@ -102,7 +104,7 @@ public class TerminalSummaryVC: UIViewController {
           ]
           self.reloadViews(terminals)
         }
-        }, hour: currentHour)
+    })
   }
   
   @IBAction func decreaseHour() {
