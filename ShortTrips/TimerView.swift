@@ -10,8 +10,8 @@ import UIKit
 
 class TimerView: UIView {
 
-  let progressView = UIProgressView()
-  let updateLabel = UILabel()
+  private let progressView = UIProgressView()
+  private let updateLabel = UILabel()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		01937E5EB89C54E6045C76F1 /* Pods_ShortTrips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81AB3E7D2C8CBBF8AF294E13 /* Pods_ShortTrips.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5062C2B0F9B113B3BD8778A1 /* Pods_ShortTripsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F853EB5ED3B732FCC78F3D1 /* Pods_ShortTripsTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C200BE211BA8C21600B7F56F /* TerminalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200BE201BA8C21600B7F56F /* TerminalView.swift */; };
+		C200BE231BA8D05D00B7F56F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200BE221BA8D05D00B7F56F /* TimerView.swift */; };
+		C200BE241BA8D05D00B7F56F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200BE221BA8D05D00B7F56F /* TimerView.swift */; };
+		C200BE251BA8D0B000B7F56F /* TerminalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200BE201BA8C21600B7F56F /* TerminalView.swift */; };
 		C24486F01BA89DF200A19A9D /* GeofenceListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */; };
 		C24486F21BA89EA800A19A9D /* AllGeofencesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */; };
 		C24486F41BA8B5A300A19A9D /* GeofenceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F31BA8B5A300A19A9D /* GeofenceResponse.swift */; };
@@ -43,8 +47,6 @@
 		C2DFE5CD1B56D2CB0090B55F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */; };
 		C2DFE5CF1B56D2CB0090B55F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5CE1B56D2CB0090B55F /* Images.xcassets */; };
 		C2DFE5D21B56D2CB0090B55F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */; };
-		C2FDF6C51BA8BF40007A60E3 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FDF6C41BA8BF40007A60E3 /* TimerView.swift */; };
-		C2FDF6C61BA8BF40007A60E3 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FDF6C41BA8BF40007A60E3 /* TimerView.swift */; };
 		C2FDF6C71BA8BF5C007A60E3 /* AllGeofencesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */; };
 		C2FDF6C81BA8BF5F007A60E3 /* GeofenceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F31BA8B5A300A19A9D /* GeofenceResponse.swift */; };
 		C2FDF6C91BA8BF61007A60E3 /* GeofenceListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */; };
@@ -133,11 +135,12 @@
 		81AB3E7D2C8CBBF8AF294E13 /* Pods_ShortTrips.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTrips.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C1EEE491F8AB773F5CE16CE /* Pods-ShortTripsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTripsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests.release.xcconfig"; sourceTree = "<group>"; };
 		9F853EB5ED3B732FCC78F3D1 /* Pods_ShortTripsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTripsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C200BE201BA8C21600B7F56F /* TerminalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalView.swift; sourceTree = "<group>"; };
+		C200BE221BA8D05D00B7F56F /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceListResponse.swift; sourceTree = "<group>"; };
 		C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGeofencesResponse.swift; sourceTree = "<group>"; };
 		C24486F31BA8B5A300A19A9D /* GeofenceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceResponse.swift; sourceTree = "<group>"; };
 		C2B667101BA7577600BA28E2 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
-		C2B6671E1BA7781B00BA28E2 /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryView.swift; sourceTree = "<group>"; };
 		C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVCSpec.swift; sourceTree = "<group>"; };
 		C2DFE5C21B56D2CB0090B55F /* ShortTrips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShortTrips.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,7 +153,6 @@
 		C2DFE5D71B56D2CB0090B55F /* ShortTripsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShortTripsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2DFE5DC1B56D2CB0090B55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2E62FBE1B86496300E9DC8E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		C2FDF6C41BA8BF40007A60E3 /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
 		E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConfig.swift; sourceTree = "<group>"; };
 		E11D60961BA7A40100FD4276 /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geofence.swift; sourceTree = "<group>"; };
@@ -278,8 +280,9 @@
 			isa = PBXGroup;
 			children = (
 				C2B667101BA7577600BA28E2 /* DashboardView.swift */,
-				C2B6671E1BA7781B00BA28E2 /* TimerView.swift */,
 				C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */,
+				C200BE201BA8C21600B7F56F /* TerminalView.swift */,
+				C200BE221BA8D05D00B7F56F /* TimerView.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -343,14 +346,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C2FDF6C31BA8BF2D007A60E3 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				C2FDF6C41BA8BF40007A60E3 /* TimerView.swift */,
-			);
-			name = Shared;
-			sourceTree = "<group>";
-		};
 		E1A2EBA31B6C2AA400C27EB2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,7 +379,6 @@
 		E1A2EBA51B6C2BC600C27EB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C2FDF6C31BA8BF2D007A60E3 /* Shared */,
 				C2B6670F1BA7575C00BA28E2 /* Dashboard */,
 				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
 				E1FA66161B85558300FD18C6 /* BackgroundCell.swift */,
@@ -720,6 +714,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C200BE211BA8C21600B7F56F /* TerminalView.swift in Sources */,
 				E14DBDDB1B867A8400819C91 /* UpdateTimer.swift in Sources */,
 				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
 				E17352851B8CEC9B0031950B /* UiHelpers.swift in Sources */,
@@ -730,9 +725,9 @@
 				E1B8271C1B7CEF4200CC32EF /* SfoInfoRequester.swift in Sources */,
 				E108B1751BA7C1DE00481AF1 /* ReferenceConfig.swift in Sources */,
 				C2DFE5CA1B56D2CB0090B55F /* DashboardVC.swift in Sources */,
+				C200BE231BA8D05D00B7F56F /* TimerView.swift in Sources */,
 				E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */,
 				E11D60971BA7A40100FD4276 /* Geofence.swift in Sources */,
-				C2FDF6C51BA8BF40007A60E3 /* TimerView.swift in Sources */,
 				E1FA66151B853C4800FD18C6 /* FlightMock.swift in Sources */,
 				C2DFE5C81B56D2CB0090B55F /* AppDelegate.swift in Sources */,
 				C24486F21BA89EA800A19A9D /* AllGeofencesResponse.swift in Sources */,
@@ -756,6 +751,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C28759801BAA0DE600714DA9 /* DriverResponse.swift in Sources */,
+				C200BE251BA8D0B000B7F56F /* TerminalView.swift in Sources */,
 				C2B667191BA7731E00BA28E2 /* Flight.swift in Sources */,
 				C2B667141BA772F600BA28E2 /* UpdateTimer.swift in Sources */,
 				C28759811BAA0DEE00714DA9 /* Driver.swift in Sources */,
@@ -763,6 +759,7 @@
 				C2B667251BA780FD00BA28E2 /* FlightCell.swift in Sources */,
 				C2B667241BA780F900BA28E2 /* FlightMock.swift in Sources */,
 				C2B667151BA7730000BA28E2 /* UiConstants.swift in Sources */,
+				C200BE241BA8D05D00B7F56F /* TimerView.swift in Sources */,
 				C2B667181BA7731A00BA28E2 /* TerminalSummary.swift in Sources */,
 				C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */,
 				C2FDF6CA1BA8BF64007A60E3 /* Geofence.swift in Sources */,
@@ -773,7 +770,6 @@
 				C2B667211BA780C800BA28E2 /* TerminalSummaryVC.swift in Sources */,
 				C28759821BAA0DF100714DA9 /* ReferenceConfig.swift in Sources */,
 				C2B667271BA7810800BA28E2 /* UIImage+initWithColor.swift in Sources */,
-				C2FDF6C61BA8BF40007A60E3 /* TimerView.swift in Sources */,
 				C2B667171BA7731000BA28E2 /* SfoInfoRequester.swift in Sources */,
 				C2B667131BA772F000BA28E2 /* DashboardView.swift in Sources */,
 				C2B667161BA7730700BA28E2 /* LotStatusResponse.swift in Sources */,
