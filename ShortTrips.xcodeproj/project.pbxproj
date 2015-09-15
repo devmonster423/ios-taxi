@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		01937E5EB89C54E6045C76F1 /* Pods_ShortTrips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81AB3E7D2C8CBBF8AF294E13 /* Pods_ShortTrips.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5062C2B0F9B113B3BD8778A1 /* Pods_ShortTripsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F853EB5ED3B732FCC78F3D1 /* Pods_ShortTripsTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		C24486F01BA89DF200A19A9D /* GeofenceListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */; };
+		C24486F21BA89EA800A19A9D /* AllGeofencesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */; };
+		C24486F41BA8B5A300A19A9D /* GeofenceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F31BA8B5A300A19A9D /* GeofenceResponse.swift */; };
 		C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */; };
 		C2DA57781BA34992000875D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */; };
 		C2DFE5C81B56D2CB0090B55F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DFE5C71B56D2CB0090B55F /* AppDelegate.swift */; };
@@ -16,6 +19,7 @@
 		C2DFE5CD1B56D2CB0090B55F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */; };
 		C2DFE5CF1B56D2CB0090B55F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5CE1B56D2CB0090B55F /* Images.xcassets */; };
 		C2DFE5D21B56D2CB0090B55F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */; };
+		E11D60971BA7A40100FD4276 /* Geofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D60961BA7A40100FD4276 /* Geofence.swift */; };
 		E122649E1B795A65002B36CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12264A01B795A65002B36CA /* Localizable.strings */; };
 		E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */; };
 		E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */; };
@@ -95,6 +99,9 @@
 		81AB3E7D2C8CBBF8AF294E13 /* Pods_ShortTrips.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTrips.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C1EEE491F8AB773F5CE16CE /* Pods-ShortTripsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTripsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests.release.xcconfig"; sourceTree = "<group>"; };
 		9F853EB5ED3B732FCC78F3D1 /* Pods_ShortTripsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTripsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceListResponse.swift; sourceTree = "<group>"; };
+		C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGeofencesResponse.swift; sourceTree = "<group>"; };
+		C24486F31BA8B5A300A19A9D /* GeofenceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceResponse.swift; sourceTree = "<group>"; };
 		C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVCSpec.swift; sourceTree = "<group>"; };
 		C2DFE5C21B56D2CB0090B55F /* ShortTrips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShortTrips.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2DFE5C61B56D2CB0090B55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,6 +114,7 @@
 		C2DFE5DC1B56D2CB0090B55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2E62FBE1B86496300E9DC8E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
+		E11D60961BA7A40100FD4276 /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geofence.swift; sourceTree = "<group>"; };
 		E122649F1B795A65002B36CA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E12264A11B795A6F002B36CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E12B26301B8D1F6700879B17 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
@@ -213,6 +221,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C24486EE1BA89DD100A19A9D /* Geofence */ = {
+			isa = PBXGroup;
+			children = (
+				E11D60961BA7A40100FD4276 /* Geofence.swift */,
+				C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */,
+				C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */,
+				C24486F31BA8B5A300A19A9D /* GeofenceResponse.swift */,
+			);
+			name = Geofence;
+			sourceTree = "<group>";
+		};
 		C2DFE5B91B56D2CB0090B55F = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +306,7 @@
 		E1A2EBA41B6C2B3600C27EB2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C24486EE1BA89DD100A19A9D /* Geofence */,
 				E1A2EBAA1B6D767000C27EB2 /* Airline.swift */,
 				E1A2EBA81B6D747F00C27EB2 /* Flight.swift */,
 				E1A2EBAC1B6E8FEF00C27EB2 /* FlightStatus.swift */,
@@ -640,11 +660,15 @@
 				E1A2EBAF1B6E920500C27EB2 /* TerminalSummary.swift in Sources */,
 				E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */,
 				E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */,
+				C24486F41BA8B5A300A19A9D /* GeofenceResponse.swift in Sources */,
 				E1B8271C1B7CEF4200CC32EF /* SfoInfoRequester.swift in Sources */,
 				C2DFE5CA1B56D2CB0090B55F /* DashboardVC.swift in Sources */,
 				E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */,
+				E11D60971BA7A40100FD4276 /* Geofence.swift in Sources */,
 				E1FA66151B853C4800FD18C6 /* FlightMock.swift in Sources */,
 				C2DFE5C81B56D2CB0090B55F /* AppDelegate.swift in Sources */,
+				C24486F21BA89EA800A19A9D /* AllGeofencesResponse.swift in Sources */,
+				C24486F01BA89DF200A19A9D /* GeofenceListResponse.swift in Sources */,
 				E1A2EBAB1B6D767000C27EB2 /* Airline.swift in Sources */,
 				E1A2EBA01B6BEF3900C27EB2 /* FlightStatusVC.swift in Sources */,
 				E1FA66171B85558300FD18C6 /* BackgroundCell.swift in Sources */,

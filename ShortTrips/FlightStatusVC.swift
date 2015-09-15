@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+  
   enum TableSection: Int {
     case Header = 0
     case Content = 1
@@ -48,7 +48,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     super.viewWillDisappear(animated)
     UpdateTimer.stop()
   }
-
+  
   func goBack() {
     navigationController?.popViewControllerAnimated(true)
   }
@@ -96,17 +96,20 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   }
   
   func updateFlightTable() {
-    SfoInfoRequester.requestFlights({ (flights, error) -> Void in
-      if let flights = flights {
-        self.flights = flights
-        println("Successfully retrieved flights.")
-      }
-      else {
-        println("error: \(error)")
-        self.flights = FlightMock.mockFlights()
-      }
-      self.flightTable.reloadData()
-      }, terminal: selectedTerminalId.intValue, hour: currentHour)
+    SfoInfoRequester.requestFlights(selectedTerminalId.intValue,
+      hour: currentHour,
+      response: { (flights, error) -> Void in
+        
+        if let flights = flights {
+          self.flights = flights
+          println("Successfully retrieved flights.")
+        }
+        else {
+          println("error: \(error)")
+          self.flights = FlightMock.mockFlights()
+        }
+        self.flightTable.reloadData()
+    })
   }
   
   func computeDelay() -> Double {
@@ -144,11 +147,11 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     if indexPath.section == TableSection.Content.rawValue {
-        let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as! FlightCell
-        if let flights = flights {
-            cell.displayFlight(flights[indexPath.row])
-        }
-        return cell
+      let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as! FlightCell
+      if let flights = flights {
+        cell.displayFlight(flights[indexPath.row])
+      }
+      return cell
     } else {
       let cell = tableView.dequeueReusableCellWithIdentifier("backgroundCell", forIndexPath: indexPath) as! BackgroundCell
       cell.displayDelay(computeDelay())
