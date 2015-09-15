@@ -21,6 +21,11 @@
 		E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */; };
 		E14DBDDB1B867A8400819C91 /* UpdateTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14DBDDA1B867A8400819C91 /* UpdateTimer.swift */; };
 		E17352851B8CEC9B0031950B /* UiHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17352841B8CEC9B0031950B /* UiHelpers.swift */; };
+		E18FF68D1BA8667500FE93B9 /* AutomaticVehicleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FF68C1BA8667500FE93B9 /* AutomaticVehicleId.swift */; };
+		E18FF68F1BA869A300FE93B9 /* Antenna.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FF68E1BA869A300FE93B9 /* Antenna.swift */; };
+		E18FF6911BA870AF00FE93B9 /* Cid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FF6901BA870AF00FE93B9 /* Cid.swift */; };
+		E18FF6931BA877C000FE93B9 /* TripState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FF6921BA877C000FE93B9 /* TripState.swift */; };
+		E18FF6951BA8783600FE93B9 /* MobileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FF6941BA8783600FE93B9 /* MobileState.swift */; };
 		E1A2EBA01B6BEF3900C27EB2 /* FlightStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */; };
 		E1A2EBA21B6C218D00C27EB2 /* FlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */; };
 		E1A2EBA91B6D747F00C27EB2 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBA81B6D747F00C27EB2 /* Flight.swift */; };
@@ -114,6 +119,11 @@
 		E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+initWithColor.swift"; sourceTree = "<group>"; };
 		E14DBDDA1B867A8400819C91 /* UpdateTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTimer.swift; sourceTree = "<group>"; };
 		E17352841B8CEC9B0031950B /* UiHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiHelpers.swift; sourceTree = "<group>"; };
+		E18FF68C1BA8667500FE93B9 /* AutomaticVehicleId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticVehicleId.swift; sourceTree = "<group>"; };
+		E18FF68E1BA869A300FE93B9 /* Antenna.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Antenna.swift; sourceTree = "<group>"; };
+		E18FF6901BA870AF00FE93B9 /* Cid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cid.swift; sourceTree = "<group>"; };
+		E18FF6921BA877C000FE93B9 /* TripState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripState.swift; sourceTree = "<group>"; };
+		E18FF6941BA8783600FE93B9 /* MobileState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileState.swift; sourceTree = "<group>"; };
 		E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatusVC.swift; sourceTree = "<group>"; };
 		E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightCell.swift; sourceTree = "<group>"; };
 		E1A2EBA81B6D747F00C27EB2 /* Flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
@@ -288,9 +298,14 @@
 			isa = PBXGroup;
 			children = (
 				E1A2EBAA1B6D767000C27EB2 /* Airline.swift */,
+				E18FF68E1BA869A300FE93B9 /* Antenna.swift */,
+				E18FF68C1BA8667500FE93B9 /* AutomaticVehicleId.swift */,
+				E18FF6901BA870AF00FE93B9 /* Cid.swift */,
 				E1A2EBA81B6D747F00C27EB2 /* Flight.swift */,
 				E1A2EBAC1B6E8FEF00C27EB2 /* FlightStatus.swift */,
+				E18FF6941BA8783600FE93B9 /* MobileState.swift */,
 				E1A2EBAE1B6E920500C27EB2 /* TerminalSummary.swift */,
+				E18FF6921BA877C000FE93B9 /* TripState.swift */,
 				E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */,
 				E1FA66141B853C4800FD18C6 /* FlightMock.swift */,
 			);
@@ -636,6 +651,7 @@
 			files = (
 				E14DBDDB1B867A8400819C91 /* UpdateTimer.swift in Sources */,
 				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
+				E18FF68F1BA869A300FE93B9 /* Antenna.swift in Sources */,
 				E17352851B8CEC9B0031950B /* UiHelpers.swift in Sources */,
 				E1A2EBAF1B6E920500C27EB2 /* TerminalSummary.swift in Sources */,
 				E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */,
@@ -645,9 +661,13 @@
 				E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */,
 				E1FA66151B853C4800FD18C6 /* FlightMock.swift in Sources */,
 				C2DFE5C81B56D2CB0090B55F /* AppDelegate.swift in Sources */,
+				E18FF6931BA877C000FE93B9 /* TripState.swift in Sources */,
+				E18FF68D1BA8667500FE93B9 /* AutomaticVehicleId.swift in Sources */,
 				E1A2EBAB1B6D767000C27EB2 /* Airline.swift in Sources */,
+				E18FF6951BA8783600FE93B9 /* MobileState.swift in Sources */,
 				E1A2EBA01B6BEF3900C27EB2 /* FlightStatusVC.swift in Sources */,
 				E1FA66171B85558300FD18C6 /* BackgroundCell.swift in Sources */,
+				E18FF6911BA870AF00FE93B9 /* Cid.swift in Sources */,
 				E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */,
 				E1A2EBA21B6C218D00C27EB2 /* FlightCell.swift in Sources */,
 				E1A2EBA91B6D747F00C27EB2 /* Flight.swift in Sources */,
