@@ -26,7 +26,7 @@ typealias GeofencesResponseClosure = ([Geofence]?, NSError?) -> Void
 
 
 class SfoInfoRequester {
-  private static let baseUrl = "http://localhost:8181/taxiws/services/taxi/"
+  private static let baseUrl = "https://216.9.96.29:9000/taxiws/services/taxi/"
   private static let lotStatusUrl = "lot_status"
   private static let terminalUrl = "flight/summary"
   private static let flightUrl = "flight/arrival/details"
