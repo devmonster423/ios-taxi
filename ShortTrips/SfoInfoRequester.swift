@@ -14,6 +14,7 @@ import AlamofireObjectMapper
 typealias LotStatusResponseClosure = (LotStatusResponse?, NSError?) -> Void
 typealias TerminalResponseClosure = ([TerminalSummary]?, NSError?) -> Void
 typealias FlightResponseClosure = ([Flight]?, NSError?) -> Void
+typealias GeofencesResponseClosure = ([Geofence]?, NSError?) -> Void
 
 // /taxi/flight/summary
 // Endpoint URL: http://localhost:8181/taxiws/services/taxi/flight/summary
@@ -29,6 +30,8 @@ class SfoInfoRequester {
   private static let lotStatusUrl = "lot_status"
   private static let terminalUrl = "flight/summary"
   private static let flightUrl = "flight/arrival/details"
+  private class var geofenceUrl: String { return "geofence" }
+  private class var locationUrl: String { return "location" }
 
   class func requestLotStatus(response: LotStatusResponseClosure) {
     Alamofire.request(.GET, baseUrl + lotStatusUrl, parameters: nil).responseObject(response)
@@ -42,5 +45,18 @@ class SfoInfoRequester {
   class func requestFlights(response: FlightResponseClosure, terminal: Int, hour: Int) {
     let params: [String: String] = ["terminal_id": "\(terminal)", "hour" : "\(hour)"]
     Alamofire.request(.GET, baseUrl + flightUrl, parameters: params).responseArray(response)
+  }
+  
+  class func requestAllGeofences(response: GeofencesResponseClosure) {
+    Alamofire.request(.GET, baseUrl + geofenceUrl, parameters: nil).responseArray(response)
+  }
+  
+  class func requestGeofenceForLocation(response: GeofencesResponseClosure, longitude: Float, latitude: Float, buffer: Float) {
+    let params: [String: String] = ["longitude": "\(longitude)", "latitude": "\(latitude)", "buffer": "\(buffer)"]
+    Alamofire.request(.GET, baseUrl + geofenceUrl + "/" + locationUrl, parameters: params).responseArray(response)
+  }
+  
+  class func requestGeofenceForId(response: GeofencesResponseClosure, id: Int) {
+    Alamofire.request(.GET, baseUrl + geofenceUrl + "/" + "\(id)", parameters: nil).responseArray(response)
   }
 }
