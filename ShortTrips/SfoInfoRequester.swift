@@ -18,7 +18,7 @@ typealias AviResponseClosure = ([AutomaticVehicleId]?, NSError?) -> Void
 typealias AntennaResponseClosure = (AntennaResponse?, NSError?) -> Void
 typealias AllCidsResponseClosure = (AllCidsResponse?, NSError?) -> Void
 typealias CidForSmartCardResponseClosure = (CidResponse?, NSError?) -> Void
-typealias MobileStateChangesResponseClosure = (NSError?) -> Void
+typealias ReferenceConfigResponseClosure = (ReferenceConfigResponse?, NSError?) -> Void
 typealias AllGeofencesResponseClosure = (AllGeofencesResponse?, NSError?) -> Void
 typealias GeofenceResponseClosure = (GeofenceResponse?, NSError?) -> Void
 typealias DriverResponseClosure = (DriverResponse?, NSError?) -> Void
@@ -33,6 +33,7 @@ class SfoInfoRequester {
   private static let allCidsUrl = "device/cid/"
   private static let cidForSmartCardUrl = "device/cid/smart_card/"
   private static let mobileStateUrl = "device/mobile/state"
+  private static let referenceConfigUrl = "reference/config"
   private static let geofenceUrl = "geofence"
   private static let locationUrl = "location"
   private static let driverLoginUrl = "driver/login"
@@ -67,9 +68,13 @@ class SfoInfoRequester {
     Alamofire.request(.GET, baseUrl + cidForSmartCardUrl + "\(smartCardId)", parameters: nil).responseObject(response)
   }
   
-  class func postMobileStateChanges(longitude: Float, latitude: Float, tripId: Int, tripState: TripState, mobileState: MobileState, sessionId: Int, response: MobileStateChangesResponseClosure) {
-    let params = ["longitude": "\(longitude)", "latitude": "\(latitude)", "trip_id": "\(tripId)", "trip_state": tripState.rawValue, "mobile_state": mobileState.rawValue, "session_id": "\(sessionId)"]
-    Alamofire.request(.POST, baseUrl + mobileStateUrl, parameters: params)
+  class func postMobileStateChanges(longitude: Float, latitude: Float, tripId: Int, tripState: TripState, mobileState: MobileState, sessionId: Int) {
+    let mobileStateChange = MobileStateChange(longitude: longitude, latitude: latitude, tripId: tripId, tripState: tripState, mobileState: mobileState, sessionId: sessionId)
+    Alamofire.request(.POST, baseUrl + mobileStateUrl, parameters: Mapper().toJSON(mobileStateChange), encoding: .JSON)
+  }
+
+  class func requestReferenceConfig(response: ReferenceConfigResponseClosure) {
+    Alamofire.request(.GET, baseUrl + referenceConfigUrl, parameters: nil).responseObject(response)
   }
 
   class func requestAllGeofences(response: AllGeofencesResponseClosure) {
