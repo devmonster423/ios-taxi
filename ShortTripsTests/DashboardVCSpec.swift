@@ -53,9 +53,10 @@ class DashboardVCSpec: QuickSpec {
         viewController.statusButton.tap()
       }
       
-      it("should present a terminal status screen") {
-        // TODO: this test will actually fail now, try again when converted from storyboards to swift
-        // expect(viewController.navigationController!.topViewController).to(beAnInstanceOf(TerminalSummaryVC.self))
+      xit("should present a terminal status screen") {
+        // TODO: This test will actually fail now, so the it above was changed to xit.
+        // Will change xit to it when storyboards have been converted to code.
+        expect(viewController.navigationController!.topViewController).to(beAnInstanceOf(TerminalSummaryVC.self))
       }
     }
   }
