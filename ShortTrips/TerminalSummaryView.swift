@@ -10,14 +10,15 @@ import UIKit
 import SnapKit
 
 class TerminalSummaryView: UIView {
-
-  let hourPickerView = HourPickerView()
-  let timerView = TimerView()
   
-  private let terminalView1 = TerminalView()
-  private let terminalView2 = TerminalView()
-  private let terminalView3 = TerminalView()
-  private let terminalView4 = TerminalView()
+  var decreaseButton: UIButton!
+  let hourPickerView = HourPickerView()
+  var increaseButton: UIButton!
+  let terminalView1 = TerminalView()
+  let terminalView2 = TerminalView()
+  let terminalView3 = TerminalView()
+  let terminalView4 = TerminalView()
+  let timerView = TimerView()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -77,6 +78,10 @@ class TerminalSummaryView: UIView {
       make.width.equalTo(130)
     }
     
+    decreaseButton = hourPickerView.decreaseButton
+    increaseButton = hourPickerView.increaseButton
+    hourPickerView.maxHour = 10
+    hourPickerView.minHour = -2
     hourPickerView.snp_makeConstraints { (make) -> Void in
       make.centerX.equalTo(self)
       make.top.equalTo(bgImageView.snp_bottom).offset(10)
@@ -90,5 +95,20 @@ class TerminalSummaryView: UIView {
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
     }
+  }
+  
+  func getCurrentHour() -> Int {
+    return hourPickerView.getCurrentHour()
+  }
+  
+  func incrementHour(hourChange: Int) {
+    hourPickerView.incrementHour(hourChange)
+  }
+  
+  func reloadTerminalViews(summaries: [TerminalSummary]) {
+    terminalView1.configureForTerminalSummary(summaries[0])
+    terminalView2.configureForTerminalSummary(summaries[1])
+    terminalView3.configureForTerminalSummary(summaries[2])
+    terminalView4.configureForTerminalSummary(summaries[3])
   }
 }
