@@ -38,34 +38,35 @@ class TerminalSummaryView: UIView {
     let bgImageView = UIImageView()
     bgImageView.image = UIImage(named: "terminal_bg.jpg")
     addSubview(bgImageView)
+    sendSubviewToBack(bgImageView)
     bgImageView.snp_makeConstraints { (make) -> Void in
       make.edges.equalTo(self)
     }
 
     terminalView1.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(self).offset(10)
-      make.centerX.equalTo(self).multipliedBy(0.33)
+      make.top.equalTo(self).offset(80)
+      make.leading.equalTo(self).offset(25)
       make.height.equalTo(105)
       make.width.equalTo(130)
     }
 
     terminalView2.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(self).offset(10)
-      make.centerX.equalTo(self).multipliedBy(0.67)
+      make.top.equalTo(self).offset(80)
+      make.trailing.equalTo(self).offset(-25)
       make.height.equalTo(105)
       make.width.equalTo(130)
     }
 
     terminalView3.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(terminalView1.snp_bottom).offset(10)
-      make.centerX.equalTo(self).dividedBy(0.33)
+      make.top.equalTo(terminalView1.snp_bottom).offset(25)
+      make.leading.equalTo(self).offset(25)
       make.height.equalTo(105)
       make.width.equalTo(130)
     }
 
     terminalView4.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(terminalView2.snp_bottom).offset(10)
-      make.centerX.equalTo(self).multipliedBy(0.67)
+      make.top.equalTo(terminalView2.snp_bottom).offset(25)
+      make.trailing.equalTo(self).offset(-25)
       make.height.equalTo(105)
       make.width.equalTo(130)
     }

@@ -25,7 +25,8 @@ class TerminalView: UIView {
     addSubview(delayedLabel)
     addSubview(onTimeLabel)
     addSubview(terminalImage)
-
+    
+    terminalImage.image = UIImage(named: "terminal_1")
     terminalImage.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
       make.top.equalTo(self)
@@ -38,7 +39,7 @@ class TerminalView: UIView {
     addSubview(greenDot)
     greenDot.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self).offset(10)
-      make.top.equalTo(terminalImage.snp_bottom).offset(10)
+      make.top.equalTo(terminalImage.snp_bottom).offset(20)
       make.height.equalTo(10)
       make.width.equalTo(10)
     }
@@ -48,18 +49,24 @@ class TerminalView: UIView {
     addSubview(redDot)
     redDot.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self).offset(10)
-      make.top.equalTo(greenDot.snp_bottom).offset(10)
+      make.top.equalTo(greenDot.snp_bottom).offset(20)
       make.height.equalTo(10)
       make.width.equalTo(10)
     }
-
+    
+    delayedLabel.text = "\(6)"
+    delayedLabel.textAlignment = .Center
+    delayedLabel.textColor = UIColor.whiteColor()
     delayedLabel.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(redDot.snp_trailing).offset(5)
       make.centerY.equalTo(redDot)
       make.height.equalTo(21)
       make.width.equalTo(30)
     }
-
+    
+    onTimeLabel.text = "\(6)"
+    onTimeLabel.textAlignment = .Center
+    onTimeLabel.textColor = UIColor.whiteColor()
     onTimeLabel.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(greenDot.snp_trailing).offset(5)
       make.centerY.equalTo(greenDot)
@@ -79,6 +86,8 @@ class TerminalView: UIView {
 
     let onTimeTitleLabel = UILabel()
     onTimeTitleLabel.text = NSLocalizedString("On Time", comment: "")
+    onTimeTitleLabel.textAlignment = .Center
+    onTimeTitleLabel.textColor = UIColor.whiteColor()
     addSubview(onTimeTitleLabel)
     onTimeTitleLabel.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(onTimeLabel.snp_trailing).offset(5)
