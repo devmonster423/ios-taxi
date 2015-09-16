@@ -12,8 +12,6 @@ import ObjectMapper
 struct ReferenceConfigResponse: Mappable {
   var referenceConfig: ReferenceConfig!
   
-  init() {}
-  
   static func newInstance(map: Map) -> Mappable? {
     return ReferenceConfigResponse()
   }

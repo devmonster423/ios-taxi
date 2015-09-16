@@ -12,8 +12,6 @@ import ObjectMapper
 struct DriverResponse: Mappable {
   var driver: Driver!
   
-  init() {}
-  
   static func newInstance(map: Map) -> Mappable? {
     return DriverResponse()
   }
