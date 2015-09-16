@@ -13,7 +13,7 @@ public class DashboardVC: UIViewController {
   @IBOutlet var directionLabel: UILabel!
   @IBOutlet public var statusButton: UIButton!
   @IBOutlet var comeToSfoLabel: UILabel!
-  @IBOutlet var explanationLabel: UILabel!
+  @IBOutlet public var explanationLabel: UILabel!
   @IBOutlet var updateLabel: UILabel!
   @IBOutlet var updateProgress: UIProgressView!
   
