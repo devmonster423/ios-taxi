@@ -11,11 +11,13 @@ import SnapKit
 
 class TerminalSummaryView: UIView {
 
-  let terminalView1 = TerminalView()
-  let terminalView2 = TerminalView()
-  let terminalView3 = TerminalView()
-  let terminalView4 = TerminalView()
+  let hourPickerView = HourPickerView()
   let timerView = TimerView()
+  
+  private let terminalView1 = TerminalView()
+  private let terminalView2 = TerminalView()
+  private let terminalView3 = TerminalView()
+  private let terminalView4 = TerminalView()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -28,6 +30,7 @@ class TerminalSummaryView: UIView {
     backgroundColor = UIColor.whiteColor()
 
     // add subviews
+    addSubview(hourPickerView)
     addSubview(terminalView1)
     addSubview(terminalView2)
     addSubview(terminalView3)
@@ -73,8 +76,14 @@ class TerminalSummaryView: UIView {
       make.height.equalTo(105)
       make.width.equalTo(130)
     }
-
-    // Progress View and "Last updated 2 minutes ago"
+    
+    hourPickerView.snp_makeConstraints { (make) -> Void in
+      make.centerX.equalTo(self)
+      make.top.equalTo(bgImageView.snp_bottom).offset(10)
+      make.height.equalTo(100)
+      make.width.equalTo(300)
+    }
+    
     timerView.snp_makeConstraints { (make) -> Void in
       make.bottom.equalTo(self)
       make.height.equalTo(60)
