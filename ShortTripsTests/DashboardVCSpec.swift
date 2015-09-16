@@ -25,6 +25,25 @@ class DashboardVCSpec: QuickSpec {
       let _ = viewController.view
     }
     
+    it("is instantiated") {
+      expect(viewController).toNot(beNil())
+    }
+    
+    describe("the lot-status field") {
+      it("is non-nil") {
+        expect(viewController.explanationLabel).toNot(beNil())
+      }
+      
+      // TODO: The next two tests will fail until the UI is set up entirely programmatically.
+      xit("is non-blank") {
+        expect(viewController.explanationLabel.text).toNot(equal(""))
+      }
+      
+      xit("is visible") {
+        expect(viewController.explanationLabel.hidden).toNot(beTrue())
+      }
+    }
+    
     it("has a terminal status button") {
       expect(viewController.statusButton).toNot(beNil())
     }
