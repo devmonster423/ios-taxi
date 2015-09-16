@@ -1,5 +1,5 @@
 //
-//  DriverResponse.swift
+//  ReferenceConfigResponse.swift
 //  ShortTrips
 //
 //  Created by Joshua Adams on 9/15/15.
@@ -9,14 +9,14 @@
 import Foundation
 import ObjectMapper
 
-struct DriverResponse: Mappable {
-  var driver: Driver!
+struct ReferenceConfigResponse: Mappable {
+  var referenceConfig: ReferenceConfig!
   
   static func newInstance(map: Map) -> Mappable? {
-    return DriverResponse()
+    return ReferenceConfigResponse()
   }
   
   mutating func mapping(map: Map) {
-    driver <- map["driver"]
+    referenceConfig <- map["response"]
   }
 }

@@ -14,6 +14,7 @@ import AlamofireObjectMapper
 typealias LotStatusResponseClosure = (LotStatusResponse?, NSError?) -> Void
 typealias TerminalResponseClosure = ([TerminalSummary]?, NSError?) -> Void
 typealias FlightResponseClosure = ([Flight]?, NSError?) -> Void
+typealias ReferenceConfigResponseClosure = (ReferenceConfigResponse?, NSError?) -> Void
 typealias AllGeofencesResponseClosure = (AllGeofencesResponse?, NSError?) -> Void
 typealias GeofenceResponseClosure = (GeofenceResponse?, NSError?) -> Void
 typealias DriverResponseClosure = (DriverResponse?, NSError?) -> Void
@@ -32,6 +33,7 @@ class SfoInfoRequester {
   private static let lotStatusUrl = "lot_status"
   private static let terminalUrl = "flight/summary"
   private static let flightUrl = "flight/arrival/details"
+  private static let referenceConfigUrl = "reference/config"
   private static let geofenceUrl = "geofence"
   private static let locationUrl = "location"
   private static let driverLoginUrl = "driver/login"
@@ -48,6 +50,10 @@ class SfoInfoRequester {
   class func requestFlights(terminal: Int, hour: Int, response: FlightResponseClosure) {
     let params = ["terminal_id": terminal, "hour" : hour]
     Alamofire.request(.GET, baseUrl + flightUrl, parameters: params).responseArray(response)
+  }
+  
+  class func requestReferenceConfig(response: ReferenceConfigResponseClosure) {
+    Alamofire.request(.GET, baseUrl + referenceConfigUrl, parameters: nil).responseObject(response)
   }
   
   class func requestAllGeofences(response: AllGeofencesResponseClosure) {
