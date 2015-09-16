@@ -1,5 +1,5 @@
 //
-//  Cid.swift
+//  DriverResponse.swift
 //  ShortTrips
 //
 //  Created by Joshua Adams on 9/15/15.
@@ -9,16 +9,16 @@
 import Foundation
 import ObjectMapper
 
-struct Cid: Mappable {
-  var cidId: Int!
-  var cidLocation: String!
+struct DriverResponse: Mappable {
+  var driver: Driver!
+  
+  init() {}
   
   static func newInstance(map: Map) -> Mappable? {
-    return Cid()
+    return DriverResponse()
   }
   
   mutating func mapping(map: Map) {
-    cidId <- map["cid_id"]
-    cidLocation <- map["cid_location"]
+    driver <- map["driver"]
   }
 }

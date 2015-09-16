@@ -1,5 +1,5 @@
 //
-//  Cid.swift
+//  CidResponse.swift
 //  ShortTrips
 //
 //  Created by Joshua Adams on 9/15/15.
@@ -9,16 +9,14 @@
 import Foundation
 import ObjectMapper
 
-struct Cid: Mappable {
-  var cidId: Int!
-  var cidLocation: String!
+struct CidResponse: Mappable {
+  var cid: Cid!
   
   static func newInstance(map: Map) -> Mappable? {
-    return Cid()
+    return CidResponse()
   }
   
   mutating func mapping(map: Map) {
-    cidId <- map["cid_id"]
-    cidLocation <- map["cid_location"]
+    cid <- map["response"]
   }
 }

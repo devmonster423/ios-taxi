@@ -15,10 +15,13 @@ typealias LotStatusResponseClosure = (LotStatusResponse?, NSError?) -> Void
 typealias TerminalResponseClosure = ([TerminalSummary]?, NSError?) -> Void
 typealias FlightResponseClosure = ([Flight]?, NSError?) -> Void
 typealias AviResponseClosure = ([AutomaticVehicleId]?, NSError?) -> Void
-typealias AntennaResponseClosure = (Antenna?, NSError?) -> Void
-typealias AllCidsResponseClosure = ([Cid]?, NSError?) -> Void
-typealias CidForSmartCardResponseClosure = (Cid?, NSError?) -> Void
+typealias AntennaResponseClosure = (AntennaResponse?, NSError?) -> Void
+typealias AllCidsResponseClosure = (AllCidsResponse?, NSError?) -> Void
+typealias CidForSmartCardResponseClosure = (CidResponse?, NSError?) -> Void
 typealias MobileStateChangesResponseClosure = (NSError?) -> Void
+typealias AllGeofencesResponseClosure = (AllGeofencesResponse?, NSError?) -> Void
+typealias GeofenceResponseClosure = (GeofenceResponse?, NSError?) -> Void
+typealias DriverResponseClosure = (DriverResponse?, NSError?) -> Void
 
 // /taxi/flight/summary
 // Endpoint URL: http://localhost:8181/taxiws/services/taxi/flight/summary
@@ -39,18 +42,21 @@ class SfoInfoRequester {
   private static let allCidsUrl = "device/cid/"
   private static let cidForSmartCardUrl = "device/cid/smart_card/"
   private static let mobileStateUrl = "device/mobile/state"
-  
+  private static let geofenceUrl = "geofence"
+  private static let locationUrl = "location"
+  private static let driverLoginUrl = "driver/login"
+
   class func requestLotStatus(response: LotStatusResponseClosure) {
     Alamofire.request(.GET, baseUrl + lotStatusUrl, parameters: nil).responseObject(response)
   }
   
-  class func requestTerminals(response: TerminalResponseClosure, hour: Int) {
+  class func requestTerminals(hour: Int, response: TerminalResponseClosure) {
     let params = ["hour": hour]
     Alamofire.request(.GET, baseUrl + terminalUrl, parameters: params).responseArray(response)
   }
   
-  class func requestFlights(response: FlightResponseClosure, terminal: Int, hour: Int) {
-    let params: [String: String] = ["terminal_id": "\(terminal)", "hour" : "\(hour)"]
+  class func requestFlights(terminal: Int, hour: Int, response: FlightResponseClosure) {
+    let params = ["terminal_id": terminal, "hour" : hour]
     Alamofire.request(.GET, baseUrl + flightUrl, parameters: params).responseArray(response)
   }
   
@@ -65,7 +71,7 @@ class SfoInfoRequester {
   // I haven't accounted for the non-mandatory parameters here. For future reference, the non-
   // mandatory parameters are longitude, latitude, trip_id, trip_state, mobile_state, and
   // client_session_id.
-  class func requestAntenna(response: AntennaResponseClosure, transponderId: Int) {
+  class func requestAntenna(transponderId: Int, response: AntennaResponseClosure) {
     Alamofire.request(.GET, baseUrl + antennaUrl + "\(transponderId)", parameters: nil).responseObject(response)
   }
   
@@ -74,7 +80,7 @@ class SfoInfoRequester {
   // entities, so that guess may be wrong. I therefore retained the unhelpful name "cid" when
   // implementing the network layer and model for cid.
   class func requestAllCids(response: AllCidsResponseClosure) {
-    Alamofire.request(.GET, baseUrl + allCidsUrl, parameters: nil).responseArray(response)
+    Alamofire.request(.GET, baseUrl + allCidsUrl, parameters: nil).responseObject(response)
   }
   
   class func requestCidForSmartCard(response: CidForSmartCardResponseClosure, smartCardId: Int) {
@@ -87,8 +93,27 @@ class SfoInfoRequester {
   // MobileState, for the possible mobile_states, which are listed in the document. As an aside, I
   // have neve never posted with Alamofire before, but this code compiles and appears correct based
   // on Alamofire's readme example.
-  class func postMobileStateChanges(response: MobileStateChangesResponseClosure, longitude: Float, latitude: Float, tripId: Int, tripState: TripState, mobileState: MobileState, sessionId: Int) {
+  
+  class func postMobileStateChanges(longitude: Float, latitude: Float, tripId: Int, tripState: TripState, mobileState: MobileState, sessionId: Int, response: MobileStateChangesResponseClosure) {
     let params = ["longitude": "\(longitude)", "latitude": "\(latitude)", "trip_id": "\(tripId)", "trip_state": tripState.rawValue, "mobile_state": mobileState.rawValue, "session_id": "\(sessionId)"]
     Alamofire.request(.POST, baseUrl + mobileStateUrl, parameters: params)
+  }
+
+  class func requestAllGeofences(response: AllGeofencesResponseClosure) {
+    Alamofire.request(.GET, baseUrl + geofenceUrl, parameters: nil).responseObject(response)
+  }
+  
+  class func requestGeofenceForLocation(longitude: Float, latitude: Float, buffer: Float, response: GeofenceResponseClosure) {
+    let params = ["longitude": longitude, "latitude": latitude, "buffer": buffer]
+    Alamofire.request(.GET, baseUrl + geofenceUrl + "/" + locationUrl, parameters: params).responseObject(response)
+  }
+  
+  class func requestGeofenceForId(id: Int, response: GeofenceResponseClosure) {
+    Alamofire.request(.GET, baseUrl + geofenceUrl + "/" + "\(id)", parameters: nil).responseObject(response)
+  }
+
+  class func requestDriver(username: String, password: String, response: DriverResponseClosure) {
+    let params = ["username": username, "password": password]
+    Alamofire.request(.GET, baseUrl + driverLoginUrl, parameters: params).responseObject(response)
   }
 }
