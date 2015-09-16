@@ -68,9 +68,10 @@ class SfoInfoRequester {
     Alamofire.request(.GET, baseUrl + cidForSmartCardUrl + "\(smartCardId)", parameters: nil).responseObject(response)
   }
   
-  class func postMobileStateChanges(longitude: Float, latitude: Float, tripId: Int, tripState: TripState, mobileState: MobileState, sessionId: Int) {
-    let mobileStateChange = MobileStateChange(longitude: longitude, latitude: latitude, tripId: tripId, tripState: tripState, mobileState: mobileState, sessionId: sessionId)
-    Alamofire.request(.POST, baseUrl + mobileStateUrl, parameters: Mapper().toJSON(mobileStateChange), encoding: .JSON)
+  class func postMobileStateChanges(mobileStateChange: MobileStateChange) {
+    Alamofire.request(.POST, baseUrl + mobileStateUrl, parameters: Mapper().toJSON(mobileStateChange), encoding: .JSON).response { _, _, _, error in
+      print(error)
+    }
   }
 
   class func requestReferenceConfig(response: ReferenceConfigResponseClosure) {
