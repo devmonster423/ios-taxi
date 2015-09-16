@@ -15,13 +15,6 @@ struct AutomaticVehicleId: Mappable {
   // requirements document is "L3434", so I made id a String here.
   var id: String!
   
-  init(location: String, id: String) {
-    self.location = location
-    self.id = id
-  }
-  
-  init() {}
-  
   static func newInstance(map: Map) -> Mappable? {
     return AutomaticVehicleId()
   }
