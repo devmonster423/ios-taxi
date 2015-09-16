@@ -13,15 +13,7 @@ struct ReferenceConfig: Mappable {
   var pingInterval: Int!
   var tripDuration: Int!
   var gisBuffer: Int!
-  
-  init(pingInterval: Int, tripDuration: Int, gisBuffer: Int) {
-    self.pingInterval = pingInterval
-    self.tripDuration = tripDuration
-    self.gisBuffer = gisBuffer
-  }
-  
-  init() {}
-  
+    
   static func newInstance(map: Map) -> Mappable? {
     return ReferenceConfig()
   }
