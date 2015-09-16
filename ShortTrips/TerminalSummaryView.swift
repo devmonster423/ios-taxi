@@ -40,7 +40,10 @@ class TerminalSummaryView: UIView {
     addSubview(bgImageView)
     sendSubviewToBack(bgImageView)
     bgImageView.snp_makeConstraints { (make) -> Void in
-      make.edges.equalTo(self)
+      make.top.equalTo(self)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.height.equalTo(self).multipliedBy(0.67)
     }
 
     terminalView1.snp_makeConstraints { (make) -> Void in
