@@ -40,14 +40,13 @@ class DashboardVCSpec: QuickSpec {
         it("is non-nil") {
           expect(viewController.dashboardView().explanationLabel).toNot(beNil())
         }
-        
-        // TODO: The next two tests will fail until the UI is set up entirely programmatically.
-        xit("is non-blank") {
-          expect(viewController.dashboardView().explanationLabel.text).toNot(equal(""))
+        it("is visible") {
+          expect(viewController.dashboardView().explanationLabel.hidden).toNot(beTrue())
         }
         
-        xit("is visible") {
-          expect(viewController.dashboardView().explanationLabel.hidden).toNot(beTrue())
+        // TODO: make this test work
+        xit("is non-blank") {
+          expect(viewController.dashboardView().explanationLabel.text).toNot(equal(""))
         }
       }
       
