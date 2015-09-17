@@ -36,8 +36,6 @@ enum Airline {
       return UIImage(named: "BritishAirways")!
     case .UnitedAirlines:
       return UIImage(named: "UnitedAirlines")!
-    default:
-      return UIImage(named: "unknownAirline")!
     }
   }
 }
