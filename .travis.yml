@@ -4,4 +4,4 @@ before_install:
   - gem install cocoapods
   - pod install
 script:
-  - xcodebuild test -workspace ShortTrips.xcworkspace -scheme 'ShortTrips' -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xcodebuild test -workspace ShortTrips.xcworkspace -scheme 'ShortTrips' -sdk iphonesimulator9.0
