@@ -13,7 +13,7 @@
 		C24486F21BA89EA800A19A9D /* AllGeofencesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */; };
 		C24486F41BA8B5A300A19A9D /* GeofenceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F31BA8B5A300A19A9D /* GeofenceResponse.swift */; };
 		C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */; };
-		C2DA57781BA34992000875D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */; };
+		C2DF3F411BAB642E003ACDE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */; settings = {ASSET_TAGS = (); }; };
 		C2DFE5C81B56D2CB0090B55F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DFE5C71B56D2CB0090B55F /* AppDelegate.swift */; };
 		C2DFE5CA1B56D2CB0090B55F /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DFE5C91B56D2CB0090B55F /* DashboardVC.swift */; };
 		C2DFE5CD1B56D2CB0090B55F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */; };
@@ -597,7 +597,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2DA57781BA34992000875D7 /* Main.storyboard in Resources */,
+				C2DF3F411BAB642E003ACDE1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
