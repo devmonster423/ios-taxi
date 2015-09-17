@@ -14,7 +14,7 @@ class DashboardView: UIView {
   private let bgImageView = UIImageView()
   private let comeToSfoLabel = UILabel()
   private let directionLabel = UILabel()
-  private let explanationLabel = UILabel()
+  let explanationLabel = UILabel()
   let terminalStatusBtn = UIButton()
   let timerView = TimerView()
 

@@ -102,10 +102,8 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if let flights = flights {
           self.flights = flights
-          println("Successfully retrieved flights.")
         }
         else {
-          println("error: \(error)")
           self.flights = FlightMock.mockFlights()
         }
         self.flightTable.reloadData()

@@ -11,28 +11,28 @@ import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
-typealias LotStatusResponseClosure = (LotStatusResponse?, NSError?) -> Void
-typealias TerminalResponseClosure = ([TerminalSummary]?, NSError?) -> Void
-typealias FlightResponseClosure = ([Flight]?, NSError?) -> Void
-typealias ReferenceConfigResponseClosure = (ReferenceConfigResponse?, NSError?) -> Void
-typealias AllGeofencesResponseClosure = (AllGeofencesResponse?, NSError?) -> Void
-typealias GeofenceResponseClosure = (GeofenceResponse?, NSError?) -> Void
-typealias DriverResponseClosure = (DriverResponse?, NSError?) -> Void
-
-// /taxi/flight/summary
-// Endpoint URL: http://localhost:8181/taxiws/services/taxi/flight/summary
-// Example: GET http://localhost:8181/taxiws/services/taxi/flight/summary?(hour)
-
-// /taxi/flight/arrival/details
-// Endpoint URL: http://localhost:8080/taxiws/services/taxi/flight/arrival/details
-// Example: GET http://localhost:8080/taxiws/services/taxi/flight/arrival/details?terminal_id=1&hour=1
-
+typealias LotStatusResponseClosure = (LotStatusResponse?, ErrorType?) -> Void
+typealias TerminalResponseClosure = ([TerminalSummary]?, ErrorType?) -> Void
+typealias FlightResponseClosure = ([Flight]?, ErrorType?) -> Void
+typealias AviResponseClosure = ([AutomaticVehicleId]?, ErrorType?) -> Void
+typealias AntennaResponseClosure = (AntennaResponse?, ErrorType?) -> Void
+typealias AllCidsResponseClosure = (AllCidsResponse?, ErrorType?) -> Void
+typealias CidForSmartCardResponseClosure = (CidResponse?, ErrorType?) -> Void
+typealias ReferenceConfigResponseClosure = (ReferenceConfigResponse?, ErrorType?) -> Void
+typealias AllGeofencesResponseClosure = (AllGeofencesResponse?, ErrorType?) -> Void
+typealias GeofenceResponseClosure = (GeofenceResponse?, ErrorType?) -> Void
+typealias DriverResponseClosure = (DriverResponse?, ErrorType?) -> Void
 
 class SfoInfoRequester {
   private static let baseUrl = "https://216.9.96.29:9000/taxiws/services/taxi/"
   private static let lotStatusUrl = "lot_status"
   private static let terminalUrl = "flight/summary"
   private static let flightUrl = "flight/arrival/details"
+  private static let aviUrl = "device/avi/"
+  private static let antennaUrl = "device/avi/transponder/"
+  private static let allCidsUrl = "device/cid/"
+  private static let cidForSmartCardUrl = "device/cid/smart_card/"
+  private static let mobileStateUrl = "device/mobile/state"
   private static let referenceConfigUrl = "reference/config"
   private static let geofenceUrl = "geofence"
   private static let locationUrl = "location"
@@ -52,10 +52,32 @@ class SfoInfoRequester {
     Alamofire.request(.GET, baseUrl + flightUrl, parameters: params).responseArray(response)
   }
   
+  class func requestAutomaticVehicleIds(response: AviResponseClosure) {
+    Alamofire.request(.GET, baseUrl + aviUrl, parameters: nil).responseArray(response)
+  }
+
+  class func requestAntenna(transponderId: Int, response: AntennaResponseClosure) {
+    Alamofire.request(.GET, baseUrl + antennaUrl + "\(transponderId)", parameters: nil).responseObject(response)
+  }
+  
+  class func requestAllCids(response: AllCidsResponseClosure) {
+    Alamofire.request(.GET, baseUrl + allCidsUrl, parameters: nil).responseObject(response)
+  }
+  
+  class func requestCidForSmartCard(response: CidForSmartCardResponseClosure, smartCardId: Int) {
+    Alamofire.request(.GET, baseUrl + cidForSmartCardUrl + "\(smartCardId)", parameters: nil).responseObject(response)
+  }
+  
+  class func postMobileStateChanges(mobileStateChange: MobileStateChange) {
+    Alamofire.request(.POST, baseUrl + mobileStateUrl, parameters: Mapper().toJSON(mobileStateChange), encoding: .JSON).response { _, _, _, error in
+      print(error)
+    }
+  }
+
   class func requestReferenceConfig(response: ReferenceConfigResponseClosure) {
     Alamofire.request(.GET, baseUrl + referenceConfigUrl, parameters: nil).responseObject(response)
   }
-  
+
   class func requestAllGeofences(response: AllGeofencesResponseClosure) {
     Alamofire.request(.GET, baseUrl + geofenceUrl, parameters: nil).responseObject(response)
   }

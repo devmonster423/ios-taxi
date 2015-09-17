@@ -23,11 +23,7 @@ struct Flight: Mappable {
     self.flightNumber = flightNumber
   }
   
-  init() {}
-  
-  static func newInstance(map: Map) -> Mappable? {
-    return Flight()
-  }
+  init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
     airline <- map["airline"]

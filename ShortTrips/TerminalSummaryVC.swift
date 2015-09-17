@@ -79,7 +79,6 @@ class TerminalSummaryVC: UIViewController {
           self.terminalSummaryView().reloadTerminalViews(terminals)
         }
         else {
-          println("error: \(error)")
           let terminals = [
             TerminalSummary(terminalId: TerminalId.International, count: 2, delayedCount: 3),
             TerminalSummary(terminalId: TerminalId.One, count: 3, delayedCount: 2),

@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 SFO. All rights reserved.
 //
 
+@testable import ShortTrips
 import Quick
 import Nimble
 import PivotalCoreKit
@@ -13,39 +14,57 @@ import PivotalCoreKit
 class DashboardVCSpec: QuickSpec {
 
   override func spec() {
-
+    
     var viewController: DashboardVC!
     
-    beforeEach {
-      viewController = DashboardVC()
-      let navigationController = UINavigationController(rootViewController: viewController)
+    describe("the dashboard view controller") {
       
-      UIApplication.sharedApplication().keyWindow!.rootViewController = navigationController
-      let _ = navigationController.view
-      let _ = viewController.view
-    }
+      beforeEach {
+        viewController = DashboardVC()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        UIApplication.sharedApplication().keyWindow!.rootViewController = navigationController
+        let _ = navigationController.view
+        let _ = viewController.view
+      }
     
-    describe("when view loads") {
+      it("is instantiated") {
+        expect(viewController).toNot(beNil())
+      }
+      
       it("has a terminal status button") {
         expect(viewController.dashboardView().terminalStatusBtn).toNot(beNil())
       }
-    }
-    
-    describe("tapping on the terminal status button") {
-      beforeEach {
-        viewController.dashboardView().terminalStatusBtn.tap()
+      
+      describe("the lot-status field") {
+        it("is non-nil") {
+          expect(viewController.dashboardView().explanationLabel).toNot(beNil())
+        }
+        
+        // TODO: The next two tests will fail until the UI is set up entirely programmatically.
+        xit("is non-blank") {
+          expect(viewController.dashboardView().explanationLabel.text).toNot(equal(""))
+        }
+        
+        xit("is visible") {
+          expect(viewController.dashboardView().explanationLabel.hidden).toNot(beTrue())
+        }
       }
       
-      it("should present a terminal status screen") {
-
-        // wait for animation to be totally done
-        let seconds = 4.0
-        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-        var dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-
-        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-          expect(viewController.navigationController!.topViewController).to(beAnInstanceOf(TerminalSummaryVC.self))
-        })
+      describe("tapping on the terminal status button") {
+        beforeEach {
+          viewController.dashboardView().terminalStatusBtn.tap()
+        }
+        
+        it("should present a terminal status screen") {
+          let seconds = 4.0
+          let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+          let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+          
+          dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            expect(viewController.navigationController!.topViewController).to(beAnInstanceOf(TerminalSummaryVC.self))
+          })
+        }
       }
     }
   }

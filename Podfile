@@ -1,18 +1,22 @@
-# Uncomment this line to define a global platform for your project
 platform :ios, '8.0'
 use_frameworks!
 
+def shared_pods
+  pod 'Alamofire', '2.0'
+  pod 'AlamofireObjectMapper', '0.9'
+  pod 'SnapKit', '0.14.0'
+end
+
 target 'ShortTrips' do
-  pod 'Alamofire', '~> 1.3'
-  pod 'AlamofireObjectMapper', '~> 0.7'
-  pod 'SnapKit', '0.12.0'
+  shared_pods
 end
 
 target 'ShortTripsTests' do
-    # Will change with Xcode 7 / Swift 2
-    pod 'Quick', '0.3.1'
-    pod 'Nimble', '1.0.0'
-    
-    pod 'PivotalCoreKit', '0.3.0'
-    pod 'PivotalCoreKit/UIKit/SpecHelper/Extensions'
+  shared_pods
+  
+  pod 'Quick', '0.6.0'
+  pod 'Nimble', '2.0.0-rc.3'
+  
+  pod 'PivotalCoreKit', '0.3.0'
+  pod 'PivotalCoreKit/UIKit/SpecHelper/Extensions'
 end

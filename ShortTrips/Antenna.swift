@@ -1,5 +1,5 @@
 //
-//  DriverResponse.swift
+//  Antenna.swift
 //  ShortTrips
 //
 //  Created by Joshua Adams on 9/15/15.
@@ -9,12 +9,14 @@
 import Foundation
 import ObjectMapper
 
-struct DriverResponse: Mappable {
-  var driver: Driver!
+struct Antenna: Mappable {
+  var antennaId: Int!
+  var aviLocation: String!
   
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
-    driver <- map["driver"]
+    antennaId <- map["antenna_id"]
+    aviLocation <- map["avi_location"]
   }
 }
