@@ -91,11 +91,9 @@ public class TerminalSummaryVC: UIViewController {
       response: { (terminals, error) -> Void in
         
         if let terminals = terminals {
-          println("terminal 0 delayed count: \(terminals[0].delayedCount)")
           self.reloadViews(terminals)
         }
         else {
-          println("error: \(error)")
           let terminals = [
             TerminalSummary(terminalId: TerminalId.International, count: 2, delayedCount: 3),
             TerminalSummary(terminalId: TerminalId.One, count: 3, delayedCount: 2),

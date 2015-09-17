@@ -12,9 +12,7 @@ import ObjectMapper
 struct ReferenceConfigResponse: Mappable {
   var referenceConfig: ReferenceConfig!
   
-  static func newInstance(map: Map) -> Mappable? {
-    return ReferenceConfigResponse()
-  }
+  init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
     referenceConfig <- map["response"]

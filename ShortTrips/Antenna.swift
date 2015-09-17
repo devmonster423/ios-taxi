@@ -13,9 +13,7 @@ struct Antenna: Mappable {
   var antennaId: Int!
   var aviLocation: String!
   
-  static func newInstance(map: Map) -> Mappable? {
-    return Antenna()
-  }
+  init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
     antennaId <- map["antenna_id"]

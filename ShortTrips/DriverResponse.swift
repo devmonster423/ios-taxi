@@ -12,9 +12,7 @@ import ObjectMapper
 struct DriverResponse: Mappable {
   var driver: Driver!
   
-  static func newInstance(map: Map) -> Mappable? {
-    return DriverResponse()
-  }
+  init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
     driver <- map["driver"]

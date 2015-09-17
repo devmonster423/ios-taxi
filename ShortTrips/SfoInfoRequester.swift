@@ -11,17 +11,17 @@ import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
-typealias LotStatusResponseClosure = (LotStatusResponse?, NSError?) -> Void
-typealias TerminalResponseClosure = ([TerminalSummary]?, NSError?) -> Void
-typealias FlightResponseClosure = ([Flight]?, NSError?) -> Void
-typealias AviResponseClosure = ([AutomaticVehicleId]?, NSError?) -> Void
-typealias AntennaResponseClosure = (AntennaResponse?, NSError?) -> Void
-typealias AllCidsResponseClosure = (AllCidsResponse?, NSError?) -> Void
-typealias CidForSmartCardResponseClosure = (CidResponse?, NSError?) -> Void
-typealias ReferenceConfigResponseClosure = (ReferenceConfigResponse?, NSError?) -> Void
-typealias AllGeofencesResponseClosure = (AllGeofencesResponse?, NSError?) -> Void
-typealias GeofenceResponseClosure = (GeofenceResponse?, NSError?) -> Void
-typealias DriverResponseClosure = (DriverResponse?, NSError?) -> Void
+typealias LotStatusResponseClosure = (LotStatusResponse?, ErrorType?) -> Void
+typealias TerminalResponseClosure = ([TerminalSummary]?, ErrorType?) -> Void
+typealias FlightResponseClosure = ([Flight]?, ErrorType?) -> Void
+typealias AviResponseClosure = ([AutomaticVehicleId]?, ErrorType?) -> Void
+typealias AntennaResponseClosure = (AntennaResponse?, ErrorType?) -> Void
+typealias AllCidsResponseClosure = (AllCidsResponse?, ErrorType?) -> Void
+typealias CidForSmartCardResponseClosure = (CidResponse?, ErrorType?) -> Void
+typealias ReferenceConfigResponseClosure = (ReferenceConfigResponse?, ErrorType?) -> Void
+typealias AllGeofencesResponseClosure = (AllGeofencesResponse?, ErrorType?) -> Void
+typealias GeofenceResponseClosure = (GeofenceResponse?, ErrorType?) -> Void
+typealias DriverResponseClosure = (DriverResponse?, ErrorType?) -> Void
 
 class SfoInfoRequester {
   private static let baseUrl = "https://216.9.96.29:9000/taxiws/services/taxi/"

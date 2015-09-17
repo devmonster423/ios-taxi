@@ -37,9 +37,7 @@ struct MobileStateChange: Mappable {
   
   init() {}
   
-  static func newInstance(map: Map) -> Mappable? {
-    return MobileStateChange()
-  }
+  init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
     longitude <- map["longitude"]

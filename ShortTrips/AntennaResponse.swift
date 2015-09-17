@@ -12,11 +12,7 @@ import ObjectMapper
 struct AntennaResponse: Mappable {
   var antenna: Antenna!
   
-  init() {}
-  
-  static func newInstance(map: Map) -> Mappable? {
-    return AntennaResponse()
-  }
+  init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
     antenna <- map["response"]

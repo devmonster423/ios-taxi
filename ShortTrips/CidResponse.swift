@@ -12,9 +12,7 @@ import ObjectMapper
 struct CidResponse: Mappable {
   var cid: Cid!
   
-  static func newInstance(map: Map) -> Mappable? {
-    return CidResponse()
-  }
+  init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
     cid <- map["response"]

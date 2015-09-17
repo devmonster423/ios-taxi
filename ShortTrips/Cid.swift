@@ -13,9 +13,7 @@ struct Cid: Mappable {
   var cidId: Int!
   var cidLocation: String!
   
-  static func newInstance(map: Map) -> Mappable? {
-    return Cid()
-  }
+  init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
     cidId <- map["cid_id"]

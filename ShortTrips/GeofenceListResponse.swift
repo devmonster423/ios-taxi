@@ -11,9 +11,7 @@ import ObjectMapper
 struct GeofenceListResponse: Mappable {
   var geofenceList: [Geofence]!
   
-  static func newInstance(map: Map) -> Mappable? {
-    return GeofenceListResponse()
-  }
+  init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
     geofenceList <- map["geofence_list"]

@@ -20,9 +20,7 @@ struct Geofence: Mappable {
   var geofenceId: Int!
   var name: String!
   
-  static func newInstance(map: Map) -> Mappable? {
-    return Geofence()
-  }
+  init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
     category <- map["category"]

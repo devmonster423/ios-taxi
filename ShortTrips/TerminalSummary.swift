@@ -39,8 +39,12 @@ struct TerminalSummary: Mappable {
   var count: Int!
   var delayedCount: Int!
   
-  static func newInstance(map: Map) -> Mappable? {
-    return TerminalSummary()
+  init?(_ map: Map){}
+  
+  init(terminalId: TerminalId, count: Int, delayedCount: Int) {
+    self.terminalId = terminalId
+    self.count = count
+    self.delayedCount = delayedCount
   }
   
   mutating func mapping(map: Map) {

@@ -29,9 +29,7 @@ enum LotStatus: String {
 struct LotStatusResponse: Mappable {
   var lotStatus: LotStatus!
   
-  static func newInstance(map: Map) -> Mappable? {
-    return LotStatusResponse()
-  }
+  init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
     lotStatus <- map["lotStatus"]

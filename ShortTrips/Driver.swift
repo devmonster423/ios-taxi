@@ -24,11 +24,7 @@ struct Driver: Mappable {
     self.lastName = lastName
   }
 
-  init() {}
-
-  static func newInstance(map: Map) -> Mappable? {
-    return Driver()
-  }
+  init?(_ map: Map){}
 
   mutating func mapping(map: Map) {
     sessionId <- map["session_id"]

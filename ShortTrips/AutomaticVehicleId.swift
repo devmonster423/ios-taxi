@@ -11,13 +11,9 @@ import ObjectMapper
 
 struct AutomaticVehicleId: Mappable {
   var location: String!
-  // Ordinarily, I like to make IDs Ints, but the sample ID given on page 15 of the
-  // requirements document is "L3434", so I made id a String here.
   var id: String!
   
-  static func newInstance(map: Map) -> Mappable? {
-    return AutomaticVehicleId()
-  }
+  init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
     location <- map["location"]
