@@ -49,6 +49,9 @@
 		E1A2EBAB1B6D767000C27EB2 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAA1B6D767000C27EB2 /* Airline.swift */; };
 		E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAC1B6E8FEF00C27EB2 /* FlightStatus.swift */; };
 		E1A2EBAF1B6E920500C27EB2 /* TerminalSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAE1B6E920500C27EB2 /* TerminalSummary.swift */; };
+		E1B393761BAC614F00FC2970 /* AutomaticVehicleIdResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B393751BAC614F00FC2970 /* AutomaticVehicleIdResponse.swift */; settings = {ASSET_TAGS = (); }; };
+		E1B3937B1BAC66FE00FC2970 /* LotStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3937A1BAC66FE00FC2970 /* LotStatus.swift */; settings = {ASSET_TAGS = (); }; };
+		E1B3937D1BAC681B00FC2970 /* LostStatusEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3937C1BAC681B00FC2970 /* LostStatusEnum.swift */; settings = {ASSET_TAGS = (); }; };
 		E1B8271C1B7CEF4200CC32EF /* SfoInfoRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8271B1B7CEF4200CC32EF /* SfoInfoRequester.swift */; };
 		E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */; };
 		E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */; };
@@ -165,6 +168,9 @@
 		E1A2EBAA1B6D767000C27EB2 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		E1A2EBAC1B6E8FEF00C27EB2 /* FlightStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatus.swift; sourceTree = "<group>"; };
 		E1A2EBAE1B6E920500C27EB2 /* TerminalSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummary.swift; sourceTree = "<group>"; };
+		E1B393751BAC614F00FC2970 /* AutomaticVehicleIdResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticVehicleIdResponse.swift; sourceTree = "<group>"; };
+		E1B3937A1BAC66FE00FC2970 /* LotStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatus.swift; sourceTree = "<group>"; };
+		E1B3937C1BAC681B00FC2970 /* LostStatusEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LostStatusEnum.swift; sourceTree = "<group>"; };
 		E1B8271B1B7CEF4200CC32EF /* SfoInfoRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SfoInfoRequester.swift; sourceTree = "<group>"; };
 		E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusResponse.swift; sourceTree = "<group>"; };
 		E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiConstants.swift; sourceTree = "<group>"; };
@@ -262,10 +268,10 @@
 		C24486EE1BA89DD100A19A9D /* Geofence */ = {
 			isa = PBXGroup;
 			children = (
-				E11D60961BA7A40100FD4276 /* Geofence.swift */,
-				C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */,
 				C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */,
+				E11D60961BA7A40100FD4276 /* Geofence.swift */,
 				C24486F31BA8B5A300A19A9D /* GeofenceResponse.swift */,
+				C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */,
 			);
 			name = Geofence;
 			sourceTree = "<group>";
@@ -367,10 +373,10 @@
 		E1A2EBA31B6C2AA400C27EB2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */,
-				E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */,
 				C2DFE5C91B56D2CB0090B55F /* DashboardVC.swift */,
+				E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */,
 				E1B8271B1B7CEF4200CC32EF /* SfoInfoRequester.swift */,
+				E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */,
 				E14DBDDA1B867A8400819C91 /* UpdateTimer.swift */,
 			);
 			name = Controllers;
@@ -379,21 +385,18 @@
 		E1A2EBA41B6C2B3600C27EB2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C24486EE1BA89DD100A19A9D /* Geofence */,
 				E1A2EBAA1B6D767000C27EB2 /* Airline.swift */,
-				E18FF68E1BA869A300FE93B9 /* Antenna.swift */,
-				E18736881BA8E7D800B6C7D8 /* AntennaResponse.swift */,
-				E13BCEEF1BABAD32006FDFF5 /* Flight */,
-				E18FF68C1BA8667500FE93B9 /* AutomaticVehicleId.swift */,
+				E1B393731BAC601900FC2970 /* Antenna */,
+				E1B393741BAC610E00FC2970 /* AutomaticVehicleId */,
 				E187368A1BA8E9D000B6C7D8 /* Cid */,
-				E16399D41BA7B99400EDE0AE /* Driver.swift */,
-				E1666F981BA8D25600C95F96 /* DriverResponse.swift */,
+				E1B393771BAC620E00FC2970 /* Driver */,
+				E13BCEEF1BABAD32006FDFF5 /* Flight */,
+				C24486EE1BA89DD100A19A9D /* Geofence */,
+				E1B393791BAC66E900FC2970 /* LotStatus */,
 				E18FF6941BA8783600FE93B9 /* MobileStateChange.swift */,
-				E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */,
-				E1DCC1FE1BA8DEAC0016B725 /* ReferenceConfigResponse.swift */,
+				E1B393781BAC625E00FC2970 /* ReferenceConfig */,
 				E13BCEF41BABB895006FDFF5 /* TerminalSummary */,
 				E18FF6921BA877C000FE93B9 /* TripState.swift */,
-				E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -410,6 +413,52 @@
 				E17352841B8CEC9B0031950B /* UiHelpers.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		E1B393731BAC601900FC2970 /* Antenna */ = {
+			isa = PBXGroup;
+			children = (
+				E18FF68E1BA869A300FE93B9 /* Antenna.swift */,
+				E18736881BA8E7D800B6C7D8 /* AntennaResponse.swift */,
+			);
+			name = Antenna;
+			sourceTree = "<group>";
+		};
+		E1B393741BAC610E00FC2970 /* AutomaticVehicleId */ = {
+			isa = PBXGroup;
+			children = (
+				E18FF68C1BA8667500FE93B9 /* AutomaticVehicleId.swift */,
+				E1B393751BAC614F00FC2970 /* AutomaticVehicleIdResponse.swift */,
+			);
+			name = AutomaticVehicleId;
+			sourceTree = "<group>";
+		};
+		E1B393771BAC620E00FC2970 /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				E16399D41BA7B99400EDE0AE /* Driver.swift */,
+				E1666F981BA8D25600C95F96 /* DriverResponse.swift */,
+			);
+			name = Driver;
+			sourceTree = "<group>";
+		};
+		E1B393781BAC625E00FC2970 /* ReferenceConfig */ = {
+			isa = PBXGroup;
+			children = (
+				E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */,
+				E1DCC1FE1BA8DEAC0016B725 /* ReferenceConfigResponse.swift */,
+			);
+			name = ReferenceConfig;
+			sourceTree = "<group>";
+		};
+		E1B393791BAC66E900FC2970 /* LotStatus */ = {
+			isa = PBXGroup;
+			children = (
+				E1B3937A1BAC66FE00FC2970 /* LotStatus.swift */,
+				E1B3937C1BAC681B00FC2970 /* LostStatusEnum.swift */,
+				E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */,
+			);
+			name = LotStatus;
 			sourceTree = "<group>";
 		};
 		E1CDE7101B66DF0600AB27D2 /* Fonts */ = {
@@ -743,6 +792,7 @@
 				E13BCEFC1BABBB1A006FDFF5 /* TerminalSummaryArrivalsListListResponse.swift in Sources */,
 				E1A2EBAF1B6E920500C27EB2 /* TerminalSummary.swift in Sources */,
 				E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */,
+				E1B393761BAC614F00FC2970 /* AutomaticVehicleIdResponse.swift in Sources */,
 				E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */,
 				C24486F41BA8B5A300A19A9D /* GeofenceResponse.swift in Sources */,
 				E13BCEF81BABB985006FDFF5 /* TerminalSummaryArrivalsResponse.swift in Sources */,
@@ -769,6 +819,8 @@
 				E18FF6911BA870AF00FE93B9 /* Cid.swift in Sources */,
 				E13BCEFA1BABBAA1006FDFF5 /* TerminalSummaryArrivalsListResponse.swift in Sources */,
 				E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */,
+				E1B3937B1BAC66FE00FC2970 /* LotStatus.swift in Sources */,
+				E1B3937D1BAC681B00FC2970 /* LostStatusEnum.swift in Sources */,
 				E1DCC1FF1BA8DEAC0016B725 /* ReferenceConfigResponse.swift in Sources */,
 				E1666F991BA8D25600C95F96 /* DriverResponse.swift in Sources */,
 				E16399D51BA7B99400EDE0AE /* Driver.swift in Sources */,

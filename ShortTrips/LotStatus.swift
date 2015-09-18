@@ -6,4 +6,16 @@
 //  Copyright © 2015 SFO. All rights reserved.
 //
 
-import Foundation
+import ObjectMapper
+
+struct LotStatus: Mappable {
+  var lotStatusEnum: LotStatusEnum!
+  
+  init?(_ map: Map){}
+  
+  mutating func mapping(map: Map) {
+    lotStatusEnum <- map["lot_status"]
+  }
+}
+
+
