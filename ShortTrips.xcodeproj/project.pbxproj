@@ -301,11 +301,9 @@
 		C2DFE5C41B56D2CB0090B55F /* ShortTrips */ = {
 			isa = PBXGroup;
 			children = (
-				FA32EC0F1B885B92001428B5 /* ShortTrips.entitlements */,
-				C2DFE5C71B56D2CB0090B55F /* AppDelegate.swift */,
-				FA32EC031B88362F001428B5 /* Resources */,
 				E1A2EBA31B6C2AA400C27EB2 /* Controllers */,
 				E1A2EBA41B6C2B3600C27EB2 /* Models */,
+				FA32EC031B88362F001428B5 /* Resources */,
 				E1A2EBA51B6C2BC600C27EB2 /* Views */,
 				C2DFE5C51B56D2CB0090B55F /* Supporting Files */,
 			);
@@ -315,7 +313,9 @@
 		C2DFE5C51B56D2CB0090B55F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C2DFE5C71B56D2CB0090B55F /* AppDelegate.swift */,
 				C2DFE5C61B56D2CB0090B55F /* Info.plist */,
+				FA32EC0F1B885B92001428B5 /* ShortTrips.entitlements */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -407,9 +407,9 @@
 		E1A2EBA51B6C2BC600C27EB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
 				E1FA66161B85558300FD18C6 /* BackgroundCell.swift */,
 				E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */,
+				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
 				C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */,
 				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
 				E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */,
@@ -515,10 +515,10 @@
 		FA32EC031B88362F001428B5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E1CDE7101B66DF0600AB27D2 /* Fonts */,
+				C2DFE5CE1B56D2CB0090B55F /* Images.xcassets */,
 				FA32EC041B8836A5001428B5 /* JPEG */,
 				E12264A01B795A65002B36CA /* Localizable.strings */,
-				C2DFE5CE1B56D2CB0090B55F /* Images.xcassets */,
-				E1CDE7101B66DF0600AB27D2 /* Fonts */,
 			);
 			name = Resources;
 			sourceTree = "<group>";

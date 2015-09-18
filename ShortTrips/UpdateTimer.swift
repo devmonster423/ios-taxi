@@ -2,7 +2,7 @@
 //  UpdateTimer.swift
 //  ShortTrips
 //
-//  Created by Joshua Adams on 8/20/15.
+//  Created by Josh Adams on 8/20/15.
 //  Copyright (c) 2015 SFO. All rights reserved.
 //
 
@@ -12,6 +12,8 @@ import UIKit
 class UpdateTimer: NSObject {
   
   static let sharedInstance = UpdateTimer()
+  private static let oneMinute = 60
+  private static let twoMinutes = 120
   var timer: NSTimer!
   var elapsedSeconds: Int = 0
   var updateLabel: UILabel!
@@ -35,14 +37,14 @@ class UpdateTimer: NSObject {
   }
   
   func eachSecond() {
-    if elapsedSeconds < 60 {
+    if elapsedSeconds < UpdateTimer.oneMinute {
       updateLabel.text = NSLocalizedString("LAST UPDATED LESS THAN A MINUTE AGO", comment: "")
     }
-    else if elapsedSeconds < 120 {
+    else if elapsedSeconds < UpdateTimer.twoMinutes {
       updateLabel.text = NSLocalizedString("LAST UPDATED A MINUTE AGO", comment: "")
     }
     else {
-      updateLabel.text = String(format: NSLocalizedString("LAST UPDATED %d MINUTES AGO", comment: ""), elapsedSeconds / 60)
+      updateLabel.text = String(format: NSLocalizedString("LAST UPDATED %d MINUTES AGO", comment: ""), elapsedSeconds / UpdateTimer.oneMinute)
     }
     updateProgress.progress = Float(elapsedSeconds) / Float(UiConstants.updatePeriod)
     elapsedSeconds++

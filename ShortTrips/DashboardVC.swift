@@ -37,17 +37,17 @@ class DashboardVC: UIViewController {
     super.viewWillDisappear(animated)
     UpdateTimer.stop()
   }
-  
+    
   func requestLotStatus() {
-    SfoInfoRequester.requestLotStatus { (status, error) -> Void in
-      if let lotStatusEnum = status?.lotStatus?.lotStatusEnum  {
+    SfoInfoRequester.requestLotStatus({ (status:LotStatus?, error: ErrorType?) -> Void in
+      if let lotStatusEnum = status?.lotStatusEnum  {
         self.updateStatusUI(lotStatusEnum)
       } else {
         self.updateStatusUI(LotStatusEnum.random())
       }
-    }
+    })
   }
-  
+
   func updateStatusUI(lotStatusEnum: LotStatusEnum) {
     switch lotStatusEnum {
       

@@ -2,7 +2,7 @@
 //  TerminalSummaryVC.swift
 //  ShortTrips
 //
-//  Created by Joshua Adams on 8/13/15.
+//  Created by Josh Adams on 8/13/15.
 //  Copyright (c) 2015 SFO. All rights reserved.
 //
 
@@ -87,23 +87,21 @@ public class TerminalSummaryVC: UIViewController {
   }
   
   private func updateTerminalTable() {
-    SfoInfoRequester.requestTerminalSummary(currentHour,
-      response: { (terminalSummaryResponse, error) -> Void in
-        if let terminals = terminalSummaryResponse?.terminalSummaryArrivalsResponse?.terminalSummaryArrivalsListResponse?.terminalSummaryArrivalsListListResponse?.terminalSummaryArrivalsList {
-          self.reloadViews(terminals)
+    SfoInfoRequester.requestTerminalSummary(currentHour, response: { (terminals: [TerminalSummary]?, error: ErrorType?) -> Void in
+      if let terminals = terminals {
+        self.reloadViews(terminals)
+      }
+      else {
+        self.reloadViews([
+          TerminalSummary(terminalId: TerminalId.International, count: 2, delayedCount: 3),
+          TerminalSummary(terminalId: TerminalId.One, count: 3, delayedCount: 2),
+          TerminalSummary(terminalId: TerminalId.Two, count: 5, delayedCount: 4),
+          TerminalSummary(terminalId: TerminalId.Three, count: 7, delayedCount: 6)
+          ])
         }
-        else {
-          let terminals = [
-            TerminalSummary(terminalId: TerminalId.International, count: 2, delayedCount: 3),
-            TerminalSummary(terminalId: TerminalId.One, count: 3, delayedCount: 2),
-            TerminalSummary(terminalId: TerminalId.Two, count: 5, delayedCount: 4),
-            TerminalSummary(terminalId: TerminalId.Three, count: 7, delayedCount: 6)
-          ]
-          self.reloadViews(terminals)
-        }
-    })
+      })
   }
-  
+
   @IBAction func decreaseHour() {
     updateHour(-1)
     updateHourPickerLabels()
