@@ -166,9 +166,9 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     if indexPath.section == TableSection.Header.rawValue {
-      return UiConstants.backgroundCellHeight
+      return FlightHeaderCell.height
     } else {
-      return UiConstants.flightCellHeight
+      return FlightCell.height
     }
   }
 }

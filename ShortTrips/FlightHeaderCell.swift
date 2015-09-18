@@ -13,6 +13,7 @@ class FlightHeaderCell: UITableViewCell {
 
   private var delayedLabel = UILabel()
   
+  static let height: CGFloat = 200
   static let identifier = "flightHeaderCell"
   
   required init?(coder aDecoder: NSCoder) {

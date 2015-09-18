@@ -23,8 +23,6 @@ class UiConstants {
   static let statusBorderWidth: CGFloat = 1.0
   static let fadeDuration: NSTimeInterval = 1.0
   static let disabledWidgetAlpha: CGFloat = 0.3
-  static let backgroundCellHeight: CGFloat = 200.0
-  static let flightCellHeight: CGFloat = 80.0
   static let updatePeriod: Int = 300
   static let updateInterval: NSTimeInterval = 1.0
   static let navControllerFont: String = "MyriadPro-Bold"

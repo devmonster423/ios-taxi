@@ -19,7 +19,7 @@ class FlightCell: UITableViewCell {
   private var flightStatusLabel = UILabel()
   private var landingTimeLabel = UILabel()
   
-  static let height = 80
+  static let height: CGFloat = 80
   static let identifier = "flightCell"
   
   required init?(coder aDecoder: NSCoder) {
