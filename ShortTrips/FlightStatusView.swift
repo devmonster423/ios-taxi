@@ -21,7 +21,21 @@ class FlightStatusView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
    
-    // TODO: remove
-    backgroundColor = UIColor.purpleColor()
+    addSubview(flightTable)
+    addSubview(timerView)
+    
+    flightTable.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(self)
+      make.left.equalTo(self)
+      make.right.equalTo(self)
+      make.bottom.equalTo(timerView.snp_top)
+    }
+    
+    timerView.snp_makeConstraints { (make) -> Void in
+      make.bottom.equalTo(self)
+      make.height.equalTo(60)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+    }
   }
 }

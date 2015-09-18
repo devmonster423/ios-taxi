@@ -24,6 +24,8 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     let flightStatusView = FlightStatusView(frame: UIScreen.mainScreen().bounds)
     flightStatusView.flightTable.dataSource = self
     flightStatusView.flightTable.delegate = self
+    flightStatusView.flightTable.registerClass(FlightCell.self, forCellReuseIdentifier: FlightCell.identifier)
+    flightStatusView.flightTable.registerClass(FlightHeaderCell.self, forCellReuseIdentifier: FlightHeaderCell.identifier)
     view = flightStatusView
   }
   
@@ -150,13 +152,13 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     if indexPath.section == TableSection.Content.rawValue {
-      let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as! FlightCell
+      let cell = tableView.dequeueReusableCellWithIdentifier(FlightCell.identifier, forIndexPath: indexPath) as! FlightCell
       if let flights = flights {
         cell.displayFlight(flights[indexPath.row])
       }
       return cell
     } else {
-      let cell = tableView.dequeueReusableCellWithIdentifier("backgroundCell", forIndexPath: indexPath) as! BackgroundCell
+      let cell = tableView.dequeueReusableCellWithIdentifier(FlightHeaderCell.identifier, forIndexPath: indexPath) as! FlightHeaderCell
       cell.displayDelay(computeDelay())
       return cell
     }
