@@ -16,18 +16,19 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     case Content = 1
   }
   
-  @IBOutlet var flightTable: UITableView!
-  @IBOutlet var updateLabel: UILabel!
-  @IBOutlet var updateProgress: UIProgressView!
-  
   var selectedTerminalId: TerminalId!
   var currentHour: Int!
   var flights: [Flight]?
   
+  override func loadView() {
+    let flightStatusView = FlightStatusView(frame: UIScreen.mainScreen().bounds)
+    flightStatusView.flightTable.dataSource = self
+    flightStatusView.flightTable.delegate = self
+    view = flightStatusView
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    flightTable.dataSource = self
-    flightTable.delegate = self
     
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .Plain, target: self, action: "goBack")
@@ -39,7 +40,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     super.viewWillAppear(animated)
     
     updateFlightTable()
-// TODO:    UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateFlightTable)
+    UpdateTimer.start(flightStatusView().timerView, callback: updateFlightTable)
     navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: UiConstants.navControllerFont, size: UiConstants.navControllerFontSizeSmall)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
     setupTitle()
   }
@@ -47,6 +48,10 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     UpdateTimer.stop()
+  }
+  
+  func flightStatusView() -> FlightStatusView {
+    return view as! FlightStatusView
   }
   
   func goBack() {
@@ -106,7 +111,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         else {
           self.flights = FlightMock.mockFlights()
         }
-        self.flightTable.reloadData()
+        self.flightStatusView().flightTable.reloadData()
     })
   }
   
