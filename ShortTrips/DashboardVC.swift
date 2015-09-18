@@ -40,33 +40,33 @@ class DashboardVC: UIViewController {
   
   func requestLotStatus() {
     SfoInfoRequester.requestLotStatus { (status, error) -> Void in
-      if let status = status, let lotStatus = status.lotStatus {
-        self.updateStatusUI(lotStatus)
+      if let lotStatusEnum = status?.lotStatus?.lotStatusEnum  {
+        self.updateStatusUI(lotStatusEnum)
       } else {
-        self.updateStatusUI(LotStatus.random())
+        self.updateStatusUI(LotStatusEnum.random())
       }
     }
   }
   
-  func updateStatusUI(lotStatus: LotStatus) {
-    switch lotStatus {
+  func updateStatusUI(lotStatusEnum: LotStatusEnum) {
+    switch lotStatusEnum {
       
     case .Yes:
       backgroundImageView.image = UIImage(named: "green_bg.jpg")
       comeToSfoLabel.text = NSLocalizedString("Go To SFO", comment: "")
-      directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
+      directionLabel.text = NSLocalizedString(lotStatusEnum.rawValue, comment: "")
       explanationLabel.text = NSLocalizedString("Lot capacity is not full", comment: "")
       
     case .Maybe:
       backgroundImageView.image = UIImage(named: "yellow_bg.jpg")
       comeToSfoLabel.text = NSLocalizedString("Go To SFO", comment: "")
-      directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
+      directionLabel.text = NSLocalizedString(lotStatusEnum.rawValue, comment: "")
       explanationLabel.text = NSLocalizedString("Lot capacity is almost full", comment: "")
       
     case .No:
       backgroundImageView.image = UIImage(named: "red_bg.jpg")
       comeToSfoLabel.text = NSLocalizedString("Don't Go To SFO", comment: "")
-      directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
+      directionLabel.text = NSLocalizedString(lotStatusEnum.rawValue, comment: "")
       explanationLabel.text = NSLocalizedString("Lot capacity is full", comment: "")
     }
   }
