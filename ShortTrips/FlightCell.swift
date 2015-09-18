@@ -12,6 +12,7 @@ import SnapKit
 class FlightCell: UITableViewCell {
   
   let dateFormatter = NSDateFormatter()
+  let standardMargin = 5
   
   private var airlineIcon = UIImageView()
   private var flightNumberLabel = UILabel()
@@ -35,13 +36,35 @@ class FlightCell: UITableViewCell {
     
     airlineIcon.contentMode = .ScaleAspectFit
     airlineIcon.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(self).offset(5)
-      make.bottom.equalTo(self).offset(-5)
-      make.left.equalTo(self).offset(5)
-      make.width.equalTo(90)
+      make.top.equalTo(self).offset(standardMargin)
+      make.bottom.equalTo(self).offset(-standardMargin)
+      make.left.equalTo(self)
+      make.width.equalTo(self).dividedBy(4)
     }
     
+    flightNumberLabel.textAlignment = .Center
+    flightNumberLabel.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(self).offset(standardMargin)
+      make.bottom.equalTo(self).offset(-standardMargin)
+      make.left.equalTo(airlineIcon.snp_right)
+      make.width.equalTo(self).dividedBy(4)
+    }
     
+    flightStatusLabel.textAlignment = .Center
+    flightStatusLabel.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(self).offset(standardMargin)
+      make.bottom.equalTo(self).offset(-standardMargin)
+      make.left.equalTo(flightNumberLabel.snp_right)
+      make.width.equalTo(self).dividedBy(4)
+    }
+    
+    landingTimeLabel.textAlignment = .Center
+    landingTimeLabel.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(self).offset(standardMargin)
+      make.bottom.equalTo(self).offset(-standardMargin)
+      make.left.equalTo(flightStatusLabel.snp_right)
+      make.width.equalTo(self).dividedBy(4)
+    }
   }
   
   func displayFlight(flight: Flight) {
