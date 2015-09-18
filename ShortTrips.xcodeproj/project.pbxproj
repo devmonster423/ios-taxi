@@ -31,6 +31,7 @@
 		E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */; };
 		E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */; };
 		E14DBDDB1B867A8400819C91 /* UpdateTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14DBDDA1B867A8400819C91 /* UpdateTimer.swift */; };
+		E15A3CD31BAC86C6002EDE40 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15A3CD21BAC86C6002EDE40 /* Credential.swift */; settings = {ASSET_TAGS = (); }; };
 		E16399D51BA7B99400EDE0AE /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16399D41BA7B99400EDE0AE /* Driver.swift */; };
 		E1666F991BA8D25600C95F96 /* DriverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1666F981BA8D25600C95F96 /* DriverResponse.swift */; };
 		E17352851B8CEC9B0031950B /* UiHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17352841B8CEC9B0031950B /* UiHelpers.swift */; };
@@ -150,6 +151,7 @@
 		E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryVC.swift; sourceTree = "<group>"; };
 		E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+initWithColor.swift"; sourceTree = "<group>"; };
 		E14DBDDA1B867A8400819C91 /* UpdateTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTimer.swift; sourceTree = "<group>"; };
+		E15A3CD21BAC86C6002EDE40 /* Credential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		E16399D41BA7B99400EDE0AE /* Driver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		E1666F981BA8D25600C95F96 /* DriverResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverResponse.swift; sourceTree = "<group>"; };
 		E17352841B8CEC9B0031950B /* UiHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiHelpers.swift; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				E1B393731BAC601900FC2970 /* Antenna */,
 				E1B393741BAC610E00FC2970 /* AutomaticVehicleId */,
 				E187368A1BA8E9D000B6C7D8 /* Cid */,
+				E15A3CD21BAC86C6002EDE40 /* Credential.swift */,
 				E1B393771BAC620E00FC2970 /* Driver */,
 				E13BCEEF1BABAD32006FDFF5 /* Flight */,
 				C24486EE1BA89DD100A19A9D /* Geofence */,
@@ -822,6 +825,7 @@
 				E1B3937B1BAC66FE00FC2970 /* LotStatus.swift in Sources */,
 				E1B3937D1BAC681B00FC2970 /* LostStatusEnum.swift in Sources */,
 				E1DCC1FF1BA8DEAC0016B725 /* ReferenceConfigResponse.swift in Sources */,
+				E15A3CD31BAC86C6002EDE40 /* Credential.swift in Sources */,
 				E1666F991BA8D25600C95F96 /* DriverResponse.swift in Sources */,
 				E16399D51BA7B99400EDE0AE /* Driver.swift in Sources */,
 				E1A2EBA21B6C218D00C27EB2 /* FlightCell.swift in Sources */,

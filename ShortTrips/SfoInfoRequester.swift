@@ -85,9 +85,10 @@ class SfoInfoRequester {
     Alamofire.request(.GET, baseUrl + geofenceUrl + "/" + "\(id)", parameters: nil).responseObject(response)
   }
 
-  class func authenticateDriver(username: String, password: String, response: DriverResponseClosure) {
-    let params = ["username": username, "password": password]
-    Alamofire.request(.POST, baseUrl + driverLoginUrl, parameters: params).responseObject(response)
+  class func authenticateDriver(credential: Credential) {
+    Alamofire.request(.POST, baseUrl + driverLoginUrl, parameters: Mapper().toJSON(credential), encoding: .JSON).response { _, _, _, error in
+      print(error)
+    }
   }
   
   class func postMobileStateChanges(mobileStateChange: MobileStateChange) {
