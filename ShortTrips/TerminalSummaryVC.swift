@@ -98,30 +98,10 @@ class TerminalSummaryVC: UIViewController {
     terminalSummaryView().incrementHour(1)
   }
   
-  func terminalSelected(sender: AnyObject) {
+  func terminalSelected(sender: UITapGestureRecognizer) {
     let flightStatusVC = FlightStatusVC()
     flightStatusVC.currentHour = terminalSummaryView().getCurrentHour()
-    
-    let view = (sender as! UITapGestureRecognizer).view!
-    
-    switch view {
-      
-    case terminalSummaryView().terminalView1:
-      flightStatusVC.selectedTerminalId = .One
-      
-    case terminalSummaryView().terminalView2:
-      flightStatusVC.selectedTerminalId = .Two
-      
-    case terminalSummaryView().terminalView3:
-      flightStatusVC.selectedTerminalId = .Three
-      
-    case terminalSummaryView().terminalView4:
-      flightStatusVC.selectedTerminalId = .International
-      
-    default:
-      assertionFailure("")
-    }
-    
+    flightStatusVC.selectedTerminalId = (sender.view as! TerminalView).activeTerminalId
     navigationController?.pushViewController(flightStatusVC, animated: true)
   }
 }

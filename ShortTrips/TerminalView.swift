@@ -11,6 +11,8 @@ import SnapKit
 
 class TerminalView: UIView {
 
+  var activeTerminalId: TerminalId?
+  
   private let delayedLabel = UILabel()
   private let onTimeLabel = UILabel()
   private let terminalImage = UIImageView()
@@ -98,6 +100,7 @@ class TerminalView: UIView {
 
   func configureForTerminalSummary(summary: TerminalSummary) {
 
+    activeTerminalId = summary.terminalId
     delayedLabel.text = "\(summary.delayedCount)"
     onTimeLabel.text = "\(summary.count)"
 
