@@ -4,4 +4,5 @@ before_install:
   - gem install cocoapods
   - pod install
 script:
-  - xcodebuild test -workspace ShortTrips.xcworkspace -scheme 'ShortTrips' -sdk iphonesimulator9.0
+  - xcodebuild -alltargets -configuration Debug -sdk iphonesimulator clean SYMROOT=build OBJROOT=build/Intermediates
+  - xcodebuild -workspace ShortTrips.xcworkspace -scheme ShortTrips -configuration Debug build test -destination "platform=iOS Simulator,name=iPhone 6" SYMROOT=build OBJROOT=build/Intermediates
