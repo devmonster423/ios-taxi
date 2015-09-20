@@ -31,10 +31,12 @@ class TimerView: UIView {
       make.height.equalTo(2)
     }
 
+    updateLabel.font = Font.MyriadProSemibold.size(21)
+    updateLabel.textAlignment = .Center
     updateLabel.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(22)
-      make.width.equalTo(240)
-      make.centerX.equalTo(self)
+      make.leading.equalTo(self).offset(UiConstants.dashboardMargin)
+      make.trailing.equalTo(self).offset(-UiConstants.dashboardMargin)
       make.top.equalTo(self)
     }
   }
