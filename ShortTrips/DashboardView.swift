@@ -53,11 +53,13 @@ class DashboardView: UIView {
     }
 
     // "the lot is full"
+    explanationLabel.font = Font.MyriadProBold.size(40)
+    explanationLabel.numberOfLines = 0
     explanationLabel.textColor = UIColor.whiteColor()
     explanationLabel.snp_makeConstraints { (make) -> Void in
-      make.width.equalTo(270)
-      make.height.equalTo(80)
       make.leading.equalTo(self).offset(UiConstants.dashboardMargin)
+      make.trailing.equalTo(self).offset(-UiConstants.dashboardMargin)
+      make.height.equalTo(120)
       make.bottom.equalTo(bgImageView)
     }
 
@@ -73,6 +75,7 @@ class DashboardView: UIView {
     }
 
     // "Come to SFO"
+    comeToSfoLabel.font = Font.MyriadPro.size(40)
     comeToSfoLabel.textColor = UIColor.whiteColor()
     comeToSfoLabel.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(80)
@@ -82,6 +85,7 @@ class DashboardView: UIView {
     }
 
     // "YES/NO/MAYBE"
+    directionLabel.font = Font.MyriadPro.size(60)
     directionLabel.textColor = UIColor.whiteColor()
     directionLabel.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self).offset(UiConstants.dashboardMargin)

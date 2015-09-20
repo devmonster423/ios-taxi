@@ -96,6 +96,7 @@
 		E1DCC1FF1BA8DEAC0016B725 /* ReferenceConfigResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DCC1FE1BA8DEAC0016B725 /* ReferenceConfigResponse.swift */; };
 		E1FA66151B853C4800FD18C6 /* FlightMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA66141B853C4800FD18C6 /* FlightMock.swift */; };
 		E1FA66171B85558300FD18C6 /* FlightHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA66161B85558300FD18C6 /* FlightHeaderCell.swift */; };
+		FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1FD11BAF1DD500B8F921 /* Font.swift */; settings = {ASSET_TAGS = (); }; };
 		FA32EC081B8836B7001428B5 /* green_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC051B8836B7001428B5 /* green_bg.jpg */; };
 		FA32EC091B8836B7001428B5 /* red_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC061B8836B7001428B5 /* red_bg.jpg */; };
 		FA32EC0A1B8836B7001428B5 /* yellow_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC071B8836B7001428B5 /* yellow_bg.jpg */; };
@@ -212,6 +213,7 @@
 		E1DCC1FE1BA8DEAC0016B725 /* ReferenceConfigResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConfigResponse.swift; sourceTree = "<group>"; };
 		E1FA66141B853C4800FD18C6 /* FlightMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightMock.swift; sourceTree = "<group>"; };
 		E1FA66161B85558300FD18C6 /* FlightHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightHeaderCell.swift; sourceTree = "<group>"; };
+		FA0E1FD11BAF1DD500B8F921 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		FA32EC051B8836B7001428B5 /* green_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green_bg.jpg; sourceTree = "<group>"; };
 		FA32EC061B8836B7001428B5 /* red_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red_bg.jpg; sourceTree = "<group>"; };
 		FA32EC071B8836B7001428B5 /* yellow_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yellow_bg.jpg; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				E1A2EBA31B6C2AA400C27EB2 /* Controllers */,
 				E1A2EBA41B6C2B3600C27EB2 /* Models */,
 				E1A2EBA51B6C2BC600C27EB2 /* Views */,
+				FA0E1FD01BAF1D9500B8F921 /* Utility */,
 				C2DFE5C51B56D2CB0090B55F /* Supporting Files */,
 			);
 			path = ShortTrips;
@@ -397,9 +400,6 @@
 				C2B6670F1BA7575C00BA28E2 /* Dashboard */,
 				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
 				C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */,
-				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
-				E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */,
-				E17352841B8CEC9B0031950B /* UiHelpers.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -450,6 +450,17 @@
 				E1CDE7881B66E95E00AB27D2 /* MyriadPro-Black.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		FA0E1FD01BAF1D9500B8F921 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				FA0E1FD11BAF1DD500B8F921 /* Font.swift */,
+				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
+				E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */,
+				E17352841B8CEC9B0031950B /* UiHelpers.swift */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 		FA32EC031B88362F001428B5 /* Resources */ = {
@@ -759,6 +770,7 @@
 				E1A2EBA01B6BEF3900C27EB2 /* FlightStatusVC.swift in Sources */,
 				C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */,
 				E1FA66171B85558300FD18C6 /* FlightHeaderCell.swift in Sources */,
+				FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */,
 				E18FF6911BA870AF00FE93B9 /* Cid.swift in Sources */,
 				E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */,
 				E1DCC1FF1BA8DEAC0016B725 /* ReferenceConfigResponse.swift in Sources */,
