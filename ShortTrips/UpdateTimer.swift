@@ -14,9 +14,7 @@ typealias Callback = () -> Void
 class UpdateTimer: NSObject {
   
   static let sharedInstance = UpdateTimer()
-  private static let oneMinute = 60
-  private static let twoMinutes = 120
-  var timer: NSTimer!
+  var timer: NSTimer?
   var elapsedSeconds: Int = 0
   var timerView: TimerView!
   var callback: Callback!

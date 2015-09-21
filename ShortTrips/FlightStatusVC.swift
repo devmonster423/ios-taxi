@@ -103,7 +103,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   }
   
   func updateFlightTable() {
-    SfoInfoRequester.requestFlightsForTerminal(selectedTerminalId.intValue, hour: currentHour, response: { (flights:[Flight]?, error: ErrorType?) -> Void in
+    SfoInfoRequester.requestFlightsForTerminal(selectedTerminalId.intValue, hour: currentHour, response: { (flights, error) -> Void in
         if let flights = flights {
           self.flights = flights
         }
