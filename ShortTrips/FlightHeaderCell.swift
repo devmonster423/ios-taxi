@@ -26,6 +26,7 @@ class FlightHeaderCell: UITableViewCell {
     addSubview(delayedLabel)
     
     let backgroundImageView = UIImageView()
+    backgroundImageView.contentMode = .ScaleAspectFill
     backgroundImageView.image = UIImage(named: "backgroundFlights")
     addSubview(backgroundImageView)
     sendSubviewToBack(backgroundImageView)
@@ -33,6 +34,9 @@ class FlightHeaderCell: UITableViewCell {
       make.edges.equalTo(self)
     }
     
+    delayedLabel.font = Font.MyriadProSemibold.size(20)
+    delayedLabel.textAlignment = .Center
+    delayedLabel.textColor = UIColor.whiteColor()
     delayedLabel.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(20)
       make.width.equalTo(200)

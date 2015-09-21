@@ -30,7 +30,7 @@ class FlightStatusView: UIView {
       make.top.equalTo(self)
       make.left.equalTo(self)
       make.right.equalTo(self)
-      make.bottom.equalTo(timerView.snp_top)
+      make.bottom.equalTo(timerView.snp_top).offset(-5)
     }
     
     timerView.snp_makeConstraints { (make) -> Void in

@@ -42,6 +42,7 @@ class FlightCell: UITableViewCell {
       make.width.equalTo(self).dividedBy(4)
     }
     
+    flightNumberLabel.font = Font.MyriadPro.size(15)
     flightNumberLabel.textAlignment = .Center
     flightNumberLabel.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(self).offset(standardMargin)
@@ -50,6 +51,7 @@ class FlightCell: UITableViewCell {
       make.width.equalTo(self).dividedBy(4)
     }
     
+    flightStatusLabel.font = Font.MyriadPro.size(15)
     flightStatusLabel.textAlignment = .Center
     flightStatusLabel.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(self).offset(standardMargin)
@@ -58,6 +60,7 @@ class FlightCell: UITableViewCell {
       make.width.equalTo(self).dividedBy(4)
     }
     
+    landingTimeLabel.font = Font.MyriadProBold.size(13)
     landingTimeLabel.textAlignment = .Center
     landingTimeLabel.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(self).offset(standardMargin)

@@ -36,6 +36,7 @@ class DashboardView: UIView {
     addSubview(timerView)
 
     // background
+    bgImageView.clipsToBounds = true
     bgImageView.contentMode = .ScaleAspectFill
     bgImageView.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(self)

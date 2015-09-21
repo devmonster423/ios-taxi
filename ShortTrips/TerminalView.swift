@@ -39,7 +39,7 @@ class TerminalView: UIView {
     greenDot.image = UIImage(named: "green_circle")
     addSubview(greenDot)
     greenDot.snp_makeConstraints { (make) -> Void in
-      make.leading.equalTo(self).offset(10)
+      make.leading.equalTo(self)
       make.top.equalTo(terminalImage.snp_bottom).offset(20)
       make.height.equalTo(10)
       make.width.equalTo(10)
@@ -49,12 +49,13 @@ class TerminalView: UIView {
     redDot.image = UIImage(named: "red_circle")
     addSubview(redDot)
     redDot.snp_makeConstraints { (make) -> Void in
-      make.leading.equalTo(self).offset(10)
+      make.leading.equalTo(self)
       make.top.equalTo(greenDot.snp_bottom).offset(20)
       make.height.equalTo(10)
       make.width.equalTo(10)
     }
     
+    delayedLabel.font = Font.MyriadProBold.size(25)
     delayedLabel.textAlignment = .Center
     delayedLabel.textColor = UIColor.whiteColor()
     delayedLabel.snp_makeConstraints { (make) -> Void in
@@ -64,6 +65,7 @@ class TerminalView: UIView {
       make.width.equalTo(30)
     }
     
+    onTimeLabel.font = Font.MyriadProBold.size(25)
     onTimeLabel.textAlignment = .Center
     onTimeLabel.textColor = UIColor.whiteColor()
     onTimeLabel.snp_makeConstraints { (make) -> Void in
@@ -74,6 +76,7 @@ class TerminalView: UIView {
     }
 
     let delayedTitleLabel = UILabel()
+    delayedTitleLabel.font = Font.MyriadProSemibold.size(22)
     delayedTitleLabel.text = NSLocalizedString("Delayed", comment: "").uppercaseString
     delayedTitleLabel.textAlignment = .Center
     delayedTitleLabel.textColor = UIColor.whiteColor()
@@ -82,11 +85,12 @@ class TerminalView: UIView {
       make.leading.equalTo(delayedLabel.snp_trailing).offset(5)
       make.centerY.equalTo(redDot)
       make.height.equalTo(21)
-      make.trailing.equalTo(self)
+      make.width.equalTo(90)
     }
 
     let onTimeTitleLabel = UILabel()
-    onTimeTitleLabel.text = NSLocalizedString("On Time", comment: "")
+    onTimeTitleLabel.font = Font.MyriadProSemibold.size(22)
+    onTimeTitleLabel.text = NSLocalizedString("On Time", comment: "").uppercaseString
     onTimeTitleLabel.textAlignment = .Center
     onTimeTitleLabel.textColor = UIColor.whiteColor()
     addSubview(onTimeTitleLabel)
@@ -94,7 +98,7 @@ class TerminalView: UIView {
       make.leading.equalTo(onTimeLabel.snp_trailing).offset(5)
       make.centerY.equalTo(greenDot)
       make.height.equalTo(21)
-      make.trailing.equalTo(self)
+      make.width.equalTo(90)
     }
   }
 

@@ -54,28 +54,28 @@ class TerminalSummaryView: UIView {
       make.top.equalTo(self).offset(80)
       make.leading.equalTo(self).offset(25)
       make.height.equalTo(105)
-      make.width.equalTo(130)
+      make.width.equalTo(self).multipliedBy(0.4)
     }
 
     terminalView2.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(self).offset(80)
       make.trailing.equalTo(self).offset(-25)
       make.height.equalTo(105)
-      make.width.equalTo(130)
+      make.width.equalTo(self).multipliedBy(0.4)
     }
 
     terminalView3.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(terminalView1.snp_bottom).offset(25)
       make.leading.equalTo(self).offset(25)
       make.height.equalTo(105)
-      make.width.equalTo(130)
+      make.width.equalTo(self).multipliedBy(0.4)
     }
 
     terminalView4.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(terminalView2.snp_bottom).offset(25)
       make.trailing.equalTo(self).offset(-25)
       make.height.equalTo(105)
-      make.width.equalTo(130)
+      make.width.equalTo(self).multipliedBy(0.4)
     }
     
     decreaseButton = hourPickerView.decreaseButton
@@ -85,8 +85,8 @@ class TerminalSummaryView: UIView {
     hourPickerView.snp_makeConstraints { (make) -> Void in
       make.centerX.equalTo(self)
       make.top.equalTo(bgImageView.snp_bottom).offset(10)
-      make.height.equalTo(100)
-      make.width.equalTo(300)
+      make.bottom.equalTo(timerView.snp_top)
+      make.width.equalTo(self)
     }
     
     timerView.snp_makeConstraints { (make) -> Void in
