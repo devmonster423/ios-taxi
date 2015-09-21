@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 SFO. All rights reserved.
 //
 
-import Foundation
 import ObjectMapper
 
 // This code uses the nomenclature of the SFO terminals themselves. I note that this

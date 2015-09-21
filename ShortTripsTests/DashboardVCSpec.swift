@@ -12,54 +12,57 @@ import Nimble
 import PivotalCoreKit
 
 class DashboardVCSpec: QuickSpec {
+
   override func spec() {
     
-    describe("the dashboard view controller") {
+    var viewController: DashboardVC!
     
-      var viewController: DashboardVC!
+    describe("the dashboard view controller") {
       
       beforeEach {
-        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle(forClass: self.dynamicType))
-        let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
-        viewController = navigationController.topViewController as! DashboardVC
+        viewController = DashboardVC()
+        let navigationController = UINavigationController(rootViewController: viewController)
         
         UIApplication.sharedApplication().keyWindow!.rootViewController = navigationController
         let _ = navigationController.view
         let _ = viewController.view
       }
-      
+    
       it("is instantiated") {
         expect(viewController).toNot(beNil())
       }
       
-      describe("the lot-status field") {
-        it("is non-nil") {
-          expect(viewController.explanationLabel).toNot(beNil())
-        }
-        
-        // TODO: The next two tests will fail until the UI is set up entirely programmatically.
-        xit("is non-blank") {
-          expect(viewController.explanationLabel.text).toNot(equal(""))
-        }
-        
-        xit("is visible") {
-          expect(viewController.explanationLabel.hidden).toNot(beTrue())
-        }
+      it("has a terminal status button") {
+        expect(viewController.dashboardView().terminalStatusBtn).toNot(beNil())
       }
       
-      it("has a terminal status button") {
-        expect(viewController.statusButton).toNot(beNil())
+      describe("the lot-status field") {
+        it("is non-nil") {
+          expect(viewController.dashboardView().explanationLabel).toNot(beNil())
+        }
+        it("is visible") {
+          expect(viewController.dashboardView().explanationLabel.hidden).toNot(beTrue())
+        }
+        
+        // TODO: make this test work
+        xit("is non-blank") {
+          expect(viewController.dashboardView().explanationLabel.text).toNot(equal(""))
+        }
       }
       
       describe("tapping on the terminal status button") {
         beforeEach {
-          viewController.statusButton.tap()
+          viewController.dashboardView().terminalStatusBtn.tap()
         }
         
-        xit("should present a terminal status screen") {
-          // TODO: This test will actually fail now, so the it above was changed to xit.
-          // Will change xit to it when storyboards have been converted to code.
-          expect(viewController.navigationController!.topViewController).to(beAnInstanceOf(TerminalSummaryVC.self))
+        it("should present a terminal status screen") {
+          let seconds = 4.0
+          let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+          let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+          
+          dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+            expect(viewController.navigationController!.topViewController).to(beAnInstanceOf(TerminalSummaryVC.self))
+          })
         }
       }
     }

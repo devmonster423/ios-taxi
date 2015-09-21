@@ -4,6 +4,7 @@ use_frameworks!
 def shared_pods
   pod 'Alamofire', '2.0'
   pod 'AlamofireObjectMapper', '0.9'
+  pod 'SnapKit', '0.14.0'
 end
 
 target 'ShortTrips' do

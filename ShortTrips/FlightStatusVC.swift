@@ -16,30 +16,33 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     case Content = 1
   }
   
-  @IBOutlet var flightTable: UITableView!
-  @IBOutlet var updateLabel: UILabel!
-  @IBOutlet var updateProgress: UIProgressView!
-  
   var selectedTerminalId: TerminalId!
   var currentHour: Int!
   var flights: [Flight]?
   
+  override func loadView() {
+    let flightStatusView = FlightStatusView(frame: UIScreen.mainScreen().bounds)
+    flightStatusView.flightTable.dataSource = self
+    flightStatusView.flightTable.delegate = self
+    flightStatusView.flightTable.registerClass(FlightCell.self, forCellReuseIdentifier: FlightCell.identifier)
+    flightStatusView.flightTable.registerClass(FlightHeaderCell.self, forCellReuseIdentifier: FlightHeaderCell.identifier)
+    view = flightStatusView
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    flightTable.dataSource = self
-    flightTable.delegate = self
     
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .Plain, target: self, action: "goBack")
     navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(UiConstants.SfoColorWithAlpha), forBarMetrics: .Default)
+    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(Color.Sfo.blueWithAlpha), forBarMetrics: .Default)
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
     updateFlightTable()
-    UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: updateFlightTable)
+    UpdateTimer.start(flightStatusView().timerView, callback: updateFlightTable)
     navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: UiConstants.navControllerFont, size: UiConstants.navControllerFontSizeSmall)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
     setupTitle()
   }
@@ -47,6 +50,10 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     UpdateTimer.stop()
+  }
+  
+  func flightStatusView() -> FlightStatusView {
+    return view as! FlightStatusView
   }
   
   func goBack() {
@@ -106,7 +113,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         else {
           self.flights = FlightMock.mockFlights()
         }
-        self.flightTable.reloadData()
+        self.flightStatusView().flightTable.reloadData()
     })
   }
   
@@ -145,13 +152,13 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     if indexPath.section == TableSection.Content.rawValue {
-      let cell = tableView.dequeueReusableCellWithIdentifier("flightCell", forIndexPath: indexPath) as! FlightCell
+      let cell = tableView.dequeueReusableCellWithIdentifier(FlightCell.identifier, forIndexPath: indexPath) as! FlightCell
       if let flights = flights {
         cell.displayFlight(flights[indexPath.row])
       }
       return cell
     } else {
-      let cell = tableView.dequeueReusableCellWithIdentifier("backgroundCell", forIndexPath: indexPath) as! BackgroundCell
+      let cell = tableView.dequeueReusableCellWithIdentifier(FlightHeaderCell.identifier, forIndexPath: indexPath) as! FlightHeaderCell
       cell.displayDelay(computeDelay())
       return cell
     }
@@ -159,9 +166,9 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     if indexPath.section == TableSection.Header.rawValue {
-      return UiConstants.backgroundCellHeight
+      return FlightHeaderCell.height
     } else {
-      return UiConstants.flightCellHeight
+      return FlightCell.height
     }
   }
 }
