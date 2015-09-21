@@ -2,7 +2,7 @@
 //  FlightStatusVC.swift
 //  ShortTrips
 //
-//  Created by Joshua Adams on 7/31/15.
+//  Created by Josh Adams on 7/31/15.
 //  Copyright (c) 2015 SFO. All rights reserved.
 //
 
@@ -103,11 +103,8 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   }
   
   func updateFlightTable() {
-    SfoInfoRequester.requestFlightsForTerminal(selectedTerminalId.intValue,
-      hour: currentHour,
-      response: { (flightsForTerminalResponse, error) -> Void in
-        
-        if let flights = flightsForTerminalResponse?.flightDetailResponse?.flightDetails {
+    SfoInfoRequester.requestFlightsForTerminal(selectedTerminalId.intValue, hour: currentHour, response: { (flights, error) -> Void in
+        if let flights = flights {
           self.flights = flights
         }
         else {

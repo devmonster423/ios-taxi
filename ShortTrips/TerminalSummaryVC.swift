@@ -2,7 +2,7 @@
 //  TerminalSummaryVC.swift
 //  ShortTrips
 //
-//  Created by Joshua Adams on 8/13/15.
+//  Created by Josh Adams on 8/13/15.
 //  Copyright (c) 2015 SFO. All rights reserved.
 //
 
@@ -72,21 +72,18 @@ class TerminalSummaryVC: UIViewController {
   }
   
   private func updateTerminalTable() {
-    SfoInfoRequester.requestTerminalSummary (terminalSummaryView().getCurrentHour(),
-      response: { (terminalsResponse, error) -> Void in
-        
-        if let terminalsResponse = terminalsResponse, let terminalSummaryArrivalsResponse = terminalsResponse.terminalSummaryArrivalsResponse, let terminalSummaryArrivalsListResponse = terminalSummaryArrivalsResponse.terminalSummaryArrivalsListResponse, let terminalSummaryArrivalsListListResponse = terminalSummaryArrivalsListResponse.terminalSummaryArrivalsListListResponse, let terminalSummaryArrivalsList = terminalSummaryArrivalsListListResponse.terminalSummaryArrivalsList {
-          self.terminalSummaryView().reloadTerminalViews(terminalSummaryArrivalsList)
-        }
-        else {
-          let terminals = [
-            TerminalSummary(terminalId: TerminalId.International, count: 2, delayedCount: 3),
-            TerminalSummary(terminalId: TerminalId.One, count: 3, delayedCount: 2),
-            TerminalSummary(terminalId: TerminalId.Two, count: 5, delayedCount: 4),
-            TerminalSummary(terminalId: TerminalId.Three, count: 7, delayedCount: 6)
+    SfoInfoRequester.requestTerminalSummary(terminalSummaryView().getCurrentHour(), response: { (terminals, error) -> Void in
+      if let terminals = terminals {
+        self.terminalSummaryView().reloadTerminalViews(terminals)
+      } else {
+        let terminals = [
+          TerminalSummary(terminalId: TerminalId.International, count: 2, delayedCount: 3),
+          TerminalSummary(terminalId: TerminalId.One, count: 3, delayedCount: 2),
+          TerminalSummary(terminalId: TerminalId.Two, count: 5, delayedCount: 4),
+          TerminalSummary(terminalId: TerminalId.Three, count: 7, delayedCount: 6)
           ]
-          self.terminalSummaryView().reloadTerminalViews(terminals)
-        }
+        self.terminalSummaryView().reloadTerminalViews(terminals)
+      }
     })
   }
   

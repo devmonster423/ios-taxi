@@ -40,15 +40,15 @@ class DashboardVC: UIViewController {
   func dashboardView() -> DashboardView {
     return self.view as! DashboardView
   }
-
+    
   func requestLotStatus() {
-    SfoInfoRequester.requestLotStatus { (status, error) -> Void in
-      if let status = status, let lotStatus = status.lotStatus {
-        self.dashboardView().updateStatusUI(lotStatus.lotStatusEnum)
+    SfoInfoRequester.requestLotStatus({ (status, error) -> Void in
+      if let lotStatusEnum = status?.lotStatusEnum  {
+        self.dashboardView().updateStatusUI(lotStatusEnum)
       } else {
         self.dashboardView().updateStatusUI(LotStatusEnum.random())
       }
-    }
+    })
   }
 
   func showTerminalStatus() {
