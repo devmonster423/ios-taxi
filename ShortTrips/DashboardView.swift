@@ -104,9 +104,9 @@ class DashboardView: UIView {
 
     // Terminal Status Button
     terminalStatusBtn.setTitle(NSLocalizedString("Terminal Status", comment: "").uppercaseString, forState: .Normal)
-    terminalStatusBtn.setTitleColor(UiConstants.SfoBlue, forState: .Normal)
+    terminalStatusBtn.setTitleColor(Color.Sfo.blue, forState: .Normal)
     terminalStatusBtn.titleLabel?.font = Font.MyriadProSemibold.size(15)
-    terminalStatusBtn.layer.borderColor = UiConstants.SfoBlue.CGColor
+    terminalStatusBtn.layer.borderColor = Color.Sfo.blue.CGColor
     terminalStatusBtn.layer.borderWidth = UiConstants.statusBorderWidth
     terminalStatusBtn.layer.cornerRadius = UiConstants.statusCornerRadius
     terminalStatusBtn.snp_makeConstraints { (make) -> Void in

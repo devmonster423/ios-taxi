@@ -31,8 +31,9 @@ class TimerView: UIView {
       make.height.equalTo(2)
     }
 
-    updateLabel.font = Font.MyriadProSemibold.size(21)
+    updateLabel.font = Font.MyriadProSemibold.size(18)
     updateLabel.textAlignment = .Center
+    updateLabel.textColor = Color.Sfo.blue
     updateLabel.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(22)
       make.leading.equalTo(self).offset(UiConstants.dashboardMargin)
