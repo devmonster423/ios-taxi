@@ -42,7 +42,7 @@ class DashboardVC: UIViewController {
   }
     
   func requestLotStatus() {
-    SfoInfoRequester.requestLotStatus({ (status, error) -> Void in
+    ApiClient.requestLotStatus({ (status, error) -> Void in
       if let lotStatusEnum = status?.lotStatusEnum  {
         self.dashboardView().updateStatusUI(lotStatusEnum)
       } else {
