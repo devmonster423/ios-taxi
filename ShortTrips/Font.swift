@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum Font: String {
+enum Font: String {
   case MyriadPro = "MyriadPro-Regular"
   case MyriadProBold = "MyriadPro-Bold"
   case MyriadProSemibold = "MyriadPro-Semibold"

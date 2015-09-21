@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UiConstants {
+struct UiConstants {
   static let statusCornerRadius: CGFloat = 15.0
   static let statusBorderWidth: CGFloat = 1.0
   static let fadeDuration: NSTimeInterval = 1.0
