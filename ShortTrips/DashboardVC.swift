@@ -9,19 +9,17 @@
 import UIKit
 
 class DashboardVC: UIViewController {
-  @IBOutlet var backgroundImageView: UIImageView!
-  @IBOutlet var directionLabel: UILabel!
-  @IBOutlet var statusButton: UIButton!
-  @IBOutlet var comeToSfoLabel: UILabel!
-  @IBOutlet var explanationLabel: UILabel!
-  @IBOutlet var updateLabel: UILabel!
-  @IBOutlet var updateProgress: UIProgressView!
   
+  override func loadView() {
+    let dashboardView = DashboardView(frame: UIScreen.mainScreen().bounds)
+    dashboardView.terminalStatusBtn.addTarget(self,
+      action: "showTerminalStatus",
+      forControlEvents: .TouchUpInside)
+    view = dashboardView
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
-    statusButton.layer.cornerRadius = UiConstants.statusCornerRadius
-    statusButton.layer.borderWidth = UiConstants.statusBorderWidth
-    statusButton.layer.borderColor = UiConstants.SfoColor.CGColor
     navigationItem.title = "";
   }
   
@@ -30,44 +28,30 @@ class DashboardVC: UIViewController {
     navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
     navigationController?.navigationBar.shadowImage = UIImage()
     requestLotStatus()
-    UpdateTimer.start(updateProgress, updateLabel: updateLabel, callback: requestLotStatus)
+    UpdateTimer.start(dashboardView().timerView,
+      callback: requestLotStatus)
   }
   
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
     UpdateTimer.stop()
   }
+  
+  func dashboardView() -> DashboardView {
+    return self.view as! DashboardView
+  }
     
   func requestLotStatus() {
     SfoInfoRequester.requestLotStatus({ (status:LotStatus?, error: ErrorType?) -> Void in
       if let lotStatusEnum = status?.lotStatusEnum  {
-        self.updateStatusUI(lotStatusEnum)
+        self.dashboardView().updateStatusUI(lotStatusEnum)
       } else {
-        self.updateStatusUI(LotStatusEnum.random())
+        self.dashboardView().updateStatusUI(LotStatusEnum.random())
       }
     })
   }
 
-  func updateStatusUI(lotStatusEnum: LotStatusEnum) {
-    switch lotStatusEnum {
-      
-    case .Yes:
-      backgroundImageView.image = UIImage(named: "green_bg.jpg")
-      comeToSfoLabel.text = NSLocalizedString("Go To SFO", comment: "")
-      directionLabel.text = NSLocalizedString(lotStatusEnum.rawValue, comment: "")
-      explanationLabel.text = NSLocalizedString("Lot capacity is not full", comment: "")
-      
-    case .Maybe:
-      backgroundImageView.image = UIImage(named: "yellow_bg.jpg")
-      comeToSfoLabel.text = NSLocalizedString("Go To SFO", comment: "")
-      directionLabel.text = NSLocalizedString(lotStatusEnum.rawValue, comment: "")
-      explanationLabel.text = NSLocalizedString("Lot capacity is almost full", comment: "")
-      
-    case .No:
-      backgroundImageView.image = UIImage(named: "red_bg.jpg")
-      comeToSfoLabel.text = NSLocalizedString("Don't Go To SFO", comment: "")
-      directionLabel.text = NSLocalizedString(lotStatusEnum.rawValue, comment: "")
-      explanationLabel.text = NSLocalizedString("Lot capacity is full", comment: "")
-    }
+  func showTerminalStatus() {
+    navigationController?.pushViewController(TerminalSummaryVC(), animated: true)
   }
 }

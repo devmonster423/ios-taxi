@@ -6,7 +6,6 @@
 //  Copyright (c) 2015 SFO. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 enum FlightStatus: String {
@@ -18,22 +17,22 @@ enum FlightStatus: String {
   func getTimeOrFlightNumberColor() -> UIColor {
     switch self {
     case .Delayed:
-      return UiConstants.delayedColor
+      return Color.FlightStatus.delayed
     default:
-      return UiConstants.landedColor
+      return Color.FlightStatus.landed
     }
   }
   
   func getStatusColor() -> UIColor {
     switch self {
     case .Delayed:
-      return UiConstants.delayedColor
+      return Color.FlightStatus.delayed
     case .OnTime:
-      return UiConstants.onTimeColor
+      return Color.FlightStatus.onTime
     case .Landing:
-      return UiConstants.landingColor
+      return Color.FlightStatus.landing
     case Landed:
-      return UiConstants.landedColor
+      return Color.FlightStatus.landed
     }
   }
 }

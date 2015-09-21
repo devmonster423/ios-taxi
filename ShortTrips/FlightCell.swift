@@ -6,16 +6,69 @@
 //  Copyright (c) 2015 SFO. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import SnapKit
 
 class FlightCell: UITableViewCell {
   
-  @IBOutlet var airlineIcon: UIImageView!
-  @IBOutlet var flightNumberLabel: UILabel!
-  @IBOutlet var landingTimeLabel: UILabel!
-  @IBOutlet var flightStatusLabel: UILabel!
   let dateFormatter = NSDateFormatter()
+  let standardMargin = 5
+  
+  private var airlineIcon = UIImageView()
+  private var flightNumberLabel = UILabel()
+  private var flightStatusLabel = UILabel()
+  private var landingTimeLabel = UILabel()
+  
+  static let height: CGFloat = 80
+  static let identifier = "flightCell"
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    super.init(style: style, reuseIdentifier: reuseIdentifier)
+    
+    addSubview(airlineIcon)
+    addSubview(flightNumberLabel)
+    addSubview(flightStatusLabel)
+    addSubview(landingTimeLabel)
+    
+    airlineIcon.contentMode = .ScaleAspectFit
+    airlineIcon.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(self).offset(standardMargin)
+      make.bottom.equalTo(self).offset(-standardMargin)
+      make.left.equalTo(self)
+      make.width.equalTo(self).dividedBy(4)
+    }
+    
+    flightNumberLabel.font = Font.MyriadPro.size(15)
+    flightNumberLabel.textAlignment = .Center
+    flightNumberLabel.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(self).offset(standardMargin)
+      make.bottom.equalTo(self).offset(-standardMargin)
+      make.left.equalTo(airlineIcon.snp_right)
+      make.width.equalTo(self).dividedBy(4)
+    }
+    
+    flightStatusLabel.font = Font.MyriadPro.size(15)
+    flightStatusLabel.textAlignment = .Center
+    flightStatusLabel.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(self).offset(standardMargin)
+      make.bottom.equalTo(self).offset(-standardMargin)
+      make.left.equalTo(flightNumberLabel.snp_right)
+      make.width.equalTo(self).dividedBy(4)
+    }
+    
+    landingTimeLabel.font = Font.MyriadProBold.size(13)
+    landingTimeLabel.textAlignment = .Center
+    landingTimeLabel.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(self).offset(standardMargin)
+      make.bottom.equalTo(self).offset(-standardMargin)
+      make.left.equalTo(flightStatusLabel.snp_right)
+      make.width.equalTo(self).dividedBy(4)
+    }
+  }
   
   func displayFlight(flight: Flight) {
     airlineIcon.image = flight.airline.icon()
