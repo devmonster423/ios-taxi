@@ -14,6 +14,7 @@
 		C200BE271BA8D3A300B7F56F /* HourPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200BE261BA8D3A300B7F56F /* HourPickerView.swift */; };
 		C207D6FC1BAB86D800273374 /* FlightStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C207D6FB1BAB86D800273374 /* FlightStatusView.swift */; settings = {ASSET_TAGS = (); }; };
 		C21775F91BB08CAC008B24EA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21775F81BB08CAC008B24EA /* Color.swift */; settings = {ASSET_TAGS = (); }; };
+		C21905681BB0B74E00A3E779 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905671BB0B74E00A3E779 /* Url.swift */; settings = {ASSET_TAGS = (); }; };
 		C24486F01BA89DF200A19A9D /* GeofenceListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */; };
 		C24486F21BA89EA800A19A9D /* AllGeofencesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */; };
 		C24486F41BA8B5A300A19A9D /* GeofenceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F31BA8B5A300A19A9D /* GeofenceResponse.swift */; };
@@ -100,6 +101,7 @@
 		C200BE261BA8D3A300B7F56F /* HourPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourPickerView.swift; sourceTree = "<group>"; };
 		C207D6FB1BAB86D800273374 /* FlightStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatusView.swift; sourceTree = "<group>"; };
 		C21775F81BB08CAC008B24EA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		C21905671BB0B74E00A3E779 /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceListResponse.swift; sourceTree = "<group>"; };
 		C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGeofencesResponse.swift; sourceTree = "<group>"; };
 		C24486F31BA8B5A300A19A9D /* GeofenceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceResponse.swift; sourceTree = "<group>"; };
@@ -210,6 +212,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C21905661BB0B73E00A3E779 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E1B8271B1B7CEF4200CC32EF /* SfoInfoRequester.swift */,
+				C21905671BB0B74E00A3E779 /* Url.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		C24486EE1BA89DD100A19A9D /* Geofence */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,8 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				C2B667101BA7577600BA28E2 /* DashboardView.swift */,
-				E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */,
-				E1FA66161B85558300FD18C6 /* FlightHeaderCell.swift */,
 				C207D6FB1BAB86D800273374 /* FlightStatusView.swift */,
 				C200BE261BA8D3A300B7F56F /* HourPickerView.swift */,
 				C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */,
@@ -336,9 +345,9 @@
 		E1A2EBA31B6C2AA400C27EB2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C21905661BB0B73E00A3E779 /* Networking */,
 				C2DFE5C91B56D2CB0090B55F /* DashboardVC.swift */,
 				E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */,
-				E1B8271B1B7CEF4200CC32EF /* SfoInfoRequester.swift */,
 				E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */,
 				E14DBDDA1B867A8400819C91 /* UpdateTimer.swift */,
 			);
@@ -368,13 +377,8 @@
 		E1A2EBA51B6C2BC600C27EB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E1FA66161B85558300FD18C6 /* BackgroundCell.swift */,
+				E1FA66161B85558300FD18C6 /* FlightHeaderCell.swift */,
 				E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */,
-				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
-				C2DFE5CB1B56D2CB0090B55F /* Main.storyboard */,
-				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
-				E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */,
-				E17352841B8CEC9B0031950B /* UiHelpers.swift */,
 				C2B6670F1BA7575C00BA28E2 /* Dashboard */,
 				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
 			);
@@ -728,6 +732,7 @@
 				E1FA66171B85558300FD18C6 /* FlightHeaderCell.swift in Sources */,
 				FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */,
 				E18FF6911BA870AF00FE93B9 /* Cid.swift in Sources */,
+				C21905681BB0B74E00A3E779 /* Url.swift in Sources */,
 				E13BCEFA1BABBAA1006FDFF5 /* TerminalSummaryArrivalsListResponse.swift in Sources */,
 				E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */,
 				E1B3937B1BAC66FE00FC2970 /* LotStatus.swift in Sources */,
