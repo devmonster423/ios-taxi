@@ -12,9 +12,9 @@ import ObjectMapper
 import AlamofireObjectMapper
 
 typealias LotStatusResponseClosure = (LotStatusResponse?, ErrorType?) -> Void
-typealias TerminalResponseClosure = ([TerminalSummary]?, ErrorType?) -> Void
-typealias FlightResponseClosure = ([Flight]?, ErrorType?) -> Void
-typealias AviResponseClosure = ([AutomaticVehicleId]?, ErrorType?) -> Void
+typealias FlightsForTerminalResponseClosure = (FlightsForTerminalResponse?, ErrorType?) -> Void
+typealias TerminalSummaryResponseClosure = (TerminalSummaryResponse?, ErrorType?) -> Void
+typealias AviResponseClosure = (AutomaticVehicleIdResponse?, ErrorType?) -> Void
 typealias AntennaResponseClosure = (AntennaResponse?, ErrorType?) -> Void
 typealias AllCidsResponseClosure = (AllCidsResponse?, ErrorType?) -> Void
 typealias CidForSmartCardResponseClosure = (CidResponse?, ErrorType?) -> Void
@@ -26,8 +26,8 @@ typealias DriverResponseClosure = (DriverResponse?, ErrorType?) -> Void
 class SfoInfoRequester {
   private static let baseUrl = "https://216.9.96.29:9000/taxiws/services/taxi/"
   private static let lotStatusUrl = "lot_status"
-  private static let terminalUrl = "flight/summary"
-  private static let flightUrl = "flight/arrival/details"
+  private static let terminalSummaryUrl = "flight/arrival/summary"
+  private static let flightsForTerminalUrl = "flight/arrival/details"
   private static let aviUrl = "device/avi/"
   private static let antennaUrl = "device/avi/transponder/"
   private static let allCidsUrl = "device/cid/"
@@ -42,18 +42,18 @@ class SfoInfoRequester {
     Alamofire.request(.GET, baseUrl + lotStatusUrl, parameters: nil).responseObject(response)
   }
   
-  class func requestTerminals(hour: Int, response: TerminalResponseClosure) {
-    let params = ["hour": hour]
-    Alamofire.request(.GET, baseUrl + terminalUrl, parameters: params).responseArray(response)
-  }
-  
-  class func requestFlights(terminal: Int, hour: Int, response: FlightResponseClosure) {
+  class func requestFlightsForTerminal(terminal: Int, hour: Int, response: FlightsForTerminalResponseClosure) {
     let params = ["terminal_id": terminal, "hour" : hour]
-    Alamofire.request(.GET, baseUrl + flightUrl, parameters: params).responseArray(response)
+    Alamofire.request(.GET, baseUrl + flightsForTerminalUrl, parameters: params).responseObject(response)
+  }
+
+  class func requestTerminalSummary(hour: Int, response: TerminalSummaryResponseClosure) {
+    let params = ["hour": hour]
+    Alamofire.request(.GET, baseUrl + terminalSummaryUrl, parameters: params).responseObject(response)
   }
   
   class func requestAutomaticVehicleIds(response: AviResponseClosure) {
-    Alamofire.request(.GET, baseUrl + aviUrl, parameters: nil).responseArray(response)
+    Alamofire.request(.GET, baseUrl + aviUrl, parameters: nil).responseObject(response)
   }
 
   class func requestAntenna(transponderId: Int, response: AntennaResponseClosure) {
@@ -68,12 +68,6 @@ class SfoInfoRequester {
     Alamofire.request(.GET, baseUrl + cidForSmartCardUrl + "\(smartCardId)", parameters: nil).responseObject(response)
   }
   
-  class func postMobileStateChanges(mobileStateChange: MobileStateChange) {
-    Alamofire.request(.POST, baseUrl + mobileStateUrl, parameters: Mapper().toJSON(mobileStateChange), encoding: .JSON).response { _, _, _, error in
-      print(error)
-    }
-  }
-
   class func requestReferenceConfig(response: ReferenceConfigResponseClosure) {
     Alamofire.request(.GET, baseUrl + referenceConfigUrl, parameters: nil).responseObject(response)
   }
@@ -91,8 +85,15 @@ class SfoInfoRequester {
     Alamofire.request(.GET, baseUrl + geofenceUrl + "/" + "\(id)", parameters: nil).responseObject(response)
   }
 
-  class func requestDriver(username: String, password: String, response: DriverResponseClosure) {
-    let params = ["username": username, "password": password]
-    Alamofire.request(.GET, baseUrl + driverLoginUrl, parameters: params).responseObject(response)
+  class func authenticateDriver(credential: Credential) {
+    Alamofire.request(.POST, baseUrl + driverLoginUrl, parameters: Mapper().toJSON(credential), encoding: .JSON).response { _, _, _, error in
+      print(error)
+    }
+  }
+  
+  class func postMobileStateChanges(mobileStateChange: MobileStateChange) {
+    Alamofire.request(.POST, baseUrl + mobileStateUrl, parameters: Mapper().toJSON(mobileStateChange), encoding: .JSON).response { _, _, _, error in
+      print(error)
+    }
   }
 }

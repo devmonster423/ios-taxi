@@ -44,9 +44,9 @@ class DashboardVC: UIViewController {
   func requestLotStatus() {
     SfoInfoRequester.requestLotStatus { (status, error) -> Void in
       if let status = status, let lotStatus = status.lotStatus {
-        self.dashboardView().updateStatusUI(lotStatus)
+        self.dashboardView().updateStatusUI(lotStatus.lotStatusEnum)
       } else {
-        self.dashboardView().updateStatusUI(LotStatus.random())
+        self.dashboardView().updateStatusUI(LotStatusEnum.random())
       }
     }
   }

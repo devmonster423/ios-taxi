@@ -118,7 +118,7 @@ class DashboardView: UIView {
     }
   }
 
-  func updateStatusUI(lotStatus: LotStatus) {
+  func updateStatusUI(lotStatus: LotStatusEnum) {
     switch lotStatus {
 
     case .Yes:

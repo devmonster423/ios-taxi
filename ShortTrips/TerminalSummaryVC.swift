@@ -72,11 +72,11 @@ class TerminalSummaryVC: UIViewController {
   }
   
   private func updateTerminalTable() {
-    SfoInfoRequester.requestTerminals (terminalSummaryView().getCurrentHour(),
-      response: { (terminals, error) -> Void in
+    SfoInfoRequester.requestTerminalSummary (terminalSummaryView().getCurrentHour(),
+      response: { (terminalsResponse, error) -> Void in
         
-        if let terminals = terminals {
-          self.terminalSummaryView().reloadTerminalViews(terminals)
+        if let terminalsResponse = terminalsResponse, let terminalSummaryArrivalsResponse = terminalsResponse.terminalSummaryArrivalsResponse, let terminalSummaryArrivalsListResponse = terminalSummaryArrivalsResponse.terminalSummaryArrivalsListResponse, let terminalSummaryArrivalsListListResponse = terminalSummaryArrivalsListResponse.terminalSummaryArrivalsListListResponse, let terminalSummaryArrivalsList = terminalSummaryArrivalsListListResponse.terminalSummaryArrivalsList {
+          self.terminalSummaryView().reloadTerminalViews(terminalSummaryArrivalsList)
         }
         else {
           let terminals = [
