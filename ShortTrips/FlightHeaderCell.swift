@@ -26,6 +26,7 @@ class FlightHeaderCell: UITableViewCell {
     addSubview(delayedLabel)
     
     let backgroundImageView = UIImageView()
+    backgroundImageView.clipsToBounds = true
     backgroundImageView.contentMode = .ScaleAspectFill
     backgroundImageView.image = UIImage(named: "backgroundFlights")
     addSubview(backgroundImageView)
