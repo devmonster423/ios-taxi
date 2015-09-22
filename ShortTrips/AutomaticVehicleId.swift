@@ -13,6 +13,11 @@ struct AutomaticVehicleId: Mappable {
   var location: String!
   var id: String!
   
+  init(location: String, id: String) {
+    self.location = location
+    self.id = id
+  }
+  
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
