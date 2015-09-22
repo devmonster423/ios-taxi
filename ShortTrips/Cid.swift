@@ -12,6 +12,11 @@ import ObjectMapper
 struct Cid: Mappable {
   var cidId: Int!
   var cidLocation: String!
+
+  init(cidId: Int, cidLocation: String) {
+    self.cidId = cidId
+    self.cidLocation = cidLocation
+  }
   
   init?(_ map: Map){}
   
