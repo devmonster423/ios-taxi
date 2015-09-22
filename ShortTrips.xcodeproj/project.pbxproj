@@ -44,7 +44,6 @@
 		E13BCEF61BABB8F1006FDFF5 /* TerminalSummaryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13BCEF51BABB8F1006FDFF5 /* TerminalSummaryResponse.swift */; settings = {ASSET_TAGS = (); }; };
 		E13BCEF81BABB985006FDFF5 /* TerminalSummaryArrivalsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13BCEF71BABB985006FDFF5 /* TerminalSummaryArrivalsResponse.swift */; settings = {ASSET_TAGS = (); }; };
 		E13BCEFA1BABBAA1006FDFF5 /* TerminalSummaryArrivalsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13BCEF91BABBAA1006FDFF5 /* TerminalSummaryArrivalsListResponse.swift */; settings = {ASSET_TAGS = (); }; };
-		E13BCEFC1BABBB1A006FDFF5 /* TerminalSummaryArrivalsListListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13BCEFB1BABBB1A006FDFF5 /* TerminalSummaryArrivalsListListResponse.swift */; settings = {ASSET_TAGS = (); }; };
 		E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */; };
 		E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */; };
 		E14DBDDB1B867A8400819C91 /* UpdateTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14DBDDA1B867A8400819C91 /* UpdateTimer.swift */; };
@@ -151,7 +150,6 @@
 		E13BCEF51BABB8F1006FDFF5 /* TerminalSummaryResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryResponse.swift; sourceTree = "<group>"; };
 		E13BCEF71BABB985006FDFF5 /* TerminalSummaryArrivalsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryArrivalsResponse.swift; sourceTree = "<group>"; };
 		E13BCEF91BABBAA1006FDFF5 /* TerminalSummaryArrivalsListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryArrivalsListResponse.swift; sourceTree = "<group>"; };
-		E13BCEFB1BABBB1A006FDFF5 /* TerminalSummaryArrivalsListListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryArrivalsListListResponse.swift; sourceTree = "<group>"; };
 		E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryVC.swift; sourceTree = "<group>"; };
 		E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+initWithColor.swift"; sourceTree = "<group>"; };
 		E14DBDDA1B867A8400819C91 /* UpdateTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTimer.swift; sourceTree = "<group>"; };
@@ -291,6 +289,8 @@
 			isa = PBXGroup;
 			children = (
 				C2B667101BA7577600BA28E2 /* DashboardView.swift */,
+				E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */,
+				E1FA66161B85558300FD18C6 /* FlightHeaderCell.swift */,
 				C207D6FB1BAB86D800273374 /* FlightStatusView.swift */,
 				C200BE261BA8D3A300B7F56F /* HourPickerView.swift */,
 				C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */,
@@ -378,7 +378,6 @@
 			isa = PBXGroup;
 			children = (
 				E1A2EBAE1B6E920500C27EB2 /* TerminalSummary.swift */,
-				E13BCEFB1BABBB1A006FDFF5 /* TerminalSummaryArrivalsListListResponse.swift */,
 				E13BCEF91BABBAA1006FDFF5 /* TerminalSummaryArrivalsListResponse.swift */,
 				E13BCEF71BABB985006FDFF5 /* TerminalSummaryArrivalsResponse.swift */,
 				E13BCEF51BABB8F1006FDFF5 /* TerminalSummaryResponse.swift */,
@@ -472,8 +471,6 @@
 		E1A2EBA51B6C2BC600C27EB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E1FA66161B85558300FD18C6 /* FlightHeaderCell.swift */,
-				E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */,
 				C2B6670F1BA7575C00BA28E2 /* Dashboard */,
 				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
 			);
@@ -802,7 +799,6 @@
 				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
 				E18FF68F1BA869A300FE93B9 /* Antenna.swift in Sources */,
 				E17352851B8CEC9B0031950B /* UiHelpers.swift in Sources */,
-				E13BCEFC1BABBB1A006FDFF5 /* TerminalSummaryArrivalsListListResponse.swift in Sources */,
 				E1A2EBAF1B6E920500C27EB2 /* TerminalSummary.swift in Sources */,
 				C207D6FC1BAB86D800273374 /* FlightStatusView.swift in Sources */,
 				E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */,

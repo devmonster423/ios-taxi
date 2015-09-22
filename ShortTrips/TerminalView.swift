@@ -55,47 +55,47 @@ class TerminalView: UIView {
       make.width.equalTo(10)
     }
     
-    delayedLabel.font = Font.MyriadProBold.size(25)
+    delayedLabel.font = Font.MyriadProBold.size(20)
     delayedLabel.textAlignment = .Center
     delayedLabel.textColor = UIColor.whiteColor()
     delayedLabel.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(redDot.snp_trailing).offset(5)
       make.centerY.equalTo(redDot)
       make.height.equalTo(21)
-      make.width.equalTo(30)
+      make.width.equalTo(40)
     }
     
-    onTimeLabel.font = Font.MyriadProBold.size(25)
+    onTimeLabel.font = Font.MyriadProBold.size(20)
     onTimeLabel.textAlignment = .Center
     onTimeLabel.textColor = UIColor.whiteColor()
     onTimeLabel.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(greenDot.snp_trailing).offset(5)
       make.centerY.equalTo(greenDot)
       make.height.equalTo(21)
-      make.width.equalTo(30)
+      make.width.equalTo(40)
     }
 
     let delayedTitleLabel = UILabel()
-    delayedTitleLabel.font = Font.MyriadProSemibold.size(22)
+    delayedTitleLabel.font = Font.MyriadProSemibold.size(18)
     delayedTitleLabel.text = NSLocalizedString("Delayed", comment: "").uppercaseString
-    delayedTitleLabel.textAlignment = .Center
+    delayedTitleLabel.textAlignment = .Right
     delayedTitleLabel.textColor = UIColor.whiteColor()
     addSubview(delayedTitleLabel)
     delayedTitleLabel.snp_makeConstraints { (make) -> Void in
-      make.leading.equalTo(delayedLabel.snp_trailing).offset(5)
+      make.trailing.equalTo(self)
       make.centerY.equalTo(redDot)
       make.height.equalTo(21)
       make.width.equalTo(90)
     }
 
     let onTimeTitleLabel = UILabel()
-    onTimeTitleLabel.font = Font.MyriadProSemibold.size(22)
+    onTimeTitleLabel.font = Font.MyriadProSemibold.size(18)
     onTimeTitleLabel.text = NSLocalizedString("On Time", comment: "").uppercaseString
-    onTimeTitleLabel.textAlignment = .Center
+    onTimeTitleLabel.textAlignment = .Right
     onTimeTitleLabel.textColor = UIColor.whiteColor()
     addSubview(onTimeTitleLabel)
     onTimeTitleLabel.snp_makeConstraints { (make) -> Void in
-      make.leading.equalTo(onTimeLabel.snp_trailing).offset(5)
+      make.trailing.equalTo(self)
       make.centerY.equalTo(greenDot)
       make.height.equalTo(21)
       make.width.equalTo(90)

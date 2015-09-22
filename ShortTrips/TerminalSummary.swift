@@ -13,22 +13,22 @@ import ObjectMapper
 // to expand Terminal 1 by "effectively add[ing] two gates that can handle international
 // arrivals." That said, the nomenclature is, I presume, familiar to and useful for taxi
 // drivers notwithstanding any potential inaccuracy.
-enum TerminalId: String {
-  case One = "One"
-  case Two = "Two"
-  case Three = "Three"
-  case International = "International"
+enum TerminalId: Int {
+  case One = 1
+  case Two = 2
+  case Three = 3
+  case International = 4
   
-  var intValue: Int {
+  var stringValue: String {
     switch self {
     case .One:
-      return 1
+      return NSLocalizedString("One", comment: "")
     case .Two:
-      return 2
+      return NSLocalizedString("Two", comment: "")
     case .Three:
-      return 3
+      return NSLocalizedString("Three", comment: "")
     case .International:
-      return 4
+      return NSLocalizedString("International", comment: "")
     }
   }
 }

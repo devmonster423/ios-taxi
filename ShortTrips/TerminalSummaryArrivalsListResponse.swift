@@ -9,11 +9,15 @@
 import ObjectMapper
 
 struct TerminalSummaryArrivalsListResponse: Mappable {
-  var terminalSummaryArrivalsListListResponse: TerminalSummaryArrivalsListListResponse!
+  var terminalSummaryArrivalsList: [TerminalSummary]!
+  var totalCount: Int!
+  var totalDelayedCount: Int!
   
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
-    terminalSummaryArrivalsListListResponse <- map["list"]
+    terminalSummaryArrivalsList <- map["list"]
+    totalCount <- map["total_count"]
+    totalDelayedCount <- map["total_delayed_count"]
   }
 }

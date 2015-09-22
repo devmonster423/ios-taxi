@@ -31,7 +31,8 @@ extension ApiClient {
   static func requestTerminalSummary(hour: Int, response: TerminalSummaryClosure) {
     let params = ["hour": hour]
     authedRequest(Alamofire.request(.GET, Url.Flight.Arrival.summary, parameters: params))
-      .responseObject { (terminalSummaryResponse: TerminalSummaryResponse?, error: ErrorType?) in response(terminalSummaryResponse?.terminalSummaryArrivalsResponse?.terminalSummaryArrivalsListResponse?.terminalSummaryArrivalsListListResponse?.terminalSummaryArrivalsList, error)
+      .responseObject { (terminalSummaryResponse: TerminalSummaryResponse?, error: ErrorType?) in
+        response(terminalSummaryResponse?.terminalSummaryArrivalsResponse?.terminalSummaryArrivalsListResponse?.terminalSummaryArrivalsList, error)
     }
   }
 }

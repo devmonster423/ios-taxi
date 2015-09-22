@@ -26,6 +26,12 @@
 "maybe" = "MAYBE";
 "Terminal Status" = "Terminal Status";
 
+/* Terminals */
+"One" = "One";
+"Two" = "Two";
+"Three" = "Three";
+"International" = "International";
+
 /* Terminal Status */
 
 "Terminals" = "Terminals";
