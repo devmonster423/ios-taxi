@@ -35,7 +35,7 @@ class AntennaResponseSpec: QuickSpec {
       }
       
       it("can map") {
-        self.antennaResponse.mapping(self.map)
+        expect(self.antennaResponse.mapping(self.map)).toNot(beNil())
       }
     }
   }

@@ -28,7 +28,7 @@ class AntennaSpec: QuickSpec {
       }
       
       it("can map") {
-        self.antenna.mapping(self.map)
+        expect(self.antenna.mapping(self.map)).toNot(beNil())
       }
     }
   }

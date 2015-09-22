@@ -46,7 +46,7 @@ class FlightForTerminalResponseSpec: QuickSpec {
       }
       
       it("can map") {
-        self.flightsForTerminalResponse.mapping(self.map)
+        expect(self.flightsForTerminalResponse.mapping(self.map)).toNot(beNil())
       }
     }
   }

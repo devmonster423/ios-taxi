@@ -39,7 +39,7 @@ class FlightDetailResponseSpec: QuickSpec {
       }
       
       it("can map") {
-        self.flightDetailResponse.mapping(self.map)
+        expect(self.flightDetailResponse.mapping(self.map)).toNot(beNil())
       }
     }
   }
