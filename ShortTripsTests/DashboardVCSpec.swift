@@ -44,8 +44,8 @@ class DashboardVCSpec: QuickSpec {
           expect(viewController.dashboardView().explanationLabel.hidden).toNot(beTrue())
         }
         
-        // TODO: make this test work
-        xit("is non-blank") {
+        it("is non-blank") {
+          viewController.dashboardView().updateStatusUI(.Yes)
           expect(viewController.dashboardView().explanationLabel.text).toNot(equal(""))
         }
       }
