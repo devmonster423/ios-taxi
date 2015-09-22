@@ -40,5 +40,10 @@
 		<string>MyriadPro-Bold.otf</string>
 		<string>MyriadPro-Semibold.otf</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
