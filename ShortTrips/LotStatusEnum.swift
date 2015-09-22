@@ -9,18 +9,18 @@
 import Foundation
 
 enum LotStatusEnum: String {
-  case Yes = "yes"
-  case No = "no"
-  case Maybe = "maybe"
+  case Green = "green"
+  case Yellow = "yellow"
+  case Red = "red"
   
   static func random() -> LotStatusEnum {
     switch arc4random_uniform(3) {
     case 0:
-      return .Yes
+      return .Green
     case 1:
-      return .Maybe
+      return .Yellow
     default:
-      return .No
+      return .Red
     }
   }
 }

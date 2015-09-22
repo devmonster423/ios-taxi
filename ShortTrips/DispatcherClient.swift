@@ -19,7 +19,7 @@ protocol DispatcherClient {
 
 extension ApiClient {
   static func requestLotStatus(response: LotStatusClosure) {
-    authedRequest(Alamofire.request(.GET, Url.queueStatus, parameters: nil))
+    authedRequest(Alamofire.request(.GET, Url.Dispatcher.holdingLotCapacity, parameters: nil))
     .responseObject { (statusResponse: LotStatusResponse?, error: ErrorType?) in
       response(statusResponse?.lotStatus, error)
     }

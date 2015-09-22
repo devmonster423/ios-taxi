@@ -45,7 +45,7 @@ class DashboardVCSpec: QuickSpec {
         }
         
         it("is non-blank") {
-          viewController.dashboardView().updateStatusUI(.Yes)
+          viewController.dashboardView().updateStatusUI(.Green)
           expect(viewController.dashboardView().explanationLabel.text).toNot(equal(""))
         }
       }

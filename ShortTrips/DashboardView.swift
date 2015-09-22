@@ -121,19 +121,19 @@ class DashboardView: UIView {
   func updateStatusUI(lotStatus: LotStatusEnum) {
     switch lotStatus {
 
-    case .Yes:
+    case .Green:
       bgImageView.image = UIImage(named: "green_bg.jpg")
       comeToSfoLabel.text = NSLocalizedString("Go To SFO", comment: "")
       directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
       explanationLabel.text = NSLocalizedString("Lot capacity is not full", comment: "")
 
-    case .Maybe:
+    case .Yellow:
       bgImageView.image = UIImage(named: "yellow_bg.jpg")
       comeToSfoLabel.text = NSLocalizedString("Go To SFO", comment: "")
       directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
       explanationLabel.text = NSLocalizedString("Lot capacity is almost full", comment: "")
 
-    case .No:
+    case .Red:
       bgImageView.image = UIImage(named: "red_bg.jpg")
       comeToSfoLabel.text = NSLocalizedString("Don't Go To SFO", comment: "")
       directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")

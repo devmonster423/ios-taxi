@@ -43,8 +43,8 @@ class DashboardVC: UIViewController {
     
   func requestLotStatus() {
     ApiClient.requestLotStatus({ (status, error) -> Void in
-      if let lotStatusEnum = status?.lotStatusEnum  {
-        self.dashboardView().updateStatusUI(lotStatusEnum)
+      if let color = status?.color  {
+        self.dashboardView().updateStatusUI(color)
       } else {
         self.dashboardView().updateStatusUI(LotStatusEnum.random())
       }
