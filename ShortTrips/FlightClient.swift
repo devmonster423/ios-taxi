@@ -22,14 +22,16 @@ protocol FlightClient {
 extension ApiClient {
   static func requestFlightsForTerminal(terminal: Int, hour: Int, response: FlightsForTerminalClosure) {
     let params = ["terminal_id": terminal, "hour": hour]
-    Alamofire.request(.GET, Url.Flight.Arrival.details, parameters: params).responseObject { (flightsForTerminalResponse: FlightsForTerminalResponse?, error: ErrorType?) in
+    authedRequest(Alamofire.request(.GET, Url.Flight.Arrival.details, parameters: params))
+      .responseObject { (flightsForTerminalResponse: FlightsForTerminalResponse?, error: ErrorType?) in
       response(flightsForTerminalResponse?.flightDetailResponse?.flightDetails, error)
     }
   }
   
   static func requestTerminalSummary(hour: Int, response: TerminalSummaryClosure) {
     let params = ["hour": hour]
-    Alamofire.request(.GET, Url.Flight.Arrival.summary, parameters: params).responseObject { (terminalSummaryResponse: TerminalSummaryResponse?, error: ErrorType?) in response(terminalSummaryResponse?.terminalSummaryArrivalsResponse?.terminalSummaryArrivalsListResponse?.terminalSummaryArrivalsListListResponse?.terminalSummaryArrivalsList, error)
+    authedRequest(Alamofire.request(.GET, Url.Flight.Arrival.summary, parameters: params))
+      .responseObject { (terminalSummaryResponse: TerminalSummaryResponse?, error: ErrorType?) in response(terminalSummaryResponse?.terminalSummaryArrivalsResponse?.terminalSummaryArrivalsListResponse?.terminalSummaryArrivalsListListResponse?.terminalSummaryArrivalsList, error)
     }
   }
 }

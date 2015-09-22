@@ -26,31 +26,36 @@ protocol DeviceClient {
 
 extension ApiClient {
   static func postMobileStateChanges(mobileStateChange: MobileStateChange) {
-    Alamofire.request(.POST, Url.Device.mobileState, parameters: Mapper().toJSON(mobileStateChange), encoding: .JSON).response { _, _, _, error in
+    authedRequest(Alamofire.request(.POST, Url.Device.mobileState, parameters: Mapper().toJSON(mobileStateChange), encoding: .JSON))
+      .response { _, _, _, error in
       print(error)
     }
   }
   
   static func requestAutomaticVehicleIds(response: AviClosure) {
-    Alamofire.request(.GET, Url.Device.Avi.avi, parameters: nil).responseObject { (aviResponse: AutomaticVehicleIdResponse?, error: ErrorType?) in
+    authedRequest(Alamofire.request(.GET, Url.Device.Avi.avi, parameters: nil))
+      .responseObject { (aviResponse: AutomaticVehicleIdResponse?, error: ErrorType?) in
       response(aviResponse?.automaticVehicleIds, error)
     }
   }
   
   static func requestAntenna(transponderId: Int, response: AntennaClosure) {
-    Alamofire.request(.GET, Url.Device.Avi.transponder(transponderId), parameters: nil).responseObject { (antennaResponse: AntennaResponse?, error: ErrorType?) in
+    authedRequest(Alamofire.request(.GET, Url.Device.Avi.transponder(transponderId), parameters: nil))
+      .responseObject { (antennaResponse: AntennaResponse?, error: ErrorType?) in
       response(antennaResponse?.antenna, error)
     }
   }
   
   static func requestAllCids(response: AllCidsClosure) {
-    Alamofire.request(.GET, Url.Device.Cid.cid, parameters: nil).responseObject { (allCidsResponse: AllCidsResponse?, error: ErrorType?) in
+    authedRequest(Alamofire.request(.GET, Url.Device.Cid.cid, parameters: nil))
+      .responseObject { (allCidsResponse: AllCidsResponse?, error: ErrorType?) in
       response(allCidsResponse?.cidListResponse?.cidList, error)
     }
   }
   
   static func requestCidForSmartCard(smartCardId: Int, response: CidForSmartCardClosure) {
-    Alamofire.request(.GET, Url.Device.Cid.smartCard(smartCardId), parameters: nil).responseObject { (cidResponse: CidResponse?, error: ErrorType?) in
+    authedRequest(Alamofire.request(.GET, Url.Device.Cid.smartCard(smartCardId), parameters: nil))
+      .responseObject { (cidResponse: CidResponse?, error: ErrorType?) in
       response(cidResponse?.cid, error)
     }
   }
