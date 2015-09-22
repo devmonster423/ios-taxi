@@ -12,20 +12,34 @@ import Nimble
 import Foundation
 
 class AirlineSpec: QuickSpec {
-  private var testAirline: Airline!
+  private var aerLingus: Airline = .AerLingus
+  private var lufthansa: Airline = .Lufthansa
+  private var airFrance: Airline = .AirFrance
+  private var britishAirways: Airline = .BritishAirways
+  private var deltaAirlines: Airline = .DeltaAirlines
+  private var unitedAirlines: Airline = .UnitedAirlines
+  private var virginAmerica: Airline = .VirginAmerica
   
   override func spec() {
-    beforeEach {
-      self.testAirline = Airline.AerLingus
-    }
-    
     describe("the Airline") {
       it("can be tested against another Airline for identity") {
-        expect(self.testAirline).to(equal(Airline.AerLingus))
+        expect(self.aerLingus).to(equal(Airline.AerLingus))
+        expect(self.lufthansa).to(equal(Airline.Lufthansa))
+        expect(self.airFrance).to(equal(Airline.AirFrance))
+        expect(self.britishAirways).to(equal(Airline.BritishAirways))
+        expect(self.deltaAirlines).to(equal(Airline.DeltaAirlines))
+        expect(self.unitedAirlines).to(equal(Airline.UnitedAirlines))
+        expect(self.virginAmerica).to(equal(Airline.VirginAmerica))
       }
       
       it("has the correct icon") {
-        expect(self.testAirline.icon()).to(equal(UIImage(named: "AerLingus")!))
+        expect(self.aerLingus.icon()).to(equal(UIImage(named: "AerLingus")!))
+        expect(self.lufthansa.icon()).to(equal(UIImage(named: "Lufthansa")!))
+        expect(self.airFrance.icon()).to(equal(UIImage(named: "AirFrance")!))
+        expect(self.britishAirways.icon()).to(equal(UIImage(named: "BritishAirways")!))
+        expect(self.deltaAirlines.icon()).to(equal(UIImage(named: "DeltaAirlines")!))
+        expect(self.unitedAirlines.icon()).to(equal(UIImage(named: "UnitedAirlines")!))
+        expect(self.virginAmerica.icon()).to(equal(UIImage(named: "VirginAmerica")!))
       }
     }
   }
