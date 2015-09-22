@@ -91,6 +91,8 @@
 		E1CDE7951B66E95E00AB27D2 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */; };
 		E1CDE7A81B66E95E00AB27D2 /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */; };
 		E1DCC1FF1BA8DEAC0016B725 /* ReferenceConfigResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DCC1FE1BA8DEAC0016B725 /* ReferenceConfigResponse.swift */; };
+		E1E6EF9E1BB205520039C5F3 /* DriverSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		E1E6EFA01BB205600039C5F3 /* DriverResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6EF9F1BB205600039C5F3 /* DriverResponseSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		E1FA66151B853C4800FD18C6 /* FlightMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA66141B853C4800FD18C6 /* FlightMock.swift */; };
 		E1FA66171B85558300FD18C6 /* FlightHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA66161B85558300FD18C6 /* FlightHeaderCell.swift */; };
 		FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1FD11BAF1DD500B8F921 /* Font.swift */; settings = {ASSET_TAGS = (); }; };
@@ -202,6 +204,8 @@
 		E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
 		E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.otf"; sourceTree = "<group>"; };
 		E1DCC1FE1BA8DEAC0016B725 /* ReferenceConfigResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConfigResponse.swift; sourceTree = "<group>"; };
+		E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverSpec.swift; sourceTree = "<group>"; };
+		E1E6EF9F1BB205600039C5F3 /* DriverResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverResponseSpec.swift; sourceTree = "<group>"; };
 		E1FA66141B853C4800FD18C6 /* FlightMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightMock.swift; sourceTree = "<group>"; };
 		E1FA66161B85558300FD18C6 /* FlightHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightHeaderCell.swift; sourceTree = "<group>"; };
 		FA0E1FD11BAF1DD500B8F921 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -430,6 +434,7 @@
 				E14E159C1BB1D869009D1E17 /* Antenna */,
 				E1BDE2861BB1E673006C0A42 /* AutomaticVehicleId */,
 				E1BDE28B1BB1EB09006C0A42 /* Cid */,
+				E1E6EF9C1BB2053B0039C5F3 /* Driver */,
 				E18FFE2C1BB1A0A0003D192A /* Flight */,
 			);
 			name = Models;
@@ -563,6 +568,15 @@
 				E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		E1E6EF9C1BB2053B0039C5F3 /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				E1E6EF9F1BB205600039C5F3 /* DriverResponseSpec.swift */,
+				E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */,
+			);
+			name = Driver;
 			sourceTree = "<group>";
 		};
 		FA0E1FD01BAF1D9500B8F921 /* Utility */ = {
@@ -886,6 +900,7 @@
 				E1598CE41BB1ACB100E933AD /* FlightSpec.swift in Sources */,
 				C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */,
 				E1598CE61BB1AE3B00E933AD /* FlightDetailResponseSpec.swift in Sources */,
+				E1E6EF9E1BB205520039C5F3 /* DriverSpec.swift in Sources */,
 				E14E159E1BB1DA9F009D1E17 /* AntennaResponseSpec.swift in Sources */,
 				E18FFE291BB19ED2003D192A /* FlightsForTerminalResponseSpec.swift in Sources */,
 				E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift in Sources */,
@@ -898,6 +913,7 @@
 				E1BDE2931BB1EFBB006C0A42 /* AllCidsResponseSpec.swift in Sources */,
 				E16E5E161BB1B690003A315A /* FlightStatusSpec.swift in Sources */,
 				E14E159B1BB1D856009D1E17 /* AntennaSpec.swift in Sources */,
+				E1E6EFA01BB205600039C5F3 /* DriverResponseSpec.swift in Sources */,
 				C28224681BB09C32007F284F /* FlightStatusVCSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
