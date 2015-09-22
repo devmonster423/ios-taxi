@@ -13,6 +13,11 @@ struct Antenna: Mappable {
   var antennaId: Int!
   var aviLocation: String!
   
+  init(antennaId: Int, aviLocation: String) {
+    self.antennaId = antennaId
+    self.aviLocation = aviLocation
+  }
+  
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
