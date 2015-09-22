@@ -10,10 +10,12 @@ import ObjectMapper
 
 struct FlightDetailResponse: Mappable {
   var flightDetails: [Flight]!
+  var terminalId: TerminalId!
   
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
     flightDetails <- map["details"]
+    terminalId <- map["terminal_id"]
   }
 }

@@ -106,6 +106,7 @@
 		FA32EC091B8836B7001428B5 /* red_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC061B8836B7001428B5 /* red_bg.jpg */; };
 		FA32EC0A1B8836B7001428B5 /* yellow_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC071B8836B7001428B5 /* yellow_bg.jpg */; };
 		FA32EC0E1B883B44001428B5 /* terminal_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC0D1B883B44001428B5 /* terminal_bg.jpg */; };
+		FA650FF81BB20CDB003D1939 /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA650FF71BB20CDB003D1939 /* DateTransform.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -225,6 +226,7 @@
 		FA32EC071B8836B7001428B5 /* yellow_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yellow_bg.jpg; sourceTree = "<group>"; };
 		FA32EC0D1B883B44001428B5 /* terminal_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = terminal_bg.jpg; sourceTree = "<group>"; };
 		FA32EC0F1B885B92001428B5 /* ShortTrips.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ShortTrips.entitlements; sourceTree = "<group>"; };
+		FA650FF71BB20CDB003D1939 /* DateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTransform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -616,6 +618,7 @@
 			isa = PBXGroup;
 			children = (
 				C21775F81BB08CAC008B24EA /* Color.swift */,
+				FA650FF71BB20CDB003D1939 /* DateTransform.swift */,
 				FA0E1FD11BAF1DD500B8F921 /* Font.swift */,
 				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
 				E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */,
@@ -910,6 +913,7 @@
 				E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */,
 				E1B3937B1BAC66FE00FC2970 /* LotStatus.swift in Sources */,
 				E1B3937D1BAC681B00FC2970 /* LotStatusEnum.swift in Sources */,
+				FA650FF81BB20CDB003D1939 /* DateTransform.swift in Sources */,
 				E1DCC1FF1BA8DEAC0016B725 /* ReferenceConfigResponse.swift in Sources */,
 				C219056A1BB0C87200A3E779 /* DeviceClient.swift in Sources */,
 				C2635E2C1BB0CCE4003C22B1 /* DriverClient.swift in Sources */,

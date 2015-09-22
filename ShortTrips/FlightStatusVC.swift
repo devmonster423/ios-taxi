@@ -106,11 +106,10 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour, response: { (flights, error) -> Void in
         if let flights = flights {
           self.flights = flights
+          self.flightStatusView().flightTable.reloadData()
+        } else {
+          print(error)
         }
-        else {
-          self.flights = FlightMock.mockFlights()
-        }
-        self.flightStatusView().flightTable.reloadData()
     })
   }
   
