@@ -36,7 +36,7 @@ class AllCidsResponseSpec: QuickSpec {
       }
       
       it("can map") {
-        self.allCidsResponse.mapping(self.map)
+        expect(self.allCidsResponse.mapping(self.map)).toNot(beNil())
       }
     }
   }
