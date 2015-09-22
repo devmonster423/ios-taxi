@@ -28,7 +28,7 @@ class FlightSpec: QuickSpec {
       }
       
       it("can map") {
-        self.flight.mapping(self.map)
+        expect(self.flight.mapping(self.map)).toNot(beNil())
       }
     }
   }

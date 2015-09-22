@@ -28,7 +28,7 @@ class AutomaticVehicleIdSpec: QuickSpec {
       }
       
       it("can map") {
-        self.automaticVehicleId.mapping(self.map)
+        expect(self.automaticVehicleId.mapping(self.map)).toNot(beNil())
       }
     }
   }

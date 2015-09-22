@@ -35,7 +35,7 @@ class CidResponseSpec: QuickSpec {
       }
       
       it("can map") {
-        self.cidResponse.mapping(self.map)
+        expect(self.cidResponse.mapping(self.map)).toNot(beNil())
       }
     }
   }
