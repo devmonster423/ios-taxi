@@ -17,7 +17,8 @@ protocol DriverClient {
 
 extension ApiClient {
   static func authenticateDriver(credential: Credential) {
-    Alamofire.request(.POST, Url.Driver.login, parameters: Mapper().toJSON(credential), encoding: .JSON).response { _, _, _, error in
+    authedRequest(Alamofire.request(.POST, Url.Driver.login, parameters: Mapper().toJSON(credential), encoding: .JSON))
+      .response { _, _, _, error in
       print(error)
     }
   }
