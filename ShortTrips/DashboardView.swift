@@ -13,7 +13,6 @@ class DashboardView: UIView {
 
   private let bgImageView = UIImageView()
   private let comeToSfoLabel = UILabel()
-  private let directionLabel = UILabel()
   internal let explanationLabel = UILabel()
   let terminalStatusBtn = UIButton()
   let timerView = TimerView()
@@ -31,7 +30,6 @@ class DashboardView: UIView {
     addSubview(bgImageView)
     addSubview(explanationLabel)
     addSubview(comeToSfoLabel)
-    addSubview(directionLabel)
     addSubview(terminalStatusBtn)
     addSubview(timerView)
 
@@ -85,16 +83,6 @@ class DashboardView: UIView {
       make.bottom.equalTo(separator.snp_top)
     }
 
-    // "YES/NO/MAYBE"
-    directionLabel.font = Font.MyriadPro.size(60)
-    directionLabel.textColor = UIColor.whiteColor()
-    directionLabel.snp_makeConstraints { (make) -> Void in
-      make.leading.equalTo(self).offset(UiConstants.dashboardMargin)
-      make.trailing.equalTo(self).offset(-UiConstants.dashboardMargin)
-      make.height.equalTo(80)
-      make.bottom.equalTo(comeToSfoLabel.snp_top)
-    }
-
     // Progress View and "Last updated 2 minutes ago"
     timerView.snp_makeConstraints { (make) -> Void in
       make.bottom.equalTo(self)
@@ -124,19 +112,16 @@ class DashboardView: UIView {
     case .Green:
       bgImageView.image = UIImage(named: "green_bg.jpg")
       comeToSfoLabel.text = NSLocalizedString("Go To SFO", comment: "")
-      directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
       explanationLabel.text = NSLocalizedString("Lot capacity is not full", comment: "")
 
     case .Yellow:
       bgImageView.image = UIImage(named: "yellow_bg.jpg")
       comeToSfoLabel.text = NSLocalizedString("Go To SFO", comment: "")
-      directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
       explanationLabel.text = NSLocalizedString("Lot capacity is almost full", comment: "")
 
     case .Red:
       bgImageView.image = UIImage(named: "red_bg.jpg")
       comeToSfoLabel.text = NSLocalizedString("Don't Go To SFO", comment: "")
-      directionLabel.text = NSLocalizedString(lotStatus.rawValue, comment: "")
       explanationLabel.text = NSLocalizedString("Lot capacity is full", comment: "")
     }
   }
