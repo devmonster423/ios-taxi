@@ -12,6 +12,10 @@ import ObjectMapper
 struct AllCidsResponse: Mappable {
   var cidListResponse: CidListResponse!
   
+  init(cidListResponse: CidListResponse) {
+    self.cidListResponse = cidListResponse
+  }
+  
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {

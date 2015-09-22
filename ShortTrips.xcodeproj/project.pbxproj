@@ -82,6 +82,10 @@
 		E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */; };
 		E1BDE2881BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE2871BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE2891BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		E1BDE28D1BB1EB21006C0A42 /* CidSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE28C1BB1EB21006C0A42 /* CidSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		E1BDE28F1BB1EDDD006C0A42 /* CidResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE28E1BB1EDDD006C0A42 /* CidResponseSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		E1BDE2911BB1EEE6006C0A42 /* CidListResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE2901BB1EEE6006C0A42 /* CidListResponseSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		E1BDE2931BB1EFBB006C0A42 /* AllCidsResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE2921BB1EFBB006C0A42 /* AllCidsResponseSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */; };
 		E1CDE7941B66E95E00AB27D2 /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76C1B66E95E00AB27D2 /* MyriadPro-Semibold.otf */; };
 		E1CDE7951B66E95E00AB27D2 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */; };
@@ -189,6 +193,10 @@
 		E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusResponse.swift; sourceTree = "<group>"; };
 		E1BDE2871BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticVehicleIdSpec.swift; sourceTree = "<group>"; };
 		E1BDE2891BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticVehicleIdResponseSpec.swift; sourceTree = "<group>"; };
+		E1BDE28C1BB1EB21006C0A42 /* CidSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidSpec.swift; sourceTree = "<group>"; };
+		E1BDE28E1BB1EDDD006C0A42 /* CidResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidResponseSpec.swift; sourceTree = "<group>"; };
+		E1BDE2901BB1EEE6006C0A42 /* CidListResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidListResponseSpec.swift; sourceTree = "<group>"; };
+		E1BDE2921BB1EFBB006C0A42 /* AllCidsResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCidsResponseSpec.swift; sourceTree = "<group>"; };
 		E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiConstants.swift; sourceTree = "<group>"; };
 		E1CDE76C1B66E95E00AB27D2 /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
 		E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
@@ -421,6 +429,7 @@
 			children = (
 				E14E159C1BB1D869009D1E17 /* Antenna */,
 				E1BDE2861BB1E673006C0A42 /* AutomaticVehicleId */,
+				E1BDE28B1BB1EB09006C0A42 /* Cid */,
 				E18FFE2C1BB1A0A0003D192A /* Flight */,
 			);
 			name = Models;
@@ -533,6 +542,17 @@
 				E1BDE2871BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift */,
 			);
 			name = AutomaticVehicleId;
+			sourceTree = "<group>";
+		};
+		E1BDE28B1BB1EB09006C0A42 /* Cid */ = {
+			isa = PBXGroup;
+			children = (
+				E1BDE2921BB1EFBB006C0A42 /* AllCidsResponseSpec.swift */,
+				E1BDE28E1BB1EDDD006C0A42 /* CidResponseSpec.swift */,
+				E1BDE2901BB1EEE6006C0A42 /* CidListResponseSpec.swift */,
+				E1BDE28C1BB1EB21006C0A42 /* CidSpec.swift */,
+			);
+			name = Cid;
 			sourceTree = "<group>";
 		};
 		E1CDE7101B66DF0600AB27D2 /* Fonts */ = {
@@ -869,9 +889,13 @@
 				E14E159E1BB1DA9F009D1E17 /* AntennaResponseSpec.swift in Sources */,
 				E18FFE291BB19ED2003D192A /* FlightsForTerminalResponseSpec.swift in Sources */,
 				E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift in Sources */,
+				E1BDE28D1BB1EB21006C0A42 /* CidSpec.swift in Sources */,
 				E1BDE2881BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift in Sources */,
+				E1BDE28F1BB1EDDD006C0A42 /* CidResponseSpec.swift in Sources */,
+				E1BDE2911BB1EEE6006C0A42 /* CidListResponseSpec.swift in Sources */,
 				E1598CE81BB1AF1A00E933AD /* AirlineSpec.swift in Sources */,
 				E16E5E181BB1B830003A315A /* FlightMockSpec.swift in Sources */,
+				E1BDE2931BB1EFBB006C0A42 /* AllCidsResponseSpec.swift in Sources */,
 				E16E5E161BB1B690003A315A /* FlightStatusSpec.swift in Sources */,
 				E14E159B1BB1D856009D1E17 /* AntennaSpec.swift in Sources */,
 				C28224681BB09C32007F284F /* FlightStatusVCSpec.swift in Sources */,
