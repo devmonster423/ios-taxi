@@ -71,15 +71,22 @@ class FlightCell: UITableViewCell {
   }
   
   func displayFlight(flight: Flight) {
-    airlineIcon.image = flight.airline.icon()
+    // TODO: get icon for airline
     flightNumberLabel.text = "#\(flight.flightNumber)"
     if dateFormatter.dateFormat == "" {
       dateFormatter.dateFormat = "hh:mm a"
     }
     estimatedTimeLabel.text = dateFormatter.stringFromDate(flight.estimatedTime)
-    estimatedTimeLabel.textColor = flight.flightStatus.getTimeOrFlightNumberColor()
-    flightNumberLabel.textColor = flight.flightStatus.getTimeOrFlightNumberColor()
-    flightStatusLabel.text = NSLocalizedString(flight.flightStatus!.rawValue, comment: "")
-    flightStatusLabel.textColor = flight.flightStatus.getStatusColor()
+
+    if let flightStatus = flight.flightStatus {
+      estimatedTimeLabel.textColor = flightStatus.getTimeOrFlightNumberColor()
+      flightNumberLabel.textColor = flightStatus.getTimeOrFlightNumberColor()
+      flightStatusLabel.textColor = flightStatus.getStatusColor()
+      flightStatusLabel.text = NSLocalizedString(flightStatus.rawValue, comment: "")
+    } else {
+      estimatedTimeLabel.textColor = Color.FlightStatus.standard
+      flightNumberLabel.textColor = Color.FlightStatus.standard
+      flightStatusLabel.text = ""
+    }
   }
 }

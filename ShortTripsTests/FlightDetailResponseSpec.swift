@@ -21,7 +21,7 @@ class FlightDetailResponseSpec: QuickSpec {
     describe("the FlightsForTerminalResponse") {
       beforeEach {
         self.flightDetails = [
-          Flight(airline: .AerLingus, bags: 5, estimatedTime: NSDate(), flightStatus: .OnTime, flightNumber: "42", scheduledTime: NSDate())
+          Flight(airline: "AerLingus", bags: 5, estimatedTime: NSDate(), flightStatus: .OnTime, flightNumber: "42", scheduledTime: NSDate())
           ]
         self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
         self.flightDetailResponse = FlightDetailResponse(self.map)

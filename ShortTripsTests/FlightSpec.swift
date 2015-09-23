@@ -19,7 +19,7 @@ class FlightSpec: QuickSpec {
   override func spec() {
     describe("the Flight") {
       beforeEach {
-        self.flight = Flight(airline: .AerLingus, bags: 5, estimatedTime: NSDate(), flightStatus: .OnTime, flightNumber: "42", scheduledTime: NSDate())
+        self.flight = Flight(airline: "AerLingus", bags: 5, estimatedTime: NSDate(), flightStatus: .OnTime, flightNumber: "42", scheduledTime: NSDate())
         self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
       }
       

@@ -9,14 +9,14 @@
 import ObjectMapper
 
 struct Flight: Mappable {
-  var airline: Airline!
+  var airline: String!
   var bags: Int!
   var estimatedTime: NSDate!
   var flightNumber: String!
-  var flightStatus: FlightStatus!
+  var flightStatus: FlightStatus?
   var scheduledTime: NSDate!
   
-  init(airline: Airline, bags: Int, estimatedTime: NSDate, flightStatus: FlightStatus, flightNumber: String, scheduledTime: NSDate) {
+  init(airline: String, bags: Int, estimatedTime: NSDate, flightStatus: FlightStatus, flightNumber: String, scheduledTime: NSDate) {
     self.airline = airline
     self.bags = bags
     self.estimatedTime = estimatedTime
