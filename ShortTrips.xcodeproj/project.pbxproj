@@ -41,6 +41,9 @@
 		E112C3051BB2FF0100B1DF48 /* GeofenceResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C3041BB2FF0100B1DF48 /* GeofenceResponseSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		E112C3071BB2FFC400B1DF48 /* GeofenceListResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C3061BB2FFC400B1DF48 /* GeofenceListResponseSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		E112C3091BB3016C00B1DF48 /* AllGeofencesResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C3081BB3016C00B1DF48 /* AllGeofencesResponseSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		E112C30C1BB3135600B1DF48 /* LotStatusEnumSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C30B1BB3135600B1DF48 /* LotStatusEnumSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		E112C30E1BB3195500B1DF48 /* LotStatusSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C30D1BB3195500B1DF48 /* LotStatusSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		E112C3101BB31A5800B1DF48 /* LotStatusResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C30F1BB31A5800B1DF48 /* LotStatusResponseSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		E11D60971BA7A40100FD4276 /* Geofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D60961BA7A40100FD4276 /* Geofence.swift */; };
 		E122649E1B795A65002B36CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12264A01B795A65002B36CA /* Localizable.strings */; };
 		E13BCEF11BABB426006FDFF5 /* FlightsForTerminalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13BCEF01BABB426006FDFF5 /* FlightsForTerminalResponse.swift */; settings = {ASSET_TAGS = (); }; };
@@ -156,6 +159,9 @@
 		E112C3041BB2FF0100B1DF48 /* GeofenceResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceResponseSpec.swift; sourceTree = "<group>"; };
 		E112C3061BB2FFC400B1DF48 /* GeofenceListResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceListResponseSpec.swift; sourceTree = "<group>"; };
 		E112C3081BB3016C00B1DF48 /* AllGeofencesResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGeofencesResponseSpec.swift; sourceTree = "<group>"; };
+		E112C30B1BB3135600B1DF48 /* LotStatusEnumSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusEnumSpec.swift; sourceTree = "<group>"; };
+		E112C30D1BB3195500B1DF48 /* LotStatusSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusSpec.swift; sourceTree = "<group>"; };
+		E112C30F1BB31A5800B1DF48 /* LotStatusResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusResponseSpec.swift; sourceTree = "<group>"; };
 		E11D60961BA7A40100FD4276 /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geofence.swift; sourceTree = "<group>"; };
 		E122649F1B795A65002B36CA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E12264A11B795A6F002B36CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -392,6 +398,16 @@
 			name = Geofence;
 			sourceTree = "<group>";
 		};
+		E112C30A1BB3130E00B1DF48 /* LotStatus */ = {
+			isa = PBXGroup;
+			children = (
+				E112C30B1BB3135600B1DF48 /* LotStatusEnumSpec.swift */,
+				E112C30F1BB31A5800B1DF48 /* LotStatusResponseSpec.swift */,
+				E112C30D1BB3195500B1DF48 /* LotStatusSpec.swift */,
+			);
+			name = LotStatus;
+			sourceTree = "<group>";
+		};
 		E13BCEEF1BABAD32006FDFF5 /* Flight */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +471,7 @@
 				E1E6EF9C1BB2053B0039C5F3 /* Driver */,
 				E18FFE2C1BB1A0A0003D192A /* Flight */,
 				E112C3011BB2FCE500B1DF48 /* Geofence */,
+				E112C30A1BB3130E00B1DF48 /* LotStatus */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -917,6 +934,7 @@
 				C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */,
 				E1598CE61BB1AE3B00E933AD /* FlightDetailResponseSpec.swift in Sources */,
 				E1E6EF9E1BB205520039C5F3 /* DriverSpec.swift in Sources */,
+				E112C30E1BB3195500B1DF48 /* LotStatusSpec.swift in Sources */,
 				E14E159E1BB1DA9F009D1E17 /* AntennaResponseSpec.swift in Sources */,
 				E18FFE291BB19ED2003D192A /* FlightsForTerminalResponseSpec.swift in Sources */,
 				E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift in Sources */,
@@ -929,6 +947,8 @@
 				E112C3071BB2FFC400B1DF48 /* GeofenceListResponseSpec.swift in Sources */,
 				E1598CE81BB1AF1A00E933AD /* AirlineSpec.swift in Sources */,
 				E16E5E181BB1B830003A315A /* FlightMockSpec.swift in Sources */,
+				E112C30C1BB3135600B1DF48 /* LotStatusEnumSpec.swift in Sources */,
+				E112C3101BB31A5800B1DF48 /* LotStatusResponseSpec.swift in Sources */,
 				E1BDE2931BB1EFBB006C0A42 /* AllCidsResponseSpec.swift in Sources */,
 				E16E5E161BB1B690003A315A /* FlightStatusSpec.swift in Sources */,
 				E14E159B1BB1D856009D1E17 /* AntennaSpec.swift in Sources */,

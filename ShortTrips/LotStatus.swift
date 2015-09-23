@@ -17,6 +17,11 @@ struct LotStatus: Mappable {
   
   init?(_ map: Map){}
   
+  init(color: LotStatusEnum, timestamp: NSDate) {
+    self.color = color
+    self.timestamp = timestamp
+  }
+
   mutating func mapping(map: Map) {
     
     let transform = TransformOf<NSDate, String>(fromJSON: { (value: String?) -> NSDate? in
