@@ -20,6 +20,13 @@ struct Geofence: Mappable {
   var geofenceId: Int!
   var name: String!
   
+  init(category: Category, description: String, geofenceId: Int, name: String) {
+    self.category = category
+    self.description = description
+    self.geofenceId = geofenceId
+    self.name = name
+  }
+
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {

@@ -11,6 +11,10 @@ import ObjectMapper
 struct GeofenceListResponse: Mappable {
   var geofenceList: [Geofence]!
   
+  init(geofenceList: [Geofence]) {
+    self.geofenceList = geofenceList
+  }
+
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
