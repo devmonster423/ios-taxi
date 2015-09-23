@@ -14,16 +14,12 @@
 "Landed" = "Landed";
 "Delayed" = "Delayed";
 
-/* Come to SFO? */
+/* Dashboard */
 
-"Don't Go To SFO" = "Don't Go To SFO";
-"Go To SFO" = "Go To SFO";
-"Lot capacity is full" = "Lot capacity is full";
-"Lot capacity is not full" = "Lot capacity is not full";
-"Lot capacity is almost full" = "Lot capacity is almost full";
-"yes" = "YES";
-"no" = "NO";
-"maybe" = "MAYBE";
+"Our holding lot is" = "Our holding lot is";
+"FULL" = "FULL";
+"ALMOST FULL" = "ALMOST FULL";
+"NOT FULL" = "NOT FULL";
 "Terminal Status" = "Terminal Status";
 
 /* Terminals */

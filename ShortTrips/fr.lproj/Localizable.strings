@@ -13,38 +13,35 @@
 "Landed" = "Atterri";
 "Delayed" = "En retard";
 
-/* Come to SFO? */
+/* Dashboard */
 
-"Don't Go To SFO" = "Evitez SFO";
-"Go To SFO" = "Allez à SFO";
-"Lot capacity is full" = "Parkings sont pleins";
-"Lot capacity is not full" = "Parkings ne sont pas pleins";
-"Lot capacity is almost full" = "Parkings sont presque pleins";
-"yes" = "OUI";
-"no" = "NON";
-"maybe" = "PEUT-ETRE";
+"Our holding lot is" = "Notre parking est";
+"FULL" = "PLEIN";
+"ALMOST FULL" = "PRESQUE PLEIN";
+"NOT FULL" = "PAS PLEIN";
+"Terminal Status" = "Statuts des Aérogares";
 
 /* Terminal Status */
 
-"Terminal Status %d Hours Ago" = "Statut du terminal il y a %d heures";
-"Terminal Status %d Hours in the Future" = "Statut du terminal dans %d heures";
-"Current Terminal Status" = "Statut actuel des terminals";
+"Terminal Status %d Hours Ago" = "Statut de l'aérogare il y a %d heures";
+"Terminal Status %d Hours in the Future" = "Statut de l'aérogare dans %d heures";
+"Current Terminal Status" = "Statut actuel de l'aérogare";
 "Terminals" = "Aérogares";
 
 /* Flight Status */
 
-"Term. One %d Hours Ago" = "Term. un il y a %d heures";
-"Term. Two %d Hours Ago" = "Term. deux il y a %d heures";
-"Term. Three %d Hours Ago" = "Term. trois il y a %d heures";
-"Inter. Term. %d Hours Ago" = "Term. Inter. il y a %d heures";
-"Term. One in %d Hours" = "Term. un dans %d Hours";
-"Term. Two in %d Hours" = "Term. deux dans %d Hours";
-"Term. Three in %d Hours" = "Term. trois dans %d Hours";
-"Inter. Term. in %d Hours" = "Term. inter. dans %d Hours";
-"Term. One Currently" = "Term. un actuellement";
-"Term. Two Currently" = "Term. deux actuellement";
-"Term. Three Currently" = "Term. trois actuellement";
-"Inter. Term. Currently" = "Term. inter. actuellement";
+"Term. One %d Hours Ago" = "Aér. un il y a %d heures";
+"Term. Two %d Hours Ago" = "Aér. deux il y a %d heures";
+"Term. Three %d Hours Ago" = "Aér. trois il y a %d heures";
+"Inter. Term. %d Hours Ago" = "Aér. Inter. il y a %d heures";
+"Term. One in %d Hours" = "Aér. un dans %d Hours";
+"Term. Two in %d Hours" = "Aér. deux dans %d Hours";
+"Term. Three in %d Hours" = "Aér. trois dans %d Hours";
+"Inter. Term. in %d Hours" = "Aér. inter. dans %d Hours";
+"Term. One Currently" = "Aér. un actuellement";
+"Term. Two Currently" = "Aér. deux actuellement";
+"Term. Three Currently" = "Aér. trois actuellement";
+"Inter. Term. Currently" = "Aér. inter. actuellement";
 "Flights" = "Vols";
 "Flights In" = "Vols Dans";
 "Now" = "Maintenant";

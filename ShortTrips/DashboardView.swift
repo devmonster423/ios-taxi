@@ -12,8 +12,9 @@ import SnapKit
 class DashboardView: UIView {
 
   private let bgImageView = UIImageView()
-  private let comeToSfoLabel = UILabel()
-  internal let explanationLabel = UILabel()
+  private let bgOverlayView = UIImageView()
+  private let fullnessLabelLabel = UILabel()
+  internal let fullnessLabel = UILabel()
   let terminalStatusBtn = UIButton()
   let timerView = TimerView()
 
@@ -28,8 +29,9 @@ class DashboardView: UIView {
 
     // add subviews
     addSubview(bgImageView)
-    addSubview(explanationLabel)
-    addSubview(comeToSfoLabel)
+    addSubview(fullnessLabel)
+    addSubview(fullnessLabelLabel)
+    addSubview(bgOverlayView)
     addSubview(terminalStatusBtn)
     addSubview(timerView)
 
@@ -40,53 +42,42 @@ class DashboardView: UIView {
       make.top.equalTo(self)
       make.left.equalTo(self)
       make.right.equalTo(self)
-      make.bottom.equalTo(terminalStatusBtn.snp_top).offset(-10)
+      make.bottom.equalTo(terminalStatusBtn.snp_top).offset(UiConstants.dashboardViewButtonBgOffset)
     }
 
     // black alpha view on top of background
-    let backgroundOverlay = UIView()
-    backgroundOverlay.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2)
-    addSubview(backgroundOverlay)
-    backgroundOverlay.snp_makeConstraints { (make) -> Void in
-      make.edges.equalTo(bgImageView)
+    bgOverlayView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: UiConstants.dashboardViewOverlayAlpha)
+    addSubview(bgOverlayView)
+    bgOverlayView.snp_makeConstraints { (make) -> Void in
+      make.left.equalTo(self)
+      make.right.equalTo(self)
+      make.top.equalTo(bgImageView.snp_bottom)
+      make.bottom.equalTo(timerView.snp_top)
     }
 
-    // "the lot is full"
-    explanationLabel.font = Font.MyriadProBold.size(40)
-    explanationLabel.numberOfLines = 0
-    explanationLabel.textColor = UIColor.whiteColor()
-    explanationLabel.snp_makeConstraints { (make) -> Void in
-      make.leading.equalTo(self).offset(UiConstants.dashboardMargin)
-      make.trailing.equalTo(self).offset(-UiConstants.dashboardMargin)
-      make.height.equalTo(120)
-      make.bottom.equalTo(bgImageView)
+    // "FULL"
+    fullnessLabel.font = Font.MyriadProBold.size(UiConstants.dashboardViewFullnessFontSize)
+    fullnessLabel.numberOfLines = 0
+    fullnessLabel.textColor = UIColor.whiteColor()
+    fullnessLabel.snp_makeConstraints { (make) -> Void in
+      make.centerX.equalTo(bgImageView)
+      make.centerY.equalTo(bgImageView)
     }
 
-    // white separator line
-    let separator = UIView()
-    separator.backgroundColor = UIColor.whiteColor()
-    addSubview(separator)
-    separator.snp_makeConstraints { (make) -> Void in
-      make.height.equalTo(1)
-      make.width.equalTo(200)
-      make.leading.equalTo(self).offset(UiConstants.dashboardMargin)
-      make.bottom.equalTo(explanationLabel.snp_top)
-    }
-
-    // "Come to SFO"
-    comeToSfoLabel.font = Font.MyriadPro.size(40)
-    comeToSfoLabel.textColor = UIColor.whiteColor()
-    comeToSfoLabel.snp_makeConstraints { (make) -> Void in
-      make.height.equalTo(80)
-      make.width.equalTo(270)
-      make.leading.equalTo(UiConstants.dashboardMargin)
-      make.bottom.equalTo(separator.snp_top)
+    // "Our holding lot is"
+    fullnessLabelLabel.text = NSLocalizedString("Our holding lot is", comment: "")
+    fullnessLabelLabel.font = Font.MyriadPro.size(UiConstants.dashboardViewFullnessLabelFontSize)
+    fullnessLabelLabel.numberOfLines = 0
+    fullnessLabelLabel.textColor = UIColor.whiteColor()
+    fullnessLabelLabel.snp_makeConstraints { (make) -> Void in
+      make.centerX.equalTo(bgImageView)
+      make.bottom.equalTo(fullnessLabel.snp_top)
     }
 
     // Progress View and "Last updated 2 minutes ago"
     timerView.snp_makeConstraints { (make) -> Void in
+      make.height.equalTo(UiConstants.dashboardViewProgressHeight)
       make.bottom.equalTo(self)
-      make.height.equalTo(60)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
     }
@@ -94,15 +85,15 @@ class DashboardView: UIView {
     // Terminal Status Button
     terminalStatusBtn.setTitle(NSLocalizedString("Terminal Status", comment: "").uppercaseString, forState: .Normal)
     terminalStatusBtn.setTitleColor(Color.Sfo.blue, forState: .Normal)
-    terminalStatusBtn.titleLabel?.font = Font.MyriadProSemibold.size(15)
+    terminalStatusBtn.titleLabel?.font = Font.MyriadProSemibold.size(UiConstants.dashboardViewTerminalStatusFontSize)
     terminalStatusBtn.layer.borderColor = Color.Sfo.blue.CGColor
     terminalStatusBtn.layer.borderWidth = UiConstants.statusBorderWidth
     terminalStatusBtn.layer.cornerRadius = UiConstants.statusCornerRadius
     terminalStatusBtn.snp_makeConstraints { (make) -> Void in
-      make.width.equalTo(200)
-      make.height.equalTo(80)
+      make.width.equalTo(UiConstants.dashboardViewTerminalStatusWidth)
+      make.height.equalTo(UiConstants.dashboardViewTerminalStatusHeight)
       make.centerX.equalTo(self)
-      make.bottom.equalTo(timerView.snp_top).offset(-10)
+      make.bottom.equalTo(timerView.snp_top).offset(UiConstants.dashboardViewButtonTimerOffset)
     }
   }
 
@@ -110,19 +101,16 @@ class DashboardView: UIView {
     switch lotStatus {
 
     case .Green:
-      bgImageView.image = UIImage(named: "green_bg.jpg")
-      comeToSfoLabel.text = NSLocalizedString("Go To SFO", comment: "")
-      explanationLabel.text = NSLocalizedString("Lot capacity is not full", comment: "")
+      bgImageView.image = UIImage(named: "greenDashBg.png")
+      fullnessLabel.text = NSLocalizedString("NOT FULL", comment: "")
 
     case .Yellow:
-      bgImageView.image = UIImage(named: "yellow_bg.jpg")
-      comeToSfoLabel.text = NSLocalizedString("Go To SFO", comment: "")
-      explanationLabel.text = NSLocalizedString("Lot capacity is almost full", comment: "")
+      bgImageView.image = UIImage(named: "yellowDashBg.png")
+      fullnessLabel.text = NSLocalizedString("ALMOST FULL", comment: "")
 
     case .Red:
-      bgImageView.image = UIImage(named: "red_bg.jpg")
-      comeToSfoLabel.text = NSLocalizedString("Don't Go To SFO", comment: "")
-      explanationLabel.text = NSLocalizedString("Lot capacity is full", comment: "")
+      bgImageView.image = UIImage(named: "redDashBg.png")
+      fullnessLabel.text = NSLocalizedString("FULL", comment: "")
     }
   }
 }

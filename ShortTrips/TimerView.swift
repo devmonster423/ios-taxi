@@ -20,25 +20,27 @@ class TimerView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
 
+    progressView.progressTintColor = Color.Sfo.turquoise
+    progressView.trackTintColor = Color.Sfo.lightBlue
+
     // add subviews
     addSubview(progressView)
     addSubview(updateLabel)
 
     progressView.snp_makeConstraints { (make) -> Void in
-      make.leading.equalTo(self).offset(UiConstants.dashboardMargin)
-      make.trailing.equalTo(self).offset(-UiConstants.dashboardMargin)
-      make.bottom.equalTo(self).offset(-UiConstants.dashboardMargin)
-      make.height.equalTo(2)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.bottom.equalTo(self)
+      make.height.equalTo(UiConstants.timerViewProgressHeight)
     }
 
-    updateLabel.font = Font.MyriadProSemibold.size(18)
+    updateLabel.font = Font.MyriadProSemibold.size(UiConstants.timerViewUpdateHeight)
     updateLabel.textAlignment = .Center
-    updateLabel.textColor = Color.Sfo.blue
+    updateLabel.textColor = Color.Sfo.gray
     updateLabel.snp_makeConstraints { (make) -> Void in
-      make.height.equalTo(22)
-      make.leading.equalTo(self).offset(UiConstants.dashboardMargin)
-      make.trailing.equalTo(self).offset(-UiConstants.dashboardMargin)
-      make.top.equalTo(self)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.bottom.equalTo(progressView.snp_top).offset(UiConstants.timerViewBottomOffset)
     }
   }
 

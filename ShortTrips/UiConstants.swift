@@ -18,5 +18,16 @@ struct UiConstants {
   static let navControllerFont: String = "MyriadPro-Bold"
   static let navControllerFontSizeNormal: CGFloat = 30.0
   static let navControllerFontSizeSmall: CGFloat = 20.0
-  static let dashboardMargin = 25
+  static let timerViewProgressHeight: CGFloat = 10.0
+  static let timerViewUpdateHeight: CGFloat = 13.0
+  static let timerViewBottomOffset: CGFloat = -5.0
+  static let dashboardViewButtonBgOffset: CGFloat = -10.0
+  static let dashboardViewOverlayAlpha: CGFloat = 0.05
+  static let dashboardViewFullnessFontSize: CGFloat = 48.0
+  static let dashboardViewFullnessLabelFontSize: CGFloat = 29.0
+  static let dashboardViewProgressHeight: CGFloat = 50.0
+  static let dashboardViewTerminalStatusFontSize: CGFloat = 17.0
+  static let dashboardViewTerminalStatusWidth: CGFloat = 200.0
+  static let dashboardViewTerminalStatusHeight: CGFloat = 60.0
+  static let dashboardViewButtonTimerOffset: CGFloat = -10.0
 }
