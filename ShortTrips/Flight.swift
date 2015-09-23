@@ -9,26 +9,33 @@
 import ObjectMapper
 
 struct Flight: Mappable {
-  var airline: Airline!
-  var landingTime: NSDate!
-  var flightStatus: FlightStatus!
-  var terminalId: TerminalId!
-  var flightNumber: Int!
+  var airline: String!
+  var bags: Int!
+  var estimatedTime: NSDate!
+  var flightNumber: String!
+  var flightStatus: FlightStatus?
+  var scheduledTime: NSDate!
   
-  init(airline: Airline, landingTime: NSDate, flightStatus: FlightStatus, terminalId: TerminalId, flightNumber: Int) {
+  init(airline: String, bags: Int, estimatedTime: NSDate, flightStatus: FlightStatus, flightNumber: String, scheduledTime: NSDate) {
     self.airline = airline
-    self.landingTime = landingTime
+    self.bags = bags
+    self.estimatedTime = estimatedTime
     self.flightStatus = flightStatus
-    self.terminalId = terminalId
     self.flightNumber = flightNumber
+    self.scheduledTime = scheduledTime
   }
   
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
-    airline <- map["airline"]
-    landingTime <- map["estimated_time"] // TODO: possibly use date mask
-    flightStatus <- map["remarks"]
+
+    let transform = DateTransform(dateFormat: "hh:mm a") // "2:50 PM"
+
+    airline <- map["airline_name"]
+    bags <- map["bags"]
+    estimatedTime <- (map["estimated_time"], transform)
     flightNumber <- map["flight_number"]
+    flightStatus <- map["remarks"]
+    scheduledTime <- (map["scheduled_time"], transform)
   }
 }

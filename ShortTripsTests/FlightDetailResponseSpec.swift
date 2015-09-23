@@ -20,7 +20,9 @@ class FlightDetailResponseSpec: QuickSpec {
   override func spec() {
     describe("the FlightsForTerminalResponse") {
       beforeEach {
-        self.flightDetails = [Flight(airline: Airline.UnitedAirlines, landingTime: NSDate(), flightStatus: FlightStatus.OnTime, terminalId: TerminalId.International, flightNumber: 42)]
+        self.flightDetails = [
+          Flight(airline: "AerLingus", bags: 5, estimatedTime: NSDate(), flightStatus: .OnTime, flightNumber: "42", scheduledTime: NSDate())
+          ]
         self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
         self.flightDetailResponse = FlightDetailResponse(self.map)
         self.flightDetailResponse.flightDetails = self.flightDetails
