@@ -76,8 +76,8 @@ class FlightCell: UITableViewCell {
     let width = airlineIcon.bounds.size.width * scale
     let height = airlineIcon.bounds.size.height * scale
     self.airlineIcon.image = nil
-    Airline.loadImageForAirline(flight.airline, width: Int(width), height: Int(height)) {
-      image in
+
+    Flight.airlineImageForFlight(flight.flightNumber, width: Int(width), height: Int(height)) { image in
       
       self.airlineIcon.image = image
     }

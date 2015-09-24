@@ -20,7 +20,7 @@ extension ApiClient {
   static func imageForIataCode(iataCode: String, width: Int, height: Int, completion: ImageClosure) {
     
     let params = ["width": width, "height": height]
-    authedRequest(Alamofire.request(.GET, Url.Airline.logoPng(iataCode), parameters: params)).responseImage { (request, _, result) -> Void in
+    authedRequest(Alamofire.request(.GET, Url.Airline.logoPng(iataCode), parameters: params)).responseImage { (_, _, result) -> Void in
       
       completion(result.value)
     }
