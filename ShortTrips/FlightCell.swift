@@ -71,6 +71,17 @@ class FlightCell: UITableViewCell {
   }
   
   func displayFlight(flight: Flight) {
+    
+    let scale = UIScreen.mainScreen().scale
+    let width = airlineIcon.bounds.size.width * scale
+    let height = airlineIcon.bounds.size.height * scale
+    self.airlineIcon.image = nil
+    Airline.loadImageForAirline(flight.airline, width: Int(width), height: Int(height)) {
+      image in
+      
+      self.airlineIcon.image = image
+    }
+    
     // TODO: get icon for airline
     flightNumberLabel.text = "#\(flight.flightNumber)"
     if dateFormatter.dateFormat == "" {
