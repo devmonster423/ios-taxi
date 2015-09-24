@@ -23,6 +23,9 @@ class TimerView: UIView {
     progressView.progressTintColor = Color.Sfo.turquoise
     progressView.trackTintColor = Color.Sfo.lightBlue
 
+    progressView.progressTintColor = Color.Sfo.turquoise
+    progressView.trackTintColor = Color.Sfo.lightBlue
+
     // add subviews
     addSubview(progressView)
     addSubview(updateLabel)

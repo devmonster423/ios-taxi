@@ -63,7 +63,7 @@ class DashboardView: UIView {
       make.centerX.equalTo(bgImageView)
       make.centerY.equalTo(bgImageView)
     }
-    
+  
     // "Our holding lot is"
     fullnessTitleLabel.text = NSLocalizedString("Our holding lot is", comment: "")
     fullnessTitleLabel.font = Font.MyriadPro.size(UiConstants.Dashboard.fullnessLabelFontSize)
