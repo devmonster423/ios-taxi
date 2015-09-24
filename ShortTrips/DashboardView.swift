@@ -45,16 +45,6 @@ class DashboardView: UIView {
       make.bottom.equalTo(terminalStatusBtn.snp_top).offset(UiConstants.Dashboard.buttonBgOffset)
     }
 
-    // black alpha view on top of background
-    bgOverlayView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: UiConstants.Dashboard.overlayAlpha)
-    addSubview(bgOverlayView)
-    bgOverlayView.snp_makeConstraints { (make) -> Void in
-      make.left.equalTo(self)
-      make.right.equalTo(self)
-      make.top.equalTo(bgImageView.snp_bottom)
-      make.bottom.equalTo(timerView.snp_top)
-    }
-
     // "FULL"
     fullnessLabel.font = Font.MyriadProBold.size(UiConstants.Dashboard.fullnessFontSize)
     fullnessLabel.numberOfLines = 0

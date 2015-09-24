@@ -13,7 +13,6 @@ struct UiConstants {
     static let statusCornerRadius: CGFloat = 15.0
     static let statusBorderWidth: CGFloat = 1.0
     static let buttonBgOffset: CGFloat = -10.0
-    static let overlayAlpha: CGFloat = 0.05
     static let fullnessFontSize: CGFloat = 48.0
     static let fullnessLabelFontSize: CGFloat = 29.0
     static let progressHeight: CGFloat = 50.0
@@ -37,8 +36,7 @@ struct UiConstants {
   }
   
   struct NavController {
-    static let font: String = "MyriadPro-Bold"
-    static let fontSizeNormal: CGFloat = 30.0
-    static let fontSizeSmall: CGFloat = 20.0
+    static let fontNormal = Font.MyriadProBold.size(30)
+    static let fontSmall = Font.MyriadProBold.size(20)
   }
 }
