@@ -12,6 +12,11 @@ struct Airline: Mappable {
   var airlineCode: String!
   var airlineName: String!
   
+  init(airlineCode: String, airlineName: String) {
+    self.airlineCode = airlineCode
+    self.airlineName = airlineName
+  }
+  
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
