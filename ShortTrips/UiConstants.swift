@@ -39,4 +39,19 @@ struct UiConstants {
     static let fontNormal = Font.MyriadProBold.size(30)
     static let fontSmall = Font.MyriadProBold.size(20)
   }
+  
+  struct FlightCell {
+    static let fontNormal = Font.MyriadProSemibold.size(12)
+    static let fontSmall = Font.MyriadProSemibold.size(8)
+    static let standardMargin = 5.0
+    static let airlineTimesMargin = 10.0
+    static let rowHeight: CGFloat = 50.0
+    static let airlineIconWidth: CGFloat = 0.15
+    static let airlineAndFlightWidth: CGFloat = 0.30
+    static let timesTitleWidth: CGFloat = 0.15
+    static let timesWidth: CGFloat = 0.20
+    static let statusWidth: CGFloat = 0.20
+    static let statusPadding: CGFloat = 2.0
+    static let dateFormat: String = "hh:mm a"
+  }
 }

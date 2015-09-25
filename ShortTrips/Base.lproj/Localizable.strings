@@ -6,14 +6,6 @@
   Copyright (c) 2015 SFO. All rights reserved.
 */
 
-/* Flight Statuses */
-
-"%.1f%% Delayed Flights" = "%.1f%% Delayed Flights";
-"On Time" = "On Time";
-"Landing" = "Landing";
-"Landed" = "Landed";
-"Delayed" = "Delayed";
-
 /* Dashboard */
 
 "Our holding lot is" = "Our holding lot is";
@@ -54,6 +46,12 @@
 "Now" = "Now";
 "Ago" = "Ago";
 "%dH" = "%dH";
+"Sched.:\nEst.:" = "Sched.:\nEst.:";
+"%.1f%% Delayed Flights" = "%.1f%% Delayed Flights";
+"On Time" = "On Time";
+"Landing" = "Landing";
+"Landed" = "Landed";
+"Delayed" = "Delayed";
 
 /* Update Progress */
 

@@ -74,10 +74,11 @@
 		E18FF6951BA8783600FE93B9 /* MobileStateChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FF6941BA8783600FE93B9 /* MobileStateChange.swift */; };
 		E18FFE291BB19ED2003D192A /* FlightsForTerminalResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FFE281BB19ED2003D192A /* FlightsForTerminalResponseSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		E1A2EBA01B6BEF3900C27EB2 /* FlightStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */; };
-		E1A2EBA21B6C218D00C27EB2 /* FlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */; };
 		E1A2EBA91B6D747F00C27EB2 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBA81B6D747F00C27EB2 /* Flight.swift */; };
 		E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAC1B6E8FEF00C27EB2 /* FlightStatus.swift */; };
 		E1A2EBAF1B6E920500C27EB2 /* TerminalSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAE1B6E920500C27EB2 /* TerminalSummary.swift */; };
+		E1AE8CE31BB5A2E3004E243E /* FlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE8CE21BB5A2E3004E243E /* FlightCell.swift */; settings = {ASSET_TAGS = (); }; };
+		E1AE8CE51BB5A310004E243E /* UIButton+positionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE8CE41BB5A310004E243E /* UIButton+positionLabel.swift */; settings = {ASSET_TAGS = (); }; };
 		E1B393761BAC614F00FC2970 /* AutomaticVehicleIdResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B393751BAC614F00FC2970 /* AutomaticVehicleIdResponse.swift */; settings = {ASSET_TAGS = (); }; };
 		E1B3937B1BAC66FE00FC2970 /* LotStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3937A1BAC66FE00FC2970 /* LotStatus.swift */; settings = {ASSET_TAGS = (); }; };
 		E1B3937D1BAC681B00FC2970 /* LotStatusEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3937C1BAC681B00FC2970 /* LotStatusEnum.swift */; settings = {ASSET_TAGS = (); }; };
@@ -189,10 +190,11 @@
 		E18FF6941BA8783600FE93B9 /* MobileStateChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileStateChange.swift; sourceTree = "<group>"; };
 		E18FFE281BB19ED2003D192A /* FlightsForTerminalResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightsForTerminalResponseSpec.swift; sourceTree = "<group>"; };
 		E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatusVC.swift; sourceTree = "<group>"; };
-		E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightCell.swift; sourceTree = "<group>"; };
 		E1A2EBA81B6D747F00C27EB2 /* Flight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		E1A2EBAC1B6E8FEF00C27EB2 /* FlightStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatus.swift; sourceTree = "<group>"; };
 		E1A2EBAE1B6E920500C27EB2 /* TerminalSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummary.swift; sourceTree = "<group>"; };
+		E1AE8CE21BB5A2E3004E243E /* FlightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightCell.swift; sourceTree = "<group>"; };
+		E1AE8CE41BB5A310004E243E /* UIButton+positionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+positionLabel.swift"; sourceTree = "<group>"; };
 		E1B393751BAC614F00FC2970 /* AutomaticVehicleIdResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticVehicleIdResponse.swift; sourceTree = "<group>"; };
 		E1B3937A1BAC66FE00FC2970 /* LotStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatus.swift; sourceTree = "<group>"; };
 		E1B3937C1BAC681B00FC2970 /* LotStatusEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusEnum.swift; sourceTree = "<group>"; };
@@ -421,7 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				C2B667101BA7577600BA28E2 /* DashboardView.swift */,
-				E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */,
+				E1AE8CE21BB5A2E3004E243E /* FlightCell.swift */,
 				E1FA66161B85558300FD18C6 /* FlightHeaderCell.swift */,
 				C207D6FB1BAB86D800273374 /* FlightStatusView.swift */,
 				C200BE261BA8D3A300B7F56F /* HourPickerView.swift */,
@@ -608,6 +610,7 @@
 				C21775F81BB08CAC008B24EA /* Color.swift */,
 				FA650FF71BB20CDB003D1939 /* DateTransform.swift */,
 				FA0E1FD11BAF1DD500B8F921 /* Font.swift */,
+				E1AE8CE41BB5A310004E243E /* UIButton+positionLabel.swift */,
 				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
 				E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */,
 				E17352841B8CEC9B0031950B /* UiHelpers.swift */,
@@ -855,6 +858,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C200BE211BA8C21600B7F56F /* TerminalView.swift in Sources */,
+				E1AE8CE51BB5A310004E243E /* UIButton+positionLabel.swift in Sources */,
 				E13BCEF11BABB426006FDFF5 /* FlightsForTerminalResponse.swift in Sources */,
 				E14DBDDB1B867A8400819C91 /* UpdateTimer.swift in Sources */,
 				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
@@ -903,12 +907,12 @@
 				E1DCC1FF1BA8DEAC0016B725 /* ReferenceConfigResponse.swift in Sources */,
 				C219056A1BB0C87200A3E779 /* DeviceClient.swift in Sources */,
 				C2635E2C1BB0CCE4003C22B1 /* DriverClient.swift in Sources */,
+				E1AE8CE31BB5A2E3004E243E /* FlightCell.swift in Sources */,
 				E15A3CD31BAC86C6002EDE40 /* Credential.swift in Sources */,
 				E1666F991BA8D25600C95F96 /* DriverResponse.swift in Sources */,
 				E16399D51BA7B99400EDE0AE /* Driver.swift in Sources */,
 				C2B667291BA7833400BA28E2 /* TerminalSummaryView.swift in Sources */,
 				C2635E2E1BB0CD9A003C22B1 /* ReferenceClient.swift in Sources */,
-				E1A2EBA21B6C218D00C27EB2 /* FlightCell.swift in Sources */,
 				E1A2EBA91B6D747F00C27EB2 /* Flight.swift in Sources */,
 				E187368E1BA8EADE00B6C7D8 /* CidListResponse.swift in Sources */,
 			);

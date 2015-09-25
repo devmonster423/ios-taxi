@@ -164,7 +164,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     if indexPath.section == TableSection.Header.rawValue {
       return FlightHeaderCell.height
     } else {
-      return FlightCell.height
+      return UiConstants.FlightCell.rowHeight
     }
   }
 }
