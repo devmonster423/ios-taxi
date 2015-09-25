@@ -38,4 +38,12 @@ struct Flight: Mappable {
     flightStatus <- map["remarks"]
     scheduledTime <- (map["scheduled_time"], transform)
   }
+  
+  static func airlineImageForFlight(flightNumber: String, width: Int, height: Int, completion: ImageClosure) {
+    ApiClient.imageForIataCode(iataCodeForFlightNumber(flightNumber), width: width, height: height, completion: completion)
+  }
+  
+  private static func iataCodeForFlightNumber(flightNumber: String) -> String {
+     return flightNumber.substringWithRange(Range<String.Index>(start: flightNumber.startIndex, end: flightNumber.startIndex.advancedBy(2)))
+  }
 }

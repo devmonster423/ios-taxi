@@ -12,6 +12,15 @@ struct Url {
   
   static let queueStatus = base + "status/queue"
   
+  struct Airline {
+    private static let airline = base + "airline/"
+    
+    static let codes = airline + "codes"
+    static func logoPng(iataCode: String) -> String {
+      return airline + "logo/\(iataCode).png"
+    }
+  }
+  
   struct Device {
     private static let device = base + "device/"
     
