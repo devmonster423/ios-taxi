@@ -13,9 +13,7 @@ import AlamofireObjectMapper
 
 typealias ReferenceConfigClosure = (ReferenceConfig?, ErrorType?) -> Void
 
-protocol ReferenceClient {
-  static func requestReferenceConfig(response: ReferenceConfigClosure)
-}
+protocol ReferenceClient { }
 
 extension ApiClient {
   static func requestReferenceConfig(response: ReferenceConfigClosure) {

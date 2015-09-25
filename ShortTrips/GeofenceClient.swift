@@ -14,11 +14,7 @@ import AlamofireObjectMapper
 typealias AllGeofencesClosure = ([Geofence]?, ErrorType?) -> Void
 typealias GeofenceClosure = (Geofence?, ErrorType?) -> Void
 
-protocol GeofenceClient {
-  static func requestAllGeofences(response: AllGeofencesClosure)
-  static func requestGeofenceForLocation(longitude: Float, latitude: Float, buffer: Float, response: GeofenceClosure)
-  static func requestGeofenceForId(id: Int, response: GeofenceClosure)
-}
+protocol GeofenceClient { }
 
 extension ApiClient {
   static func requestAllGeofences(response: AllGeofencesClosure) {

@@ -9,7 +9,6 @@
 @testable import ShortTrips
 import Quick
 import Nimble
-import PivotalCoreKit
 
 class AirlineClientSpec: QuickSpec {
   
@@ -30,4 +29,3 @@ class AirlineClientSpec: QuickSpec {
     }
   }
 }
-

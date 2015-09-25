@@ -11,9 +11,7 @@ import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
-protocol DriverClient {
-  static func authenticateDriver(credential: Credential)
-}
+protocol DriverClient { }
 
 extension ApiClient {
   static func authenticateDriver(credential: Credential) {
