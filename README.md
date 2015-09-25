@@ -12,7 +12,7 @@ Authors
 
 Language
 --------
-* Swift 1.2
+* Swift 2
 * iOS 8+
 
 Style
@@ -25,4 +25,8 @@ Dependencies are managed with CocoaPods. See the `Podfile` for the list of depen
 
 Tests
 -----
-Tests will be run by [Travis-CI](https://magnum.travis-ci.com/ExygySFO/sfo-short-trips-ios/).
+Tests will be run by [Travis-CI](https://magnum.travis-ci.com/ExygySFO/sfo-short-trips-ios/). 50% coverage is required for `develop` and 75% coverage is required for `master`. See [this SO answer](http://stackoverflow.com/questions/31096924/how-to-use-code-coverage-in-xcode-7/31099098#31099098) for how to check code coverage.
+
+Backlog
+-------
+The backlog of required tasks is managed in [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/1424798).
