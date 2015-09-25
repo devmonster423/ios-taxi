@@ -18,6 +18,9 @@ struct Color {
   struct Sfo {
     static let blue = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 255.0/255.0, alpha: 1.0)
     static let blueWithAlpha = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 255.0/255.0, alpha: 0.5)
+    static let gray = UIColor(red: 115.0/255.0, green: 115.0/255.0, blue: 115.0/255.0, alpha: 1.0)
+    static let turquoise = UIColor(red: 26.0/255.0, green: 120.0/255.0, blue: 167.0/255.0, alpha: 1.0)
+    static let lightBlue = UIColor(red: 150.0/255.0, green: 184.0/255.0, blue: 241.0/255.0, alpha: 1.0)
   }
   
   struct FlightStatus {
