@@ -10,7 +10,7 @@ import UIKit
 
 class TimerView: UIView {
 
-  private let progressView = UIProgressView()
+  private let progressView = UIProgressView(progressViewStyle: UIProgressViewStyle.Bar)
   private let updateLabel = UILabel()
 
   required init(coder aDecoder: NSCoder) {
@@ -20,9 +20,6 @@ class TimerView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    progressView.progressTintColor = Color.Sfo.turquoise
-    progressView.trackTintColor = Color.Sfo.lightBlue
-
     progressView.progressTintColor = Color.Sfo.turquoise
     progressView.trackTintColor = Color.Sfo.lightBlue
 
