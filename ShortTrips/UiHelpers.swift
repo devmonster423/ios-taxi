@@ -11,8 +11,8 @@ import UIKit
 
 class UiHelpers {
   class func disableWidgetWithAnimation(widget: UIView) {
-    UIView.animateWithDuration(UiConstants.fadeDuration, animations: { () -> Void in
-      widget.alpha = UiConstants.disabledWidgetAlpha
+    UIView.animateWithDuration(UiConstants.Fader.fadeDuration, animations: { () -> Void in
+      widget.alpha = UiConstants.Fader.disabledWidgetAlpha
       if let widget = widget as? UIControl {
         widget.enabled = false
       }
@@ -23,7 +23,7 @@ class UiHelpers {
     if widget is UIControl {
       (widget as! UIControl).enabled = true
     }
-    UIView.animateWithDuration(UiConstants.fadeDuration, animations: { () -> Void in
+    UIView.animateWithDuration(UiConstants.Fader.fadeDuration, animations: { () -> Void in
       widget.alpha = 1.0
       if let widget = widget as? UIControl {
         widget.enabled = true

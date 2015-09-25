@@ -304,21 +304,6 @@
 			name = Trip;
 			sourceTree = "<group>";
 		};
-		C2B6670F1BA7575C00BA28E2 /* Dashboard */ = {
-			isa = PBXGroup;
-			children = (
-				C2B667101BA7577600BA28E2 /* DashboardView.swift */,
-				E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */,
-				E1FA66161B85558300FD18C6 /* FlightHeaderCell.swift */,
-				C207D6FB1BAB86D800273374 /* FlightStatusView.swift */,
-				C200BE261BA8D3A300B7F56F /* HourPickerView.swift */,
-				C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */,
-				C200BE201BA8C21600B7F56F /* TerminalView.swift */,
-				C200BE221BA8D05D00B7F56F /* TimerView.swift */,
-			);
-			name = Dashboard;
-			sourceTree = "<group>";
-		};
 		C2DFE5B91B56D2CB0090B55F = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +417,21 @@
 			name = Antenna;
 			sourceTree = "<group>";
 		};
+		E177ED031BB4710400DD4499 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				C2B667101BA7577600BA28E2 /* DashboardView.swift */,
+				E1A2EBA11B6C218D00C27EB2 /* FlightCell.swift */,
+				E1FA66161B85558300FD18C6 /* FlightHeaderCell.swift */,
+				C207D6FB1BAB86D800273374 /* FlightStatusView.swift */,
+				C200BE261BA8D3A300B7F56F /* HourPickerView.swift */,
+				C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */,
+				C200BE201BA8C21600B7F56F /* TerminalView.swift */,
+				C200BE221BA8D05D00B7F56F /* TimerView.swift */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
 		E187368A1BA8E9D000B6C7D8 /* Cid */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,7 +511,7 @@
 		E1A2EBA51B6C2BC600C27EB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C2B6670F1BA7575C00BA28E2 /* Dashboard */,
+				E177ED031BB4710400DD4499 /* Dashboard */,
 				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
 			);
 			name = Views;

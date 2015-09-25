@@ -36,17 +36,17 @@ class DashboardVCSpec: QuickSpec {
         expect(viewController.dashboardView().terminalStatusBtn).toNot(beNil())
       }
       
-      describe("the lot-status field") {
+      describe("the lot-fullness field") {
         it("is non-nil") {
-          expect(viewController.dashboardView().explanationLabel).toNot(beNil())
+          expect(viewController.dashboardView().fullnessLabel).toNot(beNil())
         }
         it("is visible") {
-          expect(viewController.dashboardView().explanationLabel.hidden).toNot(beTrue())
+          expect(viewController.dashboardView().fullnessLabel.hidden).toNot(beTrue())
         }
         
         it("is non-blank") {
           viewController.dashboardView().updateStatusUI(.Green)
-          expect(viewController.dashboardView().explanationLabel.text).toNot(equal(""))
+          expect(viewController.dashboardView().fullnessLabel.text).toNot(equal(""))
         }
       }
       

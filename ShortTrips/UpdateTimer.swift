@@ -25,7 +25,7 @@ class UpdateTimer: NSObject {
     sharedInstance.timerView = timerView
     sharedInstance.callback = callback
     resetProgress()
-    sharedInstance.timer = NSTimer.scheduledTimerWithTimeInterval(UiConstants.updateInterval, target: sharedInstance.self, selector: "eachSecond", userInfo: nil, repeats: true)
+    sharedInstance.timer = NSTimer.scheduledTimerWithTimeInterval(UiConstants.Timer.updateInterval, target: sharedInstance.self, selector: "eachSecond", userInfo: nil, repeats: true)
   }
   
   private class func resetProgress() {
@@ -36,7 +36,7 @@ class UpdateTimer: NSObject {
   func eachSecond() {
     timerView.updateForTime(elapsedSeconds)
     elapsedSeconds++
-    if elapsedSeconds == UiConstants.updatePeriod {
+    if elapsedSeconds == UiConstants.Timer.updatePeriod {
       UpdateTimer.resetProgress()
       callback()
     }
