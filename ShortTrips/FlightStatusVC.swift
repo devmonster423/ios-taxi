@@ -109,6 +109,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
           self.flightStatusView().flightTable.reloadData()
         } else {
           print(error)
+          self.flightStatusView().flightTable.reloadData()
         }
     })
   }

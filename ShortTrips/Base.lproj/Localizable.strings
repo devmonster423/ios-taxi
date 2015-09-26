@@ -47,11 +47,16 @@
 "Ago" = "Ago";
 "%dH" = "%dH";
 "Sched.:\nEst.:" = "Sched.:\nEst.:";
+"Scheduled:\nEstimated:" = "Scheduled:\nEstimated:";
 "%.1f%% Delayed Flights" = "%.1f%% Delayed Flights";
 "On Time" = "On Time";
 "Landing" = "Landing";
 "Landed" = "Landed";
 "Delayed" = "Delayed";
+"h:mma" = "h:mma";
+"pm" = "pm";
+"am" = "am";
+
 
 /* Update Progress */
 

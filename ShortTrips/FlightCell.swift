@@ -19,7 +19,9 @@ class FlightCell: UITableViewCell {
   private var estimatedTimeLabel = UILabel()
   private var flightNumberLabel = UILabel()
   private var flightStatusLabel = UILabel()
+  private let separatorView = UIView()
   static let identifier = "flightCell"
+  private static var lastCellWasWhite = false
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
@@ -40,11 +42,16 @@ class FlightCell: UITableViewCell {
     // airline and flight #
     addSubview(airlineAndFlightLabel)
     airlineAndFlightLabel.numberOfLines = 0
-    airlineAndFlightLabel.font = UiConstants.FlightCell.fontNormal
+    if UIScreen.mainScreen().bounds.size.width <= UiConstants.FlightCell.iPhone5Width {
+      airlineAndFlightLabel.font = UiConstants.FlightCell.fontSmallish
+    }
+    else {
+      airlineAndFlightLabel.font = UiConstants.FlightCell.fontNormal
+    }
     airlineAndFlightLabel.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(self).offset(UiConstants.FlightCell.standardMargin)
       make.bottom.equalTo(self).offset(-UiConstants.FlightCell.standardMargin)
-      make.leading.equalTo(airlineIcon.snp_trailingMargin).offset(UiConstants.FlightCell.standardMargin)
+      make.leading.equalTo(airlineIcon.snp_trailingMargin).offset(UiConstants.FlightCell.bigMargin)
       make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.airlineAndFlightWidth)
     }
     
@@ -52,14 +59,19 @@ class FlightCell: UITableViewCell {
     addSubview(timesTitleLabel)
     timesTitleLabel.numberOfLines = 0
     timesTitleLabel.font = UiConstants.FlightCell.fontNormal
-    timesTitleLabel.text = NSLocalizedString("Sched.:\nEst.:", comment: "")
+    if UIScreen.mainScreen().bounds.size.width <= UiConstants.FlightCell.iPhone5Width {
+      timesTitleLabel.text = NSLocalizedString("Sched.:\nEst.:", comment: "")
+    }
+    else {
+      timesTitleLabel.text = NSLocalizedString("Scheduled:\nEstimated:", comment: "")
+    }
     let attrText = NSMutableAttributedString(string: timesTitleLabel.text!)
     attrText.addAttribute(NSForegroundColorAttributeName, value: Color.Sfo.blue, range: NSMakeRange(0, attrText.length))
     timesTitleLabel.attributedText = attrText
     timesTitleLabel.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(self).offset(UiConstants.FlightCell.standardMargin)
       make.bottom.equalTo(self).offset(-UiConstants.FlightCell.standardMargin)
-      make.leading.equalTo(airlineAndFlightLabel.snp_trailingMargin).offset(UiConstants.FlightCell.airlineTimesMargin)
+      make.leading.equalTo(airlineAndFlightLabel.snp_trailingMargin).offset(UiConstants.FlightCell.bigMargin)
       make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.timesTitleWidth)
     }
 
@@ -70,7 +82,7 @@ class FlightCell: UITableViewCell {
     timesLabel.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(self).offset(UiConstants.FlightCell.standardMargin)
       make.bottom.equalTo(self).offset(-UiConstants.FlightCell.standardMargin)
-      make.leading.equalTo(timesTitleLabel.snp_trailingMargin).offset(UiConstants.FlightCell.standardMargin)
+      make.leading.equalTo(timesTitleLabel.snp_trailingMargin).offset(UiConstants.FlightCell.bigMargin)
       make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.timesWidth)
     }
     
@@ -83,16 +95,31 @@ class FlightCell: UITableViewCell {
       make.trailing.equalTo(self).offset(-UiConstants.FlightCell.standardMargin)
       make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.statusWidth)
     }
+    
+    // separator
+    separatorView.backgroundColor = Color.FlightStatus.separator
+    addSubview(separatorView)
+    separatorView.snp_makeConstraints { (make) -> Void in
+      make.height.equalTo(UiConstants.FlightCell.separatorHeight)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.bottom.equalTo(self)
+    }
   }
   
   func displayFlight(flight: Flight) {
-    airlineAndFlightLabel.text = "\(flight.airline)\n\(flight.flightNumber)"
+    if FlightCell.lastCellWasWhite {
+      self.backgroundColor = Color.FlightCell.background
+    }
+    airlineAndFlightLabel.text = "\(flight.airline.uppercaseString)\n\(flight.flightNumber)"
     let nsAirlineAndFlightLabelText = airlineAndFlightLabel.text! as NSString
     let attributedString = NSMutableAttributedString(string: nsAirlineAndFlightLabelText as String)
-    attributedString.addAttribute(NSForegroundColorAttributeName, value: Color.Sfo.blue, range: nsAirlineAndFlightLabelText.rangeOfString(flight.airline))
+    attributedString.addAttribute(NSForegroundColorAttributeName, value: Color.Sfo.blue, range: nsAirlineAndFlightLabelText.rangeOfString(flight.airline.uppercaseString))
     airlineAndFlightLabel.attributedText = attributedString
     if dateFormatter.dateFormat == "" {
-      dateFormatter.dateFormat = UiConstants.FlightCell.dateFormat
+      dateFormatter.dateFormat = NSLocalizedString("h:mma", comment: "")
+      dateFormatter.AMSymbol = NSLocalizedString("am", comment: "")
+      dateFormatter.PMSymbol = NSLocalizedString("pm", comment: "")
     }
     timesLabel.text = "\(dateFormatter.stringFromDate(flight.scheduledTime))\n\(dateFormatter.stringFromDate(flight.estimatedTime))"
     statusButton.hidden = false
@@ -119,5 +146,6 @@ class FlightCell: UITableViewCell {
     } else {
       statusButton.hidden = true
     }
+    FlightCell.lastCellWasWhite = !FlightCell.lastCellWasWhite
   }
 }

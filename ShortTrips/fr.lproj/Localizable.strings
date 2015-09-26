@@ -41,11 +41,13 @@
 "Ago" = "Au Passé";
 "%dH" = "%dH";
 "Sched.:\nEst.:" = "Orig.:\nEst.:";
+"Scheduled:\nEstimated:" = "Originel:\nEstimé:";
 "%.1f%% Delayed Flights" = "%.1f%% Vols en Retard";
 "On Time" = "À l'heure";
 "Landing" = "Atterissant";
 "Landed" = "Atterri";
 "Delayed" = "En retard";
+"h:mma" = "HH:mm";
 
 /* Update Progress */
 
