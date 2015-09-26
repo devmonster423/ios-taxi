@@ -111,11 +111,23 @@ class FlightCell: UITableViewCell {
     if FlightCell.lastCellWasWhite {
       self.backgroundColor = Color.FlightCell.background
     }
+    let scale = UIScreen.mainScreen().scale
+    let width = airlineIcon.bounds.size.width * scale
+    let height = airlineIcon.bounds.size.height * scale
+    self.airlineIcon.image = nil
+    
+    Flight.airlineImageForFlight(flight.flightNumber, width: Int(width), height: Int(height)) { image in
+      self.airlineIcon.image = image
+    }
+    
     airlineAndFlightLabel.text = "\(flight.airline.uppercaseString)\n\(flight.flightNumber)"
     let nsAirlineAndFlightLabelText = airlineAndFlightLabel.text! as NSString
     let attributedString = NSMutableAttributedString(string: nsAirlineAndFlightLabelText as String)
     attributedString.addAttribute(NSForegroundColorAttributeName, value: Color.Sfo.blue, range: nsAirlineAndFlightLabelText.rangeOfString(flight.airline.uppercaseString))
     airlineAndFlightLabel.attributedText = attributedString
+    
+    flightNumberLabel.text = "#\(flight.flightNumber)"
+    
     if dateFormatter.dateFormat == "" {
       dateFormatter.dateFormat = NSLocalizedString("h:mma", comment: "")
       dateFormatter.AMSymbol = NSLocalizedString("am", comment: "")
