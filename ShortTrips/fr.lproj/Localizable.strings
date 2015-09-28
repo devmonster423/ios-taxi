@@ -40,8 +40,10 @@
 "Now" = "Mai.";
 "Ago" = "Au Passé";
 "%dH" = "%dH";
-"Sched.:\nEst.:" = "Orig.:\nEst.:";
-"Scheduled:\nEstimated:" = "Originel:\nEstimé:";
+"Sched.:" = "Orig.:";
+"Est.:" = "Est.:";
+"Scheduled:" = "Originel";
+"Estimated:" = "Estimé:";
 "%.1f%% Delayed Flights" = "%.1f%% Vols en Retard";
 "On Time" = "À l'heure";
 "Landing" = "Atterissant";
