@@ -109,7 +109,10 @@ class FlightCell: UITableViewCell {
   
   func displayFlight(flight: Flight) {
     if FlightCell.lastCellWasWhite {
-      self.backgroundColor = Color.FlightCell.background
+      self.backgroundColor = Color.FlightCell.darkBackground
+    }
+    else {
+      self.backgroundColor = Color.FlightCell.lightBackground
     }
     let scale = UIScreen.mainScreen().scale
     let width = airlineIcon.bounds.size.width * scale
