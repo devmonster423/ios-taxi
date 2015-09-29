@@ -12,7 +12,7 @@ enum Image: String {
   
   case greenCircle = "green_circle"
   case blueCircle = "blue_circle"
-  case redCircle = "red_cirle"
+  case redCircle = "red_circle"
   
   case unknownAirline = "unknownAirline"
   
