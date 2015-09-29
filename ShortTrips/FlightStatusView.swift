@@ -20,9 +20,9 @@ class FlightStatusView: UIView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-   
     backgroundColor = UIColor.whiteColor()
-    
+    flightTable.separatorColor = Color.FlightStatus.separator
+    flightTable.separatorStyle = .None
     addSubview(flightTable)
     addSubview(timerView)
     

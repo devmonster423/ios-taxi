@@ -15,6 +15,7 @@ struct Flight: Mappable {
   var flightNumber: String!
   var flightStatus: FlightStatus?
   var scheduledTime: NSDate!
+  static let timeCushion: NSTimeInterval = 900.0
   
   init(airline: String, bags: Int, estimatedTime: NSDate, flightStatus: FlightStatus, flightNumber: String, scheduledTime: NSDate) {
     self.airline = airline
@@ -45,5 +46,9 @@ struct Flight: Mappable {
   
   private static func iataCodeForFlightNumber(flightNumber: String) -> String {
      return flightNumber.substringWithRange(Range<String.Index>(start: flightNumber.startIndex, end: flightNumber.startIndex.advancedBy(2)))
+  }
+
+  static func mungeStatus(scheduled: NSDate, estimated: NSDate) -> FlightStatus {
+    return scheduled.dateByAddingTimeInterval(timeCushion).compare(estimated) == .OrderedAscending ? .Delayed : .OnTime
   }
 }

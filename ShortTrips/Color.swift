@@ -16,8 +16,8 @@ struct Color {
   }
   
   struct Sfo {
-    static let blue = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-    static let blueWithAlpha = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 255.0/255.0, alpha: 0.5)
+    static let blue = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 226.0/255.0, alpha: 1.0)
+    static let blueWithAlpha = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 226.0/255.0, alpha: 0.5)
     static let gray = UIColor(red: 115.0/255.0, green: 115.0/255.0, blue: 115.0/255.0, alpha: 1.0)
     static let turquoise = UIColor(red: 26.0/255.0, green: 120.0/255.0, blue: 167.0/255.0, alpha: 1.0)
     static let lightBlue = UIColor(red: 150.0/255.0, green: 184.0/255.0, blue: 241.0/255.0, alpha: 1.0)
@@ -25,9 +25,15 @@ struct Color {
   
   struct FlightStatus {
     static let standard = UIColor(red: 74.0/255.0, green: 74.0/255.0, blue: 74.0/255.0, alpha: 1.0)
-    static let onTime = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-    static let delayed = UIColor(red: 208.0/255.0, green: 2.0/255.0, blue: 27.0/255.0, alpha: 1.0)
+    static let onTime = UIColor(red: 7.0/255.0, green: 104.0/255.0, blue: 147.0/255.0, alpha: 1.0)
+    static let delayed = UIColor(red: 195.0/255.0, green: 32.0/255.0, blue: 38.0/255.0, alpha: 1.0)
     static let landing = UIColor(red: 126.0/255.0, green: 211.0/255.0, blue: 33.0/255.0, alpha: 1.0)
     static let landed = standard
+    static let separator = UIColor(red: 229.0/255.0, green: 229.0/255.0, blue: 229.0/255.0, alpha: 1.0)
+  }
+
+  struct FlightCell {
+    static let darkBackground = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1.0)
+    static let lightBackground = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
   }
 }

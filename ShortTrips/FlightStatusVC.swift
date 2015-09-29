@@ -109,6 +109,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
           self.flightStatusView().flightTable.reloadData()
         } else {
           print(error)
+          self.flightStatusView().flightTable.reloadData()
         }
     })
   }
@@ -150,7 +151,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     if indexPath.section == TableSection.Content.rawValue {
       let cell = tableView.dequeueReusableCellWithIdentifier(FlightCell.identifier, forIndexPath: indexPath) as! FlightCell
       if let flights = flights {
-        cell.displayFlight(flights[indexPath.row])
+        cell.displayFlight(flights[indexPath.row], darkBackground: indexPath.row % 2 == 0 ? false : true)
       }
       return cell
     } else {
@@ -164,7 +165,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     if indexPath.section == TableSection.Header.rawValue {
       return FlightHeaderCell.height
     } else {
-      return FlightCell.height
+      return UiConstants.FlightCell.rowHeight
     }
   }
 }

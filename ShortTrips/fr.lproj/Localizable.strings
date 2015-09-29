@@ -6,19 +6,12 @@
   Copyright (c) 2015 SFO. All rights reserved.
 */
 
-/* Flight Statuses */
-
-"On Time" = "À l'heure";
-"Landing" = "Atterissant";
-"Landed" = "Atterri";
-"Delayed" = "En retard";
-
 /* Dashboard */
 
 "Our holding lot is" = "Notre parking est";
 "full" = "plein";
 "almost full" = "presque plein";
-"pas plein" = "pas plein";
+"not full" = "pas plein";
 "Terminal Status" = "Statuts des Aérogares";
 
 /* Terminal Status */
@@ -30,23 +23,33 @@
 
 /* Flight Status */
 
-"Term. One %d Hours Ago" = "Aér. un il y a %d heures";
-"Term. Two %d Hours Ago" = "Aér. deux il y a %d heures";
-"Term. Three %d Hours Ago" = "Aér. trois il y a %d heures";
+"Term. One %d Hours Ago" = "Aér. Un il y a %d heures";
+"Term. Two %d Hours Ago" = "Aér. Deux il y a %d heures";
+"Term. Three %d Hours Ago" = "Aér. Trois il y a %d heures";
 "Inter. Term. %d Hours Ago" = "Aér. Inter. il y a %d heures";
-"Term. One in %d Hours" = "Aér. un dans %d Hours";
-"Term. Two in %d Hours" = "Aér. deux dans %d Hours";
-"Term. Three in %d Hours" = "Aér. trois dans %d Hours";
-"Inter. Term. in %d Hours" = "Aér. inter. dans %d Hours";
-"Term. One Currently" = "Aér. un actuellement";
-"Term. Two Currently" = "Aér. deux actuellement";
-"Term. Three Currently" = "Aér. trois actuellement";
-"Inter. Term. Currently" = "Aér. inter. actuellement";
+"Term. One in %d Hours" = "Aér. Un dans %d Hours";
+"Term. Two in %d Hours" = "Aér. Deux dans %d Hours";
+"Term. Three in %d Hours" = "Aér. Trois dans %d Hours";
+"Inter. Term. in %d Hours" = "Aér. Inter. dans %d Hours";
+"Term. One Currently" = "Aér. Un actuel";
+"Term. Two Currently" = "Aér. Deux actuel";
+"Term. Three Currently" = "Aér. Trois actuel";
+"Inter. Term. Currently" = "Aér. Inter. actuel";
 "Flights" = "Vols";
 "Flights In" = "Vols Dans";
-"Now" = "Maintenant";
+"Now" = "Mai.";
 "Ago" = "Au Passé";
 "%dH" = "%dH";
+"Sched.:" = "Orig.:";
+"Est.:" = "Est.:";
+"Scheduled:" = "Originel";
+"Estimated:" = "Estimé:";
+"%.1f%% Delayed Flights" = "%.1f%% Vols en Retard";
+"On Time" = "À l'heure";
+"Landing" = "Atterissant";
+"Landed" = "Atterri";
+"Delayed" = "En retard";
+"h:mma" = "HH:mm";
 
 /* Update Progress */
 

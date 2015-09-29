@@ -10,17 +10,20 @@ import UIKit
 import SnapKit
 
 class FlightCell: UITableViewCell {
+  private static let dateFormatter = NSDateFormatter()
   
-  let dateFormatter = NSDateFormatter()
-  let standardMargin = 5
-  
-  private var airlineIcon = UIImageView()
-  private var estimatedTimeLabel = UILabel()
-  private var flightNumberLabel = UILabel()
-  private var flightStatusLabel = UILabel()
-  
-  static let height: CGFloat = 80
   static let identifier = "flightCell"
+  
+  private let airlineImageView = UIImageView()
+  private let airlineLabel = UILabel()
+  private let estimatedTimeLabel = UILabel()
+  private let estimatedTimeTitleLabel = UILabel()
+  private let flightNumberLabel = UILabel()
+  private let scheduledTimeLabel = UILabel()
+  private let scheduledTimeTitleLabel = UILabel()
+  private let separatorView = UIView()
+  private let statusImageView = UIImageView()
+  private let statusLabel = UILabel()
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
@@ -29,75 +32,165 @@ class FlightCell: UITableViewCell {
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
-    addSubview(airlineIcon)
+    // add necessary subviews
     addSubview(estimatedTimeLabel)
-    addSubview(flightNumberLabel)
-    addSubview(flightStatusLabel)
+    addSubview(scheduledTimeLabel)
+    addSubview(statusImageView)
+    addSubview(statusLabel)
     
-    airlineIcon.contentMode = .ScaleAspectFit
-    airlineIcon.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(self).offset(standardMargin)
-      make.bottom.equalTo(self).offset(-standardMargin)
-      make.left.equalTo(self)
-      make.width.equalTo(self).dividedBy(4)
+    // airline icon imageview
+    addSubview(airlineImageView)
+    airlineImageView.contentMode = .ScaleAspectFit
+    airlineImageView.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(self).offset(UiConstants.FlightCell.standardMargin)
+      make.bottom.equalTo(self).offset(-UiConstants.FlightCell.standardMargin)
+      make.leading.equalTo(self).offset(UiConstants.FlightCell.standardMargin)
+      make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.airlineIconWidth)
     }
     
-    estimatedTimeLabel.font = Font.MyriadProBold.size(13)
-    estimatedTimeLabel.textAlignment = .Center
-    estimatedTimeLabel.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(self).offset(standardMargin)
-      make.bottom.equalTo(self).offset(-standardMargin)
-      make.left.equalTo(flightStatusLabel.snp_right)
-      make.width.equalTo(self).dividedBy(4)
+    // airline
+    addSubview(airlineLabel)
+    airlineLabel.sizeToFit()
+    airlineLabel.numberOfLines = 0
+    airlineLabel.font = self.contentView.bounds.size.width <= UiConstants.FlightCell.iPhone5Width
+      ? UiConstants.FlightCell.fontSmallish : UiConstants.FlightCell.fontNormal
+    airlineLabel.textColor = Color.Sfo.blue
+    airlineLabel.snp_makeConstraints { (make) -> Void in
+      make.bottom.equalTo(self.snp_centerY)
+      make.leading.equalTo(airlineImageView.snp_trailingMargin).offset(UiConstants.FlightCell.bigMargin)
+      make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.airlineAndFlightWidth)
     }
 
-    flightNumberLabel.font = Font.MyriadPro.size(15)
-    flightNumberLabel.textAlignment = .Center
+    // flight #
+    addSubview(flightNumberLabel)
+    flightNumberLabel.numberOfLines = 0
+    flightNumberLabel.font = self.contentView.bounds.size.width <= UiConstants.FlightCell.iPhone5Width
+      ? UiConstants.FlightCell.fontSmallish : UiConstants.FlightCell.fontNormal
     flightNumberLabel.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(self).offset(standardMargin)
-      make.bottom.equalTo(self).offset(-standardMargin)
-      make.left.equalTo(airlineIcon.snp_right)
-      make.width.equalTo(self).dividedBy(4)
+      make.top.equalTo(self.snp_centerY)
+      make.leading.equalTo(airlineImageView.snp_trailingMargin).offset(UiConstants.FlightCell.bigMargin)
+      make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.airlineAndFlightWidth)
     }
     
-    flightStatusLabel.font = Font.MyriadPro.size(15)
-    flightStatusLabel.textAlignment = .Center
-    flightStatusLabel.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(self).offset(standardMargin)
-      make.bottom.equalTo(self).offset(-standardMargin)
-      make.left.equalTo(flightNumberLabel.snp_right)
-      make.width.equalTo(self).dividedBy(4)
+    // scheduled time title
+    addSubview(scheduledTimeTitleLabel)
+    scheduledTimeTitleLabel.textAlignment = .Right
+    scheduledTimeTitleLabel.textColor = Color.Sfo.blue
+    scheduledTimeTitleLabel.font = UiConstants.FlightCell.fontNormal
+    scheduledTimeTitleLabel.snp_makeConstraints { (make) -> Void in
+      make.bottom.equalTo(self.snp_centerY)
+      make.leading.equalTo(airlineLabel.snp_trailingMargin).offset(UiConstants.FlightCell.bigMargin)
+      make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.timesTitleWidth)
+    }
+    
+    // estimated time label
+    addSubview(estimatedTimeTitleLabel)
+    estimatedTimeTitleLabel.textAlignment = .Right
+    estimatedTimeTitleLabel.font = UiConstants.FlightCell.fontNormal
+    estimatedTimeTitleLabel.textColor = Color.Sfo.blue
+    estimatedTimeTitleLabel.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(self.snp_centerY)
+      make.leading.equalTo(scheduledTimeTitleLabel)
+      make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.timesTitleWidth)
+    }
+    
+    // scheduled time
+    scheduledTimeLabel.font = UiConstants.FlightCell.fontNormal
+    scheduledTimeLabel.snp_makeConstraints { (make) -> Void in
+      make.bottom.equalTo(self.snp_centerY)
+      make.leading.equalTo(scheduledTimeTitleLabel.snp_trailingMargin).offset(UiConstants.FlightCell.bigMargin)
+      make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.timesWidth)
+    }
+
+    // estimated time
+    estimatedTimeLabel.font = UiConstants.FlightCell.fontNormal
+    estimatedTimeLabel.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(self.snp_centerY)
+      make.trailing.equalTo(statusLabel.snp_leading).offset(UiConstants.FlightCell.bigMargin)
+      make.leading.equalTo(estimatedTimeTitleLabel.snp_trailingMargin).offset(UiConstants.FlightCell.bigMargin)
+      make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.timesWidth)
+    }
+    
+    // status image
+    statusImageView.contentMode = .ScaleAspectFit
+    statusImageView.snp_makeConstraints { (make) -> Void in
+      make.bottom.equalTo(self.contentView.snp_centerY).offset(2)
+      make.centerX.equalTo(statusLabel)
+      make.width.equalTo(20)
+      make.height.equalTo(20)
+    }
+
+    // status label
+    statusLabel.font = UiConstants.FlightCell.fontSmall
+    statusLabel.sizeToFit()
+    statusLabel.textAlignment = .Center
+    statusLabel.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(statusImageView.snp_bottom).offset(UiConstants.FlightCell.standardMargin)
+      make.trailing.equalTo(self).offset(-UiConstants.FlightCell.standardMargin)
+      make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.statusWidth)
+    }
+    
+    // separator
+    separatorView.backgroundColor = Color.FlightStatus.separator
+    addSubview(separatorView)
+    separatorView.snp_makeConstraints { (make) -> Void in
+      make.height.equalTo(UiConstants.FlightCell.separatorHeight)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.bottom.equalTo(self)
     }
   }
   
-  func displayFlight(flight: Flight) {
+  func displayFlight(flight: Flight, darkBackground: Bool) {
+    
+    self.backgroundColor = darkBackground ? Color.FlightCell.darkBackground : Color.FlightCell.lightBackground
+    
+    
+    scheduledTimeTitleLabel.text = self.contentView.bounds.size.width <= UiConstants.FlightCell.iPhone5Width
+      ? NSLocalizedString("Sched.:", comment: "") : NSLocalizedString("Scheduled:", comment: "")
+    
+    estimatedTimeTitleLabel.text = self.contentView.bounds.size.width <= UiConstants.FlightCell.iPhone5Width
+      ? NSLocalizedString("Est.:", comment: "") : NSLocalizedString("Estimated:", comment: "")
+    
     
     let scale = UIScreen.mainScreen().scale
-    let width = airlineIcon.bounds.size.width * scale
-    let height = airlineIcon.bounds.size.height * scale
-    self.airlineIcon.image = nil
-
+    let width = airlineImageView.bounds.size.width * scale
+    let height = airlineImageView.bounds.size.height * scale
+    self.airlineImageView.image = nil
     Flight.airlineImageForFlight(flight.flightNumber, width: Int(width), height: Int(height)) { image in
-      
-      self.airlineIcon.image = image
+      self.airlineImageView.image = image
     }
     
-    // TODO: get icon for airline
+    airlineLabel.text = flight.airline.uppercaseString
+    
     flightNumberLabel.text = "#\(flight.flightNumber)"
-    if dateFormatter.dateFormat == "" {
-      dateFormatter.dateFormat = "hh:mm a"
+    
+    if FlightCell.dateFormatter.dateFormat == "" {
+      FlightCell.dateFormatter.dateFormat = NSLocalizedString("h:mma", comment: "")
+      FlightCell.dateFormatter.AMSymbol = NSLocalizedString("am", comment: "")
+      FlightCell.dateFormatter.PMSymbol = NSLocalizedString("pm", comment: "")
     }
-    estimatedTimeLabel.text = dateFormatter.stringFromDate(flight.estimatedTime)
-
-    if let flightStatus = flight.flightStatus {
-      estimatedTimeLabel.textColor = flightStatus.getTimeOrFlightNumberColor()
-      flightNumberLabel.textColor = flightStatus.getTimeOrFlightNumberColor()
-      flightStatusLabel.textColor = flightStatus.getStatusColor()
-      flightStatusLabel.text = NSLocalizedString(flightStatus.rawValue, comment: "")
-    } else {
-      estimatedTimeLabel.textColor = Color.FlightStatus.standard
-      flightNumberLabel.textColor = Color.FlightStatus.standard
-      flightStatusLabel.text = ""
+    scheduledTimeLabel.text = FlightCell.dateFormatter.stringFromDate(flight.scheduledTime)
+    estimatedTimeLabel.text = FlightCell.dateFormatter.stringFromDate(flight.estimatedTime)
+    
+    let mungedFlightStatus = Flight.mungeStatus(flight.scheduledTime, estimated: flight.estimatedTime)
+    switch mungedFlightStatus {
+    case .Delayed:
+      statusImageView.image = Image.redCircle.image()
+      statusLabel.text = NSLocalizedString("Delayed", comment: "").uppercaseString
+      statusLabel.textColor = Color.FlightStatus.delayed
+    case .OnTime:
+      statusImageView.image = Image.blueCircle.image()
+      statusLabel.text = NSLocalizedString("On Time", comment: "").uppercaseString
+      statusLabel.textColor = Color.FlightStatus.onTime
+    case .Landing:
+      statusImageView.image = Image.greenCircle.image()
+      statusLabel.text = NSLocalizedString("Landing", comment: "").uppercaseString
+      statusLabel.textColor = Color.FlightStatus.landing
+    case .Landed:
+      statusImageView.image = Image.greenCircle.image()
+      statusLabel.text = NSLocalizedString("Landed", comment: "").uppercaseString
+      statusLabel.textColor = Color.FlightStatus.landed
     }
   }
 }

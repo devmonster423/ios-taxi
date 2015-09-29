@@ -36,7 +36,7 @@ class TerminalView: UIView {
     }
 
     let greenDot = UIImageView()
-    greenDot.image = UIImage(named: "green_circle")
+    greenDot.image = Image.greenCircle.image()
     addSubview(greenDot)
     greenDot.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
@@ -46,7 +46,7 @@ class TerminalView: UIView {
     }
 
     let redDot = UIImageView()
-    redDot.image = UIImage(named: "red_circle")
+    redDot.image = Image.redCircle.image()
     addSubview(redDot)
     redDot.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
