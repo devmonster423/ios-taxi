@@ -43,15 +43,15 @@ struct UiConstants {
   struct FlightCell {
     static let fontNormal = Font.MyriadProSemibold.size(15)
     static let fontSmallish = Font.MyriadProSemibold.size(11)
-    static let fontSmall = Font.MyriadProSemibold.size(8)
+    static let fontSmall = Font.MyriadProSemibold.size(10)
     static let standardMargin = 5.0
     static let bigMargin = 10.0
     static let rowHeight: CGFloat = 80.0
     static let airlineIconWidth: CGFloat = 0.15
     static let airlineAndFlightWidth: CGFloat = 0.30
-    static let timesTitleWidth: CGFloat = 0.17
+    static let timesTitleWidth: CGFloat = 0.22
     static let timesWidth: CGFloat = 0.18
-    static let statusWidth: CGFloat = 0.20
+    static let statusWidth: CGFloat = 0.15
     static let statusPadding: CGFloat = 2.0
     static let iPhone5Width: CGFloat = 320.0
     static let separatorHeight: CGFloat = 2.0

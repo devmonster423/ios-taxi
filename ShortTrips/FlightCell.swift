@@ -16,11 +16,14 @@ class FlightCell: UITableViewCell {
   
   private let airlineImageView = UIImageView()
   private let airlineLabel = UILabel()
+  private let estimatedTimeLabel = UILabel()
+  private let estimatedTimeTitleLabel = UILabel()
   private let flightNumberLabel = UILabel()
   private let scheduledTimeLabel = UILabel()
-  private let estimatedTimeLabel = UILabel()
-  private let statusButton = UIButton()
+  private let scheduledTimeTitleLabel = UILabel()
   private let separatorView = UIView()
+  private let statusImageView = UIImageView()
+  private let statusLabel = UILabel()
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
@@ -28,6 +31,13 @@ class FlightCell: UITableViewCell {
   
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
+    
+    // add necessary subviews
+    addSubview(estimatedTimeLabel)
+    addSubview(scheduledTimeLabel)
+    addSubview(statusImageView)
+    addSubview(statusLabel)
+    
     // airline icon imageview
     addSubview(airlineImageView)
     airlineImageView.contentMode = .ScaleAspectFit
@@ -63,14 +73,10 @@ class FlightCell: UITableViewCell {
     }
     
     // scheduled time title
-    let scheduledTimeTitleLabel = UILabel()
     addSubview(scheduledTimeTitleLabel)
-    scheduledTimeTitleLabel.numberOfLines = 0
     scheduledTimeTitleLabel.textAlignment = .Right
     scheduledTimeTitleLabel.textColor = Color.Sfo.blue
     scheduledTimeTitleLabel.font = UiConstants.FlightCell.fontNormal
-    scheduledTimeTitleLabel.text = self.contentView.bounds.size.width <= UiConstants.FlightCell.iPhone5Width
-      ? NSLocalizedString("Sched.:", comment: "") : NSLocalizedString("Scheduled:", comment: "")
     scheduledTimeTitleLabel.snp_makeConstraints { (make) -> Void in
       make.bottom.equalTo(self.snp_centerY)
       make.leading.equalTo(airlineLabel.snp_trailingMargin).offset(UiConstants.FlightCell.bigMargin)
@@ -78,14 +84,10 @@ class FlightCell: UITableViewCell {
     }
     
     // estimated time label
-    let estimatedTimeTitleLabel = UILabel()
     addSubview(estimatedTimeTitleLabel)
-    estimatedTimeTitleLabel.numberOfLines = 0
     estimatedTimeTitleLabel.textAlignment = .Right
     estimatedTimeTitleLabel.font = UiConstants.FlightCell.fontNormal
     estimatedTimeTitleLabel.textColor = Color.Sfo.blue
-    estimatedTimeTitleLabel.text = self.contentView.bounds.size.width <= UiConstants.FlightCell.iPhone5Width
-      ? NSLocalizedString("Est.:", comment: "") : NSLocalizedString("Estimated:", comment: "")
     estimatedTimeTitleLabel.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(self.snp_centerY)
       make.leading.equalTo(scheduledTimeTitleLabel)
@@ -93,7 +95,6 @@ class FlightCell: UITableViewCell {
     }
     
     // scheduled time
-    addSubview(scheduledTimeLabel)
     scheduledTimeLabel.font = UiConstants.FlightCell.fontNormal
     scheduledTimeLabel.snp_makeConstraints { (make) -> Void in
       make.bottom.equalTo(self.snp_centerY)
@@ -102,20 +103,29 @@ class FlightCell: UITableViewCell {
     }
 
     // estimated time
-    addSubview(estimatedTimeLabel)
     estimatedTimeLabel.font = UiConstants.FlightCell.fontNormal
     estimatedTimeLabel.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(self.snp_centerY)
+      make.trailing.equalTo(statusLabel.snp_leading).offset(UiConstants.FlightCell.bigMargin)
       make.leading.equalTo(estimatedTimeTitleLabel.snp_trailingMargin).offset(UiConstants.FlightCell.bigMargin)
       make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.timesWidth)
     }
+    
+    // status image
+    statusImageView.contentMode = .ScaleAspectFit
+    statusImageView.snp_makeConstraints { (make) -> Void in
+      make.bottom.equalTo(self.contentView.snp_centerY).offset(2)
+      make.centerX.equalTo(statusLabel)
+      make.width.equalTo(20)
+      make.height.equalTo(20)
+    }
 
-    // status
-    addSubview(statusButton)
-    statusButton.titleLabel?.font = UiConstants.FlightCell.fontSmall
-    statusButton.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(self).offset(UiConstants.FlightCell.standardMargin)
-      make.bottom.equalTo(self).offset(-UiConstants.FlightCell.standardMargin)
+    // status label
+    statusLabel.font = UiConstants.FlightCell.fontSmall
+    statusLabel.sizeToFit()
+    statusLabel.textAlignment = .Center
+    statusLabel.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(statusImageView.snp_bottom).offset(UiConstants.FlightCell.standardMargin)
       make.trailing.equalTo(self).offset(-UiConstants.FlightCell.standardMargin)
       make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.statusWidth)
     }
@@ -134,6 +144,14 @@ class FlightCell: UITableViewCell {
   func displayFlight(flight: Flight, darkBackground: Bool) {
     
     self.backgroundColor = darkBackground ? Color.FlightCell.darkBackground : Color.FlightCell.lightBackground
+    
+    
+    scheduledTimeTitleLabel.text = self.contentView.bounds.size.width <= UiConstants.FlightCell.iPhone5Width
+      ? NSLocalizedString("Sched.:", comment: "") : NSLocalizedString("Scheduled:", comment: "")
+    
+    estimatedTimeTitleLabel.text = self.contentView.bounds.size.width <= UiConstants.FlightCell.iPhone5Width
+      ? NSLocalizedString("Est.:", comment: "") : NSLocalizedString("Estimated:", comment: "")
+    
     
     let scale = UIScreen.mainScreen().scale
     let width = airlineImageView.bounds.size.width * scale
@@ -155,26 +173,24 @@ class FlightCell: UITableViewCell {
     scheduledTimeLabel.text = FlightCell.dateFormatter.stringFromDate(flight.scheduledTime)
     estimatedTimeLabel.text = FlightCell.dateFormatter.stringFromDate(flight.estimatedTime)
     
-    statusButton.hidden = false
     let mungedFlightStatus = Flight.mungeStatus(flight.scheduledTime, estimated: flight.estimatedTime)
     switch mungedFlightStatus {
     case .Delayed:
-      statusButton.setImage(Image.redCircle.image(), forState: UIControlState.Normal)
-      statusButton.setTitle(NSLocalizedString("Delayed", comment: "").uppercaseString, forState: UIControlState.Normal)
-      statusButton.setTitleColor(Color.FlightStatus.delayed, forState: UIControlState.Normal)
+      statusImageView.image = Image.redCircle.image()
+      statusLabel.text = NSLocalizedString("Delayed", comment: "").uppercaseString
+      statusLabel.textColor = Color.FlightStatus.delayed
     case .OnTime:
-      statusButton.setImage(Image.blueCircle.image(), forState: UIControlState.Normal)
-      statusButton.setTitle(NSLocalizedString("On Time", comment: "").uppercaseString, forState: UIControlState.Normal)
-      statusButton.setTitleColor(Color.FlightStatus.onTime, forState: UIControlState.Normal)
+      statusImageView.image = Image.blueCircle.image()
+      statusLabel.text = NSLocalizedString("On Time", comment: "").uppercaseString
+      statusLabel.textColor = Color.FlightStatus.onTime
     case .Landing:
-      statusButton.setImage(Image.greenCircle.image(), forState: UIControlState.Normal)
-      statusButton.setTitle(NSLocalizedString("Landing", comment: "").uppercaseString, forState: UIControlState.Normal)
-      statusButton.setTitleColor(Color.FlightStatus.landing, forState: UIControlState.Normal)
+      statusImageView.image = Image.greenCircle.image()
+      statusLabel.text = NSLocalizedString("Landing", comment: "").uppercaseString
+      statusLabel.textColor = Color.FlightStatus.landing
     case .Landed:
-      statusButton.setImage(Image.greenCircle.image(), forState: UIControlState.Normal)
-      statusButton.setTitle(NSLocalizedString("Landed", comment: "").uppercaseString, forState: UIControlState.Normal)
-      statusButton.setTitleColor(Color.FlightStatus.landed, forState: UIControlState.Normal)
+      statusImageView.image = Image.greenCircle.image()
+      statusLabel.text = NSLocalizedString("Landed", comment: "").uppercaseString
+      statusLabel.textColor = Color.FlightStatus.landed
     }
-    statusButton.centerLabelVerticallyWithPadding(UiConstants.FlightCell.statusPadding)
   }
 }
