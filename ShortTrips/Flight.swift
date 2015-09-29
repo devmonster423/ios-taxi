@@ -49,17 +49,6 @@ struct Flight: Mappable {
   }
 
   static func mungeStatus(scheduled: NSDate, estimated: NSDate) -> FlightStatus {
-    return Flight.mungeStatus(FlightStatus(rawValue: "On Time")!, scheduled: scheduled, estimated: estimated)
-  }
-  
-  static func mungeStatus(var status: FlightStatus, scheduled: NSDate, estimated: NSDate) -> FlightStatus {
-    let scheduledWithCushion = scheduled.dateByAddingTimeInterval(timeCushion)
-    if scheduledWithCushion.compare(estimated) == NSComparisonResult.OrderedAscending {
-      return FlightStatus.Delayed
-    }
-    if !(status == .Landed || status == .Landing || status == .OnTime) {
-      status = .OnTime
-    }
-    return status
+    return scheduled.dateByAddingTimeInterval(timeCushion).compare(estimated) == .OrderedAscending ? .Delayed : .OnTime
   }
 }

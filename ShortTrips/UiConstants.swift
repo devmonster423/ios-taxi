@@ -41,7 +41,7 @@ struct UiConstants {
   }
   
   struct FlightCell {
-    static let fontNormal = Font.MyriadProSemibold.size(13)
+    static let fontNormal = Font.MyriadProSemibold.size(15)
     static let fontSmallish = Font.MyriadProSemibold.size(11)
     static let fontSmall = Font.MyriadProSemibold.size(8)
     static let standardMargin = 5.0
