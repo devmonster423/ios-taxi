@@ -16,13 +16,7 @@ typealias AntennaClosure = (Antenna?, ErrorType?) -> Void
 typealias AllCidsClosure = ([Cid]?, ErrorType?) -> Void
 typealias CidForSmartCardClosure = (Cid?, ErrorType?) -> Void
 
-protocol DeviceClient {
-  static func postMobileStateChanges(mobileStateChange: MobileStateChange)
-  static func requestAutomaticVehicleIds(response: AviClosure)
-  static func requestAntenna(transponderId: Int, response: AntennaClosure)
-  static func requestAllCids(response: AllCidsClosure)
-  static func requestCidForSmartCard(smartCardId: Int, response: CidForSmartCardClosure)
-}
+protocol DeviceClient { }
 
 extension ApiClient {
   static func postMobileStateChanges(mobileStateChange: MobileStateChange) {

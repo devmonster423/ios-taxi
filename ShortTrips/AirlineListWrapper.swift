@@ -11,10 +11,6 @@ import ObjectMapper
 struct AirlineListWrapper: Mappable {
   var airlines: [Airline]!
   
-  init(airlines: [Airline]) {
-    self.airlines = airlines
-  }
-  
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {

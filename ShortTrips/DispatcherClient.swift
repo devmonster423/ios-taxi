@@ -13,9 +13,7 @@ import AlamofireObjectMapper
 
 typealias LotStatusClosure = (LotStatus?, ErrorType?) -> Void
 
-protocol DispatcherClient {
-  static func requestLotStatus(response: LotStatusClosure)
-}
+protocol DispatcherClient { }
 
 extension ApiClient {
   static func requestLotStatus(response: LotStatusClosure) {

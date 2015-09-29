@@ -14,10 +14,7 @@ import AlamofireObjectMapper
 typealias FlightsForTerminalClosure = ([Flight]?, ErrorType?) -> Void
 typealias TerminalSummaryClosure = ([TerminalSummary]?, ErrorType?) -> Void
 
-protocol FlightClient {
-  static func requestFlightsForTerminal(terminal: Int, hour: Int, response: FlightsForTerminalClosure)
-  static func requestTerminalSummary(hour: Int, response: TerminalSummaryClosure)
-}
+protocol FlightClient { }
 
 extension ApiClient {
   static func requestFlightsForTerminal(terminal: Int, hour: Int, response: FlightsForTerminalClosure) {
