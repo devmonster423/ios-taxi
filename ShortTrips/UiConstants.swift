@@ -46,7 +46,7 @@ struct UiConstants {
     static let fontSmall = Font.MyriadProSemibold.size(8)
     static let standardMargin = 5.0
     static let bigMargin = 10.0
-    static let rowHeight: CGFloat = 50.0
+    static let rowHeight: CGFloat = 80.0
     static let airlineIconWidth: CGFloat = 0.15
     static let airlineAndFlightWidth: CGFloat = 0.30
     static let timesTitleWidth: CGFloat = 0.17
