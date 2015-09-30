@@ -17,7 +17,7 @@ struct Url {
     
     static let codes = airline + "codes"
     static func logoPng(iataCode: String) -> String {
-      return airline + "logo/\(iataCode).png"
+      return airline + "logo/\(iataCode)"
     }
   }
   
