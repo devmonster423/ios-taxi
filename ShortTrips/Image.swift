@@ -14,6 +14,8 @@ enum Image: String {
   case blueCircle = "blue_circle"
   case redCircle = "red_circle"
   
+  case navbarBlue = "navbar_blue"
+  
   case unknownAirline = "unknownAirline"
   
   func image() -> UIImage {

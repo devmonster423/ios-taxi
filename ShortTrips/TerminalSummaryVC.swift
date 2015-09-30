@@ -35,7 +35,8 @@ class TerminalSummaryVC: UIViewController {
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .Plain, target: self, action: "goBack")
     navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-    navigationController?.navigationBar.setBackgroundImage(UIImage.imageWithColor(Color.Sfo.blueWithAlpha), forBarMetrics: .Default)
+    navigationController?.navigationBar.translucent = false
+    navigationController?.navigationBar.setBackgroundImage(Image.navbarBlue.image(), forBarMetrics: .Default)
   }
   
   override func viewDidAppear(animated: Bool) {
