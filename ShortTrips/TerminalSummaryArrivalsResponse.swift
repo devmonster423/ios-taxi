@@ -13,6 +13,10 @@ struct TerminalSummaryArrivalsResponse: Mappable {
   
   init?(_ map: Map){}
   
+  init(terminalSummaryArrivalsListResponse: TerminalSummaryArrivalsListResponse) {
+    self.terminalSummaryArrivalsListResponse = terminalSummaryArrivalsListResponse
+  }
+  
   mutating func mapping(map: Map) {
     terminalSummaryArrivalsListResponse <- map["arrivals"]
   }
