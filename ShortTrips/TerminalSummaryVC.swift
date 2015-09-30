@@ -72,27 +72,29 @@ class TerminalSummaryVC: UIViewController {
   }
   
   private func updateTerminalTable() {
-    ApiClient.requestTerminalSummary(terminalSummaryView().getCurrentHour(), response: { (terminals, error) -> Void in
-      if let terminals = terminals {
-        self.terminalSummaryView().reloadTerminalViews(terminals)
-      } else {
-        let terminals = [
-          TerminalSummary(terminalId: TerminalId.International, count: 2, delayedCount: 3),
-          TerminalSummary(terminalId: TerminalId.One, count: 3, delayedCount: 2),
-          TerminalSummary(terminalId: TerminalId.Two, count: 5, delayedCount: 4),
-          TerminalSummary(terminalId: TerminalId.Three, count: 7, delayedCount: 6)
-          ]
+    ApiClient.requestTerminalSummary(terminalSummaryView().getCurrentHour(), response: { (terminals, error, hour) -> Void in
+      if let hour = hour where hour == self.terminalSummaryView().getCurrentHour(), let terminals = terminals {
         self.terminalSummaryView().reloadTerminalViews(terminals)
       }
     })
   }
   
+  func changeHour(delta: Int) {
+    let oldCurrentHour = terminalSummaryView().getCurrentHour()
+    terminalSummaryView().incrementHour(delta)
+    let newCurrentHour = terminalSummaryView().getCurrentHour()
+    if oldCurrentHour != newCurrentHour {
+      updateTerminalTable()
+      UpdateTimer.start(terminalSummaryView().timerView, callback: updateTerminalTable)
+    }
+  }
+  
   func decreaseHour() {
-    terminalSummaryView().incrementHour(-1)
+    changeHour(-1)
   }
   
   func increaseHour() {
-    terminalSummaryView().incrementHour(1)
+    changeHour(1)
   }
   
   func terminalSelected(sender: UITapGestureRecognizer) {
