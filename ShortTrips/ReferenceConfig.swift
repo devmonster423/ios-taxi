@@ -16,6 +16,12 @@ struct ReferenceConfig: Mappable {
     
   init?(_ map: Map){}
   
+  init(pingInterval: Int, tripDuration: Int, gisBuffer: Int) {
+    self.pingInterval = pingInterval
+    self.tripDuration = tripDuration
+    self.gisBuffer = gisBuffer
+  }
+  
   mutating func mapping(map: Map) {
     pingInterval <- map["ping_interval"]
     tripDuration <- map["trip_duration"]

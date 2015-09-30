@@ -114,10 +114,10 @@ class FlightCell: UITableViewCell {
     // status image
     statusImageView.contentMode = .ScaleAspectFit
     statusImageView.snp_makeConstraints { (make) -> Void in
-      make.bottom.equalTo(self.contentView.snp_centerY).offset(2)
+      make.bottom.equalTo(self.contentView.snp_centerY).offset(UiConstants.FlightCell.statusImageVerticalOffset)
       make.centerX.equalTo(statusLabel)
-      make.width.equalTo(20)
-      make.height.equalTo(20)
+      make.width.equalTo(UiConstants.FlightCell.statusImageDiameter)
+      make.height.equalTo(UiConstants.FlightCell.statusImageDiameter)
     }
 
     // status label
