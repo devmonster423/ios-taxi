@@ -106,6 +106,7 @@
 		E1E6EF9E1BB205520039C5F3 /* DriverSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		E1E6EFA01BB205600039C5F3 /* DriverResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6EF9F1BB205600039C5F3 /* DriverResponseSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		E1FA66171B85558300FD18C6 /* FlightHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA66161B85558300FD18C6 /* FlightHeaderCell.swift */; };
+		E1FDB2681BBC47E500F8F452 /* CredentialSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FDB2671BBC47E500F8F452 /* CredentialSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1FD11BAF1DD500B8F921 /* Font.swift */; settings = {ASSET_TAGS = (); }; };
 		FA32EC081B8836B7001428B5 /* green_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC051B8836B7001428B5 /* green_bg.jpg */; };
 		FA32EC091B8836B7001428B5 /* red_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC061B8836B7001428B5 /* red_bg.jpg */; };
@@ -230,6 +231,7 @@
 		E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverSpec.swift; sourceTree = "<group>"; };
 		E1E6EF9F1BB205600039C5F3 /* DriverResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverResponseSpec.swift; sourceTree = "<group>"; };
 		E1FA66161B85558300FD18C6 /* FlightHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightHeaderCell.swift; sourceTree = "<group>"; };
+		E1FDB2671BBC47E500F8F452 /* CredentialSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialSpec.swift; sourceTree = "<group>"; };
 		FA0E1FD11BAF1DD500B8F921 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		FA32EC051B8836B7001428B5 /* green_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green_bg.jpg; sourceTree = "<group>"; };
 		FA32EC061B8836B7001428B5 /* red_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red_bg.jpg; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 				E18FFE2C1BB1A0A0003D192A /* Flight */,
 				E112C3011BB2FCE500B1DF48 /* Geofence */,
 				E112C30A1BB3130E00B1DF48 /* LotStatus */,
+				E1FDB2661BBC47C800F8F452 /* Shared */,
 				E1ADA7061BBC328700766DB1 /* ReferenceConfig */,
 			);
 			name = Models;
@@ -649,6 +652,14 @@
 				E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */,
 			);
 			name = Driver;
+			sourceTree = "<group>";
+		};
+		E1FDB2661BBC47C800F8F452 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E1FDB2671BBC47E500F8F452 /* CredentialSpec.swift */,
+			);
+			name = Shared;
 			sourceTree = "<group>";
 		};
 		FA0E1FD01BAF1D9500B8F921 /* Utility */ = {
@@ -987,6 +998,7 @@
 				E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift in Sources */,
 				E1BDE28D1BB1EB21006C0A42 /* CidSpec.swift in Sources */,
 				E1BDE2881BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift in Sources */,
+				E1FDB2681BBC47E500F8F452 /* CredentialSpec.swift in Sources */,
 				E1BDE28F1BB1EDDD006C0A42 /* CidResponseSpec.swift in Sources */,
 				E1BDE2911BB1EEE6006C0A42 /* CidListResponseSpec.swift in Sources */,
 				E1ADA7051BBC327600766DB1 /* ReferenceConfigResponseSpec.swift in Sources */,
