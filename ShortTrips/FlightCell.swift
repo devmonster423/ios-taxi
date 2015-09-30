@@ -106,7 +106,6 @@ class FlightCell: UITableViewCell {
     estimatedTimeLabel.font = UiConstants.FlightCell.fontNormal
     estimatedTimeLabel.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(self.snp_centerY)
-      //make.trailing.equalTo(statusLabel.snp_leading).offset(UiConstants.FlightCell.bigMargin)
       make.leading.equalTo(estimatedTimeTitleLabel.snp_trailingMargin).offset(UiConstants.FlightCell.bigMargin)
       make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.timesWidth)
     }
