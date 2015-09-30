@@ -10,8 +10,8 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "sfo_logo.png"
+      "filename" : "sfo_logo_alpha.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

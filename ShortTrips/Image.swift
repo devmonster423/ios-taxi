@@ -10,6 +10,8 @@ import UIKit
 
 enum Image: String {
   
+  case sfoLogoAlpha = "sfo_logo_alpha"
+  
   case greenCircle = "green_circle"
   case blueCircle = "blue_circle"
   case redCircle = "red_circle"
