@@ -69,6 +69,10 @@
 		E1666F991BA8D25600C95F96 /* DriverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1666F981BA8D25600C95F96 /* DriverResponse.swift */; };
 		E16E5E161BB1B690003A315A /* FlightStatusSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E5E151BB1B690003A315A /* FlightStatusSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		E17352851B8CEC9B0031950B /* UiHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17352841B8CEC9B0031950B /* UiHelpers.swift */; };
+		E17C22F11BBC4B8900E40E6C /* TerminalSummarySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17C22F01BBC4B8900E40E6C /* TerminalSummarySpec.swift */; settings = {ASSET_TAGS = (); }; };
+		E17C22F31BBC505A00E40E6C /* TerminalSummaryArrivalsListResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17C22F21BBC505A00E40E6C /* TerminalSummaryArrivalsListResponseSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		E17C22F51BBC61F000E40E6C /* TerminalSummaryResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17C22F41BBC61F000E40E6C /* TerminalSummaryResponseSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		E17C22F71BBC621300E40E6C /* TerminalSummaryArrivalsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17C22F61BBC621300E40E6C /* TerminalSummaryArrivalsResponse.swift */; settings = {ASSET_TAGS = (); }; };
 		E18736891BA8E7D800B6C7D8 /* AntennaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18736881BA8E7D800B6C7D8 /* AntennaResponse.swift */; };
 		E187368C1BA8EA0900B6C7D8 /* AllCidsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187368B1BA8EA0900B6C7D8 /* AllCidsResponse.swift */; };
 		E187368E1BA8EADE00B6C7D8 /* CidListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187368D1BA8EADE00B6C7D8 /* CidListResponse.swift */; };
@@ -194,6 +198,10 @@
 		E1666F981BA8D25600C95F96 /* DriverResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverResponse.swift; sourceTree = "<group>"; };
 		E16E5E151BB1B690003A315A /* FlightStatusSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatusSpec.swift; sourceTree = "<group>"; };
 		E17352841B8CEC9B0031950B /* UiHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiHelpers.swift; sourceTree = "<group>"; };
+		E17C22F01BBC4B8900E40E6C /* TerminalSummarySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummarySpec.swift; sourceTree = "<group>"; };
+		E17C22F21BBC505A00E40E6C /* TerminalSummaryArrivalsListResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryArrivalsListResponseSpec.swift; sourceTree = "<group>"; };
+		E17C22F41BBC61F000E40E6C /* TerminalSummaryResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryResponseSpec.swift; sourceTree = "<group>"; };
+		E17C22F61BBC621300E40E6C /* TerminalSummaryArrivalsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryArrivalsResponse.swift; sourceTree = "<group>"; };
 		E18736881BA8E7D800B6C7D8 /* AntennaResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntennaResponse.swift; sourceTree = "<group>"; };
 		E187368B1BA8EA0900B6C7D8 /* AllCidsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCidsResponse.swift; sourceTree = "<group>"; };
 		E187368D1BA8EADE00B6C7D8 /* CidListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidListResponse.swift; sourceTree = "<group>"; };
@@ -471,6 +479,17 @@
 			name = Dashboard;
 			sourceTree = "<group>";
 		};
+		E17C22EF1BBC4B1100E40E6C /* TerminalSummary */ = {
+			isa = PBXGroup;
+			children = (
+				E17C22F01BBC4B8900E40E6C /* TerminalSummarySpec.swift */,
+				E17C22F21BBC505A00E40E6C /* TerminalSummaryArrivalsListResponseSpec.swift */,
+				E17C22F61BBC621300E40E6C /* TerminalSummaryArrivalsResponse.swift */,
+				E17C22F41BBC61F000E40E6C /* TerminalSummaryResponseSpec.swift */,
+			);
+			name = TerminalSummary;
+			sourceTree = "<group>";
+		};
 		E187368A1BA8E9D000B6C7D8 /* Cid */ = {
 			isa = PBXGroup;
 			children = (
@@ -503,6 +522,7 @@
 				E18FFE2C1BB1A0A0003D192A /* Flight */,
 				E112C3011BB2FCE500B1DF48 /* Geofence */,
 				E112C30A1BB3130E00B1DF48 /* LotStatus */,
+				E17C22EF1BBC4B1100E40E6C /* TerminalSummary */,
 				E1FDB2661BBC47C800F8F452 /* Shared */,
 				E1ADA7061BBC328700766DB1 /* ReferenceConfig */,
 			);
@@ -988,8 +1008,11 @@
 			files = (
 				E1ADA7031BBC325B00766DB1 /* ReferenceConfigSpec.swift in Sources */,
 				C28224661BB09BCB007F284F /* TerminalSummaryVCSpec.swift in Sources */,
+				E17C22F11BBC4B8900E40E6C /* TerminalSummarySpec.swift in Sources */,
 				E1598CE41BB1ACB100E933AD /* FlightSpec.swift in Sources */,
 				C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */,
+				E17C22F71BBC621300E40E6C /* TerminalSummaryArrivalsResponse.swift in Sources */,
+				E17C22F51BBC61F000E40E6C /* TerminalSummaryResponseSpec.swift in Sources */,
 				E1598CE61BB1AE3B00E933AD /* FlightDetailResponseSpec.swift in Sources */,
 				E1E6EF9E1BB205520039C5F3 /* DriverSpec.swift in Sources */,
 				E112C30E1BB3195500B1DF48 /* LotStatusSpec.swift in Sources */,
@@ -1001,6 +1024,7 @@
 				E1FDB2681BBC47E500F8F452 /* CredentialSpec.swift in Sources */,
 				E1BDE28F1BB1EDDD006C0A42 /* CidResponseSpec.swift in Sources */,
 				E1BDE2911BB1EEE6006C0A42 /* CidListResponseSpec.swift in Sources */,
+				E17C22F31BBC505A00E40E6C /* TerminalSummaryArrivalsListResponseSpec.swift in Sources */,
 				E1ADA7051BBC327600766DB1 /* ReferenceConfigResponseSpec.swift in Sources */,
 				E112C3051BB2FF0100B1DF48 /* GeofenceResponseSpec.swift in Sources */,
 				E112C3091BB3016C00B1DF48 /* AllGeofencesResponseSpec.swift in Sources */,
