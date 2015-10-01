@@ -108,6 +108,16 @@ class TerminalView: UIView {
       make.width.equalTo(8)
       make.height.equalTo(12)
     }
+    
+    let separatorView = UIView()
+    separatorView.backgroundColor = Color.TerminalSummary.separator
+    addSubview(separatorView)
+    separatorView.snp_makeConstraints { (make) -> Void in
+      make.height.equalTo(2)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.bottom.equalTo(self)
+    }
   }
   
   func configureAsTitle() {
@@ -119,7 +129,7 @@ class TerminalView: UIView {
     onTimeLabel.hidden = true
     onTimeTitleLabel.hidden = false
     titleLabel.font = Font.MyriadProBold.size(14)
-    titleLabel.text = NSLocalizedString("Terminals", comment: "")
+    titleLabel.text = NSLocalizedString("Terminals", comment: "").uppercaseString
   }
   
   func configureTotals(totals: (onTime: Int, delayed: Int)) {
@@ -131,7 +141,7 @@ class TerminalView: UIView {
     onTimeLabel.text = "\(totals.onTime)"
     onTimeTitleLabel.hidden = true
     titleLabel.font = Font.MyriadProBold.size(14)
-    titleLabel.text = NSLocalizedString("Totals", comment: "")
+    titleLabel.text = NSLocalizedString("Totals", comment: "").uppercaseString
   }
 
   func configureForTerminalSummary(summary: TerminalSummary) {
@@ -149,13 +159,13 @@ class TerminalView: UIView {
     switch summary.terminalId! {
 
     case .One:
-      titleLabel.text = NSLocalizedString("Terminal", comment: "") + " 1"
+      titleLabel.text = NSLocalizedString("Terminal", comment: "").uppercaseString + " 1"
     case .Two:
-      titleLabel.text = NSLocalizedString("Terminal", comment: "") + " 2"
+      titleLabel.text = NSLocalizedString("Terminal", comment: "").uppercaseString + " 2"
     case .Three:
-      titleLabel.text = NSLocalizedString("Terminal", comment: "") + " 3"
+      titleLabel.text = NSLocalizedString("Terminal", comment: "").uppercaseString + " 3"
     case .International:
-      titleLabel.text = NSLocalizedString("International", comment: "")
+      titleLabel.text = NSLocalizedString("International", comment: "").uppercaseString
     }
   }
   

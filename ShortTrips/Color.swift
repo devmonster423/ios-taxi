@@ -31,6 +31,7 @@ struct Color {
     static let delayedContent = UIColor(red: 208/255.0, green: 2/255.0, blue: 27/255.0, alpha: 1.0)
     static let delayedTitle = FlightStatus.delayed
     static let darkBackground = UIColor(red: 216/255.0, green: 216/255.0, blue: 216/255.0, alpha: 0.15)
+    static let separator = UIColor(red: 29/255.0, green: 29/255.0, blue: 38/255.0, alpha: 0.1)
   }
   
   struct FlightStatus {
