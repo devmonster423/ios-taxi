@@ -11,11 +11,16 @@ import SnapKit
 
 class TerminalView: UIView {
 
-  var activeTerminalId: TerminalId?
+  private var activeTerminalId: TerminalId?
   
+  private let delayedImageView = UIImageView()
   private let delayedLabel = UILabel()
+  private let delayedTitleLabel = UILabel()
+  private let indicatorImageView = UIImageView()
+  private let onTimeImageView = UIImageView()
   private let onTimeLabel = UILabel()
-  private let terminalImage = UIImageView()
+  private let onTimeTitleLabel = UILabel()
+  private let titleLabel = UILabel()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -24,100 +29,136 @@ class TerminalView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
 
+    addSubview(delayedImageView)
     addSubview(delayedLabel)
-    addSubview(onTimeLabel)
-    addSubview(terminalImage)
-    
-    terminalImage.snp_makeConstraints { (make) -> Void in
-      make.leading.equalTo(self)
-      make.top.equalTo(self)
-      make.trailing.equalTo(self)
-      make.height.equalTo(40)
-    }
-
-    let greenDot = UIImageView()
-    greenDot.image = Image.greenCircle.image()
-    addSubview(greenDot)
-    greenDot.snp_makeConstraints { (make) -> Void in
-      make.leading.equalTo(self)
-      make.top.equalTo(terminalImage.snp_bottom).offset(20)
-      make.height.equalTo(10)
-      make.width.equalTo(10)
-    }
-
-    let redDot = UIImageView()
-    redDot.image = Image.redCircle.image()
-    addSubview(redDot)
-    redDot.snp_makeConstraints { (make) -> Void in
-      make.leading.equalTo(self)
-      make.top.equalTo(greenDot.snp_bottom).offset(20)
-      make.height.equalTo(10)
-      make.width.equalTo(10)
-    }
-    
-    delayedLabel.font = Font.MyriadProBold.size(20)
-    delayedLabel.textAlignment = .Center
-    delayedLabel.textColor = UIColor.whiteColor()
-    delayedLabel.snp_makeConstraints { (make) -> Void in
-      make.leading.equalTo(redDot.snp_trailing).offset(5)
-      make.centerY.equalTo(redDot)
-      make.height.equalTo(21)
-      make.width.equalTo(40)
-    }
-    
-    onTimeLabel.font = Font.MyriadProBold.size(20)
-    onTimeLabel.textAlignment = .Center
-    onTimeLabel.textColor = UIColor.whiteColor()
-    onTimeLabel.snp_makeConstraints { (make) -> Void in
-      make.leading.equalTo(greenDot.snp_trailing).offset(5)
-      make.centerY.equalTo(greenDot)
-      make.height.equalTo(21)
-      make.width.equalTo(40)
-    }
-
-    let delayedTitleLabel = UILabel()
-    delayedTitleLabel.font = Font.MyriadProSemibold.size(18)
-    delayedTitleLabel.text = NSLocalizedString("Delayed", comment: "").uppercaseString
-    delayedTitleLabel.textAlignment = .Right
-    delayedTitleLabel.textColor = UIColor.whiteColor()
     addSubview(delayedTitleLabel)
-    delayedTitleLabel.snp_makeConstraints { (make) -> Void in
-      make.trailing.equalTo(self)
-      make.centerY.equalTo(redDot)
-      make.height.equalTo(21)
-      make.width.equalTo(90)
-    }
-
-    let onTimeTitleLabel = UILabel()
-    onTimeTitleLabel.font = Font.MyriadProSemibold.size(18)
-    onTimeTitleLabel.text = NSLocalizedString("On Time", comment: "").uppercaseString
-    onTimeTitleLabel.textAlignment = .Right
-    onTimeTitleLabel.textColor = UIColor.whiteColor()
+    addSubview(indicatorImageView)
+    addSubview(onTimeImageView)
+    addSubview(onTimeLabel)
     addSubview(onTimeTitleLabel)
-    onTimeTitleLabel.snp_makeConstraints { (make) -> Void in
-      make.trailing.equalTo(self)
-      make.centerY.equalTo(greenDot)
-      make.height.equalTo(21)
-      make.width.equalTo(90)
+    addSubview(titleLabel)
+    
+    titleLabel.sizeToFit()
+    titleLabel.textAlignment = .Left
+    titleLabel.textColor = Color.TerminalSummary.titleBlue
+    titleLabel.snp_makeConstraints { (make) -> Void in
+      make.left.equalTo(self).offset(25)
+      make.centerY.equalTo(self)
     }
+    
+    onTimeImageView.image = Image.blueCircle.image()
+    onTimeImageView.contentMode = .ScaleAspectFit
+    onTimeImageView.snp_makeConstraints { (make) -> Void in
+      make.centerX.equalTo(self)
+      make.bottom.equalTo(self.snp_centerY).offset(-2)
+      make.width.equalTo(10)
+      make.height.equalTo(10)
+    }
+    
+    onTimeLabel.sizeToFit()
+    onTimeLabel.font = Font.MyriadProSemibold.size(18)
+    onTimeLabel.textAlignment = .Center
+    onTimeLabel.textColor = Color.TerminalSummary.onTimeContent
+    onTimeLabel.snp_makeConstraints { (make) -> Void in
+      make.centerX.equalTo(self)
+      make.centerY.equalTo(self)
+    }
+    
+    onTimeTitleLabel.sizeToFit()
+    onTimeTitleLabel.font = Font.MyriadProSemibold.size(13)
+    onTimeTitleLabel.textAlignment = .Center
+    onTimeTitleLabel.text = NSLocalizedString("On Time", comment: "").uppercaseString
+    onTimeTitleLabel.snp_makeConstraints { (make) -> Void in
+      make.centerX.equalTo(self)
+      make.top.equalTo(self.snp_centerY).offset(2)
+    }
+    
+    delayedImageView.image = Image.redCircle.image()
+    delayedImageView.contentMode = .ScaleAspectFit
+    delayedImageView.snp_makeConstraints { (make) -> Void in
+      make.centerX.equalTo(delayedTitleLabel)
+      make.centerY.equalTo(onTimeImageView)
+      make.height.equalTo(onTimeImageView)
+      make.width.equalTo(onTimeImageView)
+    }
+    
+    delayedLabel.sizeToFit()
+    delayedLabel.font = onTimeLabel.font
+    delayedLabel.textColor = Color.TerminalSummary.delayedContent
+    delayedLabel.snp_makeConstraints { (make) -> Void in
+      make.centerX.equalTo(delayedTitleLabel)
+      make.centerY.equalTo(onTimeLabel)
+    }
+    
+    delayedTitleLabel.sizeToFit()
+    delayedTitleLabel.font = onTimeTitleLabel.font
+    delayedTitleLabel.text = NSLocalizedString("Delayed", comment: "").uppercaseString
+    delayedTitleLabel.textColor = Color.TerminalSummary.delayedTitle
+    delayedTitleLabel.snp_makeConstraints { (make) -> Void in
+      make.trailing.equalTo(indicatorImageView.snp_leading).offset(-18)
+      make.centerY.equalTo(onTimeTitleLabel)
+    }
+    
+    indicatorImageView.image = Image.indicatorArrow.image()
+    indicatorImageView.contentMode = .ScaleAspectFit
+    indicatorImageView.snp_makeConstraints { (make) -> Void in
+      make.centerY.equalTo(self)
+      make.trailing.equalTo(self).offset(-18)
+      make.width.equalTo(8)
+      make.height.equalTo(12)
+    }
+  }
+  
+  func configureAsTitle() {
+    delayedImageView.hidden = false
+    delayedLabel.hidden = true
+    delayedTitleLabel.hidden = false
+    indicatorImageView.hidden = true
+    onTimeImageView.hidden = false
+    onTimeLabel.hidden = true
+    onTimeTitleLabel.hidden = false
+    titleLabel.font = Font.MyriadProBold.size(14)
+    titleLabel.text = NSLocalizedString("Terminals", comment: "")
+  }
+  
+  func configureTotals(totals: (onTime: Int, delayed: Int)) {
+    delayedImageView.hidden = true
+    delayedLabel.text = "\(totals.delayed)"
+    delayedTitleLabel.hidden = true
+    indicatorImageView.hidden = true
+    onTimeImageView.hidden = true
+    onTimeLabel.text = "\(totals.onTime)"
+    onTimeTitleLabel.hidden = true
+    titleLabel.font = Font.MyriadProBold.size(14)
+    titleLabel.text = NSLocalizedString("Totals", comment: "")
   }
 
   func configureForTerminalSummary(summary: TerminalSummary) {
 
     activeTerminalId = summary.terminalId
+    delayedImageView.hidden = true
     delayedLabel.text = "\(summary.delayedCount)"
+    delayedTitleLabel.hidden = true
+    indicatorImageView.hidden = false
+    onTimeImageView.hidden = true
     onTimeLabel.text = "\(summary.count)"
+    onTimeTitleLabel.hidden = true
+    titleLabel.font = Font.MyriadProSemibold.size(14)
 
     switch summary.terminalId! {
 
     case .One:
-      terminalImage.image = UIImage(named: "terminal_1")
+      titleLabel.text = NSLocalizedString("Terminal", comment: "") + " 1"
     case .Two:
-      terminalImage.image = UIImage(named: "terminal_2")
+      titleLabel.text = NSLocalizedString("Terminal", comment: "") + " 2"
     case .Three:
-      terminalImage.image = UIImage(named: "terminal_3")
+      titleLabel.text = NSLocalizedString("Terminal", comment: "") + " 3"
     case .International:
-      terminalImage.image = UIImage(named: "terminal_intl")
+      titleLabel.text = NSLocalizedString("International", comment: "")
     }
+  }
+  
+  func getActiveTerminalId() -> TerminalId? {
+    return activeTerminalId
   }
 }

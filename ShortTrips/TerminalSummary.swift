@@ -37,6 +37,7 @@ struct TerminalSummary: Mappable {
   var terminalId: TerminalId!
   var count: Int!
   var delayedCount: Int!
+  var onTimeCount: Int { get { return count - delayedCount }}
   
   init?(_ map: Map){}
   
@@ -50,5 +51,19 @@ struct TerminalSummary: Mappable {
     terminalId <- map["terminal_id"]
     count <- map["count"]
     delayedCount <- map["delayed_count"]
+  }
+  
+  static func getTotals(summaries: [TerminalSummary]?) -> (onTime: Int, delayed: Int) {
+    
+    var results = (onTime: 0, delayed: 0)
+    
+    if let summaries = summaries {
+      for summary in summaries {
+        results.onTime += summary.onTimeCount
+        results.delayed += summary.delayedCount
+      }
+    }
+    
+    return results
   }
 }

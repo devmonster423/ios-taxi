@@ -10,8 +10,8 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "red_circle.png"
+      "filename" : "red_circle.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

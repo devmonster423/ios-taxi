@@ -25,7 +25,7 @@ class TerminalSummaryVC: UIViewController {
       action: "terminalSelected:"))
     terminalSummaryView.terminalView3.addGestureRecognizer(UITapGestureRecognizer(target: self,
       action: "terminalSelected:"))
-    terminalSummaryView.terminalView4.addGestureRecognizer(UITapGestureRecognizer(target: self,
+    terminalSummaryView.internationalTerminalView.addGestureRecognizer(UITapGestureRecognizer(target: self,
       action: "terminalSelected:"))
     view = terminalSummaryView
   }
@@ -99,7 +99,7 @@ class TerminalSummaryVC: UIViewController {
   func terminalSelected(sender: UITapGestureRecognizer) {
     let flightStatusVC = FlightStatusVC()
     flightStatusVC.currentHour = terminalSummaryView().getCurrentHour()
-    flightStatusVC.selectedTerminalId = (sender.view as! TerminalView).activeTerminalId
+    flightStatusVC.selectedTerminalId = (sender.view as! TerminalView).getActiveTerminalId()
     navigationController?.pushViewController(flightStatusVC, animated: true)
   }
 }

@@ -25,6 +25,11 @@ struct Color {
   
   struct TerminalSummary {
     static let offWhite = UIColor(red: 244.0/255.0, green: 246.0/255.0, blue: 243.0/255.0, alpha: 1.0)
+    static let titleBlue = UIColor(red: 66/255.0, green: 117/255.0, blue: 164/255.0, alpha: 1.0)
+    static let onTimeContent = Sfo.blue
+    static let onTimeTitle = titleBlue
+    static let delayedContent = UIColor(red: 208/255.0, green: 2/255.0, blue: 27/255.0, alpha: 1.0)
+    static let delayedTitle = FlightStatus.delayed
   }
   
   struct FlightStatus {

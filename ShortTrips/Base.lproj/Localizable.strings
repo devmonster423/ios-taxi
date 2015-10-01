@@ -15,6 +15,7 @@
 "Terminal Status" = "Terminal Status";
 
 /* Terminals */
+"Terminal" = "Terminal";
 "One" = "One";
 "Two" = "Two";
 "Three" = "Three";
@@ -58,7 +59,7 @@
 "h:mma" = "h:mma";
 "pm" = "pm";
 "am" = "am";
-
+"Totals" = "Totals";
 
 /* Update Progress */
 
