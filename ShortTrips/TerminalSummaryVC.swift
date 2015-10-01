@@ -64,12 +64,10 @@ class TerminalSummaryVC: UIViewController {
   }
   
   private func configureTitle() {
-    let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 240, height: 30))
-    titleLabel.text = NSLocalizedString("Terminals", comment: "")
-    titleLabel.textAlignment = .Center
-    titleLabel.font = UiConstants.NavController.fontNormal
-    titleLabel.textColor = UIColor.whiteColor()
-    navigationItem.titleView = titleLabel
+    let titleImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 30))
+    titleImageView.image = Image.sfoLogoAlpha.image()
+    titleImageView.contentMode = .ScaleAspectFit
+    navigationItem.titleView = titleImageView
   }
   
   private func updateTerminalTable() {
