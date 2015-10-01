@@ -23,6 +23,10 @@ struct Color {
     static let lightBlue = UIColor(red: 150.0/255.0, green: 184.0/255.0, blue: 241.0/255.0, alpha: 1.0)
   }
   
+  struct TerminalSummary {
+    static let offWhite = UIColor(red: 244.0/255.0, green: 246.0/255.0, blue: 243.0/255.0, alpha: 1.0)
+  }
+  
   struct FlightStatus {
     static let standard = UIColor(red: 74.0/255.0, green: 74.0/255.0, blue: 74.0/255.0, alpha: 1.0)
     static let onTime = UIColor(red: 7.0/255.0, green: 104.0/255.0, blue: 147.0/255.0, alpha: 1.0)

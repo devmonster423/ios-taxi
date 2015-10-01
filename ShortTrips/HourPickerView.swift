@@ -29,6 +29,8 @@ class HourPickerView: UIView {
 
   override init(frame: CGRect) {
     super.init(frame: frame)
+    
+    backgroundColor = Color.TerminalSummary.offWhite
 
     addSubview(bottomLabel)
     addSubview(decreaseButton)
