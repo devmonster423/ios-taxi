@@ -49,7 +49,7 @@ class TerminalView: UIView {
     onTimeImageView.image = Image.blueCircle.image()
     onTimeImageView.contentMode = .ScaleAspectFit
     onTimeImageView.snp_makeConstraints { (make) -> Void in
-      make.centerX.equalTo(self)
+      make.centerX.equalTo(onTimeTitleLabel)
       make.bottom.equalTo(self.snp_centerY).offset(-2)
       make.width.equalTo(10)
       make.height.equalTo(10)
@@ -60,7 +60,7 @@ class TerminalView: UIView {
     onTimeLabel.textAlignment = .Center
     onTimeLabel.textColor = Color.TerminalSummary.onTimeContent
     onTimeLabel.snp_makeConstraints { (make) -> Void in
-      make.centerX.equalTo(self)
+      make.centerX.equalTo(onTimeTitleLabel)
       make.centerY.equalTo(self)
     }
     
@@ -85,6 +85,7 @@ class TerminalView: UIView {
     
     delayedLabel.sizeToFit()
     delayedLabel.font = onTimeLabel.font
+    delayedLabel.textAlignment = .Center
     delayedLabel.textColor = Color.TerminalSummary.delayedContent
     delayedLabel.snp_makeConstraints { (make) -> Void in
       make.centerX.equalTo(delayedTitleLabel)
@@ -94,6 +95,7 @@ class TerminalView: UIView {
     delayedTitleLabel.sizeToFit()
     delayedTitleLabel.font = onTimeTitleLabel.font
     delayedTitleLabel.text = NSLocalizedString("Delayed", comment: "").uppercaseString
+    delayedTitleLabel.textAlignment = .Center
     delayedTitleLabel.textColor = Color.TerminalSummary.delayedTitle
     delayedTitleLabel.snp_makeConstraints { (make) -> Void in
       make.trailing.equalTo(indicatorImageView.snp_leading).offset(-18)
