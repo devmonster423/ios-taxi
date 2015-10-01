@@ -141,7 +141,7 @@ class TerminalView: UIView {
     delayedTitleLabel.hidden = true
     indicatorImageView.hidden = false
     onTimeImageView.hidden = true
-    onTimeLabel.text = "\(summary.count)"
+    onTimeLabel.text = "\(summary.onTimeCount)"
     onTimeTitleLabel.hidden = true
     titleLabel.font = Font.MyriadProSemibold.size(14)
 
