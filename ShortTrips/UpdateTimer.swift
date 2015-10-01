@@ -25,6 +25,7 @@ class UpdateTimer: NSObject {
     sharedInstance.timerView = timerView
     sharedInstance.callback = callback
     resetProgress()
+    sharedInstance.timer?.invalidate()
     sharedInstance.timer = NSTimer.scheduledTimerWithTimeInterval(UiConstants.Timer.updateInterval, target: sharedInstance.self, selector: "eachSecond", userInfo: nil, repeats: true)
   }
   
