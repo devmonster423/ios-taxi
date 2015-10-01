@@ -43,6 +43,7 @@ class TerminalSummaryView: UIView {
     addSubview(totalTerminalView)
     
     titleTerminalView.configureAsTitle()
+    titleTerminalView.setBackgroundDark(true)
     titleTerminalView.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
@@ -57,6 +58,7 @@ class TerminalSummaryView: UIView {
       make.height.equalTo(60)
     }
 
+    terminalView1.setBackgroundDark(true)
     terminalView1.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(internationalTerminalView.snp_bottom)
       make.leading.equalTo(self)
@@ -71,6 +73,7 @@ class TerminalSummaryView: UIView {
       make.leading.equalTo(self)
     }
 
+    terminalView3.setBackgroundDark(true)
     terminalView3.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(terminalView2.snp_bottom)
       make.leading.equalTo(self)

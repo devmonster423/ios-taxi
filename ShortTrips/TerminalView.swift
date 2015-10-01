@@ -68,6 +68,7 @@ class TerminalView: UIView {
     onTimeTitleLabel.font = Font.MyriadProSemibold.size(13)
     onTimeTitleLabel.textAlignment = .Center
     onTimeTitleLabel.text = NSLocalizedString("On Time", comment: "").uppercaseString
+    onTimeTitleLabel.textColor = Color.TerminalSummary.onTimeTitle
     onTimeTitleLabel.snp_makeConstraints { (make) -> Void in
       make.centerX.equalTo(self)
       make.top.equalTo(self.snp_centerY).offset(2)
@@ -156,6 +157,10 @@ class TerminalView: UIView {
     case .International:
       titleLabel.text = NSLocalizedString("International", comment: "")
     }
+  }
+  
+  func setBackgroundDark(dark: Bool) {
+    backgroundColor = dark ? Color.TerminalSummary.darkBackground : UIColor.whiteColor()
   }
   
   func getActiveTerminalId() -> TerminalId? {
