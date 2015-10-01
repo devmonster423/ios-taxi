@@ -48,14 +48,14 @@ class TerminalSummaryView: UIView {
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.top.equalTo(self)
-      make.height.equalTo(65)
+      make.height.equalTo(self).multipliedBy(0.104)
     }
     
     internationalTerminalView.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(titleTerminalView.snp_bottom)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.height.equalTo(60)
+      make.height.equalTo(self).multipliedBy(0.096)
     }
 
     terminalView1.setBackgroundDark(true)
