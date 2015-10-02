@@ -28,6 +28,9 @@ class TerminalView: UIView {
 
   override init(frame: CGRect) {
     super.init(frame: frame)
+    
+    // starts out hidden
+    hidden = true
 
     addSubview(delayedImageView)
     addSubview(delayedLabel)
@@ -123,6 +126,9 @@ class TerminalView: UIView {
   }
   
   func configureAsTitle() {
+    
+    hidden = false
+    
     delayedImageView.hidden = false
     delayedLabel.hidden = true
     delayedTitleLabel.hidden = false
@@ -135,6 +141,9 @@ class TerminalView: UIView {
   }
   
   func configureTotals(totals: (onTime: Int, delayed: Int)) {
+    
+    hidden = false
+    
     delayedImageView.hidden = true
     delayedLabel.text = "\(totals.delayed)"
     delayedTitleLabel.hidden = true
@@ -148,6 +157,8 @@ class TerminalView: UIView {
 
   func configureForTerminalSummary(summary: TerminalSummary) {
 
+    hidden = false
+    
     activeTerminalId = summary.terminalId
     delayedImageView.hidden = true
     delayedLabel.text = "\(summary.delayedCount)"
