@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MBProgressHUD
 
 class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
   var selectedTerminalId: TerminalId!
@@ -54,13 +55,19 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   }
   
   func updateFlightTable() {
+    let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+    hud.labelText = NSLocalizedString("Requesting Flights...", comment: "")
+    
     ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour, response: { (flights, error) -> Void in
+      
+      MBProgressHUD.hideHUDForView(self.view, animated: true)
+      
         if let flights = flights {
           self.flights = flights
+          self.flightStatusView().flightTable.reloadData()
         } else {
           print(error)
         }
-        self.flightStatusView().flightTable.reloadData()
     })
   }
   

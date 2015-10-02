@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class DashboardVC: UIViewController {
   
@@ -37,7 +38,11 @@ class DashboardVC: UIViewController {
   }
     
   func requestLotStatus() {
+    let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+    hud.labelText = NSLocalizedString("Requesting Lot Status", comment: "")
     ApiClient.requestLotStatus({ (status, error) -> Void in
+      
+      MBProgressHUD.hideHUDForView(self.view, animated: true)
       if let color = status?.color  {
         self.dashboardView().updateStatusUI(color)
       }

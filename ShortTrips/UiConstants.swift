@@ -50,7 +50,7 @@ struct UiConstants {
     static let bigMargin = 10.0
     static let rowHeight: CGFloat = 80.0
     static let airlineIconWidth: CGFloat = 0.17
-    static let timesTitleWidth: CGFloat = 0.20
+    static let timesTitleWidth: CGFloat = 0.18
     static let timesWidth: CGFloat = 0.17
     static let statusWidth: CGFloat = 0.17
     static let iPhone5Width: CGFloat = 320.0

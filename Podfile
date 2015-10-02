@@ -6,6 +6,7 @@ def shared_pods
   pod 'AlamofireImage', '1.1.1'
   pod 'AlamofireObjectMapper', '0.9'
   pod 'SnapKit', '0.14.0'
+  pod 'MBProgressHUD', '0.9.1'
 end
 
 target 'ShortTrips' do
