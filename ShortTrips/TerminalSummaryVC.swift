@@ -64,7 +64,7 @@ class TerminalSummaryVC: UIViewController {
   }
   
   private func configureTitle() {
-    let titleImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 60, height: 30))
+    let titleImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: UiConstants.Dashboard.titleWidth, height: UiConstants.Dashboard.titleHeight))
     titleImageView.image = Image.sfoLogoAlpha.image()
     titleImageView.contentMode = .ScaleAspectFit
     navigationItem.titleView = titleImageView

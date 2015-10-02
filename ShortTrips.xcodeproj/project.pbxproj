@@ -109,7 +109,6 @@
 		E1DCC1FF1BA8DEAC0016B725 /* ReferenceConfigResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DCC1FE1BA8DEAC0016B725 /* ReferenceConfigResponse.swift */; };
 		E1E6EF9E1BB205520039C5F3 /* DriverSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		E1E6EFA01BB205600039C5F3 /* DriverResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6EF9F1BB205600039C5F3 /* DriverResponseSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		E1FA66171B85558300FD18C6 /* FlightHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FA66161B85558300FD18C6 /* FlightHeaderCell.swift */; };
 		E1FDB2681BBC47E500F8F452 /* CredentialSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FDB2671BBC47E500F8F452 /* CredentialSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1FD11BAF1DD500B8F921 /* Font.swift */; settings = {ASSET_TAGS = (); }; };
 		FA32EC081B8836B7001428B5 /* green_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC051B8836B7001428B5 /* green_bg.jpg */; };
@@ -238,7 +237,6 @@
 		E1DCC1FE1BA8DEAC0016B725 /* ReferenceConfigResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConfigResponse.swift; sourceTree = "<group>"; };
 		E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverSpec.swift; sourceTree = "<group>"; };
 		E1E6EF9F1BB205600039C5F3 /* DriverResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverResponseSpec.swift; sourceTree = "<group>"; };
-		E1FA66161B85558300FD18C6 /* FlightHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightHeaderCell.swift; sourceTree = "<group>"; };
 		E1FDB2671BBC47E500F8F452 /* CredentialSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialSpec.swift; sourceTree = "<group>"; };
 		FA0E1FD11BAF1DD500B8F921 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		FA32EC051B8836B7001428B5 /* green_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green_bg.jpg; sourceTree = "<group>"; };
@@ -469,7 +467,6 @@
 			children = (
 				C2B667101BA7577600BA28E2 /* DashboardView.swift */,
 				E1AE8CE21BB5A2E3004E243E /* FlightCell.swift */,
-				E1FA66161B85558300FD18C6 /* FlightHeaderCell.swift */,
 				C207D6FB1BAB86D800273374 /* FlightStatusView.swift */,
 				C200BE261BA8D3A300B7F56F /* HourPickerView.swift */,
 				C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */,
@@ -975,7 +972,6 @@
 				E18736891BA8E7D800B6C7D8 /* AntennaResponse.swift in Sources */,
 				E1A2EBA01B6BEF3900C27EB2 /* FlightStatusVC.swift in Sources */,
 				C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */,
-				E1FA66171B85558300FD18C6 /* FlightHeaderCell.swift in Sources */,
 				C2635E2A1BB0CC86003C22B1 /* FlightClient.swift in Sources */,
 				FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */,
 				E18FF6911BA870AF00FE93B9 /* Cid.swift in Sources */,
