@@ -8,8 +8,17 @@
 
 import UIKit
 
+typealias TimerCallback = () -> Void
+
 class TimerView: UIView {
 
+  // behavior properties
+  private var callback: TimerCallback?
+  private var elapsedSeconds: NSTimeInterval = 0
+  private var timer: NSTimer?
+  private var updateInterval: NSTimeInterval!
+  
+  // subviews
   private let progressView = UIProgressView(progressViewStyle: UIProgressViewStyle.Bar)
   private let updateLabel = UILabel()
 
@@ -47,9 +56,10 @@ class TimerView: UIView {
   func resetProgress() {
     updateLabel.text = NSLocalizedString("LAST UPDATED LESS THAN A MINUTE AGO", comment: "")
     progressView.progress = 0.0
+    elapsedSeconds = 0
   }
 
-  func updateForTime(elapsedSeconds: Int) {
+  func updateForTime(elapsedSeconds: NSTimeInterval) {
     if elapsedSeconds < 60 {
       updateLabel.text = NSLocalizedString("LAST UPDATED LESS THAN A MINUTE AGO", comment: "")
     }
@@ -59,6 +69,28 @@ class TimerView: UIView {
     else {
       updateLabel.text = String(format: NSLocalizedString("LAST UPDATED %d MINUTES AGO", comment: ""), elapsedSeconds / 60)
     }
-    progressView.progress = Float(elapsedSeconds) / Float(UiConstants.Timer.updatePeriod)
+    progressView.progress = Float(elapsedSeconds) / Float(updateInterval)
+  }
+  
+  // behavior
+  
+  func start(callback: TimerCallback?, updateInterval: NSTimeInterval) {
+    self.callback = callback
+    self.updateInterval = updateInterval
+    timer?.invalidate()
+    timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "eachSecond", userInfo: nil, repeats: true)
+  }
+  
+  func eachSecond() {
+    elapsedSeconds++
+    updateForTime(elapsedSeconds)
+    if elapsedSeconds >= updateInterval {
+      resetProgress()
+      callback?()
+    }
+  }
+  
+  func stop() {
+    timer?.invalidate()
   }
 }

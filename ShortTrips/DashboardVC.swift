@@ -15,12 +15,14 @@ class DashboardVC: UIViewController {
     dashboardView.terminalStatusBtn.addTarget(self,
       action: "showTerminalStatus",
       forControlEvents: .TouchUpInside)
+    dashboardView.timerView.start(requestLotStatus, updateInterval: 60)
     view = dashboardView
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.title = "";
+    requestLotStatus()
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -28,14 +30,6 @@ class DashboardVC: UIViewController {
     navigationController?.navigationBar.translucent = true
     navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
     navigationController?.navigationBar.shadowImage = UIImage()
-    requestLotStatus()
-    UpdateTimer.start(dashboardView().timerView,
-      callback: requestLotStatus)
-  }
-  
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-    UpdateTimer.stop()
   }
   
   func dashboardView() -> DashboardView {
@@ -46,8 +40,6 @@ class DashboardVC: UIViewController {
     ApiClient.requestLotStatus({ (status, error) -> Void in
       if let color = status?.color  {
         self.dashboardView().updateStatusUI(color)
-      } else {
-        self.dashboardView().updateStatusUI(LotStatusEnum.random())
       }
     })
   }

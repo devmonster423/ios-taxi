@@ -19,6 +19,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     flightStatusView.flightTable.dataSource = self
     flightStatusView.flightTable.delegate = self
     flightStatusView.flightTable.registerClass(FlightCell.self, forCellReuseIdentifier: FlightCell.identifier)
+    flightStatusView.timerView.start(updateFlightTable, updateInterval: 60 * 5)
     view = flightStatusView
   }
   
@@ -29,18 +30,12 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     navigationController?.navigationBar.translucent = false
     navigationController?.navigationBar.setBackgroundImage(Image.navbarBlue.image(), forBarMetrics: .Default)
+    updateFlightTable()
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    updateFlightTable()
-    UpdateTimer.start(flightStatusView().timerView, callback: updateFlightTable)
     configureTitle()
-  }
-  
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-    UpdateTimer.stop()
   }
   
   func flightStatusView() -> FlightStatusView {

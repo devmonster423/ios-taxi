@@ -59,7 +59,6 @@
 		E13BCEFA1BABBAA1006FDFF5 /* TerminalSummaryArrivalsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13BCEF91BABBAA1006FDFF5 /* TerminalSummaryArrivalsListResponse.swift */; settings = {ASSET_TAGS = (); }; };
 		E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */; };
 		E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */; };
-		E14DBDDB1B867A8400819C91 /* UpdateTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14DBDDA1B867A8400819C91 /* UpdateTimer.swift */; };
 		E14E159B1BB1D856009D1E17 /* AntennaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14E159A1BB1D856009D1E17 /* AntennaSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		E14E159E1BB1DA9F009D1E17 /* AntennaResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14E159D1BB1DA9F009D1E17 /* AntennaResponseSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		E1598CE41BB1ACB100E933AD /* FlightSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1598CE31BB1ACB100E933AD /* FlightSpec.swift */; settings = {ASSET_TAGS = (); }; };
@@ -187,7 +186,6 @@
 		E13BCEF91BABBAA1006FDFF5 /* TerminalSummaryArrivalsListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryArrivalsListResponse.swift; sourceTree = "<group>"; };
 		E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryVC.swift; sourceTree = "<group>"; };
 		E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+initWithColor.swift"; sourceTree = "<group>"; };
-		E14DBDDA1B867A8400819C91 /* UpdateTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTimer.swift; sourceTree = "<group>"; };
 		E14E159A1BB1D856009D1E17 /* AntennaSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntennaSpec.swift; sourceTree = "<group>"; };
 		E14E159D1BB1DA9F009D1E17 /* AntennaResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntennaResponseSpec.swift; sourceTree = "<group>"; };
 		E1598CE31BB1ACB100E933AD /* FlightSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightSpec.swift; sourceTree = "<group>"; };
@@ -544,7 +542,6 @@
 				C2DFE5C91B56D2CB0090B55F /* DashboardVC.swift */,
 				E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */,
 				E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */,
-				E14DBDDA1B867A8400819C91 /* UpdateTimer.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -936,7 +933,6 @@
 				C200BE211BA8C21600B7F56F /* TerminalView.swift in Sources */,
 				E1AE8CE51BB5A310004E243E /* UIButton+positionLabel.swift in Sources */,
 				E13BCEF11BABB426006FDFF5 /* FlightsForTerminalResponse.swift in Sources */,
-				E14DBDDB1B867A8400819C91 /* UpdateTimer.swift in Sources */,
 				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
 				E18FF68F1BA869A300FE93B9 /* Antenna.swift in Sources */,
 				E17352851B8CEC9B0031950B /* UiHelpers.swift in Sources */,
