@@ -20,6 +20,8 @@ struct UiConstants {
     static let terminalStatusWidth: CGFloat = 200.0
     static let terminalStatusHeight: CGFloat = 60.0
     static let buttonTimerOffset: CGFloat = -10.0
+    static let titleWidth: CGFloat = 60.0
+    static let titleHeight: CGFloat = 30.0
   }
   
   struct Fader {
