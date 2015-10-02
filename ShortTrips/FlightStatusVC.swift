@@ -60,14 +60,13 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     
     ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour, response: { (flights, error) -> Void in
       
-      MBProgressHUD.hideHUDForView(self.view, animated: true)
-      
-        if let flights = flights {
-          self.flights = flights
-          self.flightStatusView().flightTable.reloadData()
-        } else {
-          print(error)
-        }
+      hud.hide(true)
+      if let flights = flights {
+        self.flights = flights
+        self.flightStatusView().flightTable.reloadData()
+      } else {
+        print(error)
+      }
     })
   }
   

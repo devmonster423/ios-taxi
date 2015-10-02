@@ -67,14 +67,8 @@ class TerminalSummaryVC: UIViewController {
   }
   
   private func updateTerminalTable() {
-    
-    let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
-    hud.labelText = NSLocalizedString("Updating Terminals...", comment: "")
-    
     ApiClient.requestTerminalSummary(terminalSummaryView().getCurrentHour(), response: { (terminals, hour, error) -> Void in
-      
-      MBProgressHUD.hideHUDForView(self.view, animated: true)
-      
+
       if let hour = hour where hour == self.terminalSummaryView().getCurrentHour(), let terminals = terminals {
         self.terminalSummaryView().reloadTerminalViews(terminals)
       }

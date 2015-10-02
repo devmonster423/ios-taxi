@@ -42,7 +42,7 @@ class DashboardVC: UIViewController {
     hud.labelText = NSLocalizedString("Requesting Lot Status", comment: "")
     ApiClient.requestLotStatus({ (status, error) -> Void in
       
-      MBProgressHUD.hideHUDForView(self.view, animated: true)
+      hud.hide(true)
       if let color = status?.color  {
         self.dashboardView().updateStatusUI(color)
       }
