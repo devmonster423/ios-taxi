@@ -732,6 +732,7 @@
 				C2DFE5C01B56D2CB0090B55F /* Resources */,
 				22232676475BDF9F82A544E6 /* Embed Pods Frameworks */,
 				58BBDC3FAB35F59C25E8B615 /* Copy Pods Resources */,
+				E179C6741BC08BA00093CAA3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -928,6 +929,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E179C6741BC08BA00093CAA3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" 3835fee2cf704d70edbfdc3210412d698fac6f91 b02f2a3d4fbb6a68768d614d1c14a8492675804a2852693a30e22fadeb6e1fc5";
 		};
 /* End PBXShellScriptBuildPhase section */
 

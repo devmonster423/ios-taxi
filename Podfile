@@ -6,6 +6,8 @@ def shared_pods
   pod 'AlamofireImage', '1.1.1'
   pod 'AlamofireObjectMapper', '0.9'
   pod 'SnapKit', '0.14.0'
+  pod 'Fabric'
+  pod 'Crashlytics'
 end
 
 target 'ShortTrips' do
