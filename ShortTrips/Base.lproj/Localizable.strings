@@ -13,13 +13,10 @@
 "almost full" = "almost full";
 "not full" = "not full";
 "Terminal Status" = "Terminal Status";
+"Requesting Lot Status..." = "Requesting Lot Status...";
 
 /* Terminals */
 "Terminal" = "Terminal";
-"One" = "One";
-"Two" = "Two";
-"Three" = "Three";
-"International" = "International";
 
 /* Terminal Status */
 
@@ -27,6 +24,7 @@
 "Terminal Status %d Hours Ago" = "Terminal Status %d Hours Ago";
 "Terminal Status %d Hours in the Future" = "Terminal Status %d Hours in the Future";
 "Current Terminal Status" = "Current Terminal Status";
+"Requesting Flights..." = "Requesting Flights...";
 
 /* Flight Status */
 

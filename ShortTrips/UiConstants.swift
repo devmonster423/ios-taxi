@@ -49,12 +49,10 @@ struct UiConstants {
     static let standardMargin = 5.0
     static let bigMargin = 10.0
     static let rowHeight: CGFloat = 80.0
-    static let airlineIconWidth: CGFloat = 0.15
-    static let airlineAndFlightWidth: CGFloat = 0.29
-    static let timesTitleWidth: CGFloat = 0.22
+    static let airlineIconWidth: CGFloat = 0.17
+    static let timesTitleWidth: CGFloat = 0.18
     static let timesWidth: CGFloat = 0.17
     static let statusWidth: CGFloat = 0.17
-    static let statusPadding: CGFloat = 2.0
     static let iPhone5Width: CGFloat = 320.0
     static let separatorHeight: CGFloat = 2.0
     static let statusImageDiameter: CGFloat = 10.0

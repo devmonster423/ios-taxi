@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MBProgressHUD
 
 class TerminalSummaryVC: UIViewController {
 
@@ -27,6 +28,7 @@ class TerminalSummaryVC: UIViewController {
       action: "terminalSelected:"))
     terminalSummaryView.internationalTerminalView.addGestureRecognizer(UITapGestureRecognizer(target: self,
       action: "terminalSelected:"))
+    terminalSummaryView.timerView.start(updateTerminalTable, updateInterval: 60 * 5)
     view = terminalSummaryView
   }
   
@@ -37,6 +39,7 @@ class TerminalSummaryVC: UIViewController {
     navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     navigationController?.navigationBar.translucent = false
     navigationController?.navigationBar.setBackgroundImage(Image.navbarBlue.image(), forBarMetrics: .Default)
+    updateTerminalTable()
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -46,13 +49,6 @@ class TerminalSummaryVC: UIViewController {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    updateTerminalTable()
-    UpdateTimer.start(terminalSummaryView().timerView, callback: updateTerminalTable)
-  }
-  
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-    UpdateTimer.stop()
   }
   
   func terminalSummaryView() -> TerminalSummaryView {
@@ -72,6 +68,7 @@ class TerminalSummaryVC: UIViewController {
   
   private func updateTerminalTable() {
     ApiClient.requestTerminalSummary(terminalSummaryView().getCurrentHour(), response: { (terminals, hour, error) -> Void in
+
       if let hour = hour where hour == self.terminalSummaryView().getCurrentHour(), let terminals = terminals {
         self.terminalSummaryView().reloadTerminalViews(terminals)
       }
@@ -84,7 +81,7 @@ class TerminalSummaryVC: UIViewController {
     let newCurrentHour = terminalSummaryView().getCurrentHour()
     if oldCurrentHour != newCurrentHour {
       updateTerminalTable()
-      UpdateTimer.start(terminalSummaryView().timerView, callback: updateTerminalTable)
+      terminalSummaryView().timerView.resetProgress()
     }
   }
   

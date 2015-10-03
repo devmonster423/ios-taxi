@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MBProgressHUD
 
 class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
   var selectedTerminalId: TerminalId!
@@ -19,6 +20,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     flightStatusView.flightTable.dataSource = self
     flightStatusView.flightTable.delegate = self
     flightStatusView.flightTable.registerClass(FlightCell.self, forCellReuseIdentifier: FlightCell.identifier)
+    flightStatusView.timerView.start(updateFlightTable, updateInterval: 60 * 5)
     view = flightStatusView
   }
   
@@ -29,18 +31,12 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     navigationController?.navigationBar.translucent = false
     navigationController?.navigationBar.setBackgroundImage(Image.navbarBlue.image(), forBarMetrics: .Default)
+    updateFlightTable()
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    updateFlightTable()
-    UpdateTimer.start(flightStatusView().timerView, callback: updateFlightTable)
     configureTitle()
-  }
-  
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-    UpdateTimer.stop()
   }
   
   func flightStatusView() -> FlightStatusView {
@@ -59,21 +55,22 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   }
   
   func updateFlightTable() {
+    let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+    hud.labelText = NSLocalizedString("Requesting Flights...", comment: "")
+    
     ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour, response: { (flights, error) -> Void in
-        if let flights = flights {
-          self.flights = flights
-        } else {
-          print(error)
-        }
+      
+      hud.hide(true)
+      if let flights = flights {
+        self.flights = flights
         self.flightStatusView().flightTable.reloadData()
+      } else {
+        print(error)
+      }
     })
   }
   
   // MARK: UITableView
-  
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 1
-  }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let flights = flights {
@@ -86,7 +83,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(FlightCell.identifier, forIndexPath: indexPath) as! FlightCell
     if let flights = flights {
-      cell.displayFlight(flights[indexPath.row], darkBackground: indexPath.row % 2 == 0 ? false : true)
+      cell.displayFlight(flights[indexPath.row], darkBackground: indexPath.row % 2 != 0)
     }
     return cell
   }

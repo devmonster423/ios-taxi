@@ -8,6 +8,7 @@ def shared_pods
   pod 'SnapKit', '0.14.0'
   pod 'Fabric'
   pod 'Crashlytics'
+  pod 'MBProgressHUD', '0.9.1'
 end
 
 target 'ShortTrips' do

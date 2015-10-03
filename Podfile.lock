@@ -9,6 +9,7 @@ PODS:
   - Fabric (1.5.5):
     - Fabric/Base (= 1.5.5)
   - Fabric/Base (1.5.5)
+  - MBProgressHUD (0.9.1)
   - Nimble (2.0.0-rc.3)
   - ObjectMapper (0.17)
   - PivotalCoreKit (0.3.0):
@@ -30,8 +31,12 @@ DEPENDENCIES:
   - Alamofire (= 2.0)
   - AlamofireImage (= 1.1.1)
   - AlamofireObjectMapper (= 0.9)
+<<<<<<< HEAD
   - Crashlytics
   - Fabric
+=======
+  - MBProgressHUD (= 0.9.1)
+>>>>>>> develop
   - Nimble (= 2.0.0-rc.3)
   - PivotalCoreKit (= 0.3.0)
   - PivotalCoreKit/UIKit/SpecHelper/Extensions
@@ -44,6 +49,7 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 263915f1960f5a5bf00bdb921ceb5b8673e901d4
   Crashlytics: 41c082440d2e14da444186fff65e79c0b4b35d4c
   Fabric: 190bf1a6eb65f7500de1347d027d2e59a7e53db1
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   Nimble: 9dff98ee195ffe7351d3b2fb01d3a1420fd97948
   ObjectMapper: fa286b7cb5a398f1b0d8d64d0dd33fd1b307022c
   PivotalCoreKit: 3dab7cf9bff77eb49ce7ffc7a84e57fa8591f033

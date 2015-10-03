@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class DashboardVC: UIViewController {
   
@@ -15,12 +16,14 @@ class DashboardVC: UIViewController {
     dashboardView.terminalStatusBtn.addTarget(self,
       action: "showTerminalStatus",
       forControlEvents: .TouchUpInside)
+    dashboardView.timerView.start(requestLotStatus, updateInterval: 60)
     view = dashboardView
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.title = "";
+    requestLotStatus()
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -28,14 +31,6 @@ class DashboardVC: UIViewController {
     navigationController?.navigationBar.translucent = true
     navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
     navigationController?.navigationBar.shadowImage = UIImage()
-    requestLotStatus()
-    UpdateTimer.start(dashboardView().timerView,
-      callback: requestLotStatus)
-  }
-  
-  override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-    UpdateTimer.stop()
   }
   
   func dashboardView() -> DashboardView {
@@ -43,11 +38,13 @@ class DashboardVC: UIViewController {
   }
     
   func requestLotStatus() {
+    let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+    hud.labelText = NSLocalizedString("Requesting Lot Status", comment: "")
     ApiClient.requestLotStatus({ (status, error) -> Void in
+      
+      hud.hide(true)
       if let color = status?.color  {
         self.dashboardView().updateStatusUI(color)
-      } else {
-        self.dashboardView().updateStatusUI(LotStatusEnum.random())
       }
     })
   }
