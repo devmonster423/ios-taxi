@@ -11,7 +11,7 @@ import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
-typealias FlightsForTerminalClosure = ([Flight]?, ErrorType?) -> Void
+typealias FlightsForTerminalClosure = ([Flight]?) -> Void
 typealias TerminalSummaryClosure = ([TerminalSummary]?, Int?, ErrorType?) -> Void
 
 protocol FlightClient { }
@@ -20,8 +20,10 @@ extension ApiClient {
   static func requestFlightsForTerminal(terminal: Int, hour: Int, response: FlightsForTerminalClosure) {
     let params = ["terminal_id": terminal, "hour": hour]
     authedRequest(Alamofire.request(.GET, Url.Flight.Arrival.details, parameters: params))
-      .responseObject { (flightsForTerminalResponse: FlightsForTerminalResponse?, error: ErrorType?) in
-      response(flightsForTerminalResponse?.flightDetailResponse?.flightDetails, error)
+      .responseObject { (request, _, flightsForTerminalResponse: FlightsForTerminalResponse?, _, error: ErrorType?) in
+        
+        ErrorLogger.log(request, error: error)
+        response(flightsForTerminalResponse?.flightDetailResponse?.flightDetails)
     }
   }
   

@@ -17,6 +17,7 @@
 		C21775F91BB08CAC008B24EA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21775F81BB08CAC008B24EA /* Color.swift */; settings = {ASSET_TAGS = (); }; };
 		C21905681BB0B74E00A3E779 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905671BB0B74E00A3E779 /* Url.swift */; settings = {ASSET_TAGS = (); }; };
 		C219056A1BB0C87200A3E779 /* DeviceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905691BB0C87200A3E779 /* DeviceClient.swift */; settings = {ASSET_TAGS = (); }; };
+		C220E0621BC3322F00AC7C85 /* ErrorLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E0611BC3322F00AC7C85 /* ErrorLogger.swift */; settings = {ASSET_TAGS = (); }; };
 		C23315851BB472490079B916 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23315841BB472490079B916 /* Airline.swift */; settings = {ASSET_TAGS = (); }; };
 		C24486F01BA89DF200A19A9D /* GeofenceListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */; };
 		C24486F21BA89EA800A19A9D /* AllGeofencesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */; };
@@ -141,6 +142,7 @@
 		C21775F81BB08CAC008B24EA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C21905671BB0B74E00A3E779 /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		C21905691BB0C87200A3E779 /* DeviceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceClient.swift; sourceTree = "<group>"; };
+		C220E0611BC3322F00AC7C85 /* ErrorLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorLogger.swift; sourceTree = "<group>"; };
 		C23315841BB472490079B916 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceListResponse.swift; sourceTree = "<group>"; };
 		C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGeofencesResponse.swift; sourceTree = "<group>"; };
@@ -681,6 +683,7 @@
 			children = (
 				C21775F81BB08CAC008B24EA /* Color.swift */,
 				FA650FF71BB20CDB003D1939 /* DateTransform.swift */,
+				C220E0611BC3322F00AC7C85 /* ErrorLogger.swift */,
 				FA0E1FD11BAF1DD500B8F921 /* Font.swift */,
 				C2B15ADE1BBB16010049B97C /* Image.swift */,
 				E1AE8CE41BB5A310004E243E /* UIButton+positionLabel.swift */,
@@ -952,6 +955,7 @@
 				E17352851B8CEC9B0031950B /* UiHelpers.swift in Sources */,
 				E1A2EBAF1B6E920500C27EB2 /* TerminalSummary.swift in Sources */,
 				C207D6FC1BAB86D800273374 /* FlightStatusView.swift in Sources */,
+				C220E0621BC3322F00AC7C85 /* ErrorLogger.swift in Sources */,
 				C27450BA1BB4985E00D33CDD /* AirlineListWrapper.swift in Sources */,
 				E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */,
 				E1B393761BAC614F00FC2970 /* AutomaticVehicleIdResponse.swift in Sources */,

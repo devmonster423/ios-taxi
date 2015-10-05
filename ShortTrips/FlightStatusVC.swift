@@ -58,12 +58,14 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
     hud.labelText = NSLocalizedString("Requesting Flights...", comment: "")
     
-    ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour, response: { (flights, error) -> Void in
+    ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour, response: { flights in
       
       hud.hide(true)
+      
       if let flights = flights {
         self.flights = flights
         self.flightStatusView().flightTable.reloadData()
+        
       } else {
         let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
           message: NSLocalizedString("Request Failed", comment: ""),
