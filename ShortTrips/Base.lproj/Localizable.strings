@@ -6,6 +6,11 @@
   Copyright (c) 2015 SFO. All rights reserved.
 */
 
+/* Errors */
+"Error" = "Error";
+"Request Failed" = "Request Failed";
+"OK" = "OK";
+
 /* Dashboard */
 
 "Our holding lot is" = "Our holding lot is";

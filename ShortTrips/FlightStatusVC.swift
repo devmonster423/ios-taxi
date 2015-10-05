@@ -65,7 +65,17 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         self.flights = flights
         self.flightStatusView().flightTable.reloadData()
       } else {
-        print(error)
+        let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
+          message: NSLocalizedString("Request Failed", comment: ""),
+          preferredStyle: .Alert)
+        
+        let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
+          style: .Default) { alertAction -> Void in
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        alertController.addAction(OKAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
       }
     })
   }
