@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window?.rootViewController = UINavigationController(rootViewController: DashboardVC())
     window?.makeKeyAndVisible()
     Fabric.with([Crashlytics.self()])
-    //Crashlytics.sharedInstance().crash()
     return true
   }
 
