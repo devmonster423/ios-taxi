@@ -22,7 +22,6 @@ xcuserdata
 *.moved-aside
 *.xcuserstate
 *.xcscmblueprint
-Fabric.framework
 
 ## Obj-C/Swift specific
 *.hmap
