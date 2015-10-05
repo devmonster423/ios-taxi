@@ -31,12 +31,9 @@ DEPENDENCIES:
   - Alamofire (= 2.0)
   - AlamofireImage (= 1.1.1)
   - AlamofireObjectMapper (= 0.9)
-<<<<<<< HEAD
-  - Crashlytics
-  - Fabric
-=======
+  - Crashlytics (= 3.3.4)
+  - Fabric (= 1.5.5)
   - MBProgressHUD (= 0.9.1)
->>>>>>> develop
   - Nimble (= 2.0.0-rc.3)
   - PivotalCoreKit (= 0.3.0)
   - PivotalCoreKit/UIKit/SpecHelper/Extensions
