@@ -6,6 +6,8 @@ def shared_pods
   pod 'AlamofireImage', '1.1.1'
   pod 'AlamofireObjectMapper', '0.9'
   pod 'SnapKit', '0.14.0'
+  pod 'Fabric', '1.5.5'
+  pod 'Crashlytics', '3.3.4'
   pod 'MBProgressHUD', '0.9.1'
 end
 
