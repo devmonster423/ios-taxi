@@ -1,16 +1,16 @@
 PODS:
   - Alamofire (2.0.0)
-  - AlamofireImage (1.1.1):
+  - AlamofireImage (1.1.2):
     - Alamofire (~> 2.0)
-  - AlamofireObjectMapper (0.9):
-    - Alamofire (= 2.0.0)
+  - AlamofireObjectMapper (1.0):
+    - Alamofire (~> 2.0.0)
     - ObjectMapper (= 0.17)
   - Crashlytics (3.3.4)
   - Fabric (1.5.5):
     - Fabric/Base (= 1.5.5)
   - Fabric/Base (1.5.5)
   - MBProgressHUD (0.9.1)
-  - Nimble (2.0.0-rc.3)
+  - Nimble (2.0.0)
   - ObjectMapper (0.17)
   - PivotalCoreKit (0.3.0):
     - PivotalCoreKit/Core (= 0.3.0)
@@ -25,32 +25,32 @@ PODS:
     - PivotalCoreKit/UIKit/SpecHelper/Support
   - PivotalCoreKit/UIKit/SpecHelper/Support (0.3.0)
   - Quick (0.6.0)
-  - SnapKit (0.14.0)
+  - SnapKit (0.15.0)
 
 DEPENDENCIES:
   - Alamofire (= 2.0)
-  - AlamofireImage (= 1.1.1)
-  - AlamofireObjectMapper (= 0.9)
+  - AlamofireImage (= 1.1.2)
+  - AlamofireObjectMapper (= 1.0)
   - Crashlytics (= 3.3.4)
   - Fabric (= 1.5.5)
   - MBProgressHUD (= 0.9.1)
-  - Nimble (= 2.0.0-rc.3)
+  - Nimble (= 2.0.0)
   - PivotalCoreKit (= 0.3.0)
   - PivotalCoreKit/UIKit/SpecHelper/Extensions
   - Quick (= 0.6.0)
-  - SnapKit (= 0.14.0)
+  - SnapKit (= 0.15.0)
 
 SPEC CHECKSUMS:
   Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
-  AlamofireImage: 7392dcc75706cba051c606c425d0301d044cb89a
-  AlamofireObjectMapper: 263915f1960f5a5bf00bdb921ceb5b8673e901d4
+  AlamofireImage: dc3d3de5d095fd9545b144ba8f6da5bfc539512a
+  AlamofireObjectMapper: 4f9d766a4742bb69258921723bafc260849f216c
   Crashlytics: 41c082440d2e14da444186fff65e79c0b4b35d4c
   Fabric: 190bf1a6eb65f7500de1347d027d2e59a7e53db1
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
-  Nimble: 9dff98ee195ffe7351d3b2fb01d3a1420fd97948
+  Nimble: 472e75466819eb8c06299233e87c694a9b51328a
   ObjectMapper: fa286b7cb5a398f1b0d8d64d0dd33fd1b307022c
   PivotalCoreKit: 3dab7cf9bff77eb49ce7ffc7a84e57fa8591f033
   Quick: 563686dbcf0ae0f9f7401ac9cd2d786ee1b7f3d7
-  SnapKit: f42352ef34953866da0de1e1009c2ff82588a95e
+  SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
 
 COCOAPODS: 0.38.2
