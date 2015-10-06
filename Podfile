@@ -9,6 +9,7 @@ def shared_pods
   pod 'Fabric', '1.5.5'
   pod 'MBProgressHUD', '0.9.1'
   pod 'SnapKit', '0.15.0'
+  pod 'TransitionKit', '2.2.1'
 end
 
 target 'ShortTrips' do

@@ -26,6 +26,7 @@ PODS:
   - PivotalCoreKit/UIKit/SpecHelper/Support (0.3.0)
   - Quick (0.6.0)
   - SnapKit (0.15.0)
+  - TransitionKit (2.2.1)
 
 DEPENDENCIES:
   - Alamofire (= 2.0)
@@ -39,6 +40,7 @@ DEPENDENCIES:
   - PivotalCoreKit/UIKit/SpecHelper/Extensions
   - Quick (= 0.6.0)
   - SnapKit (= 0.15.0)
+  - TransitionKit (= 2.2.1)
 
 SPEC CHECKSUMS:
   Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
@@ -52,5 +54,6 @@ SPEC CHECKSUMS:
   PivotalCoreKit: 3dab7cf9bff77eb49ce7ffc7a84e57fa8591f033
   Quick: 563686dbcf0ae0f9f7401ac9cd2d786ee1b7f3d7
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
+  TransitionKit: 9ceccda4cd0cdc0a05ef85eb235e5a3292c3c250
 
 COCOAPODS: 0.38.2
