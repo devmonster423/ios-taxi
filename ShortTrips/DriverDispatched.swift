@@ -9,7 +9,7 @@
 import Foundation
 import TransitionKit
 
-class DriverDispatched {
+struct DriverDispatched {
   let eventName = "notReady"
   static let sharedInstance = DriverDispatched()
   

@@ -9,7 +9,7 @@
 import Foundation
 import TransitionKit
 
-class NotReady {
+struct NotReady {
   let stateName = "notReady"
   static let sharedInstance = NotReady()
   

@@ -9,7 +9,7 @@
 import Foundation
 import TransitionKit
 
-class TripManager {
+struct TripManager {
   
   static let sharedInstance = TripManager()
   private var machine: TKStateMachine
