@@ -15,30 +15,24 @@ struct GeofenceArbiter {
   
   static func location(location: CLLocationCoordinate2D, isInsideRegion region: MKPolygon) -> Bool {
     
-   // let mutablePathRef = CGPathCreateMutable()
+    let mutablePathRef = CGPathCreateMutable()
     
-//    CGMutablePathRef mpr = CGPathCreateMutable();
-//    
-//    MKMapPoint *polygonPoints = myPolygon.points;
-//    //myPolygon is the MKPolygon
-//    
-//    for (int p=0; p < myPolygon.pointCount; p++)
-//    {
-//      MKMapPoint mp = polygonPoints[p];
-//      if (p == 0)
-//      CGPathMoveToPoint(mpr, NULL, mp.x, mp.y);
-//      else
-//      CGPathAddLineToPoint(mpr, NULL, mp.x, mp.y);
-//    }
-//    
-//    CGPoint mapPointAsCGP = CGPointMake(mapPoint.x, mapPoint.y);
-//    //mapPoint above is the MKMapPoint of the coordinate we are testing.
-//    //Putting it in a CGPoint because that's what CGPathContainsPoint wants.
-//    
-//    BOOL pointIsInPolygon = CGPathContainsPoint(mpr, NULL, mapPointAsCGP, FALSE);
-//    
-//    CGPathRelease(mpr);
+    let polygonPoints = region.points()
     
-    return true
+    for var index = 0; index < region.pointCount; index++ {
+      
+      let mapPoint = polygonPoints[index]
+      
+      if index == 0 {
+        CGPathMoveToPoint(mutablePathRef, nil, CGFloat(mapPoint.x), CGFloat(mapPoint.y))
+      } else {
+        CGPathAddLineToPoint(mutablePathRef, nil, CGFloat(mapPoint.x), CGFloat(mapPoint.y))
+      }
+    }
+    
+    let mapPoint = MKMapPointForCoordinate(location)
+    let pointasCGP = CGPointMake(CGFloat(mapPoint.x), CGFloat(mapPoint.y))
+    
+    return CGPathContainsPoint(mutablePathRef, nil, pointasCGP, false)
   }
 }
