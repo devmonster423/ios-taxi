@@ -9,7 +9,7 @@
 import Foundation
 import TransitionKit
 
-struct DriverDispatched {
+struct DriverDispatched: Event {
   let eventName = "notReady"
   static let sharedInstance = DriverDispatched()
   
@@ -23,11 +23,5 @@ struct DriverDispatched {
   
   func getEvent() -> TKEvent {
     return event
-  }
-  
-  func fire(info: [NSObject: AnyObject]?) {
-    do {
-      try TripManager.sharedInstance.getMachine().fireEvent(eventName, userInfo: info)
-    } catch {}
   }
 }

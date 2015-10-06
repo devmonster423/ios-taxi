@@ -23,6 +23,7 @@
 		C220E0711BC3440C00AC7C85 /* DriverDispatched.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E0701BC3440C00AC7C85 /* DriverDispatched.swift */; settings = {ASSET_TAGS = (); }; };
 		C220E0731BC3446600AC7C85 /* Ready.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E0721BC3446600AC7C85 /* Ready.swift */; settings = {ASSET_TAGS = (); }; };
 		C220E0781BC34ACE00AC7C85 /* TripScenarioSpec1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E0771BC34ACE00AC7C85 /* TripScenarioSpec1.swift */; settings = {ASSET_TAGS = (); }; };
+		C220E07E1BC3511200AC7C85 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E07D1BC3511200AC7C85 /* Event.swift */; settings = {ASSET_TAGS = (); }; };
 		C23315851BB472490079B916 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23315841BB472490079B916 /* Airline.swift */; settings = {ASSET_TAGS = (); }; };
 		C24486F01BA89DF200A19A9D /* GeofenceListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */; };
 		C24486F21BA89EA800A19A9D /* AllGeofencesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */; };
@@ -153,6 +154,7 @@
 		C220E0701BC3440C00AC7C85 /* DriverDispatched.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverDispatched.swift; sourceTree = "<group>"; };
 		C220E0721BC3446600AC7C85 /* Ready.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ready.swift; sourceTree = "<group>"; };
 		C220E0771BC34ACE00AC7C85 /* TripScenarioSpec1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripScenarioSpec1.swift; sourceTree = "<group>"; };
+		C220E07D1BC3511200AC7C85 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		C23315841BB472490079B916 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceListResponse.swift; sourceTree = "<group>"; };
 		C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGeofencesResponse.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				C220E0701BC3440C00AC7C85 /* DriverDispatched.swift */,
+				C220E07D1BC3511200AC7C85 /* Event.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -1003,6 +1006,7 @@
 				C220E06D1BC33C1D00AC7C85 /* NotReady.swift in Sources */,
 				C220E0711BC3440C00AC7C85 /* DriverDispatched.swift in Sources */,
 				E1A2EBAF1B6E920500C27EB2 /* TerminalSummary.swift in Sources */,
+				C220E07E1BC3511200AC7C85 /* Event.swift in Sources */,
 				C207D6FC1BAB86D800273374 /* FlightStatusView.swift in Sources */,
 				C220E0691BC33A0600AC7C85 /* TripManager.swift in Sources */,
 				C220E0621BC3322F00AC7C85 /* ErrorLogger.swift in Sources */,
