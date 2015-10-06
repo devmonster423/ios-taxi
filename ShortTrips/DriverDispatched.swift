@@ -10,7 +10,7 @@ import Foundation
 import TransitionKit
 
 struct DriverDispatched: Event {
-  let eventName = "notReady"
+  let eventName = "driverDispatched"
   static let sharedInstance = DriverDispatched()
   
   private var event: TKEvent

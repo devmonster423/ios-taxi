@@ -1,5 +1,5 @@
 //
-//  Unread.swift
+//  NotReady.swift
 //  ShortTrips
 //
 //  Created by Matt Luedke on 10/5/15.
