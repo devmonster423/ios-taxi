@@ -22,7 +22,7 @@
 		C220E06D1BC33C1D00AC7C85 /* NotReady.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E06C1BC33C1D00AC7C85 /* NotReady.swift */; settings = {ASSET_TAGS = (); }; };
 		C220E0711BC3440C00AC7C85 /* DriverDispatched.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E0701BC3440C00AC7C85 /* DriverDispatched.swift */; settings = {ASSET_TAGS = (); }; };
 		C220E0731BC3446600AC7C85 /* Ready.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E0721BC3446600AC7C85 /* Ready.swift */; settings = {ASSET_TAGS = (); }; };
-		C220E0781BC34ACE00AC7C85 /* TripManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E0771BC34ACE00AC7C85 /* TripManagerSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		C220E0781BC34ACE00AC7C85 /* TripScenarioSpec1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E0771BC34ACE00AC7C85 /* TripScenarioSpec1.swift */; settings = {ASSET_TAGS = (); }; };
 		C23315851BB472490079B916 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23315841BB472490079B916 /* Airline.swift */; settings = {ASSET_TAGS = (); }; };
 		C24486F01BA89DF200A19A9D /* GeofenceListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */; };
 		C24486F21BA89EA800A19A9D /* AllGeofencesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */; };
@@ -152,7 +152,7 @@
 		C220E06C1BC33C1D00AC7C85 /* NotReady.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotReady.swift; sourceTree = "<group>"; };
 		C220E0701BC3440C00AC7C85 /* DriverDispatched.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverDispatched.swift; sourceTree = "<group>"; };
 		C220E0721BC3446600AC7C85 /* Ready.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ready.swift; sourceTree = "<group>"; };
-		C220E0771BC34ACE00AC7C85 /* TripManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripManagerSpec.swift; sourceTree = "<group>"; };
+		C220E0771BC34ACE00AC7C85 /* TripScenarioSpec1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripScenarioSpec1.swift; sourceTree = "<group>"; };
 		C23315841BB472490079B916 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceListResponse.swift; sourceTree = "<group>"; };
 		C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGeofencesResponse.swift; sourceTree = "<group>"; };
@@ -343,7 +343,7 @@
 		C220E0761BC34AA700AC7C85 /* TripManager */ = {
 			isa = PBXGroup;
 			children = (
-				C220E0771BC34ACE00AC7C85 /* TripManagerSpec.swift */,
+				C220E0771BC34ACE00AC7C85 /* TripScenarioSpec1.swift */,
 			);
 			name = TripManager;
 			sourceTree = "<group>";
@@ -1087,7 +1087,7 @@
 				E1BDE2911BB1EEE6006C0A42 /* CidListResponseSpec.swift in Sources */,
 				E17C22F31BBC505A00E40E6C /* TerminalSummaryArrivalsListResponseSpec.swift in Sources */,
 				E1ADA7051BBC327600766DB1 /* ReferenceConfigResponseSpec.swift in Sources */,
-				C220E0781BC34ACE00AC7C85 /* TripManagerSpec.swift in Sources */,
+				C220E0781BC34ACE00AC7C85 /* TripScenarioSpec1.swift in Sources */,
 				E112C3051BB2FF0100B1DF48 /* GeofenceResponseSpec.swift in Sources */,
 				E112C3091BB3016C00B1DF48 /* AllGeofencesResponseSpec.swift in Sources */,
 				E112C3071BB2FFC400B1DF48 /* GeofenceListResponseSpec.swift in Sources */,
