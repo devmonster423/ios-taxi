@@ -42,13 +42,9 @@ class TerminalSummaryVC: UIViewController {
     updateTerminalTable()
   }
   
-  override func viewDidAppear(animated: Bool) {
+  override func viewWillAppear(animated: Bool) {
     super.viewDidAppear(animated)
     configureTitle()
-  }
-  
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
   }
   
   func terminalSummaryView() -> TerminalSummaryView {
