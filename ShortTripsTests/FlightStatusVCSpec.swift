@@ -33,6 +33,12 @@ class FlightStatusVCSpec: QuickSpec {
       it("is instantiated") {
         expect(viewController).toNot(beNil())
       }
+      
+      it("can display flights") {
+        viewController.flights = [Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .OnTime, flightNumber: "42", scheduledTime: NSDate())]
+        viewController.flightStatusView().flightTable.reloadData()
+        expect(viewController.flightStatusView().flightTable.visibleCells.count).to(equal(1))
+      }
     }
   }
 }
