@@ -42,6 +42,34 @@ class TerminalSummaryVCSpec: QuickSpec {
           expect(imageView.image).to(equal(Image.sfoLogoAlpha.image()))
         }
       }
+      
+      describe("tapping the plus") {
+        
+        var hourValue: Int = 0
+        
+        beforeEach {
+          hourValue = viewController.terminalSummaryView().getCurrentHour()
+          viewController.terminalSummaryView().increaseButton.tap()
+        }
+        
+        it ("increases hour by one") {
+          expect(viewController.terminalSummaryView().getCurrentHour()) == hourValue + 1
+        }
+      }
+      
+      describe("tapping the minus") {
+        
+        var hourValue: Int = 0
+        
+        beforeEach {
+          hourValue = viewController.terminalSummaryView().getCurrentHour()
+          viewController.terminalSummaryView().decreaseButton.tap()
+        }
+        
+        it ("decreases hour by one") {
+          expect(viewController.terminalSummaryView().getCurrentHour()) == hourValue - 1
+        }
+      }
     }
   }
 }
