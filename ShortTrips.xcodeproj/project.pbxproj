@@ -85,8 +85,8 @@
 		E18228FB1BC48F2300614256 /* InProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18228FA1BC48F2300614256 /* InProgress.swift */; settings = {ASSET_TAGS = (); }; };
 		E18228FD1BC4900900614256 /* DriverExitsSfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18228FC1BC4900900614256 /* DriverExitsSfo.swift */; settings = {ASSET_TAGS = (); }; };
 		E18228FF1BC4932400614256 /* Validating.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18228FE1BC4932400614256 /* Validating.swift */; settings = {ASSET_TAGS = (); }; };
-		E18229011BC4939800614256 /* DriverReturnsToSfo1.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18229001BC4939800614256 /* DriverReturnsToSfo1.swift */; settings = {ASSET_TAGS = (); }; };
-		E18229031BC495A000614256 /* DriverReturnsToSfo2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18229021BC495A000614256 /* DriverReturnsToSfo2.swift */; settings = {ASSET_TAGS = (); }; };
+		E18229011BC4939800614256 /* DriverReturnsToSfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18229001BC4939800614256 /* DriverReturnsToSfo.swift */; settings = {ASSET_TAGS = (); }; };
+		E18229031BC495A000614256 /* TripValidated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18229021BC495A000614256 /* TripValidated.swift */; settings = {ASSET_TAGS = (); }; };
 		E18229051BC495E300614256 /* Valid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18229041BC495E300614256 /* Valid.swift */; settings = {ASSET_TAGS = (); }; };
 		E18229071BC4983000614256 /* DriverProceedsToTaxiLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18229061BC4983000614256 /* DriverProceedsToTaxiLoop.swift */; settings = {ASSET_TAGS = (); }; };
 		E18736891BA8E7D800B6C7D8 /* AntennaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18736881BA8E7D800B6C7D8 /* AntennaResponse.swift */; };
@@ -229,8 +229,8 @@
 		E18228FA1BC48F2300614256 /* InProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InProgress.swift; sourceTree = "<group>"; };
 		E18228FC1BC4900900614256 /* DriverExitsSfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverExitsSfo.swift; sourceTree = "<group>"; };
 		E18228FE1BC4932400614256 /* Validating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validating.swift; sourceTree = "<group>"; };
-		E18229001BC4939800614256 /* DriverReturnsToSfo1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverReturnsToSfo1.swift; sourceTree = "<group>"; };
-		E18229021BC495A000614256 /* DriverReturnsToSfo2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverReturnsToSfo2.swift; sourceTree = "<group>"; };
+		E18229001BC4939800614256 /* DriverReturnsToSfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverReturnsToSfo.swift; sourceTree = "<group>"; };
+		E18229021BC495A000614256 /* TripValidated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripValidated.swift; sourceTree = "<group>"; };
 		E18229041BC495E300614256 /* Valid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Valid.swift; sourceTree = "<group>"; };
 		E18229061BC4983000614256 /* DriverProceedsToTaxiLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverProceedsToTaxiLoop.swift; sourceTree = "<group>"; };
 		E18736881BA8E7D800B6C7D8 /* AntennaResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntennaResponse.swift; sourceTree = "<group>"; };
@@ -361,11 +361,11 @@
 			isa = PBXGroup;
 			children = (
 				C220E0701BC3440C00AC7C85 /* DriverDispatched.swift */,
-				C220E07D1BC3511200AC7C85 /* Event.swift */,
 				E18228FC1BC4900900614256 /* DriverExitsSfo.swift */,
-				E18229001BC4939800614256 /* DriverReturnsToSfo1.swift */,
-				E18229021BC495A000614256 /* DriverReturnsToSfo2.swift */,
 				E18229061BC4983000614256 /* DriverProceedsToTaxiLoop.swift */,
+				E18229001BC4939800614256 /* DriverReturnsToSfo.swift */,
+				C220E07D1BC3511200AC7C85 /* Event.swift */,
+				E18229021BC495A000614256 /* TripValidated.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -1092,7 +1092,7 @@
 				C20A53021BB36D04001D1F90 /* AirlineClient.swift in Sources */,
 				C200BE231BA8D05D00B7F56F /* TimerView.swift in Sources */,
 				C200BE271BA8D3A300B7F56F /* HourPickerView.swift in Sources */,
-				E18229011BC4939800614256 /* DriverReturnsToSfo1.swift in Sources */,
+				E18229011BC4939800614256 /* DriverReturnsToSfo.swift in Sources */,
 				E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */,
 				C220E0731BC3446600AC7C85 /* Ready.swift in Sources */,
 				E18736901BA8EBED00B6C7D8 /* CidResponse.swift in Sources */,
@@ -1121,7 +1121,7 @@
 				E1B3937B1BAC66FE00FC2970 /* LotStatus.swift in Sources */,
 				E1B3937D1BAC681B00FC2970 /* LotStatusEnum.swift in Sources */,
 				FA650FF81BB20CDB003D1939 /* DateTransform.swift in Sources */,
-				E18229031BC495A000614256 /* DriverReturnsToSfo2.swift in Sources */,
+				E18229031BC495A000614256 /* TripValidated.swift in Sources */,
 				E1DCC1FF1BA8DEAC0016B725 /* ReferenceConfigResponse.swift in Sources */,
 				C23315851BB472490079B916 /* Airline.swift in Sources */,
 				C219056A1BB0C87200A3E779 /* DeviceClient.swift in Sources */,

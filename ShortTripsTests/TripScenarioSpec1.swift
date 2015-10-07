@@ -32,12 +32,12 @@ class TripScenarioSpec1: QuickSpec {
         DriverExitsSfo.sharedInstance.fire(nil)
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         
-        // can fire DriverReturnsToSfo1 and make correct state change
-        DriverReturnsToSfo1.sharedInstance.fire(nil)
+        // can fire DriverReturnsToSfo and make correct state change
+        DriverReturnsToSfo.sharedInstance.fire(nil)
         expect(machine.isInState(Validating.sharedInstance.getState())).to(beTrue())
         
-        // can fire DriverReturnsToSfo2 and make correct state change
-        DriverReturnsToSfo2.sharedInstance.fire(nil)
+        // can fire TripValidated and make correct state change
+        TripValidated.sharedInstance.fire(nil)
         expect(machine.isInState(Valid.sharedInstance.getState())).to(beTrue())
         
         // can fire DriverProceedsToTaxiLoop and make correct state change

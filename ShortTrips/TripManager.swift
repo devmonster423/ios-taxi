@@ -31,8 +31,8 @@ struct TripManager {
     machine.addEvents([
       DriverDispatched.sharedInstance.getEvent(),
       DriverExitsSfo.sharedInstance.getEvent(),
-      DriverReturnsToSfo1.sharedInstance.getEvent(),
-      DriverReturnsToSfo2.sharedInstance.getEvent(),
+      DriverReturnsToSfo.sharedInstance.getEvent(),
+      TripValidated.sharedInstance.getEvent(),
       DriverProceedsToTaxiLoop.sharedInstance.getEvent()
       ])
     
