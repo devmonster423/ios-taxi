@@ -46,7 +46,12 @@ class FlightStatusVCSpec: QuickSpec {
         }
         
         it("can display flights") {
-          expect(viewController.flightStatusView().flightTable.visibleCells.count).toEventually(equal(viewController.flights!.count))
+          expect(viewController.flightStatusView().flightTable.numberOfSections).to(equal(1))
+          expect(viewController.flightStatusView().flightTable.numberOfRowsInSection(0)).to(equal(viewController.flights!.count))
+          
+          let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+          
+          expect(viewController.flightStatusView().flightTable.cellForRowAtIndexPath(indexPath)).toNot(beNil())
         }
       }
     }
