@@ -34,10 +34,20 @@ class FlightStatusVCSpec: QuickSpec {
         expect(viewController).toNot(beNil())
       }
       
-      it("can display flights") {
-        viewController.flights = [Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .OnTime, flightNumber: "42", scheduledTime: NSDate())]
-        viewController.flightStatusView().flightTable.reloadData()
-        expect(viewController.flightStatusView().flightTable.visibleCells.count).to(equal(1))
+      describe("after loading in fake flight data") {
+        beforeEach {
+          viewController.flights = [
+            Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .OnTime, flightNumber: "421", scheduledTime: NSDate()),
+            Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .Delayed, flightNumber: "422", scheduledTime: NSDate()),
+            Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .Landed, flightNumber: "423", scheduledTime: NSDate()),
+            Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .Landing, flightNumber: "424", scheduledTime: NSDate())
+          ]
+          viewController.flightStatusView().flightTable.reloadData()
+        }
+        
+        it("can display flights") {
+          expect(viewController.flightStatusView().flightTable.visibleCells.count).toEventually(equal(viewController.flights!.count))
+        }
       }
     }
   }
