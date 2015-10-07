@@ -34,6 +34,17 @@ class FlightStatusVCSpec: QuickSpec {
         expect(viewController).toNot(beNil())
       }
       
+      describe("when it appears") {
+        beforeEach {
+          viewController.viewWillAppear(false)
+        }
+        
+        it("has the SFO logo as a navigation item title") {
+          let imageView = viewController.navigationItem.titleView as! UIImageView
+          expect(imageView.image).to(equal(Image.sfoLogoAlpha.image()))
+        }
+      }
+      
       describe("after loading in fake flight data") {
         beforeEach {
           viewController.flights = [
