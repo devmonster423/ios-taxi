@@ -18,6 +18,8 @@
 		C21528C51BC83A820073502F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C41BC83A820073502F /* LoginView.swift */; settings = {ASSET_TAGS = (); }; };
 		C21528C71BC855460073502F /* DebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C61BC855460073502F /* DebugVC.swift */; settings = {ASSET_TAGS = (); }; };
 		C21528C91BC8557B0073502F /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C81BC8557B0073502F /* DebugView.swift */; settings = {ASSET_TAGS = (); }; };
+		C21528CD1BC869790073502F /* LoginVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528CC1BC869790073502F /* LoginVCSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		C21528CF1BC869820073502F /* DebugVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528CE1BC869820073502F /* DebugVCSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		C21775F91BB08CAC008B24EA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21775F81BB08CAC008B24EA /* Color.swift */; settings = {ASSET_TAGS = (); }; };
 		C21905681BB0B74E00A3E779 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905671BB0B74E00A3E779 /* Url.swift */; settings = {ASSET_TAGS = (); }; };
 		C219056A1BB0C87200A3E779 /* DeviceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905691BB0C87200A3E779 /* DeviceClient.swift */; settings = {ASSET_TAGS = (); }; };
@@ -163,6 +165,8 @@
 		C21528C41BC83A820073502F /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C21528C61BC855460073502F /* DebugVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugVC.swift; sourceTree = "<group>"; };
 		C21528C81BC8557B0073502F /* DebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
+		C21528CC1BC869790073502F /* LoginVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVCSpec.swift; sourceTree = "<group>"; };
+		C21528CE1BC869820073502F /* DebugVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugVCSpec.swift; sourceTree = "<group>"; };
 		C21775F81BB08CAC008B24EA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C21905671BB0B74E00A3E779 /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		C21905691BB0C87200A3E779 /* DeviceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceClient.swift; sourceTree = "<group>"; };
@@ -351,6 +355,15 @@
 			children = (
 				C21528C41BC83A820073502F /* LoginView.swift */,
 				C21528C81BC8557B0073502F /* DebugView.swift */,
+			);
+			name = Debug;
+			sourceTree = "<group>";
+		};
+		C21528CB1BC869380073502F /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				C21528CC1BC869790073502F /* LoginVCSpec.swift */,
+				C21528CE1BC869820073502F /* DebugVCSpec.swift */,
 			);
 			name = Debug;
 			sourceTree = "<group>";
@@ -645,6 +658,7 @@
 		E18FFE2A1BB1A083003D192A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C21528CB1BC869380073502F /* Debug */,
 				C257FB411BC4650200468CF1 /* LocationManagement */,
 				C220E0761BC34AA700AC7C85 /* TripManager */,
 				C2897A921BB5E6CC00FE1B40 /* Networking */,
@@ -1193,8 +1207,10 @@
 				E1E6EF9E1BB205520039C5F3 /* DriverSpec.swift in Sources */,
 				E112C30E1BB3195500B1DF48 /* LotStatusSpec.swift in Sources */,
 				E14E159E1BB1DA9F009D1E17 /* AntennaResponseSpec.swift in Sources */,
+				C21528CF1BC869820073502F /* DebugVCSpec.swift in Sources */,
 				E18FFE291BB19ED2003D192A /* FlightsForTerminalResponseSpec.swift in Sources */,
 				E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift in Sources */,
+				C21528CD1BC869790073502F /* LoginVCSpec.swift in Sources */,
 				E1BDE28D1BB1EB21006C0A42 /* CidSpec.swift in Sources */,
 				E1BDE2881BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift in Sources */,
 				E1FDB2681BBC47E500F8F452 /* CredentialSpec.swift in Sources */,
