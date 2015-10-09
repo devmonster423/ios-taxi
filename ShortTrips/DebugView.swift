@@ -9,6 +9,26 @@
 import UIKit
 import SnapKit
 
+enum DebugType {
+  case Normal
+  case Positive
+  case Negative
+  case BigDeal
+  
+  func fontAndColor() -> (font: UIFont, color: UIColor) {
+    switch self {
+    case .Normal:
+      return (Font.MyriadPro.size(20), UIColor.blackColor())
+    case .Positive:
+      return (Font.MyriadProSemibold.size(20), Color.Debug.green)
+    case .Negative:
+      return (Font.MyriadProSemibold.size(20), Color.Debug.red)
+    case .BigDeal:
+      return (Font.MyriadProBold.size(24), UIColor.blackColor())
+    }
+  }
+}
+
 class DebugView: UIView {
   
   private let debugTextView = UITextView()
@@ -31,10 +51,21 @@ class DebugView: UIView {
     }
   }
   
-  func printDebugLine(text: String?) {
+  func printDebugLine(text: String?, type: DebugType = .Normal) {
     if let text = text {
-      let oldText = debugTextView.text
-      debugTextView.text = oldText + "\n" + text
+      
+      let newString = NSMutableAttributedString(attributedString: debugTextView.attributedText)
+      
+      let fontAndColor = type.fontAndColor()
+      
+      let attributedText = NSAttributedString(string: "\n" + text,
+        attributes: [
+          NSFontAttributeName: fontAndColor.font,
+          NSForegroundColorAttributeName: fontAndColor.color
+        ])
+      
+      newString.appendAttributedString(attributedText)
+      debugTextView.attributedText = newString
     }
   }
 }

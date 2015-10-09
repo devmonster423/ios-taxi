@@ -9,6 +9,12 @@
 import UIKit
 
 struct Color {
+  
+  struct Debug {
+    static let green = StatusColor.green
+    static let red = StatusColor.red
+  }
+  
   struct StatusColor {
     static let green = UIColor(red: 21/255.0, green: 155/255.0, blue: 32/255.0, alpha: 1.0)
     static let yellow = UIColor(red: 233/255.0, green: 181/255.0, blue: 46/255.0, alpha: 1.0)

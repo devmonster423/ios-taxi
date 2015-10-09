@@ -15,12 +15,6 @@ class DebugVC: UIViewController {
     view = debugView
   }
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    debugView().printDebugLine("Debugger Started")
-  }
-  
   func debugView() -> DebugView {
     return self.view as! DebugView
   }
