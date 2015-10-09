@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01937E5EB89C54E6045C76F1 /* Pods_ShortTrips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81AB3E7D2C8CBBF8AF294E13 /* Pods_ShortTrips.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		5062C2B0F9B113B3BD8778A1 /* Pods_ShortTripsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F853EB5ED3B732FCC78F3D1 /* Pods_ShortTripsTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		01937E5EB89C54E6045C76F1 /* Pods_ShortTrips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81AB3E7D2C8CBBF8AF294E13 /* Pods_ShortTrips.framework */; };
+		5062C2B0F9B113B3BD8778A1 /* Pods_ShortTripsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F853EB5ED3B732FCC78F3D1 /* Pods_ShortTripsTests.framework */; };
 		C200BE211BA8C21600B7F56F /* TerminalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200BE201BA8C21600B7F56F /* TerminalView.swift */; };
 		C200BE231BA8D05D00B7F56F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200BE221BA8D05D00B7F56F /* TimerView.swift */; };
 		C200BE271BA8D3A300B7F56F /* HourPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200BE261BA8D3A300B7F56F /* HourPickerView.swift */; };
