@@ -14,6 +14,12 @@
 		C200BE271BA8D3A300B7F56F /* HourPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200BE261BA8D3A300B7F56F /* HourPickerView.swift */; };
 		C207D6FC1BAB86D800273374 /* FlightStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C207D6FB1BAB86D800273374 /* FlightStatusView.swift */; settings = {ASSET_TAGS = (); }; };
 		C20A53021BB36D04001D1F90 /* AirlineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A53011BB36D04001D1F90 /* AirlineClient.swift */; settings = {ASSET_TAGS = (); }; };
+		C21528C21BC839990073502F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C11BC839990073502F /* LoginVC.swift */; settings = {ASSET_TAGS = (); }; };
+		C21528C51BC83A820073502F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C41BC83A820073502F /* LoginView.swift */; settings = {ASSET_TAGS = (); }; };
+		C21528C71BC855460073502F /* DebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C61BC855460073502F /* DebugVC.swift */; settings = {ASSET_TAGS = (); }; };
+		C21528C91BC8557B0073502F /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C81BC8557B0073502F /* DebugView.swift */; settings = {ASSET_TAGS = (); }; };
+		C21528CD1BC869790073502F /* LoginVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528CC1BC869790073502F /* LoginVCSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		C21528CF1BC869820073502F /* DebugVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528CE1BC869820073502F /* DebugVCSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		C21775F91BB08CAC008B24EA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21775F81BB08CAC008B24EA /* Color.swift */; settings = {ASSET_TAGS = (); }; };
 		C21905681BB0B74E00A3E779 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905671BB0B74E00A3E779 /* Url.swift */; settings = {ASSET_TAGS = (); }; };
 		C219056A1BB0C87200A3E779 /* DeviceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905691BB0C87200A3E779 /* DeviceClient.swift */; settings = {ASSET_TAGS = (); }; };
@@ -155,6 +161,12 @@
 		C200BE261BA8D3A300B7F56F /* HourPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourPickerView.swift; sourceTree = "<group>"; };
 		C207D6FB1BAB86D800273374 /* FlightStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatusView.swift; sourceTree = "<group>"; };
 		C20A53011BB36D04001D1F90 /* AirlineClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineClient.swift; sourceTree = "<group>"; };
+		C21528C11BC839990073502F /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		C21528C41BC83A820073502F /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C21528C61BC855460073502F /* DebugVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugVC.swift; sourceTree = "<group>"; };
+		C21528C81BC8557B0073502F /* DebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
+		C21528CC1BC869790073502F /* LoginVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVCSpec.swift; sourceTree = "<group>"; };
+		C21528CE1BC869820073502F /* DebugVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugVCSpec.swift; sourceTree = "<group>"; };
 		C21775F81BB08CAC008B24EA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C21905671BB0B74E00A3E779 /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		C21905691BB0C87200A3E779 /* DeviceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceClient.swift; sourceTree = "<group>"; };
@@ -317,6 +329,43 @@
 				8C1EEE491F8AB773F5CE16CE /* Pods-ShortTripsTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C21528BF1BC839050073502F /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				C2DFE5C91B56D2CB0090B55F /* DashboardVC.swift */,
+				E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */,
+				E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		C21528C01BC8390F0073502F /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				C21528C11BC839990073502F /* LoginVC.swift */,
+				C21528C61BC855460073502F /* DebugVC.swift */,
+			);
+			name = Debug;
+			sourceTree = "<group>";
+		};
+		C21528C31BC83A610073502F /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				C21528C41BC83A820073502F /* LoginView.swift */,
+				C21528C81BC8557B0073502F /* DebugView.swift */,
+			);
+			name = Debug;
+			sourceTree = "<group>";
+		};
+		C21528CB1BC869380073502F /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				C21528CC1BC869790073502F /* LoginVCSpec.swift */,
+				C21528CE1BC869820073502F /* DebugVCSpec.swift */,
+			);
+			name = Debug;
 			sourceTree = "<group>";
 		};
 		C21905661BB0B73E00A3E779 /* Networking */ = {
@@ -609,6 +658,7 @@
 		E18FFE2A1BB1A083003D192A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C21528CB1BC869380073502F /* Debug */,
 				C257FB411BC4650200468CF1 /* LocationManagement */,
 				C220E0761BC34AA700AC7C85 /* TripManager */,
 				C2897A921BB5E6CC00FE1B40 /* Networking */,
@@ -650,12 +700,11 @@
 		E1A2EBA31B6C2AA400C27EB2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C21528C01BC8390F0073502F /* Debug */,
+				C21528BF1BC839050073502F /* Dashboard */,
 				C257FB3B1BC44E2000468CF1 /* LocationManagement */,
 				C220E0671BC339E200AC7C85 /* TripManager */,
 				C21905661BB0B73E00A3E779 /* Networking */,
-				C2DFE5C91B56D2CB0090B55F /* DashboardVC.swift */,
-				E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */,
-				E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -682,6 +731,7 @@
 		E1A2EBA51B6C2BC600C27EB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C21528C31BC83A610073502F /* Debug */,
 				E177ED031BB4710400DD4499 /* Dashboard */,
 				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
 			);
@@ -1094,7 +1144,9 @@
 				C200BE271BA8D3A300B7F56F /* HourPickerView.swift in Sources */,
 				E18229011BC4939800614256 /* DriverReturnsToSfo.swift in Sources */,
 				E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */,
+				C21528C71BC855460073502F /* DebugVC.swift in Sources */,
 				C220E0731BC3446600AC7C85 /* Ready.swift in Sources */,
+				C21528C51BC83A820073502F /* LoginView.swift in Sources */,
 				E18736901BA8EBED00B6C7D8 /* CidResponse.swift in Sources */,
 				E11D60971BA7A40100FD4276 /* Geofence.swift in Sources */,
 				C27450BC1BB4988200D33CDD /* AirlineListResponse.swift in Sources */,
@@ -1103,6 +1155,7 @@
 				E18FF6931BA877C000FE93B9 /* TripState.swift in Sources */,
 				E18FF68D1BA8667500FE93B9 /* AutomaticVehicleId.swift in Sources */,
 				C24486F21BA89EA800A19A9D /* AllGeofencesResponse.swift in Sources */,
+				C21528C21BC839990073502F /* LoginVC.swift in Sources */,
 				C21775F91BB08CAC008B24EA /* Color.swift in Sources */,
 				C24486F01BA89DF200A19A9D /* GeofenceListResponse.swift in Sources */,
 				E187368C1BA8EA0900B6C7D8 /* AllCidsResponse.swift in Sources */,
@@ -1132,6 +1185,7 @@
 				E16399D51BA7B99400EDE0AE /* Driver.swift in Sources */,
 				C2B667291BA7833400BA28E2 /* TerminalSummaryView.swift in Sources */,
 				C2635E2E1BB0CD9A003C22B1 /* ReferenceClient.swift in Sources */,
+				C21528C91BC8557B0073502F /* DebugView.swift in Sources */,
 				E1A2EBA91B6D747F00C27EB2 /* Flight.swift in Sources */,
 				E187368E1BA8EADE00B6C7D8 /* CidListResponse.swift in Sources */,
 				E18228FB1BC48F2300614256 /* InProgress.swift in Sources */,
@@ -1153,8 +1207,10 @@
 				E1E6EF9E1BB205520039C5F3 /* DriverSpec.swift in Sources */,
 				E112C30E1BB3195500B1DF48 /* LotStatusSpec.swift in Sources */,
 				E14E159E1BB1DA9F009D1E17 /* AntennaResponseSpec.swift in Sources */,
+				C21528CF1BC869820073502F /* DebugVCSpec.swift in Sources */,
 				E18FFE291BB19ED2003D192A /* FlightsForTerminalResponseSpec.swift in Sources */,
 				E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift in Sources */,
+				C21528CD1BC869790073502F /* LoginVCSpec.swift in Sources */,
 				E1BDE28D1BB1EB21006C0A42 /* CidSpec.swift in Sources */,
 				E1BDE2881BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift in Sources */,
 				E1FDB2681BBC47E500F8F452 /* CredentialSpec.swift in Sources */,

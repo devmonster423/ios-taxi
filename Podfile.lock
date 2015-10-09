@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (2.0.0)
+  - Alamofire (2.0.2)
   - AlamofireImage (1.1.2):
     - Alamofire (~> 2.0)
   - AlamofireObjectMapper (1.0):
@@ -29,7 +29,7 @@ PODS:
   - TransitionKit (2.2.1)
 
 DEPENDENCIES:
-  - Alamofire (= 2.0)
+  - Alamofire (= 2.0.2)
   - AlamofireImage (= 1.1.2)
   - AlamofireObjectMapper (= 1.0)
   - Crashlytics (= 3.3.4)
@@ -43,7 +43,7 @@ DEPENDENCIES:
   - TransitionKit (= 2.2.1)
 
 SPEC CHECKSUMS:
-  Alamofire: 2f13548b29d25a58ecd91c9225fb51493e2b782b
+  Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   AlamofireImage: dc3d3de5d095fd9545b144ba8f6da5bfc539512a
   AlamofireObjectMapper: 4f9d766a4742bb69258921723bafc260849f216c
   Crashlytics: 41c082440d2e14da444186fff65e79c0b4b35d4c
@@ -56,4 +56,4 @@ SPEC CHECKSUMS:
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   TransitionKit: 9ceccda4cd0cdc0a05ef85eb235e5a3292c3c250
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

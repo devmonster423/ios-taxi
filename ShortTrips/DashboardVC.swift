@@ -17,6 +17,10 @@ class DashboardVC: UIViewController {
       action: "showTerminalStatus",
       forControlEvents: .TouchUpInside)
     dashboardView.timerView.start(requestLotStatus, updateInterval: 60)
+    let secretSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: "openDebugMode")
+    secretSwipeRecognizer.numberOfTouchesRequired = 2
+    secretSwipeRecognizer.direction = .Down
+    dashboardView.addGestureRecognizer(secretSwipeRecognizer)
     view = dashboardView
   }
 
@@ -52,6 +56,10 @@ class DashboardVC: UIViewController {
         self.dashboardView().updateStatusUI(color)
       }
     })
+  }
+  
+  func openDebugMode() {
+    navigationController?.pushViewController(LoginVC(), animated: true)
   }
 
   func showTerminalStatus() {

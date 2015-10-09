@@ -2,7 +2,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 def shared_pods
-  pod 'Alamofire', '2.0'
+  pod 'Alamofire', '2.0.2'
   pod 'AlamofireImage', '1.1.2'
   pod 'AlamofireObjectMapper', '1.0'
   pod 'Crashlytics', '3.3.4'
