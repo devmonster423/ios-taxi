@@ -14,10 +14,14 @@ import AlamofireObjectMapper
 protocol DriverClient { }
 
 extension ApiClient {
-  static func authenticateDriver(credential: Credential) {
-    authedRequest(Alamofire.request(.POST, Url.Driver.login, parameters: Mapper().toJSON(credential), encoding: .JSON))
-      .response { _, _, _, error in
-      print(error)
+  static func authenticateDriver(credential: Credential, completion: Void -> Void) {
+    authedRequest(Alamofire.request(.POST, Url.Driver.login, parameters: Mapper().toJSON(credential)))
+      .response { _, response, _, error in
+        
+        // TODO: debug
+        print(response)
+        print(error)
+        completion()
     }
   }
 }

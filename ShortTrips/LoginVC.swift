@@ -11,11 +11,22 @@ import UIKit
 class LoginVC: UIViewController {
   
   override func loadView() {
-    let dashboardView = LoginView(frame: UIScreen.mainScreen().bounds)
-    view = dashboardView
+    let loginView = LoginView(frame: UIScreen.mainScreen().bounds)
+    loginView.loginButton.addTarget(self,
+      action: "login",
+      forControlEvents: .TouchUpInside)
+    view = loginView
   }
 
   func loginView() -> LoginView {
     return self.view as! LoginView
+  }
+  
+  func login() {
+    ApiClient.authenticateDriver(loginView().getLoginCredential()) { _ in
+      
+      // TODO: pass along/save credentials
+      navigationController?.pushViewController(DebugVC(), animated: true)
+    }
   }
 }

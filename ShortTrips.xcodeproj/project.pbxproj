@@ -16,6 +16,8 @@
 		C20A53021BB36D04001D1F90 /* AirlineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A53011BB36D04001D1F90 /* AirlineClient.swift */; settings = {ASSET_TAGS = (); }; };
 		C21528C21BC839990073502F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C11BC839990073502F /* LoginVC.swift */; settings = {ASSET_TAGS = (); }; };
 		C21528C51BC83A820073502F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C41BC83A820073502F /* LoginView.swift */; settings = {ASSET_TAGS = (); }; };
+		C21528C71BC855460073502F /* DebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C61BC855460073502F /* DebugVC.swift */; settings = {ASSET_TAGS = (); }; };
+		C21528C91BC8557B0073502F /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C81BC8557B0073502F /* DebugView.swift */; settings = {ASSET_TAGS = (); }; };
 		C21775F91BB08CAC008B24EA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21775F81BB08CAC008B24EA /* Color.swift */; settings = {ASSET_TAGS = (); }; };
 		C21905681BB0B74E00A3E779 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905671BB0B74E00A3E779 /* Url.swift */; settings = {ASSET_TAGS = (); }; };
 		C219056A1BB0C87200A3E779 /* DeviceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905691BB0C87200A3E779 /* DeviceClient.swift */; settings = {ASSET_TAGS = (); }; };
@@ -159,6 +161,8 @@
 		C20A53011BB36D04001D1F90 /* AirlineClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineClient.swift; sourceTree = "<group>"; };
 		C21528C11BC839990073502F /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		C21528C41BC83A820073502F /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C21528C61BC855460073502F /* DebugVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugVC.swift; sourceTree = "<group>"; };
+		C21528C81BC8557B0073502F /* DebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		C21775F81BB08CAC008B24EA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C21905671BB0B74E00A3E779 /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		C21905691BB0C87200A3E779 /* DeviceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceClient.swift; sourceTree = "<group>"; };
@@ -337,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				C21528C11BC839990073502F /* LoginVC.swift */,
+				C21528C61BC855460073502F /* DebugVC.swift */,
 			);
 			name = Debug;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				C21528C41BC83A820073502F /* LoginView.swift */,
+				C21528C81BC8557B0073502F /* DebugView.swift */,
 			);
 			name = Debug;
 			sourceTree = "<group>";
@@ -1124,6 +1130,7 @@
 				C200BE271BA8D3A300B7F56F /* HourPickerView.swift in Sources */,
 				E18229011BC4939800614256 /* DriverReturnsToSfo.swift in Sources */,
 				E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */,
+				C21528C71BC855460073502F /* DebugVC.swift in Sources */,
 				C220E0731BC3446600AC7C85 /* Ready.swift in Sources */,
 				C21528C51BC83A820073502F /* LoginView.swift in Sources */,
 				E18736901BA8EBED00B6C7D8 /* CidResponse.swift in Sources */,
@@ -1164,6 +1171,7 @@
 				E16399D51BA7B99400EDE0AE /* Driver.swift in Sources */,
 				C2B667291BA7833400BA28E2 /* TerminalSummaryView.swift in Sources */,
 				C2635E2E1BB0CD9A003C22B1 /* ReferenceClient.swift in Sources */,
+				C21528C91BC8557B0073502F /* DebugView.swift in Sources */,
 				E1A2EBA91B6D747F00C27EB2 /* Flight.swift in Sources */,
 				E187368E1BA8EADE00B6C7D8 /* CidListResponse.swift in Sources */,
 				E18228FB1BC48F2300614256 /* InProgress.swift in Sources */,
