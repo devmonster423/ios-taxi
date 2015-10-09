@@ -22,21 +22,20 @@ enum TerminalId: Int {
 
 struct TerminalSummary: Mappable {
   var terminalId: TerminalId!
-  var count: Int!
   var delayedCount: Int!
-  var onTimeCount: Int { get { return count - delayedCount }}
+  var onTimeCount: Int!
   
   init?(_ map: Map){}
   
-  init(terminalId: TerminalId, count: Int, delayedCount: Int) {
+  init(terminalId: TerminalId, onTimeCount: Int, delayedCount: Int) {
     self.terminalId = terminalId
-    self.count = count
+    self.onTimeCount = onTimeCount
     self.delayedCount = delayedCount
   }
   
   mutating func mapping(map: Map) {
     terminalId <- map["terminal_id"]
-    count <- map["count"]
+    onTimeCount <- map["count"]
     delayedCount <- map["delayed_count"]
   }
   
