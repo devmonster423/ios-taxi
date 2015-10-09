@@ -66,7 +66,7 @@ class HourPickerView: UIView {
     }
     
     mainLabel.font = Font.MyriadProSemibold.size(40)
-    mainLabel.text = NSLocalizedString("1h", comment: "")
+    mainLabel.text = String(format: NSLocalizedString("%dh", comment: ""), 1)
     mainLabel.textAlignment = .Center
     mainLabel.textColor = Color.Sfo.blue
     mainLabel.snp_makeConstraints { (make) -> Void in
