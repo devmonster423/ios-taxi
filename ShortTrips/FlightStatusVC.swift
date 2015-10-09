@@ -39,6 +39,11 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     configureTitle()
   }
   
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    flightStatusView().timerView.stop()
+  }
+  
   func flightStatusView() -> FlightStatusView {
     return view as! FlightStatusView
   }

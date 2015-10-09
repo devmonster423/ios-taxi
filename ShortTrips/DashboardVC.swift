@@ -33,6 +33,11 @@ class DashboardVC: UIViewController {
     navigationController?.navigationBar.shadowImage = UIImage()
   }
   
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    dashboardView().timerView.stop()
+  }
+  
   func dashboardView() -> DashboardView {
     return self.view as! DashboardView
   }

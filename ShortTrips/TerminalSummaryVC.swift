@@ -47,6 +47,11 @@ class TerminalSummaryVC: UIViewController {
     configureTitle()
   }
   
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    terminalSummaryView().timerView.stop()
+  }
+  
   func terminalSummaryView() -> TerminalSummaryView {
     return view as! TerminalSummaryView
   }

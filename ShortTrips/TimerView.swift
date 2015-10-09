@@ -67,7 +67,7 @@ class TimerView: UIView {
       updateLabel.text = NSLocalizedString("LAST UPDATED A MINUTE AGO", comment: "")
     }
     else {
-      updateLabel.text = String(format: NSLocalizedString("LAST UPDATED %d MINUTES AGO", comment: ""), elapsedSeconds / 60)
+      updateLabel.text = String(format: NSLocalizedString("LAST UPDATED %d MINUTES AGO", comment: ""), Int(elapsedSeconds / 60))
     }
     progressView.progress = Float(elapsedSeconds) / Float(updateInterval)
   }
@@ -78,7 +78,7 @@ class TimerView: UIView {
     self.callback = callback
     self.updateInterval = updateInterval
     timer?.invalidate()
-    timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "eachSecond", userInfo: nil, repeats: true)
+    timer = NSTimer.scheduledTimerWithTimeInterval(UiConstants.Timer.updateInterval, target: self, selector: "eachSecond", userInfo: nil, repeats: true)
   }
   
   func eachSecond() {
