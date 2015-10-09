@@ -20,7 +20,7 @@ class TerminalSummaryResponseSpec: QuickSpec {
   override func spec() {
     describe("the TerminalSummaryResponse") {
       beforeEach {
-        self.terminalSummary = TerminalSummary(terminalId: TerminalId.International, count: 42, delayedCount: 24)
+        self.terminalSummary = TerminalSummary(terminalId: TerminalId.International, onTimeCount: 42, delayedCount: 24)
         self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
         self.terminalSummaryResponse = TerminalSummaryResponse(self.map)
       }
