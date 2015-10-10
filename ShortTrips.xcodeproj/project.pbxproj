@@ -49,7 +49,7 @@
 		C28224641BB09A8A007F284F /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */; };
 		C28224661BB09BCB007F284F /* TerminalSummaryVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28224651BB09BCB007F284F /* TerminalSummaryVCSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		C28224681BB09C32007F284F /* FlightStatusVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		C2897A941BB5E6ED00FE1B40 /* AirlineClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2897A931BB5E6ED00FE1B40 /* AirlineClientSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		C2897A941BB5E6ED00FE1B40 /* ApiClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2897A931BB5E6ED00FE1B40 /* ApiClientSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		C2B15ADF1BBB16010049B97C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B15ADE1BBB16010049B97C /* Image.swift */; settings = {ASSET_TAGS = (); }; };
 		C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667101BA7577600BA28E2 /* DashboardView.swift */; };
 		C2B667291BA7833400BA28E2 /* TerminalSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */; };
@@ -193,7 +193,7 @@
 		C27450BB1BB4988200D33CDD /* AirlineListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineListResponse.swift; sourceTree = "<group>"; };
 		C28224651BB09BCB007F284F /* TerminalSummaryVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerminalSummaryVCSpec.swift; path = Pods/TerminalSummaryVCSpec.swift; sourceTree = SOURCE_ROOT; };
 		C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatusVCSpec.swift; sourceTree = "<group>"; };
-		C2897A931BB5E6ED00FE1B40 /* AirlineClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineClientSpec.swift; sourceTree = "<group>"; };
+		C2897A931BB5E6ED00FE1B40 /* ApiClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClientSpec.swift; sourceTree = "<group>"; };
 		C2B15ADE1BBB16010049B97C /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		C2B667101BA7577600BA28E2 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryView.swift; sourceTree = "<group>"; };
@@ -501,7 +501,7 @@
 		C2897A921BB5E6CC00FE1B40 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				C2897A931BB5E6ED00FE1B40 /* AirlineClientSpec.swift */,
+				C2897A931BB5E6ED00FE1B40 /* ApiClientSpec.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -1231,7 +1231,7 @@
 				E112C3031BB2FD2500B1DF48 /* GeofenceSpec.swift in Sources */,
 				C28224681BB09C32007F284F /* FlightStatusVCSpec.swift in Sources */,
 				C257FB441BC4653000468CF1 /* ShortTripGeofenceSpec.swift in Sources */,
-				C2897A941BB5E6ED00FE1B40 /* AirlineClientSpec.swift in Sources */,
+				C2897A941BB5E6ED00FE1B40 /* ApiClientSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
