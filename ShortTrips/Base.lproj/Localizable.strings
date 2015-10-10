@@ -53,9 +53,8 @@
 "Inter. Term. Currently" = "Internat. Term. Currently";
 "Flights" = "Flights";
 "Flights In" = "Flights In";
-"Now" = "Now";
 "Ago" = "Ago";
-"%dH" = "%dH";
+"%dh" = "%dh";
 "Sched.:" = "Sched.:";
 "Est.:" = "Est.:";
 "Scheduled:" = "Scheduled:";

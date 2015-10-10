@@ -37,9 +37,8 @@
 "Inter. Term. Currently" = "Aér. Inter. actuel";
 "Flights" = "Vols";
 "Flights In" = "Vols Dans";
-"Now" = "Mai.";
 "Ago" = "Au Passé";
-"%dH" = "%dH";
+"%dh" = "%dh";
 "Sched.:" = "Orig.:";
 "Est.:" = "Est.:";
 "Scheduled:" = "Originel";

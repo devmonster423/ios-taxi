@@ -43,31 +43,49 @@ class TerminalSummaryVCSpec: QuickSpec {
         }
       }
       
-      describe("tapping the plus") {
-        
-        var hourValue: Int = 0
+      describe("tapping the plus from +1") {
         
         beforeEach {
-          hourValue = viewController.terminalSummaryView().getCurrentHour()
           viewController.terminalSummaryView().increaseButton.tap()
         }
         
         it ("increases hour by one") {
-          expect(viewController.terminalSummaryView().getCurrentHour()) == hourValue + 1
+          expect(viewController.terminalSummaryView().getCurrentHour()) == 2
         }
       }
       
-      describe("tapping the minus") {
-        
-        var hourValue: Int = 0
+      describe("tapping the minus once from +1") {
         
         beforeEach {
-          hourValue = viewController.terminalSummaryView().getCurrentHour()
           viewController.terminalSummaryView().decreaseButton.tap()
         }
         
+        it ("decreases hour by two") {
+          expect(viewController.terminalSummaryView().getCurrentHour()) == -1
+        }
+      }
+      
+      describe("tapping the minus twice from +1") {
+        
+        beforeEach {
+          viewController.terminalSummaryView().decreaseButton.tap()
+          viewController.terminalSummaryView().decreaseButton.tap()
+        }
+        
+        it ("decreases hour by three") {
+          expect(viewController.terminalSummaryView().getCurrentHour()) == -2
+        }
+      }
+
+      describe("tapping the minus then plus from +1") {
+        
+        beforeEach {
+          viewController.terminalSummaryView().decreaseButton.tap()
+          viewController.terminalSummaryView().increaseButton.tap()
+        }
+        
         it ("decreases hour by one") {
-          expect(viewController.terminalSummaryView().getCurrentHour()) == hourValue - 1
+          expect(viewController.terminalSummaryView().getCurrentHour()) == 1
         }
       }
     }

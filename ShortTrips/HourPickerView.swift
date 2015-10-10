@@ -11,7 +11,7 @@ import SnapKit
 
 class HourPickerView: UIView {
   
-  private var currentHour = 0
+  private var currentHour = 1
   
   var maxHour: Int!
   var minHour: Int!
@@ -55,7 +55,7 @@ class HourPickerView: UIView {
     }
     
     topLabel.font = Font.MyriadProSemibold.size(20)
-    topLabel.text = NSLocalizedString("Flights", comment: "")
+    topLabel.text = NSLocalizedString("Flights in", comment: "")
     topLabel.textAlignment = .Center
     topLabel.textColor = Color.Sfo.blue
     topLabel.snp_makeConstraints { (make) -> Void in
@@ -66,7 +66,7 @@ class HourPickerView: UIView {
     }
     
     mainLabel.font = Font.MyriadProSemibold.size(40)
-    mainLabel.text = NSLocalizedString("Now", comment: "")
+    mainLabel.text = String(format: NSLocalizedString("%dh", comment: ""), currentHour)
     mainLabel.textAlignment = .Center
     mainLabel.textColor = Color.Sfo.blue
     mainLabel.snp_makeConstraints { (make) -> Void in
@@ -90,7 +90,10 @@ class HourPickerView: UIView {
     return currentHour
   }
   
-  func incrementHour(hourChange: Int) {
+  func incrementHour(var hourChange: Int) {
+    if (hourChange == 1 && currentHour == -1) || (hourChange == -1 && currentHour == 1) {
+      hourChange *= 2
+    }
     
     let tempHour = currentHour + hourChange
     
@@ -98,12 +101,7 @@ class HourPickerView: UIView {
       
       currentHour = tempHour
       
-      if currentHour == 0 {
-        topLabel.text = NSLocalizedString("Flights", comment: "")
-        mainLabel.text = NSLocalizedString("Now", comment: "")
-        bottomLabel.text = ""
-        
-      } else if currentHour < 0 {
+      if currentHour < 0 {
         topLabel.text = NSLocalizedString("Flights", comment: "")
         mainLabel.text = String(format: NSLocalizedString("%dh", comment: ""), currentHour * -1)
         bottomLabel.text = NSLocalizedString("Ago", comment: "")
