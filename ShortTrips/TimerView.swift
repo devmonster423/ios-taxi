@@ -78,7 +78,12 @@ class TimerView: UIView {
     self.callback = callback
     self.updateInterval = updateInterval
     timer?.invalidate()
-    timer = NSTimer.scheduledTimerWithTimeInterval(UiConstants.Timer.updateInterval, target: self, selector: "eachSecond", userInfo: nil, repeats: true)
+    weak var weakSelf = self
+    timer = NSTimer.scheduledTimerWithTimeInterval(UiConstants.Timer.updateInterval,
+      target: weakSelf!,
+      selector: "eachSecond",
+      userInfo: nil,
+      repeats: true)
   }
   
   func eachSecond() {
