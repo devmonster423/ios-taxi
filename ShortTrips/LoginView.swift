@@ -54,8 +54,8 @@ class LoginView: UIView {
     }
   }
   
-  func getLoginCredential() -> Credential {
-    var credential = Credential()
+  func getLoginCredential() -> DriverCredential {
+    var credential = DriverCredential()
     credential.username = usernameTextField.text
     credential.password = passwordTextField.text
     return credential
