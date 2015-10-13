@@ -12,10 +12,18 @@ class DebugVC: UIViewController {
   
   override func loadView() {
     let debugView = DebugView(frame: UIScreen.mainScreen().bounds)
+    debugView.logOutButton.addTarget(self,
+      action: "logout",
+      forControlEvents: .TouchUpInside)
     view = debugView
   }
   
   func debugView() -> DebugView {
     return self.view as! DebugView
+  }
+  
+  func logout() {
+    DriverCredential.clear()
+    self.navigationController?.popToRootViewControllerAnimated(true)
   }
 }

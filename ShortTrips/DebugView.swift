@@ -31,6 +31,7 @@ enum DebugType {
 
 class DebugView: UIView {
   
+  let logOutButton = UIButton()
   private let debugTextView = UITextView()
   
   required init(coder aDecoder: NSCoder) {
@@ -43,11 +44,21 @@ class DebugView: UIView {
     backgroundColor = UIColor.whiteColor()
     
     addSubview(debugTextView)
+    addSubview(logOutButton)
     
     debugTextView.backgroundColor = UIColor(red: 0.95, green: 0.9, blue: 0.9, alpha: 1.0)
     debugTextView.font = Font.MyriadPro.size(20)
     debugTextView.snp_makeConstraints { make in
       make.edges.equalTo(self)
+    }
+    
+    logOutButton.setTitle(NSLocalizedString("Logout", comment: ""), forState: .Normal)
+    logOutButton.backgroundColor = UIColor.redColor()
+    logOutButton.snp_makeConstraints { make in
+      make.height.equalTo(44)
+      make.width.equalTo(80)
+      make.bottom.equalTo(self)
+      make.trailing.equalTo(self)
     }
   }
   
