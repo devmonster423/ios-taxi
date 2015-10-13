@@ -17,16 +17,31 @@ class LoginVC: UIViewController {
       forControlEvents: .TouchUpInside)
     view = loginView
   }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    if let credential = DriverCredential.load() {
+      loginView().prefill(credential.username, password: credential.password)
+      login()
+    }
+  }
 
   func loginView() -> LoginView {
     return self.view as! LoginView
   }
   
   func login() {
-    ApiClient.authenticateDriver(loginView().getLoginCredential()) { _ in
+    ApiClient.authenticateDriver(loginView().getLoginCredential()) { credential, driver in
       
-      // TODO: pass along/save credentials
-      navigationController?.pushViewController(DebugVC(), animated: true)
+      if let _ = driver {
+        credential.save()
+        self.navigationController?.pushViewController(DebugVC(), animated: true)
+        
+      } else {
+        
+        // TODO: show error
+      }
     }
   }
 }

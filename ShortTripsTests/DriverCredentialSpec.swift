@@ -12,14 +12,14 @@ import Nimble
 import Foundation
 import ObjectMapper
 
-class CredentialSpec: QuickSpec {
-  var credential: Credential!
+class DriverCredentialSpec: QuickSpec {
+  var credential: DriverCredential!
   var map: Map!
   
   override func spec() {
     describe("the Credential") {
       beforeEach {
-        self.credential = Credential(username: "🐅", password: "🐃")
+        self.credential = DriverCredential(username: "🐅", password: "🐃")
         self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
       }
       

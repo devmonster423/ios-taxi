@@ -11,6 +11,7 @@
 "Password" = "Password";
 "Login" = "Login";
 "Logging In..." = "Logging In...";
+"Logout" = "Logout";
 
 /* Errors */
 "Error" = "Error";

@@ -8,7 +8,7 @@
 
 struct Url {
   
-  private static let base = "https://216.9.96.29:9000/taxiws/services/taxi/"
+  static let base = "https://216.9.96.29:9000/taxiws/services/taxi/"
   
   static let queueStatus = base + "status/queue"
   
