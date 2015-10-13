@@ -11,7 +11,7 @@ import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
-typealias DriverClosure = Driver? -> Void
+typealias DriverClosure = (DriverCredential, Driver?) -> Void
 
 protocol DriverClient { }
 
@@ -19,7 +19,7 @@ extension ApiClient {
   static func authenticateDriver(credential: DriverCredential, completion: DriverClosure) {
     authedRequest(Alamofire.request(.POST, Url.Driver.login, parameters: Mapper().toJSON(credential)))
       .responseObject { (driverResponse: DriverResponse?, error) in
-        completion(driverResponse?.driver)
+        completion(credential, driverResponse?.driver)
     }
   }
 }

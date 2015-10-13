@@ -23,13 +23,12 @@ class LoginVC: UIViewController {
   }
   
   func login() {
-    ApiClient.authenticateDriver(loginView().getLoginCredential()) { driver in
+    ApiClient.authenticateDriver(loginView().getLoginCredential()) { credential, driver in
       
       if let _ = driver {
-        
-        // TODO: save driver credentials
-        
+        credential.save()
         self.navigationController?.pushViewController(DebugVC(), animated: true)
+        
       } else {
         
         // TODO: show error

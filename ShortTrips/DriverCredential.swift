@@ -41,4 +41,49 @@ struct DriverCredential: Mappable {
     credential.username = "test"
     return credential
   }
+  
+  func save() {
+    
+    DriverCredential.clear()
+    
+    let credential = NSURLCredential(user: username,
+      password: password,
+      persistence: .Permanent)
+    
+    NSURLCredentialStorage.sharedCredentialStorage()
+      .setCredential(credential,
+        forProtectionSpace: DriverCredential.credentialProtectionSpace())
+  }
+  
+  static func load() -> DriverCredential? {
+    let credentials = NSURLCredentialStorage.sharedCredentialStorage()
+      .credentialsForProtectionSpace(DriverCredential.credentialProtectionSpace())
+    if let credential = credentials?.first?.1 {
+      var driverCredential = DriverCredential()
+      driverCredential.username = credential.user
+      driverCredential.password = credential.password
+      return driverCredential
+    } else {
+      return nil
+    }
+  }
+  
+  static func clear() {
+    let credentials = NSURLCredentialStorage.sharedCredentialStorage()
+      .credentialsForProtectionSpace(DriverCredential.credentialProtectionSpace())
+    if let credential = credentials?.first?.1 {
+      NSURLCredentialStorage.sharedCredentialStorage()
+        .removeCredential(credential,
+          forProtectionSpace: DriverCredential.credentialProtectionSpace())
+    }
+  }
+  
+  static func credentialProtectionSpace() -> NSURLProtectionSpace {
+    let url = NSURL(string: Url.base)!
+    return NSURLProtectionSpace(host: url.host!,
+      port: (url.port?.integerValue)!,
+      `protocol`: url.scheme,
+      realm: nil,
+      authenticationMethod: NSURLAuthenticationMethodHTTPDigest)
+  }
 }
