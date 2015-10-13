@@ -17,6 +17,15 @@ class LoginVC: UIViewController {
       forControlEvents: .TouchUpInside)
     view = loginView
   }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    if let credential = DriverCredential.load() {
+      loginView().prefill(credential.username, password: credential.password)
+      login()
+    }
+  }
 
   func loginView() -> LoginView {
     return self.view as! LoginView
