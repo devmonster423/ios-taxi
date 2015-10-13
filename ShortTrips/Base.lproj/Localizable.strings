@@ -6,6 +6,10 @@
   Copyright (c) 2015 SFO. All rights reserved.
 */
 
+/* Debug */
+"Last verified geofence(s)" = "Last verified geofence(s)";
+"Last verified location" = "Last verified location";
+
 /* Login */
 "Username" = "Username";
 "Password" = "Password";
