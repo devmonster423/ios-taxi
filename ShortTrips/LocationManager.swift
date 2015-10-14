@@ -9,17 +9,7 @@
 import Foundation
 import CoreLocation
 
-protocol LocationManagerDelegate {
-  func readLocation(location: CLLocation)
-  func attemptingPingAtLocation(ping: Ping)
-  func successfulPingAtLocation(ping: Ping)
-}
-
 class LocationManager: NSObject, CLLocationManagerDelegate {
-  
-  var delegate: LocationManagerDelegate?
-  var lastSuccessfulPingDate: NSDate?
-  var updateFrequency = NSTimeInterval(60)
   
   let manager = CLLocationManager()
   
@@ -27,39 +17,25 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   
   private override init() {
     super.init()
-    
+  }
+
+  func start() {
     manager.activityType = .AutomotiveNavigation
     manager.delegate = self
     manager.desiredAccuracy = 100
     manager.distanceFilter = 100
     manager.requestAlwaysAuthorization()
     manager.startUpdatingLocation()
+    LocationManagerStarted.fire()
+  }
+
+  func stop() {
+    manager.stopUpdatingLocation()
   }
   
   func locationManager(manager: CLLocationManager,
     didUpdateLocations locations: [CLLocation]) {
       
-      delegate?.readLocation(locations.last!)
-      
-      var pingDate = NSDate(timeIntervalSince1970: 0)
-      if let lastSuccessfulPingDate = lastSuccessfulPingDate {
-        pingDate = lastSuccessfulPingDate
-      }
-      
-      if pingDate.timeIntervalSinceNow < -updateFrequency,
-        let lastKnownLocation = locations.last,
-        let tripId = TripManager.sharedInstance.getTripId() {
-          
-          let ping = Ping(location: lastKnownLocation)
-          self.delegate?.attemptingPingAtLocation(ping)
-          
-          ApiClient.ping(tripId, ping: ping, response: { geofenceStatus in
-            
-            if let _ = geofenceStatus {
-              self.lastSuccessfulPingDate = NSDate()
-              self.delegate?.successfulPingAtLocation(ping)
-            }
-          })
-      }
+      LocationRead.fire(locations.last!)
   }
 }

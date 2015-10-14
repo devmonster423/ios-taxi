@@ -8,9 +8,15 @@
 
 import UIKit
 import CoreLocation
+import JSQNotificationObserverKit
 
 class DebugVC: UIViewController {
   
+  let tripManager = TripManager.sharedInstance
+  var locationObserver: NotificationObserver<CLLocation, AnyObject>?
+  var attemptingPingObserver: NotificationObserver<Ping, AnyObject>?
+  var successfulPingObserver: NotificationObserver<Ping, AnyObject>?
+
   override func loadView() {
     let debugView = DebugView(frame: UIScreen.mainScreen().bounds)
     debugView.logOutButton.addTarget(self,
@@ -23,7 +29,19 @@ class DebugVC: UIViewController {
     super.viewDidLoad()
     
     debugView().printDebugLine("started location manager", type: .BigDeal)
-    LocationManager.sharedInstance.delegate = self
+
+    // register observers
+    locationObserver = NotificationObserver(notification: LocationRead.notification(), handler: { location, _ in
+      self.readLocation(location)
+    })
+
+    attemptingPingObserver = NotificationObserver(notification: AttemptingPing.notification(), handler: { ping, _ in
+      self.attemptingPingAtLocation(ping)
+    })
+
+    successfulPingObserver = NotificationObserver(notification: SuccessfulPing.notification(), handler: { ping, _ in
+      self.successfulPingAtLocation(ping)
+    })
   }
   
   func debugView() -> DebugView {
@@ -34,9 +52,7 @@ class DebugVC: UIViewController {
     DriverCredential.clear()
     self.navigationController?.popToRootViewControllerAnimated(true)
   }
-}
 
-extension DebugVC: LocationManagerDelegate {
   func readLocation(location: CLLocation) {
     debugView().printDebugLine("read location: (\(location.coordinate.latitude), \(location.coordinate.longitude)) at \(location.timestamp)")
     debugView().updateGPS(location.coordinate.latitude, longitude: location.coordinate.longitude)
