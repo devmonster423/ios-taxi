@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class DebugVC: UIViewController {
   
@@ -18,6 +19,13 @@ class DebugVC: UIViewController {
     view = debugView
   }
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    debugView().printDebugLine("started location manager", type: .BigDeal)
+    LocationManager.sharedInstance.delegate = self
+  }
+  
   func debugView() -> DebugView {
     return self.view as! DebugView
   }
@@ -25,5 +33,19 @@ class DebugVC: UIViewController {
   func logout() {
     DriverCredential.clear()
     self.navigationController?.popToRootViewControllerAnimated(true)
+  }
+}
+
+extension DebugVC: LocationManagerDelegate {
+  func readLocation(location: CLLocation) {
+    debugView().printDebugLine("read location: (\(location.coordinate.latitude), \(location.coordinate.longitude)) at \(location.timestamp)")
+  }
+  
+  func attemptingPingAtLocation(ping: Ping) {
+    debugView().printDebugLine("attempting ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
+  }
+  
+  func successfulPingAtLocation(ping: Ping) {
+    debugView().printDebugLine("succesful ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
   }
 }

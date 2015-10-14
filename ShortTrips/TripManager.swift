@@ -42,4 +42,9 @@ struct TripManager {
   func getMachine() -> TKStateMachine {
     return machine
   }
+  
+  func getTripId() -> Int? {
+    // TODO:
+    return 1
+  }
 }
