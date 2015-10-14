@@ -11,16 +11,24 @@ import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
-typealias AllGeofencesClosure = ([Geofence]?, ErrorType?) -> Void
+typealias MultipleGeofencesClosure = [Geofence]? -> Void
 typealias GeofenceClosure = (Geofence?, ErrorType?) -> Void
 
 protocol GeofenceClient { }
 
 extension ApiClient {
-  static func requestAllGeofences(response: AllGeofencesClosure) {
+  static func requestAllGeofences(response: MultipleGeofencesClosure) {
     authedRequest(Alamofire.request(.GET, Url.Geofence.geofence, parameters: nil))
       .responseObject { (allGeofencesResponse: AllGeofencesResponse?, error: ErrorType?) in
-      response(allGeofencesResponse?.geofenceListResponse?.geofenceList, error)
+      response(allGeofencesResponse?.geofenceListResponse?.geofenceList)
+    }
+  }
+  
+  static func requestGeofencesForLocation(latitude: Double, longitude: Double, buffer: Double, response: MultipleGeofencesClosure) {
+    let params = ["latitude": latitude, "longitude": longitude, "buffer": buffer]
+    authedRequest(Alamofire.request(.GET, Url.Geofence.locations, parameters: params))
+      .responseObject { (geofenceResponse: MultipleGeofencesResponse?, error: ErrorType?) in
+        response(geofenceResponse?.geofenceListWrapper?.geofenceList)
     }
   }
   

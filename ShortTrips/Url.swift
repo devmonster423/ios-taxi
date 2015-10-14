@@ -82,6 +82,7 @@ struct Url {
     static let geofence = base + "geofence/"
     
     static let location = geofence + "location"
+    static let locations = geofence + "locations"
     static func singleGeofence(geofenceId: Int) -> String {
       return geofence + "\(geofenceId)"
     }

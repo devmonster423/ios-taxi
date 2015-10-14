@@ -101,9 +101,9 @@ class DebugView: UIView {
     geofenceLabel.text = text
   }
   
-  func updateGPS(latitude: Float, longitude: Float) {
+  func updateGPS(latitude: Double, longitude: Double) {
     gpsLabel.text = NSLocalizedString("Last verified location", comment: "")
-      + ":\n(\(latitude),\(longitude)"
+      + ":\n(\(latitude),\(longitude))"
   }
   
   func printDebugLine(text: String?, type: DebugType = .Normal) {

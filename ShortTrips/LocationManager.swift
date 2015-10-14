@@ -30,7 +30,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     
     manager.activityType = .AutomotiveNavigation
     manager.delegate = self
-    manager.desiredAccuracy = kCLLocationAccuracyBest
+    manager.desiredAccuracy = 100
+    manager.distanceFilter = 100
     manager.requestAlwaysAuthorization()
     manager.startUpdatingLocation()
   }

@@ -15,8 +15,8 @@ enum Category: String {
 }
 
 struct Geofence: Mappable {
-  var category: Category!
-  var description: String!
+  var category: Category?
+  var description: String?
   var geofenceId: Int!
   var name: String!
   
@@ -32,7 +32,7 @@ struct Geofence: Mappable {
   mutating func mapping(map: Map) {
     category <- map["category"]
     description <- map["description"]
-    geofenceId <- map["geofence_id"]
     name <- map["name"]
+    geofenceId <- map["id"] // was "geofence_id", see discussion: https://basecamp.com/1759841/projects/9992902/messages/49598451
   }
 }

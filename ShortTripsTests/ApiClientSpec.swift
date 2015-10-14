@@ -47,7 +47,7 @@ class ApiClientSpec: QuickSpec {
         
         waitUntil(timeout: 60) { done in
           
-          ApiClient.requestAllGeofences({ geofences, error in
+          ApiClient.requestAllGeofences({ geofences in
             
             expect(geofences).toNot(beNil())
             done()
