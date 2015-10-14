@@ -41,12 +41,12 @@ extension DebugVC: LocationManagerDelegate {
     debugView().printDebugLine("read location: (\(location.coordinate.latitude), \(location.coordinate.longitude)) at \(location.timestamp)")
     debugView().updateGPS(location.coordinate.latitude, longitude: location.coordinate.longitude)
     
-    // check geofences
     ApiClient.requestGeofencesForLocation(location.coordinate.latitude,
       longitude: location.coordinate.longitude,
       buffer: GeofenceArbiter.buffer) { geofences in
         if let geofences = geofences {
           self.debugView().updateGeofenceList(geofences)
+          GeofenceArbiter.processGeofences(geofences)
           for geofence in geofences {
             self.debugView().printDebugLine("in geofence: \(geofence.name)", type: .Positive)
           }

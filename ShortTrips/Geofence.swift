@@ -14,6 +14,34 @@ enum Category: String {
   case Place = "place"
 }
 
+enum SfoGeofence {
+  case SFO
+
+  func id() -> Int {
+    switch self {
+    case SFO:
+      return 10
+    }
+  }
+
+  func name() -> String {
+    switch self {
+    case SFO:
+      return "San Francisco International Airport"
+    }
+  }
+
+  static func find(geofence: Geofence) -> SfoGeofence? {
+    if geofence.geofenceId == SfoGeofence.SFO.id()
+      && geofence.name == SfoGeofence.SFO.name() {
+      return .SFO
+
+    } else {
+      return nil
+    }
+  }
+}
+
 struct Geofence: Mappable {
   var category: Category?
   var description: String?

@@ -20,6 +20,7 @@ struct TripManager {
     
     machine.addStates([
       NotReady.sharedInstance.getState(),
+      WaitingForEntryCID.sharedInstance.getState(),
       Ready.sharedInstance.getState(),
       InProgress.sharedInstance.getState(),
       Validating.sharedInstance.getState(),
@@ -29,6 +30,7 @@ struct TripManager {
     machine.initialState = NotReady.sharedInstance.getState()
     
     machine.addEvents([
+      EnteredSFOGeofence.sharedInstance.getEvent(),
       DriverDispatched.sharedInstance.getEvent(),
       DriverExitsSfo.sharedInstance.getEvent(),
       DriverReturnsToSfo.sharedInstance.getEvent(),
