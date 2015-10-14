@@ -57,6 +57,23 @@ class ApiClientSpec: QuickSpec {
     }
     
     describe("the geofence client") {
+      it("can request geofences for a given location that should be in SFO geofence") {
+        
+        waitUntil(timeout: 60) { done in
+          
+          ApiClient.requestGeofencesForLocation(37.621313,
+            longitude: -122.378955,
+            buffer: GeofenceArbiter.buffer,
+            response: { geofences in
+              
+              expect(geofences).toNot(beNil())
+              done()
+          })
+        }
+      }
+    }
+    
+    describe("the geofence client") {
       it("can request a specific geofence") {
         
         waitUntil(timeout: 60) { done in
