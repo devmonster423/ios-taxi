@@ -34,18 +34,7 @@ struct GeofenceArbiter {
     
     let mapPoint = MKMapPointForCoordinate(location)
     let pointasCGP = CGPointMake(CGFloat(mapPoint.x), CGFloat(mapPoint.y))
-    
-    return CGPathContainsPoint(mutablePathRef, nil, pointasCGP, false)
-  }
 
-  static func processGeofences(geofences: [Geofence]) {
-    for geofence in geofences {
-      if let identifiedGeofence = SfoGeofence.find(geofence) {
-        switch identifiedGeofence {
-        case .SFO:
-          EnteredSFOGeofence.sharedInstance.fire()
-        }
-      }
-    }
+    return CGPathContainsPoint(mutablePathRef, nil, pointasCGP, false)
   }
 }

@@ -11,7 +11,6 @@ import TransitionKit
 
 struct TripManager {
   
-  private let locationManager = LocationManager.sharedInstance
   static let sharedInstance = TripManager()
   private var machine: TKStateMachine
   
@@ -44,6 +43,7 @@ struct TripManager {
     // start location manager
     LocationManager.sharedInstance.start()
     PingManager.sharedInstance.start()
+    GeofenceManager.sharedInstance.start()
   }
   
   func getMachine() -> TKStateMachine {

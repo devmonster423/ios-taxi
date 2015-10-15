@@ -64,6 +64,8 @@
 		C28ECB391BCF173800887763 /* SuccessfulPing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB381BCF173800887763 /* SuccessfulPing.swift */; settings = {ASSET_TAGS = (); }; };
 		C28ECB3B1BCF188300887763 /* LocationManagerStarted.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB3A1BCF188300887763 /* LocationManagerStarted.swift */; settings = {ASSET_TAGS = (); }; };
 		C28ECB3D1BCF193300887763 /* PingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB3C1BCF193300887763 /* PingManager.swift */; settings = {ASSET_TAGS = (); }; };
+		C28ECB401BCF214B00887763 /* FoundInsideGeofences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB3F1BCF214B00887763 /* FoundInsideGeofences.swift */; settings = {ASSET_TAGS = (); }; };
+		C28ECB421BCF21DE00887763 /* GeofenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB411BCF21DE00887763 /* GeofenceManager.swift */; settings = {ASSET_TAGS = (); }; };
 		C2B15ADF1BBB16010049B97C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B15ADE1BBB16010049B97C /* Image.swift */; settings = {ASSET_TAGS = (); }; };
 		C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667101BA7577600BA28E2 /* DashboardView.swift */; };
 		C2B667291BA7833400BA28E2 /* TerminalSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */; };
@@ -222,6 +224,8 @@
 		C28ECB381BCF173800887763 /* SuccessfulPing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessfulPing.swift; sourceTree = "<group>"; };
 		C28ECB3A1BCF188300887763 /* LocationManagerStarted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManagerStarted.swift; sourceTree = "<group>"; };
 		C28ECB3C1BCF193300887763 /* PingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingManager.swift; sourceTree = "<group>"; };
+		C28ECB3F1BCF214B00887763 /* FoundInsideGeofences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundInsideGeofences.swift; sourceTree = "<group>"; };
+		C28ECB411BCF21DE00887763 /* GeofenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceManager.swift; sourceTree = "<group>"; };
 		C2B15ADE1BBB16010049B97C /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		C2B667101BA7577600BA28E2 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryView.swift; sourceTree = "<group>"; };
@@ -372,7 +376,6 @@
 		C21528C01BC8390F0073502F /* Debug */ = {
 			isa = PBXGroup;
 			children = (
-				C21528C11BC839990073502F /* LoginVC.swift */,
 				C21528C61BC855460073502F /* DebugVC.swift */,
 			);
 			name = Debug;
@@ -477,6 +480,7 @@
 			children = (
 				C257FB3E1BC4623500468CF1 /* Geofences */,
 				C257FB3C1BC44E4200468CF1 /* GeofenceArbiter.swift */,
+				C28ECB411BCF21DE00887763 /* GeofenceManager.swift */,
 				C28ECB1F1BCEBDD400887763 /* LocationManager.swift */,
 				C28ECB3C1BCF193300887763 /* PingManager.swift */,
 			);
@@ -540,11 +544,20 @@
 			isa = PBXGroup;
 			children = (
 				C28ECB361BCF170000887763 /* AttemptingPing.swift */,
+				C28ECB3F1BCF214B00887763 /* FoundInsideGeofences.swift */,
 				C28ECB3A1BCF188300887763 /* LocationManagerStarted.swift */,
 				C28ECB321BCF0F7F00887763 /* LocationRead.swift */,
 				C28ECB381BCF173800887763 /* SuccessfulPing.swift */,
 			);
 			name = Notifications;
+			sourceTree = "<group>";
+		};
+		C28ECB3E1BCF208400887763 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C21528C11BC839990073502F /* LoginVC.swift */,
+			);
+			name = Auth;
 			sourceTree = "<group>";
 		};
 		C2DFE5B91B56D2CB0090B55F = {
@@ -740,6 +753,7 @@
 		E1A2EBA31B6C2AA400C27EB2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C28ECB3E1BCF208400887763 /* Auth */,
 				C21528C01BC8390F0073502F /* Debug */,
 				C21528BF1BC839050073502F /* Dashboard */,
 				C257FB3B1BC44E2000468CF1 /* LocationManagement */,
@@ -1159,6 +1173,7 @@
 				E1A2EBAF1B6E920500C27EB2 /* TerminalSummary.swift in Sources */,
 				C220E07E1BC3511200AC7C85 /* Event.swift in Sources */,
 				E18229051BC495E300614256 /* Valid.swift in Sources */,
+				C28ECB401BCF214B00887763 /* FoundInsideGeofences.swift in Sources */,
 				C207D6FC1BAB86D800273374 /* FlightStatusView.swift in Sources */,
 				C220E0691BC33A0600AC7C85 /* TripManager.swift in Sources */,
 				C220E0621BC3322F00AC7C85 /* ErrorLogger.swift in Sources */,
@@ -1213,6 +1228,7 @@
 				C28ECB2C1BCF01F200887763 /* WaitingForEntryCID.swift in Sources */,
 				FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */,
 				E18FF6911BA870AF00FE93B9 /* Cid.swift in Sources */,
+				C28ECB421BCF21DE00887763 /* GeofenceManager.swift in Sources */,
 				C2635E301BB0CE1C003C22B1 /* GeofenceClient.swift in Sources */,
 				C21905681BB0B74E00A3E779 /* Url.swift in Sources */,
 				E13BCEFA1BABBAA1006FDFF5 /* TerminalSummaryArrivalsListResponse.swift in Sources */,

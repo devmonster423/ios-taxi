@@ -16,6 +16,7 @@ class DebugVC: UIViewController {
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
   var attemptingPingObserver: NotificationObserver<Ping, AnyObject>?
   var successfulPingObserver: NotificationObserver<Ping, AnyObject>?
+  var foundInsideGeofencesObserver: NotificationObserver<[Geofence], AnyObject>?
 
   override func loadView() {
     let debugView = DebugView(frame: UIScreen.mainScreen().bounds)
@@ -42,6 +43,10 @@ class DebugVC: UIViewController {
     successfulPingObserver = NotificationObserver(notification: SuccessfulPing.notification(), handler: { ping, _ in
       self.successfulPingAtLocation(ping)
     })
+
+    foundInsideGeofencesObserver = NotificationObserver(notification: FoundInsideGeofences.notification(), handler: { geofences, _ in
+      self.foundInside(geofences)
+    })
   }
   
   func debugView() -> DebugView {
@@ -56,18 +61,6 @@ class DebugVC: UIViewController {
   func readLocation(location: CLLocation) {
     debugView().printDebugLine("read location: (\(location.coordinate.latitude), \(location.coordinate.longitude)) at \(location.timestamp)")
     debugView().updateGPS(location.coordinate.latitude, longitude: location.coordinate.longitude)
-    
-    ApiClient.requestGeofencesForLocation(location.coordinate.latitude,
-      longitude: location.coordinate.longitude,
-      buffer: GeofenceArbiter.buffer) { geofences in
-        if let geofences = geofences {
-          self.debugView().updateGeofenceList(geofences)
-          GeofenceArbiter.processGeofences(geofences)
-          for geofence in geofences {
-            self.debugView().printDebugLine("in geofence: \(geofence.name)", type: .Positive)
-          }
-        }
-    }
   }
   
   func attemptingPingAtLocation(ping: Ping) {
@@ -76,5 +69,12 @@ class DebugVC: UIViewController {
   
   func successfulPingAtLocation(ping: Ping) {
     debugView().printDebugLine("succesful ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
+  }
+
+  func foundInside(geofences: [Geofence]) {
+    self.debugView().updateGeofenceList(geofences)
+    for geofence in geofences {
+      self.debugView().printDebugLine("in geofence: \(geofence.name)", type: .Positive)
+    }
   }
 }
