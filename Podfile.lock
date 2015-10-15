@@ -9,6 +9,7 @@ PODS:
   - Fabric (1.5.5):
     - Fabric/Base (= 1.5.5)
   - Fabric/Base (1.5.5)
+  - IQKeyboardManagerSwift (3.3.2)
   - MBProgressHUD (0.9.1)
   - Nimble (2.0.0)
   - ObjectMapper (0.17)
@@ -34,6 +35,7 @@ DEPENDENCIES:
   - AlamofireObjectMapper (= 1.0)
   - Crashlytics (= 3.3.4)
   - Fabric (= 1.5.5)
+  - IQKeyboardManagerSwift (= 3.3.2)
   - MBProgressHUD (= 0.9.1)
   - Nimble (= 2.0.0)
   - PivotalCoreKit (= 0.3.0)
@@ -48,6 +50,7 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 4f9d766a4742bb69258921723bafc260849f216c
   Crashlytics: 41c082440d2e14da444186fff65e79c0b4b35d4c
   Fabric: 190bf1a6eb65f7500de1347d027d2e59a7e53db1
+  IQKeyboardManagerSwift: 40a9f6a3a5f60bc311aad5ab3265b9de5ecb9367
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   Nimble: 472e75466819eb8c06299233e87c694a9b51328a
   ObjectMapper: fa286b7cb5a398f1b0d8d64d0dd33fd1b307022c
