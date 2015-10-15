@@ -19,11 +19,11 @@
 
 /* Errors */
 "Error" = "Error";
-"Request Failed" = "Request Failed";
 "OK" = "OK";
+"An error occurred while fetching flight data." = "An error occurred while fetching flight data.";
+"An error occurred while fetching parking-lot data." = "An error occurred while fetching parking-lot data.";
 
 /* Dashboard */
-
 "Our holding lot is" = "Our holding lot is";
 "full" = "full";
 "almost full" = "almost full";
@@ -31,19 +31,15 @@
 "Terminal Status" = "Terminal Status";
 "Requesting Lot Status..." = "Requesting Lot Status...";
 
-/* Terminals */
-"Terminal" = "Terminal";
-
 /* Terminal Status */
-
-"Terminals" = "Terminals";
 "Terminal Status %d Hours Ago" = "Terminal Status %d Hours Ago";
 "Terminal Status %d Hours in the Future" = "Terminal Status %d Hours in the Future";
 "Current Terminal Status" = "Current Terminal Status";
+"Terminals" = "Terminals";
+"Terminal" = "Terminal";
 "Requesting Flights..." = "Requesting Flights...";
 
 /* Flight Status */
-
 "Term. One %d Hours Ago" = "Term. One %d Hours Ago";
 "Term. Two %d Hours Ago" = "Term. Two %d Hours Ago";
 "Term. Three %d Hours Ago" = "Term. Three %d Hours Ago";
@@ -75,11 +71,9 @@
 "Totals" = "Totals";
 
 /* Update Progress */
-
 "LAST UPDATED LESS THAN A MINUTE AGO" = "UPDATED < 1 MINUTE AGO";
 "LAST UPDATED A MINUTE AGO" = "UPDATED A MINUTE AGO";
 "LAST UPDATED %d MINUTES AGO" = "UPDATED %d MINUTES AGO";
 
 /* Navigation Bar */
-
 "Flights" = "Flights";

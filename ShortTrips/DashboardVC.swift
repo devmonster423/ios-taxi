@@ -50,6 +50,15 @@ class DashboardVC: UIViewController {
       if let color = status?.color  {
         self.dashboardView().updateStatusUI(color)
       }
+      else {
+        let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
+          message: NSLocalizedString("An error occurred while fetching parking-lot data.", comment: ""),
+          preferredStyle: .Alert)
+        let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
+          style: .Default, handler: nil)
+        alertController.addAction(OKAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+      }
     })
   }
   
