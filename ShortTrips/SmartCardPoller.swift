@@ -8,9 +8,9 @@
 
 import Foundation
 
-class SmartCardPoller {
+class SmartCardPoller: NSObject {
 
-  static var timer: NSTimer?
+  private static var timer: NSTimer?
 
   static func start() {
     timer = NSTimer.scheduledTimerWithTimeInterval(5,
@@ -25,15 +25,16 @@ class SmartCardPoller {
     self.timer = nil
   }
 
-  private static func check() {
+  static func check() {
     ApiClient.requestCidForSmartCard(TripManager.sharedInstance.getCurrentDriver().cardId)
       { cid in
 
-        if let cid = cid where
-        cid.cidLocation == "entry" {
+        // TODO: actually verify if the CID is the entry CID
+//        if let cid = cid where
+//        cid.cidLocation == "entry" {
 
           LatestCidIsEntryCid.sharedInstance.fire()
-        }
+      //  }
     }
   }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import JSQNotificationObserverKit
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
   
@@ -26,7 +27,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     manager.distanceFilter = 100
     manager.requestAlwaysAuthorization()
     manager.startUpdatingLocation()
-    LocationManagerStarted.fire()
+    postNotification(SfoNotification.locationManagerStarted, value: nil)
   }
 
   func stop() {
@@ -36,6 +37,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   func locationManager(manager: CLLocationManager,
     didUpdateLocations locations: [CLLocation]) {
       
-      LocationRead.fire(locations.last!)
+      postNotification(SfoNotification.locationRead, value: locations.last!)
   }
 }

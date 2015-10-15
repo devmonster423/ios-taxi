@@ -20,7 +20,7 @@ class GeofenceManager {
 
   func start() {
     if let _ = locationObserver {} else {
-      self.locationObserver = NotificationObserver(notification: LocationRead.notification(), handler: { location, _ in
+      self.locationObserver = NotificationObserver(notification: SfoNotification.locationRead, handler: { location, _ in
         self.process(location)
       })
     }
@@ -35,7 +35,7 @@ class GeofenceManager {
       longitude: location.coordinate.longitude,
       buffer: GeofenceArbiter.buffer) { geofences in
         if let geofences = geofences {
-          FoundInsideGeofences.fire(geofences)
+          postNotification(SfoNotification.foundInsideGeofences, value: geofences)
           self.process(geofences)
         }
     }

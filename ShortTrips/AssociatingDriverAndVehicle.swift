@@ -17,6 +17,14 @@ struct AssociatingDriverAndVehicle {
 
   private init() {
     state = TKState(name: stateName)
+
+    state.setDidEnterStateBlock { _, _ in
+      print("AssociatingDriverAndVehicle entered")
+    }
+
+    state.setDidExitStateBlock { _, _ in
+      print("AssociatingDriverAndVehicle exited")
+    }
   }
 
   func getState() -> TKState {

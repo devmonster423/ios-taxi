@@ -17,6 +17,14 @@ struct WaitingForEntryCID {
 
   private init() {
     state = TKState(name: stateName)
+
+    state.setDidEnterStateBlock { _, _ in
+      SmartCardPoller.start()
+    }
+
+    state.setDidExitStateBlock { _, _ in
+      SmartCardPoller.stop()
+    }
   }
 
   func getState() -> TKState {
