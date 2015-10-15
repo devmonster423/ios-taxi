@@ -13,7 +13,7 @@ import JSQNotificationObserverKit
 class PingManager {
 
   var lastSuccessfulPingDate: NSDate?
-  var updateFrequency = NSTimeInterval(60)
+  let updateFrequency = NSTimeInterval(60)
 
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
 

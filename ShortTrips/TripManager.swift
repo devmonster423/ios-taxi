@@ -21,6 +21,7 @@ struct TripManager {
     machine.addStates([
       NotReady.sharedInstance.getState(),
       WaitingForEntryCID.sharedInstance.getState(),
+      AssociatingDriverAndVehicle.sharedInstance.getState(),
       Ready.sharedInstance.getState(),
       InProgress.sharedInstance.getState(),
       Validating.sharedInstance.getState(),
@@ -33,9 +34,10 @@ struct TripManager {
       EnteredSFOGeofence.sharedInstance.getEvent(),
       DriverDispatched.sharedInstance.getEvent(),
       DriverExitsSfo.sharedInstance.getEvent(),
+      DriverProceedsToTaxiLoop.sharedInstance.getEvent(),
       DriverReturnsToSfo.sharedInstance.getEvent(),
-      TripValidated.sharedInstance.getEvent(),
-      DriverProceedsToTaxiLoop.sharedInstance.getEvent()
+      LatestCidIsEntryCid.sharedInstance.getEvent(),
+      TripValidated.sharedInstance.getEvent()
       ])
     
     machine.activate()
@@ -53,5 +55,13 @@ struct TripManager {
   func getTripId() -> Int? {
     // TODO:
     return 1
+  }
+
+  func getCurrentDriver() -> Driver {
+    return Driver(sessionId: 1,
+      driverId: 1,
+      cardId: 1,
+      firstName: "Test",
+      lastName: "Test")
   }
 }

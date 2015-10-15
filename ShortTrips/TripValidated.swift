@@ -25,4 +25,3 @@ struct TripValidated: Event {
     return event
   }
 }
-
