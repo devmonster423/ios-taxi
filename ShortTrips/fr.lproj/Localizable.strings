@@ -6,23 +6,40 @@
   Copyright (c) 2015 SFO. All rights reserved.
 */
 
-/* Dashboard */
+/* Debug */
+"Last verified geofence(s)" = "Geofence(s) derniers verifié";
+"Last verified location" = "Emplacement dernier verifié";
 
+/* Login */
+"Username" = "Nom d'utilisateur";
+"Password" = "Mot de passe";
+"Login" = "Entrer";
+"Logging In..." = "Entrant...";
+"Logout" = "Se déconnecter";
+
+/* Errors */
+"Error" = "Erreur";
+"OK" = "OK";
+"An error occurred while fetching flight data." = "Une erreur est survenue lors de la récupération des données de vol.";
+"An error occurred while fetching parking-lot data." = "Une erreur est survenue lors de la récupération de données de parking.";
+
+/* Dashboard */
 "Our holding lot is" = "Notre parking est";
 "full" = "plein";
 "almost full" = "presque plein";
 "not full" = "pas plein";
 "Terminal Status" = "Statuts des Aérogares";
+"Requesting Lot Status..." = "Demandant statut du parking...";
 
 /* Terminal Status */
-
 "Terminal Status %d Hours Ago" = "Statut de l'aérogare il y a %d heures";
 "Terminal Status %d Hours in the Future" = "Statut de l'aérogare dans %d heures";
 "Current Terminal Status" = "Statut actuel de l'aérogare";
 "Terminals" = "Aérogares";
+"Terminal" = "Aérogare";
+"Requesting Flights..." = "Demandant Vols...";
 
 /* Flight Status */
-
 "Term. One %d Hours Ago" = "Aér. Un il y a %d heures";
 "Term. Two %d Hours Ago" = "Aér. Deux il y a %d heures";
 "Term. Three %d Hours Ago" = "Aér. Trois il y a %d heures";
@@ -51,12 +68,10 @@
 "h:mma" = "HH:mm";
 
 /* Update Progress */
-
 "LAST UPDATED LESS THAN A MINUTE AGO" = "Réactualisé il y a < 1 minute";
 "LAST UPDATED A MINUTE AGO" = "Réactualisé il y a une minute";
 "LAST UPDATED %d MINUTES AGO" = "Réactualisé il y a %d minutes";
 
 /* Navigation Bar */
-
 "Flights" = "Vols";
 

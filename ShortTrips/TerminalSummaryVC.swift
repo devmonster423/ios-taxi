@@ -67,8 +67,20 @@ class TerminalSummaryVC: UIViewController {
       if let hour = hour where hour == self.terminalSummaryView().getCurrentHour(), let terminals = terminals {
         self.terminalSummaryView().reloadTerminalViews(terminals)
       }
+      else {
+        let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
+          message: NSLocalizedString("An error occurred while fetching flight data.", comment: ""),
+          preferredStyle: .Alert)
+        let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
+          style: .Default) { alertAction -> Void in
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        alertController.addAction(OKAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+      }
     })
   }
+
   
   func changeHour(delta: Int) {
     let oldCurrentHour = terminalSummaryView().getCurrentHour()

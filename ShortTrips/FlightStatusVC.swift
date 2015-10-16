@@ -68,7 +68,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         
       } else {
         let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
-          message: NSLocalizedString("Request Failed", comment: ""),
+          message: NSLocalizedString("An error occurred while fetching flight data.", comment: ""),
           preferredStyle: .Alert)
         
         let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
@@ -76,7 +76,6 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
             self.navigationController?.popViewControllerAnimated(true)
         }
         alertController.addAction(OKAction)
-        
         self.presentViewController(alertController, animated: true, completion: nil)
       }
     })
