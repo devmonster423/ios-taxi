@@ -16,13 +16,13 @@ struct TripManager {
   private var machine: TKStateMachine
   
   static let allStates = [
-    NotReady.sharedInstance.getState(),
-    WaitingForEntryCID.sharedInstance.getState(),
     AssociatingDriverAndVehicle.sharedInstance.getState(),
-    Ready.sharedInstance.getState(),
     InProgress.sharedInstance.getState(),
+    NotReady.sharedInstance.getState(),
+    Ready.sharedInstance.getState(),
+    Valid.sharedInstance.getState(),
     Validating.sharedInstance.getState(),
-    Valid.sharedInstance.getState()
+    WaitingForEntryCID.sharedInstance.getState()
   ]
   
   private init() {
@@ -46,9 +46,8 @@ struct TripManager {
     
     machine.activate()
 
-    // start location manager
+    // start location manager and geofence manager
     LocationManager.sharedInstance.start()
-    PingManager.sharedInstance.start()
     GeofenceManager.sharedInstance.start()
   }
   

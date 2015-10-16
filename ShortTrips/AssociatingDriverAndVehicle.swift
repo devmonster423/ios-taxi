@@ -12,18 +12,32 @@ import TransitionKit
 struct AssociatingDriverAndVehicle {
   let stateName = "associatingDriverAndVehicle"
   static let sharedInstance = AssociatingDriverAndVehicle()
-
+  
+  private var poller: Poller?
   private var state: TKState
 
   private init() {
     state = TKState(name: stateName)
 
     state.setDidEnterStateBlock { _, _ in
-      print("AssociatingDriverAndVehicle entered")
+      
+      self.poller = Poller.init(timeout: 60, action: { _ in
+        if let driver = DriverManager.sharedInstance.getCurrentDriver() {
+          ApiClient.getVehicle(driver.driverId) { vehicle in
+            
+            // TODO actually process vehicle
+            if let vehicle = vehicle {
+              DriverManager.sharedInstance.setCurrentVehicle(vehicle)
+            }
+            
+            
+          }
+        }
+      })
     }
 
     state.setDidExitStateBlock { _, _ in
-      print("AssociatingDriverAndVehicle exited")
+      self.poller?.stop()
     }
   }
 

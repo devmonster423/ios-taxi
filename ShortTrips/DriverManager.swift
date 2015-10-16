@@ -11,6 +11,7 @@ import Foundation
 class DriverManager {
   
   private var currentDriver: Driver?
+  private var currentVehicle: Vehicle?
   
   static let sharedInstance = DriverManager()
   
@@ -25,5 +26,13 @@ class DriverManager {
   
   func getCurrentDriver() -> Driver? {
     return currentDriver
+  }
+  
+  func setCurrentVehicle(vehicle: Vehicle) {
+    currentVehicle = vehicle
+  }
+  
+  func getCurrentVehicle() -> Vehicle? {
+    return currentVehicle
   }
 }

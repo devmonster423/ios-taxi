@@ -24,6 +24,8 @@
 		C215CDFD1BD19FCA00991D9D /* DriverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CDFC1BD19FCA00991D9D /* DriverManager.swift */; settings = {ASSET_TAGS = (); }; };
 		C215CDFF1BD1A4B400991D9D /* Poller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CDFE1BD1A4B400991D9D /* Poller.swift */; settings = {ASSET_TAGS = (); }; };
 		C215CE011BD1AED200991D9D /* Failure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CE001BD1AED200991D9D /* Failure.swift */; settings = {ASSET_TAGS = (); }; };
+		C215CE031BD1B87000991D9D /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CE021BD1B87000991D9D /* Vehicle.swift */; settings = {ASSET_TAGS = (); }; };
+		C215CE051BD1B8AE00991D9D /* VehicleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CE041BD1B8AE00991D9D /* VehicleResponse.swift */; settings = {ASSET_TAGS = (); }; };
 		C21775F91BB08CAC008B24EA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21775F81BB08CAC008B24EA /* Color.swift */; settings = {ASSET_TAGS = (); }; };
 		C21905681BB0B74E00A3E779 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905671BB0B74E00A3E779 /* Url.swift */; settings = {ASSET_TAGS = (); }; };
 		C219056A1BB0C87200A3E779 /* DeviceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905691BB0C87200A3E779 /* DeviceClient.swift */; settings = {ASSET_TAGS = (); }; };
@@ -189,6 +191,8 @@
 		C215CDFC1BD19FCA00991D9D /* DriverManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverManager.swift; sourceTree = "<group>"; };
 		C215CDFE1BD1A4B400991D9D /* Poller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poller.swift; sourceTree = "<group>"; };
 		C215CE001BD1AED200991D9D /* Failure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Failure.swift; sourceTree = "<group>"; };
+		C215CE021BD1B87000991D9D /* Vehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		C215CE041BD1B8AE00991D9D /* VehicleResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleResponse.swift; sourceTree = "<group>"; };
 		C21775F81BB08CAC008B24EA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C21905671BB0B74E00A3E779 /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		C21905691BB0C87200A3E779 /* DeviceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceClient.swift; sourceTree = "<group>"; };
@@ -830,6 +834,8 @@
 				E15A3CD21BAC86C6002EDE40 /* DriverCredential.swift */,
 				E16399D41BA7B99400EDE0AE /* Driver.swift */,
 				E1666F981BA8D25600C95F96 /* DriverResponse.swift */,
+				C215CE021BD1B87000991D9D /* Vehicle.swift */,
+				C215CE041BD1B8AE00991D9D /* VehicleResponse.swift */,
 			);
 			name = Driver;
 			sourceTree = "<group>";
@@ -1206,6 +1212,7 @@
 				E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */,
 				C21528C71BC855460073502F /* DebugVC.swift in Sources */,
 				C220E0731BC3446600AC7C85 /* Ready.swift in Sources */,
+				C215CE051BD1B8AE00991D9D /* VehicleResponse.swift in Sources */,
 				C28ECB261BCECE5F00887763 /* Ping.swift in Sources */,
 				C21528C51BC83A820073502F /* LoginView.swift in Sources */,
 				E18736901BA8EBED00B6C7D8 /* CidResponse.swift in Sources */,
@@ -1226,6 +1233,7 @@
 				E187368C1BA8EA0900B6C7D8 /* AllCidsResponse.swift in Sources */,
 				E18FF6951BA8783600FE93B9 /* MobileStateChange.swift in Sources */,
 				C28ECB351BCF151800887763 /* Debuggable.swift in Sources */,
+				C215CE031BD1B87000991D9D /* Vehicle.swift in Sources */,
 				E18736891BA8E7D800B6C7D8 /* AntennaResponse.swift in Sources */,
 				E1A2EBA01B6BEF3900C27EB2 /* FlightStatusVC.swift in Sources */,
 				C28ECB201BCEBDD400887763 /* LocationManager.swift in Sources */,

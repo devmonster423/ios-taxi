@@ -56,6 +56,10 @@ struct Url {
     private static let driver = base + "driver/"
     
     static let login = driver + "login"
+    
+    static func vehicle(driverId: Int) -> String {
+      return driver + "\(driverId)/vehicle"
+    }
   }
   
   struct Flight {
