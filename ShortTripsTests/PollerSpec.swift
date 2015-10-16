@@ -9,7 +9,6 @@
 @testable import ShortTrips
 import Quick
 import Nimble
-import CoreLocation
 
 class PollerSpec: QuickSpec {
   

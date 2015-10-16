@@ -12,6 +12,10 @@ import ObjectMapper
 struct Vehicle: Mappable {
   var vehicleId: Int!
   
+  init(vehicleId: Int) {
+    self.vehicleId = vehicleId
+  }
+  
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {

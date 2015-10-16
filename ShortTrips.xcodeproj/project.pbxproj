@@ -68,6 +68,7 @@
 		C28ECB351BCF151800887763 /* Debuggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB341BCF151800887763 /* Debuggable.swift */; settings = {ASSET_TAGS = (); }; };
 		C28ECB3D1BCF193300887763 /* PingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB3C1BCF193300887763 /* PingManager.swift */; settings = {ASSET_TAGS = (); }; };
 		C28ECB421BCF21DE00887763 /* GeofenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB411BCF21DE00887763 /* GeofenceManager.swift */; settings = {ASSET_TAGS = (); }; };
+		C29341CC1BD1C56200A7CB9E /* DriverManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29341CB1BD1C56200A7CB9E /* DriverManagerSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		C2AB513A1BD02CC0003ACB4C /* LatestCidIsEntryCid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB51391BD02CC0003ACB4C /* LatestCidIsEntryCid.swift */; settings = {ASSET_TAGS = (); }; };
 		C2AB513C1BD02D1B003ACB4C /* AssociatingDriverAndVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicle.swift */; settings = {ASSET_TAGS = (); }; };
 		C2AB513E1BD052F7003ACB4C /* SfoNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */; settings = {ASSET_TAGS = (); }; };
@@ -233,6 +234,7 @@
 		C28ECB341BCF151800887763 /* Debuggable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debuggable.swift; sourceTree = "<group>"; };
 		C28ECB3C1BCF193300887763 /* PingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingManager.swift; sourceTree = "<group>"; };
 		C28ECB411BCF21DE00887763 /* GeofenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceManager.swift; sourceTree = "<group>"; };
+		C29341CB1BD1C56200A7CB9E /* DriverManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverManagerSpec.swift; sourceTree = "<group>"; };
 		C2AB51391BD02CC0003ACB4C /* LatestCidIsEntryCid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestCidIsEntryCid.swift; sourceTree = "<group>"; };
 		C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatingDriverAndVehicle.swift; sourceTree = "<group>"; };
 		C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SfoNotification.swift; sourceTree = "<group>"; };
@@ -403,7 +405,6 @@
 		C21528CB1BC869380073502F /* Debug */ = {
 			isa = PBXGroup;
 			children = (
-				C21528CC1BC869790073502F /* LoginVCSpec.swift */,
 				C21528CE1BC869820073502F /* DebugVCSpec.swift */,
 			);
 			name = Debug;
@@ -559,6 +560,15 @@
 			children = (
 				C215CDFC1BD19FCA00991D9D /* DriverManager.swift */,
 				C21528C11BC839990073502F /* LoginVC.swift */,
+			);
+			name = Auth;
+			sourceTree = "<group>";
+		};
+		C29341CA1BD1C55400A7CB9E /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C29341CB1BD1C56200A7CB9E /* DriverManagerSpec.swift */,
+				C21528CC1BC869790073502F /* LoginVCSpec.swift */,
 			);
 			name = Auth;
 			sourceTree = "<group>";
@@ -725,6 +735,7 @@
 		E18FFE2A1BB1A083003D192A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C29341CA1BD1C55400A7CB9E /* Auth */,
 				C21528CB1BC869380073502F /* Debug */,
 				C257FB411BC4650200468CF1 /* LocationManagement */,
 				C220E0761BC34AA700AC7C85 /* TripManager */,
@@ -1305,6 +1316,7 @@
 				C220E0781BC34ACE00AC7C85 /* TripScenarioSpec1.swift in Sources */,
 				E112C3051BB2FF0100B1DF48 /* GeofenceResponseSpec.swift in Sources */,
 				E112C3091BB3016C00B1DF48 /* AllGeofencesResponseSpec.swift in Sources */,
+				C29341CC1BD1C56200A7CB9E /* DriverManagerSpec.swift in Sources */,
 				E112C3071BB2FFC400B1DF48 /* GeofenceListResponseSpec.swift in Sources */,
 				E112C30C1BB3135600B1DF48 /* LotStatusEnumSpec.swift in Sources */,
 				E112C3101BB31A5800B1DF48 /* LotStatusResponseSpec.swift in Sources */,
