@@ -121,6 +121,7 @@ class DebugView: UIView {
       
       newString.appendAttributedString(attributedText)
       debugTextView.attributedText = newString
+      debugTextView.scrollRangeToVisible(NSMakeRange(newString.length, 0))
     }
   }
 }
