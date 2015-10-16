@@ -9,9 +9,11 @@
 import Foundation
 import TransitionKit
 
-struct TripManager {
+class TripManager {
   
   static let sharedInstance = TripManager()
+  
+  private var currentDriver: Driver?
   private var machine: TKStateMachine
   
   private init() {
@@ -56,12 +58,12 @@ struct TripManager {
     // TODO:
     return 1
   }
+  
+  func setCurrentDriver(driver: Driver) {
+    currentDriver = driver
+  }
 
-  func getCurrentDriver() -> Driver {
-    return Driver(sessionId: 1,
-      driverId: 1,
-      cardId: 1,
-      firstName: "Test",
-      lastName: "Test")
+  func getCurrentDriver() -> Driver? {
+    return currentDriver
   }
 }

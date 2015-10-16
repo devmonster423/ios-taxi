@@ -22,6 +22,7 @@
 "OK" = "OK";
 "An error occurred while fetching flight data." = "An error occurred while fetching flight data.";
 "An error occurred while fetching parking-lot data." = "An error occurred while fetching parking-lot data.";
+"An error occurred while logging in." = "An error occurred while logging in.";
 
 /* Dashboard */
 "Our holding lot is" = "Our holding lot is";

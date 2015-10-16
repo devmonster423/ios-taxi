@@ -26,15 +26,17 @@ class SmartCardPoller: NSObject {
   }
 
   static func check() {
-    ApiClient.requestCidForSmartCard(TripManager.sharedInstance.getCurrentDriver().cardId)
-      { cid in
-
-        // TODO: actually verify if the CID is the entry CID
-//        if let cid = cid where
-//        cid.cidLocation == "entry" {
-
+    
+    if let driver = TripManager.sharedInstance.getCurrentDriver() {
+      ApiClient.requestCidForSmartCard(driver.cardId) { cid in
+          
+          // TODO: actually verify if the CID is the entry CID
+          //        if let cid = cid where
+          //        cid.cidLocation == "entry" {
+          
           LatestCidIsEntryCid.sharedInstance.fire()
-      //  }
+          //  }
+      }
     }
   }
 }
