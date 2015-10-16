@@ -17,6 +17,7 @@ class DebugVC: UIViewController {
   var attemptingPingObserver: NotificationObserver<Ping, AnyObject>?
   var cidReadDetectedObserver: NotificationObserver<Cid, AnyObject>?
   var foundInsideGeofencesObserver: NotificationObserver<[Geofence], AnyObject>?
+  var locationManagerStartedObserver: NotificationObserver<Any?, AnyObject>?
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
   var responseObserver: NotificationObserver<NSHTTPURLResponse, AnyObject>?
   var successfulPingObserver: NotificationObserver<Ping, AnyObject>?
@@ -31,10 +32,7 @@ class DebugVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    debugView().printDebugLine("started location manager", type: .BigDeal)
 
-    // register observers
     attemptingPingObserver = NotificationObserver(notification: SfoNotification.attemptingPing, handler: { ping, _ in
       self.debugView().printDebugLine("attempting ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
     })
@@ -44,6 +42,10 @@ class DebugVC: UIViewController {
       for geofence in geofences {
         self.debugView().printDebugLine("in geofence: \(geofence.name)", type: .Positive)
       }
+    })
+    
+    locationManagerStartedObserver = NotificationObserver(notification: SfoNotification.locationManagerStarted, handler: { _, _ in
+      self.debugView().printDebugLine("started location manager", type: .BigDeal)
     })
     
     locationObserver = NotificationObserver(notification: SfoNotification.locationRead, handler: { location, _ in
