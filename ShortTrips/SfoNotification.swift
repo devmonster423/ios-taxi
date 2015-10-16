@@ -15,5 +15,6 @@ struct SfoNotification {
   static let foundInsideGeofences = Notification<[Geofence], AnyObject>(name: "FoundInsideGeofences")
   static let locationManagerStarted = Notification<Any?, AnyObject>(name: "LocationManagerStarted")
   static let locationRead = Notification<CLLocation, AnyObject>(name: "LocationRead")
+  static let requestResponse = Notification<NSHTTPURLResponse, AnyObject>(name: "RequestResponse")
   static let successfulPing = Notification<Ping, AnyObject>(name: "SuccessfulPing")
 }

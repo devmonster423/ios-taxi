@@ -13,11 +13,13 @@ import JSQNotificationObserverKit
 class DebugVC: UIViewController {
   
   let tripManager = TripManager.sharedInstance
-  var locationObserver: NotificationObserver<CLLocation, AnyObject>?
+  
   var attemptingPingObserver: NotificationObserver<Ping, AnyObject>?
-  var successfulPingObserver: NotificationObserver<Ping, AnyObject>?
-  var foundInsideGeofencesObserver: NotificationObserver<[Geofence], AnyObject>?
   var cidReadDetectedObserver: NotificationObserver<Cid, AnyObject>?
+  var foundInsideGeofencesObserver: NotificationObserver<[Geofence], AnyObject>?
+  var locationObserver: NotificationObserver<CLLocation, AnyObject>?
+  var responseObserver: NotificationObserver<NSHTTPURLResponse, AnyObject>?
+  var successfulPingObserver: NotificationObserver<Ping, AnyObject>?
 
   override func loadView() {
     let debugView = DebugView(frame: UIScreen.mainScreen().bounds)
@@ -33,20 +35,29 @@ class DebugVC: UIViewController {
     debugView().printDebugLine("started location manager", type: .BigDeal)
 
     // register observers
-    locationObserver = NotificationObserver(notification: SfoNotification.locationRead, handler: { location, _ in
-      self.readLocation(location)
-    })
-
     attemptingPingObserver = NotificationObserver(notification: SfoNotification.attemptingPing, handler: { ping, _ in
-      self.attemptingPingAtLocation(ping)
+      self.debugView().printDebugLine("attempting ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
+    })
+    
+    foundInsideGeofencesObserver = NotificationObserver(notification: SfoNotification.foundInsideGeofences, handler: { geofences, _ in
+      self.debugView().updateGeofenceList(geofences)
+      for geofence in geofences {
+        self.debugView().printDebugLine("in geofence: \(geofence.name)", type: .Positive)
+      }
+    })
+    
+    locationObserver = NotificationObserver(notification: SfoNotification.locationRead, handler: { location, _ in
+      self.debugView().printDebugLine("read location: (\(location.coordinate.latitude), \(location.coordinate.longitude)) at \(location.timestamp)")
+      self.debugView().updateGPS(location.coordinate.latitude, longitude: location.coordinate.longitude)
+    })
+    
+    responseObserver = NotificationObserver(notification: SfoNotification.requestResponse, handler: { response, _ in
+      self.debugView().printDebugLine("URL: \(response.URL!)\nstatusCode: \(response.statusCode)",
+        type: StatusCode.isSuccessful(response.statusCode) ? .Positive : .Negative )
     })
 
     successfulPingObserver = NotificationObserver(notification: SfoNotification.successfulPing, handler: { ping, _ in
-      self.successfulPingAtLocation(ping)
-    })
-
-    foundInsideGeofencesObserver = NotificationObserver(notification: SfoNotification.foundInsideGeofences, handler: { geofences, _ in
-      self.foundInside(geofences)
+      self.debugView().printDebugLine("succesful ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
     })
   }
   
@@ -57,25 +68,5 @@ class DebugVC: UIViewController {
   func logout() {
     DriverCredential.clear()
     self.navigationController?.popToRootViewControllerAnimated(true)
-  }
-
-  func readLocation(location: CLLocation) {
-    debugView().printDebugLine("read location: (\(location.coordinate.latitude), \(location.coordinate.longitude)) at \(location.timestamp)")
-    debugView().updateGPS(location.coordinate.latitude, longitude: location.coordinate.longitude)
-  }
-  
-  func attemptingPingAtLocation(ping: Ping) {
-    debugView().printDebugLine("attempting ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
-  }
-  
-  func successfulPingAtLocation(ping: Ping) {
-    debugView().printDebugLine("succesful ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
-  }
-
-  func foundInside(geofences: [Geofence]) {
-    self.debugView().updateGeofenceList(geofences)
-    for geofence in geofences {
-      self.debugView().printDebugLine("in geofence: \(geofence.name)", type: .Positive)
-    }
   }
 }

@@ -20,6 +20,7 @@
 		C21528C91BC8557B0073502F /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C81BC8557B0073502F /* DebugView.swift */; settings = {ASSET_TAGS = (); }; };
 		C21528CD1BC869790073502F /* LoginVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528CC1BC869790073502F /* LoginVCSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		C21528CF1BC869820073502F /* DebugVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528CE1BC869820073502F /* DebugVCSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		C215CDFA1BD18F7200991D9D /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CDF91BD18F7200991D9D /* StatusCode.swift */; settings = {ASSET_TAGS = (); }; };
 		C21775F91BB08CAC008B24EA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21775F81BB08CAC008B24EA /* Color.swift */; settings = {ASSET_TAGS = (); }; };
 		C21905681BB0B74E00A3E779 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905671BB0B74E00A3E779 /* Url.swift */; settings = {ASSET_TAGS = (); }; };
 		C219056A1BB0C87200A3E779 /* DeviceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905691BB0C87200A3E779 /* DeviceClient.swift */; settings = {ASSET_TAGS = (); }; };
@@ -182,6 +183,7 @@
 		C21528C81BC8557B0073502F /* DebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		C21528CC1BC869790073502F /* LoginVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVCSpec.swift; sourceTree = "<group>"; };
 		C21528CE1BC869820073502F /* DebugVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugVCSpec.swift; sourceTree = "<group>"; };
+		C215CDF91BD18F7200991D9D /* StatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
 		C21775F81BB08CAC008B24EA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C21905671BB0B74E00A3E779 /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		C21905691BB0C87200A3E779 /* DeviceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceClient.swift; sourceTree = "<group>"; };
@@ -408,6 +410,7 @@
 				C2635E291BB0CC86003C22B1 /* FlightClient.swift */,
 				C2635E2F1BB0CE1C003C22B1 /* GeofenceClient.swift */,
 				C2635E2D1BB0CD9A003C22B1 /* ReferenceClient.swift */,
+				C215CDF91BD18F7200991D9D /* StatusCode.swift */,
 				C28ECB211BCECA9700887763 /* TripClient.swift */,
 				C21905671BB0B74E00A3E779 /* Url.swift */,
 			);
@@ -537,14 +540,6 @@
 				C2897A931BB5E6ED00FE1B40 /* ApiClientSpec.swift */,
 			);
 			name = Networking;
-			sourceTree = "<group>";
-		};
-		C28ECB2F1BCF0C8D00887763 /* Notifications */ = {
-			isa = PBXGroup;
-			children = (
-				C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */,
-			);
-			name = Notifications;
 			sourceTree = "<group>";
 		};
 		C28ECB3E1BCF208400887763 /* Auth */ = {
@@ -762,8 +757,8 @@
 				C21528C01BC8390F0073502F /* Debug */,
 				C21528BF1BC839050073502F /* Dashboard */,
 				C257FB3B1BC44E2000468CF1 /* LocationManagement */,
-				C220E0671BC339E200AC7C85 /* TripManagement */,
 				C21905661BB0B73E00A3E779 /* Networking */,
+				C220E0671BC339E200AC7C85 /* TripManagement */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -779,7 +774,6 @@
 				E13BCEEF1BABAD32006FDFF5 /* Flight */,
 				C24486EE1BA89DD100A19A9D /* Geofence */,
 				E1B393791BAC66E900FC2970 /* LotStatus */,
-				C28ECB2F1BCF0C8D00887763 /* Notifications */,
 				E1B393781BAC625E00FC2970 /* ReferenceConfig */,
 				E13BCEF41BABB895006FDFF5 /* TerminalSummary */,
 				C2635E281BB0CB5F003C22B1 /* Trip */,
@@ -901,6 +895,7 @@
 				C220E0611BC3322F00AC7C85 /* ErrorLogger.swift */,
 				FA0E1FD11BAF1DD500B8F921 /* Font.swift */,
 				C2B15ADE1BBB16010049B97C /* Image.swift */,
+				C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */,
 				E1AE8CE41BB5A310004E243E /* UIButton+positionLabel.swift */,
 				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
 				E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */,
@@ -1236,6 +1231,7 @@
 				C2635E301BB0CE1C003C22B1 /* GeofenceClient.swift in Sources */,
 				C21905681BB0B74E00A3E779 /* Url.swift in Sources */,
 				E13BCEFA1BABBAA1006FDFF5 /* TerminalSummaryArrivalsListResponse.swift in Sources */,
+				C215CDFA1BD18F7200991D9D /* StatusCode.swift in Sources */,
 				C2635E261BB0CA3F003C22B1 /* DispatcherClient.swift in Sources */,
 				E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */,
 				E1B3937B1BAC66FE00FC2970 /* LotStatus.swift in Sources */,
