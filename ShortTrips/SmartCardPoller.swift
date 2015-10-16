@@ -27,7 +27,7 @@ class SmartCardPoller: NSObject {
 
   static func check() {
     
-    if let driver = TripManager.sharedInstance.getCurrentDriver() {
+    if let driver = DriverManager.sharedInstance.getCurrentDriver() {
       ApiClient.requestCidForSmartCard(driver.cardId) { cid in
           
           // TODO: actually verify if the CID is the entry CID

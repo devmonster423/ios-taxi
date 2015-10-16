@@ -41,7 +41,7 @@ class LoginVC: UIViewController {
       
       if let driver = driver {
         credential.save()
-        TripManager.sharedInstance.setCurrentDriver(driver)
+        DriverManager.sharedInstance.setCurrentDriver(driver)
         self.navigationController?.pushViewController(DebugVC(), animated: true)
         
       } else {

@@ -21,6 +21,7 @@
 		C21528CD1BC869790073502F /* LoginVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528CC1BC869790073502F /* LoginVCSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		C21528CF1BC869820073502F /* DebugVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528CE1BC869820073502F /* DebugVCSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		C215CDFA1BD18F7200991D9D /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CDF91BD18F7200991D9D /* StatusCode.swift */; settings = {ASSET_TAGS = (); }; };
+		C215CDFD1BD19FCA00991D9D /* DriverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CDFC1BD19FCA00991D9D /* DriverManager.swift */; settings = {ASSET_TAGS = (); }; };
 		C21775F91BB08CAC008B24EA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21775F81BB08CAC008B24EA /* Color.swift */; settings = {ASSET_TAGS = (); }; };
 		C21905681BB0B74E00A3E779 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905671BB0B74E00A3E779 /* Url.swift */; settings = {ASSET_TAGS = (); }; };
 		C219056A1BB0C87200A3E779 /* DeviceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905691BB0C87200A3E779 /* DeviceClient.swift */; settings = {ASSET_TAGS = (); }; };
@@ -184,6 +185,7 @@
 		C21528CC1BC869790073502F /* LoginVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVCSpec.swift; sourceTree = "<group>"; };
 		C21528CE1BC869820073502F /* DebugVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugVCSpec.swift; sourceTree = "<group>"; };
 		C215CDF91BD18F7200991D9D /* StatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
+		C215CDFC1BD19FCA00991D9D /* DriverManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverManager.swift; sourceTree = "<group>"; };
 		C21775F81BB08CAC008B24EA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C21905671BB0B74E00A3E779 /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		C21905691BB0C87200A3E779 /* DeviceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceClient.swift; sourceTree = "<group>"; };
@@ -399,6 +401,14 @@
 			name = Debug;
 			sourceTree = "<group>";
 		};
+		C215CDFB1BD19F9400991D9D /* Local Geofences */ = {
+			isa = PBXGroup;
+			children = (
+				C257FB3F1BC4624700468CF1 /* ShortTripGeofence.swift */,
+			);
+			name = "Local Geofences";
+			sourceTree = "<group>";
+		};
 		C21905661BB0B73E00A3E779 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +479,7 @@
 		C24486EE1BA89DD100A19A9D /* Geofence */ = {
 			isa = PBXGroup;
 			children = (
+				C215CDFB1BD19F9400991D9D /* Local Geofences */,
 				C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */,
 				E11D60961BA7A40100FD4276 /* Geofence.swift */,
 				C24486F31BA8B5A300A19A9D /* GeofenceResponse.swift */,
@@ -482,19 +493,10 @@
 		C257FB3B1BC44E2000468CF1 /* LocationManagement */ = {
 			isa = PBXGroup;
 			children = (
-				C257FB3E1BC4623500468CF1 /* Geofences */,
 				C257FB3C1BC44E4200468CF1 /* GeofenceArbiter.swift */,
 				C28ECB1F1BCEBDD400887763 /* LocationManager.swift */,
 			);
 			name = LocationManagement;
-			sourceTree = "<group>";
-		};
-		C257FB3E1BC4623500468CF1 /* Geofences */ = {
-			isa = PBXGroup;
-			children = (
-				C257FB3F1BC4624700468CF1 /* ShortTripGeofence.swift */,
-			);
-			name = Geofences;
 			sourceTree = "<group>";
 		};
 		C257FB411BC4650200468CF1 /* LocationManagement */ = {
@@ -545,6 +547,7 @@
 		C28ECB3E1BCF208400887763 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				C215CDFC1BD19FCA00991D9D /* DriverManager.swift */,
 				C21528C11BC839990073502F /* LoginVC.swift */,
 			);
 			name = Auth;
@@ -1228,6 +1231,7 @@
 				C2AB51381BD02A36003ACB4C /* SmartCardPoller.swift in Sources */,
 				E18FF6911BA870AF00FE93B9 /* Cid.swift in Sources */,
 				C28ECB421BCF21DE00887763 /* GeofenceManager.swift in Sources */,
+				C215CDFD1BD19FCA00991D9D /* DriverManager.swift in Sources */,
 				C2635E301BB0CE1C003C22B1 /* GeofenceClient.swift in Sources */,
 				C21905681BB0B74E00A3E779 /* Url.swift in Sources */,
 				E13BCEFA1BABBAA1006FDFF5 /* TerminalSummaryArrivalsListResponse.swift in Sources */,
