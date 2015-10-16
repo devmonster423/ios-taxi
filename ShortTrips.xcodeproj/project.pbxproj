@@ -26,6 +26,7 @@
 		C215CE011BD1AED200991D9D /* Failure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CE001BD1AED200991D9D /* Failure.swift */; settings = {ASSET_TAGS = (); }; };
 		C215CE031BD1B87000991D9D /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CE021BD1B87000991D9D /* Vehicle.swift */; settings = {ASSET_TAGS = (); }; };
 		C215CE051BD1B8AE00991D9D /* VehicleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CE041BD1B8AE00991D9D /* VehicleResponse.swift */; settings = {ASSET_TAGS = (); }; };
+		C215CE071BD1C31700991D9D /* PollerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CE061BD1C31700991D9D /* PollerSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		C21775F91BB08CAC008B24EA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21775F81BB08CAC008B24EA /* Color.swift */; settings = {ASSET_TAGS = (); }; };
 		C21905681BB0B74E00A3E779 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905671BB0B74E00A3E779 /* Url.swift */; settings = {ASSET_TAGS = (); }; };
 		C219056A1BB0C87200A3E779 /* DeviceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905691BB0C87200A3E779 /* DeviceClient.swift */; settings = {ASSET_TAGS = (); }; };
@@ -193,6 +194,7 @@
 		C215CE001BD1AED200991D9D /* Failure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Failure.swift; sourceTree = "<group>"; };
 		C215CE021BD1B87000991D9D /* Vehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
 		C215CE041BD1B8AE00991D9D /* VehicleResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleResponse.swift; sourceTree = "<group>"; };
+		C215CE061BD1C31700991D9D /* PollerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollerSpec.swift; sourceTree = "<group>"; };
 		C21775F81BB08CAC008B24EA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C21905671BB0B74E00A3E779 /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		C21905691BB0C87200A3E779 /* DeviceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceClient.swift; sourceTree = "<group>"; };
@@ -478,6 +480,7 @@
 		C220E0761BC34AA700AC7C85 /* TripManager */ = {
 			isa = PBXGroup;
 			children = (
+				C215CE061BD1C31700991D9D /* PollerSpec.swift */,
 				C220E0771BC34ACE00AC7C85 /* TripScenarioSpec1.swift */,
 			);
 			name = TripManager;
@@ -1293,6 +1296,7 @@
 				C21528CD1BC869790073502F /* LoginVCSpec.swift in Sources */,
 				E1BDE28D1BB1EB21006C0A42 /* CidSpec.swift in Sources */,
 				E1BDE2881BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift in Sources */,
+				C215CE071BD1C31700991D9D /* PollerSpec.swift in Sources */,
 				E1FDB2681BBC47E500F8F452 /* DriverCredentialSpec.swift in Sources */,
 				E1BDE28F1BB1EDDD006C0A42 /* CidResponseSpec.swift in Sources */,
 				E1BDE2911BB1EEE6006C0A42 /* CidListResponseSpec.swift in Sources */,
