@@ -51,6 +51,7 @@ class DebugView: UIView {
     addSubview(logOutButton)
     
     debugTextView.backgroundColor = UIColor(red: 0.95, green: 0.9, blue: 0.9, alpha: 1.0)
+    debugTextView.editable = false
     debugTextView.snp_makeConstraints { make in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)

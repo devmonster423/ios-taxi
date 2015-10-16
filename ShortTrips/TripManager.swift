@@ -15,28 +15,31 @@ struct TripManager {
   
   private var machine: TKStateMachine
   
+  static let allStates = [
+    NotReady.sharedInstance.getState(),
+    WaitingForEntryCID.sharedInstance.getState(),
+    AssociatingDriverAndVehicle.sharedInstance.getState(),
+    Ready.sharedInstance.getState(),
+    InProgress.sharedInstance.getState(),
+    Validating.sharedInstance.getState(),
+    Valid.sharedInstance.getState()
+  ]
+  
   private init() {
   
     machine = TKStateMachine()
     
-    machine.addStates([
-      NotReady.sharedInstance.getState(),
-      WaitingForEntryCID.sharedInstance.getState(),
-      AssociatingDriverAndVehicle.sharedInstance.getState(),
-      Ready.sharedInstance.getState(),
-      InProgress.sharedInstance.getState(),
-      Validating.sharedInstance.getState(),
-      Valid.sharedInstance.getState()
-      ])
+    machine.addStates(TripManager.allStates)
     
     machine.initialState = NotReady.sharedInstance.getState()
     
     machine.addEvents([
-      EnteredSFOGeofence.sharedInstance.getEvent(),
       DriverDispatched.sharedInstance.getEvent(),
       DriverExitsSfo.sharedInstance.getEvent(),
       DriverProceedsToTaxiLoop.sharedInstance.getEvent(),
       DriverReturnsToSfo.sharedInstance.getEvent(),
+      EnteredSFOGeofence.sharedInstance.getEvent(),
+      Failure.sharedInstance.getEvent(),
       LatestCidIsEntryCid.sharedInstance.getEvent(),
       TripValidated.sharedInstance.getEvent()
       ])

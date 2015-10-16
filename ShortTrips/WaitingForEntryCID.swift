@@ -13,17 +13,31 @@ struct WaitingForEntryCID {
   let stateName = "waitingForEntryCID"
   static let sharedInstance = WaitingForEntryCID()
 
+  private var poller: Poller?
   private var state: TKState
 
   private init() {
     state = TKState(name: stateName)
 
     state.setDidEnterStateBlock { _, _ in
-      SmartCardPoller.start()
+      
+      self.poller = Poller.init(timeout: 60, action: { _ in
+        if let driver = DriverManager.sharedInstance.getCurrentDriver() {
+          ApiClient.requestCidForSmartCard(driver.cardId) { cid in
+            
+            // TODO: actually verify if the CID is the entry CID
+            //        if let cid = cid where
+            //        cid.cidLocation == "entry" {
+            
+           // LatestCidIsEntryCid.sharedInstance.fire()
+            //  }
+          }
+        }
+      })
     }
 
     state.setDidExitStateBlock { _, _ in
-      SmartCardPoller.stop()
+      self.poller?.stop()
     }
   }
 
