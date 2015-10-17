@@ -9,8 +9,6 @@
 @testable import ShortTrips
 import Quick
 import Nimble
-import CoreLocation
-import JSQNotificationObserverKit
 
 class PingManagerSpec: QuickSpec {
   

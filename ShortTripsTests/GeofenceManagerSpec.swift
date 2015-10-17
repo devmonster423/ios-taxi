@@ -14,6 +14,8 @@ import JSQNotificationObserverKit
 
 class GeofenceManagerSpec: QuickSpec {
   
+  var observer: NotificationObserver<[Geofence], AnyObject>?
+  
   override func spec() {
     
     describe("the geofence manager") {
@@ -29,9 +31,29 @@ class GeofenceManagerSpec: QuickSpec {
         expect(geofenceManager).toNot(beNil())
       }
       
+      it("can handle a validlocationRead event") {
+        
+        var count = 0
+        
+        self.observer = NotificationObserver(notification: SfoNotification.foundInsideGeofences, handler: { (value, sender) -> Void in
+          count = 1
+        })
+        
+        expect(self.observer).toNot(beNil())
+        
+        let location = CLLocation(latitude: 37.615716, longitude: -122.388321) // is inside SFO
+        postNotification(SfoNotification.locationRead, value: location)
+        
+        expect(count).toEventually(equal(1), timeout: 1)
+      }
+      
       it("can be stopped") {
         geofenceManager.stop()
         expect(geofenceManager).toNot(beNil())
+      }
+      
+      afterEach {
+        Failure.sharedInstance.fire()
       }
     }
   }
