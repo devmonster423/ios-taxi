@@ -10,6 +10,8 @@
 import Quick
 import Nimble
 import PivotalCoreKit
+import JSQNotificationObserverKit
+import CoreLocation
 
 class DebugVCSpec: QuickSpec {
   
@@ -29,6 +31,26 @@ class DebugVCSpec: QuickSpec {
       }
       
       it("is instantiated") {
+        expect(viewController).toNot(beNil())
+      }
+      
+      it("can receive notifications and debug things") {
+        
+        let location = CLLocation(latitude: 37.615716, longitude: -122.388321)
+        let ping = Ping(location: location)
+        
+        postNotification(SfoNotification.attemptingPing, value: ping)
+        
+        postNotification(SfoNotification.foundInsideGeofences, value: [Geofence]())
+        
+        postNotification(SfoNotification.locationManagerStarted, value: nil)
+        
+        postNotification(SfoNotification.locationRead, value: location)
+        
+        postNotification(SfoNotification.requestResponse, value: NSHTTPURLResponse(URL: NSURL(string: Url.Flight.summary)!, statusCode: 200, HTTPVersion: "HTTP/1.1", headerFields: nil)!)
+        
+        postNotification(SfoNotification.successfulPing, value: ping)
+        
         expect(viewController).toNot(beNil())
       }
     }
