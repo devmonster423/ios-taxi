@@ -20,10 +20,9 @@ class AirlineClientSpec: QuickSpec {
         
         self.stub(uri(Url.Airline.codes), builder: json(IataCodeMock))
         
-        ApiClient.codes({ airlines, error in
-          
+        ApiClient.codes { airlines, error in
           expect(airlines).toNot(beNil())
-        })
+        }
       }
     }
   }

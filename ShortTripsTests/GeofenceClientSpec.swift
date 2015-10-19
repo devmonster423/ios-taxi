@@ -27,18 +27,20 @@ class GeofenceClientSpec: QuickSpec {
       
       it("can request geofences for a given location that should be in SFO geofence") {
         
-        self.stub(uri(Url.Geofence.locations), builder: json(SingleGeofenceMock))
+        self.stub(everything, builder: json(MultipleGeofenceMock))
         
         ApiClient.requestGeofencesForLocation(37.621313,
           longitude: -122.378955,
           buffer: GeofenceArbiter.buffer)
           { geofences in
-            
+              
             expect(geofences).toNot(beNil())
         }
       }
       
       xit("can request a specific geofence") {
+        
+        self.stub(uri(Url.Geofence.location), builder: json(SingleGeofenceMock))
         
         waitUntil(timeout: 60) { done in
           

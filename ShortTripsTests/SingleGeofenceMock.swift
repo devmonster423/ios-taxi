@@ -9,7 +9,6 @@
 import Foundation
 
 var SingleGeofenceMock =
-
 [
   "response":
   [
