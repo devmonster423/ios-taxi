@@ -42,6 +42,9 @@
 		C221678B1BD587A4002D7994 /* FlightClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221678A1BD587A4002D7994 /* FlightClientSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		C221678D1BD5886A002D7994 /* FlightArrivalMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221678C1BD5886A002D7994 /* FlightArrivalMock.swift */; settings = {ASSET_TAGS = (); }; };
 		C221678F1BD58AAF002D7994 /* TerminalSummaryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221678E1BD58AAF002D7994 /* TerminalSummaryMock.swift */; settings = {ASSET_TAGS = (); }; };
+		C22167911BD590E8002D7994 /* GeofenceClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22167901BD590E8002D7994 /* GeofenceClientSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		C22167931BD59199002D7994 /* AllGeofenceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22167921BD59199002D7994 /* AllGeofenceMock.swift */; settings = {ASSET_TAGS = (); }; };
+		C22167951BD592C4002D7994 /* SingleGeofenceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22167941BD592C4002D7994 /* SingleGeofenceMock.swift */; settings = {ASSET_TAGS = (); }; };
 		C23315851BB472490079B916 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23315841BB472490079B916 /* Airline.swift */; settings = {ASSET_TAGS = (); }; };
 		C24486F01BA89DF200A19A9D /* GeofenceListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */; };
 		C24486F21BA89EA800A19A9D /* AllGeofencesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */; };
@@ -61,7 +64,6 @@
 		C28224641BB09A8A007F284F /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */; };
 		C28224661BB09BCB007F284F /* TerminalSummaryVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28224651BB09BCB007F284F /* TerminalSummaryVCSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		C28224681BB09C32007F284F /* FlightStatusVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */; settings = {ASSET_TAGS = (); }; };
-		C2897A941BB5E6ED00FE1B40 /* ApiClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2897A931BB5E6ED00FE1B40 /* ApiClientSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		C28ECB201BCEBDD400887763 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB1F1BCEBDD400887763 /* LocationManager.swift */; settings = {ASSET_TAGS = (); }; };
 		C28ECB221BCECA9700887763 /* TripClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB211BCECA9700887763 /* TripClient.swift */; settings = {ASSET_TAGS = (); }; };
 		C28ECB241BCECB5700887763 /* GeofenceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB231BCECB5700887763 /* GeofenceStatus.swift */; settings = {ASSET_TAGS = (); }; };
@@ -218,6 +220,9 @@
 		C221678A1BD587A4002D7994 /* FlightClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightClientSpec.swift; sourceTree = "<group>"; };
 		C221678C1BD5886A002D7994 /* FlightArrivalMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightArrivalMock.swift; sourceTree = "<group>"; };
 		C221678E1BD58AAF002D7994 /* TerminalSummaryMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryMock.swift; sourceTree = "<group>"; };
+		C22167901BD590E8002D7994 /* GeofenceClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceClientSpec.swift; sourceTree = "<group>"; };
+		C22167921BD59199002D7994 /* AllGeofenceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGeofenceMock.swift; sourceTree = "<group>"; };
+		C22167941BD592C4002D7994 /* SingleGeofenceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleGeofenceMock.swift; sourceTree = "<group>"; };
 		C23315841BB472490079B916 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceListResponse.swift; sourceTree = "<group>"; };
 		C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGeofencesResponse.swift; sourceTree = "<group>"; };
@@ -234,7 +239,6 @@
 		C27450BB1BB4988200D33CDD /* AirlineListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineListResponse.swift; sourceTree = "<group>"; };
 		C28224651BB09BCB007F284F /* TerminalSummaryVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerminalSummaryVCSpec.swift; path = Pods/TerminalSummaryVCSpec.swift; sourceTree = SOURCE_ROOT; };
 		C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatusVCSpec.swift; sourceTree = "<group>"; };
-		C2897A931BB5E6ED00FE1B40 /* ApiClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClientSpec.swift; sourceTree = "<group>"; };
 		C28ECB1F1BCEBDD400887763 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C28ECB211BCECA9700887763 /* TripClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripClient.swift; sourceTree = "<group>"; };
 		C28ECB231BCECB5700887763 /* GeofenceStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceStatus.swift; sourceTree = "<group>"; };
@@ -506,8 +510,10 @@
 		C22167851BD5866C002D7994 /* MockJSON */ = {
 			isa = PBXGroup;
 			children = (
+				C22167921BD59199002D7994 /* AllGeofenceMock.swift */,
 				C221678C1BD5886A002D7994 /* FlightArrivalMock.swift */,
 				C22167861BD5868D002D7994 /* IataCodeMock.swift */,
+				C22167941BD592C4002D7994 /* SingleGeofenceMock.swift */,
 				C221678E1BD58AAF002D7994 /* TerminalSummaryMock.swift */,
 			);
 			name = MockJSON;
@@ -578,8 +584,8 @@
 			children = (
 				C22167851BD5866C002D7994 /* MockJSON */,
 				C22167831BD58639002D7994 /* AirlineClientSpec.swift */,
-				C2897A931BB5E6ED00FE1B40 /* ApiClientSpec.swift */,
 				C221678A1BD587A4002D7994 /* FlightClientSpec.swift */,
+				C22167901BD590E8002D7994 /* GeofenceClientSpec.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -1326,6 +1332,7 @@
 				E1598CE41BB1ACB100E933AD /* FlightSpec.swift in Sources */,
 				C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */,
 				E17C22F71BBC621300E40E6C /* TerminalSummaryArrivalsResponse.swift in Sources */,
+				C22167951BD592C4002D7994 /* SingleGeofenceMock.swift in Sources */,
 				C22167871BD5868D002D7994 /* IataCodeMock.swift in Sources */,
 				E17C22F51BBC61F000E40E6C /* TerminalSummaryResponseSpec.swift in Sources */,
 				E1598CE61BB1AE3B00E933AD /* FlightDetailResponseSpec.swift in Sources */,
@@ -1360,10 +1367,11 @@
 				E14E159B1BB1D856009D1E17 /* AntennaSpec.swift in Sources */,
 				C221678B1BD587A4002D7994 /* FlightClientSpec.swift in Sources */,
 				E1E6EFA01BB205600039C5F3 /* DriverResponseSpec.swift in Sources */,
+				C22167931BD59199002D7994 /* AllGeofenceMock.swift in Sources */,
 				E112C3031BB2FD2500B1DF48 /* GeofenceSpec.swift in Sources */,
 				C28224681BB09C32007F284F /* FlightStatusVCSpec.swift in Sources */,
+				C22167911BD590E8002D7994 /* GeofenceClientSpec.swift in Sources */,
 				C257FB441BC4653000468CF1 /* ShortTripGeofenceSpec.swift in Sources */,
-				C2897A941BB5E6ED00FE1B40 /* ApiClientSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
