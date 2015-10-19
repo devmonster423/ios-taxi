@@ -39,6 +39,9 @@
 		C220E07E1BC3511200AC7C85 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E07D1BC3511200AC7C85 /* Event.swift */; settings = {ASSET_TAGS = (); }; };
 		C22167841BD58639002D7994 /* AirlineClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22167831BD58639002D7994 /* AirlineClientSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		C22167871BD5868D002D7994 /* IataCodeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22167861BD5868D002D7994 /* IataCodeMock.swift */; settings = {ASSET_TAGS = (); }; };
+		C221678B1BD587A4002D7994 /* FlightClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221678A1BD587A4002D7994 /* FlightClientSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		C221678D1BD5886A002D7994 /* FlightArrivalMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221678C1BD5886A002D7994 /* FlightArrivalMock.swift */; settings = {ASSET_TAGS = (); }; };
+		C221678F1BD58AAF002D7994 /* TerminalSummaryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221678E1BD58AAF002D7994 /* TerminalSummaryMock.swift */; settings = {ASSET_TAGS = (); }; };
 		C23315851BB472490079B916 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23315841BB472490079B916 /* Airline.swift */; settings = {ASSET_TAGS = (); }; };
 		C24486F01BA89DF200A19A9D /* GeofenceListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */; };
 		C24486F21BA89EA800A19A9D /* AllGeofencesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */; };
@@ -212,6 +215,9 @@
 		C220E07D1BC3511200AC7C85 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		C22167831BD58639002D7994 /* AirlineClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineClientSpec.swift; sourceTree = "<group>"; };
 		C22167861BD5868D002D7994 /* IataCodeMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IataCodeMock.swift; sourceTree = "<group>"; };
+		C221678A1BD587A4002D7994 /* FlightClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightClientSpec.swift; sourceTree = "<group>"; };
+		C221678C1BD5886A002D7994 /* FlightArrivalMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightArrivalMock.swift; sourceTree = "<group>"; };
+		C221678E1BD58AAF002D7994 /* TerminalSummaryMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryMock.swift; sourceTree = "<group>"; };
 		C23315841BB472490079B916 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceListResponse.swift; sourceTree = "<group>"; };
 		C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGeofencesResponse.swift; sourceTree = "<group>"; };
@@ -500,7 +506,9 @@
 		C22167851BD5866C002D7994 /* MockJSON */ = {
 			isa = PBXGroup;
 			children = (
+				C221678C1BD5886A002D7994 /* FlightArrivalMock.swift */,
 				C22167861BD5868D002D7994 /* IataCodeMock.swift */,
+				C221678E1BD58AAF002D7994 /* TerminalSummaryMock.swift */,
 			);
 			name = MockJSON;
 			sourceTree = "<group>";
@@ -571,6 +579,7 @@
 				C22167851BD5866C002D7994 /* MockJSON */,
 				C22167831BD58639002D7994 /* AirlineClientSpec.swift */,
 				C2897A931BB5E6ED00FE1B40 /* ApiClientSpec.swift */,
+				C221678A1BD587A4002D7994 /* FlightClientSpec.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -1341,12 +1350,15 @@
 				E112C3091BB3016C00B1DF48 /* AllGeofencesResponseSpec.swift in Sources */,
 				C29341CC1BD1C56200A7CB9E /* DriverManagerSpec.swift in Sources */,
 				E112C3071BB2FFC400B1DF48 /* GeofenceListResponseSpec.swift in Sources */,
+				C221678F1BD58AAF002D7994 /* TerminalSummaryMock.swift in Sources */,
 				E112C30C1BB3135600B1DF48 /* LotStatusEnumSpec.swift in Sources */,
 				E112C3101BB31A5800B1DF48 /* LotStatusResponseSpec.swift in Sources */,
 				E1BDE2931BB1EFBB006C0A42 /* AllCidsResponseSpec.swift in Sources */,
 				C22167841BD58639002D7994 /* AirlineClientSpec.swift in Sources */,
+				C221678D1BD5886A002D7994 /* FlightArrivalMock.swift in Sources */,
 				E16E5E161BB1B690003A315A /* FlightStatusSpec.swift in Sources */,
 				E14E159B1BB1D856009D1E17 /* AntennaSpec.swift in Sources */,
+				C221678B1BD587A4002D7994 /* FlightClientSpec.swift in Sources */,
 				E1E6EFA01BB205600039C5F3 /* DriverResponseSpec.swift in Sources */,
 				E112C3031BB2FD2500B1DF48 /* GeofenceSpec.swift in Sources */,
 				C28224681BB09C32007F284F /* FlightStatusVCSpec.swift in Sources */,
