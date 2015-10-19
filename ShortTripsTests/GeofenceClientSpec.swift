@@ -27,7 +27,7 @@ class GeofenceClientSpec: QuickSpec {
       
       it("can request geofences for a given location that should be in SFO geofence") {
         
-        self.stub(everything, builder: json(MultipleGeofenceMock))
+        self.stub(uri(Url.Geofence.locations), builder: json(MultipleGeofenceMock))
         
         ApiClient.requestGeofencesForLocation(37.621313,
           longitude: -122.378955,
