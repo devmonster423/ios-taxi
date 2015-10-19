@@ -14,20 +14,6 @@ class ApiClientSpec: QuickSpec {
   
   override func spec() {
     
-    describe("the airline client") {
-      xit("can request codes") {
-        
-        waitUntil(timeout: 60) { done in
-          
-          ApiClient.codes({ airlines, error in
-            
-            expect(airlines).toNot(beNil())
-            done()
-          })
-        }
-      }
-    }
-    
     describe("the dispatcher client") {
       xit("can request lot status") {
         

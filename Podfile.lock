@@ -12,6 +12,16 @@ PODS:
   - IQKeyboardManagerSwift (3.3.2)
   - JSQNotificationObserverKit (2.0.0)
   - MBProgressHUD (0.9.1)
+  - Mockingjay (1.1.0):
+    - Mockingjay/Core (= 1.1.0)
+    - Mockingjay/Session (= 1.1.0)
+    - Mockingjay/XCTest (= 1.1.0)
+  - Mockingjay/Core (1.1.0):
+    - URITemplate (~> 1.3)
+  - Mockingjay/Session (1.1.0):
+    - Mockingjay/Core
+  - Mockingjay/XCTest (1.1.0):
+    - Mockingjay/Core
   - Nimble (2.0.0)
   - ObjectMapper (0.17)
   - PivotalCoreKit (0.3.0):
@@ -29,6 +39,7 @@ PODS:
   - Quick (0.6.0)
   - SnapKit (0.15.0)
   - TransitionKit (2.2.1)
+  - URITemplate (1.3.0)
 
 DEPENDENCIES:
   - Alamofire (= 2.0.2)
@@ -39,6 +50,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift (= 3.3.2)
   - JSQNotificationObserverKit (= 2.0.0)
   - MBProgressHUD (= 0.9.1)
+  - Mockingjay (= 1.1.0)
   - Nimble (= 2.0.0)
   - PivotalCoreKit (= 0.3.0)
   - PivotalCoreKit/UIKit/SpecHelper/Extensions
@@ -55,11 +67,13 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 40a9f6a3a5f60bc311aad5ab3265b9de5ecb9367
   JSQNotificationObserverKit: 01d1411456cfab1418093cd54401e612744736e9
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  Mockingjay: 5782cb22c9e99dece7aad5bdf738bfa187cfcdcc
   Nimble: 472e75466819eb8c06299233e87c694a9b51328a
   ObjectMapper: fa286b7cb5a398f1b0d8d64d0dd33fd1b307022c
   PivotalCoreKit: 3dab7cf9bff77eb49ce7ffc7a84e57fa8591f033
   Quick: 563686dbcf0ae0f9f7401ac9cd2d786ee1b7f3d7
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   TransitionKit: 9ceccda4cd0cdc0a05ef85eb235e5a3292c3c250
+  URITemplate: 0ebbec80d1eb59a89e29db9b14c99d5908d3e574
 
 COCOAPODS: 0.39.0

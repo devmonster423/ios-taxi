@@ -37,6 +37,8 @@
 		C220E0731BC3446600AC7C85 /* Ready.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E0721BC3446600AC7C85 /* Ready.swift */; settings = {ASSET_TAGS = (); }; };
 		C220E0781BC34ACE00AC7C85 /* TripScenarioSpec1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E0771BC34ACE00AC7C85 /* TripScenarioSpec1.swift */; settings = {ASSET_TAGS = (); }; };
 		C220E07E1BC3511200AC7C85 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E07D1BC3511200AC7C85 /* Event.swift */; settings = {ASSET_TAGS = (); }; };
+		C22167841BD58639002D7994 /* AirlineClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22167831BD58639002D7994 /* AirlineClientSpec.swift */; settings = {ASSET_TAGS = (); }; };
+		C22167871BD5868D002D7994 /* IataCodeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22167861BD5868D002D7994 /* IataCodeMock.swift */; settings = {ASSET_TAGS = (); }; };
 		C23315851BB472490079B916 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23315841BB472490079B916 /* Airline.swift */; settings = {ASSET_TAGS = (); }; };
 		C24486F01BA89DF200A19A9D /* GeofenceListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */; };
 		C24486F21BA89EA800A19A9D /* AllGeofencesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */; };
@@ -208,6 +210,8 @@
 		C220E0721BC3446600AC7C85 /* Ready.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ready.swift; sourceTree = "<group>"; };
 		C220E0771BC34ACE00AC7C85 /* TripScenarioSpec1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripScenarioSpec1.swift; sourceTree = "<group>"; };
 		C220E07D1BC3511200AC7C85 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		C22167831BD58639002D7994 /* AirlineClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineClientSpec.swift; sourceTree = "<group>"; };
+		C22167861BD5868D002D7994 /* IataCodeMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IataCodeMock.swift; sourceTree = "<group>"; };
 		C23315841BB472490079B916 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceListResponse.swift; sourceTree = "<group>"; };
 		C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGeofencesResponse.swift; sourceTree = "<group>"; };
@@ -493,6 +497,14 @@
 			name = TripManager;
 			sourceTree = "<group>";
 		};
+		C22167851BD5866C002D7994 /* MockJSON */ = {
+			isa = PBXGroup;
+			children = (
+				C22167861BD5868D002D7994 /* IataCodeMock.swift */,
+			);
+			name = MockJSON;
+			sourceTree = "<group>";
+		};
 		C24486EE1BA89DD100A19A9D /* Geofence */ = {
 			isa = PBXGroup;
 			children = (
@@ -556,6 +568,8 @@
 		C2897A921BB5E6CC00FE1B40 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C22167851BD5866C002D7994 /* MockJSON */,
+				C22167831BD58639002D7994 /* AirlineClientSpec.swift */,
 				C2897A931BB5E6ED00FE1B40 /* ApiClientSpec.swift */,
 			);
 			name = Networking;
@@ -1303,6 +1317,7 @@
 				E1598CE41BB1ACB100E933AD /* FlightSpec.swift in Sources */,
 				C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */,
 				E17C22F71BBC621300E40E6C /* TerminalSummaryArrivalsResponse.swift in Sources */,
+				C22167871BD5868D002D7994 /* IataCodeMock.swift in Sources */,
 				E17C22F51BBC61F000E40E6C /* TerminalSummaryResponseSpec.swift in Sources */,
 				E1598CE61BB1AE3B00E933AD /* FlightDetailResponseSpec.swift in Sources */,
 				E1E6EF9E1BB205520039C5F3 /* DriverSpec.swift in Sources */,
@@ -1329,6 +1344,7 @@
 				E112C30C1BB3135600B1DF48 /* LotStatusEnumSpec.swift in Sources */,
 				E112C3101BB31A5800B1DF48 /* LotStatusResponseSpec.swift in Sources */,
 				E1BDE2931BB1EFBB006C0A42 /* AllCidsResponseSpec.swift in Sources */,
+				C22167841BD58639002D7994 /* AirlineClientSpec.swift in Sources */,
 				E16E5E161BB1B690003A315A /* FlightStatusSpec.swift in Sources */,
 				E14E159B1BB1D856009D1E17 /* AntennaSpec.swift in Sources */,
 				E1E6EFA01BB205600039C5F3 /* DriverResponseSpec.swift in Sources */,
