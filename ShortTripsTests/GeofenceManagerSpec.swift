@@ -31,7 +31,7 @@ class GeofenceManagerSpec: QuickSpec {
         expect(geofenceManager).toNot(beNil())
       }
       
-      it("can handle a validlocationRead event") {
+      xit("can handle a validlocationRead event") {
         
         var count = 0
         

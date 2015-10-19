@@ -15,7 +15,7 @@ class ApiClientSpec: QuickSpec {
   override func spec() {
     
     describe("the airline client") {
-      it("can request codes") {
+      xit("can request codes") {
         
         waitUntil(timeout: 60) { done in
           
@@ -29,7 +29,7 @@ class ApiClientSpec: QuickSpec {
     }
     
     describe("the dispatcher client") {
-      it("can request lot status") {
+      xit("can request lot status") {
         
         waitUntil(timeout: 60) { done in
           
@@ -43,7 +43,7 @@ class ApiClientSpec: QuickSpec {
     }
     
     describe("the geofence client") {
-      it("can request geofences") {
+      xit("can request geofences") {
         
         waitUntil(timeout: 60) { done in
           
@@ -57,7 +57,7 @@ class ApiClientSpec: QuickSpec {
     }
     
     describe("the geofence client") {
-      it("can request geofences for a given location that should be in SFO geofence") {
+      xit("can request geofences for a given location that should be in SFO geofence") {
         
         waitUntil(timeout: 60) { done in
           
@@ -74,7 +74,7 @@ class ApiClientSpec: QuickSpec {
     }
     
     describe("the geofence client") {
-      it("can request a specific geofence") {
+      xit("can request a specific geofence") {
         
         waitUntil(timeout: 60) { done in
           
