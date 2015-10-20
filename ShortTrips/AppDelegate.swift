@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import Crashlytics
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window?.rootViewController = UINavigationController(rootViewController: DashboardVC())
     window?.makeKeyAndVisible()
     Fabric.with([Crashlytics.self()])
+    IQKeyboardManager.sharedManager().enable = true
     return true
   }
 

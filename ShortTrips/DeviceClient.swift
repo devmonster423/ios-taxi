@@ -14,7 +14,7 @@ import AlamofireObjectMapper
 typealias AviClosure = ([AutomaticVehicleId]?, ErrorType?) -> Void
 typealias AntennaClosure = (Antenna?, ErrorType?) -> Void
 typealias AllCidsClosure = ([Cid]?, ErrorType?) -> Void
-typealias CidForSmartCardClosure = (Cid?, ErrorType?) -> Void
+typealias CidClosure = Cid? -> Void
 
 protocol DeviceClient { }
 
@@ -47,10 +47,10 @@ extension ApiClient {
     }
   }
   
-  static func requestCidForSmartCard(smartCardId: Int, response: CidForSmartCardClosure) {
+  static func requestCidForSmartCard(smartCardId: Int, response: CidClosure) {
     authedRequest(Alamofire.request(.GET, Url.Device.Cid.smartCard(smartCardId), parameters: nil))
       .responseObject { (cidResponse: CidResponse?, error: ErrorType?) in
-      response(cidResponse?.cid, error)
+      response(cidResponse?.cid)
     }
   }
 }

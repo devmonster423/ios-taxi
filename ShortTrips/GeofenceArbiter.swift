@@ -34,7 +34,7 @@ struct GeofenceArbiter {
     
     let mapPoint = MKMapPointForCoordinate(location)
     let pointasCGP = CGPointMake(CGFloat(mapPoint.x), CGFloat(mapPoint.y))
-    
+
     return CGPathContainsPoint(mutablePathRef, nil, pointasCGP, false)
   }
 }

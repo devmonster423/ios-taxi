@@ -14,6 +14,12 @@ protocol Event {
 }
 
 extension Event {
+  func fire() {
+    do {
+      try TripManager.sharedInstance.getMachine().fireEvent(eventName, userInfo: nil)
+    } catch {}
+  }
+
   func fire(info: [NSObject: AnyObject]?) {
     do {
       try TripManager.sharedInstance.getMachine().fireEvent(eventName, userInfo: info)

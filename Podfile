@@ -7,7 +7,10 @@ def shared_pods
   pod 'AlamofireObjectMapper', '1.0'
   pod 'Crashlytics', '3.3.4'
   pod 'Fabric', '1.5.5'
+  pod 'IQKeyboardManagerSwift', '3.3.2'
+  pod 'JSQNotificationObserverKit', '2.0.0'
   pod 'MBProgressHUD', '0.9.1'
+  pod 'Mockingjay', '1.1.0'
   pod 'SnapKit', '0.15.0'
   pod 'TransitionKit', '2.2.1'
 end

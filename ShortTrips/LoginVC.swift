@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class LoginVC: UIViewController {
   
@@ -32,15 +33,25 @@ class LoginVC: UIViewController {
   }
   
   func login() {
+    let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+    hud.labelText = NSLocalizedString("Logging In...", comment: "")
     ApiClient.authenticateDriver(loginView().getLoginCredential()) { credential, driver in
       
-      if let _ = driver {
+      hud.hide(true)
+      
+      if let driver = driver {
         credential.save()
+        DriverManager.sharedInstance.setCurrentDriver(driver)
         self.navigationController?.pushViewController(DebugVC(), animated: true)
         
       } else {
-        
-        // TODO: show error
+        let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
+          message: NSLocalizedString("An error occurred while logging in.", comment: ""),
+          preferredStyle: .Alert)
+        let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
+          style: .Default, handler: nil)
+        alertController.addAction(OKAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
       }
     }
   }

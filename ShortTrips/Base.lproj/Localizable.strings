@@ -26,6 +26,7 @@
 "The terminals object was nil." = "The terminals object was nil.";
 "The status object was nil." = "The status object was nil.";
 "An error occurred while fetching parking-lot data." = "An error occurred while fetching parking-lot data.";
+"An error occurred while logging in." = "An error occurred while logging in.";
 
 /* Dashboard */
 "Our holding lot is" = "Our holding lot is";

@@ -8,18 +8,37 @@
 
 import Foundation
 import Alamofire
-import ObjectMapper
 import AlamofireObjectMapper
+import JSQNotificationObserverKit
+import ObjectMapper
 
 typealias DriverClosure = (DriverCredential, Driver?) -> Void
+typealias VehicleClosure = Vehicle? -> Void
 
 protocol DriverClient { }
 
 extension ApiClient {
   static func authenticateDriver(credential: DriverCredential, completion: DriverClosure) {
     authedRequest(Alamofire.request(.POST, Url.Driver.login, parameters: Mapper().toJSON(credential)))
-      .responseObject { (driverResponse: DriverResponse?, error) in
+      .responseObject { (_, raw, driverResponse: DriverResponse?, _, _) in
+        
+        if let raw = raw {
+          postNotification(SfoNotification.requestResponse, value: raw)
+        }
+        
         completion(credential, driverResponse?.driver)
+    }
+  }
+  
+  static func getVehicle(driverId: Int, completion: VehicleClosure) {
+    authedRequest(Alamofire.request(.GET, Url.Driver.vehicle(driverId)))
+      .responseObject { (_, raw, vehicleResponse: VehicleResponse?, _, _) in
+        
+        if let raw = raw {
+          postNotification(SfoNotification.requestResponse, value: raw)
+        }
+        
+        completion(vehicleResponse?.vehicle)
     }
   }
 }
