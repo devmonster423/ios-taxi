@@ -1,5 +1,5 @@
 //
-//  DispatcherRequester.swift
+//  DispatcherClient.swift
 //  ShortTrips
 //
 //  Created by Matt Luedke on 9/21/15.
@@ -11,15 +11,22 @@ import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
-typealias LotStatusClosure = (LotStatus?, ErrorType?) -> Void
+typealias LotStatusClosure = (LotStatus?, NSHTTPURLResponse?, ErrorType?) -> Void
 
 protocol DispatcherClient { }
 
 extension ApiClient {
   static func requestLotStatus(response: LotStatusClosure) {
     authedRequest(Alamofire.request(.GET, Url.Dispatcher.holdingLotCapacity, parameters: nil))
-    .responseObject { (statusResponse: LotStatusResponse?, error: ErrorType?) in
-      response(statusResponse?.lotStatus, error)
+      .responseObject { (request, urlResponse, statusResponse: LotStatusResponse?, _, error: ErrorType?) in
+      if error != nil {
+        if Util.debug {
+          ErrorLogger.log(request, error: error)
+        }
+      }
+      else {
+        response(statusResponse?.lotStatus, urlResponse, error)
+      }
     }
   }
 }

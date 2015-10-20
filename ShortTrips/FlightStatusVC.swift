@@ -58,25 +58,20 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
     hud.labelText = NSLocalizedString("Requesting Flights...", comment: "")
     
-    ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour, response: { flights in
-      
+    ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour, response: { (flights, urlResponse, error) in
       hud.hide(true)
-      
+      if let urlResponse = urlResponse where urlResponse.statusCode != Util.HttpStatusCodes.Ok.rawValue {
+        let message = NSLocalizedString("An error occurred while fetching flight data.", comment: "") + " " + (Util.debug ? NSLocalizedString("Status code: ", comment: "") + String(urlResponse.statusCode) : "")
+        UiHelpers.displayMessage(self, title: NSLocalizedString("Error", comment: ""), message: message)
+        return
+      }
       if let flights = flights {
         self.flights = flights
         self.flightStatusView().flightTable.reloadData()
-        
-      } else {
-        let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
-          message: NSLocalizedString("An error occurred while fetching flight data.", comment: ""),
-          preferredStyle: .Alert)
-        
-        let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
-          style: .Default) { alertAction -> Void in
-            self.navigationController?.popViewControllerAnimated(true)
-        }
-        alertController.addAction(OKAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
+      }
+      else {
+        let message = NSLocalizedString("An error occurred while fetching flight data.", comment: "") + " " + (Util.debug ? NSLocalizedString("The flights object was nil.", comment:"") : "")
+        UiHelpers.displayMessage(self, title: NSLocalizedString("Error", comment: ""), message: message)
       }
     })
   }

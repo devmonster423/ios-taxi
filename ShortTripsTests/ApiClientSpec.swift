@@ -33,8 +33,7 @@ class ApiClientSpec: QuickSpec {
         
         waitUntil(timeout: 60) { done in
           
-          ApiClient.requestLotStatus({ status, error in
-            
+          ApiClient.requestLotStatus({ status, urlResponse, error in
             expect(status).toNot(beNil())
             done()
           })

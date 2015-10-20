@@ -30,4 +30,12 @@ class UiHelpers {
       }
     })
   }
+  
+  class func displayMessage(viewController: UIViewController, title: String, message: String) {
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+    let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
+      style: .Default, handler: nil)
+    alertController.addAction(OKAction)
+    viewController.presentViewController(alertController, animated: true, completion: nil)
+  }
 }
