@@ -62,7 +62,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
 
       hud.hide(true)
       
-      if let flights = flights {
+      if let flights = flights where Flight.isValid(flights) {
         self.flights = flights
         self.flightStatusView().flightTable.reloadData()
         
