@@ -71,9 +71,9 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if Util.debug {
           if let statusCode = statusCode where statusCode != Util.HttpStatusCodes.Ok.rawValue {
-            message += NSLocalizedString("Status code: ", comment: "") + String(statusCode)
+            message += " " + NSLocalizedString("Status code: ", comment: "") + String(statusCode)
           } else {
-            message += NSLocalizedString("The flights object was nil.", comment:"")
+            message += " " + NSLocalizedString("The flights object was nil.", comment:"")
           }
         }
         

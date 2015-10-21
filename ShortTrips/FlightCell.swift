@@ -146,13 +146,11 @@ class FlightCell: UITableViewCell {
     
     self.backgroundColor = darkBackground ? Color.FlightCell.darkBackground : Color.FlightCell.lightBackground
     
-    
     scheduledTimeTitleLabel.text = self.contentView.bounds.size.width <= UiConstants.FlightCell.iPhone5Width
       ? NSLocalizedString("Sched.:", comment: "") : NSLocalizedString("Scheduled:", comment: "")
     
     estimatedTimeTitleLabel.text = self.contentView.bounds.size.width <= UiConstants.FlightCell.iPhone5Width
       ? NSLocalizedString("Est.:", comment: "") : NSLocalizedString("Estimated:", comment: "")
-    
     
     let scale = UIScreen.mainScreen().scale
     let width = airlineImageView.bounds.size.width * scale

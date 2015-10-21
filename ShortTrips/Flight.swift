@@ -44,10 +44,10 @@ struct Flight: Mappable {
     
     for flight in flights {
       if flight.airline == nil
-        || flight.bags != nil
-        || flight.estimatedTime != nil
-        || flight.flightNumber != nil
-        || flight.scheduledTime != nil {
+        || flight.bags == nil
+        || flight.estimatedTime == nil
+        || flight.flightNumber == nil
+        || flight.scheduledTime == nil {
           
           return false
       }
