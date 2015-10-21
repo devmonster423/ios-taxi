@@ -22,7 +22,7 @@ target 'ShortTripsTests' do
   shared_pods
   
   pod 'Mockingjay', '1.1.0'
-  pod 'Quick', '0.6.0'
+  pod 'Quick', '0.7.0'
   pod 'Nimble', '2.0.0'
   pod 'PivotalCoreKit', '0.3.0'
   pod 'PivotalCoreKit/UIKit/SpecHelper/Extensions'
