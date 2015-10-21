@@ -20,7 +20,7 @@ class FlightClientSpec: QuickSpec {
         
         self.stub(uri(Url.Flight.Arrival.details), builder: json(FlightArrivalMock))
         
-        ApiClient.requestFlightsForTerminal(1, hour: 1) { flights in
+        ApiClient.requestFlightsForTerminal(1, hour: 1) { flights, response, error in
           
           expect(flights).toNot(beNil())
         }
@@ -30,7 +30,7 @@ class FlightClientSpec: QuickSpec {
         
         self.stub(uri(Url.Flight.Arrival.summary), builder: json(TerminalSummaryMock))
         
-        ApiClient.requestTerminalSummary(1) { terminalSummaries, hour, error in
+        ApiClient.requestTerminalSummary(1) { terminalSummaries, hour, response, error in
           
           expect(terminalSummaries).toNot(beNil())
         }
