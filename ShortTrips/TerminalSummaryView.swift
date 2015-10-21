@@ -14,13 +14,14 @@ class TerminalSummaryView: UIView {
   var decreaseButton: UIButton!
   let hourPickerView = HourPickerView()
   var increaseButton: UIButton!
-  let internationalTerminalView = TerminalView()
   let terminalView1 = TerminalView()
   let terminalView2 = TerminalView()
   let terminalView3 = TerminalView()
+  let internationalTerminalView = TerminalView()
   let timerView = TimerView()
   let titleTerminalView = TerminalView()
   let totalTerminalView = TerminalView()
+  var terminalViews: [TerminalView] = []
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -28,16 +29,15 @@ class TerminalSummaryView: UIView {
 
   override init(frame: CGRect) {
     super.init(frame: frame)
-
-    // general config
     backgroundColor = UIColor.whiteColor()
-
-    // add subviews
+    terminalViews.append(terminalView1)
+    terminalViews.append(terminalView2)
+    terminalViews.append(terminalView3)
+    terminalViews.append(internationalTerminalView)
+    for terminalView in terminalViews {
+      addSubview(terminalView)
+    }
     addSubview(hourPickerView)
-    addSubview(internationalTerminalView)
-    addSubview(terminalView1)
-    addSubview(terminalView2)
-    addSubview(terminalView3)
     addSubview(timerView)
     addSubview(titleTerminalView)
     addSubview(totalTerminalView)
@@ -116,10 +116,16 @@ class TerminalSummaryView: UIView {
   }
   
   func reloadTerminalViews(summaries: [TerminalSummary]) {
-    terminalView1.configureForTerminalSummary(summaries[0])
-    terminalView2.configureForTerminalSummary(summaries[1])
-    terminalView3.configureForTerminalSummary(summaries[2])
-    internationalTerminalView.configureForTerminalSummary(summaries[3])
+    for i in 0...3 {
+      terminalViews[i].configureForTerminalSummary(summaries[i])
+    }
     totalTerminalView.configureTotals(TerminalSummary.getTotals(summaries))
+  }
+  
+  func clearTerminalTable() {
+    for terminalView in terminalViews {
+      terminalView.clearTotals()
+    }
+    totalTerminalView.clearTotals()
   }
 }
