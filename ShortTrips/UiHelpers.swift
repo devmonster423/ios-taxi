@@ -31,6 +31,10 @@ class UiHelpers {
     })
   }
   
+  class func displayErrorMessage(viewController: UIViewController, message: String) {
+    displayMessage(viewController, title: NSLocalizedString("Error", comment: ""), message: message)
+  }
+  
   class func displayMessage(viewController: UIViewController, title: String, message: String) {
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
     let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),

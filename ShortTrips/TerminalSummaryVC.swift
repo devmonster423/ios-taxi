@@ -63,22 +63,28 @@ class TerminalSummaryVC: UIViewController {
   }
   
   private func updateTerminalTable() {
-    ApiClient.requestTerminalSummary(terminalSummaryView().getCurrentHour(), response: { (terminals, hour, urlResponse, error) -> Void in
-      if let urlResponse = urlResponse where urlResponse.statusCode != Util.HttpStatusCodes.Ok.rawValue {
-        let message = NSLocalizedString("An error occurred while fetching flight data.", comment: "") + " " + (Util.debug ? NSLocalizedString("Status code: ", comment: "") + String(urlResponse.statusCode) : "")
-        UiHelpers.displayMessage(self, title: NSLocalizedString("Error", comment: ""), message: message)
-        return
-      }
-      if let hour = hour, terminals = terminals {
-        if hour == self.terminalSummaryView().getCurrentHour() {
+    ApiClient.requestTerminalSummary(terminalSummaryView().getCurrentHour()) { terminals, hour, statusCode in
+      
+      if let hour = hour where hour == self.terminalSummaryView().getCurrentHour() {
+        if let terminals = terminals {
           self.terminalSummaryView().reloadTerminalViews(terminals)
+          
+        } else {
+          
+          var message = NSLocalizedString("An error occurred while fetching flight data.", comment: "")
+          
+          if Util.debug {
+            if let statusCode = statusCode where statusCode != Util.HttpStatusCodes.Ok.rawValue {
+              message += NSLocalizedString("Status code: ", comment: "") + String(statusCode)
+            } else {
+              message += NSLocalizedString("The terminals object was nil.", comment:"")
+            }
+          }
+          
+          UiHelpers.displayErrorMessage(self, message: message)
         }
       }
-      else {
-        let message = NSLocalizedString("An error occurred while fetching flight data.", comment: "") + " " + (Util.debug ? NSLocalizedString("The terminals object was nil.", comment:"") : "")
-        UiHelpers.displayMessage(self, title: NSLocalizedString("Error", comment: ""), message: message)
-      }
-    })
+    }
   }
 
   func changeHour(delta: Int) {

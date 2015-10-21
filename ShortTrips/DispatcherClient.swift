@@ -11,7 +11,7 @@ import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
-typealias LotStatusClosure = (LotStatus?, NSHTTPURLResponse?, ErrorType?) -> Void
+typealias LotStatusClosure = (LotStatus?, Int?) -> Void
 
 protocol DispatcherClient { }
 
@@ -19,14 +19,12 @@ extension ApiClient {
   static func requestLotStatus(response: LotStatusClosure) {
     authedRequest(Alamofire.request(.GET, Url.Dispatcher.holdingLotCapacity, parameters: nil))
       .responseObject { (request, urlResponse, statusResponse: LotStatusResponse?, _, error: ErrorType?) in
-      if error != nil {
+        
+        response(statusResponse?.lotStatus, urlResponse?.statusCode)
+        
         if Util.debug {
           ErrorLogger.log(request, error: error)
         }
-      }
-      else {
-        response(statusResponse?.lotStatus, urlResponse, error)
-      }
     }
   }
 }
