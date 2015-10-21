@@ -63,25 +63,30 @@ class TerminalSummaryVC: UIViewController {
   }
   
   private func updateTerminalTable() {
-    ApiClient.requestTerminalSummary(terminalSummaryView().getCurrentHour(), response: { (terminals, hour, error) -> Void in
-      if let hour = hour where hour == self.terminalSummaryView().getCurrentHour(), let terminals = terminals {
-        self.terminalSummaryView().reloadTerminalViews(terminals)
-      }
-      else {
-        let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
-          message: NSLocalizedString("An error occurred while fetching flight data.", comment: ""),
-          preferredStyle: .Alert)
-        let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
-          style: .Default) { alertAction -> Void in
-            self.navigationController?.popViewControllerAnimated(true)
+    ApiClient.requestTerminalSummary(terminalSummaryView().getCurrentHour()) { terminals, hour, statusCode in
+      
+      if let hour = hour where hour == self.terminalSummaryView().getCurrentHour() {
+        if let terminals = terminals {
+          self.terminalSummaryView().reloadTerminalViews(terminals)
+          
+        } else {
+          
+          var message = NSLocalizedString("An error occurred while fetching flight data.", comment: "")
+          
+          if Util.debug {
+            if let statusCode = statusCode where statusCode != Util.HttpStatusCodes.Ok.rawValue {
+              message += NSLocalizedString("Status code: ", comment: "") + String(statusCode)
+            } else {
+              message += NSLocalizedString("The terminals object was nil.", comment:"")
+            }
+          }
+          
+          UiHelpers.displayErrorMessage(self, message: message)
         }
-        alertController.addAction(OKAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
       }
-    })
+    }
   }
 
-  
   func changeHour(delta: Int) {
     let oldCurrentHour = terminalSummaryView().getCurrentHour()
     terminalSummaryView().incrementHour(delta)

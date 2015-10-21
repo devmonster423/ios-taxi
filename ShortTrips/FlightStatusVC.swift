@@ -58,8 +58,8 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
     hud.labelText = NSLocalizedString("Requesting Flights...", comment: "")
     
-    ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour, response: { flights in
-      
+    ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour) { flights, statusCode in
+
       hud.hide(true)
       
       if let flights = flights {
@@ -67,18 +67,19 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         self.flightStatusView().flightTable.reloadData()
         
       } else {
-        let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
-          message: NSLocalizedString("An error occurred while fetching flight data.", comment: ""),
-          preferredStyle: .Alert)
+        var message = NSLocalizedString("An error occurred while fetching flight data.", comment: "")
         
-        let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
-          style: .Default) { alertAction -> Void in
-            self.navigationController?.popViewControllerAnimated(true)
+        if Util.debug {
+          if let statusCode = statusCode where statusCode != Util.HttpStatusCodes.Ok.rawValue {
+            message += NSLocalizedString("Status code: ", comment: "") + String(statusCode)
+          } else {
+            message += NSLocalizedString("The flights object was nil.", comment:"")
+          }
         }
-        alertController.addAction(OKAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
+        
+        UiHelpers.displayErrorMessage(self, message: message)
       }
-    })
+    }
   }
   
   // MARK: UITableView

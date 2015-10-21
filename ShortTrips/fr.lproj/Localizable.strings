@@ -21,6 +21,10 @@
 "Error" = "Erreur";
 "OK" = "OK";
 "An error occurred while fetching flight data." = "Une erreur est survenue lors de la récupération des données de vol.";
+"Status code: " = "Code d'état: ";
+"The flights object was nil." = "L'objet flights fut nil.";
+"The terminals object was nil." = "L'objet terminals fut nil.";
+"The status object was nil." = "L'objet status fut nil.";
 "An error occurred while fetching parking-lot data." = "Une erreur est survenue lors de la récupération de données de parking.";
 
 /* Dashboard */
