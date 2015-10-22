@@ -50,8 +50,8 @@ class FlightStatusView: UIView {
       make.bottom.equalTo(flightTable.snp_top)
     }
     
-    flightTable.separatorColor = Color.FlightStatus.separator
     flightTable.separatorStyle = .None
+    flightTable.allowsSelection = false
     flightTable.snp_makeConstraints { (make) -> Void in
       make.left.equalTo(self)
       make.right.equalTo(self)
