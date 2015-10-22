@@ -116,7 +116,7 @@ class TerminalSummaryView: UIView {
   }
   
   func reloadTerminalViews(summaries: [TerminalSummary]) {
-    for i in 0...3 {
+    for i in 0..<summaries.count {
       terminalViews[i].configureForTerminalSummary(summaries[i])
     }
     totalTerminalView.configureTotals(TerminalSummary.getTotals(summaries))
