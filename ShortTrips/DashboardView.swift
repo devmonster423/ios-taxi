@@ -75,10 +75,14 @@ class DashboardView: UIView {
     // Terminal Status Button
     terminalStatusBtn.setTitle(NSLocalizedString("Terminal Status", comment: "").uppercaseString, forState: .Normal)
     terminalStatusBtn.setTitleColor(Color.Sfo.blue, forState: .Normal)
+    terminalStatusBtn.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
+    terminalStatusBtn.setBackgroundImage(Image.from(UIColor.whiteColor()), forState: .Normal)
+    terminalStatusBtn.setBackgroundImage(Image.from(Color.Sfo.blue), forState: .Highlighted)
     terminalStatusBtn.titleLabel?.font = Font.MyriadProSemibold.size(UiConstants.Dashboard.terminalStatusFontSize)
     terminalStatusBtn.layer.borderColor = Color.Sfo.blue.CGColor
     terminalStatusBtn.layer.borderWidth = UiConstants.Dashboard.statusBorderWidth
     terminalStatusBtn.layer.cornerRadius = UiConstants.Dashboard.statusCornerRadius
+    terminalStatusBtn.clipsToBounds = true
     terminalStatusBtn.snp_makeConstraints { (make) -> Void in
       make.width.equalTo(UiConstants.Dashboard.terminalStatusWidth)
       make.height.equalTo(UiConstants.Dashboard.terminalStatusHeight)
