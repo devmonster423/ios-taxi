@@ -78,6 +78,8 @@ class TerminalSummaryVC: UIViewController, UIPickerViewDataSource, UIPickerViewD
   }
   
   private func updateTerminalTable() {
+    terminalSummaryView().clearTerminalTable()
+    terminalSummaryView().timerView.resetProgress()
     ApiClient.requestTerminalSummary(terminalSummaryView().getCurrentHour(), flightType: terminalSummaryView().getCurrentFlightType()) { terminals, hour, statusCode in
       
       if let hour = hour where hour == self.terminalSummaryView().getCurrentHour() {
@@ -107,9 +109,7 @@ class TerminalSummaryVC: UIViewController, UIPickerViewDataSource, UIPickerViewD
     terminalSummaryView().incrementHour(delta)
     let newCurrentHour = terminalSummaryView().getCurrentHour()
     if oldCurrentHour != newCurrentHour {
-      terminalSummaryView().clearTerminalTable()
       updateTerminalTable()
-      terminalSummaryView().timerView.resetProgress()
     }
   }
   
@@ -125,7 +125,6 @@ class TerminalSummaryVC: UIViewController, UIPickerViewDataSource, UIPickerViewD
     terminalSummaryView().hidePicker()
     terminalSummaryView().updatePickerTitle()
     updateTerminalTable()
-    terminalSummaryView().timerView.resetProgress()
   }
   
   func showPicker() {
