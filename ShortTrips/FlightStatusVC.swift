@@ -68,7 +68,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
 
       hud.hide(true)
       
-      if let flights = flights {
+      if let flights = flights where Flight.isValid(flights) {
         self.flights = flights
         self.flightStatusView().flightTable.reloadData()
         
@@ -77,9 +77,9 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if Util.debug {
           if let statusCode = statusCode where statusCode != Util.HttpStatusCodes.Ok.rawValue {
-            message += NSLocalizedString("Status code: ", comment: "") + String(statusCode)
+            message += " " + NSLocalizedString("Status code: ", comment: "") + String(statusCode)
           } else {
-            message += NSLocalizedString("The flights object was nil.", comment:"")
+            message += " " + NSLocalizedString("The flights object was nil.", comment:"")
           }
         }
         

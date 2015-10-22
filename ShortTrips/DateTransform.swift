@@ -20,6 +20,7 @@ public struct DateTransform: TransformType {
   public func transformFromJSON(value: AnyObject?) -> NSDate? {
     if let stringValue = value as? String {
       let dateFormatter = NSDateFormatter()
+      dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
       dateFormatter.dateFormat = dateFormat
       return dateFormatter.dateFromString(stringValue)
     }
@@ -29,6 +30,7 @@ public struct DateTransform: TransformType {
   public func transformToJSON(value: NSDate?) -> String? {
     if let date = value {
       let dateFormatter = NSDateFormatter()
+      dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
       dateFormatter.dateFormat = dateFormat
       return dateFormatter.stringFromDate(date)
     }

@@ -12,13 +12,14 @@ import SnapKit
 class TerminalSummaryView: UIView {
   
   var decreaseButton: UIButton!
+  let grayView = UIView()
   let hourPickerView = HourPickerView()
   var increaseButton: UIButton!
-  let grayView = UIView()
   let internationalTerminalView = TerminalView()
   let terminalView1 = TerminalView()
   let terminalView2 = TerminalView()
   let terminalView3 = TerminalView()
+  var terminalViews: [TerminalView] = []
   let timerView = TimerView()
   let titleTerminalView = TerminalView()
   let totalTerminalView = TerminalView()
@@ -32,28 +33,17 @@ class TerminalSummaryView: UIView {
 
   override init(frame: CGRect) {
     super.init(frame: frame)
+    
     backgroundColor = UIColor.whiteColor()
-    pickerShower.setTitleColor(Color.Sfo.blue, forState: .Normal)
-    pickerShower.titleLabel!.font = UiConstants.TerminalSummary.toggleFont
-    picker.backgroundColor = UIColor.whiteColor()
-    pickerHider.setTitle(NSLocalizedString(" Done ", comment: ""), forState: .Normal)
-    pickerHider.backgroundColor = UIColor.whiteColor()
-    pickerHider.titleLabel?.textColor = Color.Sfo.blue
-    pickerHider.titleLabel?.font = UiConstants.TerminalSummary.toggleFont
-    grayView.backgroundColor = UIColor.blackColor()
-    grayView.alpha = UiConstants.TerminalSummary.grayViewAlpha
-    picker.alpha = 0.0
-    pickerHider.alpha = 0.0
-    grayView.alpha = 0.0
-    picker.hidden = true
-    pickerHider.hidden = true
-    grayView.hidden = true
-
+    
+    terminalViews.append(terminalView1)
+    terminalViews.append(terminalView2)
+    terminalViews.append(terminalView3)
+    terminalViews.append(internationalTerminalView)
+    for terminalView in terminalViews {
+      addSubview(terminalView)
+    }
     addSubview(hourPickerView)
-    addSubview(internationalTerminalView)
-    addSubview(terminalView1)
-    addSubview(terminalView2)
-    addSubview(terminalView3)
     addSubview(timerView)
     addSubview(titleTerminalView)
     addSubview(totalTerminalView)
@@ -108,6 +98,8 @@ class TerminalSummaryView: UIView {
       make.height.equalTo(terminalView3)
     }
     
+    pickerShower.setTitleColor(Color.Sfo.blue, forState: .Normal)
+    pickerShower.titleLabel!.font = UiConstants.TerminalSummary.toggleFont
     pickerShower.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(totalTerminalView.snp_bottom).offset(10.0)
       make.height.equalTo(20)
@@ -133,17 +125,29 @@ class TerminalSummaryView: UIView {
       make.trailing.equalTo(self)
     }
     
+    picker.alpha = 0.0
+    picker.backgroundColor = UIColor.whiteColor()
+    picker.hidden = true
     picker.snp_makeConstraints { (make) -> Void in
       make.bottom.equalTo(self)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
     }
     
+    pickerHider.alpha = 0.0
+    pickerHider.hidden = true
+    pickerHider.setTitleColor(Color.Sfo.blue, forState: .Normal)
+    pickerHider.setTitle(NSLocalizedString(" Done ", comment: ""), forState: .Normal)
+    pickerHider.backgroundColor = UIColor.whiteColor()
+    pickerHider.titleLabel?.font = UiConstants.TerminalSummary.toggleFont
     pickerHider.snp_makeConstraints { (make) -> Void in
       make.bottom.equalTo(picker.snp_top)
       make.trailing.equalTo(self)
     }
     
+    grayView.alpha = UiConstants.TerminalSummary.grayViewAlpha
+    grayView.backgroundColor = UIColor.blackColor()
+    grayView.hidden = true
     grayView.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(self)
       make.bottom.equalTo(picker.snp_top)
@@ -161,10 +165,9 @@ class TerminalSummaryView: UIView {
   }
   
   func reloadTerminalViews(summaries: [TerminalSummary]) {
-    terminalView1.configureForTerminalSummary(summaries[0])
-    terminalView2.configureForTerminalSummary(summaries[1])
-    terminalView3.configureForTerminalSummary(summaries[2])
-    internationalTerminalView.configureForTerminalSummary(summaries[3])
+    for i in 0..<summaries.count {
+      terminalViews[i].configureForTerminalSummary(summaries[i])
+    }
     totalTerminalView.configureTotals(TerminalSummary.getTotals(summaries))
   }
   
@@ -189,5 +192,12 @@ class TerminalSummaryView: UIView {
       self.pickerHider.alpha = 1.0
       self.grayView.alpha = UiConstants.TerminalSummary.grayViewAlpha
     })
+  }
+  
+  func clearTerminalTable() {
+    for terminalView in terminalViews {
+      terminalView.clearTotals()
+    }
+    totalTerminalView.clearTotals()
   }
 }
