@@ -182,6 +182,11 @@ class TerminalView: UIView {
     }
   }
   
+  func clearTotals() {
+    self.delayedLabel.text = ""
+    self.onTimeLabel.text = ""
+  }
+  
   func setBackgroundDark(dark: Bool) {
     backgroundColor = dark ? Color.TerminalSummary.darkBackground : UIColor.whiteColor()
   }

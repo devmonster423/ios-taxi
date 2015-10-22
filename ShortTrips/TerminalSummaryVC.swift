@@ -92,6 +92,7 @@ class TerminalSummaryVC: UIViewController {
     terminalSummaryView().incrementHour(delta)
     let newCurrentHour = terminalSummaryView().getCurrentHour()
     if oldCurrentHour != newCurrentHour {
+      terminalSummaryView().clearTerminalTable()
       updateTerminalTable()
       terminalSummaryView().timerView.resetProgress()
     }
