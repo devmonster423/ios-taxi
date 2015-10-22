@@ -1,5 +1,5 @@
 //
-//  TerminalSummaryResponse.swift
+//  TerminalSummaryAResponse.swift
 //  ShortTrips
 //
 //  Created by Joshua Adams on 9/17/15.
@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-struct TerminalSummaryResponse: Mappable {
+struct TerminalSummaryAResponse: Mappable {
   var terminalSummaryArrivalsResponse: TerminalSummaryArrivalsResponse!
   
   init?(_ map: Map){}

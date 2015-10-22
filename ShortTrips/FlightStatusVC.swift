@@ -14,6 +14,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   var selectedTerminalId: TerminalId!
   var currentHour: Int!
   var flights: [Flight]?
+  var flightType: FlightType!
   
   override func loadView() {
     let flightStatusView = FlightStatusView(frame: UIScreen.mainScreen().bounds)
@@ -37,6 +38,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     configureTitle()
+    flightStatusView().tableHeader.text = selectedTerminalId.asLocalizedString() + " " + flightType.asLocalizedString()
   }
   
   func flightStatusView() -> FlightStatusView {
@@ -58,7 +60,11 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
     hud.labelText = NSLocalizedString("Requesting Flights...", comment: "")
     
-    ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour) { flights, statusCode in
+    if flightType == nil {
+      flightType = .Arrivals
+    }
+    
+    ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour, flightType: flightType) { flights, statusCode in
 
       hud.hide(true)
       

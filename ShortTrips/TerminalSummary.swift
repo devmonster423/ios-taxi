@@ -18,6 +18,19 @@ enum TerminalId: Int {
   case Two = 2
   case Three = 3
   case International = 4
+  
+  func asLocalizedString() -> String {
+    switch self {
+    case .One:
+      return NSLocalizedString("Terminal One", comment: "")
+    case .Two:
+      return NSLocalizedString("Terminal Two", comment: "")
+    case .Three:
+      return NSLocalizedString("Terminal Two", comment: "")
+    case .International:
+      return NSLocalizedString("Int'l Terminal", comment: "")
+    }
+  }
 }
 
 struct TerminalSummary: Mappable {

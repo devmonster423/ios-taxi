@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 import MBProgressHUD
 
-class TerminalSummaryVC: UIViewController {
+class TerminalSummaryVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+  private var flightType = FlightType.Arrivals
 
   override func loadView() {
     let terminalSummaryView = TerminalSummaryView(frame: UIScreen.mainScreen().bounds)
@@ -20,6 +21,13 @@ class TerminalSummaryVC: UIViewController {
     terminalSummaryView.increaseButton.addTarget(self,
       action: "increaseHour",
       forControlEvents: .TouchUpInside)
+    terminalSummaryView.pickerShower.addTarget(self,
+      action: "showPicker",
+      forControlEvents: .TouchUpInside)
+    terminalSummaryView.pickerHider.addTarget(self,
+      action: "hidePicker:",
+      forControlEvents: .TouchUpInside)
+    
     terminalSummaryView.terminalView1.addGestureRecognizer(UITapGestureRecognizer(target: self,
       action: "terminalSelected:"))
     terminalSummaryView.terminalView2.addGestureRecognizer(UITapGestureRecognizer(target: self,
@@ -28,8 +36,12 @@ class TerminalSummaryVC: UIViewController {
       action: "terminalSelected:"))
     terminalSummaryView.internationalTerminalView.addGestureRecognizer(UITapGestureRecognizer(target: self,
       action: "terminalSelected:"))
+    terminalSummaryView.grayView.addGestureRecognizer(UITapGestureRecognizer(target: self,
+      action: "hidePicker:"))
+    
     terminalSummaryView.timerView.start(updateTerminalTable, updateInterval: 60 * 5)
     view = terminalSummaryView
+    updateToggleTitle()
   }
   
   override func viewDidLoad() {
@@ -40,6 +52,8 @@ class TerminalSummaryVC: UIViewController {
     navigationController?.navigationBar.translucent = false
     navigationController?.navigationBar.setBackgroundImage(Image.navbarBlue.image(), forBarMetrics: .Default)
     updateTerminalTable()
+    terminalSummaryView().picker.delegate = self
+    terminalSummaryView().picker.dataSource = self
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -63,7 +77,7 @@ class TerminalSummaryVC: UIViewController {
   }
   
   private func updateTerminalTable() {
-    ApiClient.requestTerminalSummary(terminalSummaryView().getCurrentHour()) { terminals, hour, statusCode in
+    ApiClient.requestTerminalSummary(terminalSummaryView().getCurrentHour(), flightType: flightType) { terminals, hour, statusCode in
       
       if let hour = hour where hour == self.terminalSummaryView().getCurrentHour() {
         if let terminals = terminals {
@@ -104,11 +118,49 @@ class TerminalSummaryVC: UIViewController {
   func increaseHour() {
     changeHour(1)
   }
+
+  func toggleFlights() {
+    let newIndex = terminalSummaryView().picker.selectedRowInComponent(0)
+    let oldIndex = flightType == .Arrivals ? 0 : 1
+    if newIndex != oldIndex {
+      flightType = flightType == .Arrivals ? .Departures : .Arrivals
+      updateToggleTitle()
+      updateTerminalTable()
+      terminalSummaryView().timerView.resetProgress()      
+    }
+  }
+  
+  func hidePicker(sender: UITapGestureRecognizer) {
+    terminalSummaryView().hidePicker()
+    toggleFlights()
+  }
+  
+  func showPicker() {
+    terminalSummaryView().showPicker()
+  }
+  
+  func updateToggleTitle() {
+    terminalSummaryView().pickerShower.setTitle(flightType.asLocalizedString(), forState: .Normal)
+  }
   
   func terminalSelected(sender: UITapGestureRecognizer) {
     let flightStatusVC = FlightStatusVC()
     flightStatusVC.currentHour = terminalSummaryView().getCurrentHour()
     flightStatusVC.selectedTerminalId = (sender.view as! TerminalView).getActiveTerminalId()
+    flightStatusVC.flightType = flightType
     navigationController?.pushViewController(flightStatusVC, animated: true)
+  }
+  
+  // MARK: UIPickerView
+  func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
+    return 1
+  }
+  
+  func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+    return 2
+  }
+  
+  func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    return [NSLocalizedString("Arrivals", comment: ""), NSLocalizedString("Departures", comment: "")][row]
   }
 }

@@ -1,5 +1,5 @@
 //
-//  TerminalSummaryArrivalsListResponse.swift
+//  TerminalSummaryListResponse.swift
 //  ShortTrips
 //
 //  Created by Joshua Adams on 9/17/15.
@@ -8,19 +8,20 @@
 
 import ObjectMapper
 
-struct TerminalSummaryArrivalsListResponse: Mappable {
-  var terminalSummaryArrivalsList: [TerminalSummary]!
+struct TerminalSummaryListResponse: Mappable {
+
+  var terminalSummaryList: [TerminalSummary]!
   var totalCount: Int!
   var totalDelayedCount: Int!
   
   init?(_ map: Map){}
   
-  init(terminalSummaryArrivalsList: [TerminalSummary]) {
-    self.terminalSummaryArrivalsList = terminalSummaryArrivalsList
+  init(terminalSummaryList: [TerminalSummary]) {
+    self.terminalSummaryList = terminalSummaryList
   }
   
   mutating func mapping(map: Map) {
-    terminalSummaryArrivalsList <- map["list"]
+    terminalSummaryList <- map["list"]
     totalCount <- map["total_count"]
     totalDelayedCount <- map["total_delayed_count"]
   }

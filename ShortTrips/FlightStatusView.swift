@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 class FlightStatusView: UIView {
-  
+  let tableHeader = UILabel()
   let flightTable = UITableView()
   let timerView = TimerView()
   
@@ -23,11 +23,25 @@ class FlightStatusView: UIView {
     backgroundColor = UIColor.whiteColor()
     flightTable.separatorColor = Color.FlightStatus.separator
     flightTable.separatorStyle = .None
+    tableHeader.font = UiConstants.FlightStatus.tableHeaderFont
+    tableHeader.backgroundColor = Color.Sfo.blue
+    tableHeader.textColor = Color.FlightStatus.tableHeader
+    tableHeader.textAlignment = .Center
+    
+    addSubview(tableHeader)
     addSubview(flightTable)
     addSubview(timerView)
+    addSubview(tableHeader)
+    
+    tableHeader.snp_makeConstraints { (make) -> Void in
+      make.height.equalTo(UiConstants.FlightStatus.tableHeaderHeight)
+      make.top.equalTo(self)
+      make.left.equalTo(self)
+      make.right.equalTo(self)
+      make.bottom.equalTo(flightTable.snp_top)
+    }
     
     flightTable.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(self)
       make.left.equalTo(self)
       make.right.equalTo(self)
       make.bottom.equalTo(timerView.snp_top).offset(-5)

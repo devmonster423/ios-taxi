@@ -1,14 +1,14 @@
 //
-//  TerminalSummaryArrivalsResponse.swift
+//  TerminalSummaryDeparturesResponse.swift
 //  ShortTrips
 //
-//  Created by Joshua Adams on 9/17/15.
+//  Created by Joshua Adams on 10/21/15.
 //  Copyright © 2015 SFO. All rights reserved.
 //
 
 import ObjectMapper
 
-struct TerminalSummaryArrivalsResponse: Mappable {
+struct TerminalSummaryDeparturesResponse: Mappable {
   var terminalSummaryListResponse: TerminalSummaryListResponse!
   
   init?(_ map: Map){}
@@ -18,6 +18,6 @@ struct TerminalSummaryArrivalsResponse: Mappable {
   }
   
   mutating func mapping(map: Map) {
-    terminalSummaryListResponse <- map["arrivals"]
+    terminalSummaryListResponse <- map["departures"]
   }
 }

@@ -14,6 +14,7 @@ class TerminalSummaryView: UIView {
   var decreaseButton: UIButton!
   let hourPickerView = HourPickerView()
   var increaseButton: UIButton!
+  let grayView = UIView()
   let internationalTerminalView = TerminalView()
   let terminalView1 = TerminalView()
   let terminalView2 = TerminalView()
@@ -21,6 +22,9 @@ class TerminalSummaryView: UIView {
   let timerView = TimerView()
   let titleTerminalView = TerminalView()
   let totalTerminalView = TerminalView()
+  let picker = UIPickerView()
+  let pickerShower = UIButton(type: .System)
+  let pickerHider = UIButton(type: .System)
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -28,11 +32,23 @@ class TerminalSummaryView: UIView {
 
   override init(frame: CGRect) {
     super.init(frame: frame)
-
-    // general config
     backgroundColor = UIColor.whiteColor()
+    pickerShower.setTitleColor(Color.Sfo.blue, forState: .Normal)
+    pickerShower.titleLabel!.font = UiConstants.TerminalSummary.toggleFont
+    picker.backgroundColor = UIColor.whiteColor()
+    pickerHider.setTitle(NSLocalizedString(" Done ", comment: ""), forState: .Normal)
+    pickerHider.backgroundColor = UIColor.whiteColor()
+    pickerHider.titleLabel?.textColor = Color.Sfo.blue
+    pickerHider.titleLabel?.font = UiConstants.TerminalSummary.toggleFont
+    grayView.backgroundColor = UIColor.blackColor()
+    grayView.alpha = UiConstants.TerminalSummary.grayViewAlpha
+    picker.alpha = 0.0
+    pickerHider.alpha = 0.0
+    grayView.alpha = 0.0
+    picker.hidden = true
+    pickerHider.hidden = true
+    grayView.hidden = true
 
-    // add subviews
     addSubview(hourPickerView)
     addSubview(internationalTerminalView)
     addSubview(terminalView1)
@@ -41,6 +57,10 @@ class TerminalSummaryView: UIView {
     addSubview(timerView)
     addSubview(titleTerminalView)
     addSubview(totalTerminalView)
+    addSubview(pickerShower)
+    addSubview(picker)
+    addSubview(grayView)
+    addSubview(pickerHider)
     
     titleTerminalView.configureAsTitle()
     titleTerminalView.setBackgroundDark(true)
@@ -88,13 +108,20 @@ class TerminalSummaryView: UIView {
       make.height.equalTo(terminalView3)
     }
     
+    pickerShower.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(totalTerminalView.snp_bottom).offset(10.0)
+      make.height.equalTo(20)
+      make.centerX.equalTo(self)
+    }
+    pickerShower.sizeToFit()
+    
     decreaseButton = hourPickerView.decreaseButton
     increaseButton = hourPickerView.increaseButton
     hourPickerView.maxHour = 12
     hourPickerView.minHour = -2
     hourPickerView.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
-      make.top.equalTo(totalTerminalView.snp_bottom)
+      make.top.equalTo(pickerShower.snp_bottom).offset(10.0)
       make.bottom.equalTo(timerView.snp_top)
       make.trailing.equalTo(self)
     }
@@ -102,6 +129,24 @@ class TerminalSummaryView: UIView {
     timerView.snp_makeConstraints { (make) -> Void in
       make.bottom.equalTo(self)
       make.height.equalTo(60)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+    }
+    
+    picker.snp_makeConstraints { (make) -> Void in
+      make.bottom.equalTo(self)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+    }
+    
+    pickerHider.snp_makeConstraints { (make) -> Void in
+      make.bottom.equalTo(picker.snp_top)
+      make.trailing.equalTo(self)
+    }
+    
+    grayView.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(self)
+      make.bottom.equalTo(picker.snp_top)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
     }
@@ -121,5 +166,28 @@ class TerminalSummaryView: UIView {
     terminalView3.configureForTerminalSummary(summaries[2])
     internationalTerminalView.configureForTerminalSummary(summaries[3])
     totalTerminalView.configureTotals(TerminalSummary.getTotals(summaries))
+  }
+  
+  func hidePicker() {
+    UIView.animateWithDuration(UiConstants.TerminalSummary.fadeDuration, animations: {
+      self.picker.alpha = 0.0
+      self.pickerHider.alpha = 0.0
+      self.grayView.alpha = 0.0
+    }, completion: { finished in
+      self.picker.hidden = true
+      self.pickerHider.hidden = true
+      self.grayView.hidden = true
+    })
+  }
+  
+  func showPicker() {
+    picker.hidden = false
+    pickerHider.hidden = false
+    grayView.hidden = false
+    UIView.animateWithDuration(UiConstants.TerminalSummary.fadeDuration, animations: { () -> Void in
+      self.picker.alpha = 1.0
+      self.pickerHider.alpha = 1.0
+      self.grayView.alpha = UiConstants.TerminalSummary.grayViewAlpha
+    })
   }
 }

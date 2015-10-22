@@ -62,7 +62,7 @@ class HourPickerView: UIView {
       make.height.equalTo(20)
       make.width.equalTo(80)
       make.centerX.equalTo(self)
-      make.bottom.equalTo(mainLabel.snp_top).offset(-10)
+      make.bottom.equalTo(mainLabel.snp_top)
     }
     
     mainLabel.font = Font.MyriadProSemibold.size(40)

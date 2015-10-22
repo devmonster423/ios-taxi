@@ -8,6 +8,15 @@
 
 import ObjectMapper
 
+enum FlightType: String {
+  case Arrivals = "Arrivals"
+  case Departures = "Departures"
+  
+  func asLocalizedString() -> String {
+    return NSLocalizedString(self.rawValue, comment: "")
+  }
+}
+
 struct Flight: Mappable {
   var airline: String!
   var bags: Int!
