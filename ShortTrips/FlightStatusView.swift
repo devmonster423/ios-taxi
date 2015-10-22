@@ -20,19 +20,18 @@ class FlightStatusView: UIView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    backgroundColor = UIColor.whiteColor()
-    flightTable.separatorColor = Color.FlightStatus.separator
-    flightTable.separatorStyle = .None
-    tableHeader.font = UiConstants.FlightStatus.tableHeaderFont
-    tableHeader.backgroundColor = Color.Sfo.blue
-    tableHeader.textColor = Color.FlightStatus.tableHeader
-    tableHeader.textAlignment = .Center
     
+    backgroundColor = UIColor.whiteColor()
+  
     addSubview(tableHeader)
     addSubview(flightTable)
     addSubview(timerView)
     addSubview(tableHeader)
     
+    tableHeader.font = UiConstants.FlightStatus.tableHeaderFont
+    tableHeader.backgroundColor = Color.NavBar.subtitleBlue
+    tableHeader.textColor = Color.FlightStatus.tableHeader
+    tableHeader.textAlignment = .Center
     tableHeader.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(UiConstants.FlightStatus.tableHeaderHeight)
       make.top.equalTo(self)
@@ -41,6 +40,8 @@ class FlightStatusView: UIView {
       make.bottom.equalTo(flightTable.snp_top)
     }
     
+    flightTable.separatorColor = Color.FlightStatus.separator
+    flightTable.separatorStyle = .None
     flightTable.snp_makeConstraints { (make) -> Void in
       make.left.equalTo(self)
       make.right.equalTo(self)

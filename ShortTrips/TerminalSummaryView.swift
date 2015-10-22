@@ -99,7 +99,7 @@ class TerminalSummaryView: UIView {
       make.height.equalTo(terminalView3)
     }
     
-    pickerShower.backgroundColor = Color.TerminalSummary.toggleButtonBlue
+    pickerShower.backgroundColor = Color.NavBar.subtitleBlue
     pickerShower.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(self)
       make.height.equalTo(44)

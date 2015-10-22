@@ -15,6 +15,10 @@ struct Color {
     static let red = StatusColor.red
   }
   
+  struct NavBar {
+    static let subtitleBlue = UIColor(red: 0.0/255.0, green: 132.0/255.0, blue: 187.0/255.0, alpha: 1.0)
+  }
+  
   struct StatusColor {
     static let green = UIColor(red: 21/255.0, green: 155/255.0, blue: 32/255.0, alpha: 1.0)
     static let yellow = UIColor(red: 233/255.0, green: 181/255.0, blue: 46/255.0, alpha: 1.0)
@@ -30,7 +34,6 @@ struct Color {
   }
   
   struct TerminalSummary {
-    static let toggleButtonBlue = UIColor(red: 0.0/255.0, green: 132.0/255.0, blue: 187.0/255.0, alpha: 1.0)
     static let offWhite = UIColor(red: 244.0/255.0, green: 246.0/255.0, blue: 243.0/255.0, alpha: 1.0)
     static let titleBlue = UIColor(red: 66/255.0, green: 117/255.0, blue: 164/255.0, alpha: 1.0)
     static let onTimeContent = Sfo.blue
