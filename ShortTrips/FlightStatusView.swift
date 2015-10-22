@@ -28,13 +28,23 @@ class FlightStatusView: UIView {
     addSubview(timerView)
     addSubview(tableHeader)
     
+    let divider = UIView()
+    divider.backgroundColor = Color.Sfo.blue
+    addSubview(divider)
+    divider.snp_makeConstraints { (make) -> Void in
+      make.height.equalTo(1)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.top.equalTo(self)
+    }
+    
     tableHeader.font = UiConstants.FlightStatus.tableHeaderFont
     tableHeader.backgroundColor = Color.NavBar.subtitleBlue
     tableHeader.textColor = Color.FlightStatus.tableHeader
     tableHeader.textAlignment = .Center
     tableHeader.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(UiConstants.FlightStatus.tableHeaderHeight)
-      make.top.equalTo(self)
+      make.top.equalTo(divider.snp_bottom)
       make.left.equalTo(self)
       make.right.equalTo(self)
       make.bottom.equalTo(flightTable.snp_top)

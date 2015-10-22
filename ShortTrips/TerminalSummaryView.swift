@@ -53,6 +53,16 @@ class TerminalSummaryView: UIView {
     addSubview(grayView)
     addSubview(pickerDismissToolbar)
     
+    let divider = UIView()
+    divider.backgroundColor = Color.Sfo.blue
+    addSubview(divider)
+    divider.snp_makeConstraints { (make) -> Void in
+      make.height.equalTo(1)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.top.equalTo(self)
+    }
+    
     titleTerminalView.configureAsTitle()
     titleTerminalView.setBackgroundDark(true)
     titleTerminalView.snp_makeConstraints { (make) -> Void in
@@ -101,7 +111,7 @@ class TerminalSummaryView: UIView {
     
     pickerShower.backgroundColor = Color.NavBar.subtitleBlue
     pickerShower.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(self)
+      make.top.equalTo(divider.snp_bottom)
       make.height.equalTo(44)
       make.centerX.equalTo(self)
       make.width.equalTo(self)
