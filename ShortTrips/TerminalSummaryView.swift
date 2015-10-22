@@ -25,7 +25,7 @@ class TerminalSummaryView: UIView {
   let totalTerminalView = TerminalView()
   let picker = UIPickerView()
   let pickerShower = UIButton(type: .System)
-  let pickerHider = UIButton(type: .System)
+  let pickerDismissToolbar = UIToolbar()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -50,7 +50,7 @@ class TerminalSummaryView: UIView {
     addSubview(pickerShower)
     addSubview(picker)
     addSubview(grayView)
-    addSubview(pickerHider)
+    addSubview(pickerDismissToolbar)
     
     titleTerminalView.configureAsTitle()
     titleTerminalView.setBackgroundDark(true)
@@ -134,17 +134,12 @@ class TerminalSummaryView: UIView {
       make.trailing.equalTo(self)
     }
     
-    pickerHider.alpha = 0.0
-    pickerHider.hidden = true
-    pickerHider.setTitleColor(Color.Sfo.blue, forState: .Normal)
-    pickerHider.setTitle(NSLocalizedString("Done", comment: ""), forState: .Normal)
-    pickerHider.backgroundColor = UIColor.whiteColor()
-    pickerHider.titleLabel?.font = UiConstants.TerminalSummary.toggleFont
-    pickerHider.snp_makeConstraints { (make) -> Void in
-      make.height.equalTo(44)
-      make.width.equalTo(80)
+    pickerDismissToolbar.alpha = 0.0
+    pickerDismissToolbar.hidden = true
+    pickerDismissToolbar.snp_makeConstraints { (make) -> Void in
+      make.width.equalTo(self)
       make.bottom.equalTo(picker.snp_top)
-      make.trailing.equalTo(self)
+      make.centerX.equalTo(self)
     }
     
     grayView.alpha = UiConstants.TerminalSummary.grayViewAlpha
@@ -176,22 +171,22 @@ class TerminalSummaryView: UIView {
   func hidePicker() {
     UIView.animateWithDuration(UiConstants.TerminalSummary.fadeDuration, animations: {
       self.picker.alpha = 0.0
-      self.pickerHider.alpha = 0.0
+      self.pickerDismissToolbar.alpha = 0.0
       self.grayView.alpha = 0.0
     }, completion: { finished in
       self.picker.hidden = true
-      self.pickerHider.hidden = true
+      self.pickerDismissToolbar.hidden = true
       self.grayView.hidden = true
     })
   }
   
   func showPicker() {
     picker.hidden = false
-    pickerHider.hidden = false
+    pickerDismissToolbar.hidden = false
     grayView.hidden = false
     UIView.animateWithDuration(UiConstants.TerminalSummary.fadeDuration, animations: { () -> Void in
       self.picker.alpha = 1.0
-      self.pickerHider.alpha = 1.0
+      self.pickerDismissToolbar.alpha = 1.0
       self.grayView.alpha = UiConstants.TerminalSummary.grayViewAlpha
     })
   }

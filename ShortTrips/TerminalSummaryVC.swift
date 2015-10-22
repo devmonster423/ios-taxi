@@ -24,10 +24,13 @@ class TerminalSummaryVC: UIViewController, UIPickerViewDataSource, UIPickerViewD
     terminalSummaryView.pickerShower.addTarget(self,
       action: "showPicker",
       forControlEvents: .TouchUpInside)
-    terminalSummaryView.pickerHider.addTarget(self,
-      action: "hidePicker:",
-      forControlEvents: .TouchUpInside)
-    
+    terminalSummaryView.pickerDismissToolbar.setItems([
+      UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
+      UIBarButtonItem(title: NSLocalizedString("Done", comment: ""),
+        style: .Done,
+        target: self,
+        action: "hidePicker:")],
+      animated: true)
     terminalSummaryView.terminalView1.addGestureRecognizer(UITapGestureRecognizer(target: self,
       action: "terminalSelected:"))
     terminalSummaryView.terminalView2.addGestureRecognizer(UITapGestureRecognizer(target: self,
