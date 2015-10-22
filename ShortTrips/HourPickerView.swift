@@ -38,7 +38,8 @@ class HourPickerView: UIView {
     addSubview(mainLabel)
     addSubview(topLabel)
     
-    decreaseButton.setImage(UIImage(named: "minus"), forState: .Normal)
+    decreaseButton.setImage(Image.minus.image(), forState: .Normal)
+    decreaseButton.setImage(Image.minusPressed.image(), forState: .Highlighted)
     decreaseButton.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
       make.centerY.equalTo(self)
@@ -46,7 +47,8 @@ class HourPickerView: UIView {
       make.width.equalTo(decreaseButton.snp_height)
     }
     
-    increaseButton.setImage(UIImage(named: "plus"), forState: .Normal)
+    increaseButton.setImage(Image.plus.image(), forState: .Normal)
+    increaseButton.setImage(Image.plusPressed.image(), forState: .Highlighted)
     increaseButton.snp_makeConstraints { (make) -> Void in
       make.trailing.equalTo(self)
       make.centerY.equalTo(self)

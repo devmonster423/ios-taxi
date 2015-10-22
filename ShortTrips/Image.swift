@@ -16,6 +16,11 @@ enum Image: String {
   case blueCircle = "blue_circle"
   case redCircle = "red_circle"
   
+  case minus = "minus"
+  case minusPressed = "minus_pressed"
+  case plus = "plus"
+  case plusPressed = "plus_pressed"
+  
   case indicatorArrow = "indicator_arrow"
   case downArrow = "down_arrow"
   
