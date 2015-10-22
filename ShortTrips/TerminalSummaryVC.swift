@@ -30,14 +30,18 @@ class TerminalSummaryVC: UIViewController, UIPickerViewDataSource, UIPickerViewD
         target: self,
         action: "hidePicker:")],
       animated: true)
-    terminalSummaryView.terminalView1.addGestureRecognizer(UITapGestureRecognizer(target: self,
-      action: "terminalSelected:"))
-    terminalSummaryView.terminalView2.addGestureRecognizer(UITapGestureRecognizer(target: self,
-      action: "terminalSelected:"))
-    terminalSummaryView.terminalView3.addGestureRecognizer(UITapGestureRecognizer(target: self,
-      action: "terminalSelected:"))
-    terminalSummaryView.internationalTerminalView.addGestureRecognizer(UITapGestureRecognizer(target: self,
-      action: "terminalSelected:"))
+    terminalSummaryView.terminalView1.addTarget(self,
+      action: "terminalSelected:",
+      forControlEvents: .TouchUpInside)
+    terminalSummaryView.terminalView2.addTarget(self,
+      action: "terminalSelected:",
+      forControlEvents: .TouchUpInside)
+    terminalSummaryView.terminalView3.addTarget(self,
+      action: "terminalSelected:",
+      forControlEvents: .TouchUpInside)
+    terminalSummaryView.internationalTerminalView.addTarget(self,
+      action: "terminalSelected:",
+      forControlEvents: .TouchUpInside)
     terminalSummaryView.grayView.addGestureRecognizer(UITapGestureRecognizer(target: self,
       action: "hidePicker:"))
     
@@ -131,10 +135,10 @@ class TerminalSummaryVC: UIViewController, UIPickerViewDataSource, UIPickerViewD
     terminalSummaryView().showPicker()
   }
   
-  func terminalSelected(sender: UITapGestureRecognizer) {
+  func terminalSelected(sender: TerminalView) {
     let flightStatusVC = FlightStatusVC()
     flightStatusVC.currentHour = terminalSummaryView().getCurrentHour()
-    flightStatusVC.selectedTerminalId = (sender.view as! TerminalView).getActiveTerminalId()
+    flightStatusVC.selectedTerminalId = sender.getActiveTerminalId()
     flightStatusVC.flightType = terminalSummaryView().getCurrentFlightType()
     navigationController?.pushViewController(flightStatusVC, animated: true)
   }

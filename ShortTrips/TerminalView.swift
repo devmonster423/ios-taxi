@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class TerminalView: UIView {
+class TerminalView: UIButton {
 
   private var activeTerminalId: TerminalId?
   
@@ -20,7 +20,7 @@ class TerminalView: UIView {
   private let onTimeImageView = UIImageView()
   private let onTimeLabel = UILabel()
   private let onTimeTitleLabel = UILabel()
-  private let titleLabel = UILabel()
+  private let terminalTitleLabel = UILabel()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -31,6 +31,7 @@ class TerminalView: UIView {
     
     // starts out hidden
     hidden = true
+    setBackgroundImage(Image.from(Color.Sfo.gray), forState: .Highlighted)
 
     addSubview(delayedImageView)
     addSubview(delayedLabel)
@@ -39,12 +40,12 @@ class TerminalView: UIView {
     addSubview(onTimeImageView)
     addSubview(onTimeLabel)
     addSubview(onTimeTitleLabel)
-    addSubview(titleLabel)
+    addSubview(terminalTitleLabel)
     
-    titleLabel.sizeToFit()
-    titleLabel.textAlignment = .Left
-    titleLabel.textColor = Color.TerminalSummary.titleBlue
-    titleLabel.snp_makeConstraints { (make) -> Void in
+    terminalTitleLabel.sizeToFit()
+    terminalTitleLabel.textAlignment = .Left
+    terminalTitleLabel.textColor = Color.TerminalSummary.titleBlue
+    terminalTitleLabel.snp_makeConstraints { (make) -> Void in
       make.left.equalTo(self).offset(25)
       make.centerY.equalTo(self)
     }
@@ -128,6 +129,7 @@ class TerminalView: UIView {
   func configureAsTitle() {
     
     hidden = false
+    userInteractionEnabled = false
     
     delayedImageView.hidden = false
     delayedLabel.hidden = true
@@ -136,13 +138,14 @@ class TerminalView: UIView {
     onTimeImageView.hidden = false
     onTimeLabel.hidden = true
     onTimeTitleLabel.hidden = false
-    titleLabel.font = Font.MyriadProBold.size(14)
-    titleLabel.text = NSLocalizedString("Terminals", comment: "").uppercaseString
+    terminalTitleLabel.font = Font.MyriadProBold.size(14)
+    terminalTitleLabel.text = NSLocalizedString("Terminals", comment: "").uppercaseString
   }
   
   func configureTotals(totals: (onTime: Int, delayed: Int)) {
     
     hidden = false
+    userInteractionEnabled = false
     
     delayedImageView.hidden = true
     delayedLabel.text = "\(totals.delayed)"
@@ -151,13 +154,14 @@ class TerminalView: UIView {
     onTimeImageView.hidden = true
     onTimeLabel.text = "\(totals.onTime)"
     onTimeTitleLabel.hidden = true
-    titleLabel.font = Font.MyriadProBold.size(14)
-    titleLabel.text = NSLocalizedString("Totals", comment: "").uppercaseString
+    terminalTitleLabel.font = Font.MyriadProBold.size(14)
+    terminalTitleLabel.text = NSLocalizedString("Totals", comment: "").uppercaseString
   }
 
   func configureForTerminalSummary(summary: TerminalSummary) {
 
     hidden = false
+    userInteractionEnabled = true
     
     activeTerminalId = summary.terminalId
     delayedImageView.hidden = true
@@ -167,18 +171,18 @@ class TerminalView: UIView {
     onTimeImageView.hidden = true
     onTimeLabel.text = "\(summary.onTimeCount)"
     onTimeTitleLabel.hidden = true
-    titleLabel.font = Font.MyriadProSemibold.size(14)
+    terminalTitleLabel.font = Font.MyriadProSemibold.size(14)
 
     switch summary.terminalId! {
 
     case .One:
-      titleLabel.text = NSLocalizedString("Terminal", comment: "").uppercaseString + " 1"
+      terminalTitleLabel.text = NSLocalizedString("Terminal", comment: "").uppercaseString + " 1"
     case .Two:
-      titleLabel.text = NSLocalizedString("Terminal", comment: "").uppercaseString + " 2"
+      terminalTitleLabel.text = NSLocalizedString("Terminal", comment: "").uppercaseString + " 2"
     case .Three:
-      titleLabel.text = NSLocalizedString("Terminal", comment: "").uppercaseString + " 3"
+      terminalTitleLabel.text = NSLocalizedString("Terminal", comment: "").uppercaseString + " 3"
     case .International:
-      titleLabel.text = NSLocalizedString("International", comment: "").uppercaseString
+      terminalTitleLabel.text = NSLocalizedString("International", comment: "").uppercaseString
     }
   }
   
@@ -188,7 +192,8 @@ class TerminalView: UIView {
   }
   
   func setBackgroundDark(dark: Bool) {
-    backgroundColor = dark ? Color.TerminalSummary.darkBackground : UIColor.whiteColor()
+    let color = dark ? Color.TerminalSummary.darkBackground : UIColor.whiteColor()
+    setBackgroundImage(Image.from(color), forState: .Normal)
   }
   
   func getActiveTerminalId() -> TerminalId? {
