@@ -45,7 +45,7 @@
 "Requesting Flights..." = "Requesting Flights...";
 "Arrivals" = "Arrivals";
 "Departures" = "Departures";
-" Done " = " Done ";
+"Done" = "Done";
 
 /* Flight Status */
 "Term. One %d Hours Ago" = "Term. One %d Hours Ago";

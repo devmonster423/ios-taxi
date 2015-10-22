@@ -44,7 +44,7 @@
 "Requesting Flights..." = "Demandant Vols...";
 "Arrivals" = "Arrivées";
 "Departures" = "Départs";
-" Done " = " Fini ";
+"Done" = "Fini";
 
 /* Flight Status */
 "Term. One %d Hours Ago" = "Aér. Un il y a %d heures";

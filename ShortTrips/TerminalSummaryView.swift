@@ -137,10 +137,12 @@ class TerminalSummaryView: UIView {
     pickerHider.alpha = 0.0
     pickerHider.hidden = true
     pickerHider.setTitleColor(Color.Sfo.blue, forState: .Normal)
-    pickerHider.setTitle(NSLocalizedString(" Done ", comment: ""), forState: .Normal)
+    pickerHider.setTitle(NSLocalizedString("Done", comment: ""), forState: .Normal)
     pickerHider.backgroundColor = UIColor.whiteColor()
     pickerHider.titleLabel?.font = UiConstants.TerminalSummary.toggleFont
     pickerHider.snp_makeConstraints { (make) -> Void in
+      make.height.equalTo(44)
+      make.width.equalTo(80)
       make.bottom.equalTo(picker.snp_top)
       make.trailing.equalTo(self)
     }
