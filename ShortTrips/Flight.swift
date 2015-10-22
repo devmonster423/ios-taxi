@@ -12,6 +12,10 @@ enum FlightType: String {
   case Arrivals = "Arrivals"
   case Departures = "Departures"
   
+  static func all() -> [FlightType] {
+    return [.Arrivals, .Departures]
+  }
+  
   func asLocalizedString() -> String {
     return NSLocalizedString(self.rawValue, comment: "")
   }

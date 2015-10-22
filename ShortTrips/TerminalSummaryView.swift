@@ -24,7 +24,8 @@ class TerminalSummaryView: UIView {
   let titleTerminalView = TerminalView()
   let totalTerminalView = TerminalView()
   let picker = UIPickerView()
-  let pickerShower = UIButton(type: .System)
+  let pickerShower = UIButton()
+  private let pickerTitle = UILabel()
   let pickerDismissToolbar = UIToolbar()
 
   required init(coder aDecoder: NSCoder) {
@@ -57,7 +58,7 @@ class TerminalSummaryView: UIView {
     titleTerminalView.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.top.equalTo(self)
+      make.top.equalTo(pickerShower.snp_bottom)
       make.height.equalTo(self).multipliedBy(0.104)
     }
     
@@ -98,14 +99,35 @@ class TerminalSummaryView: UIView {
       make.height.equalTo(terminalView3)
     }
     
-    pickerShower.setTitleColor(Color.Sfo.blue, forState: .Normal)
-    pickerShower.titleLabel!.font = UiConstants.TerminalSummary.toggleFont
+    pickerShower.backgroundColor = Color.TerminalSummary.toggleButtonBlue
     pickerShower.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(totalTerminalView.snp_bottom).offset(10.0)
-      make.height.equalTo(20)
+      make.top.equalTo(self)
+      make.height.equalTo(44)
       make.centerX.equalTo(self)
+      make.width.equalTo(self)
     }
-    pickerShower.sizeToFit()
+    
+    pickerTitle.font = UiConstants.TerminalSummary.toggleFont
+    pickerTitle.text = FlightType.Arrivals.asLocalizedString()
+    pickerTitle.textAlignment = .Center
+    pickerTitle.textColor = UIColor.whiteColor()
+    pickerShower.addSubview(pickerTitle)
+    pickerTitle.snp_makeConstraints { (make) -> Void in
+      make.width.equalTo(100)
+      make.height.equalTo(30)
+      make.center.equalTo(pickerShower)
+    }
+    
+    let downArrowImageView = UIImageView()
+    downArrowImageView.image = Image.downArrow.image()
+    downArrowImageView.contentMode = .ScaleAspectFit
+    pickerShower.addSubview(downArrowImageView)
+    downArrowImageView.snp_makeConstraints { (make) -> Void in
+      make.width.equalTo(15)
+      make.height.equalTo(15)
+      make.centerY.equalTo(pickerShower)
+      make.leading.equalTo(pickerTitle.snp_trailing).offset(10)
+    }
     
     decreaseButton = hourPickerView.decreaseButton
     increaseButton = hourPickerView.increaseButton
@@ -113,7 +135,7 @@ class TerminalSummaryView: UIView {
     hourPickerView.minHour = -2
     hourPickerView.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
-      make.top.equalTo(pickerShower.snp_bottom).offset(10.0)
+      make.top.equalTo(totalTerminalView.snp_bottom)
       make.bottom.equalTo(timerView.snp_top)
       make.trailing.equalTo(self)
     }
@@ -153,6 +175,10 @@ class TerminalSummaryView: UIView {
     }
   }
   
+  func getCurrentFlightType() -> FlightType {
+    return FlightType.all()[picker.selectedRowInComponent(0)]
+  }
+  
   func getCurrentHour() -> Int {
     return hourPickerView.getCurrentHour()
   }
@@ -166,6 +192,10 @@ class TerminalSummaryView: UIView {
       terminalViews[i].configureForTerminalSummary(summaries[i])
     }
     totalTerminalView.configureTotals(TerminalSummary.getTotals(summaries))
+  }
+  
+  func updatePickerTitle() {
+    pickerTitle.text = getCurrentFlightType().asLocalizedString()
   }
   
   func hidePicker() {

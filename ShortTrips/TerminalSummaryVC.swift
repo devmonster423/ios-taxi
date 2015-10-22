@@ -11,7 +11,6 @@ import UIKit
 import MBProgressHUD
 
 class TerminalSummaryVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-  private var flightType = FlightType.Arrivals
 
   override func loadView() {
     let terminalSummaryView = TerminalSummaryView(frame: UIScreen.mainScreen().bounds)
@@ -44,7 +43,6 @@ class TerminalSummaryVC: UIViewController, UIPickerViewDataSource, UIPickerViewD
     
     terminalSummaryView.timerView.start(updateTerminalTable, updateInterval: 60 * 5)
     view = terminalSummaryView
-    updateToggleTitle()
   }
   
   override func viewDidLoad() {
@@ -80,7 +78,7 @@ class TerminalSummaryVC: UIViewController, UIPickerViewDataSource, UIPickerViewD
   }
   
   private func updateTerminalTable() {
-    ApiClient.requestTerminalSummary(terminalSummaryView().getCurrentHour(), flightType: flightType) { terminals, hour, statusCode in
+    ApiClient.requestTerminalSummary(terminalSummaryView().getCurrentHour(), flightType: terminalSummaryView().getCurrentFlightType()) { terminals, hour, statusCode in
       
       if let hour = hour where hour == self.terminalSummaryView().getCurrentHour() {
         if let terminals = terminals {
@@ -122,49 +120,36 @@ class TerminalSummaryVC: UIViewController, UIPickerViewDataSource, UIPickerViewD
   func increaseHour() {
     changeHour(1)
   }
-
-  func toggleFlights() {
-    let newIndex = terminalSummaryView().picker.selectedRowInComponent(0)
-    let oldIndex = flightType == .Arrivals ? 0 : 1
-    if newIndex != oldIndex {
-      flightType = flightType == .Arrivals ? .Departures : .Arrivals
-      updateToggleTitle()
-      updateTerminalTable()
-      terminalSummaryView().timerView.resetProgress()      
-    }
-  }
   
   func hidePicker(sender: UITapGestureRecognizer) {
     terminalSummaryView().hidePicker()
-    toggleFlights()
+    terminalSummaryView().updatePickerTitle()
+    updateTerminalTable()
+    terminalSummaryView().timerView.resetProgress()
   }
   
   func showPicker() {
     terminalSummaryView().showPicker()
   }
   
-  func updateToggleTitle() {
-    terminalSummaryView().pickerShower.setTitle(flightType.asLocalizedString(), forState: .Normal)
-  }
-  
   func terminalSelected(sender: UITapGestureRecognizer) {
     let flightStatusVC = FlightStatusVC()
     flightStatusVC.currentHour = terminalSummaryView().getCurrentHour()
     flightStatusVC.selectedTerminalId = (sender.view as! TerminalView).getActiveTerminalId()
-    flightStatusVC.flightType = flightType
+    flightStatusVC.flightType = terminalSummaryView().getCurrentFlightType()
     navigationController?.pushViewController(flightStatusVC, animated: true)
   }
   
   // MARK: UIPickerView
-  func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
+  func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
     return 1
   }
   
-  func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-    return 2
+  func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    return FlightType.all().count
   }
   
   func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    return [NSLocalizedString("Arrivals", comment: ""), NSLocalizedString("Departures", comment: "")][row]
+    return FlightType.all()[row].asLocalizedString()
   }
 }
