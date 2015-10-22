@@ -21,6 +21,10 @@
 "Error" = "Error";
 "OK" = "OK";
 "An error occurred while fetching flight data." = "An error occurred while fetching flight data.";
+"Status code: " = "Status code: ";
+"The flights object was nil." = "The flights object was nil.";
+"The terminals object was nil." = "The terminals object was nil.";
+"The status object was nil." = "The status object was nil.";
 "An error occurred while fetching parking-lot data." = "An error occurred while fetching parking-lot data.";
 "An error occurred while logging in." = "An error occurred while logging in.";
 

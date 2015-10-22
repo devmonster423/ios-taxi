@@ -1,5 +1,5 @@
 //
-//  ImageClient.swift
+//  AirlineClient.swift
 //  ShortTrips
 //
 //  Created by Matt Luedke on 9/23/15.

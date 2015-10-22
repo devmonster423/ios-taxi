@@ -40,6 +40,22 @@ struct Flight: Mappable {
     scheduledTime <- (map["scheduled_time"], transform)
   }
   
+  static func isValid(flights: [Flight]) -> Bool {
+    
+    for flight in flights {
+      if flight.airline == nil
+        || flight.bags == nil
+        || flight.estimatedTime == nil
+        || flight.flightNumber == nil
+        || flight.scheduledTime == nil {
+          
+          return false
+      }
+    }
+    
+    return true
+  }
+  
   static func airlineImageForFlight(flightNumber: String, width: Int, height: Int, completion: ImageClosure) {
     ApiClient.imageForIataCode(iataCodeForFlightNumber(flightNumber), width: width, height: height, completion: completion)
   }

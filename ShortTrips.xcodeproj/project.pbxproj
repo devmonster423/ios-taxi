@@ -112,6 +112,7 @@
 		E1598CE41BB1ACB100E933AD /* FlightSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1598CE31BB1ACB100E933AD /* FlightSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		E1598CE61BB1AE3B00E933AD /* FlightDetailResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1598CE51BB1AE3B00E933AD /* FlightDetailResponseSpec.swift */; settings = {ASSET_TAGS = (); }; };
 		E15A3CD31BAC86C6002EDE40 /* DriverCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15A3CD21BAC86C6002EDE40 /* DriverCredential.swift */; settings = {ASSET_TAGS = (); }; };
+		E15FF4981BD5F0C700ECDF27 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15FF4971BD5F0C700ECDF27 /* Util.swift */; settings = {ASSET_TAGS = (); }; };
 		E16399D51BA7B99400EDE0AE /* Driver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16399D41BA7B99400EDE0AE /* Driver.swift */; };
 		E1666F991BA8D25600C95F96 /* DriverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1666F981BA8D25600C95F96 /* DriverResponse.swift */; };
 		E16E5E161BB1B690003A315A /* FlightStatusSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16E5E151BB1B690003A315A /* FlightStatusSpec.swift */; settings = {ASSET_TAGS = (); }; };
@@ -294,6 +295,7 @@
 		E1598CE31BB1ACB100E933AD /* FlightSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightSpec.swift; sourceTree = "<group>"; };
 		E1598CE51BB1AE3B00E933AD /* FlightDetailResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightDetailResponseSpec.swift; sourceTree = "<group>"; };
 		E15A3CD21BAC86C6002EDE40 /* DriverCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverCredential.swift; sourceTree = "<group>"; };
+		E15FF4971BD5F0C700ECDF27 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		E16399D41BA7B99400EDE0AE /* Driver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Driver.swift; sourceTree = "<group>"; };
 		E1666F981BA8D25600C95F96 /* DriverResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverResponse.swift; sourceTree = "<group>"; };
 		E16E5E151BB1B690003A315A /* FlightStatusSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatusSpec.swift; sourceTree = "<group>"; };
@@ -964,6 +966,7 @@
 				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
 				E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */,
 				E17352841B8CEC9B0031950B /* UiHelpers.swift */,
+				E15FF4971BD5F0C700ECDF27 /* Util.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1298,6 +1301,7 @@
 				C215CDFD1BD19FCA00991D9D /* DriverManager.swift in Sources */,
 				C2635E301BB0CE1C003C22B1 /* GeofenceClient.swift in Sources */,
 				C21905681BB0B74E00A3E779 /* Url.swift in Sources */,
+				E15FF4981BD5F0C700ECDF27 /* Util.swift in Sources */,
 				E13BCEFA1BABBAA1006FDFF5 /* TerminalSummaryArrivalsListResponse.swift in Sources */,
 				C215CDFA1BD18F7200991D9D /* StatusCode.swift in Sources */,
 				C2635E261BB0CA3F003C22B1 /* DispatcherClient.swift in Sources */,

@@ -10,7 +10,6 @@ def shared_pods
   pod 'IQKeyboardManagerSwift', '3.3.2'
   pod 'JSQNotificationObserverKit', '2.0.0'
   pod 'MBProgressHUD', '0.9.1'
-  pod 'Mockingjay', '1.1.0'
   pod 'SnapKit', '0.15.0'
   pod 'TransitionKit', '2.2.1'
 end
@@ -21,8 +20,9 @@ end
 
 target 'ShortTripsTests' do
   shared_pods
-
-  pod 'Quick', '0.6.0'
+  
+  pod 'Mockingjay', '1.1.0'
+  pod 'Quick', '0.7.0'
   pod 'Nimble', '2.0.0'
   pod 'PivotalCoreKit', '0.3.0'
   pod 'PivotalCoreKit/UIKit/SpecHelper/Extensions'

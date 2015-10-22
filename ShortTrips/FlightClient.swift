@@ -1,5 +1,5 @@
 //
-//  FlightRequester.swift
+//  FlightClient.swift
 //  ShortTrips
 //
 //  Created by Matt Luedke on 9/21/15.
@@ -11,27 +11,37 @@ import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
-typealias FlightsForTerminalClosure = ([Flight]?) -> Void
-typealias TerminalSummaryClosure = ([TerminalSummary]?, Int?, ErrorType?) -> Void
+typealias FlightsForTerminalClosure = ([Flight]?, Int?) -> Void
+typealias TerminalSummaryClosure = ([TerminalSummary]?, Int?, Int?) -> Void
 
 protocol FlightClient { }
 
 extension ApiClient {
+  private static let noData = 3840
+  
   static func requestFlightsForTerminal(terminal: Int, hour: Int, response: FlightsForTerminalClosure) {
     let params = ["terminal_id": terminal, "hour": hour]
     authedRequest(Alamofire.request(.GET, Url.Flight.Arrival.details, parameters: params))
-      .responseObject { (request, _, flightsForTerminalResponse: FlightsForTerminalResponse?, _, error: ErrorType?) in
+      .responseObject { (request, urlResponse, flightsForTerminalResponse: FlightsForTerminalResponse?, _, error: ErrorType?) in
         
-        ErrorLogger.log(request, error: error)
-        response(flightsForTerminalResponse?.flightDetailResponse?.flightDetails)
+        response(flightsForTerminalResponse?.flightDetailResponse?.flightDetails, urlResponse?.statusCode)
+        
+        if Util.debug {
+          ErrorLogger.log(request, error: error)
+        }
     }
   }
   
   static func requestTerminalSummary(hour: Int, response: TerminalSummaryClosure) {
     let params = ["hour": hour]
     authedRequest(Alamofire.request(.GET, Url.Flight.Arrival.summary, parameters: params))
-      .responseObject { (terminalSummaryResponse: TerminalSummaryResponse?, error: ErrorType?) in
-        response(terminalSummaryResponse?.terminalSummaryArrivalsResponse?.terminalSummaryArrivalsListResponse?.terminalSummaryArrivalsList, hour, error)
+      .responseObject { (request, urlResponse, terminalSummaryResponse: TerminalSummaryResponse?, _, error: ErrorType?) in
+        
+        response(terminalSummaryResponse?.terminalSummaryArrivalsResponse?.terminalSummaryArrivalsListResponse?.terminalSummaryArrivalsList, hour, urlResponse?.statusCode)
+        
+        if Util.debug {
+          ErrorLogger.log(request, error: error)
+        }
     }
   }
 }
