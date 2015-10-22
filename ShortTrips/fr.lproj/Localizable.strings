@@ -42,6 +42,9 @@
 "Terminals" = "Aérogares";
 "Terminal" = "Aérogare";
 "Requesting Flights..." = "Demandant Vols...";
+"Arrivals" = "Arrivées";
+"Departures" = "Départs";
+"Done" = "Fini";
 
 /* Flight Status */
 "Term. One %d Hours Ago" = "Aér. Un il y a %d heures";
@@ -70,6 +73,11 @@
 "Landed" = "Atterri";
 "Delayed" = "En retard";
 "h:mma" = "HH:mm";
+"Totals" = "Totales";
+"Terminal One" = "Aérogare Un";
+"Terminal Two" = "Aérogare Deux";
+"Terminal Three" = "Aérogare Trois";
+"Int'l Terminal" = "Int'l Aérogare";
 
 /* Update Progress */
 "LAST UPDATED LESS THAN A MINUTE AGO" = "Réactualisé il y a < 1 minute";

@@ -17,6 +17,7 @@ enum Image: String {
   case redCircle = "red_circle"
   
   case indicatorArrow = "indicator_arrow"
+  case downArrow = "down_arrow"
   
   case navbarBlue = "navbar_blue"
   

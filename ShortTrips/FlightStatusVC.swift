@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 import MBProgressHUD
 
-class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FlightStatusVC: UIViewController {
   var selectedTerminalId: TerminalId!
   var currentHour: Int!
   var flights: [Flight]?
+  var flightType: FlightType!
   
   override func loadView() {
     let flightStatusView = FlightStatusView(frame: UIScreen.mainScreen().bounds)
@@ -37,6 +38,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     configureTitle()
+    flightStatusView().tableHeader.text = selectedTerminalId.asLocalizedString() + " " + flightType.asLocalizedString()
   }
   
   func flightStatusView() -> FlightStatusView {
@@ -58,7 +60,7 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
     hud.labelText = NSLocalizedString("Requesting Flights...", comment: "")
     
-    ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour) { flights, statusCode in
+    ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour, flightType: flightType) { flights, statusCode in
 
       hud.hide(true)
       
@@ -81,9 +83,9 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
       }
     }
   }
-  
-  // MARK: UITableView
-  
+}
+
+extension FlightStatusVC: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let flights = flights {
       return flights.count
@@ -99,7 +101,9 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     return cell
   }
-  
+}
+
+extension FlightStatusVC: UITableViewDelegate {
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return UiConstants.FlightCell.rowHeight
   }

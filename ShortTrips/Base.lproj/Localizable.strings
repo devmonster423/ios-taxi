@@ -43,6 +43,9 @@
 "Terminals" = "Terminals";
 "Terminal" = "Terminal";
 "Requesting Flights..." = "Requesting Flights...";
+"Arrivals" = "Arrivals";
+"Departures" = "Departures";
+"Done" = "Done";
 
 /* Flight Status */
 "Term. One %d Hours Ago" = "Term. One %d Hours Ago";
@@ -74,6 +77,10 @@
 "pm" = "pm";
 "am" = "am";
 "Totals" = "Totals";
+"Terminal One" = "Terminal One";
+"Terminal Two" = "Terminal Two";
+"Terminal Three" = "Terminal Three";
+"Int'l Terminal" = "Int'l Terminal";
 
 /* Update Progress */
 "LAST UPDATED LESS THAN A MINUTE AGO" = "UPDATED < 1 MINUTE AGO";

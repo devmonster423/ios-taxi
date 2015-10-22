@@ -12,16 +12,21 @@ import SnapKit
 class TerminalSummaryView: UIView {
   
   var decreaseButton: UIButton!
+  let grayView = UIView()
   let hourPickerView = HourPickerView()
   var increaseButton: UIButton!
+  let internationalTerminalView = TerminalView()
   let terminalView1 = TerminalView()
   let terminalView2 = TerminalView()
   let terminalView3 = TerminalView()
-  let internationalTerminalView = TerminalView()
+  var terminalViews: [TerminalView] = []
   let timerView = TimerView()
   let titleTerminalView = TerminalView()
   let totalTerminalView = TerminalView()
-  var terminalViews: [TerminalView] = []
+  let picker = UIPickerView()
+  let pickerShower = UIButton()
+  private let pickerTitle = UILabel()
+  let pickerDismissToolbar = UIToolbar()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -29,7 +34,9 @@ class TerminalSummaryView: UIView {
 
   override init(frame: CGRect) {
     super.init(frame: frame)
+    
     backgroundColor = UIColor.whiteColor()
+    
     terminalViews.append(terminalView1)
     terminalViews.append(terminalView2)
     terminalViews.append(terminalView3)
@@ -41,13 +48,27 @@ class TerminalSummaryView: UIView {
     addSubview(timerView)
     addSubview(titleTerminalView)
     addSubview(totalTerminalView)
+    addSubview(pickerShower)
+    addSubview(picker)
+    addSubview(grayView)
+    addSubview(pickerDismissToolbar)
+    
+    let divider = UIView()
+    divider.backgroundColor = Color.Sfo.blue
+    addSubview(divider)
+    divider.snp_makeConstraints { (make) -> Void in
+      make.height.equalTo(1)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.top.equalTo(self)
+    }
     
     titleTerminalView.configureAsTitle()
     titleTerminalView.setBackgroundDark(true)
     titleTerminalView.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.top.equalTo(self)
+      make.top.equalTo(pickerShower.snp_bottom)
       make.height.equalTo(self).multipliedBy(0.104)
     }
     
@@ -88,6 +109,36 @@ class TerminalSummaryView: UIView {
       make.height.equalTo(terminalView3)
     }
     
+    pickerShower.backgroundColor = Color.NavBar.subtitleBlue
+    pickerShower.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(divider.snp_bottom)
+      make.height.equalTo(44)
+      make.centerX.equalTo(self)
+      make.width.equalTo(self)
+    }
+    
+    pickerTitle.font = UiConstants.TerminalSummary.toggleFont
+    pickerTitle.text = FlightType.Arrivals.asLocalizedString()
+    pickerTitle.textAlignment = .Center
+    pickerTitle.textColor = UIColor.whiteColor()
+    pickerShower.addSubview(pickerTitle)
+    pickerTitle.snp_makeConstraints { (make) -> Void in
+      make.width.equalTo(100)
+      make.height.equalTo(30)
+      make.center.equalTo(pickerShower)
+    }
+    
+    let downArrowImageView = UIImageView()
+    downArrowImageView.image = Image.downArrow.image()
+    downArrowImageView.contentMode = .ScaleAspectFit
+    pickerShower.addSubview(downArrowImageView)
+    downArrowImageView.snp_makeConstraints { (make) -> Void in
+      make.width.equalTo(15)
+      make.height.equalTo(15)
+      make.centerY.equalTo(pickerShower)
+      make.leading.equalTo(pickerTitle.snp_trailing).offset(10)
+    }
+    
     decreaseButton = hourPickerView.decreaseButton
     increaseButton = hourPickerView.increaseButton
     hourPickerView.maxHour = 12
@@ -105,6 +156,37 @@ class TerminalSummaryView: UIView {
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
     }
+    
+    picker.alpha = 0.0
+    picker.backgroundColor = UIColor.whiteColor()
+    picker.hidden = true
+    picker.snp_makeConstraints { (make) -> Void in
+      make.bottom.equalTo(self)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+    }
+    
+    pickerDismissToolbar.alpha = 0.0
+    pickerDismissToolbar.hidden = true
+    pickerDismissToolbar.snp_makeConstraints { (make) -> Void in
+      make.width.equalTo(self)
+      make.bottom.equalTo(picker.snp_top)
+      make.centerX.equalTo(self)
+    }
+    
+    grayView.alpha = UiConstants.TerminalSummary.grayViewAlpha
+    grayView.backgroundColor = UIColor.blackColor()
+    grayView.hidden = true
+    grayView.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(self)
+      make.bottom.equalTo(picker.snp_top)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+    }
+  }
+  
+  func getCurrentFlightType() -> FlightType {
+    return FlightType.all()[picker.selectedRowInComponent(0)]
   }
   
   func getCurrentHour() -> Int {
@@ -120,6 +202,33 @@ class TerminalSummaryView: UIView {
       terminalViews[i].configureForTerminalSummary(summaries[i])
     }
     totalTerminalView.configureTotals(TerminalSummary.getTotals(summaries))
+  }
+  
+  func updatePickerTitle() {
+    pickerTitle.text = getCurrentFlightType().asLocalizedString()
+  }
+  
+  func hidePicker() {
+    UIView.animateWithDuration(UiConstants.TerminalSummary.fadeDuration, animations: {
+      self.picker.alpha = 0.0
+      self.pickerDismissToolbar.alpha = 0.0
+      self.grayView.alpha = 0.0
+    }, completion: { finished in
+      self.picker.hidden = true
+      self.pickerDismissToolbar.hidden = true
+      self.grayView.hidden = true
+    })
+  }
+  
+  func showPicker() {
+    picker.hidden = false
+    pickerDismissToolbar.hidden = false
+    grayView.hidden = false
+    UIView.animateWithDuration(UiConstants.TerminalSummary.fadeDuration, animations: { () -> Void in
+      self.picker.alpha = 1.0
+      self.pickerDismissToolbar.alpha = 1.0
+      self.grayView.alpha = UiConstants.TerminalSummary.grayViewAlpha
+    })
   }
   
   func clearTerminalTable() {

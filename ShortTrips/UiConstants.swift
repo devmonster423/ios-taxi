@@ -24,6 +24,19 @@ struct UiConstants {
     static let titleHeight: CGFloat = 30.0
   }
   
+  struct TerminalSummary {
+    static let arrivalsDeparturesWidth: CGFloat = 100.0
+    static let arrivalsDeparturesHeight: CGFloat = 40.0
+    static let toggleFont = Font.MyriadProSemibold.size(20.0)
+    static let fadeDuration: NSTimeInterval = 0.3
+    static let grayViewAlpha: CGFloat = 0.5
+  }
+  
+  struct FlightStatus {
+    static let tableHeaderFont = Font.MyriadProSemibold.size(20.0)
+    static let tableHeaderHeight: CGFloat = 40.0
+  }
+  
   struct Fader {
     static let fadeDuration: NSTimeInterval = 1.0
     static let disabledWidgetAlpha: CGFloat = 0.3

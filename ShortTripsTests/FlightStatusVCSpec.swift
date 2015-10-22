@@ -23,6 +23,7 @@ class FlightStatusVCSpec: QuickSpec {
         viewController = FlightStatusVC()
         viewController.selectedTerminalId = .International
         viewController.currentHour = 0
+        viewController.flightType = .Arrivals
         let navigationController = UINavigationController(rootViewController: viewController)
         
         UIApplication.sharedApplication().keyWindow!.rootViewController = navigationController

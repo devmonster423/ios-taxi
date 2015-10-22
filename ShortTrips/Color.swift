@@ -15,6 +15,10 @@ struct Color {
     static let red = StatusColor.red
   }
   
+  struct NavBar {
+    static let subtitleBlue = UIColor(red: 0.0/255.0, green: 132.0/255.0, blue: 187.0/255.0, alpha: 1.0)
+  }
+  
   struct StatusColor {
     static let green = UIColor(red: 21/255.0, green: 155/255.0, blue: 32/255.0, alpha: 1.0)
     static let yellow = UIColor(red: 233/255.0, green: 181/255.0, blue: 46/255.0, alpha: 1.0)
@@ -47,6 +51,7 @@ struct Color {
     static let landing = UIColor(red: 126.0/255.0, green: 211.0/255.0, blue: 33.0/255.0, alpha: 1.0)
     static let landed = standard
     static let separator = UIColor(red: 229.0/255.0, green: 229.0/255.0, blue: 229.0/255.0, alpha: 1.0)
+    static let tableHeader = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
   }
 
   struct FlightCell {
