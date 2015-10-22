@@ -36,9 +36,6 @@
 "Requesting Lot Status..." = "Demandant statut du parking...";
 
 /* Terminal Status */
-"Terminal Status %d Hours Ago" = "Statut de l'aérogare il y a %d heures";
-"Terminal Status %d Hours in the Future" = "Statut de l'aérogare dans %d heures";
-"Current Terminal Status" = "Statut actuel de l'aérogare";
 "Terminals" = "Aérogares";
 "Terminal" = "Aérogare";
 "Requesting Flights..." = "Demandant Vols...";
@@ -47,18 +44,6 @@
 "Done" = "Fini";
 
 /* Flight Status */
-"Term. One %d Hours Ago" = "Aér. Un il y a %d heures";
-"Term. Two %d Hours Ago" = "Aér. Deux il y a %d heures";
-"Term. Three %d Hours Ago" = "Aér. Trois il y a %d heures";
-"Inter. Term. %d Hours Ago" = "Aér. Inter. il y a %d heures";
-"Term. One in %d Hours" = "Aér. Un dans %d Hours";
-"Term. Two in %d Hours" = "Aér. Deux dans %d Hours";
-"Term. Three in %d Hours" = "Aér. Trois dans %d Hours";
-"Inter. Term. in %d Hours" = "Aér. Inter. dans %d Hours";
-"Term. One Currently" = "Aér. Un actuel";
-"Term. Two Currently" = "Aér. Deux actuel";
-"Term. Three Currently" = "Aér. Trois actuel";
-"Inter. Term. Currently" = "Aér. Inter. actuel";
 "Flights" = "Vols";
 "Flights In" = "Vols Dans";
 "Ago" = "Au Passé";

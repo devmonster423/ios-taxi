@@ -37,9 +37,6 @@
 "Requesting Lot Status..." = "Requesting Lot Status...";
 
 /* Terminal Status */
-"Terminal Status %d Hours Ago" = "Terminal Status %d Hours Ago";
-"Terminal Status %d Hours in the Future" = "Terminal Status %d Hours in the Future";
-"Current Terminal Status" = "Current Terminal Status";
 "Terminals" = "Terminals";
 "Terminal" = "Terminal";
 "Requesting Flights..." = "Requesting Flights...";
@@ -48,18 +45,6 @@
 "Done" = "Done";
 
 /* Flight Status */
-"Term. One %d Hours Ago" = "Term. One %d Hours Ago";
-"Term. Two %d Hours Ago" = "Term. Two %d Hours Ago";
-"Term. Three %d Hours Ago" = "Term. Three %d Hours Ago";
-"Inter. Term. %d Hours Ago" = "Internat. Term. %d Hours Ago";
-"Term. One in %d Hours" = "Term. One in %d Hours";
-"Term. Two in %d Hours" = "Term. Two in %d Hours";
-"Term. Three in %d Hours" = "Term. Three in %d Hours";
-"Inter. Term. in %d Hours" = "Internat. Term. in %d Hours";
-"Term. One Currently" = "Term. One Currently";
-"Term. Two Currently" = "Term. Two Currently";
-"Term. Three Currently" = "Term. Three Currently";
-"Inter. Term. Currently" = "Internat. Term. Currently";
 "Flights" = "Flights";
 "Flights In" = "Flights In";
 "Ago" = "Ago";
@@ -68,7 +53,6 @@
 "Est.:" = "Est.:";
 "Scheduled:" = "Scheduled:";
 "Estimated:" = "Estimated:";
-"%.1f%% Delayed Flights" = "%.1f%% Delayed Flights";
 "On Time" = "On Time";
 "Landing" = "Landing";
 "Landed" = "Landed";

@@ -26,7 +26,7 @@ enum TerminalId: Int {
     case .Two:
       return NSLocalizedString("Terminal Two", comment: "")
     case .Three:
-      return NSLocalizedString("Terminal Two", comment: "")
+      return NSLocalizedString("Terminal Three", comment: "")
     case .International:
       return NSLocalizedString("Int'l Terminal", comment: "")
     }
