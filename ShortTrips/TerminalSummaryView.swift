@@ -109,7 +109,8 @@ class TerminalSummaryView: UIView {
       make.height.equalTo(terminalView3)
     }
     
-    pickerShower.backgroundColor = Color.NavBar.subtitleBlue
+    pickerShower.setBackgroundImage(Image.from(Color.NavBar.subtitleBlue), forState: .Normal)
+    pickerShower.setBackgroundImage(Image.from(Color.NavBar.subtitleBluePressed), forState: .Highlighted)
     pickerShower.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(divider.snp_bottom)
       make.height.equalTo(44)

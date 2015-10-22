@@ -17,6 +17,7 @@ struct Color {
   
   struct NavBar {
     static let subtitleBlue = UIColor(red: 0.0/255.0, green: 132.0/255.0, blue: 187.0/255.0, alpha: 1.0)
+    static let subtitleBluePressed = UIColor(red: 7.0/255.0, green: 95.0/255.0, blue: 133.0/255.0, alpha: 1.0)
   }
   
   struct StatusColor {
