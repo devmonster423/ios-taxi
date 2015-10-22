@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MBProgressHUD
 
-class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FlightStatusVC: UIViewController {
   var selectedTerminalId: TerminalId!
   var currentHour: Int!
   var flights: [Flight]?
@@ -60,10 +60,6 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
     hud.labelText = NSLocalizedString("Requesting Flights...", comment: "")
     
-    if flightType == nil {
-      flightType = .Arrivals
-    }
-    
     ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour, flightType: flightType) { flights, statusCode in
 
       hud.hide(true)
@@ -87,9 +83,9 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
       }
     }
   }
-  
-  // MARK: UITableView
-  
+}
+
+extension FlightStatusVC: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let flights = flights {
       return flights.count
@@ -105,7 +101,9 @@ class FlightStatusVC: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     return cell
   }
-  
+}
+
+extension FlightStatusVC: UITableViewDelegate {
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return UiConstants.FlightCell.rowHeight
   }
