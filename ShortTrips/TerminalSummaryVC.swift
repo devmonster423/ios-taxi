@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import MBProgressHUD
 
-class TerminalSummaryVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class TerminalSummaryVC: UIViewController {
 
   override func loadView() {
     let terminalSummaryView = TerminalSummaryView(frame: UIScreen.mainScreen().bounds)
@@ -142,8 +142,9 @@ class TerminalSummaryVC: UIViewController, UIPickerViewDataSource, UIPickerViewD
     flightStatusVC.flightType = terminalSummaryView().getCurrentFlightType()
     navigationController?.pushViewController(flightStatusVC, animated: true)
   }
-  
-  // MARK: UIPickerView
+}
+
+extension TerminalSummaryVC: UIPickerViewDataSource {
   func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
     return 1
   }
@@ -151,7 +152,9 @@ class TerminalSummaryVC: UIViewController, UIPickerViewDataSource, UIPickerViewD
   func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     return FlightType.all().count
   }
-  
+}
+
+extension TerminalSummaryVC: UIPickerViewDelegate {  
   func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
     return FlightType.all()[row].asLocalizedString()
   }
