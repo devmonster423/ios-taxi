@@ -1,5 +1,5 @@
 //
-//  DriverAndVehiculeAssociated.swift
+//  DriverAndVehicleAssociated.swift
 //  ShortTrips
 //
 //  Created by Pierre Exygy on 10/27/15.
@@ -9,9 +9,9 @@
 import Foundation
 import TransitionKit
 
-struct DriverAndVehiculeAssociated: Event {
-    let eventName = "driverAndVehiculeAssociated"
-    static let sharedInstance = DriverAndVehiculeAssociated()
+struct DriverAndVehicleAssociated: Event {
+    let eventName = "driverAndVehicleAssociated"
+    static let sharedInstance = DriverAndVehicleAssociated()
     
     private var event: TKEvent
     

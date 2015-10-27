@@ -29,7 +29,7 @@ struct AssociatingDriverAndVehicle {
             // TODO actually process vehicle - make sure association is right
             if let vehicle = vehicle {
             //  DriverManager.sharedInstance.setCurrentVehicle(vehicle)
-              DriverAndVehiculeAssociated.sharedInstance.fire()
+              DriverAndVehicleAssociated.sharedInstance.fire()
               postNotification(SfoNotification.driverAndVehiculeAssociated, value: (driver: driver, vehicle: vehicle))
 
             }
