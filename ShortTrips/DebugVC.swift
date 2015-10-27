@@ -21,6 +21,8 @@ class DebugVC: UIViewController {
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
   var responseObserver: NotificationObserver<NSHTTPURLResponse, AnyObject>?
   var successfulPingObserver: NotificationObserver<Ping, AnyObject>?
+  var entryGateAVI: NotificationObserver<Any?, AnyObject>?
+  var driverAndVehicleAssociated: NotificationObserver<(driver: Driver, vehicle: Vehicle), AnyObject>?
 
   override func loadView() {
     let debugView = DebugView(frame: UIScreen.mainScreen().bounds)
@@ -61,6 +63,18 @@ class DebugVC: UIViewController {
     successfulPingObserver = NotificationObserver(notification: SfoNotification.successfulPing, handler: { ping, _ in
       self.debugView().printDebugLine("succesful ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
     })
+
+    entryGateAVI = NotificationObserver(notification: SfoNotification.entryGateAVI, handler: { cid, _ in
+      self.debugView().printDebugLine("entry gate avi detected: (\(cid)")
+    })
+
+    driverAndVehicleAssociated = NotificationObserver(notification: SfoNotification.driverAndVehiculeAssociated, handler: { data, _ in
+      let vehicle = data.vehicle
+      let driver = data.driver
+      
+      self.debugView().printDebugLine("driver \(driver.firstName) \(driver.lastName) is associated with transponder: (\(vehicle.transponderId)")
+    })
+
   }
   
   func debugView() -> DebugView {
