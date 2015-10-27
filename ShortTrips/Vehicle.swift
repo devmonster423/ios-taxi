@@ -11,14 +11,17 @@ import ObjectMapper
 
 struct Vehicle: Mappable {
   var vehicleId: Int!
+  var transponderId: String!
   
-  init(vehicleId: Int) {
+  init(vehicleId: Int, transponderId: String) {
     self.vehicleId = vehicleId
+    self.transponderId = transponderId
   }
   
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
     vehicleId <- map["vehicle_id"]
+    transponderId <- map["transponder_id"]
   }
 }
