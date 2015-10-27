@@ -19,4 +19,5 @@ struct SfoNotification {
   static let successfulPing = Notification<Ping, AnyObject>(name: "SuccessfulPing")
   static let entryGateAVI = Notification<Any?, AnyObject>(name: "EntryGateAVI")
   static let driverAndVehiculeAssociated = Notification<(driver: Driver, vehicle: Vehicle), AnyObject>(name: "DriverAndVehiculeAssociated")
+  static let startingToWait = Notification<Any?, AnyObject>(name: "startingToWait")
 }

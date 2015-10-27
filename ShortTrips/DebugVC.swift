@@ -23,6 +23,7 @@ class DebugVC: UIViewController {
   var successfulPingObserver: NotificationObserver<Ping, AnyObject>?
   var entryGateAVI: NotificationObserver<Any?, AnyObject>?
   var driverAndVehicleAssociated: NotificationObserver<(driver: Driver, vehicle: Vehicle), AnyObject>?
+  var startingToWait: NotificationObserver<Any?, AnyObject>?
 
   override func loadView() {
     let debugView = DebugView(frame: UIScreen.mainScreen().bounds)
@@ -74,7 +75,10 @@ class DebugVC: UIViewController {
       
       self.debugView().printDebugLine("driver \(driver.firstName) \(driver.lastName) is associated with transponder: (\(vehicle.transponderId)")
     })
-
+    
+    startingToWait = NotificationObserver(notification: SfoNotification.startingToWait, handler: { foo, _ in
+      self.debugView().printDebugLine("starting to wait")
+    })
   }
   
   func debugView() -> DebugView {

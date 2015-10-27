@@ -135,6 +135,8 @@
 		E187368C1BA8EA0900B6C7D8 /* AllCidsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187368B1BA8EA0900B6C7D8 /* AllCidsResponse.swift */; };
 		E187368E1BA8EADE00B6C7D8 /* CidListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187368D1BA8EADE00B6C7D8 /* CidListResponse.swift */; };
 		E18736901BA8EBED00B6C7D8 /* CidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187368F1BA8EBED00B6C7D8 /* CidResponse.swift */; };
+		E187B2751BE036F10031F07C /* WaitingInHoldingLot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187B2741BE036F10031F07C /* WaitingInHoldingLot.swift */; };
+		E187B2771BE037550031F07C /* EntryGateAVIReadConfirmed.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187B2761BE037550031F07C /* EntryGateAVIReadConfirmed.swift */; };
 		E18FF68D1BA8667500FE93B9 /* AutomaticVehicleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FF68C1BA8667500FE93B9 /* AutomaticVehicleId.swift */; };
 		E18FF68F1BA869A300FE93B9 /* Antenna.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FF68E1BA869A300FE93B9 /* Antenna.swift */; };
 		E18FF6911BA870AF00FE93B9 /* Cid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FF6901BA870AF00FE93B9 /* Cid.swift */; };
@@ -321,6 +323,8 @@
 		E187368B1BA8EA0900B6C7D8 /* AllCidsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCidsResponse.swift; sourceTree = "<group>"; };
 		E187368D1BA8EADE00B6C7D8 /* CidListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidListResponse.swift; sourceTree = "<group>"; };
 		E187368F1BA8EBED00B6C7D8 /* CidResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidResponse.swift; sourceTree = "<group>"; };
+		E187B2741BE036F10031F07C /* WaitingInHoldingLot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingInHoldingLot.swift; sourceTree = "<group>"; };
+		E187B2761BE037550031F07C /* EntryGateAVIReadConfirmed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryGateAVIReadConfirmed.swift; sourceTree = "<group>"; };
 		E18FF68C1BA8667500FE93B9 /* AutomaticVehicleId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticVehicleId.swift; sourceTree = "<group>"; };
 		E18FF68E1BA869A300FE93B9 /* Antenna.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Antenna.swift; sourceTree = "<group>"; };
 		E18FF6901BA870AF00FE93B9 /* Cid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cid.swift; sourceTree = "<group>"; };
@@ -487,6 +491,7 @@
 				E18228FE1BC4932400614256 /* Validating.swift */,
 				E18229041BC495E300614256 /* Valid.swift */,
 				8EEFB79F1BE0324600B8A962 /* VerifyingEntryGateAVI.swift */,
+				E187B2741BE036F10031F07C /* WaitingInHoldingLot.swift */,
 			);
 			name = States;
 			sourceTree = "<group>";
@@ -500,6 +505,7 @@
 				E18229061BC4983000614256 /* DriverProceedsToTaxiLoop.swift */,
 				E18229001BC4939800614256 /* DriverReturnsToSfo.swift */,
 				C28ECB2D1BCF033E00887763 /* EnteredSFOGeofence.swift */,
+				E187B2761BE037550031F07C /* EntryGateAVIReadConfirmed.swift */,
 				C220E07D1BC3511200AC7C85 /* Event.swift */,
 				C215CE001BD1AED200991D9D /* Failure.swift */,
 				8EEFB79D1BE0323100B8A962 /* LastestAVIReadAtEntryGate.swift */,
@@ -1299,6 +1305,7 @@
 				E187368C1BA8EA0900B6C7D8 /* AllCidsResponse.swift in Sources */,
 				E18FF6951BA8783600FE93B9 /* MobileStateChange.swift in Sources */,
 				C28ECB351BCF151800887763 /* Debuggable.swift in Sources */,
+				E187B2751BE036F10031F07C /* WaitingInHoldingLot.swift in Sources */,
 				C215CE031BD1B87000991D9D /* Vehicle.swift in Sources */,
 				E18736891BA8E7D800B6C7D8 /* AntennaResponse.swift in Sources */,
 				E1A2EBA01B6BEF3900C27EB2 /* FlightStatusVC.swift in Sources */,
@@ -1312,6 +1319,7 @@
 				E18FF6911BA870AF00FE93B9 /* Cid.swift in Sources */,
 				C28ECB421BCF21DE00887763 /* GeofenceManager.swift in Sources */,
 				C215CDFD1BD19FCA00991D9D /* DriverManager.swift in Sources */,
+				E187B2771BE037550031F07C /* EntryGateAVIReadConfirmed.swift in Sources */,
 				C2635E301BB0CE1C003C22B1 /* GeofenceClient.swift in Sources */,
 				C21905681BB0B74E00A3E779 /* Url.swift in Sources */,
 				E15FF4981BD5F0C700ECDF27 /* Util.swift in Sources */,
