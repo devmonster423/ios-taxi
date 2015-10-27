@@ -17,4 +17,6 @@ struct SfoNotification {
   static let locationRead = Notification<CLLocation, AnyObject>(name: "LocationRead")
   static let requestResponse = Notification<NSHTTPURLResponse, AnyObject>(name: "RequestResponse")
   static let successfulPing = Notification<Ping, AnyObject>(name: "SuccessfulPing")
+  static let entryGateAVI = Notification<Any?, AnyObject>(name: "EntryGateAVI")
+  static let driverAndVehiculeAssociated = Notification<(driver: Driver, vehicle: Vehicle), AnyObject>(name: "DriverAndVehiculeAssociated")
 }
