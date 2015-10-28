@@ -25,7 +25,7 @@ class TripScenarioSpec1: QuickSpec {
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
       
         // can fire DriverDispatched and make correct state change
-        DriverDispatched.sharedInstance.fire(nil)
+        InsideTaxiLoopExit.sharedInstance.fire(nil)
         expect(machine.isInState(Ready.sharedInstance.getState())).to(beTrue())
         
         // can fire DriverExitsSfo and make correct state change
