@@ -9,11 +9,12 @@
 import Foundation
 import TransitionKit
 
-struct TripManager {
+class TripManager {
   
   static let sharedInstance = TripManager()
   
   private var machine: TKStateMachine
+  private var tripId: Int?
   
   static let allStates = [
     AssociatingDriverAndVehicle.sharedInstance.getState(),
@@ -66,12 +67,10 @@ struct TripManager {
   }
   
   func getTripId() -> Int? {
-    // TODO:
-    return 1
+    return tripId
   }
   
   func setTripId(tripId: Int) {
-    //TODO: store trip id
-    
+    self.tripId = tripId
   }
 }
