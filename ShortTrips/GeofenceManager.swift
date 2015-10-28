@@ -47,6 +47,8 @@ class GeofenceManager {
         switch identifiedGeofence {
         case .SFO:
           EnteredSFOGeofence.sharedInstance.fire()
+        case .SfoTerminalExit:
+          InsideTaxiLoopExit.sharedInstance.fire()
         }
       }
     }
