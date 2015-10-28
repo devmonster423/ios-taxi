@@ -22,7 +22,20 @@ struct TripManager {
     Ready.sharedInstance.getState(),
     Valid.sharedInstance.getState(),
     Validating.sharedInstance.getState(),
+    VerifyingEntryGateAVI.sharedInstance.getState(),
     WaitingForEntryCID.sharedInstance.getState()
+  ]
+
+  static let allEvents = [
+    DriverAndVehicleAssociated.sharedInstance.getEvent(),
+    DriverDispatched.sharedInstance.getEvent(),
+    DriverExitsSfo.sharedInstance.getEvent(),
+    DriverProceedsToTaxiLoop.sharedInstance.getEvent(),
+    DriverReturnsToSfo.sharedInstance.getEvent(),
+    EnteredSFOGeofence.sharedInstance.getEvent(),
+    Failure.sharedInstance.getEvent(),
+    LatestCidIsEntryCid.sharedInstance.getEvent(),
+    TripValidated.sharedInstance.getEvent()
   ]
   
   private init() {
@@ -33,16 +46,7 @@ struct TripManager {
     
     machine.initialState = NotReady.sharedInstance.getState()
     
-    machine.addEvents([
-      DriverDispatched.sharedInstance.getEvent(),
-      DriverExitsSfo.sharedInstance.getEvent(),
-      DriverProceedsToTaxiLoop.sharedInstance.getEvent(),
-      DriverReturnsToSfo.sharedInstance.getEvent(),
-      EnteredSFOGeofence.sharedInstance.getEvent(),
-      Failure.sharedInstance.getEvent(),
-      LatestCidIsEntryCid.sharedInstance.getEvent(),
-      TripValidated.sharedInstance.getEvent()
-      ])
+    machine.addEvents(TripManager.allEvents)
     
     machine.activate()
 
