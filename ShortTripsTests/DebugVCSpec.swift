@@ -51,13 +51,13 @@ class DebugVCSpec: QuickSpec {
         
         postNotification(SfoNotification.Request.response, value: NSHTTPURLResponse(URL: NSURL(string: Url.Flight.summary)!, statusCode: 200, HTTPVersion: "HTTP/1.1", headerFields: nil)!)
 
-        postNotification(SfoNotification.attemptingPing, value: ping)
+        postNotification(SfoNotification.Ping.attempting, value: ping)
         
-        postNotification(SfoNotification.entryGateAVI, value: 123)
+        postNotification(SfoNotification.Avi.entryGate, value: 123)
         
-        postNotification(SfoNotification.driverAndVehiculeAssociated, value: (driver: driver, vehicle: vehicle))        
+        postNotification(SfoNotification.Driver.vehicleAssociated, value: (driver: driver, vehicle: vehicle))
         
-        postNotification(SfoNotification.requestResponse, value: NSHTTPURLResponse(URL: NSURL(string: Url.Flight.summary)!, statusCode: 200, HTTPVersion: "HTTP/1.1", headerFields: nil)!)
+        postNotification(SfoNotification.Request.response, value: NSHTTPURLResponse(URL: NSURL(string: Url.Flight.summary)!, statusCode: 200, HTTPVersion: "HTTP/1.1", headerFields: nil)!)
         
         postNotification(SfoNotification.Ping.successful, value: ping)
         

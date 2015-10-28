@@ -32,7 +32,7 @@ struct VerifyingTaxiLoopAVI {
             
             LatestAviReadAtTaxiLoop.sharedInstance.fire()
             
-            postNotification(SfoNotification.taxiLoopAVIRead, value: cid)
+            postNotification(SfoNotification.Avi.taxiLoop, value: cid)
                         
             //  }
           }
