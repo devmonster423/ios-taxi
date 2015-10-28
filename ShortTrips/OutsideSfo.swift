@@ -1,5 +1,5 @@
 //
-//  DriverReturnsToSfo2.swift
+//  DriverExitsSfo.swift
 //  ShortTrips
 //
 //  Created by Joshua Adams on 10/6/15.
@@ -9,20 +9,20 @@
 import Foundation
 import TransitionKit
 
-struct TripValidated {
-  let eventNames = ["tripValidated"]
-  static let sharedInstance = TripValidated()
+struct OutsideSfo {
+  let eventNames = ["outsideSfo"]
+  static let sharedInstance = OutsideSfo()
   
   private var events: [TKEvent]
   
   private init() {
     events = [TKEvent(name: eventNames[0],
-      transitioningFromStates: [ValidatingTrip.sharedInstance.getState()],
-      toState: Valid.sharedInstance.getState())]
+      transitioningFromStates: [Ready.sharedInstance.getState()],
+      toState: InProgress.sharedInstance.getState())]
   }
 }
 
-extension TripValidated: Event {
+extension OutsideSfo: Event {
   func getEvents() -> [TKEvent] {
     return events
   }

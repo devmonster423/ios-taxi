@@ -9,19 +9,21 @@
 import Foundation
 import TransitionKit
 
-struct InsideTaxiLoopExit: Event {
-  let eventName = "insideTaxiLoopExit"
+struct InsideTaxiLoopExit {
+  let eventNames = ["insideTaxiLoopExit"]
   static let sharedInstance = InsideTaxiLoopExit()
   
-  private var event: TKEvent
+  private var events: [TKEvent]
   
   private init() {
-    event = TKEvent(name: eventName,
+    events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [WaitingInHoldingLot.sharedInstance.getState()],
-      toState: WaitingForPaymentCID.sharedInstance.getState())
+      toState: WaitingForPaymentCID.sharedInstance.getState())]
   }
-  
-  func getEvent() -> TKEvent {
-    return event
+}
+
+extension InsideTaxiLoopExit: Event {
+  func getEvents() -> [TKEvent] {
+    return events
   }
 }

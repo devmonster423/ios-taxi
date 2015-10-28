@@ -34,8 +34,8 @@ class GeofenceManager {
     ApiClient.requestGeofencesForLocation(location.coordinate.latitude,
       longitude: location.coordinate.longitude,
       buffer: GeofenceArbiter.buffer) { geofences in
+        
         if let geofences = geofences {
-          postNotification(SfoNotification.Geofence.foundInside, value: geofences)
           self.process(geofences)
         }
     }
@@ -49,7 +49,7 @@ class GeofenceManager {
       if let identifiedGeofence = SfoGeofence.find(geofence) {
         switch identifiedGeofence {
         case .SFO:
-          EnteredSFOGeofence.sharedInstance.fire()
+          InsideSfo.sharedInstance.fire(geofence)
           driverInsideSfo = true
         case .SfoTerminalExit:
           InsideTaxiLoopExit.sharedInstance.fire()
@@ -58,7 +58,7 @@ class GeofenceManager {
     }
     
     if !driverInsideSfo{
-      DriverOutsideSfo.sharedInstance.fire()
+      OutsideSfo.sharedInstance.fire()
     }
   }
   

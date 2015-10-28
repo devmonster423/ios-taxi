@@ -22,28 +22,28 @@ class TripManager {
     NotReady.sharedInstance.getState(),
     Ready.sharedInstance.getState(),
     Valid.sharedInstance.getState(),
-    Validating.sharedInstance.getState(),
+    ValidatingTrip.sharedInstance.getState(),
     VerifyingEntryGateAVI.sharedInstance.getState(),
     VerifyingTaxiLoopAVI.sharedInstance.getState(),
     WaitingForEntryCID.sharedInstance.getState(),
     WaitingForPaymentCID.sharedInstance.getState(),
     WaitingInHoldingLot.sharedInstance.getState()
   ]
-
-  static let allEvents = [
-    DriverAndVehicleAssociated.sharedInstance.getEvent(),
-    DriverOutsideSfo.sharedInstance.getEvent(),
-    DriverProceedsToTaxiLoop.sharedInstance.getEvent(),
-    DriverReturnsToSfo.sharedInstance.getEvent(),
-    EnteredSFOGeofence.sharedInstance.getEvent(),
-    EntryGateAVIReadConfirmed.sharedInstance.getEvent(),
-    Failure.sharedInstance.getEvent(),
-    InsideTaxiLoopExit.sharedInstance.getEvent(),
-    LatestAviReadAtTaxiLoop.sharedInstance.getEvent(),
-    LatestCidIsEntryCid.sharedInstance.getEvent(),
-    LatestCidIsPaymentCid.sharedInstance.getEvent(),
-    TripValidated.sharedInstance.getEvent()
-  ]
+  
+  static func allEvents() -> [TKEvent] {
+    var events = DriverAndVehicleAssociated.sharedInstance.getEvents()
+    events += OutsideSfo.sharedInstance.getEvents()
+    events += DriverProceedsToTaxiLoop.sharedInstance.getEvents()
+    events += EntryGateAVIReadConfirmed.sharedInstance.getEvents()
+    events += Failure.sharedInstance.getEvents()
+    events += InsideSfo.sharedInstance.getEvents()
+    events += InsideTaxiLoopExit.sharedInstance.getEvents()
+    events += LatestAviReadAtTaxiLoop.sharedInstance.getEvents()
+    events += LatestCidIsEntryCid.sharedInstance.getEvents()
+    events += LatestCidIsPaymentCid.sharedInstance.getEvents()
+    events += TripValidated.sharedInstance.getEvents()
+    return events
+  }
   
   private init() {
   
@@ -53,7 +53,7 @@ class TripManager {
     
     machine.initialState = NotReady.sharedInstance.getState()
     
-    machine.addEvents(TripManager.allEvents)
+    machine.addEvents(TripManager.allEvents())
     
     machine.activate()
 

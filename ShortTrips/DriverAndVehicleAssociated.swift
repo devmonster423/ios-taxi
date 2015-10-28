@@ -9,20 +9,21 @@
 import Foundation
 import TransitionKit
 
-struct DriverAndVehicleAssociated: Event {
-    let eventName = "driverAndVehicleAssociated"
-    static let sharedInstance = DriverAndVehicleAssociated()
+struct DriverAndVehicleAssociated {
+  let eventNames = ["driverAndVehicleAssociated"]
+  static let sharedInstance = DriverAndVehicleAssociated()
     
-    private var event: TKEvent
-    
-    private init() {
-      event = TKEvent(name: eventName,
-        transitioningFromStates: [AssociatingDriverAndVehicle.sharedInstance.getState()],
-        toState: VerifyingEntryGateAVI.sharedInstance.getState())
-    }
-    
-    func getEvent() -> TKEvent {
-        return event
-    }
+  private var events: [TKEvent]
+  
+  private init() {
+    events = [TKEvent(name: eventNames[0],
+      transitioningFromStates: [AssociatingDriverAndVehicle.sharedInstance.getState()],
+      toState: VerifyingEntryGateAVI.sharedInstance.getState())]
+  }
+}
 
+extension DriverAndVehicleAssociated: Event {
+  func getEvents() -> [TKEvent] {
+    return events
+  }
 }

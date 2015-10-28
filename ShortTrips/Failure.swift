@@ -9,19 +9,21 @@
 import Foundation
 import TransitionKit
 
-struct Failure: Event {
-  let eventName = "failure"
+struct Failure {
+  let eventNames = ["failure"]
   static let sharedInstance = Failure()
   
-  private var event: TKEvent
+  private var events: [TKEvent]
   
   private init() {
-    event = TKEvent(name: eventName,
+    events = [TKEvent(name: eventNames[0],
       transitioningFromStates: TripManager.allStates,
-      toState: NotReady.sharedInstance.getState())
+      toState: NotReady.sharedInstance.getState())]
   }
-  
-  func getEvent() -> TKEvent {
-    return event
+}
+
+extension Failure: Event {
+  func getEvents() -> [TKEvent] {
+    return events
   }
 }

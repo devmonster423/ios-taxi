@@ -24,7 +24,7 @@ class TripScenarioSpec1: QuickSpec {
         // has initial state of not ready
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
       
-        EnteredSFOGeofence.sharedInstance.fire()
+        InsideSfo.sharedInstance.fire()
         expect(machine.isInState(WaitingForEntryCID.sharedInstance.getState())).to(beTrue())
         
         LatestCidIsEntryCid.sharedInstance.fire()
@@ -47,12 +47,12 @@ class TripScenarioSpec1: QuickSpec {
         expect(machine.isInState(Ready.sharedInstance.getState())).to(beTrue())
         
         // can fire DriverExitsSfo and make correct state change
-        DriverOutsideSfo.sharedInstance.fire()
+        OutsideSfo.sharedInstance.fire()
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         
         // can fire DriverReturnsToSfo and make correct state change
-        DriverReturnsToSfo.sharedInstance.fire()
-        expect(machine.isInState(Validating.sharedInstance.getState())).to(beTrue())
+        InsideSfo.sharedInstance.fire()
+        expect(machine.isInState(ValidatingTrip.sharedInstance.getState())).to(beTrue())
         
         // can fire TripValidated and make correct state change
         TripValidated.sharedInstance.fire()
