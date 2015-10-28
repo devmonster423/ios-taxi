@@ -9,20 +9,22 @@
 import Foundation
 import TransitionKit
 
-struct DriverProceedsToTaxiLoop: Event {
-  let eventName = "driverProceedsToTaxiLoop"
+struct DriverProceedsToTaxiLoop {
+  let eventNames = ["driverProceedsToTaxiLoop"]
   static let sharedInstance = DriverProceedsToTaxiLoop()
   
-  private var event: TKEvent
+  private var events: [TKEvent]
   
   private init() {
-    event = TKEvent(name: eventName,
+    events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [Valid.sharedInstance.getState()],
-      toState: Ready.sharedInstance.getState())
+      toState: Ready.sharedInstance.getState())]
   }
-  
-  func getEvent() -> TKEvent {
-    return event
+}
+
+extension DriverProceedsToTaxiLoop: Event {
+  func getEvents() -> [TKEvent] {
+    return events
   }
 }
 

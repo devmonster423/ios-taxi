@@ -10,18 +10,19 @@ import Foundation
 import TransitionKit
 
 struct LatestCidIsEntryCid: Event {
-  let eventName = "lastestCidIsEntryCid"
+  let eventNames = ["lastestCidIsEntryCid"]
   static let sharedInstance = LatestCidIsEntryCid()
 
-  private var event: TKEvent
+  private var events: [TKEvent]
 
   private init() {
-    event = TKEvent(name: eventName,
+    events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [WaitingForEntryCID.sharedInstance.getState()],
-      toState: AssociatingDriverAndVehicle.sharedInstance.getState())
+      toState: AssociatingDriverAndVehicle.sharedInstance.getState())]
   }
 
-  func getEvent() -> TKEvent {
-    return event
+  
+  func getEvents() -> [TKEvent] {
+    return events
   }
 }

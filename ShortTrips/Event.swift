@@ -10,19 +10,28 @@ import Foundation
 import TransitionKit
 
 protocol Event {
-  var eventName: String { get }
+  var eventNames: [String] { get }
+  func getEvents() -> [TKEvent]
 }
 
 extension Event {
-  func fire() {
-    do {
-      try TripManager.sharedInstance.getMachine().fireEvent(eventName, userInfo: nil)
-    } catch {}
+  func fire(userInfo: [NSObject: AnyObject]? = nil) {
+    for eventName in eventNames {
+      do {
+        try TripManager.sharedInstance.getMachine().fireEvent(eventName, userInfo: userInfo)
+      } catch {}
+    }
   }
+}
 
-  func fire(info: [NSObject: AnyObject]?) {
-    do {
-      try TripManager.sharedInstance.getMachine().fireEvent(eventName, userInfo: info)
-    } catch {}
+extension Event where Self:Notifiable {
+  func fire(info: Any? = nil, userInfo: [NSObject: AnyObject]? = nil) {
+    for eventName in eventNames {
+      do {
+        try TripManager.sharedInstance.getMachine().fireEvent(eventName, userInfo: userInfo)
+      } catch {}
+    }
+    
+    postSfoNotification(info)
   }
 }
