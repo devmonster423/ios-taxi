@@ -9,19 +9,21 @@
 import Foundation
 import TransitionKit
 
-class LatestCidIsPaymentCid: Event {
-  let eventName = "latestCidIsPaymentCid"
+class LatestCidIsPaymentCid {
+  let eventNames = ["latestCidIsPaymentCid"]
   static let sharedInstance = LatestCidIsPaymentCid()
   
-  private var event: TKEvent
+  private var events: [TKEvent]
 
   private init() {
-    event = TKEvent(name: eventName,
+    events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [WaitingForPaymentCID.sharedInstance.getState()],
-      toState: VerifyingTaxiLoopAVI.sharedInstance.getState())
+      toState: VerifyingTaxiLoopAVI.sharedInstance.getState())]
   }
-  
-  func getEvent() -> TKEvent {
-    return event
+}
+
+extension LatestCidIsPaymentCid: Event {
+  func getEvents() -> [TKEvent] {
+    return events
   }
 }

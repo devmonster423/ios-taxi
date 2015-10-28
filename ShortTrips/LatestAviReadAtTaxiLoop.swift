@@ -9,20 +9,21 @@
 import Foundation
 import TransitionKit
 
-class LatestAviReadAtTaxiLoop: Event {
-  let eventName = "latestAviReadAtTaxiLoop"
+class LatestAviReadAtTaxiLoop {
+  let eventNames = ["latestAviReadAtTaxiLoop"]
   static let sharedInstance = LatestAviReadAtTaxiLoop()
   
-  private var event: TKEvent
+  private var events: [TKEvent]
   
   private init() {
-    event = TKEvent(name: eventName,
+    events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [VerifyingTaxiLoopAVI.sharedInstance.getState()],
-      toState: Ready.sharedInstance.getState())
+      toState: Ready.sharedInstance.getState())]
   }
-  
-  func getEvent() -> TKEvent {
-    return event
-  }
+}
 
+extension LatestAviReadAtTaxiLoop: Event {
+  func getEvents() -> [TKEvent] {
+    return events
+  }
 }

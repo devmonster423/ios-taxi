@@ -9,9 +9,9 @@
 import Foundation
 import TransitionKit
 
-struct Validating {
-  let stateName = "validating"
-  static let sharedInstance = Validating()
+struct ValidatingTrip {
+  let stateName = "validatingTrip"
+  static let sharedInstance = ValidatingTrip()
   
   private var state: TKState
   

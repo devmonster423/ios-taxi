@@ -9,19 +9,21 @@
 import Foundation
 import TransitionKit
 
-struct EntryGateAVIReadConfirmed: Event {
-  let eventName = "entryGateAVIReadConfirmed"
+struct EntryGateAVIReadConfirmed {
+  let eventNames = ["entryGateAVIReadConfirmed"]
   static let sharedInstance = EntryGateAVIReadConfirmed()
   
-  private var event: TKEvent
+  private var events: [TKEvent]
   
   private init() {
-    event = TKEvent(name: eventName,
+    events = [TKEvent(name: eventNames[0],
     transitioningFromStates: [VerifyingEntryGateAVI.sharedInstance.getState()],
-    toState: WaitingInHoldingLot.sharedInstance.getState())
+    toState: WaitingInHoldingLot.sharedInstance.getState())]
   }
-  
-  func getEvent() -> TKEvent {
-    return event
+}
+
+extension EntryGateAVIReadConfirmed: Event {
+  func getEvents() -> [TKEvent] {
+    return events
   }
 }
