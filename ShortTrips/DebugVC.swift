@@ -21,6 +21,8 @@ class DebugVC: UIViewController {
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
   var responseObserver: NotificationObserver<NSHTTPURLResponse, AnyObject>?
   var successfulPingObserver: NotificationObserver<Ping, AnyObject>?
+  var entryGateAVI: NotificationObserver<Any?, AnyObject>?
+  var driverAndVehicleAssociated: NotificationObserver<(driver: Driver, vehicle: Vehicle), AnyObject>?
 
   override func loadView() {
     let debugView = DebugView(frame: UIScreen.mainScreen().bounds)
@@ -33,33 +35,44 @@ class DebugVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    attemptingPingObserver = NotificationObserver(notification: SfoNotification.attemptingPing, handler: { ping, _ in
+    attemptingPingObserver = NotificationObserver(notification: SfoNotification.Ping.attempting, handler: { ping, _ in
       self.debugView().printDebugLine("attempting ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
     })
     
-    foundInsideGeofencesObserver = NotificationObserver(notification: SfoNotification.foundInsideGeofences, handler: { geofences, _ in
+    foundInsideGeofencesObserver = NotificationObserver(notification: SfoNotification.Geofence.foundInside, handler: { geofences, _ in
       self.debugView().updateGeofenceList(geofences)
       for geofence in geofences {
         self.debugView().printDebugLine("in geofence: \(geofence.name)", type: .Positive)
       }
     })
     
-    locationManagerStartedObserver = NotificationObserver(notification: SfoNotification.locationManagerStarted, handler: { _, _ in
+    locationManagerStartedObserver = NotificationObserver(notification: SfoNotification.Location.managerStarted, handler: { _, _ in
       self.debugView().printDebugLine("started location manager", type: .BigDeal)
     })
     
-    locationObserver = NotificationObserver(notification: SfoNotification.locationRead, handler: { location, _ in
+    locationObserver = NotificationObserver(notification: SfoNotification.Location.read, handler: { location, _ in
       self.debugView().printDebugLine("read location: (\(location.coordinate.latitude), \(location.coordinate.longitude)) at \(location.timestamp)")
       self.debugView().updateGPS(location.coordinate.latitude, longitude: location.coordinate.longitude)
     })
     
-    responseObserver = NotificationObserver(notification: SfoNotification.requestResponse, handler: { response, _ in
+    responseObserver = NotificationObserver(notification: SfoNotification.Request.response, handler: { response, _ in
       self.debugView().printDebugLine("URL: \(response.URL!)\nstatusCode: \(response.statusCode)",
         type: StatusCode.isSuccessful(response.statusCode) ? .Positive : .Negative )
     })
 
-    successfulPingObserver = NotificationObserver(notification: SfoNotification.successfulPing, handler: { ping, _ in
+    successfulPingObserver = NotificationObserver(notification: SfoNotification.Ping.successful, handler: { ping, _ in
       self.debugView().printDebugLine("succesful ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
+    })
+
+    entryGateAVI = NotificationObserver(notification: SfoNotification.Avi.entryGate, handler: { cid, _ in
+      self.debugView().printDebugLine("entry gate avi detected: (\(cid)")
+    })
+
+    driverAndVehicleAssociated = NotificationObserver(notification: SfoNotification.Driver.vehicleAssociated, handler: { data, _ in
+      let vehicle = data.vehicle
+      let driver = data.driver
+      
+      self.debugView().printDebugLine("driver \(driver.firstName) \(driver.lastName) is associated with transponder: (\(vehicle.transponderId)")
     })
   }
   

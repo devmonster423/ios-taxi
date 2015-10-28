@@ -31,7 +31,7 @@ class PingManagerSpec: QuickSpec {
       
       it("can process a location") {
         let location = CLLocation(latitude: 37.615716, longitude: -122.388321)
-        postNotification(SfoNotification.locationRead, value: location)
+        postNotification(SfoNotification.Location.read, value: location)
         expect(pingManager).toNot(beNil())
       }
       

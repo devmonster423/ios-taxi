@@ -39,17 +39,17 @@ class DebugVCSpec: QuickSpec {
         let location = CLLocation(latitude: 37.615716, longitude: -122.388321)
         let ping = Ping(location: location)
         
-        postNotification(SfoNotification.attemptingPing, value: ping)
+        postNotification(SfoNotification.Ping.attempting, value: ping)
         
-        postNotification(SfoNotification.foundInsideGeofences, value: [Geofence]())
+        postNotification(SfoNotification.Geofence.foundInside, value: [Geofence]())
         
-        postNotification(SfoNotification.locationManagerStarted, value: nil)
+        postNotification(SfoNotification.Location.managerStarted, value: nil)
         
-        postNotification(SfoNotification.locationRead, value: location)
+        postNotification(SfoNotification.Location.read, value: location)
         
-        postNotification(SfoNotification.requestResponse, value: NSHTTPURLResponse(URL: NSURL(string: Url.Flight.summary)!, statusCode: 200, HTTPVersion: "HTTP/1.1", headerFields: nil)!)
+        postNotification(SfoNotification.Request.response, value: NSHTTPURLResponse(URL: NSURL(string: Url.Flight.summary)!, statusCode: 200, HTTPVersion: "HTTP/1.1", headerFields: nil)!)
         
-        postNotification(SfoNotification.successfulPing, value: ping)
+        postNotification(SfoNotification.Ping.successful, value: ping)
         
         expect(viewController).toNot(beNil())
       }

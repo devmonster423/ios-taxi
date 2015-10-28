@@ -8,6 +8,7 @@
 
 import Foundation
 import TransitionKit
+import JSQNotificationObserverKit
 
 struct AssociatingDriverAndVehicle {
   let stateName = "associatingDriverAndVehicle"
@@ -25,12 +26,13 @@ struct AssociatingDriverAndVehicle {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
           ApiClient.getVehicle(driver.driverId) { vehicle in
             
-            // TODO actually process vehicle
+            // TODO actually process vehicle - make sure association is right
             if let vehicle = vehicle {
-              DriverManager.sharedInstance.setCurrentVehicle(vehicle)
+            //  DriverManager.sharedInstance.setCurrentVehicle(vehicle)
+              DriverAndVehicleAssociated.sharedInstance.fire()
+              postNotification(SfoNotification.Driver.vehicleAssociated, value: (driver: driver, vehicle: vehicle))
+
             }
-            
-            
           }
         }
       })

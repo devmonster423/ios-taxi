@@ -33,7 +33,7 @@ extension ApiClient {
     }
   }
   
-  static func requestAntenna(transponderId: Int, response: AntennaClosure) {
+  static func requestAntenna(transponderId: String, response: AntennaClosure) {
     authedRequest(Alamofire.request(.GET, Url.Device.Avi.transponder(transponderId), parameters: nil))
       .responseObject { (antennaResponse: AntennaResponse?, error: ErrorType?) in
       response(antennaResponse?.antenna, error)
