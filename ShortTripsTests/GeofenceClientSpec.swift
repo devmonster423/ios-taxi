@@ -38,21 +38,17 @@ class GeofenceClientSpec: QuickSpec {
         }
       }
       
-      xit("can request a specific geofence") {
+      it("can request a specific geofence") {
         
         self.stub(uri(Url.Geofence.location), builder: json(SingleGeofenceMock))
         
-        waitUntil(timeout: 60) { done in
-          
           ApiClient.requestGeofenceForLocation(37.7,
             latitude: -122.37,
             buffer: 1,
             response: { geofence, error in
               
               expect(geofence).toNot(beNil())
-              done()
           })
-        }
       }
     }
   }
