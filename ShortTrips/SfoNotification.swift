@@ -11,12 +11,30 @@ import CoreLocation
 import JSQNotificationObserverKit
 
 struct SfoNotification {
-  static let attemptingPing = Notification<Ping, AnyObject>(name: "AttemptingPing")
-  static let foundInsideGeofences = Notification<[Geofence], AnyObject>(name: "FoundInsideGeofences")
-  static let locationManagerStarted = Notification<Any?, AnyObject>(name: "LocationManagerStarted")
-  static let locationRead = Notification<CLLocation, AnyObject>(name: "LocationRead")
-  static let requestResponse = Notification<NSHTTPURLResponse, AnyObject>(name: "RequestResponse")
-  static let successfulPing = Notification<Ping, AnyObject>(name: "SuccessfulPing")
-  static let entryGateAVI = Notification<Any?, AnyObject>(name: "EntryGateAVI")
-  static let driverAndVehiculeAssociated = Notification<(driver: Driver, vehicle: Vehicle), AnyObject>(name: "DriverAndVehiculeAssociated")
+  
+  struct Avi {
+    static let entryGate = Notification<Any?, AnyObject>(name: "EntryGateAvi")
+  }
+  
+  struct Driver {
+    static let vehicleAssociated = Notification<(driver: ShortTrips.Driver, vehicle: Vehicle), AnyObject>(name: "DriverAndVehicleAssociated")
+  }
+  
+  struct Geofence {
+    static let foundInside = Notification<[ShortTrips.Geofence], AnyObject>(name: "FoundInsideGeofences")
+  }
+  
+  struct Location {
+    static let managerStarted = Notification<Any?, AnyObject>(name: "LocationManagerStarted")
+    static let read = Notification<CLLocation, AnyObject>(name: "LocationRead")
+  }
+  
+  struct Ping {
+    static let attempting = Notification<ShortTrips.Ping, AnyObject>(name: "AttemptingPing")
+    static let successful = Notification<ShortTrips.Ping, AnyObject>(name: "SuccessfulPing")
+  }
+  
+  struct Request {
+    static let response = Notification<NSHTTPURLResponse, AnyObject>(name: "RequestResponse")
+  }
 }

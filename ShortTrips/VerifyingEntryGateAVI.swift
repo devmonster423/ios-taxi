@@ -31,8 +31,7 @@ struct VerifyingEntryGateAVI {
                         //        cid.cidLocation == "entry" {
                         
                         LastestAVIReadAtEntryGate.sharedInstance.fire()
-                        
-                        postNotification(SfoNotification.entryGateAVI, value: cid)
+                        postNotification(SfoNotification.Avi.entryGate, value: cid)
                         
                         //  }
                     }

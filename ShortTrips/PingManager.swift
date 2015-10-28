@@ -23,7 +23,7 @@ class PingManager {
 
   func start() {
     if let _ = locationObserver {} else {
-      self.locationObserver = NotificationObserver(notification: SfoNotification.locationRead, handler: { location, _ in
+      self.locationObserver = NotificationObserver(notification: SfoNotification.Location.read, handler: { location, _ in
         self.process(location)
       })
     }
@@ -43,13 +43,13 @@ class PingManager {
       let tripId = TripManager.sharedInstance.getTripId() {
 
         let ping = Ping(location: location)
-        postNotification(SfoNotification.attemptingPing, value: ping)
+        postNotification(SfoNotification.Ping.attempting, value: ping)
 
         ApiClient.ping(tripId, ping: ping, response: { geofenceStatus in
 
           if let _ = geofenceStatus {
             self.lastSuccessfulPingDate = NSDate()
-            postNotification(SfoNotification.successfulPing, value: ping)
+            postNotification(SfoNotification.Ping.successful, value: ping)
           }
         })
     }

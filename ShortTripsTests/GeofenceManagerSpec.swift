@@ -35,14 +35,14 @@ class GeofenceManagerSpec: QuickSpec {
         
         var count = 0
         
-        self.observer = NotificationObserver(notification: SfoNotification.foundInsideGeofences, handler: { (value, sender) -> Void in
+        self.observer = NotificationObserver(notification: SfoNotification.Geofence.foundInside, handler: { (value, sender) -> Void in
           count = 1
         })
         
         expect(self.observer).toNot(beNil())
         
         let location = CLLocation(latitude: 37.615716, longitude: -122.388321) // is inside SFO
-        postNotification(SfoNotification.locationRead, value: location)
+        postNotification(SfoNotification.Location.read, value: location)
         
         expect(count).toEventually(equal(1), timeout: 1)
       }
