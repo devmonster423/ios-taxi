@@ -23,7 +23,7 @@ extension ApiClient {
       .responseObject { (_, raw, driverResponse: DriverResponse?, _, _) in
         
         if let raw = raw {
-          postNotification(SfoNotification.requestResponse, value: raw)
+          postNotification(SfoNotification.Request.response, value: raw)
         }
         
         completion(credential, driverResponse?.driver)
@@ -35,7 +35,7 @@ extension ApiClient {
       .responseObject { (_, raw, vehicleResponse: VehicleResponse?, _, _) in
         
         if let raw = raw {
-          postNotification(SfoNotification.requestResponse, value: raw)
+          postNotification(SfoNotification.Request.response, value: raw)
         }
         
         completion(vehicleResponse?.vehicle)

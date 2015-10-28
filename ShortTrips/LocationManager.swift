@@ -27,7 +27,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     manager.distanceFilter = 100
     manager.requestAlwaysAuthorization()
     manager.startUpdatingLocation()
-    postNotification(SfoNotification.locationManagerStarted, value: nil)
+    postNotification(SfoNotification.Location.managerStarted, value: nil)
   }
 
   func stop() {
@@ -37,6 +37,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   func locationManager(manager: CLLocationManager,
     didUpdateLocations locations: [CLLocation]) {
       
-      postNotification(SfoNotification.locationRead, value: locations.last!)
+      postNotification(SfoNotification.Location.read, value: locations.last!)
   }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import TransitionKit
+import JSQNotificationObserverKit
 
 struct WaitingInHoldingLot {
   let stateName = "waitingInHoldingLot"
@@ -17,6 +18,10 @@ struct WaitingInHoldingLot {
   
   private init() {
     state = TKState(name: stateName)
+    
+    state.setDidEnterStateBlock { _, _  in
+      postNotification(SfoNotification.State.wait, value: nil)
+    }
   }
   
   func getState() -> TKState {

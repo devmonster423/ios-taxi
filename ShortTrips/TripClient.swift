@@ -22,7 +22,7 @@ extension ApiClient {
       .responseObject { (_, raw, geofenceStatus: GeofenceStatus?, _, _) in
         
         if let raw = raw {
-          postNotification(SfoNotification.requestResponse, value: raw)
+          postNotification(SfoNotification.Request.response, value: raw)
         }
 
         response(geofenceStatus?.status)
