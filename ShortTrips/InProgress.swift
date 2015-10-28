@@ -21,6 +21,14 @@ struct InProgress {
     
     state.setDidEnterStateBlock { _, _ in
       postNotification(SfoNotification.State.inProgress, value: nil)
+      
+      if let driverId = DriverManager.sharedInstance.getCurrentDriver()?.driverId {
+        ApiClient.start(driverId) { tripId in
+          if let tripId = tripId {
+            TripManager.sharedInstance.setTripId(tripId)
+          }
+        }
+      }
     }
   }
   

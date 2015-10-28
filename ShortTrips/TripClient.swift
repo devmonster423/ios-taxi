@@ -13,6 +13,7 @@ import JSQNotificationObserverKit
 import ObjectMapper
 
 typealias GeofenceStatusClosure = Bool? -> Void
+typealias TripIdClosure = Int? -> Void
 
 protocol TripClient { }
 
@@ -29,14 +30,15 @@ extension ApiClient {
     }
   }
   
-  static func start(driverId: Int, response: GeofenceStatusClosure) {
+  static func start(driverId: Int, response: TripIdClosure) {
     authedRequest(Alamofire.request(.POST, Url.Trip.start, parameters: nil ))
-      .responseObject { (_, raw, _, _, _) in
-
-//        if let trip = trip{
-          TripManager.sharedInstance.setTripId(1)
-//        }
-
+      .responseObject { (_, raw, tripIdResponse: TripIdResponse?, _, _) in
+        
+        if let raw = raw {
+          postNotification(SfoNotification.Request.response, value: raw)
+        }
+        
+        response(tripIdResponse?.tripId.tripId)
     }
   }
 }
