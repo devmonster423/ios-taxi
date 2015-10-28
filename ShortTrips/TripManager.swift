@@ -29,7 +29,6 @@ struct TripManager {
 
   static let allEvents = [
     DriverAndVehicleAssociated.sharedInstance.getEvent(),
-    DriverDispatched.sharedInstance.getEvent(),
     DriverExitsSfo.sharedInstance.getEvent(),
     DriverProceedsToTaxiLoop.sharedInstance.getEvent(),
     DriverReturnsToSfo.sharedInstance.getEvent(),
@@ -37,7 +36,8 @@ struct TripManager {
     EntryGateAVIReadConfirmed.sharedInstance.getEvent(),
     Failure.sharedInstance.getEvent(),
     LatestCidIsEntryCid.sharedInstance.getEvent(),
-    TripValidated.sharedInstance.getEvent()
+    TripValidated.sharedInstance.getEvent(),
+    InsideTaxiLoopExit.sharedInstance.getEvent()
   ]
   
   private init() {

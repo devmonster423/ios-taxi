@@ -84,15 +84,15 @@ class DebugVC: UIViewController {
       self.debugView().printDebugLine("starting to wait")
     })
 
-    paymentCidRead = NotificationObserver(notification: SfoNotification.paymentCidRead, handler: { cid, _ in
+    paymentCidRead = NotificationObserver(notification: SfoNotification.Cid.payment, handler: { cid, _ in
       self.debugView().printDebugLine("payment cid read detected: (\(cid)")
     })
 
-    taxiLoopAVIRead = NotificationObserver(notification: SfoNotification.taxiLoopAVIRead, handler: { cid, _ in
+    taxiLoopAVIRead = NotificationObserver(notification: SfoNotification.Avi.taxiLoop, handler: { cid, _ in
       self.debugView().printDebugLine("Taxiloop AVI read: (\(cid)")
     })
     
-    enteredReadyState = NotificationObserver(notification: SfoNotification.enteredReadyState, handler: { cid, _ in
+    enteredReadyState = NotificationObserver(notification: SfoNotification.State.ready, handler: { cid, _ in
       self.debugView().printDebugLine("Entered Ready State: (\(cid)")
     })
     
