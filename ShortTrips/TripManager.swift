@@ -23,20 +23,24 @@ struct TripManager {
     Valid.sharedInstance.getState(),
     Validating.sharedInstance.getState(),
     VerifyingEntryGateAVI.sharedInstance.getState(),
+    VerifyingTaxiLoopAVI.sharedInstance.getState(),
     WaitingForEntryCID.sharedInstance.getState(),
+    WaitingForPaymentCID.sharedInstance.getState(),
     WaitingInHoldingLot.sharedInstance.getState()
   ]
 
   static let allEvents = [
     DriverAndVehicleAssociated.sharedInstance.getEvent(),
-    DriverDispatched.sharedInstance.getEvent(),
     DriverExitsSfo.sharedInstance.getEvent(),
     DriverProceedsToTaxiLoop.sharedInstance.getEvent(),
     DriverReturnsToSfo.sharedInstance.getEvent(),
     EnteredSFOGeofence.sharedInstance.getEvent(),
     EntryGateAVIReadConfirmed.sharedInstance.getEvent(),
     Failure.sharedInstance.getEvent(),
+    InsideTaxiLoopExit.sharedInstance.getEvent(),
+    LatestAviReadAtTaxiLoop.sharedInstance.getEvent(),
     LatestCidIsEntryCid.sharedInstance.getEvent(),
+    LatestCidIsPaymentCid.sharedInstance.getEvent(),
     TripValidated.sharedInstance.getEvent()
   ]
   

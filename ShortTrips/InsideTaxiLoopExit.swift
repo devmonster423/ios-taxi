@@ -9,16 +9,16 @@
 import Foundation
 import TransitionKit
 
-struct DriverDispatched: Event {
-  let eventName = "driverDispatched"
-  static let sharedInstance = DriverDispatched()
+struct InsideTaxiLoopExit: Event {
+  let eventName = "insideTaxiLoopExit"
+  static let sharedInstance = InsideTaxiLoopExit()
   
   private var event: TKEvent
   
   private init() {
     event = TKEvent(name: eventName,
-      transitioningFromStates: [NotReady.sharedInstance.getState()],
-      toState: Ready.sharedInstance.getState())
+      transitioningFromStates: [WaitingInHoldingLot.sharedInstance.getState()],
+      toState: WaitingForPaymentCID.sharedInstance.getState())
   }
   
   func getEvent() -> TKEvent {

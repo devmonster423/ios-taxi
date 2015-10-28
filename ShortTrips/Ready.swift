@@ -8,6 +8,7 @@
 
 import Foundation
 import TransitionKit
+import JSQNotificationObserverKit
 
 struct Ready {
   let stateName = "ready"
@@ -17,6 +18,10 @@ struct Ready {
   
   private init() {
     state = TKState(name: stateName)
+    
+    state.setDidEnterStateBlock { _, _ in
+      postNotification(SfoNotification.State.ready, value: nil)
+    }
   }
   
   func getState() -> TKState {

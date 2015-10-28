@@ -36,8 +36,11 @@ class DebugVCSpec: QuickSpec {
       
       it("can receive notifications and debug things") {
         
+        let antenna = Antenna(antennaId: 123, aviLocation: "entry")
         let location = CLLocation(latitude: 37.615716, longitude: -122.388321)
         let ping = Ping(location: location)
+        let driver = Driver(sessionId: 123, driverId: 234, cardId: 345, firstName: "", lastName: "")
+        let vehicle = Vehicle(vehicleId: 987, transponderId: "")
         
         postNotification(SfoNotification.Ping.attempting, value: ping)
         
@@ -46,6 +49,14 @@ class DebugVCSpec: QuickSpec {
         postNotification(SfoNotification.Location.managerStarted, value: nil)
         
         postNotification(SfoNotification.Location.read, value: location)
+        
+        postNotification(SfoNotification.Request.response, value: NSHTTPURLResponse(URL: NSURL(string: Url.Flight.summary)!, statusCode: 200, HTTPVersion: "HTTP/1.1", headerFields: nil)!)
+
+        postNotification(SfoNotification.Ping.attempting, value: ping)
+        
+        postNotification(SfoNotification.Avi.entryGate, value: antenna)
+        
+        postNotification(SfoNotification.Driver.vehicleAssociated, value: (driver: driver, vehicle: vehicle))
         
         postNotification(SfoNotification.Request.response, value: NSHTTPURLResponse(URL: NSURL(string: Url.Flight.summary)!, statusCode: 200, HTTPVersion: "HTTP/1.1", headerFields: nil)!)
         

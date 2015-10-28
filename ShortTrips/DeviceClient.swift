@@ -12,7 +12,7 @@ import ObjectMapper
 import AlamofireObjectMapper
 
 typealias AviClosure = ([AutomaticVehicleId]?, ErrorType?) -> Void
-typealias AntennaClosure = (Antenna?, ErrorType?) -> Void
+typealias AntennaClosure = Antenna? -> Void
 typealias AllCidsClosure = ([Cid]?, ErrorType?) -> Void
 typealias CidClosure = Cid? -> Void
 
@@ -36,7 +36,7 @@ extension ApiClient {
   static func requestAntenna(transponderId: String, response: AntennaClosure) {
     authedRequest(Alamofire.request(.GET, Url.Device.Avi.transponder(transponderId), parameters: nil))
       .responseObject { (antennaResponse: AntennaResponse?, error: ErrorType?) in
-      response(antennaResponse?.antenna, error)
+      response(antennaResponse?.antenna)
     }
   }
   
