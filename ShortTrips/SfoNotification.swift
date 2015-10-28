@@ -11,7 +11,6 @@ import CoreLocation
 import JSQNotificationObserverKit
 
 struct SfoNotification {
-  
   struct Avi {
     static let entryGate = Notification<Any?, AnyObject>(name: "EntryGateAvi")
   }

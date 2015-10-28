@@ -24,6 +24,7 @@ class DebugVC: UIViewController {
   var entryGateAVI: NotificationObserver<Any?, AnyObject>?
   var driverAndVehicleAssociated: NotificationObserver<(driver: Driver, vehicle: Vehicle), AnyObject>?
   var startingToWait: NotificationObserver<Any?, AnyObject>?
+  var paymentCidRead: NotificationObserver<Any?, AnyObject>?
 
   override func loadView() {
     let debugView = DebugView(frame: UIScreen.mainScreen().bounds)
@@ -79,6 +80,11 @@ class DebugVC: UIViewController {
     startingToWait = NotificationObserver(notification: SfoNotification.State.wait, handler: { _, _ in
       self.debugView().printDebugLine("starting to wait")
     })
+
+    paymentCidRead = NotificationObserver(notification: SfoNotification.paymentCidRead, handler: { cid, _ in
+      self.debugView().printDebugLine("payment cid read detected: (\(cid)")
+    })
+
   }
   
   func debugView() -> DebugView {
