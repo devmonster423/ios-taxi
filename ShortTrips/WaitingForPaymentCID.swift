@@ -31,7 +31,7 @@ struct WaitingForPaymentCID {
             //        cid.cidLocation == "entry" {
             
             LatestCidIsPaymentCid.sharedInstance.fire()
-            postNotification(SfoNotification.Cid.payment, value: cid)
+            postNotification(SfoNotification.Cid.payment, value: cid!)
 
             //  }
           }
@@ -48,8 +48,3 @@ struct WaitingForPaymentCID {
     return state
   }
 }
-
-
-
-
-

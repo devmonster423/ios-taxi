@@ -36,6 +36,7 @@ class DebugVCSpec: QuickSpec {
       
       it("can receive notifications and debug things") {
         
+        let antenna = Antenna(antennaId: 123, aviLocation: "entry")
         let location = CLLocation(latitude: 37.615716, longitude: -122.388321)
         let ping = Ping(location: location)
         let driver = Driver(sessionId: 123, driverId: 234, cardId: 345, firstName: "", lastName: "")
@@ -53,7 +54,7 @@ class DebugVCSpec: QuickSpec {
 
         postNotification(SfoNotification.Ping.attempting, value: ping)
         
-        postNotification(SfoNotification.Avi.entryGate, value: 123)
+        postNotification(SfoNotification.Avi.entryGate, value: antenna)
         
         postNotification(SfoNotification.Driver.vehicleAssociated, value: (driver: driver, vehicle: vehicle))
         

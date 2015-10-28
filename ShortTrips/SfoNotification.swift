@@ -12,12 +12,12 @@ import JSQNotificationObserverKit
 
 struct SfoNotification {
   struct Avi {
-    static let entryGate = Notification<Any?, AnyObject>(name: "EntryGateAvi")
-    static let taxiLoop = Notification<Any?, AnyObject>(name: "TaxiLoopAVIRead")
+    static let entryGate = Notification<Antenna, AnyObject>(name: "EntryGateAvi")
+    static let taxiLoop = Notification<Antenna, AnyObject>(name: "TaxiLoopAVIRead")
   }
 
   struct Cid {
-    static let payment = Notification<Any?, AnyObject>(name: "PaymentCidRead")
+    static let payment = Notification<ShortTrips.Cid, AnyObject>(name: "PaymentCidRead")
   }
   
   struct Driver {

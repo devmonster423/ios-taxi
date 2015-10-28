@@ -21,13 +21,12 @@ class DebugVC: UIViewController {
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
   var responseObserver: NotificationObserver<NSHTTPURLResponse, AnyObject>?
   var successfulPingObserver: NotificationObserver<Ping, AnyObject>?
-  var entryGateAVI: NotificationObserver<Any?, AnyObject>?
+  var entryGateAVI: NotificationObserver<Antenna, AnyObject>?
   var driverAndVehicleAssociated: NotificationObserver<(driver: Driver, vehicle: Vehicle), AnyObject>?
   var startingToWait: NotificationObserver<Any?, AnyObject>?
-  var paymentCidRead: NotificationObserver<Any?, AnyObject>?
-  var taxiLoopAVIRead: NotificationObserver<Any?, AnyObject>?
+  var paymentCidRead: NotificationObserver<Cid, AnyObject>?
+  var taxiLoopAVIRead: NotificationObserver<Antenna, AnyObject>?
   var enteredReadyState: NotificationObserver<Any?, AnyObject>?
-
 
   override func loadView() {
     let debugView = DebugView(frame: UIScreen.mainScreen().bounds)
@@ -69,8 +68,8 @@ class DebugVC: UIViewController {
       self.debugView().printDebugLine("succesful ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
     })
 
-    entryGateAVI = NotificationObserver(notification: SfoNotification.Avi.entryGate, handler: { cid, _ in
-      self.debugView().printDebugLine("entry gate avi detected: (\(cid)")
+    entryGateAVI = NotificationObserver(notification: SfoNotification.Avi.entryGate, handler: { antenna, _ in
+      self.debugView().printDebugLine("entry gate avi detected: (\(antenna)")
     })
 
     driverAndVehicleAssociated = NotificationObserver(notification: SfoNotification.Driver.vehicleAssociated, handler: { data, _ in
@@ -88,12 +87,12 @@ class DebugVC: UIViewController {
       self.debugView().printDebugLine("payment cid read detected: (\(cid)")
     })
 
-    taxiLoopAVIRead = NotificationObserver(notification: SfoNotification.Avi.taxiLoop, handler: { cid, _ in
-      self.debugView().printDebugLine("Taxiloop AVI read: (\(cid)")
+    taxiLoopAVIRead = NotificationObserver(notification: SfoNotification.Avi.taxiLoop, handler: { antenna, _ in
+      self.debugView().printDebugLine("Taxiloop AVI read: (\(antenna)")
     })
     
-    enteredReadyState = NotificationObserver(notification: SfoNotification.State.ready, handler: { cid, _ in
-      self.debugView().printDebugLine("Entered Ready State: (\(cid)")
+    enteredReadyState = NotificationObserver(notification: SfoNotification.State.ready, handler: { _, _ in
+      self.debugView().printDebugLine("Entered Ready State")
     })
     
   }

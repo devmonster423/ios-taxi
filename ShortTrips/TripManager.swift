@@ -23,7 +23,9 @@ struct TripManager {
     Valid.sharedInstance.getState(),
     Validating.sharedInstance.getState(),
     VerifyingEntryGateAVI.sharedInstance.getState(),
+    VerifyingTaxiLoopAVI.sharedInstance.getState(),
     WaitingForEntryCID.sharedInstance.getState(),
+    WaitingForPaymentCID.sharedInstance.getState(),
     WaitingInHoldingLot.sharedInstance.getState()
   ]
 
@@ -35,9 +37,11 @@ struct TripManager {
     EnteredSFOGeofence.sharedInstance.getEvent(),
     EntryGateAVIReadConfirmed.sharedInstance.getEvent(),
     Failure.sharedInstance.getEvent(),
+    InsideTaxiLoopExit.sharedInstance.getEvent(),
+    LatestAviReadAtTaxiLoop.sharedInstance.getEvent(),
     LatestCidIsEntryCid.sharedInstance.getEvent(),
-    TripValidated.sharedInstance.getEvent(),
-    InsideTaxiLoopExit.sharedInstance.getEvent()
+    LatestCidIsPaymentCid.sharedInstance.getEvent(),
+    TripValidated.sharedInstance.getEvent()
   ]
   
   private init() {
