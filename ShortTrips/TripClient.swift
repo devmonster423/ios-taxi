@@ -28,5 +28,16 @@ extension ApiClient {
         response(geofenceStatus?.status)
     }
   }
+  
+  static func start(driverId: Int, response: GeofenceStatusClosure) {
+    authedRequest(Alamofire.request(.POST, Url.Trip.start, parameters: nil ))
+      .responseObject { (_, raw, _, _, _) in
+
+//        if let trip = trip{
+          TripManager.sharedInstance.setTripId(1)
+//        }
+
+    }
+  }
 }
 

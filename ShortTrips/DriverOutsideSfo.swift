@@ -9,9 +9,9 @@
 import Foundation
 import TransitionKit
 
-struct DriverExitsSfo: Event {
-  let eventName = "driverExitsSfo"
-  static let sharedInstance = DriverExitsSfo()
+struct DriverOutsideSfo: Event {
+  let eventName = "driverOutsideSfo"
+  static let sharedInstance = DriverOutsideSfo()
   
   private var event: TKEvent
   

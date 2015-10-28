@@ -27,6 +27,7 @@ class DebugVC: UIViewController {
   var paymentCidRead: NotificationObserver<Cid, AnyObject>?
   var taxiLoopAVIRead: NotificationObserver<Antenna, AnyObject>?
   var enteredReadyState: NotificationObserver<Any?, AnyObject>?
+  var inProgressState: NotificationObserver<Any?, AnyObject>?
 
   override func loadView() {
     let debugView = DebugView(frame: UIScreen.mainScreen().bounds)
@@ -93,6 +94,10 @@ class DebugVC: UIViewController {
     
     enteredReadyState = NotificationObserver(notification: SfoNotification.State.ready, handler: { _, _ in
       self.debugView().printDebugLine("Entered Ready State")
+    })
+    
+    inProgressState = NotificationObserver(notification: SfoNotification.State.inProgress, handler: { _, _ in
+      self.debugView().printDebugLine("Entered InProgress State")
     })
     
   }

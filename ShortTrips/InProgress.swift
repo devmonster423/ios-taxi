@@ -8,6 +8,7 @@
 
 import Foundation
 import TransitionKit
+import JSQNotificationObserverKit
 
 struct InProgress {
   let stateName = "inProgress"
@@ -17,6 +18,10 @@ struct InProgress {
   
   private init() {
     state = TKState(name: stateName)
+    
+    state.setDidEnterStateBlock { _, _ in
+      postNotification(SfoNotification.State.inProgress, value: nil)
+    }
   }
   
   func getState() -> TKState {

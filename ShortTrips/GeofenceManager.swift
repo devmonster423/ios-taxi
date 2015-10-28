@@ -42,15 +42,24 @@ class GeofenceManager {
   }
 
   private func process(geofences: [Geofence]) {
+  
+    var driverInsideSfo = false
+    
     for geofence in geofences {
       if let identifiedGeofence = SfoGeofence.find(geofence) {
         switch identifiedGeofence {
         case .SFO:
           EnteredSFOGeofence.sharedInstance.fire()
+          driverInsideSfo = true
         case .SfoTerminalExit:
           InsideTaxiLoopExit.sharedInstance.fire()
         }
       }
     }
+    
+    if !driverInsideSfo{
+      DriverOutsideSfo.sharedInstance.fire()
+    }
   }
+  
 }

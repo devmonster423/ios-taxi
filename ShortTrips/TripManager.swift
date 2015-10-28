@@ -31,7 +31,7 @@ struct TripManager {
 
   static let allEvents = [
     DriverAndVehicleAssociated.sharedInstance.getEvent(),
-    DriverExitsSfo.sharedInstance.getEvent(),
+    DriverOutsideSfo.sharedInstance.getEvent(),
     DriverProceedsToTaxiLoop.sharedInstance.getEvent(),
     DriverReturnsToSfo.sharedInstance.getEvent(),
     EnteredSFOGeofence.sharedInstance.getEvent(),
@@ -68,5 +68,10 @@ struct TripManager {
   func getTripId() -> Int? {
     // TODO:
     return 1
+  }
+  
+  func setTripId(tripId: Int) {
+    //TODO: store trip id
+    
   }
 }

@@ -43,7 +43,8 @@ struct SfoNotification {
   }
   
   struct State {
-    static let wait = Notification<Any?, AnyObject>(name: "startingToWait")
+    static let wait = Notification<Any?, AnyObject>(name: "StartingToWait")
     static let ready = Notification<Any?, AnyObject>(name: "EnteredReadyState")
+    static let inProgress = Notification<Any?, AnyObject>(name: "InProgress")
   }
 }
