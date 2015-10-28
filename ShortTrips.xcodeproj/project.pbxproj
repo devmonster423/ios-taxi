@@ -10,7 +10,6 @@
 		01937E5EB89C54E6045C76F1 /* Pods_ShortTrips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81AB3E7D2C8CBBF8AF294E13 /* Pods_ShortTrips.framework */; };
 		5062C2B0F9B113B3BD8778A1 /* Pods_ShortTripsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F853EB5ED3B732FCC78F3D1 /* Pods_ShortTripsTests.framework */; };
 		8EEFB79C1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB79B1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift */; };
-		8EEFB79E1BE0323100B8A962 /* LastestAVIReadAtEntryGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB79D1BE0323100B8A962 /* LastestAVIReadAtEntryGate.swift */; };
 		8EEFB7A01BE0324600B8A962 /* VerifyingEntryGateAVI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB79F1BE0324600B8A962 /* VerifyingEntryGateAVI.swift */; };
 		C200BE211BA8C21600B7F56F /* TerminalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200BE201BA8C21600B7F56F /* TerminalView.swift */; };
 		C200BE231BA8D05D00B7F56F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200BE221BA8D05D00B7F56F /* TimerView.swift */; };
@@ -192,7 +191,6 @@
 		81AB3E7D2C8CBBF8AF294E13 /* Pods_ShortTrips.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTrips.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C1EEE491F8AB773F5CE16CE /* Pods-ShortTripsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTripsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests.release.xcconfig"; sourceTree = "<group>"; };
 		8EEFB79B1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverAndVehicleAssociated.swift; sourceTree = "<group>"; };
-		8EEFB79D1BE0323100B8A962 /* LastestAVIReadAtEntryGate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastestAVIReadAtEntryGate.swift; sourceTree = "<group>"; };
 		8EEFB79F1BE0324600B8A962 /* VerifyingEntryGateAVI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyingEntryGateAVI.swift; sourceTree = "<group>"; };
 		9F853EB5ED3B732FCC78F3D1 /* Pods_ShortTripsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTripsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C200BE201BA8C21600B7F56F /* TerminalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalView.swift; sourceTree = "<group>"; };
@@ -502,7 +500,6 @@
 				C28ECB2D1BCF033E00887763 /* EnteredSFOGeofence.swift */,
 				C220E07D1BC3511200AC7C85 /* Event.swift */,
 				C215CE001BD1AED200991D9D /* Failure.swift */,
-				8EEFB79D1BE0323100B8A962 /* LastestAVIReadAtEntryGate.swift */,
 				C2AB51391BD02CC0003ACB4C /* LatestCidIsEntryCid.swift */,
 				E18229021BC495A000614256 /* TripValidated.swift */,
 			);
@@ -1259,7 +1256,6 @@
 				C27450BA1BB4985E00D33CDD /* AirlineListWrapper.swift in Sources */,
 				E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */,
 				C28ECB2E1BCF033E00887763 /* EnteredSFOGeofence.swift in Sources */,
-				8EEFB79E1BE0323100B8A962 /* LastestAVIReadAtEntryGate.swift in Sources */,
 				E1B393761BAC614F00FC2970 /* AutomaticVehicleIdResponse.swift in Sources */,
 				E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */,
 				C257FB3D1BC44E4200468CF1 /* GeofenceArbiter.swift in Sources */,

@@ -74,7 +74,6 @@ class DebugVC: UIViewController {
       
       self.debugView().printDebugLine("driver \(driver.firstName) \(driver.lastName) is associated with transponder: (\(vehicle.transponderId)")
     })
-
   }
   
   func debugView() -> DebugView {

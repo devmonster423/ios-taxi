@@ -30,7 +30,7 @@ struct VerifyingEntryGateAVI {
                         //        if let cid = cid where
                         //        cid.cidLocation == "entry" {
                         
-                        LastestAVIReadAtEntryGate.sharedInstance.fire()
+                        
                         postNotification(SfoNotification.Avi.entryGate, value: cid)
                         
                         //  }
