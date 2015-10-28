@@ -16,11 +16,14 @@ enum Category: String {
 
 enum SfoGeofence {
   case SFO
+  case SfoTerminalExit
 
   func id() -> Int {
     switch self {
     case SFO:
       return 10
+    case SfoTerminalExit:
+      return 18
     }
   }
 
@@ -28,6 +31,8 @@ enum SfoGeofence {
     switch self {
     case SFO:
       return "San Francisco International Airport"
+    case SfoTerminalExit:
+      return "San Francisco Terminal Exit"
     }
   }
 
@@ -35,7 +40,9 @@ enum SfoGeofence {
     if geofence.geofenceId == SfoGeofence.SFO.id()
       && geofence.name == SfoGeofence.SFO.name() {
       return .SFO
-
+    } else if geofence.geofenceId == SfoGeofence.SfoTerminalExit.id()
+      && geofence.name == SfoGeofence.SfoTerminalExit.name() {
+        return .SfoTerminalExit
     } else {
       return nil
     }
