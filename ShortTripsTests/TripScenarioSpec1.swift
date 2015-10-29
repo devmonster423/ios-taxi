@@ -48,6 +48,9 @@ class TripScenarioSpec1: QuickSpec {
         
         // can fire DriverExitsSfo and make correct state change
         OutsideSfo.sharedInstance.fire()
+        expect(machine.isInState(WaitingForStartTrip.sharedInstance.getState())).to(beTrue())
+        
+        TripStarted.sharedInstance.fire()
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         
         // can fire DriverReturnsToSfo and make correct state change

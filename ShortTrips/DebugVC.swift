@@ -28,6 +28,7 @@ class DebugVC: UIViewController {
   var taxiLoopAVIRead: NotificationObserver<Antenna, AnyObject>?
   var enteredReadyState: NotificationObserver<Any?, AnyObject>?
   var inProgressState: NotificationObserver<Any?, AnyObject>?
+  var tripStartedObserver: NotificationObserver<Int, AnyObject>?
 
   override func loadView() {
     let debugView = DebugView(frame: UIScreen.mainScreen().bounds)
@@ -100,6 +101,9 @@ class DebugVC: UIViewController {
       self.debugView().printDebugLine("Entered InProgress State")
     })
     
+    tripStartedObserver = NotificationObserver(notification: SfoNotification.Trip.started) { tripId, _ in
+      self.debugView().printDebugLine("Trip started: \(tripId)", type: .Positive)
+    }
   }
   
   func debugView() -> DebugView {

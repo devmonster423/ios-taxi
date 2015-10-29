@@ -18,7 +18,7 @@ struct OutsideSfo {
   private init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [Ready.sharedInstance.getState()],
-      toState: InProgress.sharedInstance.getState())]
+      toState: WaitingForStartTrip.sharedInstance.getState())]
   }
 }
 
