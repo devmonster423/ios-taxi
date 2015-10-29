@@ -16,6 +16,7 @@ class GeofenceClientSpec: QuickSpec {
   override func spec() {
     
     describe("the geofence client") {
+      
       it("can request geofences") {
         
         self.stub(uri(Url.Geofence.geofence), builder: json(AllGeofenceMock))
@@ -50,6 +51,7 @@ class GeofenceClientSpec: QuickSpec {
               expect(geofence).toNot(beNil())
           })
       }
+
     }
   }
 }

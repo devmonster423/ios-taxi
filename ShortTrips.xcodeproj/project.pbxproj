@@ -15,6 +15,11 @@
 		8EEFB7A41BE04AD900B8A962 /* VerifyingTaxiLoopAVI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A31BE04AD900B8A962 /* VerifyingTaxiLoopAVI.swift */; };
 		8EEFB7A61BE04B5400B8A962 /* LatestCidIsPaymentCid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A51BE04B5400B8A962 /* LatestCidIsPaymentCid.swift */; };
 		8EEFB7A81BE04DD600B8A962 /* LatestAviReadAtTaxiLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A71BE04DD600B8A962 /* LatestAviReadAtTaxiLoop.swift */; };
+		8EEFB7AF1BE198C300B8A962 /* DriverClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7AE1BE198C300B8A962 /* DriverClientSpec.swift */; };
+		8EEFB7B11BE19A1900B8A962 /* DriverLoginMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7B01BE19A1900B8A962 /* DriverLoginMock.swift */; };
+		8EEFB7B31BE1A1AC00B8A962 /* DriverVehicleMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7B21BE1A1AC00B8A962 /* DriverVehicleMock.swift */; };
+		8EEFB7B51BE1A31A00B8A962 /* DispatcherClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7B41BE1A31A00B8A962 /* DispatcherClientSpec.swift */; };
+		8EEFB7B71BE1A3B100B8A962 /* LotStatusMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7B61BE1A3B100B8A962 /* LotStatusMock.swift */; };
 		C200BE211BA8C21600B7F56F /* TerminalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200BE201BA8C21600B7F56F /* TerminalView.swift */; };
 		C200BE231BA8D05D00B7F56F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200BE221BA8D05D00B7F56F /* TimerView.swift */; };
 		C200BE271BA8D3A300B7F56F /* HourPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C200BE261BA8D3A300B7F56F /* HourPickerView.swift */; };
@@ -204,6 +209,11 @@
 		8EEFB7A31BE04AD900B8A962 /* VerifyingTaxiLoopAVI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyingTaxiLoopAVI.swift; sourceTree = "<group>"; };
 		8EEFB7A51BE04B5400B8A962 /* LatestCidIsPaymentCid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestCidIsPaymentCid.swift; sourceTree = "<group>"; };
 		8EEFB7A71BE04DD600B8A962 /* LatestAviReadAtTaxiLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestAviReadAtTaxiLoop.swift; sourceTree = "<group>"; };
+		8EEFB7AE1BE198C300B8A962 /* DriverClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverClientSpec.swift; sourceTree = "<group>"; };
+		8EEFB7B01BE19A1900B8A962 /* DriverLoginMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverLoginMock.swift; sourceTree = "<group>"; };
+		8EEFB7B21BE1A1AC00B8A962 /* DriverVehicleMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverVehicleMock.swift; sourceTree = "<group>"; };
+		8EEFB7B41BE1A31A00B8A962 /* DispatcherClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatcherClientSpec.swift; sourceTree = "<group>"; };
+		8EEFB7B61BE1A3B100B8A962 /* LotStatusMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusMock.swift; sourceTree = "<group>"; };
 		9F853EB5ED3B732FCC78F3D1 /* Pods_ShortTripsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTripsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C200BE201BA8C21600B7F56F /* TerminalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalView.swift; sourceTree = "<group>"; };
 		C200BE221BA8D05D00B7F56F /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
@@ -543,8 +553,11 @@
 			isa = PBXGroup;
 			children = (
 				C22167921BD59199002D7994 /* AllGeofenceMock.swift */,
+				8EEFB7B01BE19A1900B8A962 /* DriverLoginMock.swift */,
+				8EEFB7B21BE1A1AC00B8A962 /* DriverVehicleMock.swift */,
 				C221678C1BD5886A002D7994 /* FlightArrivalMock.swift */,
 				C22167861BD5868D002D7994 /* IataCodeMock.swift */,
+				8EEFB7B61BE1A3B100B8A962 /* LotStatusMock.swift */,
 				C22167961BD59419002D7994 /* MultipleGeofenceMock.swift */,
 				C22167941BD592C4002D7994 /* SingleGeofenceMock.swift */,
 				C221678E1BD58AAF002D7994 /* TerminalSummaryMock.swift */,
@@ -619,6 +632,8 @@
 			children = (
 				C22167851BD5866C002D7994 /* MockJSON */,
 				C22167831BD58639002D7994 /* AirlineClientSpec.swift */,
+				8EEFB7B41BE1A31A00B8A962 /* DispatcherClientSpec.swift */,
+				8EEFB7AE1BE198C300B8A962 /* DriverClientSpec.swift */,
 				C221678A1BD587A4002D7994 /* FlightClientSpec.swift */,
 				C22167901BD590E8002D7994 /* GeofenceClientSpec.swift */,
 			);
@@ -1380,7 +1395,9 @@
 				E17C22F11BBC4B8900E40E6C /* TerminalSummarySpec.swift in Sources */,
 				E1598CE41BB1ACB100E933AD /* FlightSpec.swift in Sources */,
 				C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */,
+				8EEFB7B51BE1A31A00B8A962 /* DispatcherClientSpec.swift in Sources */,
 				C22167971BD59419002D7994 /* MultipleGeofenceMock.swift in Sources */,
+				8EEFB7AF1BE198C300B8A962 /* DriverClientSpec.swift in Sources */,
 				C22167951BD592C4002D7994 /* SingleGeofenceMock.swift in Sources */,
 				C22167871BD5868D002D7994 /* IataCodeMock.swift in Sources */,
 				E1598CE61BB1AE3B00E933AD /* FlightDetailResponseSpec.swift in Sources */,
@@ -1388,6 +1405,7 @@
 				E112C30E1BB3195500B1DF48 /* LotStatusSpec.swift in Sources */,
 				E14E159E1BB1DA9F009D1E17 /* AntennaResponseSpec.swift in Sources */,
 				C21528CF1BC869820073502F /* DebugVCSpec.swift in Sources */,
+				8EEFB7B11BE19A1900B8A962 /* DriverLoginMock.swift in Sources */,
 				E18FFE291BB19ED2003D192A /* FlightsForTerminalResponseSpec.swift in Sources */,
 				C29341D01BD1C9B300A7CB9E /* GeofenceManagerSpec.swift in Sources */,
 				E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift in Sources */,
@@ -1410,12 +1428,14 @@
 				E112C3101BB31A5800B1DF48 /* LotStatusResponseSpec.swift in Sources */,
 				E1BDE2931BB1EFBB006C0A42 /* AllCidsResponseSpec.swift in Sources */,
 				C22167841BD58639002D7994 /* AirlineClientSpec.swift in Sources */,
+				8EEFB7B71BE1A3B100B8A962 /* LotStatusMock.swift in Sources */,
 				C221678D1BD5886A002D7994 /* FlightArrivalMock.swift in Sources */,
 				E16E5E161BB1B690003A315A /* FlightStatusSpec.swift in Sources */,
 				E14E159B1BB1D856009D1E17 /* AntennaSpec.swift in Sources */,
 				C221678B1BD587A4002D7994 /* FlightClientSpec.swift in Sources */,
 				E1E6EFA01BB205600039C5F3 /* DriverResponseSpec.swift in Sources */,
 				C22167931BD59199002D7994 /* AllGeofenceMock.swift in Sources */,
+				8EEFB7B31BE1A1AC00B8A962 /* DriverVehicleMock.swift in Sources */,
 				E112C3031BB2FD2500B1DF48 /* GeofenceSpec.swift in Sources */,
 				C28224681BB09C32007F284F /* FlightStatusVCSpec.swift in Sources */,
 				C22167911BD590E8002D7994 /* GeofenceClientSpec.swift in Sources */,
