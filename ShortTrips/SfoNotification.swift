@@ -47,4 +47,8 @@ struct SfoNotification {
     static let ready = Notification<Any?, AnyObject>(name: "EnteredReadyState")
     static let inProgress = Notification<Any?, AnyObject>(name: "InProgress")
   }
+  
+  struct Trip {
+    static let started = Notification<Int, AnyObject>(name: "TripStarted")
+  }
 }

@@ -27,6 +27,7 @@ class TripManager {
     VerifyingTaxiLoopAVI.sharedInstance.getState(),
     WaitingForEntryCID.sharedInstance.getState(),
     WaitingForPaymentCID.sharedInstance.getState(),
+    WaitingForStartTrip.sharedInstance.getState(),
     WaitingInHoldingLot.sharedInstance.getState()
   ]
   
@@ -41,6 +42,7 @@ class TripManager {
     events += LatestAviReadAtTaxiLoop.sharedInstance.getEvents()
     events += LatestCidIsEntryCid.sharedInstance.getEvents()
     events += LatestCidIsPaymentCid.sharedInstance.getEvents()
+    events += TripStarted.sharedInstance.getEvents()
     events += TripValidated.sharedInstance.getEvents()
     return events
   }
