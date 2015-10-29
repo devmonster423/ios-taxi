@@ -6,8 +6,8 @@
 //  Copyright © 2015 SFO. All rights reserved.
 //
 
+@testable import ShortTrips
 import Foundation
-
 import Quick
 import Nimble
 
@@ -18,11 +18,11 @@ class StatusCodeSpec: QuickSpec {
     describe("the status code") {
       
       it("can tell if successful") {
-        //expect(StatusCode.isSuccessful(200)).to(beTruthy())
+        expect(StatusCode.isSuccessful(200)).to(beTruthy())
       }
 
       it("can tell if not successful") {
-        //expect(StatusCode.isSuccessful(500)).toNot(beTruthy())
+        expect(StatusCode.isSuccessful(500)).toNot(beTruthy())
       }
       
     }
