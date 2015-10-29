@@ -18,16 +18,22 @@ enum AviLocation: String {
 struct Antenna: Mappable {
   var antennaId: Int!
   var aviLocation: AviLocation!
+  var aviDate: NSDate!
   
-  init(antennaId: Int, aviLocation: AviLocation) {
+  init(antennaId: Int, aviLocation: AviLocation, aviDate: NSDate) {
     self.antennaId = antennaId
     self.aviLocation = aviLocation
+    self.aviDate  = aviDate
   }
   
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
+    
+    let transform = DateTransform(dateFormat: "yyyy-MM-dd HH:mm:ss.SSS") // "2015-09-03 09:19:20.563"
+    
     antennaId <- map["antenna_id"]
     aviLocation <- map["avi_location"]
+    aviDate <- (map["avi_date"], transform)
   }
 }

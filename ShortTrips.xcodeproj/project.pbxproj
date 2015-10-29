@@ -93,6 +93,7 @@
 		C221EDE51BE2CB1700BDB4CD /* TripWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDE41BE2CB1700BDB4CD /* TripWarning.swift */; };
 		C221EDE71BE2CD3200BDB4CD /* LatestAviReadAtExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDE61BE2CD3200BDB4CD /* LatestAviReadAtExit.swift */; };
 		C221EDE91BE2CEE500BDB4CD /* ExitAviReadFailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDE81BE2CEE500BDB4CD /* ExitAviReadFailed.swift */; };
+		C221EDEB1BE2E12E00BDB4CD /* MockAntennaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDEA1BE2E12E00BDB4CD /* MockAntennaResponse.swift */; };
 		C23315851BB472490079B916 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23315841BB472490079B916 /* Airline.swift */; };
 		C24486F01BA89DF200A19A9D /* GeofenceListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */; };
 		C24486F21BA89EA800A19A9D /* AllGeofencesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */; };
@@ -321,6 +322,7 @@
 		C221EDE41BE2CB1700BDB4CD /* TripWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripWarning.swift; sourceTree = "<group>"; };
 		C221EDE61BE2CD3200BDB4CD /* LatestAviReadAtExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestAviReadAtExit.swift; sourceTree = "<group>"; };
 		C221EDE81BE2CEE500BDB4CD /* ExitAviReadFailed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExitAviReadFailed.swift; sourceTree = "<group>"; };
+		C221EDEA1BE2E12E00BDB4CD /* MockAntennaResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAntennaResponse.swift; sourceTree = "<group>"; };
 		C23315841BB472490079B916 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		C24486EF1BA89DF200A19A9D /* GeofenceListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceListResponse.swift; sourceTree = "<group>"; };
 		C24486F11BA89EA800A19A9D /* AllGeofencesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGeofencesResponse.swift; sourceTree = "<group>"; };
@@ -886,6 +888,7 @@
 			children = (
 				E14E159D1BB1DA9F009D1E17 /* AntennaResponseSpec.swift */,
 				E14E159A1BB1D856009D1E17 /* AntennaSpec.swift */,
+				C221EDEA1BE2E12E00BDB4CD /* MockAntennaResponse.swift */,
 			);
 			name = Antenna;
 			sourceTree = "<group>";
@@ -1523,6 +1526,7 @@
 				8EEFB7B51BE1A31A00B8A962 /* DispatcherClientSpec.swift in Sources */,
 				8EEFB7EA1BE2C6CA00B8A962 /* TripStateSpec.swift in Sources */,
 				8EEFB7D41BE2A15200B8A962 /* AirlineListResponseSpec.swift in Sources */,
+				C221EDEB1BE2E12E00BDB4CD /* MockAntennaResponse.swift in Sources */,
 				8EEFB7C71BE1B24500B8A962 /* TripClientSpec.swift in Sources */,
 				8EEFB7B91BE1A6BA00B8A962 /* DeviceClientSpec.swift in Sources */,
 				C22167971BD59419002D7994 /* MultipleGeofenceMock.swift in Sources */,
