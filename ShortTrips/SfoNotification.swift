@@ -13,7 +13,8 @@ import JSQNotificationObserverKit
 struct SfoNotification {
   struct Avi {
     static let entryGate = Notification<Antenna, AnyObject>(name: "EntryGateAvi")
-    static let taxiLoop = Notification<Antenna, AnyObject>(name: "TaxiLoopAVIRead")
+    static let taxiLoop = Notification<Antenna, AnyObject>(name: "TaxiLoopAviRead")
+    static let exit = Notification<Antenna, AnyObject>(name: "ExitAvi")
   }
 
   struct Cid {
@@ -50,5 +51,6 @@ struct SfoNotification {
   
   struct Trip {
     static let started = Notification<Int, AnyObject>(name: "TripStarted")
+    static let warning = Notification<TripWarning, AnyObject>(name: "TripWarning")
   }
 }

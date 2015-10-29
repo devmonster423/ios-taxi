@@ -9,11 +9,17 @@
 import Foundation
 import ObjectMapper
 
+enum AviLocation: String {
+  case Entry = "entry"
+  case Payment = "payment"
+  case Exit = "exit"
+}
+
 struct Antenna: Mappable {
   var antennaId: Int!
-  var aviLocation: String!
+  var aviLocation: AviLocation!
   
-  init(antennaId: Int, aviLocation: String) {
+  init(antennaId: Int, aviLocation: AviLocation) {
     self.antennaId = antennaId
     self.aviLocation = aviLocation
   }

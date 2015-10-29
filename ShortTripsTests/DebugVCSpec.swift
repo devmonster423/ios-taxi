@@ -36,7 +36,7 @@ class DebugVCSpec: QuickSpec {
       
       it("can receive notifications and debug things") {
         
-        let antenna = Antenna(antennaId: 123, aviLocation: "entry")
+        let antenna = Antenna(antennaId: 123, aviLocation: .Entry)
         let location = CLLocation(latitude: 37.615716, longitude: -122.388321)
         let ping = Ping(location: location)
         let driver = Driver(sessionId: 123, driverId: 234, cardId: 345, firstName: "", lastName: "")

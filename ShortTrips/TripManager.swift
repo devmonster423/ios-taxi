@@ -14,7 +14,9 @@ class TripManager {
   static let sharedInstance = TripManager()
   
   private var machine: TKStateMachine
+  private var startTime: NSDate?
   private var tripId: Int?
+  private var warnings = [TripWarning]()
   
   static let allStates = [
     AssociatingDriverAndVehicle.sharedInstance.getState(),
@@ -24,6 +26,7 @@ class TripManager {
     Valid.sharedInstance.getState(),
     ValidatingTrip.sharedInstance.getState(),
     VerifyingEntryGateAVI.sharedInstance.getState(),
+    VerifyingExitAvi.sharedInstance.getState(),
     VerifyingTaxiLoopAVI.sharedInstance.getState(),
     WaitingForEntryCID.sharedInstance.getState(),
     WaitingForPaymentCID.sharedInstance.getState(),
@@ -33,15 +36,17 @@ class TripManager {
   
   static func allEvents() -> [TKEvent] {
     var events = DriverAndVehicleAssociated.sharedInstance.getEvents()
-    events += OutsideSfo.sharedInstance.getEvents()
     events += DriverProceedsToTaxiLoop.sharedInstance.getEvents()
     events += EntryGateAVIReadConfirmed.sharedInstance.getEvents()
+    events += ExitAviReadFailed.sharedInstance.getEvents()
     events += Failure.sharedInstance.getEvents()
     events += InsideSfo.sharedInstance.getEvents()
     events += InsideTaxiLoopExit.sharedInstance.getEvents()
+    events += LatestAviReadAtExit.sharedInstance.getEvents()
     events += LatestAviReadAtTaxiLoop.sharedInstance.getEvents()
     events += LatestCidIsEntryCid.sharedInstance.getEvents()
     events += LatestCidIsPaymentCid.sharedInstance.getEvents()
+    events += OutsideSfo.sharedInstance.getEvents()
     events += TripStarted.sharedInstance.getEvents()
     events += TripValidated.sharedInstance.getEvents()
     return events
@@ -74,5 +79,25 @@ class TripManager {
   
   func setTripId(tripId: Int) {
     self.tripId = tripId
+  }
+  
+  func setStartTime(time: NSDate) {
+    self.startTime = time
+  }
+  
+  func getElapsedTime() -> NSTimeInterval? {
+    if let interval = startTime?.timeIntervalSinceNow {
+      return -interval
+    } else {
+      return nil
+    }
+  }
+  
+  func addWarning(warning: TripWarning) {
+    warnings.append(warning)
+  }
+  
+  func getWarnings() -> [TripWarning] {
+    return warnings
   }
 }

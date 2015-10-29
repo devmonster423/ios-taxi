@@ -19,7 +19,7 @@ class AntennaSpec: QuickSpec {
   override func spec() {
     describe("the Antenna") {
       beforeEach {
-        self.antenna = Antenna(antennaId: 42, aviLocation: "foo")
+        self.antenna = Antenna(antennaId: 42, aviLocation: .Entry)
         self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
       }
       

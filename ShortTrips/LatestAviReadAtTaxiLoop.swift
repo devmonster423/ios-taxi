@@ -8,6 +8,7 @@
 
 import Foundation
 import TransitionKit
+import JSQNotificationObserverKit
 
 class LatestAviReadAtTaxiLoop {
   let eventNames = ["latestAviReadAtTaxiLoop"]
@@ -25,5 +26,13 @@ class LatestAviReadAtTaxiLoop {
 extension LatestAviReadAtTaxiLoop: Event {
   func getEvents() -> [TKEvent] {
     return events
+  }
+}
+
+extension LatestAviReadAtTaxiLoop: Notifiable {
+  func postSfoNotification(info: Any?) {
+    if let antenna = info as? Antenna {
+      postNotification(SfoNotification.Avi.taxiLoop, value: antenna)
+    }
   }
 }
