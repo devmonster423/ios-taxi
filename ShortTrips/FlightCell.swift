@@ -155,7 +155,7 @@ class FlightCell: UITableViewCell {
     let scale = UIScreen.mainScreen().scale
     let width = airlineImageView.bounds.size.width * scale
     let height = airlineImageView.bounds.size.height * scale
-    self.airlineImageView.image = nil
+    self.airlineImageView.image = Image.sfoLogoAlpha.image()
     Flight.airlineImageForFlight(flight.flightNumber, width: Int(width), height: Int(height)) { image in
       self.airlineImageView.image = image
     }
