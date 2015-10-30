@@ -32,8 +32,8 @@ class DashboardVCSpec: QuickSpec {
         expect(viewController).toNot(beNil())
       }
       
-      it("has a terminal status button") {
-        expect(viewController.dashboardView().terminalStatusBtn).toNot(beNil())
+      it("has a flight status button") {
+        expect(viewController.dashboardView().flightStatusBtn).toNot(beNil())
       }
       
       describe("the lot-fullness field") {
@@ -50,12 +50,12 @@ class DashboardVCSpec: QuickSpec {
         }
       }
       
-      describe("tapping on the terminal status button") {
+      describe("tapping on the flight status button") {
         beforeEach {
-          viewController.dashboardView().terminalStatusBtn.tap()
+          viewController.dashboardView().flightStatusBtn.tap()
         }
         
-        it("should present a terminal status screen") {
+        it("should present a flight status screen") {
           let seconds = 4.0
           let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
           let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))

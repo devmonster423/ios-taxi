@@ -33,10 +33,10 @@
 "full" = "full";
 "almost full" = "almost full";
 "not full" = "not full";
-"Terminal Status" = "Terminal Status";
+"Flight Status" = "Flight Status";
 "Requesting Lot Status..." = "Requesting Lot Status...";
 
-/* Terminal Status */
+/* Flight Status */
 "Terminals" = "Terminals";
 "Terminal" = "Terminal";
 "Requesting Flights..." = "Requesting Flights...";

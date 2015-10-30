@@ -13,7 +13,7 @@ class DashboardVC: UIViewController {
   
   override func loadView() {
     let dashboardView = DashboardView(frame: UIScreen.mainScreen().bounds)
-    dashboardView.terminalStatusBtn.addTarget(self,
+    dashboardView.flightStatusBtn.addTarget(self,
       action: "showTerminalStatus",
       forControlEvents: .TouchUpInside)
     dashboardView.timerView.start(requestLotStatus, updateInterval: 60)

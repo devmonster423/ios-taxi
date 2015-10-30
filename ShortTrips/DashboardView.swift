@@ -15,7 +15,7 @@ class DashboardView: UIView {
   private let bgOverlayView = UIImageView()
   private let fullnessTitleLabel = UILabel()
   internal let fullnessLabel = UILabel()
-  let terminalStatusBtn = UIButton()
+  let flightStatusBtn = UIButton()
   let timerView = TimerView()
 
   required init(coder aDecoder: NSCoder) {
@@ -32,7 +32,7 @@ class DashboardView: UIView {
     addSubview(fullnessLabel)
     addSubview(fullnessTitleLabel)
     addSubview(bgOverlayView)
-    addSubview(terminalStatusBtn)
+    addSubview(flightStatusBtn)
     addSubview(timerView)
 
     // background
@@ -42,7 +42,7 @@ class DashboardView: UIView {
       make.top.equalTo(self)
       make.left.equalTo(self)
       make.right.equalTo(self)
-      make.bottom.equalTo(terminalStatusBtn.snp_top).offset(UiConstants.Dashboard.buttonBgOffset)
+      make.bottom.equalTo(flightStatusBtn.snp_top).offset(UiConstants.Dashboard.buttonBgOffset)
     }
 
     // "FULL"
@@ -72,18 +72,18 @@ class DashboardView: UIView {
       make.trailing.equalTo(self)
     }
 
-    // Terminal Status Button
-    terminalStatusBtn.setTitle(NSLocalizedString("Terminal Status", comment: "").uppercaseString, forState: .Normal)
-    terminalStatusBtn.setTitleColor(Color.Sfo.blue, forState: .Normal)
-    terminalStatusBtn.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
-    terminalStatusBtn.setBackgroundImage(Image.from(UIColor.whiteColor()), forState: .Normal)
-    terminalStatusBtn.setBackgroundImage(Image.from(Color.Sfo.blue), forState: .Highlighted)
-    terminalStatusBtn.titleLabel?.font = Font.MyriadProSemibold.size(UiConstants.Dashboard.terminalStatusFontSize)
-    terminalStatusBtn.layer.borderColor = Color.Sfo.blue.CGColor
-    terminalStatusBtn.layer.borderWidth = UiConstants.Dashboard.statusBorderWidth
-    terminalStatusBtn.layer.cornerRadius = UiConstants.Dashboard.statusCornerRadius
-    terminalStatusBtn.clipsToBounds = true
-    terminalStatusBtn.snp_makeConstraints { (make) -> Void in
+    // Flight Status Button
+    flightStatusBtn.setTitle(NSLocalizedString("Flight Status", comment: "").uppercaseString, forState: .Normal)
+    flightStatusBtn.setTitleColor(Color.Sfo.blue, forState: .Normal)
+    flightStatusBtn.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
+    flightStatusBtn.setBackgroundImage(Image.from(UIColor.whiteColor()), forState: .Normal)
+    flightStatusBtn.setBackgroundImage(Image.from(Color.Sfo.blue), forState: .Highlighted)
+    flightStatusBtn.titleLabel?.font = Font.MyriadProSemibold.size(UiConstants.Dashboard.terminalStatusFontSize)
+    flightStatusBtn.layer.borderColor = Color.Sfo.blue.CGColor
+    flightStatusBtn.layer.borderWidth = UiConstants.Dashboard.statusBorderWidth
+    flightStatusBtn.layer.cornerRadius = UiConstants.Dashboard.statusCornerRadius
+    flightStatusBtn.clipsToBounds = true
+    flightStatusBtn.snp_makeConstraints { (make) -> Void in
       make.width.equalTo(UiConstants.Dashboard.terminalStatusWidth)
       make.height.equalTo(UiConstants.Dashboard.terminalStatusHeight)
       make.centerX.equalTo(self)
