@@ -33,6 +33,11 @@ class DriverManager {
     vehicle.transponderId = "3F0-3xy6y"
     
     currentVehicle = vehicle
+    
+    if let driver = getCurrentDriver() {
+      let driverAndVehicle = (driver: driver, vehicle: vehicle)
+      DriverAndVehicleAssociated.sharedInstance.fire(driverAndVehicle)
+    }
   }
   
   func getCurrentVehicle() -> Vehicle? {

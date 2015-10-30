@@ -62,5 +62,4 @@ class GeofenceManager {
       OutsideSfo.sharedInstance.fire()
     }
   }
-  
 }

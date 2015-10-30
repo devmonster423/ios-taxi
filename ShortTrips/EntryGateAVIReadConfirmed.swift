@@ -8,6 +8,7 @@
 
 import Foundation
 import TransitionKit
+import JSQNotificationObserverKit
 
 struct EntryGateAVIReadConfirmed {
   let eventNames = ["entryGateAVIReadConfirmed"]
@@ -25,5 +26,13 @@ struct EntryGateAVIReadConfirmed {
 extension EntryGateAVIReadConfirmed: Event {
   func getEvents() -> [TKEvent] {
     return events
+  }
+}
+
+extension EntryGateAVIReadConfirmed: Notifiable {
+  func postSfoNotification(info: Any?) {
+    if let antenna = info as? Antenna {
+      postNotification(SfoNotification.Avi.entryGate, value: antenna)
+    }
   }
 }

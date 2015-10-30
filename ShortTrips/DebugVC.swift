@@ -36,6 +36,9 @@ class DebugVC: UIViewController {
   var timeExpiredObserver: NotificationObserver<Any?, AnyObject>?
   var warningObserver: NotificationObserver<TripWarning, AnyObject>?
   var validationObserver: NotificationObserver<Bool, AnyObject>?
+  var waitForEntryCidObserver: NotificationObserver<Any?, AnyObject>?
+  var insideSfoObserver: NotificationObserver<Any?, AnyObject>?
+  var associatingDriverAndVehicle: NotificationObserver<Any?, AnyObject>?
 
   override func loadView() {
     let debugView = DebugView(frame: UIScreen.mainScreen().bounds)
@@ -67,6 +70,9 @@ class DebugVC: UIViewController {
     locationManagerStartedObserver = NotificationObserver(notification: SfoNotification.Location.managerStarted, handler: { _, _ in
       self.debugView().printDebugLine("started location manager", type: .BigDeal)
       self.debugView().fakeButton.setTitle("Fake Inside SFO", forState: .Normal)
+      self.debugView().fakeButton.removeTarget(nil,
+        action: nil,
+        forControlEvents: .AllEvents)
       self.debugView().fakeButton.addTarget(self,
         action: "triggerInsideSfo",
         forControlEvents: .TouchUpInside)
@@ -152,6 +158,34 @@ class DebugVC: UIViewController {
         self.debugView().printDebugLine("Trip is invalid", type: .Negative)
       }
     }
+    
+    waitForEntryCidObserver = NotificationObserver(notification: SfoNotification.State.waitForEntryCid, handler: { (value, sender) -> Void in
+      
+      self.debugView().fakeButton.setTitle("triggerEntryCid", forState: .Normal)
+      self.debugView().fakeButton.removeTarget(nil,
+        action: nil,
+        forControlEvents: .AllEvents)
+      self.debugView().fakeButton.addTarget(self,
+        action: "triggerEntryCid",
+        forControlEvents: .TouchUpInside)
+    })
+    
+    insideSfoObserver = NotificationObserver(notification: SfoNotification.Geofence.insideSfo, handler: { (value, sender) -> Void in
+      
+      self.debugView().printDebugLine("inside SFO event!", type: .Positive)
+    })
+    
+    associatingDriverAndVehicle = NotificationObserver(notification: SfoNotification.State.associatingDriverAndVehicle, handler: { _, _ in
+      
+      self.debugView().printDebugLine("associatingDriverAndVehicle")
+      self.debugView().fakeButton.setTitle("Associate Driver And Vehicle", forState: .Normal)
+      self.debugView().fakeButton.removeTarget(nil,
+        action: nil,
+        forControlEvents: .AllEvents)
+      self.debugView().fakeButton.addTarget(self,
+        action: "associateDriverAndVehicle",
+        forControlEvents: .TouchUpInside)
+    })
   }
   
   func debugView() -> DebugView {
@@ -165,5 +199,18 @@ class DebugVC: UIViewController {
   
   func triggerInsideSfo() {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.6132659912109, longitude: -122.400527954102))
+  }
+  
+  func triggerEntryCid() {
+    LatestCidIsEntryCid.sharedInstance.fire()
+  }
+
+  func associateDriverAndVehicle() {
+    let vehicle = Vehicle(vehicleId: 123, transponderId: "what")
+    DriverManager.sharedInstance.setCurrentVehicle(vehicle)
+  }
+  
+  func triggerEntryAvi() {
+    // Antenna(antennaId: 123, aviLocation: .Entry, aviDate: NSDate())
   }
 }

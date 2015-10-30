@@ -8,6 +8,7 @@
 
 import Foundation
 import TransitionKit
+import JSQNotificationObserverKit
 
 struct DriverAndVehicleAssociated {
   let eventNames = ["driverAndVehicleAssociated"]
@@ -25,5 +26,13 @@ struct DriverAndVehicleAssociated {
 extension DriverAndVehicleAssociated: Event {
   func getEvents() -> [TKEvent] {
     return events
+  }
+}
+
+extension DriverAndVehicleAssociated: Notifiable {
+  func postSfoNotification(info: Any?) {
+    if let info = info as? (driver: Driver, vehicle: Vehicle) {
+      postNotification(SfoNotification.Driver.vehicleAssociated, value: (driver: info.driver, vehicle: info.vehicle))
+    }
   }
 }

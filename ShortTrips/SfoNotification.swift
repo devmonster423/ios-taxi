@@ -28,6 +28,7 @@ struct SfoNotification {
   
   struct Geofence {
     static let foundInside = Notification<[ShortTrips.Geofence], AnyObject>(name: "FoundInsideGeofences")
+    static let insideSfo = Notification<Any?, AnyObject>(name: "InsideSfo")
   }
   
   struct Location {
@@ -48,10 +49,12 @@ struct SfoNotification {
   }
   
   struct State {
+    static let associatingDriverAndVehicle = Notification<Any?, AnyObject>(name: "AssociatingDriverAndVehicle")
     static let wait = Notification<Any?, AnyObject>(name: "StartingToWait")
     static let ready = Notification<Any?, AnyObject>(name: "EnteredReadyState")
     static let inProgress = Notification<Any?, AnyObject>(name: "InProgress")
     static let notReady = Notification<Any?, AnyObject>(name: "NotReady")
+    static let waitForEntryCid = Notification<Any?, AnyObject>(name: "WaitForEntryCid")
   }
   
   struct Trip {

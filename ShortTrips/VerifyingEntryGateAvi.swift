@@ -31,7 +31,6 @@ struct VerifyingEntryGateAvi {
                         //        cid.cidLocation == "entry" {
                         
                         EntryGateAVIReadConfirmed.sharedInstance.fire()
-                        postNotification(SfoNotification.Avi.entryGate, value: antenna!)
                       
                         //  }
                     }

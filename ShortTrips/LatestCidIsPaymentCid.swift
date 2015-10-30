@@ -17,7 +17,7 @@ class LatestCidIsPaymentCid {
 
   private init() {
     events = [TKEvent(name: eventNames[0],
-      transitioningFromStates: [WaitingForPaymentCID.sharedInstance.getState()],
+      transitioningFromStates: [WaitingForPaymentCid.sharedInstance.getState()],
       toState: VerifyingTaxiLoopAvi.sharedInstance.getState())]
   }
 }

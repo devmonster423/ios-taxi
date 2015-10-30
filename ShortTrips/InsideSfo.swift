@@ -21,7 +21,7 @@ struct InsideSfo {
     events = [
     TKEvent(name: eventNames[0],
       transitioningFromStates: [NotReady.sharedInstance.getState()],
-      toState: WaitingForEntryCID.sharedInstance.getState()),
+      toState: WaitingForEntryCid.sharedInstance.getState()),
     TKEvent(name: eventNames[1],
         transitioningFromStates: [InProgress.sharedInstance.getState()],
         toState: VerifyingInboundAvi.sharedInstance.getState())
@@ -32,5 +32,11 @@ struct InsideSfo {
 extension InsideSfo: Event {
   func getEvents() -> [TKEvent] {
     return events
+  }
+}
+
+extension InsideSfo: Observable {
+  func eventWasFired(info: Any?) {
+    postNotification(SfoNotification.Geofence.insideSfo, value: nil)
   }
 }

@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
+import JSQNotificationObserverKit
 
 typealias AviClosure = ([AutomaticVehicleId]?, ErrorType?) -> Void
 typealias AntennaClosure = Antenna? -> Void
@@ -50,8 +51,13 @@ extension ApiClient {
   
   static func requestCidForSmartCard(smartCardId: Int, response: CidClosure) {
     authedRequest(Alamofire.request(.GET, Url.Device.Cid.smartCard(smartCardId), parameters: nil))
-      .responseObject { (cidResponse: CidResponse?, error: ErrorType?) in
-      response(cidResponse?.cid)
+      .responseObject { (_, raw, cidResponse: CidResponse?, _, error: ErrorType?) in
+        
+        if let raw = raw {
+          postNotification(SfoNotification.Request.response, value: raw)
+        }
+        
+        response(cidResponse?.cid)
     }
   }
 }

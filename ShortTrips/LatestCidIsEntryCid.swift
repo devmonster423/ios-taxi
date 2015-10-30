@@ -17,10 +17,9 @@ struct LatestCidIsEntryCid: Event {
 
   private init() {
     events = [TKEvent(name: eventNames[0],
-      transitioningFromStates: [WaitingForEntryCID.sharedInstance.getState()],
+      transitioningFromStates: [WaitingForEntryCid.sharedInstance.getState()],
       toState: AssociatingDriverAndVehicle.sharedInstance.getState())]
   }
-
   
   func getEvents() -> [TKEvent] {
     return events
