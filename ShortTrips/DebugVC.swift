@@ -30,6 +30,7 @@ class DebugVC: UIViewController {
   var inProgressState: NotificationObserver<Any?, AnyObject>?
   var tripStartedObserver: NotificationObserver<Int, AnyObject>?
   var warningObserver: NotificationObserver<TripWarning, AnyObject>?
+  var validationObserver: NotificationObserver<Bool, AnyObject>?
 
   override func loadView() {
     let debugView = DebugView(frame: UIScreen.mainScreen().bounds)
@@ -108,6 +109,14 @@ class DebugVC: UIViewController {
     
     warningObserver = NotificationObserver(notification: SfoNotification.Trip.warning) { warning, _ in
       self.debugView().printDebugLine("Trip Warning: \(warning.rawValue)")
+    }
+    
+    validationObserver = NotificationObserver(notification: SfoNotification.Trip.validation) { valid, _ in
+      if valid {
+        self.debugView().printDebugLine("Trip is valid", type: .Positive)
+      } else {
+        self.debugView().printDebugLine("Trip is invalid", type: .Negative)
+      }
     }
   }
   

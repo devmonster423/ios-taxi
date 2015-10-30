@@ -53,5 +53,6 @@ struct SfoNotification {
   struct Trip {
     static let started = Notification<Int, AnyObject>(name: "TripStarted")
     static let warning = Notification<TripWarning, AnyObject>(name: "TripWarning")
+    static let validation = Notification<Bool, AnyObject>(name: "TripValidation")
   }
 }

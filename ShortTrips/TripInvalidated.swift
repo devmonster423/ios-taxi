@@ -8,6 +8,7 @@
 
 import Foundation
 import TransitionKit
+import JSQNotificationObserverKit
 
 struct TripInvalidated {
   let eventNames = ["tripInvalidated"]
@@ -25,5 +26,13 @@ struct TripInvalidated {
 extension TripInvalidated: Event {
   func getEvents() -> [TKEvent] {
     return events
+  }
+}
+
+extension TripInvalidated: Notifiable {
+  func postSfoNotification(info: Any?) {
+    if let info = info as? Bool {
+      postNotification(SfoNotification.Trip.validation, value: info)
+    }
   }
 }
