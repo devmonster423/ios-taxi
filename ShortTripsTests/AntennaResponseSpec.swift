@@ -1,4 +1,4 @@
-//
+
 //  AntennaResponseSpec.swift
 //  ShortTrips
 //
@@ -19,7 +19,7 @@ class AntennaResponseSpec: QuickSpec {
   override func spec() {
     describe("the AntennaResponse") {
       beforeEach {
-        self.antennaResponse = Mapper<AntennaResponse>().map(MockAntennaResponse)
+        self.antennaResponse = Mapper<AntennaResponse>().map(MockAntennaResponseString)
         self.antenna = self.antennaResponse.antenna
       }
       
@@ -29,6 +29,9 @@ class AntennaResponseSpec: QuickSpec {
       
       it("has an Antenna") {
         expect(self.antenna).toNot(beNil())
+        expect(self.antenna.antennaId).toNot(beNil())
+        expect(self.antenna.aviDate).toNot(beNil())
+        expect(self.antenna.aviLocation).toNot(beNil())
       }
     }
   }

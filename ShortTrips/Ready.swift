@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 import TransitionKit
 import JSQNotificationObserverKit
 
@@ -20,7 +21,20 @@ struct Ready {
     state = TKState(name: stateName)
     
     state.setDidEnterStateBlock { _, _ in
+      
       postNotification(SfoNotification.State.ready, value: nil)
+      
+      if let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId,
+        let location = LocationManager.sharedInstance.getLastKnownLocation(),
+        let tripId = TripManager.sharedInstance.getTripId() {
+          
+          ApiClient.postMobileStateChanges(MobileStateChange(longitude: location.coordinate.longitude,
+            latitude: location.coordinate.latitude,
+            tripId: tripId,
+            tripState: .Short,
+            mobileState: .Ready,
+            sessionId: sessionId))
+      }
     }
   }
   

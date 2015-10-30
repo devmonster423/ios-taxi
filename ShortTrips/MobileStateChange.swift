@@ -19,14 +19,14 @@ enum MobileState: String {
 }
 
 struct MobileStateChange: Mappable {
-  var longitude: Float!
-  var latitude: Float!
+  var longitude: Double!
+  var latitude: Double!
   var tripId: Int!
   var tripState: TripState!
   var mobileState: MobileState!
   var sessionId: Int!
   
-  init(longitude: Float, latitude: Float, tripId: Int, tripState: TripState, mobileState: MobileState, sessionId: Int) {
+  init(longitude: Double, latitude: Double, tripId: Int, tripState: TripState, mobileState: MobileState, sessionId: Int) {
     self.longitude = longitude
     self.latitude = latitude
     self.tripId = tripId

@@ -15,6 +15,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   let manager = CLLocationManager()
   
   static let sharedInstance = LocationManager()
+
+  private var lastKnownLocation: CLLocation?
   
   private override init() {
     super.init()
@@ -37,6 +39,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   func locationManager(manager: CLLocationManager,
     didUpdateLocations locations: [CLLocation]) {
       
+      lastKnownLocation = locations.last!
       postNotification(SfoNotification.Location.read, value: locations.last!)
+  }
+
+  func getLastKnownLocation() -> CLLocation? {
+    return lastKnownLocation
   }
 }
