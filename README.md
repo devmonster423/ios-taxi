@@ -9,10 +9,11 @@ Authors
 -------
 * Josh Adams - josh.adams@exygy.com
 * Matt Luedke - matt.luedke@exygy.com
+* Pierre Hunault - pierre.hanault@exygy.com
 
 Language
 --------
-* Swift 2
+* Swift 2.1
 * iOS 8+
 
 Style
