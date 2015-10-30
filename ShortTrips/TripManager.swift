@@ -13,10 +13,13 @@ class TripManager {
   
   static let sharedInstance = TripManager()
   
-  private var machine: TKStateMachine
-  private var startTime: NSDate?
+  private var machine: TKStateMachine!
+  var startTime: NSDate?
   private var tripId: Int?
   private var warnings = [TripWarning]()
+  private var tripTimer: NSTimer?
+  private static let timerInterval: NSTimeInterval = 5.0
+  private static let tripLengthLimit: NSTimeInterval = 7200.0
   
   static let allStates = [
     AssociatingDriverAndVehicle.sharedInstance.getState(),
@@ -48,25 +51,40 @@ class TripManager {
     events += LatestCidIsPaymentCid.sharedInstance.getEvents()
     events += OutsideSfo.sharedInstance.getEvents()
     events += TripStarted.sharedInstance.getEvents()
+    events += TimeExpired.sharedInstance.getEvents()
     events += TripValidated.sharedInstance.getEvents()
     return events
   }
   
   private init() {
-  
-    machine = TKStateMachine()
-    
-    machine.addStates(TripManager.allStates)
-    
-    machine.initialState = NotReady.sharedInstance.getState()
-    
-    machine.addEvents(TripManager.allEvents())
-    
-    machine.activate()
+    setup()
+  }
 
-    // start location manager and geofence manager
+  func setup() {
+    machine = TKStateMachine()
+    machine.addStates(TripManager.allStates)
+    machine.initialState = NotReady.sharedInstance.getState()
+    machine.addEvents(TripManager.allEvents())
+    machine.activate()
     LocationManager.sharedInstance.start()
     GeofenceManager.sharedInstance.start()
+    if let tripTimer = tripTimer {
+      tripTimer.invalidate()
+    }
+    weak var weakSelf = self
+    tripTimer = NSTimer.scheduledTimerWithTimeInterval(TripManager.timerInterval,
+      target: weakSelf!,
+      selector: "checkLength",
+      userInfo: nil,
+      repeats: true)
+    startTime = NSDate()
+  }
+  
+  @objc func checkLength() {
+    if getElapsedTime() > TripManager.tripLengthLimit {
+      TimeExpired.sharedInstance.fire()
+      tripTimer?.invalidate()
+    }
   }
   
   func getMachine() -> TKStateMachine {
@@ -99,5 +117,9 @@ class TripManager {
   
   func getWarnings() -> [TripWarning] {
     return warnings
+  }
+  
+  func stopTimer() {
+    tripTimer?.invalidate()
   }
 }

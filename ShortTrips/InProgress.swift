@@ -30,6 +30,10 @@ struct InProgress {
         }
       }
     }
+    
+    state.setDidExitStateBlock { _, _ in
+      TripManager.sharedInstance.stopTimer()
+    }
   }
   
   func getState() -> TKState {

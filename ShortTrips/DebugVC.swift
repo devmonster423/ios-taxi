@@ -29,6 +29,7 @@ class DebugVC: UIViewController {
   var enteredReadyState: NotificationObserver<Any?, AnyObject>?
   var inProgressState: NotificationObserver<Any?, AnyObject>?
   var tripStartedObserver: NotificationObserver<Int, AnyObject>?
+  var timeExpiredObserver: NotificationObserver<Any?, AnyObject>?
   var warningObserver: NotificationObserver<TripWarning, AnyObject>?
 
   override func loadView() {
@@ -104,6 +105,10 @@ class DebugVC: UIViewController {
     
     tripStartedObserver = NotificationObserver(notification: SfoNotification.Trip.started) { tripId, _ in
       self.debugView().printDebugLine("Trip started: \(tripId)", type: .Positive)
+    }
+    
+    timeExpiredObserver = NotificationObserver(notification: SfoNotification.State.notReady) { tripId, _ in
+      self.debugView().printDebugLine("Time Expired")
     }
     
     warningObserver = NotificationObserver(notification: SfoNotification.Trip.warning) { warning, _ in

@@ -1,8 +1,8 @@
 //
-//  TripManagerSpec.swift
+//  TripScenarioSpec2.swift
 //  ShortTrips
 //
-//  Created by Matt Luedke on 10/5/15.
+//  Created by Joshua Adams on 10/30/15.
 //  Copyright © 2015 SFO. All rights reserved.
 //
 
@@ -10,12 +10,13 @@
 import Quick
 import Nimble
 
-class TripScenarioSpec1: QuickSpec {
+class TripScenario2Spec: QuickSpec {
   
   override func spec() {
     
     describe("the trip manager") {
-      it("can handle scenario 1") {
+      it("can handle scenario 2") {
+        TripManager.sharedInstance.setup()
         let machine = TripManager.sharedInstance.getMachine()
 
         // can be initialized
@@ -23,7 +24,7 @@ class TripScenarioSpec1: QuickSpec {
         
         // has initial state of not ready
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
-      
+        
         InsideSfo.sharedInstance.fire()
         expect(machine.isInState(WaitingForEntryCID.sharedInstance.getState())).to(beTrue())
         
@@ -56,18 +57,10 @@ class TripScenarioSpec1: QuickSpec {
         TripStarted.sharedInstance.fire()
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         
-        // can fire DriverReturnsToSfo and make correct state change
-        InsideSfo.sharedInstance.fire()
-        expect(machine.isInState(ValidatingTrip.sharedInstance.getState())).to(beTrue())
-        
-        // can fire TripValidated and make correct state change
-        TripValidated.sharedInstance.fire()
-        expect(machine.isInState(Valid.sharedInstance.getState())).to(beTrue())
-        
-        // can fire DriverProceedsToTaxiLoop and make correct state change
-        DriverProceedsToTaxiLoop.sharedInstance.fire()
-        expect(machine.isInState(Ready.sharedInstance.getState())).to(beTrue())
+        TimeExpired.sharedInstance.fire()
+        expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
       }
     }
   }
 }
+
