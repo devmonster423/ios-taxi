@@ -17,7 +17,7 @@ struct EntryGateAVIReadConfirmed {
   
   private init() {
     events = [TKEvent(name: eventNames[0],
-    transitioningFromStates: [VerifyingEntryGateAVI.sharedInstance.getState()],
+    transitioningFromStates: [VerifyingEntryGateAvi.sharedInstance.getState()],
     toState: WaitingInHoldingLot.sharedInstance.getState())]
   }
 }

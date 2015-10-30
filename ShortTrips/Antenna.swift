@@ -11,8 +11,9 @@ import ObjectMapper
 
 enum AviLocation: String {
   case Entry = "entry"
-  case Payment = "payment"
   case Exit = "exit"
+  case Inbound = "inbound"
+  case Payment = "payment"
 }
 
 struct Antenna: Mappable {

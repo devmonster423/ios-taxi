@@ -10,9 +10,9 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct VerifyingEntryGateAVI {
-    let stateName = "verifyingEntryGateAVI"
-    static let sharedInstance = VerifyingEntryGateAVI()
+struct VerifyingEntryGateAvi {
+    let stateName = "verifyingEntryGateAvi"
+    static let sharedInstance = VerifyingEntryGateAvi()
     
     private var poller: Poller?
     private var state: TKState

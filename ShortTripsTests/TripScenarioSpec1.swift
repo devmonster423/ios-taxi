@@ -31,7 +31,7 @@ class TripScenarioSpec1: QuickSpec {
         expect(machine.isInState(AssociatingDriverAndVehicle.sharedInstance.getState())).to(beTrue())
         
         DriverAndVehicleAssociated.sharedInstance.fire()
-        expect(machine.isInState(VerifyingEntryGateAVI.sharedInstance.getState())).to(beTrue())
+        expect(machine.isInState(VerifyingEntryGateAvi.sharedInstance.getState())).to(beTrue())
         
         EntryGateAVIReadConfirmed.sharedInstance.fire()
         expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
@@ -41,7 +41,7 @@ class TripScenarioSpec1: QuickSpec {
         expect(machine.isInState(WaitingForPaymentCID.sharedInstance.getState())).to(beTrue())
         
         LatestCidIsPaymentCid.sharedInstance.fire()
-        expect(machine.isInState(VerifyingTaxiLoopAVI.sharedInstance.getState())).to(beTrue())
+        expect(machine.isInState(VerifyingTaxiLoopAvi.sharedInstance.getState())).to(beTrue())
         
         LatestAviReadAtTaxiLoop.sharedInstance.fire()
         expect(machine.isInState(Ready.sharedInstance.getState())).to(beTrue())
@@ -58,15 +58,14 @@ class TripScenarioSpec1: QuickSpec {
         
         // can fire DriverReturnsToSfo and make correct state change
         InsideSfo.sharedInstance.fire()
+        expect(machine.isInState(VerifyingInboundAvi.sharedInstance.getState())).to(beTrue())
+        
+        LatestAviReadInbound.sharedInstance.fire()
         expect(machine.isInState(ValidatingTrip.sharedInstance.getState())).to(beTrue())
         
         // can fire TripValidated and make correct state change
         TripValidated.sharedInstance.fire()
-        expect(machine.isInState(Valid.sharedInstance.getState())).to(beTrue())
-        
-        // can fire DriverProceedsToTaxiLoop and make correct state change
-        DriverProceedsToTaxiLoop.sharedInstance.fire()
-        expect(machine.isInState(Ready.sharedInstance.getState())).to(beTrue())
+        expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
       }
     }
   }
