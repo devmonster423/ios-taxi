@@ -31,7 +31,7 @@ struct VerifyingExitAvi {
               TripManager.sharedInstance.setStartTime(antenna.aviDate)
             } else {
               ExitAviReadFailed.sharedInstance.fire()
-              TripManager.sharedInstance.addWarning(.ExitAviFailed)
+              StateManager.sharedInstance.addWarning(.ExitAviFailed)
             }
           }
         }

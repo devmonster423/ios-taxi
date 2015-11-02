@@ -1,5 +1,5 @@
 //
-//  TripManagerSpec.swift
+//  StateManagerSpec.swift
 //  ShortTrips
 //
 //  Created by Matt Luedke on 10/5/15.
@@ -16,7 +16,7 @@ class TripScenario1Spec: QuickSpec {
     
     describe("the trip manager") {
       it("can handle scenario 1") {
-        let machine = TripManager.sharedInstance.getMachine()
+        let machine = StateManager.sharedInstance.getMachine()
 
         // can be initialized
         expect(machine).toNot(beNil())

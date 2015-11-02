@@ -17,7 +17,7 @@ struct Failure {
   
   private init() {
     events = [TKEvent(name: eventNames[0],
-      transitioningFromStates: TripManager.allStates,
+      transitioningFromStates: StateManager.allStates,
       toState: NotReady.sharedInstance.getState())]
   }
 }

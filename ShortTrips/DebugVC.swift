@@ -12,7 +12,7 @@ import JSQNotificationObserverKit
 
 class DebugVC: UIViewController {
   
-  let tripManager = TripManager.sharedInstance
+  let stateManager = StateManager.sharedInstance
   
   var attemptingPingObserver: NotificationObserver<Ping, AnyObject>?
   var cidReadDetectedObserver: NotificationObserver<Cid, AnyObject>?
@@ -26,6 +26,7 @@ class DebugVC: UIViewController {
   var startingToWait: NotificationObserver<Any?, AnyObject>?
   var paymentCidRead: NotificationObserver<Cid, AnyObject>?
   var taxiLoopAVIRead: NotificationObserver<Antenna, AnyObject>?
+  var enteredNotReadyState: NotificationObserver<Any?, AnyObject>?
   var enteredReadyState: NotificationObserver<Any?, AnyObject>?
   var inProgressState: NotificationObserver<Any?, AnyObject>?
   var tripStartedObserver: NotificationObserver<Int, AnyObject>?
@@ -105,6 +106,10 @@ class DebugVC: UIViewController {
       self.debugView().printDebugLine("Taxiloop AVI read: (\(antenna)")
     })
     
+    enteredNotReadyState = NotificationObserver(notification: SfoNotification.State.notReady, handler: { _, _ in
+      self.debugView().printDebugLine("Entered Not Ready State")
+    })
+    
     enteredReadyState = NotificationObserver(notification: SfoNotification.State.ready, handler: { _, _ in
       self.debugView().printDebugLine("Entered Ready State")
     })
@@ -117,7 +122,7 @@ class DebugVC: UIViewController {
       self.debugView().printDebugLine("Trip started: \(tripId)", type: .Positive)
     }
     
-    timeExpiredObserver = NotificationObserver(notification: SfoNotification.State.notReady) { tripId, _ in
+    timeExpiredObserver = NotificationObserver(notification: SfoNotification.Trip.timeExpired) { _, _ in
       self.debugView().printDebugLine("Time Expired")
     }
     

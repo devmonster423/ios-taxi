@@ -16,8 +16,7 @@ class TripScenario2Spec: QuickSpec {
     
     describe("the trip manager") {
       it("can handle scenario 2") {
-        TripManager.sharedInstance.setup()
-        let machine = TripManager.sharedInstance.getMachine()
+        let machine = StateManager.sharedInstance.getMachine()
 
         // can be initialized
         expect(machine).toNot(beNil())
