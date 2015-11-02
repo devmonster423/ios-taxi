@@ -31,8 +31,6 @@ extension TimeExpired: Event {
 
 extension TimeExpired: Notifiable {
   func postSfoNotification(info: Any?) {
-    if let info = info as? Int {
-      postNotification(SfoNotification.Trip.timeExpired, value: info)
-    }
+    postNotification(SfoNotification.Trip.timeExpired, value: nil)
   }
 }
