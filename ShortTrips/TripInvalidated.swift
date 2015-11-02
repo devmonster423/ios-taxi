@@ -1,8 +1,8 @@
 //
-//  DriverReturnsToSfo2.swift
+//  TripInvalidated.swift
 //  ShortTrips
 //
-//  Created by Joshua Adams on 10/6/15.
+//  Created by Matt Luedke on 10/30/15.
 //  Copyright © 2015 SFO. All rights reserved.
 //
 
@@ -10,9 +10,9 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct TripValidated {
-  let eventNames = ["tripValidated"]
-  static let sharedInstance = TripValidated()
+struct TripInvalidated {
+  let eventNames = ["tripInvalidated"]
+  static let sharedInstance = TripInvalidated()
   
   private var events: [TKEvent]
   
@@ -23,13 +23,13 @@ struct TripValidated {
   }
 }
 
-extension TripValidated: Event {
+extension TripInvalidated: Event {
   func getEvents() -> [TKEvent] {
     return events
   }
 }
 
-extension TripValidated: Notifiable {
+extension TripInvalidated: Notifiable {
   func postSfoNotification(info: Any?) {
     if let info = info as? Bool {
       postNotification(SfoNotification.Trip.validation, value: info)

@@ -1,8 +1,8 @@
 //
-//  VerifyingTaxiLoopAVI.swift
+//  VerifyingInboundAvi.swift
 //  ShortTrips
 //
-//  Created by Pierre Exygy on 10/27/15.
+//  Created by Matt Luedke on 10/30/15.
 //  Copyright © 2015 SFO. All rights reserved.
 //
 
@@ -10,9 +10,9 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct VerifyingTaxiLoopAvi {
-  let stateName = "verifyingTaxiLoopAvi"
-  static let sharedInstance = VerifyingTaxiLoopAvi()
+struct VerifyingInboundAvi {
+  let stateName = "verifyingInboundAvi"
+  static let sharedInstance = VerifyingInboundAvi()
   
   private var poller: Poller?
   private var state: TKState
@@ -26,14 +26,9 @@ struct VerifyingTaxiLoopAvi {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
             
-            // TODO: actually verify if the antenna request succedeed
-            //        if let cid = cid where
-            //        cid.cidLocation == "entry" {
-            
-            LatestAviReadAtTaxiLoop.sharedInstance.fire()
-            postNotification(SfoNotification.Avi.taxiLoop, value: antenna!)
-                        
-            //  }
+            if let antenna = antenna where antenna.aviLocation == .Inbound {
+              LatestAviReadInbound.sharedInstance.fire()
+            }
           }
         }
       })

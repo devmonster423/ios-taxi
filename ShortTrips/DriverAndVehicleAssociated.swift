@@ -18,7 +18,7 @@ struct DriverAndVehicleAssociated {
   private init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [AssociatingDriverAndVehicle.sharedInstance.getState()],
-      toState: VerifyingEntryGateAVI.sharedInstance.getState())]
+      toState: VerifyingEntryGateAvi.sharedInstance.getState())]
   }
 }
 

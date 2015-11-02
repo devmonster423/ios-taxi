@@ -18,7 +18,7 @@ class LatestAviReadAtTaxiLoop {
   
   private init() {
     events = [TKEvent(name: eventNames[0],
-      transitioningFromStates: [VerifyingTaxiLoopAVI.sharedInstance.getState()],
+      transitioningFromStates: [VerifyingTaxiLoopAvi.sharedInstance.getState()],
       toState: Ready.sharedInstance.getState())]
   }
 }

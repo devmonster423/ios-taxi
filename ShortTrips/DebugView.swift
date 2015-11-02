@@ -34,6 +34,7 @@ class DebugView: UIView {
   private let debugTextView = UITextView()
   private let geofenceLabel = UILabel()
   private let gpsLabel = UILabel()
+  let fakeButton = UIButton()
   let logOutButton = UIButton()
   
   required init(coder aDecoder: NSCoder) {
@@ -48,6 +49,7 @@ class DebugView: UIView {
     addSubview(debugTextView)
     addSubview(geofenceLabel)
     addSubview(gpsLabel)
+    addSubview(fakeButton)
     addSubview(logOutButton)
     
     debugTextView.backgroundColor = UIColor(red: 0.95, green: 0.9, blue: 0.9, alpha: 1.0)
@@ -80,6 +82,14 @@ class DebugView: UIView {
       make.width.equalTo(geofenceLabel)
       make.top.equalTo(geofenceLabel)
       make.bottom.equalTo(geofenceLabel)
+    }
+    
+    fakeButton.backgroundColor = UIColor.blueColor()
+    fakeButton.snp_makeConstraints { (make) -> Void in
+      make.height.equalTo(logOutButton)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(logOutButton.snp_leading)
+      make.bottom.equalTo(self)
     }
     
     logOutButton.setTitle(NSLocalizedString("Logout", comment: ""), forState: .Normal)
@@ -123,6 +133,8 @@ class DebugView: UIView {
       newString.appendAttributedString(attributedText)
       debugTextView.attributedText = newString
       debugTextView.scrollRangeToVisible(NSMakeRange(newString.length, 0))
+      
+      print(text)
     }
   }
 }

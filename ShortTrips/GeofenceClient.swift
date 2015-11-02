@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
+import JSQNotificationObserverKit
 
 typealias MultipleGeofencesClosure = [Geofence]? -> Void
 typealias GeofenceClosure = (Geofence?, ErrorType?) -> Void
@@ -27,7 +28,12 @@ extension ApiClient {
   static func requestGeofencesForLocation(latitude: Double, longitude: Double, buffer: Double, response: MultipleGeofencesClosure) {
     let params = ["latitude": latitude, "longitude": longitude, "buffer": buffer]
     authedRequest(Alamofire.request(.GET, Url.Geofence.locations, parameters: params))
-      .responseObject { (geofenceResponse: MultipleGeofencesResponse?, error: ErrorType?) in
+      .responseObject { (_, raw, geofenceResponse: MultipleGeofencesResponse?, _, error: ErrorType?) in
+        
+        if let raw = raw {
+          postNotification(SfoNotification.Request.response, value: raw)
+        }
+        
         response(geofenceResponse?.geofenceListWrapper?.geofenceList)
     }
   }

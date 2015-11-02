@@ -26,11 +26,11 @@ class TripManager {
     InProgress.sharedInstance.getState(),
     NotReady.sharedInstance.getState(),
     Ready.sharedInstance.getState(),
-    Valid.sharedInstance.getState(),
     ValidatingTrip.sharedInstance.getState(),
-    VerifyingEntryGateAVI.sharedInstance.getState(),
+    VerifyingEntryGateAvi.sharedInstance.getState(),
     VerifyingExitAvi.sharedInstance.getState(),
-    VerifyingTaxiLoopAVI.sharedInstance.getState(),
+    VerifyingInboundAvi.sharedInstance.getState(),
+    VerifyingTaxiLoopAvi.sharedInstance.getState(),
     WaitingForEntryCID.sharedInstance.getState(),
     WaitingForPaymentCID.sharedInstance.getState(),
     WaitingForStartTrip.sharedInstance.getState(),
@@ -39,7 +39,6 @@ class TripManager {
   
   static func allEvents() -> [TKEvent] {
     var events = DriverAndVehicleAssociated.sharedInstance.getEvents()
-    events += DriverProceedsToTaxiLoop.sharedInstance.getEvents()
     events += EntryGateAVIReadConfirmed.sharedInstance.getEvents()
     events += ExitAviReadFailed.sharedInstance.getEvents()
     events += Failure.sharedInstance.getEvents()
@@ -47,9 +46,11 @@ class TripManager {
     events += InsideTaxiLoopExit.sharedInstance.getEvents()
     events += LatestAviReadAtExit.sharedInstance.getEvents()
     events += LatestAviReadAtTaxiLoop.sharedInstance.getEvents()
+    events += LatestAviReadInbound.sharedInstance.getEvents()
     events += LatestCidIsEntryCid.sharedInstance.getEvents()
     events += LatestCidIsPaymentCid.sharedInstance.getEvents()
     events += OutsideSfo.sharedInstance.getEvents()
+    events += TripInvalidated.sharedInstance.getEvents()
     events += TripStarted.sharedInstance.getEvents()
     events += TimeExpired.sharedInstance.getEvents()
     events += TripValidated.sharedInstance.getEvents()

@@ -14,6 +14,7 @@ import ObjectMapper
 
 typealias GeofenceStatusClosure = Bool? -> Void
 typealias TripIdClosure = Int? -> Void
+typealias ValidationClosure = Bool? -> Void
 
 protocol TripClient { }
 
@@ -41,5 +42,16 @@ extension ApiClient {
         response(tripIdResponse?.tripId.tripId)
     }
   }
+  
+  static func end(tripId: Int, response: ValidationClosure) {
+    authedRequest(Alamofire.request(.POST, Url.Trip.end(tripId), parameters: nil ))
+      .responseObject { (_, raw, validation: TripValidation?, _, _) in
+        
+        if let raw = raw {
+          postNotification(SfoNotification.Request.response, value: raw)
+        }
+        
+        response(validation?.valid)
+    }
+  }
 }
-

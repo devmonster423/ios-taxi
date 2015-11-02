@@ -31,12 +31,18 @@ class DebugVC: UIViewController {
   var tripStartedObserver: NotificationObserver<Int, AnyObject>?
   var timeExpiredObserver: NotificationObserver<Any?, AnyObject>?
   var warningObserver: NotificationObserver<TripWarning, AnyObject>?
+  var validationObserver: NotificationObserver<Bool, AnyObject>?
 
   override func loadView() {
     let debugView = DebugView(frame: UIScreen.mainScreen().bounds)
     debugView.logOutButton.addTarget(self,
       action: "logout",
       forControlEvents: .TouchUpInside)
+    debugView.fakeButton.setTitle("Fake Inside SFO", forState: .Normal)
+    debugView.fakeButton.addTarget(self,
+      action: "triggerInsideSfo",
+      forControlEvents: .TouchUpInside)
+
     view = debugView
   }
   
@@ -56,6 +62,10 @@ class DebugVC: UIViewController {
     
     locationManagerStartedObserver = NotificationObserver(notification: SfoNotification.Location.managerStarted, handler: { _, _ in
       self.debugView().printDebugLine("started location manager", type: .BigDeal)
+      self.debugView().fakeButton.setTitle("Fake Inside SFO", forState: .Normal)
+      self.debugView().fakeButton.addTarget(self,
+        action: "triggerInsideSfo",
+        forControlEvents: .TouchUpInside)
     })
     
     locationObserver = NotificationObserver(notification: SfoNotification.Location.read, handler: { location, _ in
@@ -114,6 +124,14 @@ class DebugVC: UIViewController {
     warningObserver = NotificationObserver(notification: SfoNotification.Trip.warning) { warning, _ in
       self.debugView().printDebugLine("Trip Warning: \(warning.rawValue)")
     }
+    
+    validationObserver = NotificationObserver(notification: SfoNotification.Trip.validation) { valid, _ in
+      if valid {
+        self.debugView().printDebugLine("Trip is valid", type: .Positive)
+      } else {
+        self.debugView().printDebugLine("Trip is invalid", type: .Negative)
+      }
+    }
   }
   
   func debugView() -> DebugView {
@@ -123,5 +141,9 @@ class DebugVC: UIViewController {
   func logout() {
     DriverCredential.clear()
     self.navigationController?.popToRootViewControllerAnimated(true)
+  }
+  
+  func triggerInsideSfo() {
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.621313, longitude: -122.378955))
   }
 }
