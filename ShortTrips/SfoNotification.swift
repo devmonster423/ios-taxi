@@ -38,6 +38,7 @@ struct SfoNotification {
   struct Ping {
     static let attempting = Notification<ShortTrips.Ping, AnyObject>(name: "AttemptingPing")
     static let successful = Notification<ShortTrips.Ping, AnyObject>(name: "SuccessfulPing")
+    static let unsuccessful = Notification<ShortTrips.Ping, AnyObject>(name: "unsuccessfulPing")
   }
   
   struct Request {
