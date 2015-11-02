@@ -1,5 +1,5 @@
 //
-//  TripManagerSpec.swift
+//  StateManagerSpec.swift
 //  ShortTrips
 //
 //  Created by Matt Luedke on 10/5/15.
@@ -10,13 +10,13 @@
 import Quick
 import Nimble
 
-class TripScenarioSpec1: QuickSpec {
+class TripScenario1Spec: QuickSpec {
   
   override func spec() {
     
     describe("the trip manager") {
       it("can handle scenario 1") {
-        let machine = TripManager.sharedInstance.getMachine()
+        let machine = StateManager.sharedInstance.getMachine()
 
         // can be initialized
         expect(machine).toNot(beNil())

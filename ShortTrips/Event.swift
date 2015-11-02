@@ -18,7 +18,7 @@ extension Event {
   func fire(userInfo: [NSObject: AnyObject]? = nil) {
     for eventName in eventNames {
       do {
-        try TripManager.sharedInstance.getMachine().fireEvent(eventName, userInfo: userInfo)
+        try StateManager.sharedInstance.getMachine().fireEvent(eventName, userInfo: userInfo)
       } catch {}
     }
   }
@@ -28,7 +28,7 @@ extension Event where Self:Notifiable {
   func fire(info: Any? = nil, userInfo: [NSObject: AnyObject]? = nil) {
     for eventName in eventNames {
       do {
-        try TripManager.sharedInstance.getMachine().fireEvent(eventName, userInfo: userInfo)
+        try StateManager.sharedInstance.getMachine().fireEvent(eventName, userInfo: userInfo)
       } catch {}
     }
     

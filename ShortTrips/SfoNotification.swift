@@ -48,11 +48,13 @@ struct SfoNotification {
     static let wait = Notification<Any?, AnyObject>(name: "StartingToWait")
     static let ready = Notification<Any?, AnyObject>(name: "EnteredReadyState")
     static let inProgress = Notification<Any?, AnyObject>(name: "InProgress")
+    static let notReady = Notification<Any?, AnyObject>(name: "NotReady")
   }
   
   struct Trip {
     static let started = Notification<Int, AnyObject>(name: "TripStarted")
     static let warning = Notification<TripWarning, AnyObject>(name: "TripWarning")
     static let validation = Notification<Bool, AnyObject>(name: "TripValidation")
+    static let timeExpired = Notification<Any?, AnyObject>(name: "TripTimeExpired")
   }
 }
