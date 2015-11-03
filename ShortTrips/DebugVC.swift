@@ -38,6 +38,7 @@ class DebugVC: UIViewController {
   var validationObserver: NotificationObserver<Bool, AnyObject>?
   var waitForEntryCidObserver: NotificationObserver<Any?, AnyObject>?
   var insideSfoObserver: NotificationObserver<Any?, AnyObject>?
+  var outsideSfoObserver: NotificationObserver<Any?, AnyObject>?
   var associatingDriverAndVehicle: NotificationObserver<Any?, AnyObject>?
 
   override func loadView() {
@@ -69,13 +70,7 @@ class DebugVC: UIViewController {
     
     locationManagerStartedObserver = NotificationObserver(notification: SfoNotification.Location.managerStarted, handler: { _, _ in
       self.debugView().printDebugLine("started location manager", type: .BigDeal)
-      self.debugView().fakeButton.setTitle("Fake Inside SFO", forState: .Normal)
-      self.debugView().fakeButton.removeTarget(nil,
-        action: nil,
-        forControlEvents: .AllEvents)
-      self.debugView().fakeButton.addTarget(self,
-        action: "triggerInsideSfo",
-        forControlEvents: .TouchUpInside)
+      self.updateFakeButton("Fake Inside SFO", action: "triggerInsideSfo")
     })
     
     locationObserver = NotificationObserver(notification: SfoNotification.Location.read, handler: { location, _ in
@@ -106,6 +101,7 @@ class DebugVC: UIViewController {
 
     entryGateAVI = NotificationObserver(notification: SfoNotification.Avi.entryGate, handler: { antenna, _ in
       self.debugView().printDebugLine("entry gate avi detected: (\(antenna)")
+      self.updateFakeButton("Fake At Terminal Exit", action: "triggerAtTerminalExit")
     })
 
     driverAndVehicleAssociated = NotificationObserver(notification: SfoNotification.Driver.vehicleAssociated, handler: { data, _ in
@@ -113,6 +109,7 @@ class DebugVC: UIViewController {
       let driver = data.driver
       
       self.debugView().printDebugLine("driver \(driver.firstName) \(driver.lastName) is associated with transponder: (\(vehicle.transponderId)")
+      self.updateFakeButton("Confirm Entry Gate Avi Read", action: "confirmEntryGateAviRead")
     })
     
     startingToWait = NotificationObserver(notification: SfoNotification.State.wait, handler: { _, _ in
@@ -121,10 +118,12 @@ class DebugVC: UIViewController {
 
     paymentCidRead = NotificationObserver(notification: SfoNotification.Cid.payment, handler: { cid, _ in
       self.debugView().printDebugLine("payment cid read detected: (\(cid)")
+      self.updateFakeButton("Latest Avi Read At Taxi Loop", action: "latestAviReadAtTaxiLoop")
     })
 
     taxiLoopAVIRead = NotificationObserver(notification: SfoNotification.Avi.taxiLoop, handler: { antenna, _ in
       self.debugView().printDebugLine("Taxiloop AVI read: (\(antenna)")
+      self.updateFakeButton("Fake Cid Payment", action: "fakeCidPayment")
     })
     
     enteredNotReadyState = NotificationObserver(notification: SfoNotification.State.notReady, handler: { _, _ in
@@ -133,6 +132,7 @@ class DebugVC: UIViewController {
     
     enteredReadyState = NotificationObserver(notification: SfoNotification.State.ready, handler: { _, _ in
       self.debugView().printDebugLine("Entered Ready State")
+      self.updateFakeButton("Start Ride", action: "leaveTerminalExitLoop")
     })
     
     inProgressState = NotificationObserver(notification: SfoNotification.State.inProgress, handler: { _, _ in
@@ -160,14 +160,7 @@ class DebugVC: UIViewController {
     }
     
     waitForEntryCidObserver = NotificationObserver(notification: SfoNotification.State.waitForEntryCid, handler: { (value, sender) -> Void in
-      
-      self.debugView().fakeButton.setTitle("triggerEntryCid", forState: .Normal)
-      self.debugView().fakeButton.removeTarget(nil,
-        action: nil,
-        forControlEvents: .AllEvents)
-      self.debugView().fakeButton.addTarget(self,
-        action: "triggerEntryCid",
-        forControlEvents: .TouchUpInside)
+      self.updateFakeButton("Trigger Cid Entry", action: "triggerEntryCid")
     })
     
     insideSfoObserver = NotificationObserver(notification: SfoNotification.Geofence.insideSfo, handler: { (value, sender) -> Void in
@@ -175,16 +168,13 @@ class DebugVC: UIViewController {
       self.debugView().printDebugLine("inside SFO event!", type: .Positive)
     })
     
+    outsideSfoObserver = NotificationObserver(notification: SfoNotification.Geofence.outsideSfo, handler: { (value, sender) -> Void in
+      self.debugView().printDebugLine("outside SFO event!", type: .Positive)
+    })
+    
     associatingDriverAndVehicle = NotificationObserver(notification: SfoNotification.State.associatingDriverAndVehicle, handler: { _, _ in
-      
-      self.debugView().printDebugLine("associatingDriverAndVehicle")
-      self.debugView().fakeButton.setTitle("Associate Driver And Vehicle", forState: .Normal)
-      self.debugView().fakeButton.removeTarget(nil,
-        action: nil,
-        forControlEvents: .AllEvents)
-      self.debugView().fakeButton.addTarget(self,
-        action: "associateDriverAndVehicle",
-        forControlEvents: .TouchUpInside)
+      self.debugView().printDebugLine("Associating Driver And Vehicle")
+      self.updateFakeButton("Associate Driver And Vehicle", action: "associateDriverAndVehicle")
     })
   }
   
@@ -196,6 +186,10 @@ class DebugVC: UIViewController {
     DriverCredential.clear()
     self.navigationController?.popToRootViewControllerAnimated(true)
   }
+  
+  
+  
+  
   
   func triggerInsideSfo() {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.6132659912109, longitude: -122.400527954102))
@@ -210,7 +204,46 @@ class DebugVC: UIViewController {
     DriverManager.sharedInstance.setCurrentVehicle(vehicle)
   }
   
-  func triggerEntryAvi() {
-    // Antenna(antennaId: 123, aviLocation: .Entry, aviDate: NSDate())
+  func confirmEntryGateAviRead() {
+    EntryGateAVIReadConfirmed.sharedInstance.fire(Antenna(antennaId: 123, aviLocation: .Entry, aviDate: NSDate()))
+  }
+  
+  func triggerAtTerminalExit() {
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.615319, longitude: -122.390206))
+  }
+  
+  func fakeCidPayment(){
+    let cid = Cid(cidId: 12, cidLocation: "Payment Gate")
+    LatestCidIsPaymentCid.sharedInstance.fire(cid)
+  }
+  
+  func latestAviReadAtTaxiLoop(){
+    LatestAviReadAtTaxiLoop.sharedInstance.fire(Antenna(antennaId: 123, aviLocation: .Entry, aviDate: NSDate()))
+  }
+
+  func leaveTerminalExitLoop(){
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.610560, longitude: -122.401814))
+    self.updateFakeButton("Drop Off Passenger", action: "dropPassenger")
+  }
+
+  func dropPassenger(){
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.622254, longitude: -122.409925))
+    self.updateFakeButton("Back To SFO", action: "backToSFO")
+  }
+  
+  func backToSFO(){
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.621313, longitude: -122.378955))
+    
+    self.updateFakeButton("NEXT", action: "")
+  }
+  
+  func updateFakeButton(title: String, action: Selector){
+    self.debugView().fakeButton.setTitle(title, forState: .Normal)
+    self.debugView().fakeButton.removeTarget(nil,
+      action: nil,
+      forControlEvents: .AllEvents)
+    self.debugView().fakeButton.addTarget(self,
+      action: action,
+      forControlEvents: .TouchUpInside)
   }
 }
