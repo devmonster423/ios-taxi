@@ -15,7 +15,7 @@ class PingManager {
   var lastSuccessfulPingDate: NSDate?
   let updateFrequency = NSTimeInterval(60)
   private var invalidPings: Int = 0
-  private var maxInvalidPings: Int = 3
+  private let maxInvalidPings: Int = 3
 
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
 
@@ -42,23 +42,26 @@ class PingManager {
     }
     if pingDate.timeIntervalSinceNow < -updateFrequency,
       let tripId = TripManager.sharedInstance.getTripId() {
-        let ping = Ping(location: location)
-        postNotification(SfoNotification.Ping.attempting, value: ping)
-        ApiClient.ping(tripId, ping: ping, response: { geofenceStatus in
-          if let _ = geofenceStatus {
-            if geofenceStatus == true {
-              self.lastSuccessfulPingDate = NSDate()
-              postNotification(SfoNotification.Ping.successful, value: ping)
-            }
-            else {
-              postNotification(SfoNotification.Ping.unsuccessful, value: ping)
-              self.invalidPings++
-              if self.invalidPings >= self.maxInvalidPings {
-                OutsideShortTripGeofence.sharedInstance.fire()
-              }
+        
+      let ping = Ping(location: location)
+      postNotification(SfoNotification.Ping.attempting, value: ping)
+      ApiClient.ping(tripId, ping: ping) { geofenceStatus in
+        if let geofenceStatus = geofenceStatus {
+          self.lastSuccessfulPingDate = NSDate()
+          postNotification(SfoNotification.Ping.successful, value: ping)
+          if geofenceStatus {
+            postNotification(SfoNotification.Ping.valid, value: ping)
+          } else {
+            postNotification(SfoNotification.Ping.invalid, value: ping)
+            self.invalidPings++
+            if self.invalidPings >= self.maxInvalidPings {
+              OutsideShortTripGeofence.sharedInstance.fire()
             }
           }
-        })
+        } else {
+          postNotification(SfoNotification.Ping.unsuccessful, value: ping)
+        }
+      }
     }
   }
 }
