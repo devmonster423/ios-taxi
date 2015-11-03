@@ -29,8 +29,8 @@ extension ExitAviReadFailed: Event {
   }
 }
 
-extension ExitAviReadFailed: Notifiable {
-  func postSfoNotification(info: Any?) {
+extension ExitAviReadFailed: Observable {
+  func eventWasFired(info: Any?) {
     postNotification(SfoNotification.Trip.warning, value: .ExitAviFailed)
   }
 }

@@ -29,8 +29,8 @@ extension TripValidated: Event {
   }
 }
 
-extension TripValidated: Notifiable {
-  func postSfoNotification(info: Any?) {
+extension TripValidated: Observable {
+  func eventWasFired(info: Any?) {
     if let info = info as? Bool {
       postNotification(SfoNotification.Trip.validation, value: info)
     }
