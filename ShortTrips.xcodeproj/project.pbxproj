@@ -220,6 +220,7 @@
 		E1E07F1F1BE8150400D6D07D /* TripScenario3Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E07F1E1BE8150400D6D07D /* TripScenario3Spec.swift */; };
 		E1E6EF9E1BB205520039C5F3 /* DriverSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */; };
 		E1E6EFA01BB205600039C5F3 /* DriverResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6EF9F1BB205600039C5F3 /* DriverResponseSpec.swift */; };
+		E1F18B1B1BE96FDD007BC7F8 /* TripScenario7Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F18B1A1BE96FDD007BC7F8 /* TripScenario7Spec.swift */; };
 		E1FDB2681BBC47E500F8F452 /* DriverCredentialSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FDB2671BBC47E500F8F452 /* DriverCredentialSpec.swift */; };
 		FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1FD11BAF1DD500B8F921 /* Font.swift */; };
 		FA32EC081B8836B7001428B5 /* green_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC051B8836B7001428B5 /* green_bg.jpg */; };
@@ -459,6 +460,7 @@
 		E1E07F1E1BE8150400D6D07D /* TripScenario3Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripScenario3Spec.swift; sourceTree = "<group>"; };
 		E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverSpec.swift; sourceTree = "<group>"; };
 		E1E6EF9F1BB205600039C5F3 /* DriverResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverResponseSpec.swift; sourceTree = "<group>"; };
+		E1F18B1A1BE96FDD007BC7F8 /* TripScenario7Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripScenario7Spec.swift; sourceTree = "<group>"; };
 		E1FDB2671BBC47E500F8F452 /* DriverCredentialSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverCredentialSpec.swift; sourceTree = "<group>"; };
 		FA0E1FD11BAF1DD500B8F921 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		FA32EC051B8836B7001428B5 /* green_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green_bg.jpg; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 				C220E0771BC34ACE00AC7C85 /* TripScenario1Spec.swift */,
 				E1BE7B6D1BE3FD510085D3CA /* TripScenario2Spec.swift */,
 				E1E07F1E1BE8150400D6D07D /* TripScenario3Spec.swift */,
+				E1F18B1A1BE96FDD007BC7F8 /* TripScenario7Spec.swift */,
 			);
 			name = TripManager;
 			sourceTree = "<group>";
@@ -1614,6 +1617,7 @@
 				E112C3031BB2FD2500B1DF48 /* GeofenceSpec.swift in Sources */,
 				C28224681BB09C32007F284F /* FlightStatusVCSpec.swift in Sources */,
 				8EEFB7E81BE2C64700B8A962 /* TripIdResponseSpec.swift in Sources */,
+				E1F18B1B1BE96FDD007BC7F8 /* TripScenario7Spec.swift in Sources */,
 				8EEFB7DF1BE2A81B00B8A962 /* VehicleSpec.swift in Sources */,
 				8EEFB7E11BE2A82600B8A962 /* VehicleResponseSpec.swift in Sources */,
 				8EEFB7BB1BE1ACE000B8A962 /* RequestAutomaticVehicleIdsMock.swift in Sources */,
