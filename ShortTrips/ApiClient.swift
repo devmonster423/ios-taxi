@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-struct ApiClient: AirlineClient, DeviceClient, DispatcherClient, DriverClient, FlightClient, GeofenceClient, ReferenceClient {
+struct ApiClient {
   
   private static let sfoUsername = "taxi_short@staging"
   private static let sfoPassword = "mvUh6tYEwU9nYDrQ"
