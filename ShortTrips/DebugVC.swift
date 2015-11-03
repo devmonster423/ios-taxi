@@ -21,6 +21,9 @@ class DebugVC: UIViewController {
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
   var responseObserver: NotificationObserver<NSHTTPURLResponse, AnyObject>?
   var successfulPingObserver: NotificationObserver<Ping, AnyObject>?
+  var unsuccessfulPingObserver: NotificationObserver<Ping, AnyObject>?
+  var validPingObserver: NotificationObserver<Ping, AnyObject>?
+  var invalidPingObserver: NotificationObserver<Ping, AnyObject>?
   var entryGateAVI: NotificationObserver<Antenna, AnyObject>?
   var driverAndVehicleAssociated: NotificationObserver<(driver: Driver, vehicle: Vehicle), AnyObject>?
   var startingToWait: NotificationObserver<Any?, AnyObject>?
@@ -80,7 +83,19 @@ class DebugVC: UIViewController {
     })
 
     successfulPingObserver = NotificationObserver(notification: SfoNotification.Ping.successful, handler: { ping, _ in
-      self.debugView().printDebugLine("succesful ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
+      self.debugView().printDebugLine("successful ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
+    })
+    
+    unsuccessfulPingObserver = NotificationObserver(notification: SfoNotification.Ping.successful, handler: { ping, _ in
+      self.debugView().printDebugLine("unsuccessful ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)", type: .Negative)
+    })
+    
+    validPingObserver = NotificationObserver(notification: SfoNotification.Ping.successful, handler: { ping, _ in
+      self.debugView().printDebugLine("valid ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
+    })
+    
+    invalidPingObserver = NotificationObserver(notification: SfoNotification.Ping.successful, handler: { ping, _ in
+      self.debugView().printDebugLine("invalid ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)", type: .Negative)
     })
 
     entryGateAVI = NotificationObserver(notification: SfoNotification.Avi.entryGate, handler: { antenna, _ in
