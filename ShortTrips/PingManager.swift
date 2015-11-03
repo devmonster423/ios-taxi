@@ -51,6 +51,7 @@ class PingManager {
           postNotification(SfoNotification.Ping.successful, value: ping)
           if geofenceStatus {
             postNotification(SfoNotification.Ping.valid, value: ping)
+            self.invalidPings = 0 // must be consecutive
           } else {
             postNotification(SfoNotification.Ping.invalid, value: ping)
             self.invalidPings++
