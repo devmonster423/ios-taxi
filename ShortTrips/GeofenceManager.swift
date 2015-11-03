@@ -37,6 +37,7 @@ class GeofenceManager {
         
         if let geofences = geofences {
           self.process(geofences)
+          postNotification(SfoNotification.Geofence.foundInside, value: geofences)
         }
     }
   }
@@ -49,7 +50,7 @@ class GeofenceManager {
       if let identifiedGeofence = SfoGeofence.find(geofence) {
         switch identifiedGeofence {
         case .SFO:
-          InsideSfo.sharedInstance.fire(geofence)
+          InsideSfo.sharedInstance.fire()
           driverInsideSfo = true
         case .SfoTerminalExit:
           InsideTaxiLoopExit.sharedInstance.fire()
@@ -57,7 +58,7 @@ class GeofenceManager {
       }
     }
     
-    if !driverInsideSfo{
+    if !driverInsideSfo {
       OutsideSfo.sharedInstance.fire()
     }
   }

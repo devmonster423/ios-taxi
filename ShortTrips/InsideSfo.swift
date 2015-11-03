@@ -34,11 +34,3 @@ extension InsideSfo: Event {
     return events
   }
 }
-
-extension InsideSfo: Notifiable {
-  func postSfoNotification(info: Any?) {
-    if let info = info as? [Geofence] {
-      postNotification(SfoNotification.Geofence.foundInside, value: info)
-    }
-  }
-}

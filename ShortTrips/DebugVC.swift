@@ -164,6 +164,6 @@ class DebugVC: UIViewController {
   }
   
   func triggerInsideSfo() {
-    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.621313, longitude: -122.378955))
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.6132659912109, longitude: -122.400527954102))
   }
 }
