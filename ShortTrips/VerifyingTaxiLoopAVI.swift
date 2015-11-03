@@ -30,9 +30,8 @@ struct VerifyingTaxiLoopAvi {
             //        if let cid = cid where
             //        cid.cidLocation == "entry" {
             
-            LatestAviReadAtTaxiLoop.sharedInstance.fire()
-            postNotification(SfoNotification.Avi.taxiLoop, value: antenna!)
-                        
+            LatestAviReadAtTaxiLoop.sharedInstance.fire(antenna)
+            
             //  }
           }
         }

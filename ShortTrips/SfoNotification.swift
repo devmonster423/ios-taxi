@@ -29,6 +29,7 @@ struct SfoNotification {
   struct Geofence {
     static let foundInside = Notification<[ShortTrips.Geofence], AnyObject>(name: "FoundInsideGeofences")
     static let insideSfo = Notification<Any?, AnyObject>(name: "InsideSfo")
+    static let outsideSfo = Notification<Any?, AnyObject>(name: "OutsideSfo")
   }
   
   struct Location {

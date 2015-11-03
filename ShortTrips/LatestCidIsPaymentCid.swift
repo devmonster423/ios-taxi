@@ -8,6 +8,7 @@
 
 import Foundation
 import TransitionKit
+import JSQNotificationObserverKit
 
 class LatestCidIsPaymentCid {
   let eventNames = ["latestCidIsPaymentCid"]
@@ -25,5 +26,13 @@ class LatestCidIsPaymentCid {
 extension LatestCidIsPaymentCid: Event {
   func getEvents() -> [TKEvent] {
     return events
+  }
+}
+
+extension LatestCidIsPaymentCid: Notifiable {
+  func postSfoNotification(info: Any?) {
+    if let cid = info as? Cid {
+      postNotification(SfoNotification.Cid.payment, value: cid)
+    }
   }
 }

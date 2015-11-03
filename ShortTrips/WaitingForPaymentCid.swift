@@ -30,8 +30,7 @@ struct WaitingForPaymentCid {
             //        if let cid = cid where
             //        cid.cidLocation == "entry" {
             
-            LatestCidIsPaymentCid.sharedInstance.fire()
-            postNotification(SfoNotification.Cid.payment, value: cid!)
+            LatestCidIsPaymentCid.sharedInstance.fire(cid)
 
             //  }
           }
