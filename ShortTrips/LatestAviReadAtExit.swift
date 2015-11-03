@@ -29,8 +29,8 @@ extension LatestAviReadAtExit: Event {
   }
 }
 
-extension LatestAviReadAtExit: Notifiable {
-  func postSfoNotification(info: Any?) {
+extension LatestAviReadAtExit: Observable {
+  func eventWasFired(info: Any?) {
     if let antenna = info as? Antenna {
       postNotification(SfoNotification.Avi.exit, value: antenna)
     }

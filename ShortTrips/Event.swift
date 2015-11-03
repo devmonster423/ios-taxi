@@ -24,7 +24,7 @@ extension Event {
   }
 }
 
-extension Event where Self:Notifiable {
+extension Event where Self:Observable {
   func fire(info: Any? = nil, userInfo: [NSObject: AnyObject]? = nil) {
     for eventName in eventNames {
       do {
@@ -32,6 +32,6 @@ extension Event where Self:Notifiable {
       } catch {}
     }
     
-    postSfoNotification(info)
+    eventWasFired(info)
   }
 }

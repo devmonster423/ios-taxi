@@ -54,7 +54,7 @@
 		C20A53021BB36D04001D1F90 /* AirlineClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A53011BB36D04001D1F90 /* AirlineClient.swift */; };
 		C20A98831BE15384009E29E7 /* TripIdResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A98821BE15384009E29E7 /* TripIdResponse.swift */; };
 		C20A98851BE153BA009E29E7 /* TripId.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A98841BE153BA009E29E7 /* TripId.swift */; };
-		C20A988A1BE17AEC009E29E7 /* Notifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A98891BE17AEC009E29E7 /* Notifiable.swift */; };
+		C20A988A1BE17AEC009E29E7 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A98891BE17AEC009E29E7 /* Observable.swift */; };
 		C20A988C1BE1A066009E29E7 /* WaitingToStartTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A988B1BE1A066009E29E7 /* WaitingToStartTrip.swift */; };
 		C20A988E1BE1A1BC009E29E7 /* TripStarted.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A988D1BE1A1BC009E29E7 /* TripStarted.swift */; };
 		C21528C21BC839990073502F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C11BC839990073502F /* LoginVC.swift */; };
@@ -117,6 +117,7 @@
 		C28224641BB09A8A007F284F /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */; };
 		C28224661BB09BCB007F284F /* TerminalSummaryVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28224651BB09BCB007F284F /* TerminalSummaryVCSpec.swift */; };
 		C28224681BB09C32007F284F /* FlightStatusVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */; };
+		C283AB451BE96D1C0004E8CD /* ValidationStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = C283AB441BE96D1C0004E8CD /* ValidationStep.swift */; };
 		C28ECB201BCEBDD400887763 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB1F1BCEBDD400887763 /* LocationManager.swift */; };
 		C28ECB221BCECA9700887763 /* TripClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB211BCECA9700887763 /* TripClient.swift */; };
 		C28ECB241BCECB5700887763 /* GeofenceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB231BCECB5700887763 /* GeofenceStatus.swift */; };
@@ -162,6 +163,9 @@
 		E14069D51BD8A95900C33928 /* TerminalSummaryDeparturesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14069D41BD8A95900C33928 /* TerminalSummaryDeparturesResponse.swift */; };
 		E14069D71BD8AFD900C33928 /* TerminalSummaryDResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14069D61BD8AFD900C33928 /* TerminalSummaryDResponse.swift */; };
 		E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */; };
+		E14A39261BE945960053F741 /* TripScenario4Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14A39251BE945960053F741 /* TripScenario4Spec.swift */; };
+		E14A39281BE957340053F741 /* AppQuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14A39271BE957340053F741 /* AppQuit.swift */; };
+		E14A392A1BE957B80053F741 /* LoggedOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14A39291BE957B80053F741 /* LoggedOut.swift */; };
 		E14E159B1BB1D856009D1E17 /* AntennaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14E159A1BB1D856009D1E17 /* AntennaSpec.swift */; };
 		E14E159E1BB1DA9F009D1E17 /* AntennaResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14E159D1BB1DA9F009D1E17 /* AntennaResponseSpec.swift */; };
 		E1598CE41BB1ACB100E933AD /* FlightSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1598CE31BB1ACB100E933AD /* FlightSpec.swift */; };
@@ -290,7 +294,7 @@
 		C20A53011BB36D04001D1F90 /* AirlineClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineClient.swift; sourceTree = "<group>"; };
 		C20A98821BE15384009E29E7 /* TripIdResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripIdResponse.swift; sourceTree = "<group>"; };
 		C20A98841BE153BA009E29E7 /* TripId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripId.swift; sourceTree = "<group>"; };
-		C20A98891BE17AEC009E29E7 /* Notifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifiable.swift; sourceTree = "<group>"; };
+		C20A98891BE17AEC009E29E7 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		C20A988B1BE1A066009E29E7 /* WaitingToStartTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = WaitingToStartTrip.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C20A988D1BE1A1BC009E29E7 /* TripStarted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripStarted.swift; sourceTree = "<group>"; };
 		C21528C11BC839990073502F /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -350,6 +354,7 @@
 		C27450BB1BB4988200D33CDD /* AirlineListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineListResponse.swift; sourceTree = "<group>"; };
 		C28224651BB09BCB007F284F /* TerminalSummaryVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerminalSummaryVCSpec.swift; path = Pods/TerminalSummaryVCSpec.swift; sourceTree = SOURCE_ROOT; };
 		C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatusVCSpec.swift; sourceTree = "<group>"; };
+		C283AB441BE96D1C0004E8CD /* ValidationStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationStep.swift; sourceTree = "<group>"; };
 		C28ECB1F1BCEBDD400887763 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C28ECB211BCECA9700887763 /* TripClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripClient.swift; sourceTree = "<group>"; };
 		C28ECB231BCECB5700887763 /* GeofenceStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceStatus.swift; sourceTree = "<group>"; };
@@ -401,6 +406,9 @@
 		E14069D41BD8A95900C33928 /* TerminalSummaryDeparturesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryDeparturesResponse.swift; sourceTree = "<group>"; };
 		E14069D61BD8AFD900C33928 /* TerminalSummaryDResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryDResponse.swift; sourceTree = "<group>"; };
 		E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+initWithColor.swift"; sourceTree = "<group>"; };
+		E14A39251BE945960053F741 /* TripScenario4Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripScenario4Spec.swift; sourceTree = "<group>"; };
+		E14A39271BE957340053F741 /* AppQuit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppQuit.swift; sourceTree = "<group>"; };
+		E14A39291BE957B80053F741 /* LoggedOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedOut.swift; sourceTree = "<group>"; };
 		E14E159A1BB1D856009D1E17 /* AntennaSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntennaSpec.swift; sourceTree = "<group>"; };
 		E14E159D1BB1DA9F009D1E17 /* AntennaResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntennaResponseSpec.swift; sourceTree = "<group>"; };
 		E1598CE31BB1ACB100E933AD /* FlightSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightSpec.swift; sourceTree = "<group>"; };
@@ -628,6 +636,7 @@
 		C220E06B1BC33BAB00AC7C85 /* Events */ = {
 			isa = PBXGroup;
 			children = (
+				E14A39271BE957340053F741 /* AppQuit.swift */,
 				8EEFB79B1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift */,
 				E187B2761BE037550031F07C /* EntryGateAVIReadConfirmed.swift */,
 				C220E07D1BC3511200AC7C85 /* Event.swift */,
@@ -640,7 +649,8 @@
 				C26530B11BE3F14F002C0A97 /* LatestAviReadInbound.swift */,
 				C2AB51391BD02CC0003ACB4C /* LatestCidIsEntryCid.swift */,
 				8EEFB7A51BE04B5400B8A962 /* LatestCidIsPaymentCid.swift */,
-				C20A98891BE17AEC009E29E7 /* Notifiable.swift */,
+				E14A39291BE957B80053F741 /* LoggedOut.swift */,
+				C20A98891BE17AEC009E29E7 /* Observable.swift */,
 				E18228FC1BC4900900614256 /* OutsideSfo.swift */,
 				E19A80221BE8024C00FEB76B /* OutsideShortTripGeofence.swift */,
 				E1BE7B6F1BE4025C0085D3CA /* TimeExpired.swift */,
@@ -660,6 +670,7 @@
 				C220E0771BC34ACE00AC7C85 /* TripScenario1Spec.swift */,
 				E1BE7B6D1BE3FD510085D3CA /* TripScenario2Spec.swift */,
 				E1E07F1E1BE8150400D6D07D /* TripScenario3Spec.swift */,
+				E14A39251BE945960053F741 /* TripScenario4Spec.swift */,
 			);
 			name = TripManager;
 			sourceTree = "<group>";
@@ -737,6 +748,7 @@
 				E18FF6921BA877C000FE93B9 /* TripState.swift */,
 				C26530B51BE3FB66002C0A97 /* TripValidation.swift */,
 				C221EDE41BE2CB1700BDB4CD /* TripWarning.swift */,
+				C283AB441BE96D1C0004E8CD /* ValidationStep.swift */,
 			);
 			name = Trip;
 			sourceTree = "<group>";
@@ -1424,6 +1436,7 @@
 				C20A988C1BE1A066009E29E7 /* WaitingToStartTrip.swift in Sources */,
 				C220E07E1BC3511200AC7C85 /* Event.swift in Sources */,
 				C2AB513E1BD052F7003ACB4C /* SfoNotification.swift in Sources */,
+				C283AB451BE96D1C0004E8CD /* ValidationStep.swift in Sources */,
 				C207D6FC1BAB86D800273374 /* FlightStatusView.swift in Sources */,
 				C220E0691BC33A0600AC7C85 /* StateManager.swift in Sources */,
 				C220E0621BC3322F00AC7C85 /* ErrorLogger.swift in Sources */,
@@ -1471,6 +1484,7 @@
 				C28ECB3D1BCF193300887763 /* PingManager.swift in Sources */,
 				C21775F91BB08CAC008B24EA /* Color.swift in Sources */,
 				C24486F01BA89DF200A19A9D /* GeofenceListResponse.swift in Sources */,
+				E14A39281BE957340053F741 /* AppQuit.swift in Sources */,
 				C2AB513A1BD02CC0003ACB4C /* LatestCidIsEntryCid.swift in Sources */,
 				C26530B41BE3F7CB002C0A97 /* TripInvalidated.swift in Sources */,
 				E19A80231BE8024C00FEB76B /* OutsideShortTripGeofence.swift in Sources */,
@@ -1526,9 +1540,10 @@
 				E16399D51BA7B99400EDE0AE /* Driver.swift in Sources */,
 				C2B667291BA7833400BA28E2 /* TerminalSummaryView.swift in Sources */,
 				C2635E2E1BB0CD9A003C22B1 /* ReferenceClient.swift in Sources */,
-				C20A988A1BE17AEC009E29E7 /* Notifiable.swift in Sources */,
+				C20A988A1BE17AEC009E29E7 /* Observable.swift in Sources */,
 				C21528C91BC8557B0073502F /* DebugView.swift in Sources */,
 				E1A2EBA91B6D747F00C27EB2 /* Flight.swift in Sources */,
+				E14A392A1BE957B80053F741 /* LoggedOut.swift in Sources */,
 				E187368E1BA8EADE00B6C7D8 /* CidListResponse.swift in Sources */,
 				C26530B01BE3F038002C0A97 /* VerifyingInboundAvi.swift in Sources */,
 				E18228FB1BC48F2300614256 /* InProgress.swift in Sources */,
@@ -1557,6 +1572,7 @@
 				8EEFB7C71BE1B24500B8A962 /* TripClientSpec.swift in Sources */,
 				8EEFB7B91BE1A6BA00B8A962 /* DeviceClientSpec.swift in Sources */,
 				C22167971BD59419002D7994 /* MultipleGeofenceMock.swift in Sources */,
+				E14A39261BE945960053F741 /* TripScenario4Spec.swift in Sources */,
 				8EEFB7D61BE2A32800B8A962 /* TerminalSummaryDResponseSpec.swift in Sources */,
 				8EEFB7AF1BE198C300B8A962 /* DriverClientSpec.swift in Sources */,
 				C22167951BD592C4002D7994 /* SingleGeofenceMock.swift in Sources */,

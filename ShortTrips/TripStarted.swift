@@ -29,8 +29,8 @@ extension TripStarted: Event {
   }
 }
 
-extension TripStarted: Notifiable {
-  func postSfoNotification(info: Any?) {
+extension TripStarted: Observable {
+  func eventWasFired(info: Any?) {
     if let info = info as? Int {
       postNotification(SfoNotification.Trip.started, value: info)
     }
