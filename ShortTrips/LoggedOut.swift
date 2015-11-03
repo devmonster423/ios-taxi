@@ -7,3 +7,24 @@
 //
 
 import Foundation
+import TransitionKit
+
+struct LoggedOut {
+  let eventNames = ["loggedOut"]
+  static let sharedInstance = LoggedOut()
+  
+  private var events: [TKEvent]
+  
+  private init() {
+    events = [TKEvent(name: eventNames[0],
+      transitioningFromStates: StateManager.allStates,
+      toState: NotReady.sharedInstance.getState())]
+  }
+}
+
+extension LoggedOut: Event {
+  func getEvents() -> [TKEvent] {
+    return events
+  }
+}
+

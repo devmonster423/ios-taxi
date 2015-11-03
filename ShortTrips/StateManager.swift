@@ -34,6 +34,7 @@ class StateManager {
   
   static func allEvents() -> [TKEvent] {
     var events = DriverAndVehicleAssociated.sharedInstance.getEvents()
+    events += AppQuit.sharedInstance.getEvents()
     events += EntryGateAVIReadConfirmed.sharedInstance.getEvents()
     events += ExitAviReadFailed.sharedInstance.getEvents()
     events += Failure.sharedInstance.getEvents()
