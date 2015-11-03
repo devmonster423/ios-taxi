@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import JSQNotificationObserverKit
 
-class DebugVC: UIViewController, AviDebugger, CidDebugger, GeofenceDebugger, LocationDebugger, PingDebugger, RequestDebugger, StateDebugger, TripDebugger {
+class DebugVC: UIViewController {
   
   let stateManager = StateManager.sharedInstance // needed, to start the state machine
   

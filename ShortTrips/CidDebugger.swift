@@ -9,9 +9,7 @@
 import Foundation
 import JSQNotificationObserverKit
 
-protocol CidDebugger { }
-
-extension CidDebugger where Self: DebugVC {
+extension DebugVC {
   
   func setupCidObservers() {
     paymentCidRead = NotificationObserver(notification: SfoNotification.Cid.payment, handler: { cid, _ in

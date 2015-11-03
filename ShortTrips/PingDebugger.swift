@@ -9,9 +9,7 @@
 import Foundation
 import JSQNotificationObserverKit
 
-protocol PingDebugger { }
-
-extension PingDebugger where Self: DebugVC {
+extension DebugVC {
   
   func setupPingObservers() {
     attemptingPingObserver = NotificationObserver(notification: SfoNotification.Ping.attempting) { ping, _ in

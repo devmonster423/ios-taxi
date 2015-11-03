@@ -9,9 +9,7 @@
 import Foundation
 import JSQNotificationObserverKit
 
-protocol GeofenceDebugger { }
-
-extension GeofenceDebugger where Self: DebugVC {
+extension DebugVC {
   
   func setupGeofenceObservers() {
     foundInsideGeofencesObserver = NotificationObserver(notification: SfoNotification.Geofence.foundInside, handler: { geofences, _ in

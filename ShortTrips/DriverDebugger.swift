@@ -9,9 +9,7 @@
 import Foundation
 import JSQNotificationObserverKit
 
-protocol DriverDebugger { }
-
-extension DriverDebugger where Self: DebugVC {
+extension DebugVC {
   
   func setupDriverObservers() {
     driverAndVehicleAssociated = NotificationObserver(notification: SfoNotification.Driver.vehicleAssociated, handler: { data, _ in

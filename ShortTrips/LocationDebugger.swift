@@ -10,15 +10,13 @@ import Foundation
 import CoreLocation
 import JSQNotificationObserverKit
 
-protocol LocationDebugger { }
-
-extension LocationDebugger where Self: DebugVC {
+extension DebugVC {
   
   func setupLocationObservers() {
     locationManagerStartedObserver = NotificationObserver(notification: SfoNotification.Location.managerStarted) { _, _ in
       
       self.debugView().printDebugLine("started location manager", type: .BigDeal)
-      self.updateFakeButton("Fakessfg Inside SFO", action: "triggerInsideSfo")
+      self.updateFakeButton("Fake Inside SFO", action: "triggerInsideSfo")
     }
     
     locationObserver = NotificationObserver(notification: SfoNotification.Location.read, handler: { location, _ in

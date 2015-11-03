@@ -9,9 +9,7 @@
 import Foundation
 import JSQNotificationObserverKit
 
-protocol AviDebugger { }
-
-extension AviDebugger where Self: DebugVC {
+extension DebugVC {
   
   func setupAviObservers() {
     entryGateAvi = NotificationObserver(notification: SfoNotification.Avi.entryGate, handler: { antenna, _ in

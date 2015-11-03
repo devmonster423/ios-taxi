@@ -9,9 +9,7 @@
 import Foundation
 import JSQNotificationObserverKit
 
-protocol StateDebugger { }
-
-extension StateDebugger where Self: DebugVC {
+extension DebugVC {
   
   func setupStateObservers() {
     associatingDriverAndVehicle = NotificationObserver(notification: SfoNotification.State.associatingDriverAndVehicle, handler: { _, _ in
@@ -37,7 +35,7 @@ extension StateDebugger where Self: DebugVC {
     })
     
     waitForEntryCidObserver = NotificationObserver(notification: SfoNotification.State.waitForEntryCid) { _, _ in
-      self.updateFakeButton("Triggersh Cid Entry", action: "triggerEntryCid")
+      self.updateFakeButton("Trigger Cid Entry", action: "triggerEntryCid")
     }
   }
 }

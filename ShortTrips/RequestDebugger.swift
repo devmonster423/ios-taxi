@@ -9,9 +9,7 @@
 import Foundation
 import JSQNotificationObserverKit
 
-protocol RequestDebugger { }
-
-extension RequestDebugger where Self: DebugVC {
+extension DebugVC {
   
   func setupRequestObservers() {
     responseObserver = NotificationObserver(notification: SfoNotification.Request.response, handler: { response, _ in

@@ -9,9 +9,7 @@
 import Foundation
 import JSQNotificationObserverKit
 
-protocol TripDebugger { }
-
-extension TripDebugger where Self: DebugVC {
+extension DebugVC {
   
   func setupTripObservers() {
     timeExpiredObserver = NotificationObserver(notification: SfoNotification.Trip.timeExpired) { _, _ in
