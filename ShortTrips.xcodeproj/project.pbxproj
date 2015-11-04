@@ -167,7 +167,6 @@
 		E14A39281BE957340053F741 /* AppQuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14A39271BE957340053F741 /* AppQuit.swift */; };
 		E14A392A1BE957B80053F741 /* LoggedOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14A39291BE957B80053F741 /* LoggedOut.swift */; };
 		E14E159B1BB1D856009D1E17 /* AntennaSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14E159A1BB1D856009D1E17 /* AntennaSpec.swift */; };
-		E14E159E1BB1DA9F009D1E17 /* AntennaResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14E159D1BB1DA9F009D1E17 /* AntennaResponseSpec.swift */; };
 		E1598CE41BB1ACB100E933AD /* FlightSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1598CE31BB1ACB100E933AD /* FlightSpec.swift */; };
 		E1598CE61BB1AE3B00E933AD /* FlightDetailResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1598CE51BB1AE3B00E933AD /* FlightDetailResponseSpec.swift */; };
 		E15A3CD31BAC86C6002EDE40 /* DriverCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15A3CD21BAC86C6002EDE40 /* DriverCredential.swift */; };
@@ -182,7 +181,6 @@
 		E18228FD1BC4900900614256 /* OutsideSfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18228FC1BC4900900614256 /* OutsideSfo.swift */; };
 		E18228FF1BC4932400614256 /* ValidatingTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18228FE1BC4932400614256 /* ValidatingTrip.swift */; };
 		E18229031BC495A000614256 /* TripValidated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18229021BC495A000614256 /* TripValidated.swift */; };
-		E18736891BA8E7D800B6C7D8 /* AntennaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18736881BA8E7D800B6C7D8 /* AntennaResponse.swift */; };
 		E187368C1BA8EA0900B6C7D8 /* AllCidsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187368B1BA8EA0900B6C7D8 /* AllCidsResponse.swift */; };
 		E187368E1BA8EADE00B6C7D8 /* CidListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187368D1BA8EADE00B6C7D8 /* CidListResponse.swift */; };
 		E18736901BA8EBED00B6C7D8 /* CidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187368F1BA8EBED00B6C7D8 /* CidResponse.swift */; };
@@ -410,7 +408,6 @@
 		E14A39271BE957340053F741 /* AppQuit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppQuit.swift; sourceTree = "<group>"; };
 		E14A39291BE957B80053F741 /* LoggedOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedOut.swift; sourceTree = "<group>"; };
 		E14E159A1BB1D856009D1E17 /* AntennaSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntennaSpec.swift; sourceTree = "<group>"; };
-		E14E159D1BB1DA9F009D1E17 /* AntennaResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntennaResponseSpec.swift; sourceTree = "<group>"; };
 		E1598CE31BB1ACB100E933AD /* FlightSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightSpec.swift; sourceTree = "<group>"; };
 		E1598CE51BB1AE3B00E933AD /* FlightDetailResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightDetailResponseSpec.swift; sourceTree = "<group>"; };
 		E15A3CD21BAC86C6002EDE40 /* DriverCredential.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverCredential.swift; sourceTree = "<group>"; };
@@ -425,7 +422,6 @@
 		E18228FC1BC4900900614256 /* OutsideSfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutsideSfo.swift; sourceTree = "<group>"; };
 		E18228FE1BC4932400614256 /* ValidatingTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ValidatingTrip.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E18229021BC495A000614256 /* TripValidated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripValidated.swift; sourceTree = "<group>"; };
-		E18736881BA8E7D800B6C7D8 /* AntennaResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AntennaResponse.swift; sourceTree = "<group>"; };
 		E187368B1BA8EA0900B6C7D8 /* AllCidsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCidsResponse.swift; sourceTree = "<group>"; };
 		E187368D1BA8EADE00B6C7D8 /* CidListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidListResponse.swift; sourceTree = "<group>"; };
 		E187368F1BA8EBED00B6C7D8 /* CidResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidResponse.swift; sourceTree = "<group>"; };
@@ -919,7 +915,6 @@
 		E14E159C1BB1D869009D1E17 /* Antenna */ = {
 			isa = PBXGroup;
 			children = (
-				E14E159D1BB1DA9F009D1E17 /* AntennaResponseSpec.swift */,
 				E14E159A1BB1D856009D1E17 /* AntennaSpec.swift */,
 				C221EDEA1BE2E12E00BDB4CD /* MockAntennaResponse.swift */,
 			);
@@ -1062,7 +1057,6 @@
 			isa = PBXGroup;
 			children = (
 				E18FF68E1BA869A300FE93B9 /* Antenna.swift */,
-				E18736881BA8E7D800B6C7D8 /* AntennaResponse.swift */,
 			);
 			name = Antenna;
 			sourceTree = "<group>";
@@ -1496,7 +1490,6 @@
 				E187B2751BE036F10031F07C /* WaitingInHoldingLot.swift in Sources */,
 				C26530B61BE3FB66002C0A97 /* TripValidation.swift in Sources */,
 				C215CE031BD1B87000991D9D /* Vehicle.swift in Sources */,
-				E18736891BA8E7D800B6C7D8 /* AntennaResponse.swift in Sources */,
 				E1A2EBA01B6BEF3900C27EB2 /* FlightStatusVC.swift in Sources */,
 				C28ECB201BCEBDD400887763 /* LocationManager.swift in Sources */,
 				C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */,
@@ -1581,7 +1574,6 @@
 				8EEFB7D81BE2A3CC00B8A962 /* TerminalSummaryAResponseSpec.swift in Sources */,
 				E1E6EF9E1BB205520039C5F3 /* DriverSpec.swift in Sources */,
 				E112C30E1BB3195500B1DF48 /* LotStatusSpec.swift in Sources */,
-				E14E159E1BB1DA9F009D1E17 /* AntennaResponseSpec.swift in Sources */,
 				C21528CF1BC869820073502F /* DebugVCSpec.swift in Sources */,
 				8EEFB7B11BE19A1900B8A962 /* DriverLoginMock.swift in Sources */,
 				E18FFE291BB19ED2003D192A /* FlightsForTerminalResponseSpec.swift in Sources */,
