@@ -21,6 +21,8 @@ struct VerifyingTaxiLoopAvi {
     state = TKState(name: stateName)
     
     state.setDidEnterStateBlock { _, _ in
+    
+      postNotification(SfoNotification.State.waitForTaxiLoopAvi, value: nil)
       
       self.poller = Poller.init(timeout: 60, action: { _ in
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {

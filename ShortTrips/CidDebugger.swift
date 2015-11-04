@@ -18,7 +18,6 @@ extension DebugVC {
     
     paymentCidRead = NotificationObserver(notification: SfoNotification.Cid.payment, handler: { cid, _ in
       self.debugView().printDebugLine("payment cid read detected: (\(cid)")
-      self.updateFakeButton("Latest Avi Read At Taxi Loop", action: "latestAviReadAtTaxiLoop")
     })
   }
   

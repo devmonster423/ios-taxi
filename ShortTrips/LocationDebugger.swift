@@ -36,9 +36,8 @@ extension DebugVC {
     self.updateFakeButton("Back To SFO", action: "backToSFO")
   }
   
-  func leaveTerminalExitLoop() {
+  func fakeOutsideSfo() {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.610560, longitude: -122.401814))
-    self.updateFakeButton("Fake Exit AVI Read", action: "latestExitAviRead")
   }
   
   func triggerAtTerminalExit() {
