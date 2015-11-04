@@ -29,8 +29,8 @@ extension EntryGateAVIReadConfirmed: Event {
   }
 }
 
-extension EntryGateAVIReadConfirmed: Notifiable {
-  func postSfoNotification(info: Any?) {
+extension EntryGateAVIReadConfirmed: Observable {
+  func eventIsFiring(info: Any?) {
     if let antenna = info as? Antenna {
       postNotification(SfoNotification.Avi.entryGate, value: antenna)
     }

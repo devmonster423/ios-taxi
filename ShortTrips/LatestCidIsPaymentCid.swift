@@ -29,8 +29,8 @@ extension LatestCidIsPaymentCid: Event {
   }
 }
 
-extension LatestCidIsPaymentCid: Notifiable {
-  func postSfoNotification(info: Any?) {
+extension LatestCidIsPaymentCid: Observable {
+  func eventIsFiring(info: Any?) {
     if let cid = info as? Cid {
       postNotification(SfoNotification.Cid.payment, value: cid)
     }

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol Observable {
-  func eventWasFired(info: Any?)
+  func eventIsFiring(info: Any?)
 }

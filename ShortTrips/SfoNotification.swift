@@ -19,6 +19,7 @@ struct SfoNotification {
   }
 
   struct Cid {
+    static let entry = Notification<ShortTrips.Cid, AnyObject>(name: "EntryCidRead")
     static let payment = Notification<ShortTrips.Cid, AnyObject>(name: "PaymentCidRead")
   }
   

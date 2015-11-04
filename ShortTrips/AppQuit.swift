@@ -29,7 +29,7 @@ extension AppQuit: Event {
 }
 
 extension AppQuit: Observable {
-  func eventWasFired(info: Any?) {
+  func eventIsFiring(info: Any?) {
     if let tripId = TripManager.sharedInstance.getTripId() {
       ApiClient.invalidate(tripId, validation: ValidationStepWrapper(validationStep: .InvalidGeofence))
     }

@@ -29,8 +29,8 @@ extension DriverAndVehicleAssociated: Event {
   }
 }
 
-extension DriverAndVehicleAssociated: Notifiable {
-  func postSfoNotification(info: Any?) {
+extension DriverAndVehicleAssociated: Observable {
+  func eventIsFiring(info: Any?) {
     if let info = info as? (driver: Driver, vehicle: Vehicle) {
       postNotification(SfoNotification.Driver.vehicleAssociated, value: (driver: info.driver, vehicle: info.vehicle))
     }

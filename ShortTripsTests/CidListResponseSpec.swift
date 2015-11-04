@@ -20,7 +20,7 @@ class CidListResponseSpec: QuickSpec {
   override func spec() {
     describe("the CidListResponse") {
       beforeEach {
-        self.cidList = [Cid(cidId: 42, cidLocation: "parking lot")]
+        self.cidList = [Cid(cidId: "CID12", cidLocation: "Payment Gate", cidTimeRead: NSDate())]
         self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
         self.cidListResponse = CidListResponse(self.map)
         self.cidListResponse.cidList = self.cidList

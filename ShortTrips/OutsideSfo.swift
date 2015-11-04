@@ -29,8 +29,8 @@ extension OutsideSfo: Event {
   }
 }
 
-extension OutsideSfo: Notifiable {
-  func postSfoNotification(info: Any?) {
+extension OutsideSfo: Observable {
+  func eventIsFiring(info: Any?) {
     postNotification(SfoNotification.Geofence.outsideSfo, value: nil)
   }
 }

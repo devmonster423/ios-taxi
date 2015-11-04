@@ -26,14 +26,12 @@ struct WaitingForEntryCid {
       
       self.poller = Poller.init(timeout: 60, action: { _ in
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
-          ApiClient.requestCidForSmartCard(driver.cardId) { cid in
+          ApiClient.requestCidForSmartCard(driver.cardId) { cidDevice in
             
-            // TODO: actually verify if the CID is the entry CID
-            //        if let cid = cid where
-            //        cid.cidLocation == "entry" {
-            
-           // LatestCidIsEntryCid.sharedInstance.fire()
-            //  }
+            if let cidDevice = cidDevice where cidDevice == .TaxiEntry {
+              LatestCidIsEntryCid.sharedInstance.fire()
+            }
+
           }
         }
       })

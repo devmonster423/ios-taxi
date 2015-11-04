@@ -20,6 +20,7 @@ class DebugVC: UIViewController {
   var exitAviRead:  NotificationObserver<Antenna, AnyObject>?
   
   // Cid
+  var entryCidRead: NotificationObserver<Cid, AnyObject>?
   var paymentCidRead: NotificationObserver<Cid, AnyObject>?
   
   // Driver

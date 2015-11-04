@@ -8,8 +8,9 @@
 
 import Foundation
 import TransitionKit
+import JSQNotificationObserverKit
 
-struct LatestCidIsEntryCid: Event {
+struct LatestCidIsEntryCid {
   let eventNames = ["lastestCidIsEntryCid"]
   static let sharedInstance = LatestCidIsEntryCid()
 
@@ -20,8 +21,18 @@ struct LatestCidIsEntryCid: Event {
       transitioningFromStates: [WaitingForEntryCid.sharedInstance.getState()],
       toState: AssociatingDriverAndVehicle.sharedInstance.getState())]
   }
-  
+}
+
+extension LatestCidIsEntryCid: Event {
   func getEvents() -> [TKEvent] {
     return events
+  }
+}
+
+extension LatestCidIsEntryCid: Observable {
+  func eventIsFiring(info: Any?) {
+    if let cid = info as? Cid {
+      postNotification(SfoNotification.Cid.entry, value: cid)
+    }
   }
 }
