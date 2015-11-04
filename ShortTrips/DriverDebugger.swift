@@ -17,7 +17,6 @@ extension DebugVC {
       let driver = data.driver
       
       self.debugView().printDebugLine("driver \(driver.firstName) \(driver.lastName) is associated with transponder: (\(vehicle.transponderId)")
-      self.updateFakeButton("Confirm Entry Gate Avi Read", action: "confirmEntryGateAviRead")
     })
   }
   

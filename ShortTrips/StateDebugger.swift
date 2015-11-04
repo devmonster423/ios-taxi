@@ -37,5 +37,9 @@ extension DebugVC {
     waitForEntryCidObserver = NotificationObserver(notification: SfoNotification.State.waitForEntryCid) { _, _ in
       self.updateFakeButton("Trigger Cid Entry", action: "triggerEntryCid")
     }
+
+    waitForEntryGateAviObserver = NotificationObserver(notification: SfoNotification.State.waitForEntryGateAvi) { _, _ in
+      self.updateFakeButton("Confirm Entry Gate Avi Read", action: "confirmEntryGateAviRead")
+    }
   }
 }
