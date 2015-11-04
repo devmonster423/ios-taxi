@@ -35,7 +35,7 @@ extension DebugVC {
     }
   }
   
-  func fakeTripId() {
+  func generateTripId() {
     TripStarted.sharedInstance.fire(123)
   }
 }

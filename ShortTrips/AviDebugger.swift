@@ -22,7 +22,6 @@ extension DebugVC {
 
     exitAviRead = NotificationObserver(notification: SfoNotification.Avi.exit, handler: { antenna, _ in
       self.debugView().printDebugLine("Exit AVI read: (\(antenna)")
-      self.updateFakeButton("Generate Trip ID", action: "fakeCidPayment")
     })
   }
   

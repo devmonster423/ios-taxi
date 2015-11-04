@@ -32,10 +32,11 @@ struct VerifyingExitAvi {
             if let antenna = antenna where antenna.device() == .TaxiStagingExit {
               LatestAviReadAtTaxiLoop.sharedInstance.fire()
               TripManager.sharedInstance.setStartTime(antenna.aviDate)
-            } else {
-              ExitAviReadFailed.sharedInstance.fire()
-              StateManager.sharedInstance.addWarning(.ExitAviFailed)
             }
+//            else {
+//              ExitAviReadFailed.sharedInstance.fire()
+//              StateManager.sharedInstance.addWarning(.ExitAviFailed)
+//            }
           }
         }
       })
