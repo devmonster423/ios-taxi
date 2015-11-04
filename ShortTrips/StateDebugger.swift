@@ -32,12 +32,13 @@ extension DebugVC {
     
     startingToWait = NotificationObserver(notification: SfoNotification.State.wait, handler: { _, _ in
       self.debugView().printDebugLine("starting to wait")
+      self.updateFakeButton("Fake At Terminal Exit", action: "triggerAtTerminalExit")
     })
     
     waitForEntryCidObserver = NotificationObserver(notification: SfoNotification.State.waitForEntryCid) { _, _ in
       self.updateFakeButton("Trigger Cid Entry", action: "triggerEntryCid")
     }
-
+    
     waitForEntryGateAviObserver = NotificationObserver(notification: SfoNotification.State.waitForEntryGateAvi) { _, _ in
       self.updateFakeButton("Confirm Entry Gate Avi Read", action: "confirmEntryGateAviRead")
     }

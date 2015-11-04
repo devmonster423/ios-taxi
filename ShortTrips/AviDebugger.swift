@@ -14,7 +14,6 @@ extension DebugVC {
   func setupAviObservers() {
     entryGateAvi = NotificationObserver(notification: SfoNotification.Avi.entryGate, handler: { antenna, _ in
       self.debugView().printDebugLine("entry gate avi detected: (\(antenna)")
-      self.updateFakeButton("Fake At Terminal Exit", action: "triggerAtTerminalExit")
     })
     
     taxiLoopAviRead = NotificationObserver(notification: SfoNotification.Avi.taxiLoop, handler: { antenna, _ in
