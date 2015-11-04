@@ -26,7 +26,7 @@ struct VerifyingInboundAvi {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
             
-            if let antenna = antenna where antenna.aviLocation == .Inbound {
+            if let antenna = antenna where antenna.device() == .TaxiEntry {
               LatestAviReadInbound.sharedInstance.fire()
             }
           }

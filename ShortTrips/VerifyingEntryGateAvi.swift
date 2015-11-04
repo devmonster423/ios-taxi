@@ -27,7 +27,7 @@ struct VerifyingEntryGateAvi {
           self.poller = Poller.init(timeout: 60, action: { _ in
               if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
                   ApiClient.requestAntenna(vehicle.transponderId) { antenna in
-                    if let antenna = antenna where antenna.aviLocation == .Entry {
+                    if let antenna = antenna where antenna.device() == .TaxiEntry {
                       EntryGateAVIReadConfirmed.sharedInstance.fire(antenna)
                     }
                   }

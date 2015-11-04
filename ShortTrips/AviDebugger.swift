@@ -27,14 +27,14 @@ extension DebugVC {
   }
   
   func confirmEntryGateAviRead() {
-    EntryGateAVIReadConfirmed.sharedInstance.fire(Antenna(antennaId: 123, aviLocation: .Entry, aviDate: NSDate()))
+    EntryGateAVIReadConfirmed.sharedInstance.fire(Antenna(antennaId: "123", aviLocation: .TaxiEntry, aviDate: NSDate()))
   }
   
   func latestAviReadAtTaxiLoop() {
-    LatestAviReadAtTaxiLoop.sharedInstance.fire(Antenna(antennaId: 123, aviLocation: .Entry, aviDate: NSDate()))
+    LatestAviReadAtTaxiLoop.sharedInstance.fire(Antenna(antennaId: "123", aviLocation: .TaxiEntry, aviDate: NSDate()))
   }
 
   func latestExitAviRead() {
-    LatestAviReadAtExit.sharedInstance.fire(Antenna(antennaId: 123, aviLocation: .Entry, aviDate: NSDate()))
+    LatestAviReadAtExit.sharedInstance.fire(Antenna(antennaId: "123", aviLocation: .TaxiEntry, aviDate: NSDate()))
   }
 }

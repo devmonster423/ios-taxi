@@ -26,7 +26,8 @@ struct VerifyingExitAvi {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
             
-            if let antenna = antenna where antenna.aviLocation == .Exit {
+            // TODO: make sure antenna is the right one
+            if let antenna = antenna where antenna.device() == .TaxiStagingExit {
               LatestAviReadAtTaxiLoop.sharedInstance.fire()
               TripManager.sharedInstance.setStartTime(antenna.aviDate)
             } else {
