@@ -21,6 +21,11 @@ extension DebugVC {
       self.debugView().printDebugLine("Taxiloop AVI read: (\(antenna)")
       self.updateFakeButton("Fake Cid Payment", action: "fakeCidPayment")
     })
+
+    exitAviRead = NotificationObserver(notification: SfoNotification.Avi.exit, handler: { antenna, _ in
+      self.debugView().printDebugLine("Exit AVI read: (\(antenna)")
+      self.updateFakeButton("Generate Trip ID", action: "fakeCidPayment")
+    })
   }
   
   func confirmEntryGateAviRead() {
@@ -29,5 +34,9 @@ extension DebugVC {
   
   func latestAviReadAtTaxiLoop() {
     LatestAviReadAtTaxiLoop.sharedInstance.fire(Antenna(antennaId: 123, aviLocation: .Entry, aviDate: NSDate()))
+  }
+
+  func latestExitAviRead() {
+    LatestAviReadAtExit.sharedInstance.fire(Antenna(antennaId: 123, aviLocation: .Entry, aviDate: NSDate()))
   }
 }

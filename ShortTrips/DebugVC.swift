@@ -17,6 +17,7 @@ class DebugVC: UIViewController {
   // Avi
   var entryGateAvi: NotificationObserver<Antenna, AnyObject>?
   var taxiLoopAviRead: NotificationObserver<Antenna, AnyObject>?
+  var exitAviRead:  NotificationObserver<Antenna, AnyObject>?
   
   // Cid
   var paymentCidRead: NotificationObserver<Cid, AnyObject>?
@@ -75,6 +76,7 @@ class DebugVC: UIViewController {
     
     setupAviObservers()
     setupCidObservers()
+    setupDriverObservers()
     setupGeofenceObservers()
     setupLocationObservers()
     setupPingObservers()

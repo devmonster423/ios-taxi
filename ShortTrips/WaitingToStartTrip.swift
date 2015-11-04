@@ -27,9 +27,10 @@ struct WaitingForStartTrip {
             TripManager.sharedInstance.setTripId(tripId)
             TripStarted.sharedInstance.fire()
             
-          } else {
-            Failure.sharedInstance.fire()
           }
+//          else {
+//            Failure.sharedInstance.fire()
+//          }
         }
       }
     }
