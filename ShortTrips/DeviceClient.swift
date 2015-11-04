@@ -13,7 +13,7 @@ import AlamofireObjectMapper
 import JSQNotificationObserverKit
 
 typealias AviClosure = ([AutomaticVehicleId]?, ErrorType?) -> Void
-typealias AntennaClosure = Antenna? -> Void
+typealias AntennaClosure = AviLocation? -> Void
 typealias AllCidsClosure = ([Cid]?, ErrorType?) -> Void
 typealias CidClosure = CidDevice? -> Void
 
@@ -52,7 +52,7 @@ extension ApiClient {
           postNotification(SfoNotification.Request.response, value: raw)
         }
         
-        response(antenna)
+        response(antenna?.device())
     }
   }
   

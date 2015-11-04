@@ -53,6 +53,7 @@ class DebugVC: UIViewController {
   var startingToWait: NotificationObserver<Any?, AnyObject>?
   var waitForEntryCidObserver: NotificationObserver<Any?, AnyObject>?
   var waitForEntryGateAviObserver: NotificationObserver<Any?, AnyObject>?
+  var waitForPaymentCid: NotificationObserver<Any?, AnyObject>?
   
   // Trip
   var timeExpiredObserver: NotificationObserver<Any?, AnyObject>?

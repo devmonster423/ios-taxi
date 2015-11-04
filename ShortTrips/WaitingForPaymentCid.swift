@@ -22,6 +22,8 @@ struct WaitingForPaymentCid {
     
     state.setDidEnterStateBlock { _, _ in
       
+      postNotification(SfoNotification.State.waitForPaymentCid, value: nil)
+      
       self.poller = Poller.init(timeout: 60, action: { _ in
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
           ApiClient.requestCidForSmartCard(driver.cardId) { cidDevice in

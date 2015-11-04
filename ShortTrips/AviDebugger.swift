@@ -18,7 +18,6 @@ extension DebugVC {
     
     taxiLoopAviRead = NotificationObserver(notification: SfoNotification.Avi.taxiLoop, handler: { antenna, _ in
       self.debugView().printDebugLine("Taxiloop AVI read: (\(antenna)")
-      self.updateFakeButton("Fake Cid Payment", action: "fakeCidPayment")
     })
 
     exitAviRead = NotificationObserver(notification: SfoNotification.Avi.exit, handler: { antenna, _ in
