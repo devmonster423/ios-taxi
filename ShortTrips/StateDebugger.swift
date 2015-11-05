@@ -67,25 +67,25 @@ extension DebugVC {
     
     waitForExitAvi = NotificationObserver(notification: SfoNotification.State.waitForExitAvi, handler: { antenna, _ in
       self.debugView().printDebugLine("Entered Waiting for Exit Avi")
-      self.debugView().updateState("Wait for Exit Avi")
+      self.debugView().updateState("Waiting for Exit Avi")
       self.updateFakeButton("Fake Exit AVI Read", action: "latestExitAviRead")
     })
     
     waitForTaxiLoopAvi = NotificationObserver(notification: SfoNotification.State.waitForTaxiLoopAvi, handler: { antenna, _ in
       self.debugView().printDebugLine("Entered Waiting For Taxi Loop Avi")
-      self.debugView().updateState("Wait for Taxi Loop Avi")
+      self.debugView().updateState("Waiting for Taxi Loop Avi")
       self.updateFakeButton("Latest Avi Read At Taxi Loop", action: "latestAviReadAtTaxiLoop")
     })
     
     waitForTripToStart = NotificationObserver(notification: SfoNotification.State.waitForTripToStart, handler: { antenna, _ in
       self.debugView().printDebugLine("Entered Waiting For Trip to Start")
-      self.debugView().updateState("Wait for Trip to Start")
+      self.debugView().updateState("Waiting for Trip to Start")
       self.updateFakeButton("Generate Trip ID & Start", action: "generateTripId")
     })
     
     waitForInboundAvi = NotificationObserver(notification: SfoNotification.State.waitForInboundAvi, handler: { antenna, _ in
       self.debugView().printDebugLine("Entered Waiting For Inbound Avi")
-      self.debugView().updateState("Wait for Inbound Avi")
+      self.debugView().updateState("Waiting for Inbound Avi")
       self.updateFakeButton("Fake Inbound Avi Read", action: "fakeInboundAviread")
     })
 
