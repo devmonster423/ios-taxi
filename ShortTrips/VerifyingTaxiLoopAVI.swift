@@ -25,13 +25,13 @@ struct VerifyingTaxiLoopAvi {
       postNotification(SfoNotification.State.waitForTaxiLoopAvi, value: nil)
       
       self.poller = Poller.init(timeout: 60, action: { _ in
-        if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
-          ApiClient.requestAntenna(vehicle.transponderId) { antenna in
-            
-            if let antenna = antenna where antenna.device() == .TaxiStagingExit {
-              LatestAviReadAtTaxiLoop.sharedInstance.fire(antenna)
+        DriverManager.sharedInstance.getCurrentVehicle() { vehicle in
+          if let vehicle = vehicle {
+            ApiClient.requestAntenna(vehicle.transponderId) { antenna in
+              if let antenna = antenna where antenna.device() == .TaxiStagingExit {
+                LatestAviReadAtTaxiLoop.sharedInstance.fire(antenna)
+              }
             }
-
           }
         }
       })

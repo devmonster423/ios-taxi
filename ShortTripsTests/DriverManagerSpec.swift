@@ -36,7 +36,11 @@ class DriverManagerSpec: QuickSpec {
         
         DriverManager.sharedInstance.setCurrentVehicle(vehicle)
         
-        expect(DriverManager.sharedInstance.getCurrentVehicle()!.vehicleId).to(equal(vehicle.vehicleId))
+        DriverManager.sharedInstance.getCurrentVehicle() { vehicle in
+          if let vehicle = vehicle {
+            expect(vehicle.vehicleId).to(equal(vehicle.vehicleId))
+          }
+        }
       }
     }
   }
