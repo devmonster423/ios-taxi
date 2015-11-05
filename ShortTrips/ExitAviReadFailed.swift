@@ -30,7 +30,7 @@ extension ExitAviReadFailed: Event {
 }
 
 extension ExitAviReadFailed: Observable {
-  func eventWasFired(info: Any?) {
+  func eventIsFiring(info: Any?) {
     postNotification(SfoNotification.Trip.warning, value: .ExitAviFailed)
   }
 }

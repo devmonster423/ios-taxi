@@ -19,7 +19,7 @@ class DriverSpec: QuickSpec {
   override func spec() {
     describe("the Driver") {
       beforeEach {
-        self.driver = Driver(sessionId: 42, driverId: 42, cardId: 42, firstName: "🐷", lastName: "🐮")
+        self.driver = Driver(sessionId: 42, driverId: 42, cardId: 42, firstName: "🐷", lastName: "🐮", driverLicense: "3F0-3xy6y")
         self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
       }
       

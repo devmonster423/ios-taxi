@@ -30,7 +30,7 @@ extension LatestAviReadAtTaxiLoop: Event {
 }
 
 extension LatestAviReadAtTaxiLoop: Observable {
-  func eventWasFired(info: Any?) {
+  func eventIsFiring(info: Any?) {
     if let antenna = info as? Antenna {
       postNotification(SfoNotification.Avi.taxiLoop, value: antenna)
     }

@@ -21,22 +21,18 @@ struct VerifyingEntryGateAvi {
         state = TKState(name: stateName)
         
         state.setDidEnterStateBlock { _, _ in
+
+          postNotification(SfoNotification.State.waitForEntryGateAvi, value: nil)
             
-            self.poller = Poller.init(timeout: 60, action: { _ in
-                if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
-                    ApiClient.requestAntenna(vehicle.transponderId) { antenna in
-                        
-                        // TODO: actually verify if the antenna request succedeed
-                        //        if let cid = cid where
-                        //        cid.cidLocation == "entry" {
-                        
-                        EntryGateAVIReadConfirmed.sharedInstance.fire()
-                        postNotification(SfoNotification.Avi.entryGate, value: antenna!)
-                      
-                        //  }
+          self.poller = Poller.init(timeout: 60, action: { _ in
+              if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
+                  ApiClient.requestAntenna(vehicle.transponderId) { antenna in
+                    if let antenna = antenna where antenna.device() == .TaxiEntry {
+                      EntryGateAVIReadConfirmed.sharedInstance.fire(antenna)
                     }
-                }
-            })
+                  }
+              }
+          })
         }
         
         state.setDidExitStateBlock { _, _ in

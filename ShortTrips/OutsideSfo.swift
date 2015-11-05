@@ -8,6 +8,7 @@
 
 import Foundation
 import TransitionKit
+import JSQNotificationObserverKit
 
 struct OutsideSfo {
   let eventNames = ["outsideSfo"]
@@ -25,5 +26,11 @@ struct OutsideSfo {
 extension OutsideSfo: Event {
   func getEvents() -> [TKEvent] {
     return events
+  }
+}
+
+extension OutsideSfo: Observable {
+  func eventIsFiring(info: Any?) {
+    postNotification(SfoNotification.Geofence.outsideSfo, value: nil)
   }
 }

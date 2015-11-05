@@ -21,19 +21,17 @@ struct VerifyingTaxiLoopAvi {
     state = TKState(name: stateName)
     
     state.setDidEnterStateBlock { _, _ in
+    
+      postNotification(SfoNotification.State.waitForTaxiLoopAvi, value: nil)
       
       self.poller = Poller.init(timeout: 60, action: { _ in
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
             
-            // TODO: actually verify if the antenna request succedeed
-            //        if let cid = cid where
-            //        cid.cidLocation == "entry" {
-            
-            LatestAviReadAtTaxiLoop.sharedInstance.fire()
-            postNotification(SfoNotification.Avi.taxiLoop, value: antenna!)
-                        
-            //  }
+            if let antenna = antenna where antenna.device() == .TaxiStagingExit {
+              LatestAviReadAtTaxiLoop.sharedInstance.fire(antenna)
+            }
+
           }
         }
       })

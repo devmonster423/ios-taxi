@@ -30,8 +30,9 @@ extension TripStarted: Event {
 }
 
 extension TripStarted: Observable {
-  func eventWasFired(info: Any?) {
+  func eventIsFiring(info: Any?) {
     if let info = info as? Int {
+      TripManager.sharedInstance.setTripId(info)
       postNotification(SfoNotification.Trip.started, value: info)
     }
   }

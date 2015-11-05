@@ -8,6 +8,7 @@
 
 import Foundation
 import TransitionKit
+import JSQNotificationObserverKit
 
 class LatestCidIsPaymentCid {
   let eventNames = ["latestCidIsPaymentCid"]
@@ -17,7 +18,7 @@ class LatestCidIsPaymentCid {
 
   private init() {
     events = [TKEvent(name: eventNames[0],
-      transitioningFromStates: [WaitingForPaymentCID.sharedInstance.getState()],
+      transitioningFromStates: [WaitingForPaymentCid.sharedInstance.getState()],
       toState: VerifyingTaxiLoopAvi.sharedInstance.getState())]
   }
 }
@@ -25,5 +26,13 @@ class LatestCidIsPaymentCid {
 extension LatestCidIsPaymentCid: Event {
   func getEvents() -> [TKEvent] {
     return events
+  }
+}
+
+extension LatestCidIsPaymentCid: Observable {
+  func eventIsFiring(info: Any?) {
+    if let cid = info as? Cid {
+      postNotification(SfoNotification.Cid.payment, value: cid)
+    }
   }
 }

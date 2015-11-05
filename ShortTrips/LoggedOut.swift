@@ -29,7 +29,7 @@ extension LoggedOut: Event {
 }
 
 extension LoggedOut: Observable {
-  func eventWasFired(info: Any?) {
+  func eventIsFiring(info: Any?) {
     if let tripId = TripManager.sharedInstance.getTripId() {
       ApiClient.invalidate(tripId, validation: ValidationStepWrapper(validationStep: .InvalidGeofence))
     }
