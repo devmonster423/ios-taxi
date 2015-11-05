@@ -8,6 +8,7 @@
 
 import Foundation
 import TransitionKit
+import JSQNotificationObserverKit
 
 struct ValidatingTrip {
   let stateName = "validatingTrip"
@@ -19,6 +20,8 @@ struct ValidatingTrip {
     state = TKState(name: stateName)
     
     state.setDidEnterStateBlock { _, _ in
+      
+      postNotification(SfoNotification.State.validatingTrip, value: nil)
       
       if let tripId = TripManager.sharedInstance.getTripId() {
         ApiClient.end(tripId) { valid in

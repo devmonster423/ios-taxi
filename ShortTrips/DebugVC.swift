@@ -51,6 +51,7 @@ class DebugVC: UIViewController {
   var enteredReadyState: NotificationObserver<Any?, AnyObject>?
   var inProgressState: NotificationObserver<Any?, AnyObject>?
   var startingToWait: NotificationObserver<Any?, AnyObject>?
+  var validatingTrip: NotificationObserver<Any?, AnyObject>?
   var waitForEntryCidObserver: NotificationObserver<Any?, AnyObject>?
   var waitForEntryGateAviObserver: NotificationObserver<Any?, AnyObject>?
   var waitForPaymentCid: NotificationObserver<Any?, AnyObject>?
@@ -74,7 +75,7 @@ class DebugVC: UIViewController {
     debugView.fakeButton.addTarget(self,
       action: "triggerInsideSfo",
       forControlEvents: .TouchUpInside)
-
+    debugView.updateState("Not Ready")
     view = debugView
   }
   

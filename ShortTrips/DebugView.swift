@@ -34,6 +34,7 @@ class DebugView: UIView {
   private let debugTextView = UITextView()
   private let geofenceLabel = UILabel()
   private let gpsLabel = UILabel()
+  private let stateLabel = UILabel()
   let fakeButton = UIButton()
   let logOutButton = UIButton()
   
@@ -49,6 +50,7 @@ class DebugView: UIView {
     addSubview(debugTextView)
     addSubview(geofenceLabel)
     addSubview(gpsLabel)
+    addSubview(stateLabel)
     addSubview(fakeButton)
     addSubview(logOutButton)
     
@@ -58,7 +60,7 @@ class DebugView: UIView {
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.bottom.equalTo(logOutButton.snp_top)
-      make.top.equalTo(geofenceLabel.snp_bottom)
+      make.top.equalTo(stateLabel.snp_bottom)
     }
     
     geofenceLabel.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.5, alpha: 1.0)
@@ -84,6 +86,17 @@ class DebugView: UIView {
       make.bottom.equalTo(geofenceLabel)
     }
     
+    stateLabel.backgroundColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1.0)
+    stateLabel.font = Font.MyriadPro.size(14)
+    stateLabel.numberOfLines = 0
+    stateLabel.text = NSLocalizedString("Last state", comment: "") + ":"
+    stateLabel.snp_makeConstraints { make in
+      make.height.equalTo(50)
+      make.leading.equalTo(self)
+      make.width.equalTo(self)
+      make.top.equalTo(geofenceLabel.snp_bottom)
+    }
+
     fakeButton.backgroundColor = UIColor.blueColor()
     fakeButton.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(logOutButton)
@@ -115,6 +128,12 @@ class DebugView: UIView {
   func updateGPS(latitude: Double, longitude: Double) {
     gpsLabel.text = NSLocalizedString("Last verified location", comment: "")
       + ":\n(\(latitude),\(longitude))"
+  }
+  
+  func updateState(text: String?) {
+    if let text = text {
+      stateLabel.text = NSLocalizedString("Current State: \(text)", comment: "")
+    }
   }
   
   func printDebugLine(text: String?, type: DebugType = .Normal) {
