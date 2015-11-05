@@ -89,7 +89,6 @@ class DebugView: UIView {
     stateLabel.backgroundColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1.0)
     stateLabel.font = Font.MyriadPro.size(14)
     stateLabel.numberOfLines = 0
-    stateLabel.text = NSLocalizedString("Last state", comment: "") + ":"
     stateLabel.snp_makeConstraints { make in
       make.height.equalTo(50)
       make.leading.equalTo(self)
