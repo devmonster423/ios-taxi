@@ -27,9 +27,9 @@ struct ValidatingTrip {
         ApiClient.end(tripId) { valid in
           
           if let valid = valid where valid {
-            TripValidated.sharedInstance.fire()
+            TripValidated.sharedInstance.fire(true)
           } else {
-            TripInvalidated.sharedInstance.fire()
+            TripInvalidated.sharedInstance.fire(false)
           }
         }
       }
