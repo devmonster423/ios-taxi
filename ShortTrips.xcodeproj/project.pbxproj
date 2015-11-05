@@ -13,7 +13,7 @@
 		8EEFB79C1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB79B1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift */; };
 		8EEFB7A01BE0324600B8A962 /* VerifyingEntryGateAvi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB79F1BE0324600B8A962 /* VerifyingEntryGateAvi.swift */; };
 		8EEFB7A21BE041F800B8A962 /* WaitingForPaymentCid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A11BE041F800B8A962 /* WaitingForPaymentCid.swift */; };
-		8EEFB7A41BE04AD900B8A962 /* VerifyingTaxiLoopAVI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A31BE04AD900B8A962 /* VerifyingTaxiLoopAVI.swift */; };
+		8EEFB7A41BE04AD900B8A962 /* VerifyingTaxiLoopAvi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A31BE04AD900B8A962 /* VerifyingTaxiLoopAvi.swift */; };
 		8EEFB7A61BE04B5400B8A962 /* LatestCidIsPaymentCid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A51BE04B5400B8A962 /* LatestCidIsPaymentCid.swift */; };
 		8EEFB7A81BE04DD600B8A962 /* LatestAviReadAtTaxiLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A71BE04DD600B8A962 /* LatestAviReadAtTaxiLoop.swift */; };
 		8EEFB7AF1BE198C300B8A962 /* DriverClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7AE1BE198C300B8A962 /* DriverClientSpec.swift */; };
@@ -262,7 +262,7 @@
 		8EEFB79B1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverAndVehicleAssociated.swift; sourceTree = "<group>"; };
 		8EEFB79F1BE0324600B8A962 /* VerifyingEntryGateAvi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyingEntryGateAvi.swift; sourceTree = "<group>"; };
 		8EEFB7A11BE041F800B8A962 /* WaitingForPaymentCid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingForPaymentCid.swift; sourceTree = "<group>"; };
-		8EEFB7A31BE04AD900B8A962 /* VerifyingTaxiLoopAVI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyingTaxiLoopAVI.swift; sourceTree = "<group>"; };
+		8EEFB7A31BE04AD900B8A962 /* VerifyingTaxiLoopAvi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyingTaxiLoopAvi.swift; sourceTree = "<group>"; };
 		8EEFB7A51BE04B5400B8A962 /* LatestCidIsPaymentCid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestCidIsPaymentCid.swift; sourceTree = "<group>"; };
 		8EEFB7A71BE04DD600B8A962 /* LatestAviReadAtTaxiLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestAviReadAtTaxiLoop.swift; sourceTree = "<group>"; };
 		8EEFB7AE1BE198C300B8A962 /* DriverClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverClientSpec.swift; sourceTree = "<group>"; };
@@ -653,7 +653,7 @@
 				E18228FE1BC4932400614256 /* ValidatingTrip.swift */,
 				8EEFB79F1BE0324600B8A962 /* VerifyingEntryGateAvi.swift */,
 				C26530AF1BE3F038002C0A97 /* VerifyingInboundAvi.swift */,
-				8EEFB7A31BE04AD900B8A962 /* VerifyingTaxiLoopAVI.swift */,
+				8EEFB7A31BE04AD900B8A962 /* VerifyingTaxiLoopAvi.swift */,
 				C221EDE21BE2C57700BDB4CD /* VerifyingExitAvi.swift */,
 				C28ECB2B1BCF01F200887763 /* WaitingForEntryCid.swift */,
 				8EEFB7A11BE041F800B8A962 /* WaitingForPaymentCid.swift */,
@@ -1558,7 +1558,7 @@
 				C2635E261BB0CA3F003C22B1 /* DispatcherClient.swift in Sources */,
 				E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */,
 				E1B3937B1BAC66FE00FC2970 /* LotStatus.swift in Sources */,
-				8EEFB7A41BE04AD900B8A962 /* VerifyingTaxiLoopAVI.swift in Sources */,
+				8EEFB7A41BE04AD900B8A962 /* VerifyingTaxiLoopAvi.swift in Sources */,
 				E1B3937D1BAC681B00FC2970 /* LotStatusEnum.swift in Sources */,
 				FA650FF81BB20CDB003D1939 /* DateTransform.swift in Sources */,
 				E18229031BC495A000614256 /* TripValidated.swift in Sources */,
