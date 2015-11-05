@@ -22,16 +22,14 @@ struct AssociatingDriverAndVehicle {
 
     state.setDidEnterStateBlock { _, _ in
       
+      postNotification(SfoNotification.State.associatingDriverAndVehicle, value: nil)
+      
       self.poller = Poller.init(timeout: 60, action: { _ in
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
           ApiClient.getVehicle(driver.driverId) { vehicle in
             
-            // TODO actually process vehicle - make sure association is right
             if let vehicle = vehicle {
-            //  DriverManager.sharedInstance.setCurrentVehicle(vehicle)
-              DriverAndVehicleAssociated.sharedInstance.fire()
-              postNotification(SfoNotification.Driver.vehicleAssociated, value: (driver: driver, vehicle: vehicle))
-
+              DriverManager.sharedInstance.setCurrentVehicle(vehicle)
             }
           }
         }

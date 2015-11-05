@@ -22,17 +22,21 @@ struct VerifyingExitAvi {
     
     state.setDidEnterStateBlock { _, _ in
       
+      postNotification(SfoNotification.State.waitForExitAvi, value: nil)
+      
       self.poller = Poller.init(timeout: 60, action: { _ in
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
             
-            if let antenna = antenna where antenna.aviLocation == .Exit {
+            // TODO: make sure antenna is the right one
+            if let antenna = antenna where antenna.device() == .TaxiStagingExit {
               LatestAviReadAtTaxiLoop.sharedInstance.fire()
               TripManager.sharedInstance.setStartTime(antenna.aviDate)
-            } else {
-              ExitAviReadFailed.sharedInstance.fire()
-              StateManager.sharedInstance.addWarning(.ExitAviFailed)
             }
+//            else {
+//              ExitAviReadFailed.sharedInstance.fire()
+//              StateManager.sharedInstance.addWarning(.ExitAviFailed)
+//            }
           }
         }
       })

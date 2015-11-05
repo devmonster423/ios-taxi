@@ -22,11 +22,13 @@ struct VerifyingInboundAvi {
     
     state.setDidEnterStateBlock { _, _ in
       
+      postNotification(SfoNotification.State.waitForInboundAvi, value: nil)
+      
       self.poller = Poller.init(timeout: 60, action: { _ in
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
             
-            if let antenna = antenna where antenna.aviLocation == .Inbound {
+            if let antenna = antenna where antenna.device() == .TaxiEntry {
               LatestAviReadInbound.sharedInstance.fire()
             }
           }

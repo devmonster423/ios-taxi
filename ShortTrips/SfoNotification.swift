@@ -19,7 +19,9 @@ struct SfoNotification {
   }
 
   struct Cid {
-    static let payment = Notification<ShortTrips.Cid, AnyObject>(name: "PaymentCidRead")
+    static let entry = Notification<Any?, AnyObject>(name: "EntryCidRead")
+    static let payment = Notification<Any?, AnyObject>(name: "PaymentCidRead")
+    static let unexpected = Notification<(expected: CidDevice, found: CidDevice), AnyObject>(name: "UnexpectedCid")
   }
   
   struct Driver {
@@ -28,6 +30,8 @@ struct SfoNotification {
   
   struct Geofence {
     static let foundInside = Notification<[ShortTrips.Geofence], AnyObject>(name: "FoundInsideGeofences")
+    static let insideSfo = Notification<Any?, AnyObject>(name: "InsideSfo")
+    static let outsideSfo = Notification<Any?, AnyObject>(name: "OutsideSfo")
   }
   
   struct Location {
@@ -48,9 +52,18 @@ struct SfoNotification {
   }
   
   struct State {
+    static let associatingDriverAndVehicle = Notification<Any?, AnyObject>(name: "AssociatingDriverAndVehicle")
     static let wait = Notification<Any?, AnyObject>(name: "StartingToWait")
     static let ready = Notification<Any?, AnyObject>(name: "EnteredReadyState")
     static let inProgress = Notification<Any?, AnyObject>(name: "InProgress")
+    static let validatingTrip = Notification<Any?, AnyObject>(name: "ValidatingTrip")
+    static let waitForEntryCid = Notification<Any?, AnyObject>(name: "WaitForEntryCid")
+    static let waitForEntryGateAvi = Notification<Any?, AnyObject>(name: "WaitForEntryGateAvi")
+    static let waitForTaxiLoopAvi = Notification<Any?, AnyObject>(name: "WaitForTaxiLoopAvi")    
+    static let waitForPaymentCid = Notification<Any?, AnyObject>(name: "WaitForPaymentCid")
+    static let waitForExitAvi = Notification<Any?, AnyObject>(name: "WaitForExitAvi")
+    static let waitForTripToStart = Notification<Any?, AnyObject>(name: "WaitForStartTrip")
+    static let waitForInboundAvi = Notification<Any?, AnyObject>(name: "WaitForInboundavi")
     static let notReady = Notification<Any?, AnyObject>(name: "NotReady")
   }
   

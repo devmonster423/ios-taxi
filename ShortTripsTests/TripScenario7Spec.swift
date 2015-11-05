@@ -23,7 +23,7 @@ class TripScenario7Spec: QuickSpec {
         
         // can fire DriverDispatched and make correct state change
         InsideTaxiLoopExit.sharedInstance.fire()
-        expect(machine.isInState(WaitingForPaymentCID.sharedInstance.getState())).to(beTrue())
+        expect(machine.isInState(WaitingForPaymentCid.sharedInstance.getState())).to(beTrue())
         
         LatestCidIsPaymentCid.sharedInstance.fire()
         expect(machine.isInState(VerifyingTaxiLoopAvi.sharedInstance.getState())).to(beTrue())

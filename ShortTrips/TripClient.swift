@@ -54,4 +54,14 @@ extension ApiClient {
         response(validation?.valid)
     }
   }
+  
+  static func invalidate(tripId: Int, validation: ValidationStepWrapper) {
+    authedRequest(Alamofire.request(.POST, Url.Trip.invalidate(tripId), parameters: Mapper().toJSON(validation)))
+    .response { _, raw, _, _ in
+      
+      if let raw = raw {
+        postNotification(SfoNotification.Request.response, value: raw)
+      }
+    }
+  }
 }

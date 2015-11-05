@@ -24,14 +24,14 @@ extension Event {
   }
 }
 
-extension Event where Self:Notifiable {
+extension Event where Self:Observable {
   func fire(info: Any? = nil, userInfo: [NSObject: AnyObject]? = nil) {
+    eventIsFiring(info)
+    
     for eventName in eventNames {
       do {
         try StateManager.sharedInstance.getMachine().fireEvent(eventName, userInfo: userInfo)
       } catch {}
     }
-    
-    postSfoNotification(info)
   }
 }

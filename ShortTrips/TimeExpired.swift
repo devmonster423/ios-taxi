@@ -29,8 +29,8 @@ extension TimeExpired: Event {
   }
 }
 
-extension TimeExpired: Notifiable {
-  func postSfoNotification(info: Any?) {
+extension TimeExpired: Observable {
+  func eventIsFiring(info: Any?) {
     postNotification(SfoNotification.Trip.timeExpired, value: nil)
   }
 }

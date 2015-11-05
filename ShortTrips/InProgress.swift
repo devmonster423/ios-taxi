@@ -21,11 +21,11 @@ struct InProgress {
     
     state.setDidEnterStateBlock { _, _ in
       postNotification(SfoNotification.State.inProgress, value: nil)
-      TripManager.sharedInstance.startTimer()
+      TripManager.sharedInstance.start()
     }
     
     state.setDidExitStateBlock { _, _ in
-      TripManager.sharedInstance.stopTimer()
+      TripManager.sharedInstance.stop()
     }
   }
   

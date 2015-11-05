@@ -32,7 +32,7 @@ enum SfoGeofence {
     case SFO:
       return "San Francisco International Airport"
     case SfoTerminalExit:
-      return "San Francisco Terminal Exit"
+      return "SFO Terminal Exit"
     }
   }
 

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol Notifiable {
-  func postSfoNotification(info: Any?)
+protocol Observable {
+  func eventIsFiring(info: Any?)
 }

@@ -18,7 +18,7 @@ struct InsideTaxiLoopExit {
   private init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [WaitingInHoldingLot.sharedInstance.getState(), NotReady.sharedInstance.getState()],
-      toState: WaitingForPaymentCID.sharedInstance.getState())]
+      toState: WaitingForPaymentCid.sharedInstance.getState())]
   }
 }
 

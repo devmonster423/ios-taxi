@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TripManager {
+class TripManager: NSObject {
   
   static let sharedInstance = TripManager()
   
@@ -18,6 +18,7 @@ class TripManager {
   private static let timerInterval: NSTimeInterval = 5.0
   private static let tripLengthLimit: NSTimeInterval = 2 * 60 * 60 // 2 hours
   
+  override
   private init() {}
   
   func getTripId() -> Int? {
@@ -40,13 +41,15 @@ class TripManager {
     }
   }
   
-  private func checkLength() {
+  func checkLength() {
     if getElapsedTime() > TripManager.tripLengthLimit {
       TimeExpired.sharedInstance.fire()
     }
   }
   
-  func startTimer() {
+  func start() {
+    PingManager.sharedInstance.start()
+    
     if let tripTimer = tripTimer {
       tripTimer.invalidate()
     }
@@ -58,7 +61,8 @@ class TripManager {
       repeats: true)
   }
   
-  func stopTimer() {
+  func stop() {
+    PingManager.sharedInstance.stop()
     tripTimer?.invalidate()
   }
 }
