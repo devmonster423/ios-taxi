@@ -36,6 +36,8 @@ class DebugView: UIView {
   private let gpsLabel = UILabel()
   private let stateLabel = UILabel()
   let fakeButton = UIButton()
+  let secondFakeButton = UIButton()
+  let thirdFakeButton = UIButton()
   let logOutButton = UIButton()
   
   required init(coder aDecoder: NSCoder) {
@@ -52,6 +54,8 @@ class DebugView: UIView {
     addSubview(gpsLabel)
     addSubview(stateLabel)
     addSubview(fakeButton)
+    addSubview(secondFakeButton)
+    addSubview(thirdFakeButton)
     addSubview(logOutButton)
     
     debugTextView.backgroundColor = UIColor(red: 0.95, green: 0.9, blue: 0.9, alpha: 1.0)
@@ -59,7 +63,7 @@ class DebugView: UIView {
     debugTextView.snp_makeConstraints { make in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.bottom.equalTo(logOutButton.snp_top)
+      make.bottom.equalTo(fakeButton.snp_top)
       make.top.equalTo(stateLabel.snp_bottom)
     }
     
@@ -100,6 +104,23 @@ class DebugView: UIView {
     fakeButton.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(logOutButton)
       make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.bottom.equalTo(logOutButton.snp_top)
+    }
+
+    secondFakeButton.backgroundColor = UIColor.greenColor()
+    secondFakeButton.snp_makeConstraints { (make) -> Void in
+      make.height.equalTo(logOutButton)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(thirdFakeButton.snp_leading)
+      make.bottom.equalTo(self)
+    }
+
+    thirdFakeButton.backgroundColor = UIColor.blackColor()
+    thirdFakeButton.snp_makeConstraints { (make) -> Void in
+      make.height.equalTo(logOutButton)
+      make.width.equalTo(120)
+      make.leading.equalTo(secondFakeButton.snp_trailing)
       make.trailing.equalTo(logOutButton.snp_leading)
       make.bottom.equalTo(self)
     }

@@ -77,6 +77,8 @@ class DebugVC: UIViewController {
       action: "triggerInsideSfo",
       forControlEvents: .TouchUpInside)
     debugView.updateState("Not Ready")
+    debugView.secondFakeButton.setTitle("Not Active", forState: .Normal)
+    debugView.thirdFakeButton.setTitle("Not Active", forState: .Normal)
     view = debugView
   }
   
@@ -103,13 +105,23 @@ class DebugVC: UIViewController {
     self.navigationController?.popToRootViewControllerAnimated(true)
   }
   
-  func updateFakeButton(title: String, action: Selector){
-    self.debugView().fakeButton.setTitle(title, forState: .Normal)
-    self.debugView().fakeButton.removeTarget(nil,
-      action: nil,
-      forControlEvents: .AllEvents)
-    self.debugView().fakeButton.addTarget(self,
-      action: action,
-      forControlEvents: .TouchUpInside)
+  func updateFakeButton(title: String, action: Selector) {
+    updateButton(self.debugView().fakeButton, title: title, action: action)
+  }
+  
+  func updateSecondFakeButton(title: String, action: Selector) {
+    updateButton(self.debugView().secondFakeButton, title: title, action: action)
+  }
+
+  func updateThirdFakeButton(title: String, action: Selector) {
+    updateButton(self.debugView().thirdFakeButton, title: title, action: action)
+  }
+  
+  private func updateButton(button: UIButton, title: String, action: Selector) {
+    button.setTitle(title, forState: .Normal)
+    button.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
+    if(action != "") {
+      button.addTarget(self, action: action, forControlEvents: .TouchUpInside)
+    }
   }
 }

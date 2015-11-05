@@ -22,6 +22,8 @@ extension DebugVC {
       self.debugView().printDebugLine("Entered Not Ready State")
       self.debugView().updateState("Not Ready")
       self.updateFakeButton("Fake Inside SFO", action: "triggerInsideSfo")
+      self.updateSecondFakeButton("Not Active", action: "")
+      self.updateThirdFakeButton("Not Active", action: "")
     })
     
     enteredReadyState = NotificationObserver(notification: SfoNotification.State.ready, handler: { _, _ in
@@ -34,6 +36,8 @@ extension DebugVC {
       self.debugView().printDebugLine("Entered InProgress State")
       self.debugView().updateState("InProgress")
       self.updateFakeButton("Drop Passenger", action: "dropPassenger")
+      self.updateSecondFakeButton("Outside Geofences", action: "fakeOutsideGeofences")
+      self.updateThirdFakeButton("Timeout", action: "fakeTimeExpired")
     })
     
     startingToWait = NotificationObserver(notification: SfoNotification.State.wait, handler: { _, _ in

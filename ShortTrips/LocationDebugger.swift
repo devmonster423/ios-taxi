@@ -38,6 +38,12 @@ extension DebugVC {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.610560, longitude: -122.401814))
   }
   
+  func fakeOutsideGeofences() {
+    let clLocation = CLLocation(latitude: 37.760661, longitude: -122.434092)
+    postNotification(SfoNotification.Location.read, value: clLocation)
+    postNotification(SfoNotification.Ping.sent, value: (ping: Ping(location: clLocation), geofenceStatusBool: false))
+  }
+  
   func triggerAtTerminalExit() {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.615319, longitude: -122.390206))
   }

@@ -20,7 +20,6 @@ extension DebugVC {
     })
     
     insideSfoObserver = NotificationObserver(notification: SfoNotification.Geofence.insideSfo, handler: { (value, sender) -> Void in
-      
       self.debugView().printDebugLine("inside SFO event!", type: .Positive)
     })
     
