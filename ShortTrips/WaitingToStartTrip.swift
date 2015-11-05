@@ -26,8 +26,7 @@ struct WaitingForStartTrip {
       if let driver = DriverManager.sharedInstance.getCurrentDriver() {
         ApiClient.start(driver.driverId) { tripId in
           if let tripId = tripId {
-            TripManager.sharedInstance.setTripId(tripId)
-            TripStarted.sharedInstance.fire()
+            TripStarted.sharedInstance.fire(tripId)
             
           }
 //          else {
