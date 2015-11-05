@@ -27,8 +27,6 @@ extension DebugVC {
   
   func backToSFO() {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.621313, longitude: -122.378955))
-    
-    self.updateFakeButton("NEXT", action: "")
   }
   
   func dropPassenger() {

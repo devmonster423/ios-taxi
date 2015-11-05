@@ -19,6 +19,7 @@ extension DebugVC {
     
     enteredNotReadyState = NotificationObserver(notification: SfoNotification.State.notReady, handler: { _, _ in
       self.debugView().printDebugLine("Entered Not Ready State")
+      self.updateFakeButton("Fake Inside SFO", action: "triggerInsideSfo")
     })
     
     enteredReadyState = NotificationObserver(notification: SfoNotification.State.ready, handler: { _, _ in
@@ -28,6 +29,7 @@ extension DebugVC {
     
     inProgressState = NotificationObserver(notification: SfoNotification.State.inProgress, handler: { _, _ in
       self.debugView().printDebugLine("Entered InProgress State")
+      self.updateFakeButton("Drop Passenger", action: "dropPassenger")
     })
     
     startingToWait = NotificationObserver(notification: SfoNotification.State.wait, handler: { _, _ in
@@ -63,6 +65,11 @@ extension DebugVC {
     waitForTripToStart = NotificationObserver(notification: SfoNotification.State.waitForTripToStart, handler: { antenna, _ in
       self.debugView().printDebugLine("Entered Waiting For Trip to Start")
       self.updateFakeButton("Generate Trip ID & Start", action: "generateTripId")
+    })
+    
+    waitForInboundAvi = NotificationObserver(notification: SfoNotification.State.waitForInboundAvi, handler: { antenna, _ in
+      self.debugView().printDebugLine("Entered Waiting For Inbound Avi")
+      self.updateFakeButton("Fake Inbound Avi Read", action: "fakeInboundAviread")
     })
 
   }

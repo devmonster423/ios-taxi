@@ -47,7 +47,9 @@ class TripManager: NSObject {
     }
   }
   
-  func startTimer() {
+  func start() {
+    PingManager.sharedInstance.start()
+    
     if let tripTimer = tripTimer {
       tripTimer.invalidate()
     }
@@ -59,7 +61,8 @@ class TripManager: NSObject {
       repeats: true)
   }
   
-  func stopTimer() {
+  func stop() {
+    PingManager.sharedInstance.stop()
     tripTimer?.invalidate()
   }
 }

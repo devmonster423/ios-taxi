@@ -18,8 +18,6 @@ extension DebugVC {
     
     tripStartedObserver = NotificationObserver(notification: SfoNotification.Trip.started) { tripId, _ in
       self.debugView().printDebugLine("Trip started: \(tripId)", type: .Positive)
-      
-      self.updateFakeButton("Drop Passenger", action: "dropPassenger")
     }
     
     validationObserver = NotificationObserver(notification: SfoNotification.Trip.validation) { valid, _ in

@@ -61,6 +61,7 @@ struct SfoNotification {
     static let waitForPaymentCid = Notification<Any?, AnyObject>(name: "WaitForPaymentCid")
     static let waitForExitAvi = Notification<Any?, AnyObject>(name: "WaitForExitAvi")
     static let waitForTripToStart = Notification<Any?, AnyObject>(name: "WaitForStartTrip")
+    static let waitForInboundAvi = Notification<Any?, AnyObject>(name: "WaitForInboundavi")
     static let notReady = Notification<Any?, AnyObject>(name: "NotReady")
   }
   
