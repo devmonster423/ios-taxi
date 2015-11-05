@@ -2,7 +2,7 @@
 //  TripScenario7Spec.swift
 //  ShortTrips
 //
-//  Created by Matt Luedke on 11/5/15.
+//  Created by Joshua Adams on 11/3/15.
 //  Copyright © 2015 SFO. All rights reserved.
 //
 
@@ -10,31 +10,16 @@
 import Quick
 import Nimble
 
-class TripScenario7Spec: QuickSpec {
+class TripScenario8Spec: QuickSpec {
   
   override func spec() {
     
     describe("the trip manager") {
-      it("can handle scenario 7") {
+      it("can handle scenario 8") {
         let machine = StateManager.sharedInstance.getMachine()
         
         // can be initialized
         expect(machine).toNot(beNil())
-        
-        // has initial state of not ready
-        expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
-        
-        InsideSfo.sharedInstance.fire()
-        expect(machine.isInState(WaitingForEntryCid.sharedInstance.getState())).to(beTrue())
-        
-        LatestCidIsEntryCid.sharedInstance.fire()
-        expect(machine.isInState(AssociatingDriverAndVehicle.sharedInstance.getState())).to(beTrue())
-        
-        DriverAndVehicleAssociated.sharedInstance.fire()
-        expect(machine.isInState(VerifyingEntryGateAvi.sharedInstance.getState())).to(beTrue())
-        
-        EntryGateAVIReadConfirmed.sharedInstance.fire()
-        expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
         
         // can fire DriverDispatched and make correct state change
         InsideTaxiLoopExit.sharedInstance.fire()
