@@ -69,8 +69,8 @@ extension ApiClient {
     }
   }
   
-  static func requestCidForSmartCard(smartCardId: Int, response: CidClosure) {
-    authedRequest(Alamofire.request(.GET, Url.Device.Cid.smartCard(smartCardId), parameters: nil))
+  static func requestCid(driverId: Int, response: CidClosure) {
+    authedRequest(Alamofire.request(.GET, Url.Device.Cid.driver(driverId), parameters: nil))
       .responseObject { (_, raw, cidResponse: CidResponse?, _, error: ErrorType?) in
         
         if let raw = raw {

@@ -24,17 +24,16 @@ struct WaitingForEntryCid {
       
       postNotification(SfoNotification.State.waitForEntryCid, value: nil)
       
-      self.poller = Poller.init(timeout: 60, action: { _ in
+      self.poller = Poller.init(timeout: 60) { _ in
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
-          ApiClient.requestCidForSmartCard(driver.cardId) { cidDevice in
+          ApiClient.requestCid(driver.driverId) { cidDevice in
             
             if let cidDevice = cidDevice where cidDevice == .TaxiEntry {
               LatestCidIsEntryCid.sharedInstance.fire()
             }
-
           }
         }
-      })
+      }
     }
 
     state.setDidExitStateBlock { _, _ in

@@ -37,8 +37,8 @@ struct Url {
     struct Cid {
       static let cid = device + "cid"
       
-      static func smartCard(smartCardId: Int) -> String {
-        return cid + "/smart_card/\(smartCardId)"
+      static func driver(driverId: Int) -> String {
+        return cid + "/driver/\(driverId)"
       }
       static func singleCid(cidId: Int) -> String {
         return cid + "/\(cidId)"
