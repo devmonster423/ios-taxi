@@ -14,22 +14,24 @@ import ObjectMapper
 
 class AntennaSpec: QuickSpec {
   var antenna: Antenna!
-  var map: Map!
   
   override func spec() {
     describe("the Antenna") {
       beforeEach {
-        self.antenna = Antenna(antennaId: 42, aviLocation: .Entry, aviDate: NSDate())
-        self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
+        self.antenna = Mapper<Antenna>().map(MockAntennaString)
       }
       
       it("is non-nil") {
         expect(self.antenna).toNot(beNil())
       }
       
-      it("can map") {
-        expect(self.antenna.mapping(self.map)).toNot(beNil())
+      it("has an Antenna") {
+        expect(self.antenna).toNot(beNil())
+        expect(self.antenna.antennaId).toNot(beNil())
+        expect(self.antenna.aviDate).toNot(beNil())
+        expect(self.antenna.aviLocation).toNot(beNil())
       }
     }
   }
 }
+

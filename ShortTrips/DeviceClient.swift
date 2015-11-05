@@ -35,10 +35,11 @@ extension ApiClient {
   
   static func requestAntenna(transponderId: String, response: AntennaClosure) {
     authedRequest(Alamofire.request(.GET, Url.Device.Avi.transponder(transponderId), parameters: nil))
-      .responseObject { (antennaResponse: AntennaResponse?, error: ErrorType?) in
-      response(antennaResponse?.antenna)
+      .responseObject { (antenna: Antenna?, error: ErrorType?) in
+        response(antenna)
     }
   }
+  
   
   static func requestAllCids(response: AllCidsClosure) {
     authedRequest(Alamofire.request(.GET, Url.Device.Cid.cid, parameters: nil))

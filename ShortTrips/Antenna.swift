@@ -30,11 +30,9 @@ struct Antenna: Mappable {
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
-    
     let transform = DateTransform(dateFormat: "yyyy-MM-dd HH:mm:ss.SSS") // "2015-09-03 09:19:20.563"
-    
-    antennaId <- map["antenna_id"]
-    aviLocation <- map["avi_location"]
-    aviDate <- (map["avi_date"], transform)
+    antennaId <- map["response.antenna_id"]
+    aviLocation <- map["response.avi_location"]
+    aviDate <- (map["response.avi_date"], transform)
   }
 }
