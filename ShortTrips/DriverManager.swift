@@ -19,9 +19,6 @@ class DriverManager {
   
   func setCurrentDriver(driver: Driver) {
     currentDriver = driver
-
-    // TODO: remove this fix when card id is included
-    currentDriver?.cardId = 123
   }
   
   func getCurrentDriver() -> Driver? {

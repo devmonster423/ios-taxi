@@ -39,7 +39,7 @@ class DebugVCSpec: QuickSpec {
         let antenna = Antenna(antennaId: "123", aviLocation: "Location #15 Taxi Main Lot", aviDate: NSDate())
         let location = CLLocation(latitude: 37.615716, longitude: -122.388321)
         let ping = Ping(location: location)
-        let driver = Driver(sessionId: 123, driverId: 234, cardId: 345, firstName: "", lastName: "")
+        let driver = Driver(sessionId: 123, driverId: 234, cardId: 345, firstName: "", lastName: "", driverLicense: "3F0-3xy6y")
         let vehicle = Vehicle(vehicleId: 987, transponderId: "")
         
         postNotification(SfoNotification.Ping.attempting, value: ping)

@@ -15,13 +15,15 @@ struct Driver: Mappable {
   var cardId: Int!
   var firstName: String!
   var lastName: String!
+  var driverLicense: String!
 
-  init(sessionId: Int, driverId: Int, cardId: Int, firstName: String, lastName: String) {
+  init(sessionId: Int, driverId: Int, cardId: Int, firstName: String, lastName: String, driverLicense: String) {
     self.sessionId = sessionId
     self.driverId = driverId
     self.cardId = cardId
     self.firstName = firstName
     self.lastName = lastName
+    self.driverLicense = driverLicense
   }
 
   init?(_ map: Map){}
@@ -32,5 +34,6 @@ struct Driver: Mappable {
     cardId <- map["card_id"]
     firstName <- map["first_name"]
     lastName <- map["last_name"]
+    driverLicense <- map["driver_license"]
   }
 }

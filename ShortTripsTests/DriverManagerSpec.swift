@@ -22,7 +22,8 @@ class DriverManagerSpec: QuickSpec {
           driverId: 2,
           cardId: 3,
           firstName: "Test",
-          lastName: "Test")
+          lastName: "Test",
+          driverLicense: "3F0-3xy6y")
         
         DriverManager.sharedInstance.setCurrentDriver(driver)
         
