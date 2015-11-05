@@ -10,6 +10,8 @@ import UIKit
 import CoreLocation
 import JSQNotificationObserverKit
 
+typealias ButtonUpdateInfo = (title: String, action: Selector)
+
 class DebugVC: UIViewController {
   
   let stateManager = StateManager.sharedInstance // needed, to start the state machine
@@ -105,23 +107,20 @@ class DebugVC: UIViewController {
     self.navigationController?.popToRootViewControllerAnimated(true)
   }
   
-  func updateFakeButton(title: String, action: Selector) {
-    updateButton(self.debugView().fakeButton, title: title, action: action)
+  func updateFakeButtons(first: ButtonUpdateInfo?, second: ButtonUpdateInfo? = nil, third: ButtonUpdateInfo? = nil) {
+    updateButton(self.debugView().fakeButton, info: first)
+    updateButton(self.debugView().secondFakeButton, info: second)
+    updateButton(self.debugView().thirdFakeButton, info: third)
   }
   
-  func updateSecondFakeButton(title: String, action: Selector) {
-    updateButton(self.debugView().secondFakeButton, title: title, action: action)
-  }
-
-  func updateThirdFakeButton(title: String, action: Selector) {
-    updateButton(self.debugView().thirdFakeButton, title: title, action: action)
-  }
-  
-  private func updateButton(button: UIButton, title: String, action: Selector) {
-    button.setTitle(title, forState: .Normal)
-    button.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
-    if(action != "") {
-      button.addTarget(self, action: action, forControlEvents: .TouchUpInside)
+  private func updateButton(button: UIButton, info: ButtonUpdateInfo?) {
+    if let info = info {
+      button.setTitle(info.title, forState: .Normal)
+      button.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
+      button.addTarget(self, action: info.action, forControlEvents: .TouchUpInside)
+    } else {
+      button.setTitle("Not Active", forState: .Normal)
+      button.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
     }
   }
 }
