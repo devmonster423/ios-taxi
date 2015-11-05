@@ -13,21 +13,23 @@ extension DebugVC {
   
   func setupCidObservers() {
     entryCidRead = NotificationObserver(notification: SfoNotification.Cid.entry, handler: { cid, _ in
-      self.debugView().printDebugLine("entry cid read detected: (\(cid)")
+      self.debugView().printDebugLine("entry cid read detected")
     })
     
     paymentCidRead = NotificationObserver(notification: SfoNotification.Cid.payment, handler: { cid, _ in
-      self.debugView().printDebugLine("payment cid read detected: (\(cid)")
+      self.debugView().printDebugLine("payment cid read detected")
+    })
+    
+    unexpectedCidRead = NotificationObserver(notification: SfoNotification.Cid.unexpected, handler: { cidDevices, _ in
+      self.debugView().printDebugLine("unexpected cid. expected \(cidDevices.expected.name()), found \(cidDevices.found.name())", type: .Negative)
     })
   }
   
   func fakeCidPayment() {
-    let cid = Cid(cidId: "CID12", cidLocation: "Payment Gate", cidTimeRead: NSDate())
-    LatestCidIsPaymentCid.sharedInstance.fire(cid)
+    LatestCidIsPaymentCid.sharedInstance.fire()
   }
   
   func triggerEntryCid() {
-    let cid = Cid(cidId: "CID10", cidLocation: "Entry Gate", cidTimeRead: NSDate())
-    LatestCidIsEntryCid.sharedInstance.fire(cid)
+    LatestCidIsEntryCid.sharedInstance.fire()
   }
 }

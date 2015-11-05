@@ -13,6 +13,7 @@ import JSQNotificationObserverKit
 struct WaitingForEntryCid {
   let stateName = "waitingForEntryCid"
   static let sharedInstance = WaitingForEntryCid()
+  private let expectedCid: CidDevice = .TaxiEntry
 
   private var poller: Poller?
   private var state: TKState
@@ -28,8 +29,12 @@ struct WaitingForEntryCid {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
           ApiClient.requestCid(driver.driverId) { cidDevice in
             
-            if let cidDevice = cidDevice where cidDevice == .TaxiEntry {
-              LatestCidIsEntryCid.sharedInstance.fire()
+            if let cidDevice = cidDevice {
+              if cidDevice == self.expectedCid {
+                LatestCidIsEntryCid.sharedInstance.fire()
+              } else {
+                postNotification(SfoNotification.Cid.unexpected, value: (expected: self.expectedCid, found: cidDevice))
+              }
             }
           }
         }

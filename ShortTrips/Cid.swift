@@ -40,7 +40,6 @@ enum CidDevice {
       return "Location #16 Non-Dispatched Taxi Exit"
     case TaxiStagingExit:
       return "Location #17 Taxi Staging Exit"
-
     }
   }
 }
@@ -71,7 +70,3 @@ struct Cid: Mappable {
     return CidDevice.from(cidId)
   }
 }
-
-
-
-

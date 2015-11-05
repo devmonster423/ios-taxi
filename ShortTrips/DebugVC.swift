@@ -20,8 +20,9 @@ class DebugVC: UIViewController {
   var exitAviRead:  NotificationObserver<Antenna, AnyObject>?
   
   // Cid
-  var entryCidRead: NotificationObserver<Cid, AnyObject>?
-  var paymentCidRead: NotificationObserver<Cid, AnyObject>?
+  var entryCidRead: NotificationObserver<Any?, AnyObject>?
+  var paymentCidRead: NotificationObserver<Any?, AnyObject>?
+  var unexpectedCidRead: NotificationObserver<(expected: CidDevice, found: CidDevice), AnyObject>?
   
   // Driver
   var driverAndVehicleAssociated: NotificationObserver<(driver: Driver, vehicle: Vehicle), AnyObject>?

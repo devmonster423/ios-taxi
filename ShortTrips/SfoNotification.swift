@@ -19,8 +19,9 @@ struct SfoNotification {
   }
 
   struct Cid {
-    static let entry = Notification<ShortTrips.Cid, AnyObject>(name: "EntryCidRead")
-    static let payment = Notification<ShortTrips.Cid, AnyObject>(name: "PaymentCidRead")
+    static let entry = Notification<Any?, AnyObject>(name: "EntryCidRead")
+    static let payment = Notification<Any?, AnyObject>(name: "PaymentCidRead")
+    static let unexpected = Notification<(expected: CidDevice, found: CidDevice), AnyObject>(name: "UnexpectedCid")
   }
   
   struct Driver {
