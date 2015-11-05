@@ -59,6 +59,7 @@ class PingManager {
 
   func stop() {
     locationObserver = nil
+    pingObserver = nil
   }
 
   private func process(location: CLLocation) {
