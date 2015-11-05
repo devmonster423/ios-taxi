@@ -47,10 +47,10 @@ enum AviLocation {
 
 struct Antenna: Mappable {
   var antennaId: String!
-  var aviLocation: AviLocation!
+  var aviLocation: String!
   var aviDate: NSDate!
   
-  init(antennaId: String, aviLocation: AviLocation, aviDate: NSDate) {
+  init(antennaId: String, aviLocation: String, aviDate: NSDate) {
     self.antennaId = antennaId
     self.aviLocation = aviLocation
     self.aviDate  = aviDate
@@ -60,9 +60,9 @@ struct Antenna: Mappable {
   
   mutating func mapping(map: Map) {
     let transform = DateTransform(dateFormat: "yyyy-MM-dd HH:mm:ss.SSS") // "2015-09-03 09:19:20.563"
-    antennaId <- map["response.antenna_id"]
-    aviLocation <- map["response.avi_location"]
-    aviDate <- (map["response.avi_date"], transform)
+    antennaId <- map["response.device_id"]
+    aviLocation <- map["response.device_location"]
+    aviDate <- (map["response.device_date"], transform)
   }
   
   func device() -> AviLocation? {

@@ -30,6 +30,7 @@ class AntennaSpec: QuickSpec {
         expect(self.antenna.antennaId).toNot(beNil())
         expect(self.antenna.aviDate).toNot(beNil())
         expect(self.antenna.aviLocation).toNot(beNil())
+        expect(self.antenna.device()).toNot(beNil())
       }
     }
   }

@@ -26,8 +26,8 @@ class StateManager {
     VerifyingExitAvi.sharedInstance.getState(),
     VerifyingInboundAvi.sharedInstance.getState(),
     VerifyingTaxiLoopAvi.sharedInstance.getState(),
-    WaitingForEntryCID.sharedInstance.getState(),
-    WaitingForPaymentCID.sharedInstance.getState(),
+    WaitingForEntryCid.sharedInstance.getState(),
+    WaitingForPaymentCid.sharedInstance.getState(),
     WaitingForStartTrip.sharedInstance.getState(),
     WaitingInHoldingLot.sharedInstance.getState()
   ]
