@@ -24,7 +24,7 @@ class DebugVC: UIViewController {
   // Cid
   var entryCidRead: NotificationObserver<Any?, AnyObject>?
   var paymentCidRead: NotificationObserver<Any?, AnyObject>?
-  var unexpectedCidRead: NotificationObserver<(expected: CidDevice, found: CidDevice), AnyObject>?
+  var unexpectedCidRead: NotificationObserver<(expected: GtmsLocation, found: GtmsLocation), AnyObject>?
   
   // Driver
   var driverAndVehicleAssociated: NotificationObserver<(driver: Driver, vehicle: Vehicle), AnyObject>?

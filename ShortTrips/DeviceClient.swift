@@ -15,7 +15,7 @@ import JSQNotificationObserverKit
 typealias AviClosure = ([AutomaticVehicleId]?, ErrorType?) -> Void
 typealias AntennaClosure = Antenna? -> Void
 typealias AllCidsClosure = ([Cid]?, ErrorType?) -> Void
-typealias CidClosure = CidDevice? -> Void
+typealias GtmsLocationClosure = GtmsLocation? -> Void
 
 protocol DeviceClient { }
 
@@ -69,7 +69,7 @@ extension ApiClient {
     }
   }
   
-  static func requestCid(driverId: Int, response: CidClosure) {
+  static func requestCid(driverId: Int, response: GtmsLocationClosure) {
     authedRequest(Alamofire.request(.GET, Url.Device.Cid.driver(driverId), parameters: nil))
       .responseObject { (_, raw, cidResponse: CidResponse?, _, error: ErrorType?) in
         

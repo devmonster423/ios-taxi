@@ -239,6 +239,7 @@
 		FA32EC091B8836B7001428B5 /* red_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC061B8836B7001428B5 /* red_bg.jpg */; };
 		FA32EC0A1B8836B7001428B5 /* yellow_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC071B8836B7001428B5 /* yellow_bg.jpg */; };
 		FA32EC0E1B883B44001428B5 /* terminal_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC0D1B883B44001428B5 /* terminal_bg.jpg */; };
+		FA6380F21BED1FEA00CF51CC /* GtmsLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */; settings = {ASSET_TAGS = (); }; };
 		FA650FF81BB20CDB003D1939 /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA650FF71BB20CDB003D1939 /* DateTransform.swift */; };
 /* End PBXBuildFile section */
 
@@ -492,6 +493,7 @@
 		FA32EC071B8836B7001428B5 /* yellow_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yellow_bg.jpg; sourceTree = "<group>"; };
 		FA32EC0D1B883B44001428B5 /* terminal_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = terminal_bg.jpg; sourceTree = "<group>"; };
 		FA32EC0F1B885B92001428B5 /* ShortTrips.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ShortTrips.entitlements; sourceTree = "<group>"; };
+		FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GtmsLocation.swift; sourceTree = "<group>"; };
 		FA650FF71BB20CDB003D1939 /* DateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTransform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1059,6 +1061,7 @@
 				E1B393771BAC620E00FC2970 /* Driver */,
 				E13BCEEF1BABAD32006FDFF5 /* Flight */,
 				C24486EE1BA89DD100A19A9D /* Geofence */,
+				FA6380F01BED1FD900CF51CC /* GTMS */,
 				E1B393791BAC66E900FC2970 /* LotStatus */,
 				E1B393781BAC625E00FC2970 /* ReferenceConfig */,
 				E13BCEF41BABB895006FDFF5 /* TerminalSummary */,
@@ -1214,6 +1217,14 @@
 				FA32EC071B8836B7001428B5 /* yellow_bg.jpg */,
 			);
 			name = JPEG;
+			sourceTree = "<group>";
+		};
+		FA6380F01BED1FD900CF51CC /* GTMS */ = {
+			isa = PBXGroup;
+			children = (
+				FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */,
+			);
+			name = GTMS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1552,6 +1563,7 @@
 				C221EDE31BE2C57700BDB4CD /* VerifyingExitAvi.swift in Sources */,
 				C215CDFA1BD18F7200991D9D /* StatusCode.swift in Sources */,
 				C2635E261BB0CA3F003C22B1 /* DispatcherClient.swift in Sources */,
+				FA6380F21BED1FEA00CF51CC /* GtmsLocation.swift in Sources */,
 				E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */,
 				E1B3937B1BAC66FE00FC2970 /* LotStatus.swift in Sources */,
 				8EEFB7A41BE04AD900B8A962 /* VerifyingTaxiLoopAvi.swift in Sources */,

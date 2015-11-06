@@ -13,7 +13,7 @@ import JSQNotificationObserverKit
 struct WaitingForEntryCid {
   let stateName = "waitingForEntryCid"
   static let sharedInstance = WaitingForEntryCid()
-  private let expectedCid: CidDevice = .TaxiEntry
+  private let expectedCid: GtmsLocation = .TaxiEntry
 
   private var poller: Poller?
   private var state: TKState
