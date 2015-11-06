@@ -43,14 +43,14 @@ class DriverManager {
     } else {
       if let driver = getCurrentDriver() {
         ApiClient.getVehicle(driver.driverId) { vehicle in
-          if let vehicle = vehicle {
-            self.currentVehicle = vehicle
-            completion(vehicle)
-          }
+          
+          self.currentVehicle = vehicle
+          completion(vehicle)
         }
       } else {
         completion(nil)
       }
     }
   }
+  
 }
