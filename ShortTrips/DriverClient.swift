@@ -20,13 +20,11 @@ protocol DriverClient { }
 extension ApiClient {
   static func authenticateDriver(credential: DriverCredential, completion: DriverClosure) {
     authedRequest(Alamofire.request(.POST, Url.Driver.login, parameters: Mapper().toJSON(credential)))
-      .responseObject { (_, raw, driverResponse: DriverResponse?, _, _) in
-        
+      .responseObject { (_, raw, driver: Driver?, _, _) in
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
-        
-        completion(credential, driverResponse?.driver)
+        completion(credential, driver)
     }
   }
   
@@ -37,7 +35,6 @@ extension ApiClient {
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
-        
         completion(vehicleResponse?.vehicle)
     }
   }

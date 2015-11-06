@@ -19,16 +19,20 @@ class DriverSpec: QuickSpec {
   override func spec() {
     describe("the Driver") {
       beforeEach {
-        self.driver = Driver(sessionId: 42, driverId: 42, cardId: 42, firstName: "🐷", lastName: "🐮", driverLicense: "3F0-3xy6y")
-        self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
+        self.driver = Mapper<Driver>().map(MockDriverString)
       }
       
       it("is non-nil") {
         expect(self.driver).toNot(beNil())
       }
       
-      it("can map") {
-        self.driver.mapping(self.map)
+      it("is a valid driver") {
+        expect(self.driver.sessionId).toNot(beNil())
+        expect(self.driver.driverId).toNot(beNil())
+        expect(self.driver.cardId).toNot(beNil())
+        expect(self.driver.firstName).toNot(beNil())
+        expect(self.driver.lastName).toNot(beNil())
+        expect(self.driver.driverLicense).toNot(beNil())
       }
     }
   }
