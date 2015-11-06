@@ -1,5 +1,5 @@
 //
-//  AirlineList.swift
+//  AirlineListWrapper.swift
 //  ShortTrips
 //
 //  Created by Matt Luedke on 9/24/15.
@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-struct AirlineList: Mappable {
+struct AirlineListWrapper: Mappable {
   var airlines: [Airline]!
 
   init?(_ map: Map){}

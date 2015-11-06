@@ -34,13 +34,11 @@ extension ApiClient {
   
   static func requestAutomaticVehicleIds(response: AviClosure) {
     authedRequest(Alamofire.request(.GET, Url.Device.Avi.avi, parameters: nil))
-      .responseObject { (_, raw, aviResponse: AutomaticVehicleIdResponse?, _, error: ErrorType?) in
-
+      .responseObject { (_, raw, aviListWrapper: AutomaticVehicleIdListWrapper?, _, error: ErrorType?) in
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
-        
-        response(aviResponse?.automaticVehicleIds, error)
+        response(aviListWrapper?.automaticVehicleIds, error)
     }
   }
   

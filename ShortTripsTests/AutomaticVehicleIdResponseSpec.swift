@@ -14,7 +14,7 @@ import ObjectMapper
 
 class AutomaticVehicleIdResponseSpec: QuickSpec {
   var automaticVehicleIds: [AutomaticVehicleId]!
-  var automaticVehicleIdResponse: AutomaticVehicleIdResponse!
+  var automaticVehicleIdListWrapper: AutomaticVehicleIdListWrapper!
   var map: Map!
   
   override func spec() {
@@ -22,12 +22,12 @@ class AutomaticVehicleIdResponseSpec: QuickSpec {
       beforeEach {
         self.automaticVehicleIds = [AutomaticVehicleId(location: "parking lot", id: "42")]
         self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
-        self.automaticVehicleIdResponse = AutomaticVehicleIdResponse(self.map)
-        self.automaticVehicleIdResponse.automaticVehicleIds = self.automaticVehicleIds
+        self.automaticVehicleIdListWrapper = AutomaticVehicleIdListWrapper(self.map)
+        self.automaticVehicleIdListWrapper.automaticVehicleIds = self.automaticVehicleIds
       }
       
       it("is non-nil") {
-        expect(self.automaticVehicleIdResponse).toNot(beNil())
+        expect(self.automaticVehicleIdListWrapper).toNot(beNil())
       }
       
       it("has AutomaticVehicleIds") {
@@ -35,7 +35,7 @@ class AutomaticVehicleIdResponseSpec: QuickSpec {
       }
       
       it("can map") {
-        expect(self.automaticVehicleIdResponse.mapping(self.map)).toNot(beNil())
+        expect(self.automaticVehicleIdListWrapper.mapping(self.map)).toNot(beNil())
       }
     }
   }

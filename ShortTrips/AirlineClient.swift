@@ -26,8 +26,8 @@ extension ApiClient {
   }
   
   static func codes(completion: AirlinesClosure) {
-    authedRequest(Alamofire.request(.GET, Url.Airline.codes)).responseObject { (airlineList: AirlineList?, error) -> Void in
-      completion(airlineList?.airlines, error)
+    authedRequest(Alamofire.request(.GET, Url.Airline.codes)).responseObject { (airlineListWrapper: AirlineListWrapper?, error) -> Void in
+      completion(airlineListWrapper?.airlines, error)
     }
   }
 }
