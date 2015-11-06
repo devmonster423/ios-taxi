@@ -81,7 +81,7 @@ class DebugVC: UIViewController {
       forControlEvents: .TouchUpInside)
     debugView.updateState("Not Ready")
 
-    debugView.secondFakeButton.setTitle("Scenario 8", forState: .Normal)
+    debugView.secondFakeButton.setTitle("Inside Taxi Loop Exit", forState: .Normal)
     debugView.secondFakeButton.addTarget(self,
       action: "insideTaxiLoopExit",
       forControlEvents: .TouchUpInside)
