@@ -33,6 +33,7 @@ class DebugVC: UIViewController {
   var foundInsideGeofencesObserver: NotificationObserver<[Geofence], AnyObject>?
   var insideSfoObserver: NotificationObserver<Any?, AnyObject>?
   var outsideSfoObserver: NotificationObserver<Any?, AnyObject>?
+  var outsideShortTripObserver: NotificationObserver<Any?, AnyObject>?
   
   // Location
   var locationManagerStartedObserver: NotificationObserver<Any?, AnyObject>?

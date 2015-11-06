@@ -108,20 +108,21 @@ class DebugView: UIView {
       make.bottom.equalTo(logOutButton.snp_top)
     }
 
-    secondFakeButton.backgroundColor = UIColor.greenColor()
+    secondFakeButton.backgroundColor = UIColor(red: 0.25, green: 0.5, blue: 0.5, alpha: 1.0)
+    secondFakeButton.titleLabel?.font = Font.MyriadPro.size(12)
+    secondFakeButton.titleLabel?.numberOfLines = 2
     secondFakeButton.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(logOutButton)
       make.leading.equalTo(self)
-      make.trailing.equalTo(thirdFakeButton.snp_leading)
+      make.width.equalTo(self).dividedBy(3)
       make.bottom.equalTo(self)
     }
 
     thirdFakeButton.backgroundColor = UIColor.blackColor()
     thirdFakeButton.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(logOutButton)
-      make.width.equalTo(120)
       make.leading.equalTo(secondFakeButton.snp_trailing)
-      make.trailing.equalTo(logOutButton.snp_leading)
+      make.width.equalTo(self).dividedBy(3)
       make.bottom.equalTo(self)
     }
     
@@ -129,7 +130,7 @@ class DebugView: UIView {
     logOutButton.backgroundColor = UIColor.redColor()
     logOutButton.snp_makeConstraints { make in
       make.height.equalTo(44)
-      make.width.equalTo(80)
+      make.width.equalTo(self).dividedBy(3)
       make.bottom.equalTo(self)
       make.trailing.equalTo(self)
     }

@@ -91,6 +91,5 @@ extension DebugVC {
       self.debugView().updateState("Waiting for Inbound Avi")
       self.updateFakeButtons((title: "Fake Inbound Avi Read", action: "fakeInboundAviread"))
     })
-
   }
 }

@@ -36,12 +36,14 @@ class PingManager {
         let geofenceStatusBool = info.geofenceStatusBool
         let ping = info.ping
       
-        if geofenceStatusBool != nil {
+        if let geofenceStatusBool = geofenceStatusBool {
           self.lastSuccessfulPingDate = NSDate()
           postNotification(SfoNotification.Ping.successful, value: ping)
-          if geofenceStatusBool == true {
+          
+          if geofenceStatusBool {
             postNotification(SfoNotification.Ping.valid, value: ping)
             self.invalidPings = 0 // must be consecutive
+            
           } else {
             postNotification(SfoNotification.Ping.invalid, value: ping)
             self.invalidPings++

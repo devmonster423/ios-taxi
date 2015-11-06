@@ -39,9 +39,7 @@ extension DebugVC {
   }
   
   func fakeOutsideGeofences() {
-    let clLocation = CLLocation(latitude: 37.760661, longitude: -122.434092)
-    postNotification(SfoNotification.Location.read, value: clLocation)
-    postNotification(SfoNotification.Ping.sent, value: (ping: Ping(location: clLocation), geofenceStatusBool: false))
+    postNotification(SfoNotification.Ping.sent, value: (ping: Ping(location: CLLocation(latitude: 37.760661, longitude: -122.434092)), geofenceStatusBool: false))
   }
   
   func triggerAtTerminalExit() {
