@@ -13,6 +13,7 @@ import JSQNotificationObserverKit
 struct VerifyingTaxiLoopAvi {
   let stateName = "verifyingTaxiLoopAvi"
   static let sharedInstance = VerifyingTaxiLoopAvi()
+  private let expectedAvi: GtmsLocation = .HoldingLotExit
   
   private var poller: Poller?
   private var state: TKState
@@ -28,8 +29,12 @@ struct VerifyingTaxiLoopAvi {
         DriverManager.sharedInstance.getCurrentVehicle() { vehicle in
           if let vehicle = vehicle {
             ApiClient.requestAntenna(vehicle.transponderId) { antenna in
-              if let antenna = antenna where antenna.device() == .TaxiStagingExit {
-                LatestAviReadAtTaxiLoop.sharedInstance.fire(antenna)
+              if let antenna = antenna, let device = antenna.device() {
+                if device == self.expectedAvi {
+                  LatestAviReadAtTaxiLoop.sharedInstance.fire(antenna)
+                } else {
+                  postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
+                }
               }
             }
           }

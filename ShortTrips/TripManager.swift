@@ -18,9 +18,6 @@ class TripManager: NSObject {
   private static let timerInterval: NSTimeInterval = 5.0
   private static let tripLengthLimit: NSTimeInterval = 2 * 60 * 60 // 2 hours
   
-  override
-  private init() {}
-  
   func getTripId() -> Int? {
     return tripId
   }
