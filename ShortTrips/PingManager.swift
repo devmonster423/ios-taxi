@@ -13,11 +13,11 @@ import JSQNotificationObserverKit
 class PingManager {
 
   var lastSuccessfulPingDate: NSDate?
-  let updateFrequency = NSTimeInterval(60)
   private var invalidPings: Int = 0
   private let maxInvalidPings: Int = 3
+  
+  private var timer: NSTimer!
 
-  var locationObserver: NotificationObserver<CLLocation, AnyObject>?
   var pingObserver: NotificationObserver<(ping: ShortTrips.Ping, geofenceStatusBool: Bool?), AnyObject>?
   
   static let sharedInstance = PingManager()
@@ -25,12 +25,8 @@ class PingManager {
   private init() {}
 
   func start() {
-    if let _ = locationObserver {} else {
-      self.locationObserver = NotificationObserver(notification: SfoNotification.Location.read, handler: { location, _ in
-        self.process(location)
-      })
-    }
-
+    timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: "broadcastLastKnownLocation", userInfo: nil, repeats: true)
+    
     if let _ = pingObserver {} else {
       self.pingObserver = NotificationObserver(notification: SfoNotification.Ping.sent, handler: { info, _ in
         let geofenceStatusBool = info.geofenceStatusBool
@@ -60,18 +56,19 @@ class PingManager {
   }
 
   func stop() {
-    locationObserver = nil
+    timer?.invalidate()
+    timer = nil
     pingObserver = nil
   }
 
-  private func process(location: CLLocation) {
-    var pingDate = NSDate(timeIntervalSince1970: 0)
-    if let lastSuccessfulPingDate = lastSuccessfulPingDate {
-      pingDate = lastSuccessfulPingDate
+  private func broadcastLastKnownLocation(){
+    if let lastKnownLocation = LocationManager.sharedInstance.getLastKnownLocation(){
+      self.process(lastKnownLocation)
     }
-    if pingDate.timeIntervalSinceNow < -updateFrequency,
-      let tripId = TripManager.sharedInstance.getTripId() {
-        
+  }
+  
+  private func process(location: CLLocation) {
+    if let tripId = TripManager.sharedInstance.getTripId() {
       let ping = Ping(location: location)
       postNotification(SfoNotification.Ping.attempting, value: ping)
       ApiClient.ping(tripId, ping: ping) { geofenceStatusBool in
