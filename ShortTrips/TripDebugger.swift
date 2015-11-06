@@ -36,8 +36,4 @@ extension DebugVC {
   func generateTripId() {
     TripStarted.sharedInstance.fire(123)
   }
-  
-  func insideTaxiLoopExit() {
-    InsideTaxiLoopExit.sharedInstance.fire()
-  }
 }

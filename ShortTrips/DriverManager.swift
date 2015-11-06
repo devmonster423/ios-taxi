@@ -40,7 +40,7 @@ class DriverManager {
   func getCurrentVehicle(forceRefresh: Bool = false, completion: VehicleClosure) {
     if let currentVehicle = currentVehicle where !forceRefresh {
       completion(currentVehicle)
-    }else{
+    } else {
       if let driver = getCurrentDriver() {
         ApiClient.getVehicle(driver.driverId) { vehicle in
           if let vehicle = vehicle {
@@ -48,10 +48,9 @@ class DriverManager {
             completion(vehicle)
           }
         }
-      }else{
+      } else {
         completion(nil)
       }
     }
   }
-  
 }
