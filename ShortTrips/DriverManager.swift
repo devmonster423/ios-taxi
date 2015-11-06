@@ -42,7 +42,7 @@ class DriverManager {
       completion(currentVehicle)
     } else {
       if let driver = getCurrentDriver() {
-        ApiClient.getVehicle(driver.driverId) { vehicle in
+        ApiClient.getVehicle(driver.cardId) { vehicle in
           
           self.currentVehicle = vehicle
           completion(vehicle)

@@ -28,8 +28,8 @@ extension ApiClient {
     }
   }
   
-  static func getVehicle(driverId: Int, completion: VehicleClosure) {
-    authedRequest(Alamofire.request(.GET, Url.Driver.vehicle(driverId)))
+  static func getVehicle(smartCard: Int, completion: VehicleClosure) {
+    authedRequest(Alamofire.request(.GET, Url.Driver.vehicle(smartCard)))
       .responseObject { (_, raw, vehicleResponse: VehicleResponse?, _, _) in
         
         if let raw = raw {
