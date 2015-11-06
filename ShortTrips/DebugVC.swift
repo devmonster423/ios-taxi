@@ -80,7 +80,12 @@ class DebugVC: UIViewController {
       action: "triggerInsideSfo",
       forControlEvents: .TouchUpInside)
     debugView.updateState("Not Ready")
-    debugView.secondFakeButton.setTitle("Not Active", forState: .Normal)
+
+    debugView.secondFakeButton.setTitle("Inside Taxi Loop Exit", forState: .Normal)
+    debugView.secondFakeButton.addTarget(self,
+      action: "triggerAtTerminalExit",
+      forControlEvents: .TouchUpInside)
+    
     debugView.thirdFakeButton.setTitle("Not Active", forState: .Normal)
     view = debugView
   }
