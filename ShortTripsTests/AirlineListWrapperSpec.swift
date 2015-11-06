@@ -1,5 +1,5 @@
 //
-//  AirlineListSpec.swift
+//  AirlineListWrapperSpec.swift
 //  ShortTrips
 //
 //  Created by Pierre 🇫🇷 on 10/29/15.
@@ -12,22 +12,22 @@ import Nimble
 import Foundation
 import ObjectMapper
 
-class AirlineListSpec: QuickSpec {
-  var airlineList: AirlineList!
+class AirlineListWrapperSpec: QuickSpec {
+  var airlineListWrapper: AirlineListWrapper!
   var map: Map!
   
   override func spec() {
     describe("the AirlineList") {
       beforeEach {
-        self.airlineList = Mapper<AirlineList>().map(MockAirlineListResponseString)
+        self.airlineListWrapper = Mapper<AirlineListWrapper>().map(MockAirlineListResponseString)
       }
       
       it("is non-nil") {
-        expect(self.airlineList).toNot(beNil())
+        expect(self.airlineListWrapper).toNot(beNil())
       }
       
       it("has airlines") {
-        expect (self.airlineList.airlines.count) > 1
+        expect (self.airlineListWrapper.airlines.count) > 1
       }
     }
   }
