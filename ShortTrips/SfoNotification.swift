@@ -32,6 +32,7 @@ struct SfoNotification {
     static let foundInside = Notification<[ShortTrips.Geofence], AnyObject>(name: "FoundInsideGeofences")
     static let insideSfo = Notification<Any?, AnyObject>(name: "InsideSfo")
     static let outsideSfo = Notification<Any?, AnyObject>(name: "OutsideSfo")
+    static let outsideShortTrip = Notification<Any?, AnyObject>(name: "OutsideShortTrip")
   }
   
   struct Location {
@@ -41,6 +42,7 @@ struct SfoNotification {
   
   struct Ping {
     static let attempting = Notification<ShortTrips.Ping, AnyObject>(name: "AttemptingPing")
+    static let sent = Notification<(ping: ShortTrips.Ping, geofenceStatusBool: Bool?), AnyObject>(name: "SentPing")
     static let successful = Notification<ShortTrips.Ping, AnyObject>(name: "SuccessfulPing")
     static let unsuccessful = Notification<ShortTrips.Ping, AnyObject>(name: "unsuccessfulPing")
     static let valid = Notification<ShortTrips.Ping, AnyObject>(name: "validPing")

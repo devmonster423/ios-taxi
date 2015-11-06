@@ -36,6 +36,8 @@ class DebugView: UIView {
   private let gpsLabel = UILabel()
   private let stateLabel = UILabel()
   let fakeButton = UIButton()
+  let secondFakeButton = UIButton()
+  let thirdFakeButton = UIButton()
   let logOutButton = UIButton()
   
   required init(coder aDecoder: NSCoder) {
@@ -52,6 +54,8 @@ class DebugView: UIView {
     addSubview(gpsLabel)
     addSubview(stateLabel)
     addSubview(fakeButton)
+    addSubview(secondFakeButton)
+    addSubview(thirdFakeButton)
     addSubview(logOutButton)
     
     debugTextView.backgroundColor = UIColor(red: 0.95, green: 0.9, blue: 0.9, alpha: 1.0)
@@ -59,7 +63,7 @@ class DebugView: UIView {
     debugTextView.snp_makeConstraints { make in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.bottom.equalTo(logOutButton.snp_top)
+      make.bottom.equalTo(fakeButton.snp_top)
       make.top.equalTo(stateLabel.snp_bottom)
     }
     
@@ -100,7 +104,25 @@ class DebugView: UIView {
     fakeButton.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(logOutButton)
       make.leading.equalTo(self)
-      make.trailing.equalTo(logOutButton.snp_leading)
+      make.trailing.equalTo(self)
+      make.bottom.equalTo(logOutButton.snp_top)
+    }
+
+    secondFakeButton.backgroundColor = UIColor(red: 0.25, green: 0.5, blue: 0.5, alpha: 1.0)
+    secondFakeButton.titleLabel?.font = Font.MyriadPro.size(12)
+    secondFakeButton.titleLabel?.numberOfLines = 2
+    secondFakeButton.snp_makeConstraints { (make) -> Void in
+      make.height.equalTo(logOutButton)
+      make.leading.equalTo(self)
+      make.width.equalTo(self).dividedBy(3)
+      make.bottom.equalTo(self)
+    }
+
+    thirdFakeButton.backgroundColor = UIColor.blackColor()
+    thirdFakeButton.snp_makeConstraints { (make) -> Void in
+      make.height.equalTo(logOutButton)
+      make.leading.equalTo(secondFakeButton.snp_trailing)
+      make.width.equalTo(self).dividedBy(3)
       make.bottom.equalTo(self)
     }
     
@@ -108,7 +130,7 @@ class DebugView: UIView {
     logOutButton.backgroundColor = UIColor.redColor()
     logOutButton.snp_makeConstraints { make in
       make.height.equalTo(44)
-      make.width.equalTo(80)
+      make.width.equalTo(self).dividedBy(3)
       make.bottom.equalTo(self)
       make.trailing.equalTo(self)
     }

@@ -10,6 +10,8 @@ import UIKit
 import CoreLocation
 import JSQNotificationObserverKit
 
+typealias ButtonUpdateInfo = (title: String, action: Selector)
+
 class DebugVC: UIViewController {
   
   let stateManager = StateManager.sharedInstance // needed, to start the state machine
@@ -31,6 +33,7 @@ class DebugVC: UIViewController {
   var foundInsideGeofencesObserver: NotificationObserver<[Geofence], AnyObject>?
   var insideSfoObserver: NotificationObserver<Any?, AnyObject>?
   var outsideSfoObserver: NotificationObserver<Any?, AnyObject>?
+  var outsideShortTripObserver: NotificationObserver<Any?, AnyObject>?
   
   // Location
   var locationManagerStartedObserver: NotificationObserver<Any?, AnyObject>?
@@ -77,6 +80,8 @@ class DebugVC: UIViewController {
       action: "triggerInsideSfo",
       forControlEvents: .TouchUpInside)
     debugView.updateState("Not Ready")
+    debugView.secondFakeButton.setTitle("Not Active", forState: .Normal)
+    debugView.thirdFakeButton.setTitle("Not Active", forState: .Normal)
     view = debugView
   }
   
@@ -103,13 +108,20 @@ class DebugVC: UIViewController {
     self.navigationController?.popToRootViewControllerAnimated(true)
   }
   
-  func updateFakeButton(title: String, action: Selector){
-    self.debugView().fakeButton.setTitle(title, forState: .Normal)
-    self.debugView().fakeButton.removeTarget(nil,
-      action: nil,
-      forControlEvents: .AllEvents)
-    self.debugView().fakeButton.addTarget(self,
-      action: action,
-      forControlEvents: .TouchUpInside)
+  func updateFakeButtons(first: ButtonUpdateInfo?, second: ButtonUpdateInfo? = nil, third: ButtonUpdateInfo? = nil) {
+    updateButton(self.debugView().fakeButton, info: first)
+    updateButton(self.debugView().secondFakeButton, info: second)
+    updateButton(self.debugView().thirdFakeButton, info: third)
+  }
+  
+  private func updateButton(button: UIButton, info: ButtonUpdateInfo?) {
+    if let info = info {
+      button.setTitle(info.title, forState: .Normal)
+      button.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
+      button.addTarget(self, action: info.action, forControlEvents: .TouchUpInside)
+    } else {
+      button.setTitle("Not Active", forState: .Normal)
+      button.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
+    }
   }
 }

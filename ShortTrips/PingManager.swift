@@ -18,7 +18,8 @@ class PingManager {
   private let maxInvalidPings: Int = 3
 
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
-
+  var pingObserver: NotificationObserver<(ping: ShortTrips.Ping, geofenceStatusBool: Bool?), AnyObject>?
+  
   static let sharedInstance = PingManager()
 
   private init() {}
@@ -29,10 +30,38 @@ class PingManager {
         self.process(location)
       })
     }
+
+    if let _ = pingObserver {} else {
+      self.pingObserver = NotificationObserver(notification: SfoNotification.Ping.sent, handler: { info, _ in
+        let geofenceStatusBool = info.geofenceStatusBool
+        let ping = info.ping
+      
+        if let geofenceStatusBool = geofenceStatusBool {
+          self.lastSuccessfulPingDate = NSDate()
+          postNotification(SfoNotification.Ping.successful, value: ping)
+          
+          if geofenceStatusBool {
+            postNotification(SfoNotification.Ping.valid, value: ping)
+            self.invalidPings = 0 // must be consecutive
+            
+          } else {
+            postNotification(SfoNotification.Ping.invalid, value: ping)
+            self.invalidPings++
+            if self.invalidPings >= self.maxInvalidPings {
+              OutsideShortTripGeofence.sharedInstance.fire()
+              self.invalidPings = 0 // reset invalid pings
+            }
+          }
+        } else {
+          postNotification(SfoNotification.Ping.unsuccessful, value: ping)
+        }
+      })
+    }
   }
 
   func stop() {
     locationObserver = nil
+    pingObserver = nil
   }
 
   private func process(location: CLLocation) {
@@ -45,23 +74,8 @@ class PingManager {
         
       let ping = Ping(location: location)
       postNotification(SfoNotification.Ping.attempting, value: ping)
-      ApiClient.ping(tripId, ping: ping) { geofenceStatus in
-        if let geofenceStatus = geofenceStatus {
-          self.lastSuccessfulPingDate = NSDate()
-          postNotification(SfoNotification.Ping.successful, value: ping)
-          if geofenceStatus {
-            postNotification(SfoNotification.Ping.valid, value: ping)
-            self.invalidPings = 0 // must be consecutive
-          } else {
-            postNotification(SfoNotification.Ping.invalid, value: ping)
-            self.invalidPings++
-            if self.invalidPings >= self.maxInvalidPings {
-              OutsideShortTripGeofence.sharedInstance.fire()
-            }
-          }
-        } else {
-          postNotification(SfoNotification.Ping.unsuccessful, value: ping)
-        }
+      ApiClient.ping(tripId, ping: ping) { geofenceStatusBool in
+        postNotification(SfoNotification.Ping.sent, value: (ping: ping, geofenceStatusBool: geofenceStatusBool))
       }
     }
   }
