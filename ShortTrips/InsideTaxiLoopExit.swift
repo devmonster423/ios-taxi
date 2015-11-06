@@ -1,5 +1,5 @@
 //
-//  DriverDispatched.swift
+//  InsideTaxiLoopExit.swift
 //  ShortTrips
 //
 //  Created by Matt Luedke on 10/5/15.
@@ -17,7 +17,7 @@ struct InsideTaxiLoopExit {
   
   private init() {
     events = [TKEvent(name: eventNames[0],
-      transitioningFromStates: [WaitingInHoldingLot.sharedInstance.getState()],
+      transitioningFromStates: [WaitingInHoldingLot.sharedInstance.getState(), NotReady.sharedInstance.getState()],
       toState: WaitingForPaymentCid.sharedInstance.getState())]
   }
 }
