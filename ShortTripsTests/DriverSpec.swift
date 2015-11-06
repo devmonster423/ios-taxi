@@ -14,7 +14,6 @@ import ObjectMapper
 
 class DriverSpec: QuickSpec {
   var driver: Driver!
-  var map: Map!
   
   override func spec() {
     describe("the Driver") {
