@@ -13,10 +13,11 @@ import JSQNotificationObserverKit
 class PingManager {
 
   var lastSuccessfulPingDate: NSDate?
+  let updateFrequency = NSTimeInterval(30)
   private var invalidPings: Int = 0
   private let maxInvalidPings: Int = 3
   
-  private var timer: NSTimer!
+  private var timer: NSTimer?
 
   var pingObserver: NotificationObserver<(ping: ShortTrips.Ping, geofenceStatusBool: Bool?), AnyObject>?
   
@@ -25,7 +26,14 @@ class PingManager {
   private init() {}
 
   func start() {
-    timer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: "broadcastLastKnownLocation", userInfo: nil, repeats: true)
+    
+    if let _ = timer {} else {
+      timer = NSTimer.scheduledTimerWithTimeInterval(updateFrequency,
+        target: self,
+        selector: "processLastKnownLocation",
+        userInfo: nil,
+        repeats: true)
+    }
     
     if let _ = pingObserver {} else {
       self.pingObserver = NotificationObserver(notification: SfoNotification.Ping.sent, handler: { info, _ in
@@ -61,18 +69,14 @@ class PingManager {
     pingObserver = nil
   }
 
-  private func broadcastLastKnownLocation(){
-    if let lastKnownLocation = LocationManager.sharedInstance.getLastKnownLocation(){
-      self.process(lastKnownLocation)
-    }
-  }
-  
-  private func process(location: CLLocation) {
-    if let tripId = TripManager.sharedInstance.getTripId() {
-      let ping = Ping(location: location)
-      postNotification(SfoNotification.Ping.attempting, value: ping)
-      ApiClient.ping(tripId, ping: ping) { geofenceStatusBool in
-        postNotification(SfoNotification.Ping.sent, value: (ping: ping, geofenceStatusBool: geofenceStatusBool))
+  private func processLastKnownLocation() {
+    if let location = LocationManager.sharedInstance.getLastKnownLocation() {
+      if let tripId = TripManager.sharedInstance.getTripId() {
+        let ping = Ping(location: location)
+        postNotification(SfoNotification.Ping.attempting, value: ping)
+        ApiClient.ping(tripId, ping: ping) { geofenceStatusBool in
+          postNotification(SfoNotification.Ping.sent, value: (ping: ping, geofenceStatusBool: geofenceStatusBool))
+        }
       }
     }
   }
