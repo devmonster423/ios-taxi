@@ -18,8 +18,8 @@ protocol ReferenceClient { }
 extension ApiClient {
   static func requestReferenceConfig(response: ReferenceConfigClosure) {
     authedRequest(Alamofire.request(.GET, Url.Reference.config, parameters: nil))
-      .responseObject { (referenceConfigResponse: ReferenceConfigResponse?, error: ErrorType?) in
-      response(referenceConfigResponse?.referenceConfig, error)
+      .responseObject { (referenceConfig: ReferenceConfig?, error: ErrorType?) in
+      response(referenceConfig, error)
     }
   }
 }
