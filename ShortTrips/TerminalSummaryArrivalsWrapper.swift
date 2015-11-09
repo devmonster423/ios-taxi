@@ -1,5 +1,5 @@
 //
-//  TerminalSummaryDeparturesWrapper.swift
+//  TerminalSummaryArrivalsWrapper.swift
 //  ShortTrips
 //
 //  Created by Joshua Adams on 11/8/15.
@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-struct TerminalSummaryDeparturesWrapper: Mappable {
+struct TerminalSummaryArrivalsWrapper: Mappable {
   var terminalSummaries: [TerminalSummary]!
   var totalCount: Int!
   var totalDelayedCount: Int!
@@ -17,7 +17,7 @@ struct TerminalSummaryDeparturesWrapper: Mappable {
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
-    terminalSummaries <- map["response.departures.list"]
+    terminalSummaries <- map["response.arrivals.list"]
     totalCount <- map["response.total_count"]
     totalDelayedCount <- map["response.total_delayed_count"]
   }

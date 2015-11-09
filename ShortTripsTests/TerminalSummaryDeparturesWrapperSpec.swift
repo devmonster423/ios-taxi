@@ -1,5 +1,5 @@
 //
-//  TerminalSummaryDeparturesListWrapperSpec.swift
+//  TerminalSummaryDeparturesWrapperSpec.swift
 //  ShortTrips
 //
 //  Created by Joshua Adams on 11/8/15.
@@ -12,21 +12,21 @@ import Nimble
 import Foundation
 import ObjectMapper
 
-class TerminalSummaryDeparturesListWrapperSpec: QuickSpec {
-  var terminalSummaryDeparturesListWrapper: TerminalSummaryDeparturesListWrapper!
+class TerminalSummaryDeparturesWrapperSpec: QuickSpec {
+  var terminalSummaryDeparturesWrapper: TerminalSummaryDeparturesWrapper!
   
   override func spec() {
-    describe("the TerminalSummaryDeparturesListWrapper") {
+    describe("the TerminalSummaryDeparturesWrapper") {
       beforeEach {
-        self.terminalSummaryDeparturesListWrapper = Mapper<TerminalSummaryDeparturesListWrapper>().map(MockTerminalSummaryDeparturesListWrapperString)
+        self.terminalSummaryDeparturesWrapper = Mapper<TerminalSummaryDeparturesWrapper>().map(MockTerminalSummaryDeparturesWrapperString)
       }
       
       it("is non-nil") {
-        expect(self.terminalSummaryDeparturesListWrapper).toNot(beNil())
+        expect(self.terminalSummaryDeparturesWrapper).toNot(beNil())
       }
       
       it("has at least one TerminalSummary") {
-        expect (self.terminalSummaryDeparturesListWrapper.terminalSummaries.count) >= 1
+        expect (self.terminalSummaryDeparturesWrapper.terminalSummaries.count) >= 1
       }
     }
   }

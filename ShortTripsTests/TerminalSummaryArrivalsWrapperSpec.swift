@@ -16,17 +16,17 @@ class TerminalSummaryArrivalsWrapperSpec: QuickSpec {
   var terminalSummaryArrivalsWrapper: TerminalSummaryArrivalsWrapper!
   
   override func spec() {
-    describe("the TerminalSummaryArrivalsListWrapper") {
+    describe("the TerminalSummaryArrivalsWrapper") {
       beforeEach {
-        self.terminalSummaryArrivalsListWrapper = Mapper<TerminalSummaryArrivalsListWrapper>().map(MockTerminalSummaryArrivalsListWrapperString)
+        self.terminalSummaryArrivalsWrapper = Mapper<TerminalSummaryArrivalsWrapper>().map(MockTerminalSummaryArrivalsWrapperString)
       }
       
       it("is non-nil") {
-        expect(self.terminalSummaryArrivalsListWrapper).toNot(beNil())
+        expect(self.terminalSummaryArrivalsWrapper).toNot(beNil())
       }
       
       it("has at least one TerminalSummary") {
-        expect (self.terminalSummaryArrivalsListWrapper.terminalSummaries.count) >= 1
+        expect (self.terminalSummaryArrivalsWrapper.terminalSummaries.count) >= 1
       }
     }
   }
