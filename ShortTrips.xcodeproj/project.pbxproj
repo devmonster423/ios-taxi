@@ -161,7 +161,6 @@
 		E112C3091BB3016C00B1DF48 /* AllGeofencesResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C3081BB3016C00B1DF48 /* AllGeofencesResponseSpec.swift */; };
 		E112C30C1BB3135600B1DF48 /* LotStatusEnumSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C30B1BB3135600B1DF48 /* LotStatusEnumSpec.swift */; };
 		E112C30E1BB3195500B1DF48 /* LotStatusSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C30D1BB3195500B1DF48 /* LotStatusSpec.swift */; };
-		E112C3101BB31A5800B1DF48 /* LotStatusResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C30F1BB31A5800B1DF48 /* LotStatusResponseSpec.swift */; };
 		E11D60971BA7A40100FD4276 /* Geofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D60961BA7A40100FD4276 /* Geofence.swift */; };
 		E122649E1B795A65002B36CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12264A01B795A65002B36CA /* Localizable.strings */; };
 		E13BCEF11BABB426006FDFF5 /* FlightsForTerminalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13BCEF01BABB426006FDFF5 /* FlightsForTerminalResponse.swift */; };
@@ -215,7 +214,6 @@
 		E1B3937D1BAC681B00FC2970 /* LotStatusEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3937C1BAC681B00FC2970 /* LotStatusEnum.swift */; };
 		E1B8120A1BEC1562002EC540 /* MockAirlineListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B812091BEC1562002EC540 /* MockAirlineListResponse.swift */; };
 		E1B8271C1B7CEF4200CC32EF /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8271B1B7CEF4200CC32EF /* ApiClient.swift */; };
-		E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */; };
 		E1BDE2881BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE2871BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift */; };
 		E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE2891BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift */; };
 		E1BDE28D1BB1EB21006C0A42 /* CidSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE28C1BB1EB21006C0A42 /* CidSpec.swift */; };
@@ -224,6 +222,7 @@
 		E1BDE2931BB1EFBB006C0A42 /* AllCidsResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE2921BB1EFBB006C0A42 /* AllCidsResponseSpec.swift */; };
 		E1BE7B6E1BE3FD510085D3CA /* TripScenario2Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BE7B6D1BE3FD510085D3CA /* TripScenario2Spec.swift */; };
 		E1BE7B701BE4025C0085D3CA /* TimeExpired.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BE7B6F1BE4025C0085D3CA /* TimeExpired.swift */; };
+		E1C045BD1BF110FB000A3F42 /* MockLotStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C045BC1BF110FB000A3F42 /* MockLotStatusResponse.swift */; };
 		E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */; };
 		E1CDE7941B66E95E00AB27D2 /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76C1B66E95E00AB27D2 /* MyriadPro-Semibold.otf */; };
 		E1CDE7951B66E95E00AB27D2 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */; };
@@ -412,7 +411,6 @@
 		E112C3081BB3016C00B1DF48 /* AllGeofencesResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGeofencesResponseSpec.swift; sourceTree = "<group>"; };
 		E112C30B1BB3135600B1DF48 /* LotStatusEnumSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusEnumSpec.swift; sourceTree = "<group>"; };
 		E112C30D1BB3195500B1DF48 /* LotStatusSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusSpec.swift; sourceTree = "<group>"; };
-		E112C30F1BB31A5800B1DF48 /* LotStatusResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusResponseSpec.swift; sourceTree = "<group>"; };
 		E11D60961BA7A40100FD4276 /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geofence.swift; sourceTree = "<group>"; };
 		E122649F1B795A65002B36CA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E12264A11B795A6F002B36CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -467,7 +465,6 @@
 		E1B3937C1BAC681B00FC2970 /* LotStatusEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusEnum.swift; sourceTree = "<group>"; };
 		E1B812091BEC1562002EC540 /* MockAirlineListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAirlineListResponse.swift; sourceTree = "<group>"; };
 		E1B8271B1B7CEF4200CC32EF /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
-		E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusResponse.swift; sourceTree = "<group>"; };
 		E1BDE2871BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticVehicleIdSpec.swift; sourceTree = "<group>"; };
 		E1BDE2891BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticVehicleIdResponseSpec.swift; sourceTree = "<group>"; };
 		E1BDE28C1BB1EB21006C0A42 /* CidSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidSpec.swift; sourceTree = "<group>"; };
@@ -476,6 +473,7 @@
 		E1BDE2921BB1EFBB006C0A42 /* AllCidsResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCidsResponseSpec.swift; sourceTree = "<group>"; };
 		E1BE7B6D1BE3FD510085D3CA /* TripScenario2Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TripScenario2Spec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E1BE7B6F1BE4025C0085D3CA /* TimeExpired.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeExpired.swift; sourceTree = "<group>"; };
+		E1C045BC1BF110FB000A3F42 /* MockLotStatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockLotStatusResponse.swift; sourceTree = "<group>"; };
 		E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiConstants.swift; sourceTree = "<group>"; };
 		E1CDE76C1B66E95E00AB27D2 /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
 		E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
@@ -915,8 +913,8 @@
 			isa = PBXGroup;
 			children = (
 				E112C30B1BB3135600B1DF48 /* LotStatusEnumSpec.swift */,
-				E112C30F1BB31A5800B1DF48 /* LotStatusResponseSpec.swift */,
 				E112C30D1BB3195500B1DF48 /* LotStatusSpec.swift */,
+				E1C045BC1BF110FB000A3F42 /* MockLotStatusResponse.swift */,
 			);
 			name = LotStatus;
 			sourceTree = "<group>";
@@ -1129,7 +1127,6 @@
 			children = (
 				E1B3937A1BAC66FE00FC2970 /* LotStatus.swift */,
 				E1B3937C1BAC681B00FC2970 /* LotStatusEnum.swift */,
-				E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */,
 			);
 			name = LotStatus;
 			sourceTree = "<group>";
@@ -1480,7 +1477,6 @@
 				E18228FF1BC4932400614256 /* ValidatingTrip.swift in Sources */,
 				E18228FD1BC4900900614256 /* OutsideSfo.swift in Sources */,
 				8EEFB7A81BE04DD600B8A962 /* LatestAviReadAtTaxiLoop.swift in Sources */,
-				E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */,
 				C28ECB2E1BCF033E00887763 /* InsideSfo.swift in Sources */,
 				8EEFB7A61BE04B5400B8A962 /* LatestCidIsPaymentCid.swift in Sources */,
 				E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */,
@@ -1615,6 +1611,7 @@
 				8EEFB7B91BE1A6BA00B8A962 /* DeviceClientSpec.swift in Sources */,
 				C22167971BD59419002D7994 /* MultipleGeofenceMock.swift in Sources */,
 				E14A39261BE945960053F741 /* TripScenario4Spec.swift in Sources */,
+				E1C045BD1BF110FB000A3F42 /* MockLotStatusResponse.swift in Sources */,
 				8EEFB7D61BE2A32800B8A962 /* TerminalSummaryDResponseSpec.swift in Sources */,
 				8EEFB7AF1BE198C300B8A962 /* DriverClientSpec.swift in Sources */,
 				C22167951BD592C4002D7994 /* SingleGeofenceMock.swift in Sources */,
@@ -1656,7 +1653,6 @@
 				E112C3071BB2FFC400B1DF48 /* GeofenceListResponseSpec.swift in Sources */,
 				C221678F1BD58AAF002D7994 /* TerminalSummaryMock.swift in Sources */,
 				E112C30C1BB3135600B1DF48 /* LotStatusEnumSpec.swift in Sources */,
-				E112C3101BB31A5800B1DF48 /* LotStatusResponseSpec.swift in Sources */,
 				E1BDE2931BB1EFBB006C0A42 /* AllCidsResponseSpec.swift in Sources */,
 				C22167841BD58639002D7994 /* AirlineClientSpec.swift in Sources */,
 				8EEFB7B71BE1A3B100B8A962 /* LotStatusMock.swift in Sources */,
