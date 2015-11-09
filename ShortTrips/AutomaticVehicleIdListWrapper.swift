@@ -15,6 +15,6 @@ struct AutomaticVehicleIdListWrapper: Mappable {
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
-    automaticVehicleIds <- map["response"]
+    automaticVehicleIds <- map["response.list"]
   }
 }
