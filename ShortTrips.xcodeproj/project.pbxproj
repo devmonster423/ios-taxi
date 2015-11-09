@@ -39,7 +39,6 @@
 		8EEFB7DA1BE2A47600B8A962 /* TerminalSummaryArrivalsResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7D91BE2A47600B8A962 /* TerminalSummaryArrivalsResponseSpec.swift */; };
 		8EEFB7DC1BE2A4A900B8A962 /* TerminalSummaryDeparturesResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7DB1BE2A4A900B8A962 /* TerminalSummaryDeparturesResponseSpec.swift */; };
 		8EEFB7DF1BE2A81B00B8A962 /* VehicleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7DE1BE2A81B00B8A962 /* VehicleSpec.swift */; };
-		8EEFB7E11BE2A82600B8A962 /* VehicleResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7E01BE2A82600B8A962 /* VehicleResponseSpec.swift */; };
 		8EEFB7E31BE2C46800B8A962 /* GeofenceListWrapperSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7E21BE2C46800B8A962 /* GeofenceListWrapperSpec.swift */; };
 		8EEFB7E61BE2C58200B8A962 /* TripIdSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7E51BE2C58200B8A962 /* TripIdSpec.swift */; };
 		8EEFB7E81BE2C64700B8A962 /* TripIdResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7E71BE2C64700B8A962 /* TripIdResponseSpec.swift */; };
@@ -68,7 +67,6 @@
 		C215CDFF1BD1A4B400991D9D /* Poller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CDFE1BD1A4B400991D9D /* Poller.swift */; };
 		C215CE011BD1AED200991D9D /* Failure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CE001BD1AED200991D9D /* Failure.swift */; };
 		C215CE031BD1B87000991D9D /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CE021BD1B87000991D9D /* Vehicle.swift */; };
-		C215CE051BD1B8AE00991D9D /* VehicleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CE041BD1B8AE00991D9D /* VehicleResponse.swift */; };
 		C215CE071BD1C31700991D9D /* PollerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CE061BD1C31700991D9D /* PollerSpec.swift */; };
 		C21775F91BB08CAC008B24EA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21775F81BB08CAC008B24EA /* Color.swift */; };
 		C21905681BB0B74E00A3E779 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905671BB0B74E00A3E779 /* Url.swift */; };
@@ -232,6 +230,7 @@
 		E1E07F1F1BE8150400D6D07D /* TripScenario3Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E07F1E1BE8150400D6D07D /* TripScenario3Spec.swift */; };
 		E1E6EF9E1BB205520039C5F3 /* DriverSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */; };
 		E1F18B1B1BE96FDD007BC7F8 /* TripScenario8Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F18B1A1BE96FDD007BC7F8 /* TripScenario8Spec.swift */; };
+		E1FBA9181BF1580B0042358F /* MockVehicleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBA9171BF1580B0042358F /* MockVehicleResponse.swift */; };
 		E1FDB2681BBC47E500F8F452 /* DriverCredentialSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FDB2671BBC47E500F8F452 /* DriverCredentialSpec.swift */; };
 		FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1FD11BAF1DD500B8F921 /* Font.swift */; };
 		FA32EC081B8836B7001428B5 /* green_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC051B8836B7001428B5 /* green_bg.jpg */; };
@@ -287,7 +286,6 @@
 		8EEFB7D91BE2A47600B8A962 /* TerminalSummaryArrivalsResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryArrivalsResponseSpec.swift; sourceTree = "<group>"; };
 		8EEFB7DB1BE2A4A900B8A962 /* TerminalSummaryDeparturesResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryDeparturesResponseSpec.swift; sourceTree = "<group>"; };
 		8EEFB7DE1BE2A81B00B8A962 /* VehicleSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleSpec.swift; sourceTree = "<group>"; };
-		8EEFB7E01BE2A82600B8A962 /* VehicleResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleResponseSpec.swift; sourceTree = "<group>"; };
 		8EEFB7E21BE2C46800B8A962 /* GeofenceListWrapperSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceListWrapperSpec.swift; sourceTree = "<group>"; };
 		8EEFB7E51BE2C58200B8A962 /* TripIdSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripIdSpec.swift; sourceTree = "<group>"; };
 		8EEFB7E71BE2C64700B8A962 /* TripIdResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripIdResponseSpec.swift; sourceTree = "<group>"; };
@@ -317,7 +315,6 @@
 		C215CDFE1BD1A4B400991D9D /* Poller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poller.swift; sourceTree = "<group>"; };
 		C215CE001BD1AED200991D9D /* Failure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Failure.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C215CE021BD1B87000991D9D /* Vehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
-		C215CE041BD1B8AE00991D9D /* VehicleResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleResponse.swift; sourceTree = "<group>"; };
 		C215CE061BD1C31700991D9D /* PollerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PollerSpec.swift; sourceTree = "<group>"; };
 		C21775F81BB08CAC008B24EA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C21905671BB0B74E00A3E779 /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
@@ -484,6 +481,7 @@
 		E1E07F1E1BE8150400D6D07D /* TripScenario3Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripScenario3Spec.swift; sourceTree = "<group>"; };
 		E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverSpec.swift; sourceTree = "<group>"; };
 		E1F18B1A1BE96FDD007BC7F8 /* TripScenario8Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripScenario8Spec.swift; sourceTree = "<group>"; };
+		E1FBA9171BF1580B0042358F /* MockVehicleResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockVehicleResponse.swift; sourceTree = "<group>"; };
 		E1FDB2671BBC47E500F8F452 /* DriverCredentialSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverCredentialSpec.swift; sourceTree = "<group>"; };
 		FA0E1FD11BAF1DD500B8F921 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		FA32EC051B8836B7001428B5 /* green_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green_bg.jpg; sourceTree = "<group>"; };
@@ -1110,7 +1108,6 @@
 				E15A3CD21BAC86C6002EDE40 /* DriverCredential.swift */,
 				E16399D41BA7B99400EDE0AE /* Driver.swift */,
 				C215CE021BD1B87000991D9D /* Vehicle.swift */,
-				C215CE041BD1B8AE00991D9D /* VehicleResponse.swift */,
 			);
 			name = Driver;
 			sourceTree = "<group>";
@@ -1171,7 +1168,7 @@
 				E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */,
 				E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */,
 				8EEFB7DE1BE2A81B00B8A962 /* VehicleSpec.swift */,
-				8EEFB7E01BE2A82600B8A962 /* VehicleResponseSpec.swift */,
+				E1FBA9171BF1580B0042358F /* MockVehicleResponse.swift */,
 			);
 			name = Driver;
 			sourceTree = "<group>";
@@ -1502,7 +1499,6 @@
 				E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */,
 				C21528C71BC855460073502F /* DebugVC.swift in Sources */,
 				C220E0731BC3446600AC7C85 /* Ready.swift in Sources */,
-				C215CE051BD1B8AE00991D9D /* VehicleResponse.swift in Sources */,
 				C28ECB261BCECE5F00887763 /* Ping.swift in Sources */,
 				C21528C51BC83A820073502F /* LoginView.swift in Sources */,
 				E18736901BA8EBED00B6C7D8 /* CidResponse.swift in Sources */,
@@ -1602,6 +1598,7 @@
 				E1BE7B6E1BE3FD510085D3CA /* TripScenario2Spec.swift in Sources */,
 				E1ADA7031BBC325B00766DB1 /* ReferenceConfigSpec.swift in Sources */,
 				8EEFB7F01BE2CA0500B8A962 /* GeofenceStatusSpec.swift in Sources */,
+				E1FBA9181BF1580B0042358F /* MockVehicleResponse.swift in Sources */,
 				C28224661BB09BCB007F284F /* TerminalSummaryVCSpec.swift in Sources */,
 				E17C22F11BBC4B8900E40E6C /* TerminalSummarySpec.swift in Sources */,
 				8EEFB7EC1BE2C74E00B8A962 /* PingSpec.swift in Sources */,
@@ -1675,7 +1672,6 @@
 				8EEFB7E81BE2C64700B8A962 /* TripIdResponseSpec.swift in Sources */,
 				E1F18B1B1BE96FDD007BC7F8 /* TripScenario8Spec.swift in Sources */,
 				8EEFB7DF1BE2A81B00B8A962 /* VehicleSpec.swift in Sources */,
-				8EEFB7E11BE2A82600B8A962 /* VehicleResponseSpec.swift in Sources */,
 				8EEFB7BB1BE1ACE000B8A962 /* RequestAutomaticVehicleIdsMock.swift in Sources */,
 				8EEFB7BD1BE1AF5000B8A962 /* RequestAntennaMock.swift in Sources */,
 				C22167911BD590E8002D7994 /* GeofenceClientSpec.swift in Sources */,

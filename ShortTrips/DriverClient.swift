@@ -30,12 +30,12 @@ extension ApiClient {
   
   static func getVehicle(smartCard: Int, completion: VehicleClosure) {
     authedRequest(Alamofire.request(.GET, Url.Driver.vehicle(smartCard)))
-      .responseObject { (_, raw, vehicleResponse: VehicleResponse?, _, _) in
+      .responseObject { (_, raw, vehicle: Vehicle?, _, _) in
         
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
-        completion(vehicleResponse?.vehicle)
+        completion(vehicle)
     }
   }
 }
