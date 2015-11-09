@@ -21,6 +21,7 @@ class AirlineListWrapperSpec: QuickSpec {
       beforeEach {
         self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["airlines": ["airline" : NSString(string: "EX123"), "airlineName": NSString(string: "ExygyAirline")]] )
         self.airlineListWrapper = AirlineListWrapper(self.map)
+        print("&&& airlines: \(self.airlineListWrapper.airlines) &&&")
       }
       
       it("is non-nil") {

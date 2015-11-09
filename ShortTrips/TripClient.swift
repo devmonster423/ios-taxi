@@ -33,13 +33,12 @@ extension ApiClient {
   
   static func start(driverId: Int, response: TripIdClosure) {
     authedRequest(Alamofire.request(.POST, Url.Trip.start, parameters: nil ))
-      .responseObject { (_, raw, tripIdResponse: TripIdResponse?, _, _) in
+      .responseObject { (_, raw, tripId: TripId?, _, _) in
         
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
-        
-        response(tripIdResponse?.tripId.tripId)
+        response(tripId?.tripId)
     }
   }
   

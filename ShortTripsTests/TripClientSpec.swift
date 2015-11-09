@@ -35,7 +35,6 @@ class TripClientSpec: QuickSpec {
         let driverId = 1;
         
         self.stub(uri(Url.Trip.start), builder: json(TripStartMock))
-        
         ApiClient.start(driverId) { geofences in
           expect(geofences).toNot(beNil())
         }

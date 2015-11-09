@@ -21,10 +21,12 @@ class AirlineListResponseSpec: QuickSpec {
       beforeEach {
         self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["response": ["airlines": ["airline" : NSString(string: "EX123"), "airlineName": NSString(string: "ExygyAirline")]]] )
         self.airlineListResponse = AirlineListResponse(self.map)
+        print("*** airlineListWrapper: \(self.airlineListResponse.airlineListWrapper) ***")
       }
       
       it("is non-nil") {
         expect(self.airlineListResponse).toNot(beNil())
+
       }
       
       it("can map") {
