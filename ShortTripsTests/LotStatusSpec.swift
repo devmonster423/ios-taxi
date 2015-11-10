@@ -14,21 +14,20 @@ import ObjectMapper
 
 class LotStatusSpec: QuickSpec {
   var lotStatus: LotStatus!
-  var map: Map!
-
+  
   override func spec() {
     describe("the LotStatus") {
       beforeEach {
-        self.lotStatus = LotStatus(color: LotStatusEnum.Red, timestamp: NSDate())
-        self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
+        self.lotStatus = Mapper<LotStatus>().map(MockLotStatusString)
       }
-
+      
       it("is non-nil") {
         expect(self.lotStatus).toNot(beNil())
       }
-
-      it("can map") {
-        expect(self.lotStatus.mapping(self.map)).toNot(beNil())
+      
+      it("is a valid LotStatus") {
+        expect(self.lotStatus.color).toNot(beNil())
+        expect(self.lotStatus.timestamp).toNot(beNil())
       }
     }
   }

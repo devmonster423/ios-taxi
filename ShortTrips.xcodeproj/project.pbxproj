@@ -34,10 +34,6 @@
 		8EEFB7CD1BE28DCD00B8A962 /* StatusCodeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7CC1BE28DCD00B8A962 /* StatusCodeSpec.swift */; };
 		8EEFB7D01BE29CFC00B8A962 /* AirlineSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7CF1BE29CFC00B8A962 /* AirlineSpec.swift */; };
 		8EEFB7D41BE2A15200B8A962 /* AirlineListWrapperSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7D31BE2A15200B8A962 /* AirlineListWrapperSpec.swift */; };
-		8EEFB7D61BE2A32800B8A962 /* TerminalSummaryDResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7D51BE2A32800B8A962 /* TerminalSummaryDResponseSpec.swift */; };
-		8EEFB7D81BE2A3CC00B8A962 /* TerminalSummaryAResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7D71BE2A3CC00B8A962 /* TerminalSummaryAResponseSpec.swift */; };
-		8EEFB7DA1BE2A47600B8A962 /* TerminalSummaryArrivalsResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7D91BE2A47600B8A962 /* TerminalSummaryArrivalsResponseSpec.swift */; };
-		8EEFB7DC1BE2A4A900B8A962 /* TerminalSummaryDeparturesResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7DB1BE2A4A900B8A962 /* TerminalSummaryDeparturesResponseSpec.swift */; };
 		8EEFB7DF1BE2A81B00B8A962 /* VehicleSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7DE1BE2A81B00B8A962 /* VehicleSpec.swift */; };
 		8EEFB7E11BE2A82600B8A962 /* VehicleResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7E01BE2A82600B8A962 /* VehicleResponseSpec.swift */; };
 		8EEFB7E31BE2C46800B8A962 /* GeofenceListWrapperSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7E21BE2C46800B8A962 /* GeofenceListWrapperSpec.swift */; };
@@ -161,18 +157,12 @@
 		E112C3091BB3016C00B1DF48 /* AllGeofencesResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C3081BB3016C00B1DF48 /* AllGeofencesResponseSpec.swift */; };
 		E112C30C1BB3135600B1DF48 /* LotStatusEnumSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C30B1BB3135600B1DF48 /* LotStatusEnumSpec.swift */; };
 		E112C30E1BB3195500B1DF48 /* LotStatusSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C30D1BB3195500B1DF48 /* LotStatusSpec.swift */; };
-		E112C3101BB31A5800B1DF48 /* LotStatusResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C30F1BB31A5800B1DF48 /* LotStatusResponseSpec.swift */; };
 		E11D60971BA7A40100FD4276 /* Geofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11D60961BA7A40100FD4276 /* Geofence.swift */; };
 		E122649E1B795A65002B36CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E12264A01B795A65002B36CA /* Localizable.strings */; };
 		E12A62471BF1157700440B57 /* MockReferenceConfigResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12A62461BF1157700440B57 /* MockReferenceConfigResponse.swift */; };
 		E13BCEF11BABB426006FDFF5 /* FlightsForTerminalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13BCEF01BABB426006FDFF5 /* FlightsForTerminalResponse.swift */; };
 		E13BCEF31BABB733006FDFF5 /* FlightDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13BCEF21BABB733006FDFF5 /* FlightDetailResponse.swift */; };
-		E13BCEF61BABB8F1006FDFF5 /* TerminalSummaryAResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13BCEF51BABB8F1006FDFF5 /* TerminalSummaryAResponse.swift */; };
-		E13BCEF81BABB985006FDFF5 /* TerminalSummaryArrivalsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13BCEF71BABB985006FDFF5 /* TerminalSummaryArrivalsResponse.swift */; };
-		E13BCEFA1BABBAA1006FDFF5 /* TerminalSummaryListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13BCEF91BABBAA1006FDFF5 /* TerminalSummaryListResponse.swift */; };
 		E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */; };
-		E14069D51BD8A95900C33928 /* TerminalSummaryDeparturesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14069D41BD8A95900C33928 /* TerminalSummaryDeparturesResponse.swift */; };
-		E14069D71BD8AFD900C33928 /* TerminalSummaryDResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14069D61BD8AFD900C33928 /* TerminalSummaryDResponse.swift */; };
 		E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */; };
 		E14A39261BE945960053F741 /* TripScenario4Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14A39251BE945960053F741 /* TripScenario4Spec.swift */; };
 		E14A39281BE957340053F741 /* AppQuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14A39271BE957340053F741 /* AppQuit.swift */; };
@@ -187,7 +177,6 @@
 		E1700DDD1BEBCCB70038AAD2 /* AutomaticVehicleIdListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1700DDC1BEBCCB70038AAD2 /* AutomaticVehicleIdListWrapper.swift */; };
 		E17352851B8CEC9B0031950B /* UiHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17352841B8CEC9B0031950B /* UiHelpers.swift */; };
 		E17C22F11BBC4B8900E40E6C /* TerminalSummarySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17C22F01BBC4B8900E40E6C /* TerminalSummarySpec.swift */; };
-		E17C22F31BBC505A00E40E6C /* TerminalSummaryArrivalsListResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17C22F21BBC505A00E40E6C /* TerminalSummaryArrivalsListResponseSpec.swift */; };
 		E18228FB1BC48F2300614256 /* InProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18228FA1BC48F2300614256 /* InProgress.swift */; };
 		E18228FD1BC4900900614256 /* OutsideSfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18228FC1BC4900900614256 /* OutsideSfo.swift */; };
 		E18228FF1BC4932400614256 /* ValidatingTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18228FE1BC4932400614256 /* ValidatingTrip.swift */; };
@@ -215,21 +204,27 @@
 		E1B3937D1BAC681B00FC2970 /* LotStatusEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3937C1BAC681B00FC2970 /* LotStatusEnum.swift */; };
 		E1B8120A1BEC1562002EC540 /* MockAirlineListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B812091BEC1562002EC540 /* MockAirlineListResponse.swift */; };
 		E1B8271C1B7CEF4200CC32EF /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8271B1B7CEF4200CC32EF /* ApiClient.swift */; };
-		E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */; };
 		E1BDE2881BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE2871BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift */; };
-		E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE2891BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift */; };
+		E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdListWrapperSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE2891BB1E76C006C0A42 /* AutomaticVehicleIdListWrapperSpec.swift */; };
 		E1BDE28D1BB1EB21006C0A42 /* CidSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE28C1BB1EB21006C0A42 /* CidSpec.swift */; };
 		E1BDE28F1BB1EDDD006C0A42 /* CidResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE28E1BB1EDDD006C0A42 /* CidResponseSpec.swift */; };
 		E1BDE2911BB1EEE6006C0A42 /* CidListResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE2901BB1EEE6006C0A42 /* CidListResponseSpec.swift */; };
 		E1BDE2931BB1EFBB006C0A42 /* AllCidsResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE2921BB1EFBB006C0A42 /* AllCidsResponseSpec.swift */; };
 		E1BE7B6E1BE3FD510085D3CA /* TripScenario2Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BE7B6D1BE3FD510085D3CA /* TripScenario2Spec.swift */; };
 		E1BE7B701BE4025C0085D3CA /* TimeExpired.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BE7B6F1BE4025C0085D3CA /* TimeExpired.swift */; };
+		E1C045BD1BF110FB000A3F42 /* MockLotStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C045BC1BF110FB000A3F42 /* MockLotStatusResponse.swift */; };
 		E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */; };
 		E1CDE7941B66E95E00AB27D2 /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76C1B66E95E00AB27D2 /* MyriadPro-Semibold.otf */; };
 		E1CDE7951B66E95E00AB27D2 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */; };
 		E1CDE7A81B66E95E00AB27D2 /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */; };
 		E1E07F1F1BE8150400D6D07D /* TripScenario3Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E07F1E1BE8150400D6D07D /* TripScenario3Spec.swift */; };
 		E1E6EF9E1BB205520039C5F3 /* DriverSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */; };
+		E1F153C11BF02B6200E212ED /* TerminalSummaryArrivalsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F153C01BF02B6200E212ED /* TerminalSummaryArrivalsWrapper.swift */; };
+		E1F153C31BF02B7C00E212ED /* TerminalSummaryDeparturesWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F153C21BF02B7C00E212ED /* TerminalSummaryDeparturesWrapper.swift */; };
+		E1F153C51BF02DE600E212ED /* TerminalSummaryArrivalsWrapperSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F153C41BF02DE600E212ED /* TerminalSummaryArrivalsWrapperSpec.swift */; };
+		E1F153C71BF02E0200E212ED /* TerminalSummaryDeparturesWrapperSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F153C61BF02E0200E212ED /* TerminalSummaryDeparturesWrapperSpec.swift */; };
+		E1F153C91BF02F8900E212ED /* MockTerminalSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F153C81BF02F8900E212ED /* MockTerminalSummary.swift */; };
+		E1F153BF1BF0110D00E212ED /* MockAutomaticVehicleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F153BE1BF0110D00E212ED /* MockAutomaticVehicleId.swift */; };
 		E1F18B1B1BE96FDD007BC7F8 /* TripScenario8Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F18B1A1BE96FDD007BC7F8 /* TripScenario8Spec.swift */; };
 		E1FDB2681BBC47E500F8F452 /* DriverCredentialSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FDB2671BBC47E500F8F452 /* DriverCredentialSpec.swift */; };
 		FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1FD11BAF1DD500B8F921 /* Font.swift */; };
@@ -281,10 +276,6 @@
 		8EEFB7CC1BE28DCD00B8A962 /* StatusCodeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCodeSpec.swift; sourceTree = "<group>"; };
 		8EEFB7CF1BE29CFC00B8A962 /* AirlineSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineSpec.swift; sourceTree = "<group>"; };
 		8EEFB7D31BE2A15200B8A962 /* AirlineListWrapperSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineListWrapperSpec.swift; sourceTree = "<group>"; };
-		8EEFB7D51BE2A32800B8A962 /* TerminalSummaryDResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryDResponseSpec.swift; sourceTree = "<group>"; };
-		8EEFB7D71BE2A3CC00B8A962 /* TerminalSummaryAResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryAResponseSpec.swift; sourceTree = "<group>"; };
-		8EEFB7D91BE2A47600B8A962 /* TerminalSummaryArrivalsResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryArrivalsResponseSpec.swift; sourceTree = "<group>"; };
-		8EEFB7DB1BE2A4A900B8A962 /* TerminalSummaryDeparturesResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryDeparturesResponseSpec.swift; sourceTree = "<group>"; };
 		8EEFB7DE1BE2A81B00B8A962 /* VehicleSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleSpec.swift; sourceTree = "<group>"; };
 		8EEFB7E01BE2A82600B8A962 /* VehicleResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleResponseSpec.swift; sourceTree = "<group>"; };
 		8EEFB7E21BE2C46800B8A962 /* GeofenceListWrapperSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceListWrapperSpec.swift; sourceTree = "<group>"; };
@@ -411,19 +402,13 @@
 		E112C3081BB3016C00B1DF48 /* AllGeofencesResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGeofencesResponseSpec.swift; sourceTree = "<group>"; };
 		E112C30B1BB3135600B1DF48 /* LotStatusEnumSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusEnumSpec.swift; sourceTree = "<group>"; };
 		E112C30D1BB3195500B1DF48 /* LotStatusSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusSpec.swift; sourceTree = "<group>"; };
-		E112C30F1BB31A5800B1DF48 /* LotStatusResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusResponseSpec.swift; sourceTree = "<group>"; };
 		E11D60961BA7A40100FD4276 /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geofence.swift; sourceTree = "<group>"; };
 		E122649F1B795A65002B36CA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E12264A11B795A6F002B36CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E12A62461BF1157700440B57 /* MockReferenceConfigResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockReferenceConfigResponse.swift; sourceTree = "<group>"; };
 		E13BCEF01BABB426006FDFF5 /* FlightsForTerminalResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightsForTerminalResponse.swift; sourceTree = "<group>"; };
 		E13BCEF21BABB733006FDFF5 /* FlightDetailResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightDetailResponse.swift; sourceTree = "<group>"; };
-		E13BCEF51BABB8F1006FDFF5 /* TerminalSummaryAResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryAResponse.swift; sourceTree = "<group>"; };
-		E13BCEF71BABB985006FDFF5 /* TerminalSummaryArrivalsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryArrivalsResponse.swift; sourceTree = "<group>"; };
-		E13BCEF91BABBAA1006FDFF5 /* TerminalSummaryListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryListResponse.swift; sourceTree = "<group>"; };
 		E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryVC.swift; sourceTree = "<group>"; };
-		E14069D41BD8A95900C33928 /* TerminalSummaryDeparturesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryDeparturesResponse.swift; sourceTree = "<group>"; };
-		E14069D61BD8AFD900C33928 /* TerminalSummaryDResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryDResponse.swift; sourceTree = "<group>"; };
 		E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+initWithColor.swift"; sourceTree = "<group>"; };
 		E14A39251BE945960053F741 /* TripScenario4Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripScenario4Spec.swift; sourceTree = "<group>"; };
 		E14A39271BE957340053F741 /* AppQuit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppQuit.swift; sourceTree = "<group>"; };
@@ -438,7 +423,6 @@
 		E1700DDC1BEBCCB70038AAD2 /* AutomaticVehicleIdListWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticVehicleIdListWrapper.swift; sourceTree = "<group>"; };
 		E17352841B8CEC9B0031950B /* UiHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiHelpers.swift; sourceTree = "<group>"; };
 		E17C22F01BBC4B8900E40E6C /* TerminalSummarySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummarySpec.swift; sourceTree = "<group>"; };
-		E17C22F21BBC505A00E40E6C /* TerminalSummaryArrivalsListResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryArrivalsListResponseSpec.swift; sourceTree = "<group>"; };
 		E18228FA1BC48F2300614256 /* InProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = InProgress.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E18228FC1BC4900900614256 /* OutsideSfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutsideSfo.swift; sourceTree = "<group>"; };
 		E18228FE1BC4932400614256 /* ValidatingTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ValidatingTrip.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -466,21 +450,27 @@
 		E1B3937C1BAC681B00FC2970 /* LotStatusEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusEnum.swift; sourceTree = "<group>"; };
 		E1B812091BEC1562002EC540 /* MockAirlineListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAirlineListResponse.swift; sourceTree = "<group>"; };
 		E1B8271B1B7CEF4200CC32EF /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
-		E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusResponse.swift; sourceTree = "<group>"; };
 		E1BDE2871BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticVehicleIdSpec.swift; sourceTree = "<group>"; };
-		E1BDE2891BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticVehicleIdResponseSpec.swift; sourceTree = "<group>"; };
+		E1BDE2891BB1E76C006C0A42 /* AutomaticVehicleIdListWrapperSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticVehicleIdListWrapperSpec.swift; sourceTree = "<group>"; };
 		E1BDE28C1BB1EB21006C0A42 /* CidSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidSpec.swift; sourceTree = "<group>"; };
 		E1BDE28E1BB1EDDD006C0A42 /* CidResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidResponseSpec.swift; sourceTree = "<group>"; };
 		E1BDE2901BB1EEE6006C0A42 /* CidListResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidListResponseSpec.swift; sourceTree = "<group>"; };
 		E1BDE2921BB1EFBB006C0A42 /* AllCidsResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCidsResponseSpec.swift; sourceTree = "<group>"; };
 		E1BE7B6D1BE3FD510085D3CA /* TripScenario2Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TripScenario2Spec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E1BE7B6F1BE4025C0085D3CA /* TimeExpired.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeExpired.swift; sourceTree = "<group>"; };
+		E1C045BC1BF110FB000A3F42 /* MockLotStatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockLotStatusResponse.swift; sourceTree = "<group>"; };
 		E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiConstants.swift; sourceTree = "<group>"; };
 		E1CDE76C1B66E95E00AB27D2 /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
 		E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
 		E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.otf"; sourceTree = "<group>"; };
 		E1E07F1E1BE8150400D6D07D /* TripScenario3Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripScenario3Spec.swift; sourceTree = "<group>"; };
 		E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverSpec.swift; sourceTree = "<group>"; };
+		E1F153C01BF02B6200E212ED /* TerminalSummaryArrivalsWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryArrivalsWrapper.swift; sourceTree = "<group>"; };
+		E1F153C21BF02B7C00E212ED /* TerminalSummaryDeparturesWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryDeparturesWrapper.swift; sourceTree = "<group>"; };
+		E1F153C41BF02DE600E212ED /* TerminalSummaryArrivalsWrapperSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryArrivalsWrapperSpec.swift; sourceTree = "<group>"; };
+		E1F153C61BF02E0200E212ED /* TerminalSummaryDeparturesWrapperSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryDeparturesWrapperSpec.swift; sourceTree = "<group>"; };
+		E1F153C81BF02F8900E212ED /* MockTerminalSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockTerminalSummary.swift; path = ../ShortTrips/MockTerminalSummary.swift; sourceTree = "<group>"; };
+		E1F153BE1BF0110D00E212ED /* MockAutomaticVehicleId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAutomaticVehicleId.swift; sourceTree = "<group>"; };
 		E1F18B1A1BE96FDD007BC7F8 /* TripScenario8Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripScenario8Spec.swift; sourceTree = "<group>"; };
 		E1FDB2671BBC47E500F8F452 /* DriverCredentialSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverCredentialSpec.swift; sourceTree = "<group>"; };
 		FA0E1FD11BAF1DD500B8F921 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -913,8 +903,8 @@
 			isa = PBXGroup;
 			children = (
 				E112C30B1BB3135600B1DF48 /* LotStatusEnumSpec.swift */,
-				E112C30F1BB31A5800B1DF48 /* LotStatusResponseSpec.swift */,
 				E112C30D1BB3195500B1DF48 /* LotStatusSpec.swift */,
+				E1C045BC1BF110FB000A3F42 /* MockLotStatusResponse.swift */,
 			);
 			name = LotStatus;
 			sourceTree = "<group>";
@@ -934,11 +924,8 @@
 			isa = PBXGroup;
 			children = (
 				E1A2EBAE1B6E920500C27EB2 /* TerminalSummary.swift */,
-				E13BCEF91BABBAA1006FDFF5 /* TerminalSummaryListResponse.swift */,
-				E13BCEF71BABB985006FDFF5 /* TerminalSummaryArrivalsResponse.swift */,
-				E14069D41BD8A95900C33928 /* TerminalSummaryDeparturesResponse.swift */,
-				E13BCEF51BABB8F1006FDFF5 /* TerminalSummaryAResponse.swift */,
-				E14069D61BD8AFD900C33928 /* TerminalSummaryDResponse.swift */,
+				E1F153C01BF02B6200E212ED /* TerminalSummaryArrivalsWrapper.swift */,
+				E1F153C21BF02B7C00E212ED /* TerminalSummaryDeparturesWrapper.swift */,
 			);
 			name = TerminalSummary;
 			sourceTree = "<group>";
@@ -969,12 +956,10 @@
 		E17C22EF1BBC4B1100E40E6C /* TerminalSummary */ = {
 			isa = PBXGroup;
 			children = (
+				E1F153C81BF02F8900E212ED /* MockTerminalSummary.swift */,
 				E17C22F01BBC4B8900E40E6C /* TerminalSummarySpec.swift */,
-				E17C22F21BBC505A00E40E6C /* TerminalSummaryArrivalsListResponseSpec.swift */,
-				8EEFB7D91BE2A47600B8A962 /* TerminalSummaryArrivalsResponseSpec.swift */,
-				8EEFB7DB1BE2A4A900B8A962 /* TerminalSummaryDeparturesResponseSpec.swift */,
-				8EEFB7D71BE2A3CC00B8A962 /* TerminalSummaryAResponseSpec.swift */,
-				8EEFB7D51BE2A32800B8A962 /* TerminalSummaryDResponseSpec.swift */,
+				E1F153C41BF02DE600E212ED /* TerminalSummaryArrivalsWrapperSpec.swift */,
+				E1F153C61BF02E0200E212ED /* TerminalSummaryDeparturesWrapperSpec.swift */,
 			);
 			name = TerminalSummary;
 			sourceTree = "<group>";
@@ -1126,7 +1111,6 @@
 			children = (
 				E1B3937A1BAC66FE00FC2970 /* LotStatus.swift */,
 				E1B3937C1BAC681B00FC2970 /* LotStatusEnum.swift */,
-				E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */,
 			);
 			name = LotStatus;
 			sourceTree = "<group>";
@@ -1134,8 +1118,9 @@
 		E1BDE2861BB1E673006C0A42 /* AutomaticVehicleId */ = {
 			isa = PBXGroup;
 			children = (
-				E1BDE2891BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift */,
+				E1BDE2891BB1E76C006C0A42 /* AutomaticVehicleIdListWrapperSpec.swift */,
 				E1BDE2871BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift */,
+				E1F153BE1BF0110D00E212ED /* MockAutomaticVehicleId.swift */,
 			);
 			name = AutomaticVehicleId;
 			sourceTree = "<group>";
@@ -1459,7 +1444,6 @@
 				8E0F5BC51BEBEC83001DE4C2 /* TimerDebugger.swift in Sources */,
 				C28ECB221BCECA9700887763 /* TripClient.swift in Sources */,
 				E13BCEF11BABB426006FDFF5 /* FlightsForTerminalResponse.swift in Sources */,
-				E14069D51BD8A95900C33928 /* TerminalSummaryDeparturesResponse.swift in Sources */,
 				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
 				E18FF68F1BA869A300FE93B9 /* Antenna.swift in Sources */,
 				E17352851B8CEC9B0031950B /* UiHelpers.swift in Sources */,
@@ -1477,15 +1461,13 @@
 				E18228FF1BC4932400614256 /* ValidatingTrip.swift in Sources */,
 				E18228FD1BC4900900614256 /* OutsideSfo.swift in Sources */,
 				8EEFB7A81BE04DD600B8A962 /* LatestAviReadAtTaxiLoop.swift in Sources */,
-				E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */,
 				C28ECB2E1BCF033E00887763 /* InsideSfo.swift in Sources */,
 				8EEFB7A61BE04B5400B8A962 /* LatestCidIsPaymentCid.swift in Sources */,
 				E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */,
 				C257FB3D1BC44E4200468CF1 /* GeofenceArbiter.swift in Sources */,
+				E1F153C11BF02B6200E212ED /* TerminalSummaryArrivalsWrapper.swift in Sources */,
 				C24486F41BA8B5A300A19A9D /* GeofenceResponse.swift in Sources */,
-				E13BCEF81BABB985006FDFF5 /* TerminalSummaryArrivalsResponse.swift in Sources */,
 				E13BCEF31BABB733006FDFF5 /* FlightDetailResponse.swift in Sources */,
-				E13BCEF61BABB8F1006FDFF5 /* TerminalSummaryAResponse.swift in Sources */,
 				E1B8271C1B7CEF4200CC32EF /* ApiClient.swift in Sources */,
 				E1700DDD1BEBCCB70038AAD2 /* AutomaticVehicleIdListWrapper.swift in Sources */,
 				E108B1751BA7C1DE00481AF1 /* ReferenceConfig.swift in Sources */,
@@ -1537,8 +1519,8 @@
 				E1BE7B701BE4025C0085D3CA /* TimeExpired.swift in Sources */,
 				8EEFB79C1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift in Sources */,
 				C283AB3F1BE93B790004E8CD /* StateDebugger.swift in Sources */,
+				E1F153C91BF02F8900E212ED /* MockTerminalSummary.swift in Sources */,
 				C2635E2A1BB0CC86003C22B1 /* FlightClient.swift in Sources */,
-				E14069D71BD8AFD900C33928 /* TerminalSummaryDResponse.swift in Sources */,
 				C28ECB2C1BCF01F200887763 /* WaitingForEntryCid.swift in Sources */,
 				C283AB351BE936B30004E8CD /* CidDebugger.swift in Sources */,
 				FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */,
@@ -1553,7 +1535,6 @@
 				C283AB431BE93C610004E8CD /* DriverDebugger.swift in Sources */,
 				C21905681BB0B74E00A3E779 /* Url.swift in Sources */,
 				E15FF4981BD5F0C700ECDF27 /* Util.swift in Sources */,
-				E13BCEFA1BABBAA1006FDFF5 /* TerminalSummaryListResponse.swift in Sources */,
 				C221EDE31BE2C57700BDB4CD /* VerifyingExitAvi.swift in Sources */,
 				C215CDFA1BD18F7200991D9D /* StatusCode.swift in Sources */,
 				C2635E261BB0CA3F003C22B1 /* DispatcherClient.swift in Sources */,
@@ -1586,6 +1567,7 @@
 				C283AB411BE93B830004E8CD /* TripDebugger.swift in Sources */,
 				C26530B01BE3F038002C0A97 /* VerifyingInboundAvi.swift in Sources */,
 				E18228FB1BC48F2300614256 /* InProgress.swift in Sources */,
+				E1F153C31BF02B7C00E212ED /* TerminalSummaryDeparturesWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1594,6 +1576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EEFB7BF1BE1AF8D00B8A962 /* RequestAllCidsMock.swift in Sources */,
+				E1F153BF1BF0110D00E212ED /* MockAutomaticVehicleId.swift in Sources */,
 				C29341CE1BD1C6F100A7CB9E /* PingManagerSpec.swift in Sources */,
 				E1BE7B6E1BE3FD510085D3CA /* TripScenario2Spec.swift in Sources */,
 				E12A62471BF1157700440B57 /* MockReferenceConfigResponse.swift in Sources */,
@@ -1612,12 +1595,11 @@
 				8EEFB7B91BE1A6BA00B8A962 /* DeviceClientSpec.swift in Sources */,
 				C22167971BD59419002D7994 /* MultipleGeofenceMock.swift in Sources */,
 				E14A39261BE945960053F741 /* TripScenario4Spec.swift in Sources */,
-				8EEFB7D61BE2A32800B8A962 /* TerminalSummaryDResponseSpec.swift in Sources */,
+				E1C045BD1BF110FB000A3F42 /* MockLotStatusResponse.swift in Sources */,
 				8EEFB7AF1BE198C300B8A962 /* DriverClientSpec.swift in Sources */,
 				C22167951BD592C4002D7994 /* SingleGeofenceMock.swift in Sources */,
 				C22167871BD5868D002D7994 /* IataCodeMock.swift in Sources */,
 				E1598CE61BB1AE3B00E933AD /* FlightDetailResponseSpec.swift in Sources */,
-				8EEFB7D81BE2A3CC00B8A962 /* TerminalSummaryAResponseSpec.swift in Sources */,
 				E1E6EF9E1BB205520039C5F3 /* DriverSpec.swift in Sources */,
 				E112C30E1BB3195500B1DF48 /* LotStatusSpec.swift in Sources */,
 				C21528CF1BC869820073502F /* DebugVCSpec.swift in Sources */,
@@ -1625,7 +1607,7 @@
 				E10CE6801BED1DD600322077 /* MockDriverResponse.swift in Sources */,
 				E18FFE291BB19ED2003D192A /* FlightsForTerminalResponseSpec.swift in Sources */,
 				C29341D01BD1C9B300A7CB9E /* GeofenceManagerSpec.swift in Sources */,
-				E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift in Sources */,
+				E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdListWrapperSpec.swift in Sources */,
 				C21528CD1BC869790073502F /* LoginVCSpec.swift in Sources */,
 				8EEFB7C91BE28CFB00B8A962 /* TripPingMock.swift in Sources */,
 				8EEFB7CB1BE28D1400B8A962 /* TripStartMock.swift in Sources */,
@@ -1641,10 +1623,7 @@
 				8EEFB7E31BE2C46800B8A962 /* GeofenceListWrapperSpec.swift in Sources */,
 				8EEFB7E61BE2C58200B8A962 /* TripIdSpec.swift in Sources */,
 				E1BDE2911BB1EEE6006C0A42 /* CidListResponseSpec.swift in Sources */,
-				E17C22F31BBC505A00E40E6C /* TerminalSummaryArrivalsListResponseSpec.swift in Sources */,
-				8EEFB7DC1BE2A4A900B8A962 /* TerminalSummaryDeparturesResponseSpec.swift in Sources */,
 				C220E0781BC34ACE00AC7C85 /* TripScenario1Spec.swift in Sources */,
-				8EEFB7DA1BE2A47600B8A962 /* TerminalSummaryArrivalsResponseSpec.swift in Sources */,
 				E112C3051BB2FF0100B1DF48 /* GeofenceResponseSpec.swift in Sources */,
 				E112C3091BB3016C00B1DF48 /* AllGeofencesResponseSpec.swift in Sources */,
 				C29341CC1BD1C56200A7CB9E /* DriverManagerSpec.swift in Sources */,
@@ -1652,8 +1631,8 @@
 				E112C3071BB2FFC400B1DF48 /* GeofenceListResponseSpec.swift in Sources */,
 				C221678F1BD58AAF002D7994 /* TerminalSummaryMock.swift in Sources */,
 				E112C30C1BB3135600B1DF48 /* LotStatusEnumSpec.swift in Sources */,
-				E112C3101BB31A5800B1DF48 /* LotStatusResponseSpec.swift in Sources */,
 				E1BDE2931BB1EFBB006C0A42 /* AllCidsResponseSpec.swift in Sources */,
+				E1F153C51BF02DE600E212ED /* TerminalSummaryArrivalsWrapperSpec.swift in Sources */,
 				C22167841BD58639002D7994 /* AirlineClientSpec.swift in Sources */,
 				8EEFB7B71BE1A3B100B8A962 /* LotStatusMock.swift in Sources */,
 				C221678D1BD5886A002D7994 /* FlightArrivalMock.swift in Sources */,
@@ -1664,6 +1643,7 @@
 				C221678B1BD587A4002D7994 /* FlightClientSpec.swift in Sources */,
 				8EEFB7D01BE29CFC00B8A962 /* AirlineSpec.swift in Sources */,
 				E1B8120A1BEC1562002EC540 /* MockAirlineListResponse.swift in Sources */,
+				E1F153C71BF02E0200E212ED /* TerminalSummaryDeparturesWrapperSpec.swift in Sources */,
 				C22167931BD59199002D7994 /* AllGeofenceMock.swift in Sources */,
 				8EEFB7B31BE1A1AC00B8A962 /* DriverVehicleMock.swift in Sources */,
 				E112C3031BB2FD2500B1DF48 /* GeofenceSpec.swift in Sources */,
