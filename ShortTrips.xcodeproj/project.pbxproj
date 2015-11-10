@@ -1643,7 +1643,6 @@
 				8EEFB7B31BE1A1AC00B8A962 /* DriverVehicleMock.swift in Sources */,
 				E112C3031BB2FD2500B1DF48 /* GeofenceSpec.swift in Sources */,
 				C28224681BB09C32007F284F /* FlightStatusVCSpec.swift in Sources */,
-				8EEFB7E81BE2C64700B8A962 /* TripIdResponseSpec.swift in Sources */,
 				E1F18B1B1BE96FDD007BC7F8 /* TripScenario8Spec.swift in Sources */,
 				8EEFB7DF1BE2A81B00B8A962 /* VehicleSpec.swift in Sources */,
 				8EEFB7BB1BE1ACE000B8A962 /* RequestAutomaticVehicleIdsMock.swift in Sources */,
