@@ -27,7 +27,7 @@ class DriverClientSpec: QuickSpec {
       }
       
       it("can request driver vehicle") {
-        let driverId = 1;
+        let driverId = "1"
         self.stub(uri(Url.Driver.vehicle(driverId)), builder: json(DriverVehicleMock))
         ApiClient.getVehicle(driverId) { vehicle in
           expect(vehicle).toNot(beNil())

@@ -12,12 +12,12 @@ import ObjectMapper
 struct Driver: Mappable {
   var sessionId: Int!
   var driverId: Int!
-  var cardId: Int!
+  var cardId: String!
   var firstName: String!
   var lastName: String!
   var driverLicense: String!
 
-  init(sessionId: Int, driverId: Int, cardId: Int, firstName: String, lastName: String, driverLicense: String) {
+  init(sessionId: Int, driverId: Int, cardId: String, firstName: String, lastName: String, driverLicense: String) {
     self.sessionId = sessionId
     self.driverId = driverId
     self.cardId = cardId

@@ -20,7 +20,7 @@ class DriverManagerSpec: QuickSpec {
         
         let driver = Driver(sessionId: 1,
           driverId: 2,
-          cardId: 3,
+          cardId: "3",
           firstName: "Test",
           lastName: "Test",
           driverLicense: "3F0-3xy6y")

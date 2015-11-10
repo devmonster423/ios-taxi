@@ -28,7 +28,7 @@ extension ApiClient {
     }
   }
   
-  static func getVehicle(smartCard: Int, completion: VehicleClosure) {
+  static func getVehicle(smartCard: String, completion: VehicleClosure) {
     authedRequest(Alamofire.request(.GET, Url.Driver.vehicle(smartCard)))
       .responseObject { (_, raw, vehicle: Vehicle?, _, _) in
         

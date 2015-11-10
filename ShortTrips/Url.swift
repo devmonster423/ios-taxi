@@ -57,7 +57,7 @@ struct Url {
     
     static let login = driver + "login"
     
-    static func vehicle(smartCard: Int) -> String {
+    static func vehicle(smartCard: String) -> String {
       return driver + "vehicle/smart_card/\(smartCard)"
     }
   }
