@@ -20,11 +20,9 @@ struct LotStatus: Mappable {
   }
 
   mutating func mapping(map: Map) {
-    
     let transform = DateTransform(dateFormat: "yyyy-MM-dd HH:mm:ss.SSS") // "2015-09-03 09:19:20.563"
-    
-    color <- map["color"]
-    timestamp <- (map["timestamp"], transform)
+    color <- map["response.color"]
+    timestamp <- (map["response.timestamp"], transform)
   }
 }
 
