@@ -1573,7 +1573,6 @@
 				E1BE7B6E1BE3FD510085D3CA /* TripScenario2Spec.swift in Sources */,
 				E12A62471BF1157700440B57 /* MockReferenceConfigResponse.swift in Sources */,
 				E1ADA7031BBC325B00766DB1 /* ReferenceConfigSpec.swift in Sources */,
-				8EEFB7D21BE29F9A00B8A962 /* AirlineListWrapperSpec.swift in Sources */,
 				E1259FD21BF167B200EA0628 /* MockTripIdResponse.swift in Sources */,
 				8EEFB7F01BE2CA0500B8A962 /* GeofenceStatusSpec.swift in Sources */,
 				E1FBA9181BF1580B0042358F /* MockVehicleResponse.swift in Sources */,
