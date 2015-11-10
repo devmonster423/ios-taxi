@@ -53,16 +53,13 @@ struct TerminalSummary: Mappable {
   }
   
   static func getTotals(summaries: [TerminalSummary]?) -> (onTime: Int, delayed: Int) {
-    
     var results = (onTime: 0, delayed: 0)
-    
     if let summaries = summaries {
       for summary in summaries {
         results.onTime += summary.onTimeCount
         results.delayed += summary.delayedCount
       }
     }
-    
     return results
   }
 }
