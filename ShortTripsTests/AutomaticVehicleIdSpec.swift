@@ -14,22 +14,22 @@ import ObjectMapper
 
 class AutomaticVehicleIdSpec: QuickSpec {
   var automaticVehicleId: AutomaticVehicleId!
-  var map: Map!
   
   override func spec() {
     describe("the AutomaticVehicleId") {
       beforeEach {
-        self.automaticVehicleId = AutomaticVehicleId(location: "parking lot", id: "42")
-        self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
+        self.automaticVehicleId = Mapper<AutomaticVehicleId>().map(MockAutomaticVehicleIdString)
       }
       
       it("is non-nil") {
         expect(self.automaticVehicleId).toNot(beNil())
       }
       
-      it("can map") {
-        expect(self.automaticVehicleId.mapping(self.map)).toNot(beNil())
+      it("is a valid AutomaticVehicleId") {
+        expect(self.automaticVehicleId.location).toNot(beNil())
+        expect(self.automaticVehicleId.id).toNot(beNil())
       }
+
     }
   }
 }
