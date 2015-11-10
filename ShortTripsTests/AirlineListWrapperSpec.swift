@@ -14,7 +14,6 @@ import ObjectMapper
 
 class AirlineListWrapperSpec: QuickSpec {
   var airlineListWrapper: AirlineListWrapper!
-  var map: Map!
   
   override func spec() {
     describe("the AirlineList") {

@@ -14,21 +14,19 @@ import ObjectMapper
 
 class TripIdSpec: QuickSpec {
   var tripId: TripId!
-  var map: Map!
   
   override func spec() {
     describe("the TripId") {
       beforeEach {
-        self.tripId = TripId(tripId: 42)
-        self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
+        self.tripId = Mapper<TripId>().map(MockTripIdString)
       }
       
       it("is non-nil") {
         expect(self.tripId).toNot(beNil())
       }
       
-      it("can map") {
-        self.tripId.mapping(self.map)
+      it("has a tripId") {
+        expect(self.tripId).toNot(beNil())
       }
     }
   }
