@@ -40,6 +40,7 @@ class DebugVC: UIViewController {
   // Location
   var locationManagerStartedObserver: NotificationObserver<Any?, AnyObject>?
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
+  var locationStatusObserver: NotificationObserver<CLAuthorizationStatus, AnyObject>?
   
   // Ping
   var attemptingPingObserver: NotificationObserver<Ping, AnyObject>?

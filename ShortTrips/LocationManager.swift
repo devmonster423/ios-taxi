@@ -17,14 +17,12 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   static let sharedInstance = LocationManager()
 
   private var lastKnownLocation: CLLocation?
-  
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
   
   private override init() {
     super.init()
     
     locationObserver = NotificationObserver(notification: SfoNotification.Location.read) { location, _ in
-      
       self.lastKnownLocation = location
     }
   }
@@ -34,6 +32,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     manager.delegate = self
     manager.desiredAccuracy = 100
     manager.distanceFilter = 100
+    if #available(iOS 9.0, *) {
+      manager.allowsBackgroundLocationUpdates = true
+    } else {
+      // Fallback on earlier versions
+    }
     manager.requestAlwaysAuthorization()
     manager.startUpdatingLocation()
     postNotification(SfoNotification.Location.managerStarted, value: nil)
@@ -46,6 +49,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   func locationManager(manager: CLLocationManager,
     didUpdateLocations locations: [CLLocation]) {
       postNotification(SfoNotification.Location.read, value: locations.last!)
+  }
+
+  func locationManager(manager: CLLocationManager,
+    didChangeAuthorizationStatus status: CLAuthorizationStatus){
+      postNotification(SfoNotification.Location.statusUpdated, value: status)
   }
 
   func getLastKnownLocation() -> CLLocation? {

@@ -40,6 +40,7 @@ struct SfoNotification {
   struct Location {
     static let managerStarted = Notification<Any?, AnyObject>(name: "LocationManagerStarted")
     static let read = Notification<CLLocation, AnyObject>(name: "LocationRead")
+    static let statusUpdated = Notification<CLAuthorizationStatus, AnyObject>(name: "LocationStatusUpdated")
   }
   
   struct Ping {
