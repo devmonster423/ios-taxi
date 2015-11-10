@@ -207,7 +207,7 @@
 		E1B8271C1B7CEF4200CC32EF /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8271B1B7CEF4200CC32EF /* ApiClient.swift */; };
 		E1B8271E1B7CF14B00CC32EF /* LotStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */; };
 		E1BDE2881BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE2871BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift */; };
-		E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE2891BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift */; };
+		E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdListWrapperSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE2891BB1E76C006C0A42 /* AutomaticVehicleIdListWrapperSpec.swift */; };
 		E1BDE28D1BB1EB21006C0A42 /* CidSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE28C1BB1EB21006C0A42 /* CidSpec.swift */; };
 		E1BDE28F1BB1EDDD006C0A42 /* CidResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE28E1BB1EDDD006C0A42 /* CidResponseSpec.swift */; };
 		E1BDE2911BB1EEE6006C0A42 /* CidListResponseSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDE2901BB1EEE6006C0A42 /* CidListResponseSpec.swift */; };
@@ -226,6 +226,7 @@
 		E1F153C51BF02DE600E212ED /* TerminalSummaryArrivalsWrapperSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F153C41BF02DE600E212ED /* TerminalSummaryArrivalsWrapperSpec.swift */; };
 		E1F153C71BF02E0200E212ED /* TerminalSummaryDeparturesWrapperSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F153C61BF02E0200E212ED /* TerminalSummaryDeparturesWrapperSpec.swift */; };
 		E1F153C91BF02F8900E212ED /* MockTerminalSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F153C81BF02F8900E212ED /* MockTerminalSummary.swift */; };
+		E1F153BF1BF0110D00E212ED /* MockAutomaticVehicleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F153BE1BF0110D00E212ED /* MockAutomaticVehicleId.swift */; };
 		E1F18B1B1BE96FDD007BC7F8 /* TripScenario8Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F18B1A1BE96FDD007BC7F8 /* TripScenario8Spec.swift */; };
 		E1FDB2681BBC47E500F8F452 /* DriverCredentialSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FDB2671BBC47E500F8F452 /* DriverCredentialSpec.swift */; };
 		FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1FD11BAF1DD500B8F921 /* Font.swift */; };
@@ -454,7 +455,7 @@
 		E1B8271B1B7CEF4200CC32EF /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		E1B8271D1B7CF14B00CC32EF /* LotStatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusResponse.swift; sourceTree = "<group>"; };
 		E1BDE2871BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticVehicleIdSpec.swift; sourceTree = "<group>"; };
-		E1BDE2891BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticVehicleIdResponseSpec.swift; sourceTree = "<group>"; };
+		E1BDE2891BB1E76C006C0A42 /* AutomaticVehicleIdListWrapperSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticVehicleIdListWrapperSpec.swift; sourceTree = "<group>"; };
 		E1BDE28C1BB1EB21006C0A42 /* CidSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidSpec.swift; sourceTree = "<group>"; };
 		E1BDE28E1BB1EDDD006C0A42 /* CidResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidResponseSpec.swift; sourceTree = "<group>"; };
 		E1BDE2901BB1EEE6006C0A42 /* CidListResponseSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidListResponseSpec.swift; sourceTree = "<group>"; };
@@ -473,6 +474,7 @@
 		E1F153C41BF02DE600E212ED /* TerminalSummaryArrivalsWrapperSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryArrivalsWrapperSpec.swift; sourceTree = "<group>"; };
 		E1F153C61BF02E0200E212ED /* TerminalSummaryDeparturesWrapperSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryDeparturesWrapperSpec.swift; sourceTree = "<group>"; };
 		E1F153C81BF02F8900E212ED /* MockTerminalSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockTerminalSummary.swift; path = ../ShortTrips/MockTerminalSummary.swift; sourceTree = "<group>"; };
+		E1F153BE1BF0110D00E212ED /* MockAutomaticVehicleId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAutomaticVehicleId.swift; sourceTree = "<group>"; };
 		E1F18B1A1BE96FDD007BC7F8 /* TripScenario8Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripScenario8Spec.swift; sourceTree = "<group>"; };
 		E1FDB2671BBC47E500F8F452 /* DriverCredentialSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverCredentialSpec.swift; sourceTree = "<group>"; };
 		FA0E1FD11BAF1DD500B8F921 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
@@ -1122,8 +1124,9 @@
 		E1BDE2861BB1E673006C0A42 /* AutomaticVehicleId */ = {
 			isa = PBXGroup;
 			children = (
-				E1BDE2891BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift */,
+				E1BDE2891BB1E76C006C0A42 /* AutomaticVehicleIdListWrapperSpec.swift */,
 				E1BDE2871BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift */,
+				E1F153BE1BF0110D00E212ED /* MockAutomaticVehicleId.swift */,
 			);
 			name = AutomaticVehicleId;
 			sourceTree = "<group>";
@@ -1581,6 +1584,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8EEFB7BF1BE1AF8D00B8A962 /* RequestAllCidsMock.swift in Sources */,
+				E1F153BF1BF0110D00E212ED /* MockAutomaticVehicleId.swift in Sources */,
 				C29341CE1BD1C6F100A7CB9E /* PingManagerSpec.swift in Sources */,
 				E1BE7B6E1BE3FD510085D3CA /* TripScenario2Spec.swift in Sources */,
 				E1ADA7031BBC325B00766DB1 /* ReferenceConfigSpec.swift in Sources */,
@@ -1609,7 +1613,7 @@
 				E10CE6801BED1DD600322077 /* MockDriverResponse.swift in Sources */,
 				E18FFE291BB19ED2003D192A /* FlightsForTerminalResponseSpec.swift in Sources */,
 				C29341D01BD1C9B300A7CB9E /* GeofenceManagerSpec.swift in Sources */,
-				E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdResponseSpec.swift in Sources */,
+				E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdListWrapperSpec.swift in Sources */,
 				C21528CD1BC869790073502F /* LoginVCSpec.swift in Sources */,
 				8EEFB7C91BE28CFB00B8A962 /* TripPingMock.swift in Sources */,
 				8EEFB7CB1BE28D1400B8A962 /* TripStartMock.swift in Sources */,
