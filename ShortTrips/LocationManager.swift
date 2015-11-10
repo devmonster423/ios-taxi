@@ -32,11 +32,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     manager.delegate = self
     manager.desiredAccuracy = 100
     manager.distanceFilter = 100
-    if #available(iOS 9.0, *) {
-      manager.allowsBackgroundLocationUpdates = true
-    } else {
-      // Fallback on earlier versions
-    }
     manager.requestAlwaysAuthorization()
     manager.startUpdatingLocation()
     postNotification(SfoNotification.Location.managerStarted, value: nil)
@@ -53,7 +48,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 
   func locationManager(manager: CLLocationManager,
     didChangeAuthorizationStatus status: CLAuthorizationStatus){
-      postNotification(SfoNotification.Location.statusUpdated, value: status)
+      // this causes the app to crash if the app is in background on the GPS gets turned off
+      // postNotification(SfoNotification.Location.statusUpdated, value: status)
   }
 
   func getLastKnownLocation() -> CLLocation? {
