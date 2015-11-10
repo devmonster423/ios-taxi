@@ -21,7 +21,7 @@ struct Vehicle: Mappable {
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
-    vehicleId <- map["vehicle_id"]
-    transponderId <- map["transponder_id"]
+    vehicleId <- map["response.vehicle_id"]
+    transponderId <- map["response.transponder_id"]
   }
 }
