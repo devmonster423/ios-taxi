@@ -16,12 +16,16 @@ extension DebugVC {
       let vehicle = data.vehicle
       let driver = data.driver
       
-      self.debugView().printDebugLine("driver \(driver.firstName) \(driver.lastName) is associated with transponder: (\(vehicle.transponderId)")
+      self.debugView().printDebugLine("driver \(driver.firstName) \(driver.lastName) is associated with transponder: \(vehicle.transponderId)")
     })
   }
   
   func associateDriverAndVehicle() {
-    let vehicle = Vehicle(vehicleId: 123, transponderId: "what")
+    let vehicle = Vehicle(gtmsTripId: 10590,
+      licensePlate: "13702K1",
+      medallion: 1404,
+      transponderId: 2005887,
+      vehicleId: 12999)
     DriverManager.sharedInstance.setCurrentVehicle(vehicle)
   }
 }

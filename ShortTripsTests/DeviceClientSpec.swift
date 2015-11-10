@@ -34,7 +34,7 @@ class DeviceClientSpec: QuickSpec {
       }
       
       it("can request automatic vehicle ids") {
-        let transponderId = "tansponder";
+        let transponderId = 2005887;
         self.stub(uri(Url.Device.Avi.transponder(transponderId)), builder: json(RequestAntennaMock))
         
         ApiClient.requestAntenna(transponderId) { response in

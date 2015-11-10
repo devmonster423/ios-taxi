@@ -26,9 +26,6 @@ class DriverManager {
   }
   
   func setCurrentVehicle(vehicle: Vehicle) {
-    var vehicle = vehicle    
-    vehicle.transponderId = "3F0-3xy6y"
-    
     currentVehicle = vehicle
     
     if let driver = getCurrentDriver() {

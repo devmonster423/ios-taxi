@@ -28,6 +28,9 @@ class VehicleSpec: QuickSpec {
       it("is a valid Vehicle") {
         expect(self.vehicle.vehicleId).toNot(beNil())
         expect(self.vehicle.transponderId).toNot(beNil())
+        expect(self.vehicle.gtmsTripId).toNot(beNil())
+        expect(self.vehicle.licensePlate).toNot(beNil())
+        expect(self.vehicle.medallion).toNot(beNil())
       }
     }
   }

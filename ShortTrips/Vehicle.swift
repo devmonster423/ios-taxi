@@ -10,18 +10,27 @@ import Foundation
 import ObjectMapper
 
 struct Vehicle: Mappable {
+  var gtmsTripId: Int!
+  var licensePlate: String!
+  var medallion: Int!
+  var transponderId: Int!
   var vehicleId: Int!
-  var transponderId: String!
   
-  init(vehicleId: Int, transponderId: String) {
-    self.vehicleId = vehicleId
+  init(gtmsTripId: Int, licensePlate: String, medallion: Int, transponderId: Int, vehicleId: Int) {
+    self.gtmsTripId = gtmsTripId
+    self.licensePlate = licensePlate
+    self.medallion = medallion
     self.transponderId = transponderId
+    self.vehicleId = vehicleId
   }
   
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
-    vehicleId <- map["response.vehicle_id"]
+    gtmsTripId <- map["response.gtms_trip_id"]
+    licensePlate <- map["response.license_plate"]
+    medallion <- map["response.medallion"]
     transponderId <- map["response.transponder_id"]
+    vehicleId <- map["response.vehicle_id"]
   }
 }

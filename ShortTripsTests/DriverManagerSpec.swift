@@ -32,7 +32,11 @@ class DriverManagerSpec: QuickSpec {
       
       it("can save and load a vehicle") {
         
-        let vehicle = Vehicle(vehicleId: 1, transponderId: "123")
+        let vehicle = Vehicle(gtmsTripId: 10590,
+          licensePlate: "13702K1",
+          medallion: 1404,
+          transponderId: 2005887,
+          vehicleId: 12999)
         
         DriverManager.sharedInstance.setCurrentVehicle(vehicle)
         

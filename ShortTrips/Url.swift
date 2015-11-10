@@ -29,7 +29,7 @@ struct Url {
     struct Avi {
       static let avi = device + "avi"
       
-      static func transponder(transponderId: String) -> String {
+      static func transponder(transponderId: Int) -> String {
         return avi + "/transponder/\(transponderId)"
       }
     }

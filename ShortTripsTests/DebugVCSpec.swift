@@ -40,7 +40,11 @@ class DebugVCSpec: QuickSpec {
         let location = CLLocation(latitude: 37.615716, longitude: -122.388321)
         let ping = Ping(location: location)
         let driver = Driver(sessionId: 123, driverId: 234, cardId: "345", firstName: "", lastName: "", driverLicense: "3F0-3xy6y")
-        let vehicle = Vehicle(vehicleId: 987, transponderId: "")
+        let vehicle = Vehicle(gtmsTripId: 10590,
+          licensePlate: "13702K1",
+          medallion: 1404,
+          transponderId: 2005887,
+          vehicleId: 12999)
         
         postNotification(SfoNotification.Ping.attempting, value: ping)
         
