@@ -21,15 +21,15 @@ extension DebugVC {
       self.debugView().printDebugLine("successful ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
     })
     
-    unsuccessfulPingObserver = NotificationObserver(notification: SfoNotification.Ping.successful, handler: { ping, _ in
+    unsuccessfulPingObserver = NotificationObserver(notification: SfoNotification.Ping.unsuccessful, handler: { ping, _ in
       self.debugView().printDebugLine("unsuccessful ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)", type: .Negative)
     })
     
-    validPingObserver = NotificationObserver(notification: SfoNotification.Ping.successful, handler: { ping, _ in
+    validPingObserver = NotificationObserver(notification: SfoNotification.Ping.valid, handler: { ping, _ in
       self.debugView().printDebugLine("valid ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
     })
     
-    invalidPingObserver = NotificationObserver(notification: SfoNotification.Ping.successful, handler: { ping, _ in
+    invalidPingObserver = NotificationObserver(notification: SfoNotification.Ping.invalid, handler: { ping, _ in
       self.debugView().printDebugLine("invalid ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)", type: .Negative)
     })
   }

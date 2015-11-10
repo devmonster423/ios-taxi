@@ -16,12 +16,13 @@ struct SfoNotification {
     static let exit = Notification<Antenna, AnyObject>(name: "ExitAvi")
     static let inbound = Notification<Antenna, AnyObject>(name: "InboundAvi")
     static let taxiLoop = Notification<Antenna, AnyObject>(name: "TaxiLoopAviRead")
+    static let unexpected = Notification<(expected: GtmsLocation, found: GtmsLocation), AnyObject>(name: "UnexpectedAvi")
   }
 
   struct Cid {
     static let entry = Notification<Any?, AnyObject>(name: "EntryCidRead")
     static let payment = Notification<Any?, AnyObject>(name: "PaymentCidRead")
-    static let unexpected = Notification<(expected: CidDevice, found: CidDevice), AnyObject>(name: "UnexpectedCid")
+    static let unexpected = Notification<(expected: GtmsLocation, found: GtmsLocation), AnyObject>(name: "UnexpectedCid")
   }
   
   struct Driver {
@@ -32,6 +33,7 @@ struct SfoNotification {
     static let foundInside = Notification<[ShortTrips.Geofence], AnyObject>(name: "FoundInsideGeofences")
     static let insideSfo = Notification<Any?, AnyObject>(name: "InsideSfo")
     static let outsideSfo = Notification<Any?, AnyObject>(name: "OutsideSfo")
+    static let outsideShortTrip = Notification<Any?, AnyObject>(name: "OutsideShortTrip")
   }
   
   struct Location {
@@ -41,6 +43,7 @@ struct SfoNotification {
   
   struct Ping {
     static let attempting = Notification<ShortTrips.Ping, AnyObject>(name: "AttemptingPing")
+    static let sent = Notification<(ping: ShortTrips.Ping, geofenceStatusBool: Bool?), AnyObject>(name: "SentPing")
     static let successful = Notification<ShortTrips.Ping, AnyObject>(name: "SuccessfulPing")
     static let unsuccessful = Notification<ShortTrips.Ping, AnyObject>(name: "unsuccessfulPing")
     static let valid = Notification<ShortTrips.Ping, AnyObject>(name: "validPing")

@@ -21,15 +21,13 @@ extension ApiClient {
     
     let params = ["width": width, "height": height]
     authedRequest(Alamofire.request(.GET, Url.Airline.logoPng(iataCode), parameters: params)).responseImage { (_, _, result) -> Void in
-      
       completion(result.value)
     }
   }
   
   static func codes(completion: AirlinesClosure) {
-    authedRequest(Alamofire.request(.GET, Url.Airline.codes)).responseObject { (airlineListResponse: AirlineListResponse?, error) -> Void in
-      
-      completion(airlineListResponse?.airlineListWrapper?.airlines, error)
+    authedRequest(Alamofire.request(.GET, Url.Airline.codes)).responseObject { (airlineListWrapper: AirlineListWrapper?, error) -> Void in
+      completion(airlineListWrapper?.airlines, error)
     }
   }
 }

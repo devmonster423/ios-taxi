@@ -12,19 +12,19 @@ import ObjectMapper
 struct ReferenceConfig: Mappable {
   var pingInterval: Int!
   var tripDuration: Int!
-  var gisBuffer: Int!
+  var gisBuffer: Float!
     
   init?(_ map: Map){}
   
-  init(pingInterval: Int, tripDuration: Int, gisBuffer: Int) {
+  init(pingInterval: Int, tripDuration: Int, gisBuffer: Float) {
     self.pingInterval = pingInterval
     self.tripDuration = tripDuration
     self.gisBuffer = gisBuffer
   }
   
   mutating func mapping(map: Map) {
-    pingInterval <- map["ping_interval"]
-    tripDuration <- map["trip_duration"]
-    gisBuffer <- map["gis_buffer"]
+    pingInterval <- map["response.ping_interval"]
+    tripDuration <- map["response.trip_duration"]
+    gisBuffer <- map["response.gis_buffer"]
   }
 }

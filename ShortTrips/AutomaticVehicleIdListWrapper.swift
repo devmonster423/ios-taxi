@@ -1,5 +1,5 @@
 //
-//  AutomaticVehicleIdResponse.swift
+//  AutomaticVehicleIdListWrapper.swift
 //  ShortTrips
 //
 //  Created by Joshua Adams and 🐈 on 9/18/15.
@@ -9,12 +9,12 @@
 import Foundation
 import ObjectMapper
 
-struct AutomaticVehicleIdResponse: Mappable {
+struct AutomaticVehicleIdListWrapper: Mappable {
   var automaticVehicleIds: [AutomaticVehicleId]!
   
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
-    automaticVehicleIds <- map["response"]
+    automaticVehicleIds <- map["response.list"]
   }
 }

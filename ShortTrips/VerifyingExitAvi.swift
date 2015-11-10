@@ -13,6 +13,7 @@ import JSQNotificationObserverKit
 struct VerifyingExitAvi {
   let stateName = "verifyingExitAvi"
   static let sharedInstance = VerifyingExitAvi()
+  private let expectedAvi: GtmsLocation = .TerminalExit
   
   private var poller: Poller?
   private var state: TKState
@@ -25,18 +26,24 @@ struct VerifyingExitAvi {
       postNotification(SfoNotification.State.waitForExitAvi, value: nil)
       
       self.poller = Poller.init(timeout: 60, action: { _ in
-        if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
-          ApiClient.requestAntenna(vehicle.transponderId) { antenna in
-            
-            // TODO: make sure antenna is the right one
-            if let antenna = antenna where antenna.device() == .TaxiStagingExit {
-              LatestAviReadAtTaxiLoop.sharedInstance.fire()
-              TripManager.sharedInstance.setStartTime(antenna.aviDate)
-            }
+
+        DriverManager.sharedInstance.getCurrentVehicle() { vehicle in
+          if let vehicle = vehicle {
+            ApiClient.requestAntenna(vehicle.transponderId) { antenna in
+              
+              if let antenna = antenna, let device = antenna.device() {
+                if device == self.expectedAvi {
+                  LatestAviReadAtTaxiLoop.sharedInstance.fire(antenna)
+                  TripManager.sharedInstance.setStartTime(antenna.aviDate)
+                } else {
+                  postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
+                }
+              }
 //            else {
 //              ExitAviReadFailed.sharedInstance.fire()
 //              StateManager.sharedInstance.addWarning(.ExitAviFailed)
 //            }
+            }
           }
         }
       })

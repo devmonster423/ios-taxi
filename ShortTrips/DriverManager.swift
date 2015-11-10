@@ -37,7 +37,20 @@ class DriverManager {
     }
   }
   
-  func getCurrentVehicle() -> Vehicle? {
-    return currentVehicle
+  func getCurrentVehicle(forceRefresh: Bool = false, completion: VehicleClosure) {
+    if let currentVehicle = currentVehicle where !forceRefresh {
+      completion(currentVehicle)
+    } else {
+      if let driver = getCurrentDriver() {
+        ApiClient.getVehicle(driver.cardId) { vehicle in
+          
+          self.currentVehicle = vehicle
+          completion(vehicle)
+        }
+      } else {
+        completion(nil)
+      }
+    }
   }
+  
 }

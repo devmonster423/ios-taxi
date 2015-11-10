@@ -36,16 +36,16 @@ extension ApiClient {
     switch flightType {
     case .Arrivals:
       authedRequest(Alamofire.request(.GET, Url.Flight.Arrival.summary, parameters: params))
-        .responseObject { (request, urlResponse, terminalSummaryAResponse: TerminalSummaryAResponse?, _, error: ErrorType?) in
-          response(terminalSummaryAResponse?.terminalSummaryArrivalsResponse?.terminalSummaryListResponse?.terminalSummaryList, hour, urlResponse?.statusCode)
+        .responseObject { (request, urlResponse, terminalSummaryArrivalsWrapper: TerminalSummaryArrivalsWrapper?, _, error: ErrorType?) in
+          response(terminalSummaryArrivalsWrapper?.terminalSummaries, hour, urlResponse?.statusCode)
           if Util.debug {
             ErrorLogger.log(request, error: error)
           }
       }
     case .Departures:
       authedRequest(Alamofire.request(.GET, Url.Flight.Departure.summary, parameters: params))
-        .responseObject { (request, urlResponse, terminalSummaryDResponse: TerminalSummaryDResponse?, _, error: ErrorType?) in
-          response(terminalSummaryDResponse?.terminalSummaryDeparturesResponse?.terminalSummaryListResponse?.terminalSummaryList, hour, urlResponse?.statusCode)
+        .responseObject { (request, urlResponse, terminalSummaryDeparturesWrapper: TerminalSummaryDeparturesWrapper?, _, error: ErrorType?) in
+          response(terminalSummaryDeparturesWrapper?.terminalSummaries, hour, urlResponse?.statusCode)
           if Util.debug {
             ErrorLogger.log(request, error: error)
           }

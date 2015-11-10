@@ -25,8 +25,7 @@ class AntennaSpec: QuickSpec {
         expect(self.antenna).toNot(beNil())
       }
       
-      it("has an Antenna") {
-        expect(self.antenna).toNot(beNil())
+      it("is a valid Antenna") {
         expect(self.antenna.antennaId).toNot(beNil())
         expect(self.antenna.aviDate).toNot(beNil())
         expect(self.antenna.aviLocation).toNot(beNil())

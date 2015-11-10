@@ -16,7 +16,7 @@ extension DebugVC {
     locationManagerStartedObserver = NotificationObserver(notification: SfoNotification.Location.managerStarted) { _, _ in
       
       self.debugView().printDebugLine("started location manager", type: .BigDeal)
-      self.updateFakeButton("Fake Inside SFO", action: "triggerInsideSfo")
+      self.updateFakeButtons((title: "Fake Inside SFO", action: "triggerInsideSfo"))
     }
     
     locationObserver = NotificationObserver(notification: SfoNotification.Location.read, handler: { location, _ in
@@ -31,11 +31,15 @@ extension DebugVC {
   
   func dropPassenger() {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.622254, longitude: -122.409925))
-    self.updateFakeButton("Back To SFO", action: "backToSFO")
+    self.updateFakeButtons((title: "Back To SFO", action: "backToSFO"))
   }
   
   func fakeOutsideSfo() {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.610560, longitude: -122.401814))
+  }
+  
+  func fakeOutsideGeofences() {
+    postNotification(SfoNotification.Ping.sent, value: (ping: Ping(location: CLLocation(latitude: 37.760661, longitude: -122.434092)), geofenceStatusBool: false))
   }
   
   func triggerAtTerminalExit() {

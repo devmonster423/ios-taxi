@@ -19,13 +19,16 @@ extension DebugVC {
       }
     })
     
-    insideSfoObserver = NotificationObserver(notification: SfoNotification.Geofence.insideSfo, handler: { (value, sender) -> Void in
-      
+    insideSfoObserver = NotificationObserver(notification: SfoNotification.Geofence.insideSfo) { _, _ in
       self.debugView().printDebugLine("inside SFO event!", type: .Positive)
-    })
+    }
     
-    outsideSfoObserver = NotificationObserver(notification: SfoNotification.Geofence.outsideSfo, handler: { (value, sender) -> Void in
+    outsideSfoObserver = NotificationObserver(notification: SfoNotification.Geofence.outsideSfo) { _, _ in
       self.debugView().printDebugLine("outside SFO event!", type: .Positive)
-    })
+    }
+    
+    outsideShortTripObserver = NotificationObserver(notification: SfoNotification.Geofence.outsideShortTrip) { _, _ in
+      self.debugView().printDebugLine("Trip went outside Short Trip geofence", type: .Negative)
+    }
   }
 }

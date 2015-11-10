@@ -38,7 +38,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   
   func locationManager(manager: CLLocationManager,
     didUpdateLocations locations: [CLLocation]) {
-      
       lastKnownLocation = locations.last!
       postNotification(SfoNotification.Location.read, value: locations.last!)
   }

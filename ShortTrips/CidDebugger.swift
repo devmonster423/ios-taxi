@@ -21,7 +21,7 @@ extension DebugVC {
     })
     
     unexpectedCidRead = NotificationObserver(notification: SfoNotification.Cid.unexpected, handler: { cidDevices, _ in
-      self.debugView().printDebugLine("unexpected cid. expected \(cidDevices.expected.name()), found \(cidDevices.found.name())", type: .Negative)
+      self.debugView().printDebugLine("unexpected cid. expected \(cidDevices.expected.rawValue), found \(cidDevices.found.rawValue)", type: .Negative)
     })
   }
   

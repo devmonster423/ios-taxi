@@ -26,7 +26,7 @@ struct AssociatingDriverAndVehicle {
       
       self.poller = Poller.init(timeout: 60, action: { _ in
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
-          ApiClient.getVehicle(driver.driverId) { vehicle in
+          ApiClient.getVehicle(driver.cardId) { vehicle in
             
             if let vehicle = vehicle {
               DriverManager.sharedInstance.setCurrentVehicle(vehicle)

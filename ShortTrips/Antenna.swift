@@ -9,42 +9,6 @@
 import Foundation
 import ObjectMapper
 
-enum AviLocation {
-  case TaxiEntry
-  case TaxiMainLot
-  case NonDispatchedTaxiExit
-  case TaxiStagingExit
-  
-  static func from(id: String) -> AviLocation? {
-    switch id {
-    case "L15AVI1", "L15AVI2", "L15AVI3":
-      return .TaxiMainLot
-    case "L16AVI1":
-      return .NonDispatchedTaxiExit
-    case "L17AVI1":
-      return .TaxiStagingExit
-    case "L27AVI1", "L27AVI2":
-      return .TaxiEntry
-    default:
-      return nil
-    }
-  }
-
-  func name() -> String {
-    switch self {
-    case TaxiMainLot:
-      return "Location #15 Taxi Main Lot"
-    case NonDispatchedTaxiExit:
-      return "Location #16 Non-Dispatched Taxi Exit"
-    case TaxiStagingExit:
-      return "Location #17 Taxi Staging Exit"
-    case TaxiEntry:
-      return "Location #27 Taxi Entry"
-    }
-  }
-}
-
-
 struct Antenna: Mappable {
   var antennaId: String!
   var aviLocation: String!
@@ -65,7 +29,7 @@ struct Antenna: Mappable {
     aviDate <- (map["response.device_date"], transform)
   }
   
-  func device() -> AviLocation? {
-    return AviLocation.from(antennaId)
+  func device() -> GtmsLocation? {
+    return GtmsLocation.from(aviId: antennaId)
   }
 }

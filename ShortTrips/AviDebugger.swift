@@ -23,6 +23,10 @@ extension DebugVC {
     exitAviRead = NotificationObserver(notification: SfoNotification.Avi.exit, handler: { antenna, _ in
       self.debugView().printDebugLine("Exit AVI read: (\(antenna)")
     })
+    
+    unexpectedAviRead = NotificationObserver(notification: SfoNotification.Avi.unexpected, handler: { gtmsLocations, _ in
+      self.debugView().printDebugLine("unexpected avi. expected \(gtmsLocations.expected.rawValue), found \(gtmsLocations.found.rawValue)", type: .Negative)
+    })
   }
   
   func confirmEntryGateAviRead() {
