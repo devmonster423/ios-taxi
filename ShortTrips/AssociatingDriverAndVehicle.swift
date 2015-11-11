@@ -33,6 +33,8 @@ struct AssociatingDriverAndVehicle {
             }
           }
         }
+        }, failure: { _ in
+
       })
     }
 
