@@ -14,21 +14,20 @@ import ObjectMapper
 
 class GeofenceSpec: QuickSpec {
   var geofence: Geofence!
-  var map: Map!
 
   override func spec() {
     describe("the Geofence") {
       beforeEach {
-        self.geofence = Geofence(category: .City, description: "short-trip region", geofenceId: 42, name: "Snoopy")
-        self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
+        self.geofence = Mapper<Geofence>().map(MockGeofenceString)
       }
 
       it("is non-nil") {
         expect(self.geofence).toNot(beNil())
       }
 
-      it("can map") {
-        expect(self.geofence.mapping(self.map)).toNot(beNil())
+      it("is a valid Geofence") {
+        expect(self.geofence.geofenceId).toNot(beNil())
+        expect(self.geofence.name).toNot(beNil())
       }
     }
   }

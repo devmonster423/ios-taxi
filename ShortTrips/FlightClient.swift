@@ -22,7 +22,6 @@ extension ApiClient {
   static func requestFlightsForTerminal(terminal: Int, hour: Int, flightType: FlightType, response: FlightDetailsClosure) {
     let params = ["terminal_id": terminal, "hour": hour]
     let url = flightType == .Arrivals ? Url.Flight.Arrival.details : Url.Flight.Departure.details
-    print("URL: \(url)")
     authedRequest(Alamofire.request(.GET, url, parameters: params))
       .responseObject { (request, urlResponse, flightDetailsWrapper: FlightDetailsWrapper?, _, error: ErrorType?) in
         response(flightDetailsWrapper?.flightDetails, urlResponse?.statusCode)
