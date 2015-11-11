@@ -54,28 +54,27 @@ extension ApiClient {
     }
   }
   
-  
   static func requestAllCids(response: AllCidsClosure) {
     authedRequest(Alamofire.request(.GET, Url.Device.Cid.cid, parameters: nil))
-      .responseObject { (_, raw, allCidsResponse: AllCidsResponse?, _, error: ErrorType?) in
+      .responseObject { (_, raw, cidListWrapper: CidListWrapper?, _, error: ErrorType?) in
 
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
   
-        response(allCidsResponse?.cidListResponse?.cidList, error)
+        response(cidListWrapper?.cidList, error)
     }
   }
   
   static func requestCid(driverId: Int, response: GtmsLocationClosure) {
     authedRequest(Alamofire.request(.GET, Url.Device.Cid.driver(driverId), parameters: nil))
-      .responseObject { (_, raw, cidResponse: CidResponse?, _, error: ErrorType?) in
+      .responseObject { (_, raw, cid: Cid?, _, error: ErrorType?) in
         
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
         
-        response(cidResponse?.cid.device())
+        response(cid?.device())
     }
   }
 }

@@ -14,21 +14,21 @@ import ObjectMapper
 
 class CidSpec: QuickSpec {
   var cid: Cid!
-  var map: Map!
   
   override func spec() {
     describe("the CID") {
       beforeEach {
-        self.cid = Cid(cidId: "CID12", cidLocation: "Payment Gate", cidTimeRead: NSDate())
-        self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
+        self.cid = Mapper<Cid>().map(MockCidString)
       }
       
       it("is non-nil") {
         expect(self.cid).toNot(beNil())
       }
       
-      it("can map") {
-        expect(self.cid.mapping(self.map)).toNot(beNil())
+      it("is a valid CID") {
+        expect(self.cid.cidId).toNot(beNil())
+        expect(self.cid.cidLocation).toNot(beNil())
+        expect(self.cid.cidTimeRead).toNot(beNil())
       }
     }
   }
