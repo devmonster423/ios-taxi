@@ -18,6 +18,9 @@ class StateManager {
   
   static let allStates = [
     AssociatingDriverAndVehicleAtEntry.sharedInstance.getState(),
+    AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState(),
+    AssociatingDriverAndVehicleAtTerminalExit.sharedInstance.getState(),
+    AssociatingDriverAndVehicleInbound.sharedInstance.getState(),
     InProgress.sharedInstance.getState(),
     NotReady.sharedInstance.getState(),
     Ready.sharedInstance.getState(),
@@ -33,8 +36,8 @@ class StateManager {
   ]
   
   static func allEvents() -> [TKEvent] {
-    var events = DriverAndVehicleAssociated.sharedInstance.getEvents()
-    events += AppQuit.sharedInstance.getEvents()
+    var events = AppQuit.sharedInstance.getEvents()
+    events += DriverAndVehicleAssociated.sharedInstance.getEvents()
     events += EntryGateAVIReadConfirmed.sharedInstance.getEvents()
     events += ExitAviReadFailed.sharedInstance.getEvents()
     events += Failure.sharedInstance.getEvents()
@@ -46,6 +49,7 @@ class StateManager {
     events += LatestCidIsEntryCid.sharedInstance.getEvents()
     events += LatestCidIsPaymentCid.sharedInstance.getEvents()
     events += LoggedOut.sharedInstance.getEvents()
+    events += OptionalEntryCheckFailed.sharedInstance.getEvents()
     events += OutsideSfo.sharedInstance.getEvents()
     events += OutsideShortTripGeofence.sharedInstance.getEvents()
     events += TripInvalidated.sharedInstance.getEvents()

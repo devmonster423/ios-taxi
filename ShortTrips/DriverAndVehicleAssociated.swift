@@ -11,7 +11,10 @@ import TransitionKit
 import JSQNotificationObserverKit
 
 struct DriverAndVehicleAssociated {
-  let eventNames = ["driverAndVehicleAssociated"]
+  let eventNames = ["driverAndVehicleAssociatedAtEntry",
+  "driverAndVehicleAssociatedAtHoldingLotExit",
+  "driverAndVehicleAssociatedAtTerminalExit",
+  "driverAndVehicleAssociatedInbound"]
   static let sharedInstance = DriverAndVehicleAssociated()
     
   private var events: [TKEvent]

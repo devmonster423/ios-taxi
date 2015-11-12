@@ -16,7 +16,7 @@ class PollerSpec: QuickSpec {
     
     describe("the poller") {
       
-      let poller = Poller.init(timeout: 60) { _ in }
+      let poller = Poller.init(action: { })
       
       it("can be created") {
         expect(poller).toNot(beNil())
