@@ -67,6 +67,7 @@ class DebugVC: UIViewController {
   var waitForInboundAvi: NotificationObserver<Any?, AnyObject>?
   
   // Trip
+  var entryStepFailedObserver: NotificationObserver<Any?, AnyObject>?
   var timeExpiredObserver: NotificationObserver<Any?, AnyObject>?
   var tripStartedObserver: NotificationObserver<Int, AnyObject>?
   var validatedObserver: NotificationObserver<Any?, AnyObject>?

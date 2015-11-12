@@ -12,6 +12,11 @@ import JSQNotificationObserverKit
 extension DebugVC {
   
   func setupTripObservers() {
+
+    entryStepFailedObserver = NotificationObserver(notification: SfoNotification.Trip.entryStepFailed) { _, _ in
+      self.debugView().printDebugLine("Optional entry step failed, moving on...", type: .Negative)
+    }
+
     timeExpiredObserver = NotificationObserver(notification: SfoNotification.Trip.timeExpired) { _, _ in
       self.debugView().printDebugLine("Time Expired")
     }

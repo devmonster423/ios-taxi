@@ -33,8 +33,8 @@ struct AssociatingDriverAndVehicleAtEntry {
             }
           }
         }
-        }, failure: {
-          OptionalEntryCheckFailed.sharedInstance.fire()
+      }, failure: {
+        OptionalEntryCheckFailed.sharedInstance.fire()
       })
     }
 
