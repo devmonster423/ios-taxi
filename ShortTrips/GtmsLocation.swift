@@ -10,6 +10,7 @@ import Foundation
 
 enum GtmsLocation: String {
   // TODO verify names with server when implemented
+  case DtaEntrance = "Location #9 DTA Entrance"
   case HoldingLotExit = "Location #12 Holding Lot Exit"
   case HoldingLotStatus = "Location #17 Taxi Staging Exit"
   case Inbound = "Location #1 Inbound"
@@ -39,6 +40,8 @@ enum GtmsLocation: String {
       return .Inbound
     case "L2AVI1":
       return .TerminalExit
+    case "L9AVI1":
+      return .DtaEntrance
     case "L12AVI1":
       return .HoldingLotExit
     case "L15AVI1", "L15AVI2", "L15AVI3":

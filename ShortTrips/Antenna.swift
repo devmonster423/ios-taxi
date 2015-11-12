@@ -26,7 +26,7 @@ struct Antenna: Mappable {
     let transform = DateTransform(dateFormat: "yyyy-MM-dd HH:mm:ss.SSS") // "2015-09-03 09:19:20.563"
     antennaId <- map["response.device_id"]
     aviLocation <- map["response.device_location"]
-    aviDate <- (map["response.device_date"], transform)
+    aviDate <- (map["response.time_read"], transform)
   }
   
   func device() -> GtmsLocation? {
