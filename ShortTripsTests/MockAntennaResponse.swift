@@ -8,7 +8,4 @@
 
 import Foundation
 
-var MockAntennaString = "{\"response\": {\"device_id\":\"L15AVI1\",\"device_location\":\"Location #15 Taxi Main Lot\", \"device_date\": \"2015-09-03 09:19:20.56\"} }"
-
-
-
+var MockAntennaString = "{\"response\": {\"device_id\":\"L15AVI1\",\"device_location\":\"Location #15 Taxi Main Lot\", \"time_read\": \"2015-09-03 09:19:20.56\"} }"
