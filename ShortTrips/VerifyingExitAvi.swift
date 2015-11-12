@@ -38,6 +38,8 @@ struct VerifyingExitAvi {
               }
             }
           }
+        } else {
+          Failure.sharedInstance.fire()
         }
       })
     }

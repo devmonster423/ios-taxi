@@ -19,8 +19,6 @@ class StateManager {
   static let allStates = [
     AssociatingDriverAndVehicleAtEntry.sharedInstance.getState(),
     AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState(),
-    AssociatingDriverAndVehicleAtTerminalExit.sharedInstance.getState(),
-    AssociatingDriverAndVehicleInbound.sharedInstance.getState(),
     InProgress.sharedInstance.getState(),
     NotReady.sharedInstance.getState(),
     Ready.sharedInstance.getState(),

@@ -12,6 +12,7 @@ import JSQNotificationObserverKit
 extension DebugVC {
   
   func setupStateObservers() {
+
     associatingDriverAndVehicleAtEntry = NotificationObserver(notification: SfoNotification.State.associatingDriverAndVehicleAtEntry, handler: { _, _ in
       self.debugView().printDebugLine("Associating Driver And Vehicle")
       self.debugView().updateState("Associating Driver And Vehicle")
@@ -24,18 +25,6 @@ extension DebugVC {
       self.updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
     })
 
-    associatingDriverAndVehicleAtTerminalExit = NotificationObserver(notification: SfoNotification.State.associatingDriverAndVehicleAtTerminalExit, handler: { _, _ in
-      self.debugView().printDebugLine("Associating Driver And Vehicle")
-      self.debugView().updateState("Associating Driver And Vehicle")
-      self.updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
-    })
-
-    associatingDriverAndVehicleInbound = NotificationObserver(notification: SfoNotification.State.associatingDriverAndVehicleInbound, handler: { _, _ in
-      self.debugView().printDebugLine("Associating Driver And Vehicle")
-      self.debugView().updateState("Associating Driver And Vehicle")
-      self.updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
-    })
-    
     enteredNotReadyState = NotificationObserver(notification: SfoNotification.State.notReady, handler: { _, _ in
       self.debugView().printDebugLine("Entered Not Ready State")
       self.debugView().updateState("Not Ready")

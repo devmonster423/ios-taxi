@@ -37,6 +37,8 @@ struct VerifyingInboundAvi {
               }
             }
           }
+        } else {
+          Failure.sharedInstance.fire()
         }
       })
     }

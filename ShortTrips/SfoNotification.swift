@@ -57,8 +57,6 @@ struct SfoNotification {
   struct State {
     static let associatingDriverAndVehicleAtEntry = Notification<Any?, AnyObject>(name: "AssociatingDriverAndVehicleAtEntry")
     static let associatingDriverAndVehicleAtHoldingLotExit = Notification<Any?, AnyObject>(name: "AssociatingDriverAndVehicleAtHoldingLotExit")
-    static let associatingDriverAndVehicleAtTerminalExit = Notification<Any?, AnyObject>(name: "AssociatingDriverAndVehicleAtTerminalExit")
-    static let associatingDriverAndVehicleInbound = Notification<Any?, AnyObject>(name: "AssociatingDriverAndVehicleInbound")
     static let wait = Notification<Any?, AnyObject>(name: "StartingToWait")
     static let ready = Notification<Any?, AnyObject>(name: "EnteredReadyState")
     static let inProgress = Notification<Any?, AnyObject>(name: "InProgress")

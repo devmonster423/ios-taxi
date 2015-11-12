@@ -19,7 +19,7 @@ struct OutsideSfo {
   private init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [Ready.sharedInstance.getState()],
-      toState: AssociatingDriverAndVehicleAtTerminalExit.sharedInstance.getState())]
+      toState: VerifyingExitAvi.sharedInstance.getState())]
   }
 }
 

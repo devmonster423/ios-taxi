@@ -51,7 +51,6 @@ class TripScenario1Spec: QuickSpec {
         expect(machine.isInState(Ready.sharedInstance.getState())).to(beTrue())
         
         OutsideSfo.sharedInstance.fire()
-        DriverAndVehicleAssociated.sharedInstance.fire()
         expect(machine.isInState(VerifyingExitAvi.sharedInstance.getState())).to(beTrue())
         
         LatestAviReadAtExit.sharedInstance.fire()
@@ -61,7 +60,6 @@ class TripScenario1Spec: QuickSpec {
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         
         InsideSfo.sharedInstance.fire()
-        DriverAndVehicleAssociated.sharedInstance.fire()
         expect(machine.isInState(VerifyingInboundAvi.sharedInstance.getState())).to(beTrue())
         
         LatestAviReadInbound.sharedInstance.fire()

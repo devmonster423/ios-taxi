@@ -53,8 +53,6 @@ class DebugVC: UIViewController {
   // State
   var associatingDriverAndVehicleAtEntry: NotificationObserver<Any?, AnyObject>?
   var associatingDriverAndVehicleAtHoldingLotExit: NotificationObserver<Any?, AnyObject>?
-  var associatingDriverAndVehicleAtTerminalExit: NotificationObserver<Any?, AnyObject>?
-  var associatingDriverAndVehicleInbound: NotificationObserver<Any?, AnyObject>?
   var enteredNotReadyState: NotificationObserver<Any?, AnyObject>?
   var enteredReadyState: NotificationObserver<Any?, AnyObject>?
   var inProgressState: NotificationObserver<Any?, AnyObject>?

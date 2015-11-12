@@ -51,7 +51,6 @@ class TripScenario7Spec: QuickSpec {
         
         // can fire DriverExitsSfo and make correct state change
         OutsideSfo.sharedInstance.fire()
-        DriverAndVehicleAssociated.sharedInstance.fire()
         expect(machine.isInState(VerifyingExitAvi.sharedInstance.getState())).to(beTrue())
         
         LatestAviReadAtExit.sharedInstance.fire()
@@ -62,7 +61,6 @@ class TripScenario7Spec: QuickSpec {
         
         // can fire DriverReturnsToSfo and make correct state change
         InsideSfo.sharedInstance.fire()
-        DriverAndVehicleAssociated.sharedInstance.fire()
         expect(machine.isInState(VerifyingInboundAvi.sharedInstance.getState())).to(beTrue())
         
         LatestAviReadInbound.sharedInstance.fire()

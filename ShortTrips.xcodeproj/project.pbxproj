@@ -143,8 +143,6 @@
 		C2DFE5CF1B56D2CB0090B55F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5CE1B56D2CB0090B55F /* Images.xcassets */; };
 		C2DFE5D21B56D2CB0090B55F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */; };
 		C2F3E9071BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3E9061BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift */; };
-		C2F3E9091BF3F9EE00B852EF /* AssociatingDriverAndVehicleAtTerminalExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3E9081BF3F9EE00B852EF /* AssociatingDriverAndVehicleAtTerminalExit.swift */; };
-		C2F3E90B1BF3FB9400B852EF /* AssociatingDriverAndVehicleInbound.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3E90A1BF3FB9400B852EF /* AssociatingDriverAndVehicleInbound.swift */; };
 		C2F3E90F1BF402F800B852EF /* OptionalEntryCheckFailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3E90E1BF402F800B852EF /* OptionalEntryCheckFailed.swift */; };
 		E108B1751BA7C1DE00481AF1 /* ReferenceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */; };
 		E10CE6801BED1DD600322077 /* MockDriverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */; };
@@ -379,8 +377,6 @@
 		C2DFE5D71B56D2CB0090B55F /* ShortTripsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShortTripsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2DFE5DC1B56D2CB0090B55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2F3E9061BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatingDriverAndVehicleAtHoldingLotExit.swift; sourceTree = "<group>"; };
-		C2F3E9081BF3F9EE00B852EF /* AssociatingDriverAndVehicleAtTerminalExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatingDriverAndVehicleAtTerminalExit.swift; sourceTree = "<group>"; };
-		C2F3E90A1BF3FB9400B852EF /* AssociatingDriverAndVehicleInbound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatingDriverAndVehicleInbound.swift; sourceTree = "<group>"; };
 		C2F3E90E1BF402F800B852EF /* OptionalEntryCheckFailed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalEntryCheckFailed.swift; sourceTree = "<group>"; };
 		D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
 		E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConfig.swift; sourceTree = "<group>"; };
@@ -617,8 +613,6 @@
 			children = (
 				C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift */,
 				C2F3E9061BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift */,
-				C2F3E9081BF3F9EE00B852EF /* AssociatingDriverAndVehicleAtTerminalExit.swift */,
-				C2F3E90A1BF3FB9400B852EF /* AssociatingDriverAndVehicleInbound.swift */,
 				C28ECB341BCF151800887763 /* Debuggable.swift */,
 				C220E06C1BC33C1D00AC7C85 /* NotReady.swift */,
 				C220E0721BC3446600AC7C85 /* Ready.swift */,
@@ -1489,12 +1483,10 @@
 				C28ECB201BCEBDD400887763 /* LocationManager.swift in Sources */,
 				C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */,
 				E1BE7B701BE4025C0085D3CA /* TimeExpired.swift in Sources */,
-				C2F3E9091BF3F9EE00B852EF /* AssociatingDriverAndVehicleAtTerminalExit.swift in Sources */,
 				8EEFB79C1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift in Sources */,
 				C283AB3F1BE93B790004E8CD /* StateDebugger.swift in Sources */,
 				E1F153C91BF02F8900E212ED /* MockTerminalSummary.swift in Sources */,
 				C2635E2A1BB0CC86003C22B1 /* FlightClient.swift in Sources */,
-				C2F3E90B1BF3FB9400B852EF /* AssociatingDriverAndVehicleInbound.swift in Sources */,
 				C28ECB2C1BCF01F200887763 /* WaitingForEntryCid.swift in Sources */,
 				C283AB351BE936B30004E8CD /* CidDebugger.swift in Sources */,
 				FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */,
