@@ -25,7 +25,7 @@ struct WaitingForPaymentCid {
       
       postNotification(SfoNotification.State.waitForPaymentCid, value: nil)
       
-      self.poller = Poller.init(timeout: 60) { _ in
+      self.poller = Poller.init(action: {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
           ApiClient.requestCid(driver.driverId) { cidDevice in
           
@@ -38,7 +38,7 @@ struct WaitingForPaymentCid {
             }
           }
         }
-      }
+      })
     }
     
     state.setDidExitStateBlock { _, _ in

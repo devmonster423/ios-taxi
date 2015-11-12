@@ -23,8 +23,8 @@ struct WaitingForEntryCid {
 
     state.setDidEnterStateBlock { _, _ in
       postNotification(SfoNotification.State.waitForEntryCid, value: nil)
-
-      self.poller = Poller.init(timeout: 60, action: { _ in
+      
+      self.poller = Poller.init(action: {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
           ApiClient.requestCid(driver.driverId) { cidDevice in
             
@@ -37,8 +37,8 @@ struct WaitingForEntryCid {
             }
           }
         }
-      }, failure: { _ in
-
+      }, failure: {
+        OptionalEntryCheckFailed.sharedInstance.fire()
       })
     }
 

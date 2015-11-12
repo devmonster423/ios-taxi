@@ -10,10 +10,10 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct AssociatingDriverAndVehicle {
-  let stateName = "associatingDriverAndVehicle"
-  static let sharedInstance = AssociatingDriverAndVehicle()
-  
+struct AssociatingDriverAndVehicleAtEntry {
+  let stateName = "associatingDriverAndVehicleAtEntry"
+  static let sharedInstance = AssociatingDriverAndVehicleAtEntry()
+
   private var poller: Poller?
   private var state: TKState
 
@@ -21,20 +21,20 @@ struct AssociatingDriverAndVehicle {
     state = TKState(name: stateName)
 
     state.setDidEnterStateBlock { _, _ in
-      
-      postNotification(SfoNotification.State.associatingDriverAndVehicle, value: nil)
-      
-      self.poller = Poller.init(timeout: 60, action: { _ in
+
+      postNotification(SfoNotification.State.associatingDriverAndVehicleAtEntry, value: nil)
+
+      self.poller = Poller.init(action: {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
           ApiClient.getVehicle(driver.cardId) { vehicle in
-            
+
             if let vehicle = vehicle {
               DriverManager.sharedInstance.setCurrentVehicle(vehicle)
             }
           }
         }
-        }, failure: { _ in
-
+        }, failure: {
+          OptionalEntryCheckFailed.sharedInstance.fire()
       })
     }
 

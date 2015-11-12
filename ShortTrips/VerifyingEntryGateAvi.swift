@@ -25,22 +25,22 @@ struct VerifyingEntryGateAvi {
       
       postNotification(SfoNotification.State.waitForEntryGateAvi, value: nil)
       
-      self.poller = Poller.init(timeout: 60) { _ in
-        DriverManager.sharedInstance.getCurrentVehicle(true) { vehicle in
-          if let vehicle = vehicle {
-            ApiClient.requestAntenna(vehicle.transponderId) { antenna in
-              
-              if let antenna = antenna, let device = antenna.device() {
-                if device == .TaxiEntry {
-                  EntryGateAVIReadConfirmed.sharedInstance.fire(antenna)
-                } else {
-                  postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
-                }
+      self.poller = Poller.init(action: {
+        if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
+          ApiClient.requestAntenna(vehicle.transponderId) { antenna in
+
+            if let antenna = antenna, let device = antenna.device() {
+              if device == .TaxiEntry {
+                EntryGateAVIReadConfirmed.sharedInstance.fire(antenna)
+              } else {
+                postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
               }
             }
           }
         }
-      }
+      }, failure: {
+        OptionalEntryCheckFailed.sharedInstance.fire()
+      })
     }
     
     state.setDidExitStateBlock { _, _ in

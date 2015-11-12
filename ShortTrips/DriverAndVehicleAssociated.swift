@@ -17,9 +17,20 @@ struct DriverAndVehicleAssociated {
   private var events: [TKEvent]
   
   private init() {
-    events = [TKEvent(name: eventNames[0],
-      transitioningFromStates: [AssociatingDriverAndVehicle.sharedInstance.getState()],
-      toState: VerifyingEntryGateAvi.sharedInstance.getState())]
+    events = [
+      TKEvent(name: eventNames[0],
+      transitioningFromStates: [AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()],
+      toState: VerifyingEntryGateAvi.sharedInstance.getState()),
+      TKEvent(name: eventNames[1],
+        transitioningFromStates: [AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState()],
+        toState: VerifyingTaxiLoopAvi.sharedInstance.getState()),
+      TKEvent(name: eventNames[2],
+        transitioningFromStates: [AssociatingDriverAndVehicleAtTerminalExit.sharedInstance.getState()],
+        toState: VerifyingExitAvi.sharedInstance.getState()),
+      TKEvent(name: eventNames[3],
+        transitioningFromStates: [AssociatingDriverAndVehicleInbound.sharedInstance.getState()],
+        toState: VerifyingInboundAvi.sharedInstance.getState())
+    ]
   }
 }
 

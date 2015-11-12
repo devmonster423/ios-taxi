@@ -12,7 +12,25 @@ import JSQNotificationObserverKit
 extension DebugVC {
   
   func setupStateObservers() {
-    associatingDriverAndVehicle = NotificationObserver(notification: SfoNotification.State.associatingDriverAndVehicle, handler: { _, _ in
+    associatingDriverAndVehicleAtEntry = NotificationObserver(notification: SfoNotification.State.associatingDriverAndVehicleAtEntry, handler: { _, _ in
+      self.debugView().printDebugLine("Associating Driver And Vehicle")
+      self.debugView().updateState("Associating Driver And Vehicle")
+      self.updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
+    })
+
+    associatingDriverAndVehicleAtHoldingLotExit = NotificationObserver(notification: SfoNotification.State.associatingDriverAndVehicleAtHoldingLotExit, handler: { _, _ in
+      self.debugView().printDebugLine("Associating Driver And Vehicle")
+      self.debugView().updateState("Associating Driver And Vehicle")
+      self.updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
+    })
+
+    associatingDriverAndVehicleAtTerminalExit = NotificationObserver(notification: SfoNotification.State.associatingDriverAndVehicleAtTerminalExit, handler: { _, _ in
+      self.debugView().printDebugLine("Associating Driver And Vehicle")
+      self.debugView().updateState("Associating Driver And Vehicle")
+      self.updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
+    })
+
+    associatingDriverAndVehicleInbound = NotificationObserver(notification: SfoNotification.State.associatingDriverAndVehicleInbound, handler: { _, _ in
       self.debugView().printDebugLine("Associating Driver And Vehicle")
       self.debugView().updateState("Associating Driver And Vehicle")
       self.updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))

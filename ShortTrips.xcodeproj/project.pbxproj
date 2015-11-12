@@ -129,7 +129,7 @@
 		C29341CE1BD1C6F100A7CB9E /* PingManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29341CD1BD1C6F100A7CB9E /* PingManagerSpec.swift */; };
 		C29341D01BD1C9B300A7CB9E /* GeofenceManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29341CF1BD1C9B300A7CB9E /* GeofenceManagerSpec.swift */; };
 		C2AB513A1BD02CC0003ACB4C /* LatestCidIsEntryCid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB51391BD02CC0003ACB4C /* LatestCidIsEntryCid.swift */; };
-		C2AB513C1BD02D1B003ACB4C /* AssociatingDriverAndVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicle.swift */; };
+		C2AB513C1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift */; };
 		C2AB513E1BD052F7003ACB4C /* SfoNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */; };
 		C2B15ADF1BBB16010049B97C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B15ADE1BBB16010049B97C /* Image.swift */; };
 		C2B60A7E1BF66A8E00A8A452 /* TripBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B60A7D1BF66A8E00A8A452 /* TripBody.swift */; };
@@ -142,6 +142,10 @@
 		C2DFE5CA1B56D2CB0090B55F /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DFE5C91B56D2CB0090B55F /* DashboardVC.swift */; };
 		C2DFE5CF1B56D2CB0090B55F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5CE1B56D2CB0090B55F /* Images.xcassets */; };
 		C2DFE5D21B56D2CB0090B55F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */; };
+		C2F3E9071BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3E9061BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift */; };
+		C2F3E9091BF3F9EE00B852EF /* AssociatingDriverAndVehicleAtTerminalExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3E9081BF3F9EE00B852EF /* AssociatingDriverAndVehicleAtTerminalExit.swift */; };
+		C2F3E90B1BF3FB9400B852EF /* AssociatingDriverAndVehicleInbound.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3E90A1BF3FB9400B852EF /* AssociatingDriverAndVehicleInbound.swift */; };
+		C2F3E90F1BF402F800B852EF /* OptionalEntryCheckFailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3E90E1BF402F800B852EF /* OptionalEntryCheckFailed.swift */; };
 		E108B1751BA7C1DE00481AF1 /* ReferenceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */; };
 		E10CE6801BED1DD600322077 /* MockDriverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */; };
 		E112C3031BB2FD2500B1DF48 /* GeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C3021BB2FD2500B1DF48 /* GeofenceSpec.swift */; };
@@ -357,7 +361,7 @@
 		C29341CD1BD1C6F100A7CB9E /* PingManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingManagerSpec.swift; sourceTree = "<group>"; };
 		C29341CF1BD1C9B300A7CB9E /* GeofenceManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceManagerSpec.swift; sourceTree = "<group>"; };
 		C2AB51391BD02CC0003ACB4C /* LatestCidIsEntryCid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestCidIsEntryCid.swift; sourceTree = "<group>"; };
-		C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatingDriverAndVehicle.swift; sourceTree = "<group>"; };
+		C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatingDriverAndVehicleAtEntry.swift; sourceTree = "<group>"; };
 		C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SfoNotification.swift; sourceTree = "<group>"; };
 		C2B15ADE1BBB16010049B97C /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		C2B60A7D1BF66A8E00A8A452 /* TripBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripBody.swift; sourceTree = "<group>"; };
@@ -374,6 +378,10 @@
 		C2DFE5D11B56D2CB0090B55F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C2DFE5D71B56D2CB0090B55F /* ShortTripsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShortTripsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2DFE5DC1B56D2CB0090B55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2F3E9061BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatingDriverAndVehicleAtHoldingLotExit.swift; sourceTree = "<group>"; };
+		C2F3E9081BF3F9EE00B852EF /* AssociatingDriverAndVehicleAtTerminalExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatingDriverAndVehicleAtTerminalExit.swift; sourceTree = "<group>"; };
+		C2F3E90A1BF3FB9400B852EF /* AssociatingDriverAndVehicleInbound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatingDriverAndVehicleInbound.swift; sourceTree = "<group>"; };
+		C2F3E90E1BF402F800B852EF /* OptionalEntryCheckFailed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalEntryCheckFailed.swift; sourceTree = "<group>"; };
 		D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
 		E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConfig.swift; sourceTree = "<group>"; };
 		E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDriverResponse.swift; sourceTree = "<group>"; };
@@ -607,7 +615,10 @@
 		C220E06A1BC33BA500AC7C85 /* States */ = {
 			isa = PBXGroup;
 			children = (
-				C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicle.swift */,
+				C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift */,
+				C2F3E9061BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift */,
+				C2F3E9081BF3F9EE00B852EF /* AssociatingDriverAndVehicleAtTerminalExit.swift */,
+				C2F3E90A1BF3FB9400B852EF /* AssociatingDriverAndVehicleInbound.swift */,
 				C28ECB341BCF151800887763 /* Debuggable.swift */,
 				C220E06C1BC33C1D00AC7C85 /* NotReady.swift */,
 				C220E0721BC3446600AC7C85 /* Ready.swift */,
@@ -643,6 +654,7 @@
 				8EEFB7A51BE04B5400B8A962 /* LatestCidIsPaymentCid.swift */,
 				E14A39291BE957B80053F741 /* LoggedOut.swift */,
 				C20A98891BE17AEC009E29E7 /* Observable.swift */,
+				C2F3E90E1BF402F800B852EF /* OptionalEntryCheckFailed.swift */,
 				E18228FC1BC4900900614256 /* OutsideSfo.swift */,
 				E19A80221BE8024C00FEB76B /* OutsideShortTripGeofence.swift */,
 				E1BE7B6F1BE4025C0085D3CA /* TimeExpired.swift */,
@@ -1403,7 +1415,8 @@
 			files = (
 				C200BE211BA8C21600B7F56F /* TerminalView.swift in Sources */,
 				C257FB401BC4624700468CF1 /* ShortTripGeofence.swift in Sources */,
-				C2AB513C1BD02D1B003ACB4C /* AssociatingDriverAndVehicle.swift in Sources */,
+				C2AB513C1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift in Sources */,
+				C2F3E9071BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift in Sources */,
 				E1AE8CE51BB5A310004E243E /* UIButton+positionLabel.swift in Sources */,
 				8E0F5BC51BEBEC83001DE4C2 /* TimerDebugger.swift in Sources */,
 				C28ECB221BCECA9700887763 /* TripClient.swift in Sources */,
@@ -1457,6 +1470,8 @@
 				C20A988E1BE1A1BC009E29E7 /* TripStarted.swift in Sources */,
 				C28ECB3D1BCF193300887763 /* PingManager.swift in Sources */,
 				C21775F91BB08CAC008B24EA /* Color.swift in Sources */,
+				C2F3E90F1BF402F800B852EF /* OptionalEntryCheckFailed.swift in Sources */,
+				C24486F01BA89DF200A19A9D /* GeofenceListResponse.swift in Sources */,
 				E14A39281BE957340053F741 /* AppQuit.swift in Sources */,
 				C2AB513A1BD02CC0003ACB4C /* LatestCidIsEntryCid.swift in Sources */,
 				C283AB3D1BE93A4F0004E8CD /* RequestDebugger.swift in Sources */,
@@ -1474,10 +1489,12 @@
 				C28ECB201BCEBDD400887763 /* LocationManager.swift in Sources */,
 				C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */,
 				E1BE7B701BE4025C0085D3CA /* TimeExpired.swift in Sources */,
+				C2F3E9091BF3F9EE00B852EF /* AssociatingDriverAndVehicleAtTerminalExit.swift in Sources */,
 				8EEFB79C1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift in Sources */,
 				C283AB3F1BE93B790004E8CD /* StateDebugger.swift in Sources */,
 				E1F153C91BF02F8900E212ED /* MockTerminalSummary.swift in Sources */,
 				C2635E2A1BB0CC86003C22B1 /* FlightClient.swift in Sources */,
+				C2F3E90B1BF3FB9400B852EF /* AssociatingDriverAndVehicleInbound.swift in Sources */,
 				C28ECB2C1BCF01F200887763 /* WaitingForEntryCid.swift in Sources */,
 				C283AB351BE936B30004E8CD /* CidDebugger.swift in Sources */,
 				FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */,

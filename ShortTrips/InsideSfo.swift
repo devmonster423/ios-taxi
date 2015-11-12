@@ -24,7 +24,7 @@ struct InsideSfo {
       toState: WaitingForEntryCid.sharedInstance.getState()),
     TKEvent(name: eventNames[1],
         transitioningFromStates: [InProgress.sharedInstance.getState()],
-        toState: VerifyingInboundAvi.sharedInstance.getState())
+        toState: AssociatingDriverAndVehicleInbound.sharedInstance.getState())
     ]
   }
 }

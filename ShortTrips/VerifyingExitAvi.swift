@@ -25,24 +25,17 @@ struct VerifyingExitAvi {
       
       postNotification(SfoNotification.State.waitForExitAvi, value: nil)
       
-      self.poller = Poller.init(timeout: 60, action: { _ in
+      self.poller = Poller.init(action: {
+        if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
+          ApiClient.requestAntenna(vehicle.transponderId) { antenna in
 
-        DriverManager.sharedInstance.getCurrentVehicle() { vehicle in
-          if let vehicle = vehicle {
-            ApiClient.requestAntenna(vehicle.transponderId) { antenna in
-              
-              if let antenna = antenna, let device = antenna.device() {
-                if device == self.expectedAvi {
-                  LatestAviReadAtTaxiLoop.sharedInstance.fire(antenna)
-                  TripManager.sharedInstance.setStartTime(antenna.aviDate)
-                } else {
-                  postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
-                }
+            if let antenna = antenna, let device = antenna.device() {
+              if device == self.expectedAvi {
+                LatestAviReadAtTaxiLoop.sharedInstance.fire(antenna)
+                TripManager.sharedInstance.setStartTime(antenna.aviDate)
+              } else {
+                postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
               }
-//            else {
-//              ExitAviReadFailed.sharedInstance.fire()
-//              StateManager.sharedInstance.addWarning(.ExitAviFailed)
-//            }
             }
           }
         }

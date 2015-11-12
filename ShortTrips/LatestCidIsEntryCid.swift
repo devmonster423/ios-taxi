@@ -19,7 +19,7 @@ struct LatestCidIsEntryCid {
   private init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [WaitingForEntryCid.sharedInstance.getState()],
-      toState: AssociatingDriverAndVehicle.sharedInstance.getState())]
+      toState: AssociatingDriverAndVehicleAtEntry.sharedInstance.getState())]
   }
 }
 

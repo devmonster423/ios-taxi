@@ -17,7 +17,7 @@ class StateManager {
   private var warnings = [TripWarning]()
   
   static let allStates = [
-    AssociatingDriverAndVehicle.sharedInstance.getState(),
+    AssociatingDriverAndVehicleAtEntry.sharedInstance.getState(),
     InProgress.sharedInstance.getState(),
     NotReady.sharedInstance.getState(),
     Ready.sharedInstance.getState(),

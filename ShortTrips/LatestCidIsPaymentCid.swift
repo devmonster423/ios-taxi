@@ -19,7 +19,7 @@ class LatestCidIsPaymentCid {
   private init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [WaitingForPaymentCid.sharedInstance.getState()],
-      toState: VerifyingTaxiLoopAvi.sharedInstance.getState())]
+      toState: AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState())]
   }
 }
 
@@ -31,12 +31,6 @@ extension LatestCidIsPaymentCid: Event {
 
 extension LatestCidIsPaymentCid: Observable {
   func eventIsFiring(info: Any?) {
-
-    if warning = info as? Warning {
-      postNotification(SfoNotification.Cid.payment, value: warning)
-    }else{
-      postNotification(SfoNotification.Cid.payment, value: nil)
-    }
-
+    postNotification(SfoNotification.Cid.payment, value: nil)
   }
 }
