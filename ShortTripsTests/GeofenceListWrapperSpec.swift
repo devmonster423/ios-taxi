@@ -13,17 +13,12 @@ import Foundation
 import ObjectMapper
 
 class GeofenceListWrapperSpec: QuickSpec {
-  var geofenceList: [Geofence]!
   var geofenceListWrapper: GeofenceListWrapper!
-  var map: Map!
   
   override func spec() {
     describe("the GeofenceListWrapper") {
       beforeEach {
-        self.geofenceList = [Geofence(category: .City, description: "short-trip region", geofenceId: 42, name: "Snoopy")]
-        self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
-        self.geofenceListWrapper = GeofenceListWrapper(self.map)
-        self.geofenceListWrapper.geofenceList = self.geofenceList
+        self.geofenceListWrapper = Mapper<GeofenceListWrapper>().map(MockGeofenceListWrapperString)
       }
       
       it("is non-nil") {
@@ -31,11 +26,12 @@ class GeofenceListWrapperSpec: QuickSpec {
       }
       
       it("has a Geofence list") {
-        expect(self.geofenceList).toNot(beNil())
+        expect(self.geofenceListWrapper.geofenceList).toNot(beNil())
       }
       
-      it("can map") {
-        expect(self.geofenceListWrapper.mapping(self.map)).toNot(beNil())
+      it("has a valid Geofence") {
+        expect(self.geofenceListWrapper.geofenceList[0].geofenceId).toNot(beNil())
+        expect(self.geofenceListWrapper.geofenceList[0].name).toNot(beNil())
       }
     }
   }

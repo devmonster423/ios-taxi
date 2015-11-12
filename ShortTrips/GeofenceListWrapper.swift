@@ -18,6 +18,6 @@ struct GeofenceListWrapper: Mappable {
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
-    geofenceList <- map["geofences"]
+    geofenceList <- map["response.geofences"]
   }
 }
