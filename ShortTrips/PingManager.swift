@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 import JSQNotificationObserverKit
 
-class PingManager {
+class PingManager: NSObject {
 
   var lastSuccessfulPingDate: NSDate?
   let updateFrequency = NSTimeInterval(30)
@@ -23,7 +23,7 @@ class PingManager {
   
   static let sharedInstance = PingManager()
 
-  private init() {}
+  override private init() {}
 
   func start() {
     
