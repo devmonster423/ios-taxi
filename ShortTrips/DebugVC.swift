@@ -68,7 +68,8 @@ class DebugVC: UIViewController {
   // Trip
   var timeExpiredObserver: NotificationObserver<Any?, AnyObject>?
   var tripStartedObserver: NotificationObserver<Int, AnyObject>?
-  var validationObserver: NotificationObserver<Bool, AnyObject>?
+  var validatedObserver: NotificationObserver<Any?, AnyObject>?
+  var invalidatedObserver: NotificationObserver<[ValidationStepWrapper]?, AnyObject>?
   var warningObserver: NotificationObserver<TripWarning, AnyObject>?
 
   override func loadView() {

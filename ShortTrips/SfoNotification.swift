@@ -73,7 +73,8 @@ struct SfoNotification {
   struct Trip {
     static let started = Notification<Int, AnyObject>(name: "TripStarted")
     static let warning = Notification<TripWarning, AnyObject>(name: "TripWarning")
-    static let validation = Notification<Bool, AnyObject>(name: "TripValidation")
+    static let validated = Notification<Any?, AnyObject>(name: "TripValidated")
+    static let invalidated = Notification<[ValidationStepWrapper]?, AnyObject>(name: "TripInvalidated")
     static let timeExpired = Notification<Any?, AnyObject>(name: "TripTimeExpired")
   }
 }

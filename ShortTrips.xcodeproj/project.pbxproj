@@ -132,6 +132,7 @@
 		C2AB513C1BD02D1B003ACB4C /* AssociatingDriverAndVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicle.swift */; };
 		C2AB513E1BD052F7003ACB4C /* SfoNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */; };
 		C2B15ADF1BBB16010049B97C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B15ADE1BBB16010049B97C /* Image.swift */; };
+		C2B60A7E1BF66A8E00A8A452 /* TripBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B60A7D1BF66A8E00A8A452 /* TripBody.swift */; };
 		C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667101BA7577600BA28E2 /* DashboardView.swift */; };
 		C2B667291BA7833400BA28E2 /* TerminalSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */; };
 		C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */; };
@@ -359,6 +360,7 @@
 		C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatingDriverAndVehicle.swift; sourceTree = "<group>"; };
 		C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SfoNotification.swift; sourceTree = "<group>"; };
 		C2B15ADE1BBB16010049B97C /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		C2B60A7D1BF66A8E00A8A452 /* TripBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripBody.swift; sourceTree = "<group>"; };
 		C2B667101BA7577600BA28E2 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryView.swift; sourceTree = "<group>"; };
 		C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVCSpec.swift; sourceTree = "<group>"; };
@@ -731,6 +733,7 @@
 				C28ECB231BCECB5700887763 /* GeofenceStatus.swift */,
 				E18FF6941BA8783600FE93B9 /* MobileStateChange.swift */,
 				C28ECB251BCECE5F00887763 /* Ping.swift */,
+				C2B60A7D1BF66A8E00A8A452 /* TripBody.swift */,
 				C20A98841BE153BA009E29E7 /* TripId.swift */,
 				E18FF6921BA877C000FE93B9 /* TripState.swift */,
 				C26530B51BE3FB66002C0A97 /* TripValidation.swift */,
@@ -1006,7 +1009,7 @@
 				E1B393771BAC620E00FC2970 /* Driver */,
 				E13BCEEF1BABAD32006FDFF5 /* Flight */,
 				C24486EE1BA89DD100A19A9D /* Geofence */,
-				FA6380F01BED1FD900CF51CC /* GTMS */,
+				FA6380F01BED1FD900CF51CC /* Gtms */,
 				E1B393791BAC66E900FC2970 /* LotStatus */,
 				E1B393781BAC625E00FC2970 /* ReferenceConfig */,
 				E13BCEF41BABB895006FDFF5 /* TerminalSummary */,
@@ -1159,12 +1162,12 @@
 			name = JPEG;
 			sourceTree = "<group>";
 		};
-		FA6380F01BED1FD900CF51CC /* GTMS */ = {
+		FA6380F01BED1FD900CF51CC /* Gtms */ = {
 			isa = PBXGroup;
 			children = (
 				FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */,
 			);
-			name = GTMS;
+			name = Gtms;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1466,6 +1469,7 @@
 				E187B2751BE036F10031F07C /* WaitingInHoldingLot.swift in Sources */,
 				C26530B61BE3FB66002C0A97 /* TripValidation.swift in Sources */,
 				C215CE031BD1B87000991D9D /* Vehicle.swift in Sources */,
+				C2B60A7E1BF66A8E00A8A452 /* TripBody.swift in Sources */,
 				E1A2EBA01B6BEF3900C27EB2 /* FlightStatusVC.swift in Sources */,
 				C28ECB201BCEBDD400887763 /* LocationManager.swift in Sources */,
 				C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */,

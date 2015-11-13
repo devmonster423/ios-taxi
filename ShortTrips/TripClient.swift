@@ -14,7 +14,7 @@ import ObjectMapper
 
 typealias GeofenceStatusClosure = Bool? -> Void
 typealias TripIdClosure = Int? -> Void
-typealias ValidationClosure = Bool? -> Void
+typealias ValidationClosure = TripValidation? -> Void
 
 protocol TripClient { }
 
@@ -31,8 +31,9 @@ extension ApiClient {
     }
   }
   
-  static func start(sessionId: Int, response: TripIdClosure) {
-    authedRequest(Alamofire.request(.POST, Url.Trip.start, parameters: ["session_id": sessionId]))
+  static func start(tripBody: TripBody, response: TripIdClosure) {
+    // TODO: also add header as per discussion: https://basecamp.com/1759841/projects/9992902/messages/51037813#comment_354637715
+    authedRequest(Alamofire.request(.POST, Url.Trip.start, parameters: Mapper().toJSON(tripBody)))
       .responseObject { (_, raw, tripId: TripId?, _, _) in
         
         if let raw = raw {
@@ -42,15 +43,16 @@ extension ApiClient {
     }
   }
   
-  static func end(tripId: Int, response: ValidationClosure) {
-    authedRequest(Alamofire.request(.POST, Url.Trip.end(tripId), parameters: nil ))
+  static func end(tripId: Int, medallion: Int, response: ValidationClosure) {
+    // TODO: also add header as per discussion: https://basecamp.com/1759841/projects/9992902/messages/51037813#comment_354637715
+    authedRequest(Alamofire.request(.POST, Url.Trip.end(tripId), parameters: ["medallion": medallion]))
       .responseObject { (_, raw, validation: TripValidation?, _, _) in
         
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
         
-        response(validation?.valid)
+        response(validation)
     }
   }
   

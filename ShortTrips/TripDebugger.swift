@@ -20,9 +20,17 @@ extension DebugVC {
       self.debugView().printDebugLine("Trip started: \(tripId)", type: .Positive)
     }
     
-    validationObserver = NotificationObserver(notification: SfoNotification.Trip.validation) { valid, _ in
-      if valid {
-        self.debugView().printDebugLine("Trip is valid", type: .Positive)
+    validatedObserver = NotificationObserver(notification: SfoNotification.Trip.validated) { _, _ in
+      self.debugView().printDebugLine("Trip is valid", type: .Positive)
+    }
+    
+    invalidatedObserver = NotificationObserver(notification: SfoNotification.Trip.invalidated) { validationSteps, _ in
+      
+      if let validationSteps = validationSteps {
+        self.debugView().printDebugLine("Trip is invalid for reasons:", type: .Negative)
+        for validationStep in validationSteps {
+          self.debugView().printDebugLine("\(validationStep.description)", type: .Negative)
+        }
       } else {
         self.debugView().printDebugLine("Trip is invalid", type: .Negative)
       }

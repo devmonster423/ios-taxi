@@ -31,8 +31,8 @@ extension TripInvalidated: Event {
 
 extension TripInvalidated: Observable {
   func eventIsFiring(info: Any?) {
-    if let info = info as? Bool {
-      postNotification(SfoNotification.Trip.validation, value: info)
+    if let info = info as? [ValidationStepWrapper]? {
+      postNotification(SfoNotification.Trip.invalidated, value: info)
     }
   }
 }

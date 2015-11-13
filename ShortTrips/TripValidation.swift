@@ -11,10 +11,12 @@ import ObjectMapper
 
 struct TripValidation: Mappable {
   var valid: Bool!
+  var validationSteps: [ValidationStepWrapper]?
   
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
-    valid <- map["response.valid"]
+    valid <- map["response.trip_valid"]
+    validationSteps <- map["response.validation_steps"]
   }
 }

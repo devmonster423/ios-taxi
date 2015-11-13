@@ -24,12 +24,22 @@ struct ValidatingTrip {
       postNotification(SfoNotification.State.validatingTrip, value: nil)
       
       if let tripId = TripManager.sharedInstance.getTripId() {
-        ApiClient.end(tripId) { valid in
+        
+        DriverManager.sharedInstance.getCurrentVehicle { vehicle in
           
-          if let valid = valid where valid {
-            TripValidated.sharedInstance.fire(true)
-          } else {
-            TripInvalidated.sharedInstance.fire(false)
+          if let medallion = vehicle?.medallion {
+            ApiClient.end(tripId, medallion: medallion) { validation in
+              
+              if let validation = validation {
+                if validation.valid! {
+                  TripValidated.sharedInstance.fire()
+                } else {
+                  TripInvalidated.sharedInstance.fire(validation.validationSteps)
+                }
+              } else {
+                TripInvalidated.sharedInstance.fire()
+              }
+            }
           }
         }
       }

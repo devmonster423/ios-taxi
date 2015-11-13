@@ -10,19 +10,32 @@ import Foundation
 import ObjectMapper
 
 enum ValidationStep: Int {
+  case VehicleMismatch = 2
   case InvalidGeofence = 5
   
   func description() -> String {
     switch self {
+    case .VehicleMismatch:
+      return "Vehicle miss match found (1404,null)"
     case .InvalidGeofence:
       return "invalid geofence"
+    }
+  }
+  
+  func name() -> String {
+    switch self {
+    case .VehicleMismatch:
+      return "vehicle"
+    case .InvalidGeofence:
+      return "geofence"
     }
   }
 }
 
 struct ValidationStepWrapper: Mappable {
   var validationStep: ValidationStep!
-  var description: String?
+  var description: String!
+  var name: String!
   
   init?(_ map: Map){}
   
@@ -32,8 +45,9 @@ struct ValidationStepWrapper: Mappable {
   }
   
   mutating func mapping(map: Map) {
-    validationStep <- map["step"]
+    validationStep <- map["step_id"]
     description <- map["description"]
+    name <- map["step_name"]
   }
 }
 
