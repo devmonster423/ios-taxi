@@ -32,14 +32,13 @@ class TripClientSpec: QuickSpec {
       }
       
       it("can start") {
-        let driverId = 1;
+        let sessionId = 123
         
         self.stub(uri(Url.Trip.start), builder: json(TripStartMock))
-        ApiClient.start(driverId) { geofences in
+        ApiClient.start(sessionId) { geofences in
           expect(geofences).toNot(beNil())
         }
       }
-      
     }
   }
 }

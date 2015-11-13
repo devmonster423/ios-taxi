@@ -19,6 +19,6 @@ struct TripId: Mappable {
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
-    tripId <- map["response.tripId"]
+    tripId <- map["response.trip_id"]
   }
 }

@@ -31,8 +31,8 @@ extension ApiClient {
     }
   }
   
-  static func start(driverId: Int, response: TripIdClosure) {
-    authedRequest(Alamofire.request(.POST, Url.Trip.start, parameters: nil ))
+  static func start(sessionId: Int, response: TripIdClosure) {
+    authedRequest(Alamofire.request(.POST, Url.Trip.start, parameters: ["session_id": sessionId]))
       .responseObject { (_, raw, tripId: TripId?, _, _) in
         
         if let raw = raw {
