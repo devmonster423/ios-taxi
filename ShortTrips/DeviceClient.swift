@@ -21,14 +21,12 @@ protocol DeviceClient { }
 
 extension ApiClient {
   static func postMobileStateChanges(mobileStateChange: MobileStateChange) {
-    authedRequest(Alamofire.request(.POST, Url.Device.mobileState, parameters: Mapper().toJSON(mobileStateChange), encoding: .JSON))
-      .response { _, raw, _, error in
+    authedRequest(Alamofire.request(.POST, Url.Device.mobileState, parameters: Mapper().toJSON(mobileStateChange)))
+      .response { _, raw, _, _ in
 
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
-        
-        print(error)
     }
   }
   

@@ -18,8 +18,15 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 
   private var lastKnownLocation: CLLocation?
   
+  var locationObserver: NotificationObserver<CLLocation, AnyObject>?
+  
   private override init() {
     super.init()
+    
+    locationObserver = NotificationObserver(notification: SfoNotification.Location.read) { location, _ in
+      
+      self.lastKnownLocation = location
+    }
   }
 
   func start() {
@@ -38,7 +45,6 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   
   func locationManager(manager: CLLocationManager,
     didUpdateLocations locations: [CLLocation]) {
-      lastKnownLocation = locations.last!
       postNotification(SfoNotification.Location.read, value: locations.last!)
   }
 
