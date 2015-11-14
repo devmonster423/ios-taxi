@@ -23,22 +23,19 @@ struct WaitingForStartTrip {
       
       postNotification(SfoNotification.State.waitForTripToStart, value: nil)
       
-      if let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
-        DriverManager.sharedInstance.getCurrentVehicle { vehicle in
+      if let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId,
+        let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion {
           
-          if let medallion = vehicle?.medallion {
-            ApiClient.start(TripBody(sessionId: sessionId, medallion: medallion)) { tripId in
+          ApiClient.start(TripBody(sessionId: sessionId, medallion: medallion)) { tripId in
               
-              if let tripId = tripId {
-                TripStarted.sharedInstance.fire(tripId)
-                
-              } else {
-                Failure.sharedInstance.fire()
-              }
+            if let tripId = tripId {
+              TripStarted.sharedInstance.fire(tripId)
+              
+            } else {
+              Failure.sharedInstance.fire()
             }
           }
         }
-      }
     }
   }
   
