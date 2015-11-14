@@ -69,7 +69,7 @@ class PingManager: NSObject {
     pingObserver = nil
   }
 
-  private func processLastKnownLocation() {
+  func processLastKnownLocation() {
     if let location = LocationManager.sharedInstance.getLastKnownLocation() {
       if let tripId = TripManager.sharedInstance.getTripId() {
         let ping = Ping(location: location)
