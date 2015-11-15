@@ -9,4 +9,4 @@
 import Foundation
 
 var MockGeofenceString = "{\"category\":\"Location\",\"description\":\"Location\",\"id\":18,\"name\":\"SFO Terminal Exit\"}"
-var MockGeofenceListWrapperString = "{\"response\":{\"geofences\":[{\"category\":\"Location\",\"description\":\"Location\",\"id\":42,\"name\":\"🇫🇷\"}]}}"
+var MockGeofenceListWrapperString = "{\"response\":{\"geofences\":[{\"category\":\"Location\",\"description\":\"Location\",\"id\":18,\"name\":\"SFO Terminal Exit\"}]}}"
