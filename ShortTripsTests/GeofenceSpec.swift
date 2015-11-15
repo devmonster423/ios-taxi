@@ -26,7 +26,7 @@ class GeofenceSpec: QuickSpec {
       }
 
       it("is a valid Geofence") {
-        expect(self.geofence.geofenceId).toNot(beNil())
+        expect(self.geofence.geofence).toNot(beNil())
         expect(self.geofence.name).toNot(beNil())
       }
     }

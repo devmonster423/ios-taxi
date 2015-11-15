@@ -47,7 +47,7 @@ class GeofenceManager {
     var driverInsideSfo = false
     
     for geofence in geofences {
-      switch geofence.geofenceId! {
+      switch geofence.geofence! {
       case .Sfo:
         InsideSfo.sharedInstance.fire()
         driverInsideSfo = true

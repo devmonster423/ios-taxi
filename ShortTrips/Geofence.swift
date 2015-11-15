@@ -40,13 +40,13 @@ enum SfoGeofence: Int {
 struct Geofence: Mappable {
   var category: Category?
   var description: String?
-  var geofenceId: SfoGeofence!
+  var geofence: SfoGeofence!
   var name: String!
   
-  init(category: Category, description: String, geofenceId: SfoGeofence, name: String) {
+  init(category: Category, description: String, geofence: SfoGeofence, name: String) {
     self.category = category
     self.description = description
-    self.geofenceId = geofenceId
+    self.geofence = geofence
     self.name = name
   }
 
@@ -56,6 +56,6 @@ struct Geofence: Mappable {
     category <- map["category"]
     description <- map["description"]
     name <- map["name"]
-    geofenceId <- map["id"] // was "geofence_id", see discussion: https://basecamp.com/1759841/projects/9992902/messages/49598451
+    geofence <- map["id"] // was "geofence_id", see discussion: https://basecamp.com/1759841/projects/9992902/messages/49598451
   }
 }

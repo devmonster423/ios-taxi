@@ -30,7 +30,7 @@ class GeofenceListWrapperSpec: QuickSpec {
       }
       
       it("has a valid Geofence") {
-        expect(self.geofenceListWrapper.geofenceList[0].geofenceId).toNot(beNil())
+        expect(self.geofenceListWrapper.geofenceList[0].geofence).toNot(beNil())
         expect(self.geofenceListWrapper.geofenceList[0].name).toNot(beNil())
       }
     }
