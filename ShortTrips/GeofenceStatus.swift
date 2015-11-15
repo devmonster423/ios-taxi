@@ -9,12 +9,19 @@
 import Foundation
 import ObjectMapper
 
-struct GeofenceStatus: Mappable {
-  var status: Bool!
+struct FoundGeofenceStatus: Mappable {
+  var status: GeofenceStatus!
+  var geofenceId: Int?
+  
+  init(status: GeofenceStatus, geofenceId: Int?) {
+    self.status = status
+    self.geofenceId = geofenceId
+  }
   
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
-    status <- map["geofence_status"]
+    status <- map["response.geofence_status"]
+    geofenceId <- map["response.geofence_id"]
   }
 }

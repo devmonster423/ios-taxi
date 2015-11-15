@@ -20,7 +20,7 @@ class PingSpec: QuickSpec {
   override func spec() {
     describe("the Ping") {
       beforeEach {
-        self.ping = Ping(location: CLLocation(latitude: 37.615716, longitude: -122.388321))
+        self.ping = Ping(location: CLLocation(latitude: 37.615716, longitude: -122.388321), tripId: 123, sessionId: 456, medallion: 789)
         self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
       }
       

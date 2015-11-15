@@ -47,14 +47,16 @@ class GeofenceManager {
     var driverInsideSfo = false
     
     for geofence in geofences {
-      if let identifiedGeofence = SfoGeofence.find(geofence) {
-        switch identifiedGeofence {
-        case .SFO:
-          InsideSfo.sharedInstance.fire()
-          driverInsideSfo = true
-        case .SfoTerminalExit:
-          InsideTaxiLoopExit.sharedInstance.fire()
-        }
+      switch geofence.geofenceId! {
+      case .Sfo:
+        InsideSfo.sharedInstance.fire()
+        driverInsideSfo = true
+      case .SfoInternationalExit:
+        InsideTaxiLoopExit.sharedInstance.fire()
+      case .SfoTerminalExit:
+        InsideTaxiLoopExit.sharedInstance.fire()
+      default:
+        break
       }
     }
     

@@ -38,7 +38,7 @@ class DebugVCSpec: QuickSpec {
         
         let antenna = Antenna(antennaId: "123", aviLocation: "Location #15 Taxi Main Lot", aviDate: NSDate())
         let location = CLLocation(latitude: 37.615716, longitude: -122.388321)
-        let ping = Ping(location: location)
+        let ping = Ping(location: CLLocation(latitude: 37.615716, longitude: -122.388321), tripId: 123, sessionId: 456, medallion: 789)
         let driver = Driver(sessionId: 123, driverId: 234, cardId: "345", firstName: "", lastName: "", driverLicense: "3F0-3xy6y")
         let vehicle = Vehicle(gtmsTripId: 10590,
           licensePlate: "13702K1",

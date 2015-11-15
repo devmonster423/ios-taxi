@@ -22,7 +22,7 @@ class TripClientSpec: QuickSpec {
         
         let tripId = 1;
 
-        let ping = Ping( location: CLLocation.init())
+        let ping = Ping(location: CLLocation(latitude: 37.615716, longitude: -122.388321), tripId: 123, sessionId: 456, medallion: 789)
         
         self.stub(uri(Url.Trip.ping(tripId)), builder: json(TripPingMock))
         

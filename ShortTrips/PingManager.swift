@@ -19,7 +19,7 @@ class PingManager: NSObject {
   
   private var timer: NSTimer?
 
-  var pingObserver: NotificationObserver<(ping: ShortTrips.Ping, geofenceStatusBool: Bool?), AnyObject>?
+  var pingObserver: NotificationObserver<(ping: ShortTrips.Ping, geofenceStatus: FoundGeofenceStatus?), AnyObject>?
   
   static let sharedInstance = PingManager()
 
@@ -36,15 +36,16 @@ class PingManager: NSObject {
     }
     
     if let _ = pingObserver {} else {
-      self.pingObserver = NotificationObserver(notification: SfoNotification.Ping.sent, handler: { info, _ in
-        let geofenceStatusBool = info.geofenceStatusBool
+      self.pingObserver = NotificationObserver(notification: SfoNotification.Ping.created, handler: { info, _ in
+        
+        let geofenceStatus = info.geofenceStatus
         let ping = info.ping
       
-        if let geofenceStatusBool = geofenceStatusBool {
+        if let geofenceStatus = geofenceStatus {
           self.lastSuccessfulPingDate = NSDate()
           postNotification(SfoNotification.Ping.successful, value: ping)
           
-          if geofenceStatusBool {
+          if geofenceStatus.status.toBool() {
             postNotification(SfoNotification.Ping.valid, value: ping)
             self.invalidPings = 0 // must be consecutive
             
@@ -70,14 +71,16 @@ class PingManager: NSObject {
   }
 
   func processLastKnownLocation() {
-    if let location = LocationManager.sharedInstance.getLastKnownLocation() {
-      if let tripId = TripManager.sharedInstance.getTripId() {
-        let ping = Ping(location: location)
+    if let location = LocationManager.sharedInstance.getLastKnownLocation(),
+      let tripId = TripManager.sharedInstance.getTripId(),
+      let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId,
+      let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion {
+        
+        let ping = Ping(location: location, tripId: tripId, sessionId: sessionId, medallion: medallion)
         postNotification(SfoNotification.Ping.attempting, value: ping)
-        ApiClient.ping(tripId, ping: ping) { geofenceStatusBool in
-          postNotification(SfoNotification.Ping.sent, value: (ping: ping, geofenceStatusBool: geofenceStatusBool))
+        ApiClient.ping(tripId, ping: ping) { geofenceStatus in
+          postNotification(SfoNotification.Ping.created, value: (ping: ping, geofenceStatus: geofenceStatus))
         }
-      }
     }
   }
 }

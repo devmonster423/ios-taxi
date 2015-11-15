@@ -14,37 +14,25 @@ enum Category: String {
   case Place = "place"
 }
 
-enum SfoGeofence {
-  case SFO
-  case SfoTerminalExit
-
-  func id() -> Int {
-    switch self {
-    case SFO:
-      return 10
-    case SfoTerminalExit:
-      return 18
-    }
-  }
+enum SfoGeofence: Int {
+  case Millbrae = 5
+  case SanBruno = 6
+  case Sfo = 10
+  case SfoInternationalExit = 13
+  case SfoTerminalExit = 18
 
   func name() -> String {
     switch self {
-    case SFO:
+    case .Millbrae:
+      return "Millbrae"
+    case .SanBruno:
+      return "San Bruno"
+    case Sfo:
       return "San Francisco International Airport"
+    case SfoInternationalExit:
+      return "SFO International Exit"
     case SfoTerminalExit:
       return "SFO Terminal Exit"
-    }
-  }
-
-  static func find(geofence: Geofence) -> SfoGeofence? {
-    if geofence.geofenceId == SfoGeofence.SFO.id()
-      && geofence.name == SfoGeofence.SFO.name() {
-      return .SFO
-    } else if geofence.geofenceId == SfoGeofence.SfoTerminalExit.id()
-      && geofence.name == SfoGeofence.SfoTerminalExit.name() {
-        return .SfoTerminalExit
-    } else {
-      return nil
     }
   }
 }
@@ -52,10 +40,10 @@ enum SfoGeofence {
 struct Geofence: Mappable {
   var category: Category?
   var description: String?
-  var geofenceId: Int!
+  var geofenceId: SfoGeofence!
   var name: String!
   
-  init(category: Category, description: String, geofenceId: Int, name: String) {
+  init(category: Category, description: String, geofenceId: SfoGeofence, name: String) {
     self.category = category
     self.description = description
     self.geofenceId = geofenceId

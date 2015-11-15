@@ -13,6 +13,8 @@ struct Cid: Mappable {
   var cidId: String!
   var cidLocation: String!
   var cidTimeRead: NSDate?
+  
+  static let transform = DateTransform(dateFormat: "yyyy-MM-dd HH:mm:ss.SS") // "2015-09-03 09:19:20.99"
 
   init(cidId: String, cidLocation: String, cidTimeRead: NSDate) {
     self.cidId = cidId
@@ -23,10 +25,9 @@ struct Cid: Mappable {
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
-    let transform = DateTransform(dateFormat: "yyyy-MM-dd HH:mm:ss.SS") // "2015-09-03 09:19:20.99"
     cidId <- map["response.device_id"]
     cidLocation <- map["response.device_location"]
-    cidTimeRead <- (map["response.time_read"], transform)
+    cidTimeRead <- (map["response.time_read"], Cid.transform)
   }
   
   func device() -> GtmsLocation? {
