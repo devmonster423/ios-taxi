@@ -31,7 +31,7 @@ extension ApiClient {
       }
   }
   
-  static func requestTerminalSummary(hour: Int, flightType: FlightType, response: TerminalSummaryClosure) {
+  static func requestTerminalSummaries(hour: Int, flightType: FlightType, response: TerminalSummaryClosure) {
     let params = ["hour": hour]
     switch flightType {
     case .Arrivals:
