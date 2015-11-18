@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 import AlamofireObjectMapper
 import JSQNotificationObserverKit
 import ObjectMapper
@@ -19,7 +18,7 @@ protocol DriverClient { }
 
 extension ApiClient {
   static func authenticateDriver(credential: DriverCredential, completion: DriverClosure) {
-    authedRequest(Alamofire.request(.POST, Url.Driver.login, parameters: Mapper().toJSON(credential)))
+    authedRequest(.POST, Url.Driver.login, parameters: Mapper().toJSON(credential))
       .responseObject { (_, raw, driver: Driver?, _, _) in
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
@@ -29,7 +28,7 @@ extension ApiClient {
   }
   
   static func getVehicle(smartCard: String, completion: VehicleClosure) {
-    authedRequest(Alamofire.request(.GET, Url.Driver.vehicle(smartCard)))
+    authedRequest(.GET, Url.Driver.vehicle(smartCard))
       .responseObject { (_, raw, vehicle: Vehicle?, _, _) in
         
         if let raw = raw {

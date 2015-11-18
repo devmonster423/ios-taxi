@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
@@ -17,7 +16,7 @@ protocol DispatcherClient { }
 
 extension ApiClient {
   static func requestLotStatus(response: LotStatusClosure) {
-    authedRequest(Alamofire.request(.GET, Url.Dispatcher.holdingLotCapacity, parameters: nil))
+    authedRequest(.GET, Url.Dispatcher.holdingLotCapacity)
       .responseObject { (request, urlResponse, lotStatus: LotStatus?, _, error: ErrorType?) in
         response(lotStatus, urlResponse?.statusCode)
         if Util.debug {

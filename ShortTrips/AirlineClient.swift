@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 import AlamofireImage
 import AlamofireObjectMapper
 
@@ -20,13 +19,13 @@ extension ApiClient {
   static func imageForIataCode(iataCode: String, width: Int, height: Int, completion: ImageClosure) {
     
     let params = ["width": width, "height": height]
-    authedRequest(Alamofire.request(.GET, Url.Airline.logoPng(iataCode), parameters: params)).responseImage { (_, _, result) -> Void in
+    authedRequest(.GET, Url.Airline.logoPng(iataCode), parameters: params).responseImage { (_, _, result) -> Void in
       completion(result.value)
     }
   }
   
   static func codes(completion: AirlinesClosure) {
-    authedRequest(Alamofire.request(.GET, Url.Airline.codes)).responseObject { (airlineListWrapper: AirlineListWrapper?, error) -> Void in
+    authedRequest(.GET, Url.Airline.codes).responseObject { (airlineListWrapper: AirlineListWrapper?, error) -> Void in
       completion(airlineListWrapper?.airlines, error)
     }
   }

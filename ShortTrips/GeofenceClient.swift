@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 import JSQNotificationObserverKit
@@ -20,7 +19,7 @@ protocol GeofenceClient { }
 extension ApiClient {
   static func requestGeofencesForLocation(latitude: Double, longitude: Double, buffer: Double, response: MultipleGeofencesClosure) {
     let params = ["latitude": latitude, "longitude": longitude, "buffer": buffer]
-    authedRequest(Alamofire.request(.GET, Url.Geofence.locations, parameters: params))
+    authedRequest(.GET, Url.Geofence.locations, parameters: params)
       .responseObject { (_, raw, geofenceListWrapper: GeofenceListWrapper?, _, error: ErrorType?) in
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)

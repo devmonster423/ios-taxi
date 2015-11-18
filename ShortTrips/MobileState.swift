@@ -41,23 +41,15 @@ enum MobileState: Int {
   }
 }
 
-//{"response":{"list":[{"id":5,"name":"trip_end_valid","displayName":null},{"id":6,"name":"trip_end_invalid","displayName":null},{"id":1,"name":"mobile_ready","displayName":null},{"id":2,"name":"mobile_not_ready","displayName":null},{"id":4,"name":"trip_in_progress","displayName":null},{"id":9,"name":"user_logged_out","displayName":null},{"id":7,"name":"mobile_no_service","displayName":null},{"id":8,"name":"mobile_crashed","displayName":null}]}}
-
-struct MobileStateChange: Mappable {
+struct MobileStateInfo: Mappable {
   var longitude: Double!
   var latitude: Double!
   var tripId: Int?
-  var medallion: Int!
-  var mobileState: MobileState!
-  var sessionId: Int!
   
-  init(longitude: Double, latitude: Double, tripId: Int?, medallion: Int, mobileState: MobileState, sessionId: Int) {
+  init(longitude: Double, latitude: Double, tripId: Int?) {
     self.longitude = longitude
     self.latitude = latitude
     self.tripId = tripId
-    self.medallion = medallion
-    self.mobileState = mobileState
-    self.sessionId = sessionId
   }
   
   init?(_ map: Map){}
@@ -66,8 +58,5 @@ struct MobileStateChange: Mappable {
     longitude <- map["longitude"]
     latitude <- map["latitude"]
     tripId <- map["trip_id"]
-    medallion <- map["medallion"]
-    mobileState <- map["mobile_trip_state"]
-    sessionId <- map["session_id"]
   }
 }

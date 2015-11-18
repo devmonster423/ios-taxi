@@ -24,7 +24,9 @@ struct Url {
   struct Device {
     private static let device = base + "device/"
     
-    static let mobileState = device + "mobile/state"
+    static func mobileStateUpdate(stateId: Int) -> String {
+      return device + "mobile/state/\(stateId)/update"
+    }
     
     struct Avi {
       static let avi = device + "avi"

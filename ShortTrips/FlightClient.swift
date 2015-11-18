@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
@@ -22,7 +21,7 @@ extension ApiClient {
   static func requestFlightsForTerminal(terminal: Int, hour: Int, flightType: FlightType, response: FlightDetailsClosure) {
     let params = ["terminal_id": terminal, "hour": hour]
     let url = flightType == .Arrivals ? Url.Flight.Arrival.details : Url.Flight.Departure.details
-    authedRequest(Alamofire.request(.GET, url, parameters: params))
+    authedRequest(.GET, url, parameters: params)
       .responseObject { (request, urlResponse, flightDetailsWrapper: FlightDetailsWrapper?, _, error: ErrorType?) in
         response(flightDetailsWrapper?.flightDetails, urlResponse?.statusCode)
         if Util.debug {
@@ -35,7 +34,7 @@ extension ApiClient {
     let params = ["hour": hour]
     switch flightType {
     case .Arrivals:
-      authedRequest(Alamofire.request(.GET, Url.Flight.Arrival.summary, parameters: params))
+      authedRequest(.GET, Url.Flight.Arrival.summary, parameters: params)
         .responseObject { (request, urlResponse, terminalSummaryArrivalsWrapper: TerminalSummaryArrivalsWrapper?, _, error: ErrorType?) in
           response(terminalSummaryArrivalsWrapper?.terminalSummaries, hour, urlResponse?.statusCode)
           if Util.debug {
@@ -43,7 +42,7 @@ extension ApiClient {
           }
       }
     case .Departures:
-      authedRequest(Alamofire.request(.GET, Url.Flight.Departure.summary, parameters: params))
+      authedRequest(.GET, Url.Flight.Departure.summary, parameters: params)
         .responseObject { (request, urlResponse, terminalSummaryDeparturesWrapper: TerminalSummaryDeparturesWrapper?, _, error: ErrorType?) in
           response(terminalSummaryDeparturesWrapper?.terminalSummaries, hour, urlResponse?.statusCode)
           if Util.debug {

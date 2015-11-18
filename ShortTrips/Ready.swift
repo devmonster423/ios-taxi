@@ -24,16 +24,10 @@ struct Ready {
       
       postNotification(SfoNotification.State.ready, value: nil)
       
-      if let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId,
-        let location = LocationManager.sharedInstance.getLastKnownLocation(),
-        let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion {
-          
-          ApiClient.postMobileStateChanges(MobileStateChange(longitude: location.coordinate.longitude,
+      if let location = LocationManager.sharedInstance.getLastKnownLocation() {
+          ApiClient.updateMobileState(.Ready, mobileStateInfo: MobileStateInfo(longitude: location.coordinate.longitude,
             latitude: location.coordinate.latitude,
-            tripId: nil,
-            medallion: medallion,
-            mobileState: .Ready,
-            sessionId: sessionId))
+            tripId: nil))
       }
     }
   }

@@ -18,11 +18,11 @@ class DeviceClientSpec: QuickSpec {
     describe("the device client") {
       
       it("can post mobile state changes") {
-        self.stub(uri(Url.Device.mobileState), builder: json(AllGeofenceMock))
+//        self.stub(uri(Url.Device.mobileStateUpdate(MobileState.Ready.rawValue)), builder: json(AllGeofenceMock))
         
-        let mobileState = MobileStateChange(longitude: 10.0, latitude: 10.0, tripId: 1, medallion: 456, mobileState: MobileState.Ready, sessionId: 1)
+        let mobileState = MobileStateInfo(longitude: 10.0, latitude: 10.0, tripId: 1)
         
-        ApiClient.postMobileStateChanges(mobileState)
+        ApiClient.updateMobileState(MobileState.Ready, mobileStateInfo: mobileState)
       }
       
       it("can request automatic vehicle ids") {

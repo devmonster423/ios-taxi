@@ -13,27 +13,23 @@ import Nimble
 import Foundation
 import ObjectMapper
 
-class MobileStateChangeSpec: QuickSpec {
-  var mobileStateChange: MobileStateChange!
+class MobileStateInfoSpec: QuickSpec {
+  var mobileStateInfo: MobileStateInfo!
   var map: Map!
   
   override func spec() {
     describe("the Ping") {
       beforeEach {
-        self.mobileStateChange = MobileStateChange(longitude: 37.615716, latitude: -122.388321, tripId: 41, medallion: 456, mobileState: MobileState.NotReady, sessionId: 1)
+        self.mobileStateInfo = MobileStateInfo(longitude: 37.615716, latitude: -122.388321, tripId: 41)
         self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
       }
       
       it("is non-nil") {
-        expect(self.mobileStateChange).toNot(beNil())
-      }
-
-      it("has Mobile State") {
-        expect(MobileState.NotReady).toNot(beNil())
+        expect(self.mobileStateInfo).toNot(beNil())
       }
       
       it("can map") {
-        self.mobileStateChange.mapping(self.map)
+        self.mobileStateInfo.mapping(self.map)
       }
     }
   }

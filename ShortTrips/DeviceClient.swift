@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 import JSQNotificationObserverKit
@@ -20,8 +19,8 @@ typealias GtmsLocationClosure = GtmsLocation? -> Void
 protocol DeviceClient { }
 
 extension ApiClient {
-  static func postMobileStateChanges(mobileStateChange: MobileStateChange) {
-    authedRequest(Alamofire.request(.POST, Url.Device.mobileState, parameters: Mapper().toJSON(mobileStateChange)))
+  static func updateMobileState(mobileState: MobileState, mobileStateInfo: MobileStateInfo) {
+    authedRequest(.PUT, Url.Device.mobileStateUpdate(mobileState.rawValue), parameters: Mapper().toJSON(mobileStateInfo))
       .response { _, raw, _, _ in
 
         if let raw = raw {
@@ -31,7 +30,7 @@ extension ApiClient {
   }
   
   static func requestAutomaticVehicleIds(response: AviClosure) {
-    authedRequest(Alamofire.request(.GET, Url.Device.Avi.avi, parameters: nil))
+    authedRequest(.GET, Url.Device.Avi.avi)
       .responseObject { (_, raw, aviListWrapper: AutomaticVehicleIdListWrapper?, _, error: ErrorType?) in
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
@@ -41,7 +40,7 @@ extension ApiClient {
   }
   
   static func requestAntenna(transponderId: Int, response: AntennaClosure) {
-    authedRequest(Alamofire.request(.GET, Url.Device.Avi.transponder(transponderId), parameters: nil))
+    authedRequest(.GET, Url.Device.Avi.transponder(transponderId))
       .responseObject { (_, raw, antenna: Antenna?, _, error: ErrorType?) in
   
         if let raw = raw {
@@ -53,7 +52,7 @@ extension ApiClient {
   }
   
   static func requestAllCids(response: AllCidsClosure) {
-    authedRequest(Alamofire.request(.GET, Url.Device.Cid.cid, parameters: nil))
+    authedRequest(.GET, Url.Device.Cid.cid)
       .responseObject { (_, raw, cidListWrapper: CidListWrapper?, _, error: ErrorType?) in
 
         if let raw = raw {
@@ -65,7 +64,7 @@ extension ApiClient {
   }
   
   static func requestCid(driverId: Int, response: GtmsLocationClosure) {
-    authedRequest(Alamofire.request(.GET, Url.Device.Cid.driver(driverId), parameters: nil))
+    authedRequest(.GET, Url.Device.Cid.driver(driverId))
       .responseObject { (_, raw, cid: Cid?, _, error: ErrorType?) in
         
         if let raw = raw {

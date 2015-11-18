@@ -14,7 +14,22 @@ struct ApiClient {
   private static let sfoUsername = "taxi_short@staging"
   private static let sfoPassword = "mvUh6tYEwU9nYDrQ"
   
-  static func authedRequest(request: Request) -> Request {
+  static func authedRequest(
+    method: Alamofire.Method,
+    _ URLString: URLStringConvertible,
+    parameters: [String: AnyObject]? = nil)
+    -> Request
+  {
+    let request = Alamofire.request(method, URLString, parameters: parameters, encoding: .URL, headers: headers())
     return request.authenticate(user: sfoUsername, password: sfoPassword, persistence: .Permanent)
+  }
+  
+  static func headers() -> [String: String]? {
+    var headers = [String: String]()
+    
+    headers["driver"] = "\(DriverManager.sharedInstance.getCurrentDriver()?.driverId)"
+    headers["medallion"] = "\(DriverManager.sharedInstance.getCurrentVehicle()?.medallion)"
+    
+    return headers
   }
 }
