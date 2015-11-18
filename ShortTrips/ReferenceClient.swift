@@ -12,8 +12,6 @@ import AlamofireObjectMapper
 
 typealias ReferenceConfigClosure = (ReferenceConfig?, ErrorType?) -> Void
 
-protocol ReferenceClient { }
-
 extension ApiClient {
   static func requestReferenceConfig(response: ReferenceConfigClosure) {
     authedRequest(.GET, Url.Reference.config, parameters: nil)

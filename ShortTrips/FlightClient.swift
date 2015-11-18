@@ -13,8 +13,6 @@ import AlamofireObjectMapper
 typealias FlightDetailsClosure = ([Flight]?, Int?) -> Void
 typealias TerminalSummaryClosure = ([TerminalSummary]?, Int?, Int?) -> Void
 
-protocol FlightClient { }
-
 extension ApiClient {
   private static let noData = 3840
   

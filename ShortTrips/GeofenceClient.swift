@@ -14,8 +14,6 @@ import JSQNotificationObserverKit
 typealias MultipleGeofencesClosure = [Geofence]? -> Void
 typealias GeofenceClosure = (Geofence?, ErrorType?) -> Void
 
-protocol GeofenceClient { }
-
 extension ApiClient {
   static func requestGeofencesForLocation(latitude: Double, longitude: Double, buffer: Double, response: MultipleGeofencesClosure) {
     let params = ["latitude": latitude, "longitude": longitude, "buffer": buffer]

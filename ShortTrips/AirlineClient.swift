@@ -13,8 +13,6 @@ import AlamofireObjectMapper
 typealias AirlinesClosure = ([Airline]?, ErrorType?) -> Void
 typealias ImageClosure = UIImage? -> Void
 
-protocol AirlineClient {}
-
 extension ApiClient {
   static func imageForIataCode(iataCode: String, width: Int, height: Int, completion: ImageClosure) {
     

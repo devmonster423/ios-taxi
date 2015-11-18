@@ -15,8 +15,6 @@ typealias GeofenceStatusClosure = FoundGeofenceStatus? -> Void
 typealias TripIdClosure = Int? -> Void
 typealias ValidationClosure = TripValidation? -> Void
 
-protocol TripClient { }
-
 extension ApiClient {
   static func ping(tripId: Int, ping: Ping, response: GeofenceStatusClosure) {
     authedRequest(.POST, Url.Trip.ping(tripId), parameters: Mapper().toJSON(ping))

@@ -14,8 +14,6 @@ import ObjectMapper
 typealias DriverClosure = (DriverCredential, Driver?) -> Void
 typealias VehicleClosure = Vehicle? -> Void
 
-protocol DriverClient { }
-
 extension ApiClient {
   static func authenticateDriver(credential: DriverCredential, completion: DriverClosure) {
     authedRequest(.POST, Url.Driver.login, parameters: Mapper().toJSON(credential))

@@ -16,8 +16,6 @@ typealias AntennaClosure = Antenna? -> Void
 typealias AllCidsClosure = ([Cid]?, ErrorType?) -> Void
 typealias GtmsLocationClosure = GtmsLocation? -> Void
 
-protocol DeviceClient { }
-
 extension ApiClient {
   static func updateMobileState(mobileState: MobileState, mobileStateInfo: MobileStateInfo) {
     authedRequest(.PUT, Url.Device.mobileStateUpdate(mobileState.rawValue), parameters: Mapper().toJSON(mobileStateInfo))
