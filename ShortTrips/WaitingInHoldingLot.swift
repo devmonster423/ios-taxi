@@ -20,7 +20,7 @@ struct WaitingInHoldingLot {
     state = TKState(name: stateName)
     
     state.setDidEnterStateBlock { _, _  in
-      postNotification(SfoNotification.State.wait, value: nil)
+      postNotification(SfoNotification.State.waitInHoldingLot, value: nil)
     }
   }
   
