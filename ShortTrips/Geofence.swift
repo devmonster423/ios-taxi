@@ -15,26 +15,23 @@ enum Category: String {
 }
 
 enum SfoGeofence: Int {
+  case Brisbane = 1
+  case Burlingame = 2
+  case FosterCity = 3
+  case Hillsborough = 4
   case Millbrae = 5
   case SanBruno = 6
+  case Unincorp = 7
+  case SanMateo = 8
+  case SouthSanFrancisco = 9
   case Sfo = 10
+  case SfoTaxiDomesticExit = 11
+  case SfoTaxiEntryGate = 12
   case SfoInternationalExit = 13
+  case OpenSpace = 15
+  case Colma = 16
+  case DalyCity = 17
   case SfoTerminalExit = 18
-
-  func name() -> String {
-    switch self {
-    case .Millbrae:
-      return "Millbrae"
-    case .SanBruno:
-      return "San Bruno"
-    case Sfo:
-      return "San Francisco International Airport"
-    case SfoInternationalExit:
-      return "SFO International Exit"
-    case SfoTerminalExit:
-      return "SFO Terminal Exit"
-    }
-  }
 }
 
 struct Geofence: Mappable {

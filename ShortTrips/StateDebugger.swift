@@ -47,7 +47,7 @@ extension DebugVC {
     })
     
     startingToWaitInHoldingLot = NotificationObserver(notification: SfoNotification.State.waitInHoldingLot, handler: { _, _ in
-      self.debugView().printDebugLine("starting to wait")
+      self.debugView().printDebugLine("starting to wait in holding lot")
       self.debugView().updateState("Waiting In Holding Lot")
       self.updateFakeButtons((title: "Fake At Terminal Exit", action: "triggerAtTerminalExit"))
     })

@@ -36,31 +36,25 @@ class GeofenceManager {
       buffer: GeofenceArbiter.buffer) { geofences in
         
         if let geofences = geofences {
-          self.process(geofences)
+          self.process(geofences.map { geofence -> SfoGeofence in return geofence.geofence! })
           postNotification(SfoNotification.Geofence.foundInside, value: geofences)
         }
     }
   }
 
-  private func process(geofences: [Geofence]) {
-  
-    // TODO: find condition for exitingTerminals
-    var exitingTerminals = false
+  private func process(geofences: [SfoGeofence]) {
     
-    for geofence in geofences {
-      switch geofence.geofence! {
-      case .Sfo:
-        InsideSfo.sharedInstance.fire()
-      case .SfoInternationalExit:
-        InsideTaxiLoopExit.sharedInstance.fire()
-      case .SfoTerminalExit:
-        InsideTaxiLoopExit.sharedInstance.fire()
-      default:
-        break
-      }
+    if geofences.contains(.Sfo) {
+      InsideSfo.sharedInstance.fire()
     }
     
-    if exitingTerminals {
+    if geofences.contains(.SfoInternationalExit) || geofences.contains(.SfoTaxiDomesticExit) {
+      InsideTaxiLoopExit.sharedInstance.fire()
+    }
+    
+    if geofences.contains(.SfoTerminalExit)
+      && !geofences.contains(.SfoInternationalExit)
+      && !geofences.contains(.SfoTaxiDomesticExit) {
       ExitingTerminals.sharedInstance.fire()
     }
   }
