@@ -38,7 +38,9 @@ struct WaitingForEntryCid {
           }
         }
       }, failure: {
-        OptionalEntryCheckFailed.sharedInstance.fire()
+        if TripManager.sharedInstance.getTripId() == nil {
+          OptionalEntryCheckFailed.sharedInstance.fire()
+        }
       })
     }
 
