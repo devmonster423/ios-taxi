@@ -25,7 +25,7 @@ class FlightClientSpec: QuickSpec {
       
       it("can request terminal summary") {
         self.stub(uri(Url.Flight.Arrival.summary), builder: json(TerminalSummaryMock))
-        ApiClient.requestTerminalSummary(1, flightType: .Arrivals) { terminalSummaries, hour, statusCode in
+        ApiClient.requestTerminalSummaries(1, flightType: .Arrivals) { terminalSummaries, hour, statusCode in
           expect(terminalSummaries).toNot(beNil())
         }
       }
