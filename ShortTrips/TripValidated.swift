@@ -32,6 +32,5 @@ extension TripValidated: Event {
 extension TripValidated: Observable {
   func eventIsFiring(info: Any?) {
     postNotification(SfoNotification.Trip.validated, value: info)
-    TripManager.sharedInstance.setTripId()
   }
 }

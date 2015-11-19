@@ -20,6 +20,8 @@ struct NotReady {
     state = TKState(name: stateName)
     
     state.setDidEnterStateBlock { _, _ in
+      
+      TripManager.sharedInstance.setTripId(nil)
       postNotification(SfoNotification.State.notReady, value: nil)
     }
   }

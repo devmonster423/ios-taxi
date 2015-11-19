@@ -22,7 +22,7 @@ class TripManager: NSObject {
     return tripId
   }
   
-  func setTripId(tripId: Int? = nil) {
+  func setTripId(tripId: Int?) {
     self.tripId = tripId
   }
   
