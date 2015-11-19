@@ -14,11 +14,11 @@ class Poller: NSObject {
   
   private var action: Action
   private var creationDate: NSDate!
-  private var timeout: NSTimeInterval
+  private var timeout: NSTimeInterval?
   private var timer: NSTimer!
   private var failure: Action
 
-  init(timeout: NSTimeInterval = 60,
+  init(timeout: NSTimeInterval? = 60,
     action: Action,
     failure: Action = {Failure.sharedInstance.fire()}) {
 
@@ -42,7 +42,7 @@ class Poller: NSObject {
   }
   
   func check() {
-    if creationDate.timeIntervalSinceNow < -timeout {
+    if let timeout = timeout where creationDate.timeIntervalSinceNow < -timeout {
       stop()
       failure()
       

@@ -35,7 +35,7 @@ extension DebugVC {
   }
   
   func fakeExitingTerminals() {
-    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.610560, longitude: -122.401814))
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.615119, longitude: -122.393328))
   }
   
   func fakeOutsideGeofences() {

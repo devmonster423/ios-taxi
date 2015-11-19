@@ -25,7 +25,7 @@ struct VerifyingExitAvi {
       
       postNotification(SfoNotification.State.waitForExitAvi, value: nil)
       
-      self.poller = Poller.init(action: {
+      self.poller = Poller.init(timeout: nil, action: {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
 

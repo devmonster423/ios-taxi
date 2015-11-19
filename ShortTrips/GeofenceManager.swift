@@ -57,5 +57,9 @@ class GeofenceManager {
       && !geofences.contains(.SfoTaxiDomesticExit) {
       ExitingTerminals.sharedInstance.fire()
     }
+    
+    if !geofences.contains(.SfoTerminalExit) {
+      NotInTerminalExit.sharedInstance.fire()
+    }
   }
 }

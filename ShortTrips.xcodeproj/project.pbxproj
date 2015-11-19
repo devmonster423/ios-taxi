@@ -144,6 +144,7 @@
 		C2F3E9071BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3E9061BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift */; };
 		C2F3E90F1BF402F800B852EF /* OptionalEntryCheckFailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3E90E1BF402F800B852EF /* OptionalEntryCheckFailed.swift */; };
 		C2FC60FE1BFE49EE00F50A80 /* ExitingTerminals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC60FD1BFE49EE00F50A80 /* ExitingTerminals.swift */; };
+		C2FC61001BFE754500F50A80 /* NotInTerminalExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC60FF1BFE754500F50A80 /* NotInTerminalExit.swift */; };
 		E108B1751BA7C1DE00481AF1 /* ReferenceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */; };
 		E10CE6801BED1DD600322077 /* MockDriverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */; };
 		E112C3031BB2FD2500B1DF48 /* GeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C3021BB2FD2500B1DF48 /* GeofenceSpec.swift */; };
@@ -376,6 +377,7 @@
 		C2F3E9061BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatingDriverAndVehicleAtHoldingLotExit.swift; sourceTree = "<group>"; };
 		C2F3E90E1BF402F800B852EF /* OptionalEntryCheckFailed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalEntryCheckFailed.swift; sourceTree = "<group>"; };
 		C2FC60FD1BFE49EE00F50A80 /* ExitingTerminals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExitingTerminals.swift; sourceTree = "<group>"; };
+		C2FC60FF1BFE754500F50A80 /* NotInTerminalExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotInTerminalExit.swift; sourceTree = "<group>"; };
 		D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
 		E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConfig.swift; sourceTree = "<group>"; };
 		E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDriverResponse.swift; sourceTree = "<group>"; };
@@ -643,6 +645,7 @@
 				C2AB51391BD02CC0003ACB4C /* LatestCidIsEntryCid.swift */,
 				8EEFB7A51BE04B5400B8A962 /* LatestCidIsPaymentCid.swift */,
 				E14A39291BE957B80053F741 /* LoggedOut.swift */,
+				C2FC60FF1BFE754500F50A80 /* NotInTerminalExit.swift */,
 				C20A98891BE17AEC009E29E7 /* Observable.swift */,
 				C2F3E90E1BF402F800B852EF /* OptionalEntryCheckFailed.swift */,
 				E19A80221BE8024C00FEB76B /* OutsideShortTripGeofence.swift */,
@@ -1462,6 +1465,7 @@
 				C2AB513A1BD02CC0003ACB4C /* LatestCidIsEntryCid.swift in Sources */,
 				C283AB3D1BE93A4F0004E8CD /* RequestDebugger.swift in Sources */,
 				C26530B41BE3F7CB002C0A97 /* TripInvalidated.swift in Sources */,
+				C2FC61001BFE754500F50A80 /* NotInTerminalExit.swift in Sources */,
 				E19A80231BE8024C00FEB76B /* OutsideShortTripGeofence.swift in Sources */,
 				C215CE011BD1AED200991D9D /* Failure.swift in Sources */,
 				C28ECB281BCEE3C100887763 /* GeofenceListWrapper.swift in Sources */,
