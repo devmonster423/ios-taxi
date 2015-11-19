@@ -34,7 +34,7 @@ extension DebugVC {
     enteredReadyState = NotificationObserver(notification: SfoNotification.State.ready, handler: { _, _ in
       self.debugView().printDebugLine("Entered Ready State")
       self.debugView().updateState("Ready")
-      self.updateFakeButtons((title: "Fake Leaving Outside SFO", action: "fakeOutsideSfo"))
+      self.updateFakeButtons((title: "Fake Exiting Terminals", action: "fakeExitingTerminals"))
     })
     
     inProgressState = NotificationObserver(notification: SfoNotification.State.inProgress, handler: { _, _ in

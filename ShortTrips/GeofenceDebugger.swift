@@ -12,19 +12,20 @@ import JSQNotificationObserverKit
 extension DebugVC {
   
   func setupGeofenceObservers() {
-    foundInsideGeofencesObserver = NotificationObserver(notification: SfoNotification.Geofence.foundInside, handler: { geofences, _ in
+    
+    exitingTerminalsObserver = NotificationObserver(notification: SfoNotification.Geofence.exitingTerminals) { _, _ in
+      self.debugView().printDebugLine("exiting terminals event!", type: .Positive)
+    }
+    
+    foundInsideGeofencesObserver = NotificationObserver(notification: SfoNotification.Geofence.foundInside) { geofences, _ in
       self.debugView().updateGeofenceList(geofences)
       for geofence in geofences {
         self.debugView().printDebugLine("in geofence: \(geofence.name)", type: .Positive)
       }
-    })
+    }
     
     insideSfoObserver = NotificationObserver(notification: SfoNotification.Geofence.insideSfo) { _, _ in
       self.debugView().printDebugLine("inside SFO event!", type: .Positive)
-    }
-    
-    outsideSfoObserver = NotificationObserver(notification: SfoNotification.Geofence.outsideSfo) { _, _ in
-      self.debugView().printDebugLine("outside SFO event!", type: .Positive)
     }
     
     outsideShortTripObserver = NotificationObserver(notification: SfoNotification.Geofence.outsideShortTrip) { _, _ in

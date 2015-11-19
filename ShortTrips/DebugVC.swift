@@ -31,9 +31,9 @@ class DebugVC: UIViewController {
   var driverAndVehicleAssociated: NotificationObserver<(driver: Driver, vehicle: Vehicle), AnyObject>?
   
   // Geofence
+  var exitingTerminalsObserver: NotificationObserver<Any?, AnyObject>?
   var foundInsideGeofencesObserver: NotificationObserver<[Geofence], AnyObject>?
   var insideSfoObserver: NotificationObserver<Any?, AnyObject>?
-  var outsideSfoObserver: NotificationObserver<Any?, AnyObject>?
   var outsideShortTripObserver: NotificationObserver<Any?, AnyObject>?
   
   // Location

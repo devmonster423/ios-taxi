@@ -1,8 +1,8 @@
 //
-//  DriverExitsSfo.swift
+//  ExitedTerminal.swift
 //  ShortTrips
 //
-//  Created by Joshua Adams on 10/6/15.
+//  Created by Matt Luedke on 11/19/15.
 //  Copyright © 2015 SFO. All rights reserved.
 //
 
@@ -10,9 +10,9 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct OutsideSfo {
-  let eventNames = ["outsideSfo"]
-  static let sharedInstance = OutsideSfo()
+struct ExitingTerminals {
+  let eventNames = ["exitingTerminals"]
+  static let sharedInstance = ExitingTerminals()
   
   private var events: [TKEvent]
   
@@ -23,14 +23,14 @@ struct OutsideSfo {
   }
 }
 
-extension OutsideSfo: Event {
+extension ExitingTerminals: Event {
   func getEvents() -> [TKEvent] {
     return events
   }
 }
 
-extension OutsideSfo: Observable {
+extension ExitingTerminals: Observable {
   func eventIsFiring(info: Any?) {
-    postNotification(SfoNotification.Geofence.outsideSfo, value: nil)
+    postNotification(SfoNotification.Geofence.exitingTerminals, value: nil)
   }
 }

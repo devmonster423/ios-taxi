@@ -44,13 +44,13 @@ class GeofenceManager {
 
   private func process(geofences: [Geofence]) {
   
-    var driverInsideSfo = false
+    // TODO: find condition for exitingTerminals
+    var exitingTerminals = false
     
     for geofence in geofences {
       switch geofence.geofence! {
       case .Sfo:
         InsideSfo.sharedInstance.fire()
-        driverInsideSfo = true
       case .SfoInternationalExit:
         InsideTaxiLoopExit.sharedInstance.fire()
       case .SfoTerminalExit:
@@ -60,8 +60,8 @@ class GeofenceManager {
       }
     }
     
-    if !driverInsideSfo {
-      OutsideSfo.sharedInstance.fire()
+    if exitingTerminals {
+      ExitingTerminals.sharedInstance.fire()
     }
   }
 }

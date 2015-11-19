@@ -34,7 +34,7 @@ extension DebugVC {
     self.updateFakeButtons((title: "Back To SFO", action: "backToSFO"))
   }
   
-  func fakeOutsideSfo() {
+  func fakeExitingTerminals() {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.610560, longitude: -122.401814))
   }
   

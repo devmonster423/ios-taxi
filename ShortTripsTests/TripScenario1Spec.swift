@@ -50,7 +50,7 @@ class TripScenario1Spec: QuickSpec {
         LatestAviReadAtTaxiLoop.sharedInstance.fire()
         expect(machine.isInState(Ready.sharedInstance.getState())).to(beTrue())
         
-        OutsideSfo.sharedInstance.fire()
+        ExitingTerminals.sharedInstance.fire()
         expect(machine.isInState(VerifyingExitAvi.sharedInstance.getState())).to(beTrue())
         
         LatestAviReadAtExit.sharedInstance.fire()

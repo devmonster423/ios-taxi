@@ -50,7 +50,7 @@ class TripScenario3Spec: QuickSpec {
         expect(machine.isInState(Ready.sharedInstance.getState())).to(beTrue())
         
         // can fire DriverExitsSfo and make correct state change
-        OutsideSfo.sharedInstance.fire()
+        ExitingTerminals.sharedInstance.fire()
         expect(machine.isInState(VerifyingExitAvi.sharedInstance.getState())).to(beTrue())
         
         LatestAviReadAtExit.sharedInstance.fire()
