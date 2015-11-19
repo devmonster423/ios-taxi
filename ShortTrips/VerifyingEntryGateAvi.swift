@@ -39,7 +39,9 @@ struct VerifyingEntryGateAvi {
           }
         }
       }, failure: {
-        if TripManager.sharedInstance.getTripId() == nil {
+        if let _ = TripManager.sharedInstance.getTripId() {
+          Failure.sharedInstance.fire()
+        } else {
           OptionalEntryCheckFailed.sharedInstance.fire()
         }
       })
