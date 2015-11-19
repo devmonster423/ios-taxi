@@ -31,7 +31,7 @@ extension LoggedOut: Event {
 extension LoggedOut: Observable {
   func eventIsFiring(info: Any?) {
     if let tripId = TripManager.sharedInstance.getTripId() {
-      ApiClient.invalidate(tripId, validation: ValidationStepWrapper(validationStep: .UserLogout))
+      ApiClient.invalidate(tripId, validation: .UserLogout)
     }
   }
 }

@@ -51,8 +51,8 @@ extension ApiClient {
     }
   }
   
-  static func invalidate(tripId: Int, validation: ValidationStepWrapper) {
-    authedRequest(.POST, Url.Trip.invalidate(tripId), parameters: Mapper().toJSON(validation))
+  static func invalidate(tripId: Int, validation: ValidationStep) {
+    authedRequest(.POST, Url.Trip.invalidate(tripId), parameters: ["step": "\(validation.rawValue)"])
     .response { _, raw, _, _ in
       
       if let raw = raw {

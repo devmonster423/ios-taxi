@@ -32,5 +32,9 @@ extension TimeExpired: Event {
 extension TimeExpired: Observable {
   func eventIsFiring(info: Any?) {
     postNotification(SfoNotification.Trip.timeExpired, value: nil)
+
+    if let tripId = TripManager.sharedInstance.getTripId() {
+      ApiClient.invalidate(tripId, validation: .Duration)
+    }
   }
 }
