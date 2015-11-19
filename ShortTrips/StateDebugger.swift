@@ -78,7 +78,8 @@ extension DebugVC {
     waitForExitAvi = NotificationObserver(notification: SfoNotification.State.waitForExitAvi, handler: { antenna, _ in
       self.debugView().printDebugLine("Entered Waiting for Exit Avi")
       self.debugView().updateState("Waiting for Exit Avi")
-      self.updateFakeButtons((title: "Fake Exit AVI Read", action: "latestExitAviRead"))
+      self.updateFakeButtons((title: "Fake Exit AVI Read", action: "latestExitAviRead"),
+        second: (title: "Out of SFO Exit", action: "triggerOutsideSfo"))
       
       self.notInTerminalExitObserver = NotificationObserver(notification: SfoNotification.Geofence.notInTerminalExit) { _, _ in
         self.debugView().printDebugLine("not exiting terminals")
