@@ -19,7 +19,7 @@ class LatestAviReadInbound {
   private init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [VerifyingInboundAvi.sharedInstance.getState()],
-      toState: ValidatingTrip.sharedInstance.getState())]
+      toState: WaitingForEntryCid.sharedInstance.getState())]
   }
 }
 

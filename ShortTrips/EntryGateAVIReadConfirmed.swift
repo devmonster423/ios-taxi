@@ -11,15 +11,30 @@ import TransitionKit
 import JSQNotificationObserverKit
 
 struct EntryGateAVIReadConfirmed {
-  let eventNames = ["entryGateAVIReadConfirmed"]
+  let eventNames = ["entryGateAVIReadConfirmedStart", "entryGateAVIReadConfirmedEnd"]
   static let sharedInstance = EntryGateAVIReadConfirmed()
   
   private var events: [TKEvent]
   
   private init() {
-    events = [TKEvent(name: eventNames[0],
-    transitioningFromStates: [VerifyingEntryGateAvi.sharedInstance.getState()],
-    toState: WaitingInHoldingLot.sharedInstance.getState())]
+    
+    let tripStartEvent = TKEvent(name: eventNames[0],
+      transitioningFromStates: [VerifyingEntryGateAvi.sharedInstance.getState()],
+      toState: WaitingInHoldingLot.sharedInstance.getState())
+    
+    tripStartEvent.setShouldFireEventBlock { _, _ -> Bool in
+      return TripManager.sharedInstance.getTripId() == nil
+    }
+    
+    let tripEndEvent = TKEvent(name: eventNames[1],
+      transitioningFromStates: [VerifyingEntryGateAvi.sharedInstance.getState()],
+      toState: ValidatingTrip.sharedInstance.getState())
+    
+    tripEndEvent.setShouldFireEventBlock { _, _ -> Bool in
+      return TripManager.sharedInstance.getTripId() != nil
+    }
+    
+    events = [tripStartEvent, tripEndEvent]
   }
 }
 
