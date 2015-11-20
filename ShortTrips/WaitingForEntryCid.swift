@@ -38,7 +38,8 @@ struct WaitingForEntryCid {
           }
         }
       }, failure: {
-        if let _ = TripManager.sharedInstance.getTripId() {
+        if let tripId = TripManager.sharedInstance.getTripId() {
+          ApiClient.invalidate(tripId, validation: .DriverCardId)
           Failure.sharedInstance.fire()
         } else {
           OptionalEntryCheckFailed.sharedInstance.fire()

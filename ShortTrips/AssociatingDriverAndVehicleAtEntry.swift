@@ -34,7 +34,8 @@ struct AssociatingDriverAndVehicleAtEntry {
           }
         }
       }, failure: {
-        if let _ = TripManager.sharedInstance.getTripId() {
+        if let tripId = TripManager.sharedInstance.getTripId() {
+          ApiClient.invalidate(tripId, validation: .Vehicle)
           Failure.sharedInstance.fire()
         } else {
           OptionalEntryCheckFailed.sharedInstance.fire()
