@@ -48,8 +48,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 
   func locationManager(manager: CLLocationManager,
     didChangeAuthorizationStatus status: CLAuthorizationStatus){
-      // this causes the app to crash if the app is in background on the GPS gets turned off
-      // postNotification(SfoNotification.Location.statusUpdated, value: status)
+      
+      postNotification(SfoNotification.Location.statusUpdated, value: status)
+      if status != .AuthorizedAlways {
+        GpsDisabled.sharedInstance.fire()
+      }
   }
 
   func getLastKnownLocation() -> CLLocation? {

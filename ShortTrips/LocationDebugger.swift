@@ -24,11 +24,10 @@ extension DebugVC {
     })
 
     locationStatusObserver = NotificationObserver(notification: SfoNotification.Location.statusUpdated, handler: { status, _ in
-      if(status == CLAuthorizationStatus.AuthorizedAlways || status == CLAuthorizationStatus.AuthorizedWhenInUse) {
+      if status == .AuthorizedAlways {
         self.debugView().printDebugLine("location status updated: GPS on")
-      }else{
+      } else {
         self.debugView().printDebugLine("location status updated: GPS off!")
-        LocationReadFailed.sharedInstance.fire()
       }
     })
   }

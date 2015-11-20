@@ -61,5 +61,9 @@
 	<false/>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>SFO needs your location to verify short trips</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 </dict>
 </plist>

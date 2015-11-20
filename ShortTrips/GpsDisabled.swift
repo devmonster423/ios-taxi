@@ -10,27 +10,21 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct LocationReadFailed {
-  let eventNames = ["locationReadFailed"]
-  static let sharedInstance = LocationReadFailed()
+struct GpsDisabled {
+  let eventNames = ["gpsDisabled"]
+  static let sharedInstance = GpsDisabled()
 
   private var events: [TKEvent]
 
   private init() {
     events = [TKEvent(name: eventNames[0],
-      transitioningFromStates: [InProgress.sharedInstance.getState()],
+      transitioningFromStates: StateManager.allStates,
       toState: NotReady.sharedInstance.getState())]
   }
 }
 
-extension LocationReadFailed: Event {
+extension GpsDisabled: Event {
   func getEvents() -> [TKEvent] {
     return events
-  }
-}
-
-extension LocationReadFailed: Observable {
-  func eventIsFiring(info: Any?) {
-
   }
 }
