@@ -57,6 +57,7 @@ class TripScenario7Spec: QuickSpec {
         expect(machine.isInState(WaitingForStartTrip.sharedInstance.getState())).to(beTrue())
         
         TripStarted.sharedInstance.fire()
+        TripManager.sharedInstance.setTripId(123)
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         
         // can fire DriverReturnsToSfo and make correct state change
@@ -64,10 +65,20 @@ class TripScenario7Spec: QuickSpec {
         expect(machine.isInState(VerifyingInboundAvi.sharedInstance.getState())).to(beTrue())
         
         LatestAviReadInbound.sharedInstance.fire()
+        expect(machine.isInState(WaitingForEntryCid.sharedInstance.getState())).to(beTrue())
+        
+        LatestCidIsEntryCid.sharedInstance.fire()
+        expect(machine.isInState(AssociatingDriverAndVehicleAtEntry.sharedInstance.getState())).to(beTrue())
+        
+        DriverAndVehicleAssociated.sharedInstance.fire()
+        expect(machine.isInState(VerifyingEntryGateAvi.sharedInstance.getState())).to(beTrue())
+        
+        EntryGateAVIReadConfirmed.sharedInstance.fire()
         expect(machine.isInState(ValidatingTrip.sharedInstance.getState())).to(beTrue())
         
         // can fire TripValidated and make correct state change
         TripValidated.sharedInstance.fire()
+        TripManager.sharedInstance.setTripId(nil)
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
       }
     }
