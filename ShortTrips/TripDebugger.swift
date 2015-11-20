@@ -16,6 +16,10 @@ extension DebugVC {
     entryStepFailedObserver = NotificationObserver(notification: SfoNotification.Trip.entryStepFailed) { _, _ in
       self.debugView().printDebugLine("Optional entry step failed, moving on...", type: .Negative)
     }
+    
+    inboundStepFailedObserver = NotificationObserver(notification: SfoNotification.Trip.inboundStepFailed) { _, _ in
+      self.debugView().printDebugLine("optional inbound step failed, moving on...", type: .Negative)
+    }
 
     timeExpiredObserver = NotificationObserver(notification: SfoNotification.Trip.timeExpired) { _, _ in
       self.debugView().printDebugLine("Time Expired")

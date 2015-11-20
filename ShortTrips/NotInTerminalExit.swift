@@ -32,9 +32,5 @@ extension NotInTerminalExit: Event {
 extension NotInTerminalExit: Observable {
   func eventIsFiring(info: Any?) {
     postNotification(SfoNotification.Geofence.notInTerminalExit, value: nil)
-    
-    if let tripId = TripManager.sharedInstance.getTripId() {
-      ApiClient.invalidate(tripId, validation: .Geofence)
-    }
   }
 }

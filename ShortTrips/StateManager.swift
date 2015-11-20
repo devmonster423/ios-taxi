@@ -50,6 +50,7 @@ class StateManager {
     events += LoggedOut.sharedInstance.getEvents()
     events += NotInTerminalExit.sharedInstance.getEvents()
     events += OptionalEntryCheckFailed.sharedInstance.getEvents()
+    events += OptionalInboundAviFailed.sharedInstance.getEvents()
     events += OutsideShortTripGeofence.sharedInstance.getEvents()
     events += TripInvalidated.sharedInstance.getEvents()
     events += TripStarted.sharedInstance.getEvents()

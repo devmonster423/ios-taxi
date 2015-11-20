@@ -37,9 +37,9 @@ struct VerifyingInboundAvi {
               }
             }
           }
-        } else {
-          Failure.sharedInstance.fire()
         }
+      }, failure: {
+        OptionalInboundAviFailed.sharedInstance.fire()
       })
     }
     

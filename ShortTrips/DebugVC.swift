@@ -69,6 +69,7 @@ class DebugVC: UIViewController {
   
   // Trip
   var entryStepFailedObserver: NotificationObserver<Any?, AnyObject>?
+  var inboundStepFailedObserver: NotificationObserver<Any?, AnyObject>?
   var timeExpiredObserver: NotificationObserver<Any?, AnyObject>?
   var tripStartedObserver: NotificationObserver<Int, AnyObject>?
   var validatedObserver: NotificationObserver<Any?, AnyObject>?
