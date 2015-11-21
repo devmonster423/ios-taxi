@@ -24,7 +24,7 @@ enum ValidationStep: Int {
   func description() -> String? {
     switch self {
     case .Vehicle:
-      return "Vehicle miss match found (1404,null)"
+      return "Vehicle miss match found (123,null)"
     case .Geofence:
       return "invalid geofence"
     default:

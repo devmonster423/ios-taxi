@@ -47,9 +47,9 @@ extension DebugVC {
   
   func fakeOutsideGeofences() {
     
-    let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion ?? 123
-    let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId ?? 456
-    let tripId = TripManager.sharedInstance.getTripId() ?? 123
+    let medallion = DriverManager.sharedInstance.getCurrentVehicle()!.medallion
+    let sessionId = DriverManager.sharedInstance.getCurrentDriver()!.sessionId
+    let tripId = TripManager.sharedInstance.getTripId()!
     
     postNotification(SfoNotification.Ping.created, value: (ping: Ping(location: CLLocation(latitude: 37.760661, longitude: -122.434092), tripId: tripId, sessionId: sessionId, medallion: medallion), geofenceStatus: FoundGeofenceStatus(status: .Invalid, geofence: nil)))
   }
