@@ -26,13 +26,13 @@ struct WaitingForEntryCid {
       
       self.poller = Poller.init(action: {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
-          ApiClient.requestCid(driver.driverId) { cidDevice in
+          ApiClient.requestCid(driver.driverId) { cid in
             
-            if let cidDevice = cidDevice {
-              if cidDevice == self.expectedCid {
-                LatestCidIsEntryCid.sharedInstance.fire()
+            if let cid = cid, device = cid.device() {
+              if device == self.expectedCid {
+                LatestCidIsEntryCid.sharedInstance.fire(cid)
               } else {
-                postNotification(SfoNotification.Cid.unexpected, value: (expected: self.expectedCid, found: cidDevice))
+                postNotification(SfoNotification.Cid.unexpected, value: (expected: self.expectedCid, found: device))
               }
             }
           }

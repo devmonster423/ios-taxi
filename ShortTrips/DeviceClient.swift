@@ -14,7 +14,7 @@ import JSQNotificationObserverKit
 typealias AviClosure = ([AutomaticVehicleId]?, ErrorType?) -> Void
 typealias AntennaClosure = Antenna? -> Void
 typealias AllCidsClosure = ([Cid]?, ErrorType?) -> Void
-typealias GtmsLocationClosure = GtmsLocation? -> Void
+typealias CidClosure = Cid? -> Void
 
 extension ApiClient {
   static func updateMobileState(mobileState: MobileState, mobileStateInfo: MobileStateInfo) {
@@ -61,7 +61,7 @@ extension ApiClient {
     }
   }
   
-  static func requestCid(driverId: Int, response: GtmsLocationClosure) {
+  static func requestCid(driverId: Int, response: CidClosure) {
     authedRequest(.GET, Url.Device.Cid.driver(driverId))
       .responseObject { (_, raw, cid: Cid?, _, error: ErrorType?) in
         
@@ -69,7 +69,7 @@ extension ApiClient {
           postNotification(SfoNotification.Request.response, value: raw)
         }
         
-        response(cid?.device())
+        response(cid)
     }
   }
 }

@@ -35,6 +35,9 @@ class DebugView: UIView {
   private let geofenceLabel = UILabel()
   private let gpsLabel = UILabel()
   private let stateLabel = UILabel()
+  private let cidLabel = UILabel()
+  private let aviLabel = UILabel()
+  
   let fakeButton = UIButton()
   let secondFakeButton = UIButton()
   let thirdFakeButton = UIButton()
@@ -57,6 +60,8 @@ class DebugView: UIView {
     addSubview(secondFakeButton)
     addSubview(thirdFakeButton)
     addSubview(logOutButton)
+    addSubview(cidLabel)
+    addSubview(aviLabel)
     
     debugTextView.backgroundColor = UIColor(red: 0.95, green: 0.9, blue: 0.9, alpha: 1.0)
     debugTextView.editable = false
@@ -99,9 +104,33 @@ class DebugView: UIView {
       make.width.equalTo(self)
       make.top.equalTo(geofenceLabel.snp_bottom)
     }
+    
+    cidLabel.backgroundColor = UIColor(red: 0.25, green: 0.25, blue: 0.95, alpha: 1.0)
+    cidLabel.font = Font.MyriadPro.size(14)
+    cidLabel.textColor = UIColor.whiteColor()
+    cidLabel.numberOfLines = 0
+    cidLabel.text = NSLocalizedString("Last CID", comment: "") + ":"
+    cidLabel.snp_makeConstraints { make in
+      make.height.equalTo(80)
+      make.leading.equalTo(self)
+      make.width.equalTo(self).dividedBy(2)
+      make.top.equalTo(stateLabel.snp_bottom)
+    }
+    
+    aviLabel.backgroundColor = UIColor(red: 0.95, green: 0.25, blue: 0.5, alpha: 1.0)
+    aviLabel.font = Font.MyriadPro.size(14)
+    aviLabel.textColor = UIColor.whiteColor()
+    aviLabel.numberOfLines = 0
+    aviLabel.text = NSLocalizedString("Last AVI", comment: "") + ":"
+    aviLabel.snp_makeConstraints { make in
+      make.height.equalTo(80)
+      make.trailing.equalTo(self)
+      make.width.equalTo(self).dividedBy(2)
+      make.top.equalTo(stateLabel.snp_bottom)
+    }
 
     fakeButton.backgroundColor = UIColor.blueColor()
-    fakeButton.snp_makeConstraints { (make) -> Void in
+    fakeButton.snp_makeConstraints { make in
       make.height.equalTo(logOutButton)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
@@ -154,6 +183,18 @@ class DebugView: UIView {
   func updateState(text: String?) {
     if let text = text {
       stateLabel.text = NSLocalizedString("Current State: \(text)", comment: "")
+    }
+  }
+  
+  func updateCid(text: String?) {
+    if let text = text {
+      cidLabel.text = NSLocalizedString("Last CID", comment: "") + ": \(text)"
+    }
+  }
+  
+  func updateAvi(text: String?) {
+    if let text = text {
+      aviLabel.text = NSLocalizedString("Last AVI", comment: "") + ": \(text)"
     }
   }
   

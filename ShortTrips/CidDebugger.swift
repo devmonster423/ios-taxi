@@ -12,13 +12,16 @@ import JSQNotificationObserverKit
 extension DebugVC {
   
   func setupCidObservers() {
-    entryCidRead = NotificationObserver(notification: SfoNotification.Cid.entry, handler: { cid, _ in
-      self.debugView().printDebugLine("entry cid read detected")
-    })
     
-    paymentCidRead = NotificationObserver(notification: SfoNotification.Cid.payment, handler: { cid, _ in
+    entryCidRead = NotificationObserver(notification: SfoNotification.Cid.entry) { cid, _ in
+      self.debugView().updateCid("\(cid)")
+      self.debugView().printDebugLine("entry cid read detected")
+    }
+    
+    paymentCidRead = NotificationObserver(notification: SfoNotification.Cid.payment) { cid, _ in
+      self.debugView().updateCid("\(cid)")
       self.debugView().printDebugLine("payment cid read detected")
-    })
+    }
     
     unexpectedCidRead = NotificationObserver(notification: SfoNotification.Cid.unexpected, handler: { cidDevices, _ in
       self.debugView().printDebugLine("unexpected cid. expected \(cidDevices.expected.rawValue), found \(cidDevices.found.rawValue)", type: .Negative)
@@ -26,10 +29,12 @@ extension DebugVC {
   }
   
   func fakeCidPayment() {
-    LatestCidIsPaymentCid.sharedInstance.fire()
+    let cid = Cid(cidId: "456", cidLocation: "payment", cidTimeRead: NSDate())
+    LatestCidIsPaymentCid.sharedInstance.fire(cid)
   }
   
   func triggerEntryCid() {
-    LatestCidIsEntryCid.sharedInstance.fire()
+    let cid = Cid(cidId: "123", cidLocation: "entry", cidTimeRead: NSDate())
+    LatestCidIsEntryCid.sharedInstance.fire(cid)
   }
 }

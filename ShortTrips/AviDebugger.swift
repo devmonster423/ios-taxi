@@ -12,16 +12,25 @@ import JSQNotificationObserverKit
 extension DebugVC {
   
   func setupAviObservers() {
+    
     entryGateAvi = NotificationObserver(notification: SfoNotification.Avi.entryGate, handler: { antenna, _ in
+      self.debugView().updateAvi("\(antenna)")
       self.debugView().printDebugLine("entry gate avi detected: (\(antenna)")
     })
     
-    taxiLoopAviRead = NotificationObserver(notification: SfoNotification.Avi.taxiLoop, handler: { antenna, _ in
-      self.debugView().printDebugLine("Taxiloop AVI read: (\(antenna)")
-    })
-
     exitAviRead = NotificationObserver(notification: SfoNotification.Avi.exit, handler: { antenna, _ in
+      self.debugView().updateAvi("\(antenna)")
       self.debugView().printDebugLine("Exit AVI read: (\(antenna)")
+    })
+    
+    inboundAviRead = NotificationObserver(notification: SfoNotification.Avi.exit, handler: { antenna, _ in
+      self.debugView().updateAvi("\(antenna)")
+      self.debugView().printDebugLine("Inbound AVI read: (\(antenna)")
+    })
+    
+    taxiLoopAviRead = NotificationObserver(notification: SfoNotification.Avi.taxiLoop, handler: { antenna, _ in
+      self.debugView().updateAvi("\(antenna)")
+      self.debugView().printDebugLine("Taxiloop AVI read: (\(antenna)")
     })
     
     unexpectedAviRead = NotificationObserver(notification: SfoNotification.Avi.unexpected, handler: { gtmsLocations, _ in

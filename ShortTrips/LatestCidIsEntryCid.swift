@@ -31,6 +31,8 @@ extension LatestCidIsEntryCid: Event {
 
 extension LatestCidIsEntryCid: Observable {
   func eventIsFiring(info: Any?) {
-    postNotification(SfoNotification.Cid.entry, value: nil)
+    if let cid = info as? Cid {
+      postNotification(SfoNotification.Cid.entry, value: cid)
+    }
   }
 }

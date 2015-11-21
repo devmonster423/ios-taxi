@@ -9,6 +9,8 @@
 /* Debug */
 "Last verified geofence(s)" = "Last verified geofence(s)";
 "Last verified location" = "Last verified location";
+"Last CID" = "Last CID";
+"Last AVI" = "Last AVI";
 
 /* Login */
 "Username" = "Username";
