@@ -24,9 +24,12 @@ struct ValidatingTrip {
       postNotification(SfoNotification.State.validatingTrip, value: nil)
       
       if let tripId = TripManager.sharedInstance.getTripId(),
-        let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion {
+        driver = DriverManager.sharedInstance.getCurrentDriver(),
+        sessionId = driver.sessionId,
+        cardId = driver.cardId,
+        medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion {
 
-          ApiClient.end(tripId, medallion: medallion) { validation in
+          ApiClient.end(tripId, tripBody: TripBody(sessionId: sessionId, medallion: medallion, smartCardId: cardId)) { validation in
             
             if let validation = validation {
               if validation.valid! {

@@ -32,7 +32,7 @@ class TripClientSpec: QuickSpec {
       }
       
       it("can start") {
-        let tripBody = TripBody(sessionId: 123, medallion: 456)
+        let tripBody = TripBody(sessionId: 123, medallion: 456, smartCardId: "1234")
         
         self.stub(uri(Url.Trip.start), builder: json(TripStartMock))
         ApiClient.start(tripBody) { geofences in

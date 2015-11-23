@@ -12,10 +12,12 @@ import ObjectMapper
 struct TripBody: Mappable {
   var sessionId: Int!
   var medallion: Int!
+  var smartCardId: String!
   
-  init(sessionId: Int, medallion: Int) {
+  init(sessionId: Int, medallion: Int, smartCardId: String) {
     self.sessionId = sessionId
     self.medallion = medallion
+    self.smartCardId = smartCardId
   }
   
   init?(_ map: Map){}
@@ -23,5 +25,6 @@ struct TripBody: Mappable {
   mutating func mapping(map: Map) {
     sessionId <- map["session_id"]
     medallion <- map["medallion"]
+    smartCardId <- map["driver_card_id"]
   }
 }

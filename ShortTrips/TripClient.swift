@@ -39,8 +39,8 @@ extension ApiClient {
     }
   }
   
-  static func end(tripId: Int, medallion: Int, response: ValidationClosure) {
-    authedRequest(.POST, Url.Trip.end(tripId), parameters: ["medallion": medallion])
+  static func end(tripId: Int, tripBody: TripBody, response: ValidationClosure) {
+    authedRequest(.POST, Url.Trip.end(tripId), parameters: Mapper().toJSON(tripBody))
       .responseObject { (_, raw, validation: TripValidation?, _, _) in
         
         if let raw = raw {
