@@ -37,7 +37,7 @@ struct Url {
     }
     
     struct Cid {
-      static let cid = device + "cid"
+      private static let cid = device + "cid"
       
       static func driver(driverId: Int) -> String {
         return cid + "/driver/\(driverId)"

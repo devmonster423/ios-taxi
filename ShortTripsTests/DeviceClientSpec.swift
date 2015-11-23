@@ -43,14 +43,6 @@ class DeviceClientSpec: QuickSpec {
       }
       
       it("can request automatic vehicle ids") {
-        self.stub(uri(Url.Device.Cid.cid), builder: json(RequestAllCidsMock))
-        
-        ApiClient.requestAllCids() { response, _ in
-          expect(response).toNot(beNil())
-        }
-      }
-      
-      it("can request automatic vehicle ids") {
         let driverId = 5;
         self.stub(uri(Url.Device.Cid.driver(driverId)), builder: json(RequestCidForSmartCardMock))
         

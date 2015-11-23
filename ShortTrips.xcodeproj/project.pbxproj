@@ -176,7 +176,6 @@
 		E18228FB1BC48F2300614256 /* InProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18228FA1BC48F2300614256 /* InProgress.swift */; };
 		E18228FF1BC4932400614256 /* ValidatingTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18228FE1BC4932400614256 /* ValidatingTrip.swift */; };
 		E18229031BC495A000614256 /* TripValidated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18229021BC495A000614256 /* TripValidated.swift */; };
-		E187368E1BA8EADE00B6C7D8 /* CidListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187368D1BA8EADE00B6C7D8 /* CidListWrapper.swift */; };
 		E187B2751BE036F10031F07C /* WaitingInHoldingLot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187B2741BE036F10031F07C /* WaitingInHoldingLot.swift */; };
 		E187B2771BE037550031F07C /* EntryGateAVIReadConfirmed.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187B2761BE037550031F07C /* EntryGateAVIReadConfirmed.swift */; };
 		E189CD321BF3A83B000AE583 /* MockFlightDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E189CD311BF3A83B000AE583 /* MockFlightDetailsResponse.swift */; };
@@ -413,7 +412,6 @@
 		E18228FA1BC48F2300614256 /* InProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = InProgress.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E18228FE1BC4932400614256 /* ValidatingTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ValidatingTrip.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E18229021BC495A000614256 /* TripValidated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripValidated.swift; sourceTree = "<group>"; };
-		E187368D1BA8EADE00B6C7D8 /* CidListWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidListWrapper.swift; sourceTree = "<group>"; };
 		E187B2741BE036F10031F07C /* WaitingInHoldingLot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingInHoldingLot.swift; sourceTree = "<group>"; };
 		E187B2761BE037550031F07C /* EntryGateAVIReadConfirmed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryGateAVIReadConfirmed.swift; sourceTree = "<group>"; };
 		E189CD311BF3A83B000AE583 /* MockFlightDetailsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFlightDetailsResponse.swift; sourceTree = "<group>"; };
@@ -946,7 +944,6 @@
 			isa = PBXGroup;
 			children = (
 				E18FF6901BA870AF00FE93B9 /* Cid.swift */,
-				E187368D1BA8EADE00B6C7D8 /* CidListWrapper.swift */,
 			);
 			name = Cid;
 			sourceTree = "<group>";
@@ -1531,7 +1528,6 @@
 				C21528C91BC8557B0073502F /* DebugView.swift in Sources */,
 				E1A2EBA91B6D747F00C27EB2 /* Flight.swift in Sources */,
 				E14A392A1BE957B80053F741 /* LoggedOut.swift in Sources */,
-				E187368E1BA8EADE00B6C7D8 /* CidListWrapper.swift in Sources */,
 				C283AB411BE93B830004E8CD /* TripDebugger.swift in Sources */,
 				C26530B01BE3F038002C0A97 /* VerifyingInboundAvi.swift in Sources */,
 				E18228FB1BC48F2300614256 /* InProgress.swift in Sources */,

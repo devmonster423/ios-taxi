@@ -13,7 +13,6 @@ import JSQNotificationObserverKit
 
 typealias AviClosure = ([AutomaticVehicleId]?, ErrorType?) -> Void
 typealias AntennaClosure = Antenna? -> Void
-typealias AllCidsClosure = ([Cid]?, ErrorType?) -> Void
 typealias CidClosure = Cid? -> Void
 
 extension ApiClient {
@@ -46,18 +45,6 @@ extension ApiClient {
         }
         
         response(antenna)
-    }
-  }
-  
-  static func requestAllCids(response: AllCidsClosure) {
-    authedRequest(.GET, Url.Device.Cid.cid)
-      .responseObject { (_, raw, cidListWrapper: CidListWrapper?, _, error: ErrorType?) in
-
-        if let raw = raw {
-          postNotification(SfoNotification.Request.response, value: raw)
-        }
-  
-        response(cidListWrapper?.cidList, error)
     }
   }
   
