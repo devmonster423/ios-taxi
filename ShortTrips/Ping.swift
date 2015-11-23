@@ -46,7 +46,7 @@ struct Ping: Mappable {
     self.medallion = medallion
     
     // TODO: actually determine locally
-    self.geofenceStatus = .Valid
+    self.geofenceStatus = .Invalid
   }
   
   mutating func mapping(map: Map) {

@@ -19,7 +19,7 @@ class PingManager: NSObject {
   
   private var timer: NSTimer?
 
-  var pingObserver: NotificationObserver<(ping: ShortTrips.Ping, geofenceStatus: FoundGeofenceStatus?), AnyObject>?
+  var pingObserver: NotificationObserver<(ping: Ping, geofenceStatus: FoundGeofenceStatus?), AnyObject>?
   
   static let sharedInstance = PingManager()
 
