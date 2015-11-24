@@ -11,15 +11,16 @@ import CoreLocation
 import ObjectMapper
 
 enum GeofenceStatus: Int {
+  case NotVerified = -1
   case Invalid = 0
   case Valid = 1
   
   func toBool() -> Bool {
     switch self {
-    case .Invalid:
-      return false
     case .Valid:
       return true
+    default:
+      return false
     }
   }
 }

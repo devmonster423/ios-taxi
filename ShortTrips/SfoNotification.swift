@@ -45,7 +45,7 @@ struct SfoNotification {
   
   struct Ping {
     static let attempting = Notification<ShortTrips.Ping, AnyObject>(name: "AttemptingPing")
-    static let created = Notification<(ping: ShortTrips.Ping, geofenceStatus: FoundGeofenceStatus?), AnyObject>(name: "CreatedPing")
+    static let created = Notification<(ping: ShortTrips.Ping, geofenceStatus: FoundGeofenceStatus), AnyObject>(name: "CreatedPing")
     static let successful = Notification<ShortTrips.Ping, AnyObject>(name: "SuccessfulPing")
     static let unsuccessful = Notification<ShortTrips.Ping, AnyObject>(name: "unsuccessfulPing")
     static let valid = Notification<ShortTrips.Ping, AnyObject>(name: "validPing")

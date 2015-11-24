@@ -19,7 +19,7 @@ class PingManager: NSObject {
   
   private var timer: NSTimer?
 
-  var pingObserver: NotificationObserver<(ping: Ping, geofenceStatus: FoundGeofenceStatus?), AnyObject>?
+  var pingObserver: NotificationObserver<(ping: Ping, geofenceStatus: FoundGeofenceStatus), AnyObject>?
   
   static let sharedInstance = PingManager()
 
@@ -38,14 +38,18 @@ class PingManager: NSObject {
     if let _ = pingObserver {} else {
       self.pingObserver = NotificationObserver(notification: SfoNotification.Ping.created, handler: { info, _ in
         
-        let geofenceStatus = info.geofenceStatus
         let ping = info.ping
+        var geofenceStatus = info.geofenceStatus.status
+        
+        if geofenceStatus == .NotVerified {
+          geofenceStatus = ping.geofenceStatus
+        }
       
         if let geofenceStatus = geofenceStatus {
           self.lastSuccessfulPingDate = NSDate()
           postNotification(SfoNotification.Ping.successful, value: ping)
           
-          if geofenceStatus.status.toBool() {
+          if geofenceStatus.toBool() {
             postNotification(SfoNotification.Ping.valid, value: ping)
             self.invalidPings = 0 // must be consecutive
             
@@ -79,7 +83,10 @@ class PingManager: NSObject {
         let ping = Ping(location: location, tripId: tripId, sessionId: sessionId, medallion: medallion)
         postNotification(SfoNotification.Ping.attempting, value: ping)
         ApiClient.ping(tripId, ping: ping) { geofenceStatus in
-          postNotification(SfoNotification.Ping.created, value: (ping: ping, geofenceStatus: geofenceStatus))
+          
+          if let geofenceStatus = geofenceStatus {
+            postNotification(SfoNotification.Ping.created, value: (ping: ping, geofenceStatus: geofenceStatus))
+          }
         }
     }
   }
