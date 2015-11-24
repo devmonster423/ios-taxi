@@ -60,6 +60,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   }
   
   static func locationActiveAndAuthorized() -> Bool {
-    return CLLocationManager.locationServicesEnabled() && CLLocationManager.authorizationStatus() == .AuthorizedAlways
+    if Util.testing() {
+      return true
+    } else {
+      return CLLocationManager.locationServicesEnabled()
+        && CLLocationManager.authorizationStatus() == .AuthorizedAlways
+    }
   }
 }

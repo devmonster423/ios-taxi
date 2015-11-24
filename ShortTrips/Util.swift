@@ -14,4 +14,13 @@ struct Util {
   enum HttpStatusCodes: Int {
     case Ok = 200
   }
+  
+  static func testing() -> Bool {
+    let dict = NSProcessInfo.processInfo().environment
+    if let testing = dict["TESTING"] where testing == "true" {
+      return true
+    } else {
+      return false
+    }
+  }
 }
