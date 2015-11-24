@@ -18,14 +18,20 @@ struct InsideSfo {
   private var events: [TKEvent]
 
   private init() {
-    events = [
-    TKEvent(name: eventNames[0],
+    
+    let enterSfoGeofenceEvent = TKEvent(name: eventNames[0],
       transitioningFromStates: [NotReady.sharedInstance.getState()],
-      toState: WaitingForEntryCid.sharedInstance.getState()),
-    TKEvent(name: eventNames[1],
-        transitioningFromStates: [InProgress.sharedInstance.getState()],
-        toState: VerifyingInboundAvi.sharedInstance.getState())
-    ]
+      toState: WaitingForEntryCid.sharedInstance.getState())
+    
+    enterSfoGeofenceEvent.setShouldFireEventBlock { _, _ -> Bool in
+      return LocationManager.locationActiveAndAuthorized()
+    }
+    
+    let reEnterSfoGeofenceEvent = TKEvent(name: eventNames[1],
+      transitioningFromStates: [InProgress.sharedInstance.getState()],
+      toState: VerifyingInboundAvi.sharedInstance.getState())
+    
+    events = [enterSfoGeofenceEvent, reEnterSfoGeofenceEvent]
   }
 }
 

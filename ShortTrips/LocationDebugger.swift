@@ -15,7 +15,6 @@ extension DebugVC {
   func setupLocationObservers() {
     locationManagerStartedObserver = NotificationObserver(notification: SfoNotification.Location.managerStarted) { _, _ in
       self.debugView().printDebugLine("started location manager", type: .BigDeal)
-      self.updateFakeButtons((title: "Fake Inside SFO", action: "triggerInsideSfo"))
     }
     
     locationObserver = NotificationObserver(notification: SfoNotification.Location.read, handler: { location, _ in
