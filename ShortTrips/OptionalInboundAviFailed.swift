@@ -19,7 +19,7 @@ struct OptionalInboundAviFailed {
   private init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [VerifyingInboundAvi.sharedInstance.getState()],
-      toState: WaitingForEntryCid.sharedInstance.getState())]
+      toState: InProgress.sharedInstance.getState())]
   }
 }
 
