@@ -193,7 +193,6 @@
 		E1A2EBAF1B6E920500C27EB2 /* TerminalSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A2EBAE1B6E920500C27EB2 /* TerminalSummary.swift */; };
 		E1ADA7031BBC325B00766DB1 /* ReferenceConfigSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADA7021BBC325B00766DB1 /* ReferenceConfigSpec.swift */; };
 		E1AE8CE31BB5A2E3004E243E /* FlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE8CE21BB5A2E3004E243E /* FlightCell.swift */; };
-		E1AE8CE51BB5A310004E243E /* UIButton+positionLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AE8CE41BB5A310004E243E /* UIButton+positionLabel.swift */; };
 		E1B3937B1BAC66FE00FC2970 /* LotStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3937A1BAC66FE00FC2970 /* LotStatus.swift */; };
 		E1B3937D1BAC681B00FC2970 /* LotStatusEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3937C1BAC681B00FC2970 /* LotStatusEnum.swift */; };
 		E1B8120A1BEC1562002EC540 /* MockAirlineListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B812091BEC1562002EC540 /* MockAirlineListResponse.swift */; };
@@ -432,7 +431,6 @@
 		E1A2EBAE1B6E920500C27EB2 /* TerminalSummary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummary.swift; sourceTree = "<group>"; };
 		E1ADA7021BBC325B00766DB1 /* ReferenceConfigSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConfigSpec.swift; sourceTree = "<group>"; };
 		E1AE8CE21BB5A2E3004E243E /* FlightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightCell.swift; sourceTree = "<group>"; };
-		E1AE8CE41BB5A310004E243E /* UIButton+positionLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+positionLabel.swift"; sourceTree = "<group>"; };
 		E1B3937A1BAC66FE00FC2970 /* LotStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatus.swift; sourceTree = "<group>"; };
 		E1B3937C1BAC681B00FC2970 /* LotStatusEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotStatusEnum.swift; sourceTree = "<group>"; };
 		E1B812091BEC1562002EC540 /* MockAirlineListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAirlineListResponse.swift; sourceTree = "<group>"; };
@@ -1147,7 +1145,6 @@
 				FA0E1FD11BAF1DD500B8F921 /* Font.swift */,
 				C2B15ADE1BBB16010049B97C /* Image.swift */,
 				C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */,
-				E1AE8CE41BB5A310004E243E /* UIButton+positionLabel.swift */,
 				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
 				E17352841B8CEC9B0031950B /* UiHelpers.swift */,
 				E15FF4971BD5F0C700ECDF27 /* Util.swift */,
@@ -1420,7 +1417,6 @@
 				C257FB401BC4624700468CF1 /* ShortTripGeofence.swift in Sources */,
 				C2AB513C1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift in Sources */,
 				C2F3E9071BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift in Sources */,
-				E1AE8CE51BB5A310004E243E /* UIButton+positionLabel.swift in Sources */,
 				C2FC61061BFE9E6100F50A80 /* OptionalInboundAviFailed.swift in Sources */,
 				8E0F5BC51BEBEC83001DE4C2 /* TimerDebugger.swift in Sources */,
 				C28ECB221BCECA9700887763 /* TripClient.swift in Sources */,
