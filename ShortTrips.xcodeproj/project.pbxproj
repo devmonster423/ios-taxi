@@ -146,6 +146,7 @@
 		C2EAD0A91C03E17700EAEBBF /* MockTripValidationString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAD0A81C03E17700EAEBBF /* MockTripValidationString.swift */; };
 		C2EAD0AE1C03E4AD00EAEBBF /* FoundGeofenceStatusSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAD0AD1C03E4AD00EAEBBF /* FoundGeofenceStatusSpec.swift */; };
 		C2EAD0B01C03E50600EAEBBF /* MockFoundGeofenceStatusString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAD0AF1C03E50600EAEBBF /* MockFoundGeofenceStatusString.swift */; };
+		C2EAD0B31C03E74900EAEBBF /* ErrorLoggerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAD0B21C03E74900EAEBBF /* ErrorLoggerSpec.swift */; };
 		C2F3E9071BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3E9061BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift */; };
 		C2F3E90F1BF402F800B852EF /* OptionalEntryCheckFailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3E90E1BF402F800B852EF /* OptionalEntryCheckFailed.swift */; };
 		C2FC60FE1BFE49EE00F50A80 /* ExitingTerminals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC60FD1BFE49EE00F50A80 /* ExitingTerminals.swift */; };
@@ -382,6 +383,7 @@
 		C2EAD0A81C03E17700EAEBBF /* MockTripValidationString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTripValidationString.swift; sourceTree = "<group>"; };
 		C2EAD0AD1C03E4AD00EAEBBF /* FoundGeofenceStatusSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundGeofenceStatusSpec.swift; sourceTree = "<group>"; };
 		C2EAD0AF1C03E50600EAEBBF /* MockFoundGeofenceStatusString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFoundGeofenceStatusString.swift; sourceTree = "<group>"; };
+		C2EAD0B21C03E74900EAEBBF /* ErrorLoggerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorLoggerSpec.swift; sourceTree = "<group>"; };
 		C2F3E9061BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatingDriverAndVehicleAtHoldingLotExit.swift; sourceTree = "<group>"; };
 		C2F3E90E1BF402F800B852EF /* OptionalEntryCheckFailed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalEntryCheckFailed.swift; sourceTree = "<group>"; };
 		C2FC60FD1BFE49EE00F50A80 /* ExitingTerminals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExitingTerminals.swift; sourceTree = "<group>"; };
@@ -859,6 +861,7 @@
 		C2DFE5DA1B56D2CB0090B55F /* ShortTripsTests */ = {
 			isa = PBXGroup;
 			children = (
+				C2EAD0B11C03E73900EAEBBF /* Utility */,
 				E18FFE2A1BB1A083003D192A /* Controllers */,
 				E18FFE2B1BB1A092003D192A /* Models */,
 				C2DFE5DB1B56D2CB0090B55F /* Supporting Files */,
@@ -872,6 +875,14 @@
 				C2DFE5DC1B56D2CB0090B55F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C2EAD0B11C03E73900EAEBBF /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				C2EAD0B21C03E74900EAEBBF /* ErrorLoggerSpec.swift */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 		E112C3011BB2FCE500B1DF48 /* Geofence */ = {
@@ -1544,6 +1555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2EAD0B31C03E74900EAEBBF /* ErrorLoggerSpec.swift in Sources */,
 				8EEFB7BF1BE1AF8D00B8A962 /* RequestAllCidsMock.swift in Sources */,
 				E1359CF31BF3E51F006ED65A /* MockGeofenceResponse.swift in Sources */,
 				E1F153BF1BF0110D00E212ED /* MockAutomaticVehicleId.swift in Sources */,
