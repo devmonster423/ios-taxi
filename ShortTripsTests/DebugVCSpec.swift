@@ -66,6 +66,8 @@ class DebugVCSpec: QuickSpec {
         
         postNotification(SfoNotification.Ping.successful, value: ping)
         
+        viewController.fakeTimeExpired()
+        
         expect(viewController).toNot(beNil())
       }
     }
