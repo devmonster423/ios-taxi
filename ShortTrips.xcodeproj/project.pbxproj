@@ -161,7 +161,6 @@
 		E1359CF31BF3E51F006ED65A /* MockGeofenceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1359CF21BF3E51F006ED65A /* MockGeofenceResponse.swift */; };
 		E13BCEF31BABB733006FDFF5 /* FlightDetailsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13BCEF21BABB733006FDFF5 /* FlightDetailsWrapper.swift */; };
 		E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */; };
-		E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */; };
 		E14A39261BE945960053F741 /* TripScenario4Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14A39251BE945960053F741 /* TripScenario4Spec.swift */; };
 		E14A39281BE957340053F741 /* AppQuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14A39271BE957340053F741 /* AppQuit.swift */; };
 		E14A392A1BE957B80053F741 /* LoggedOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14A39291BE957B80053F741 /* LoggedOut.swift */; };
@@ -399,7 +398,6 @@
 		E1359CF21BF3E51F006ED65A /* MockGeofenceResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockGeofenceResponse.swift; sourceTree = "<group>"; };
 		E13BCEF21BABB733006FDFF5 /* FlightDetailsWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightDetailsWrapper.swift; sourceTree = "<group>"; };
 		E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryVC.swift; sourceTree = "<group>"; };
-		E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+initWithColor.swift"; sourceTree = "<group>"; };
 		E14A39251BE945960053F741 /* TripScenario4Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TripScenario4Spec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E14A39271BE957340053F741 /* AppQuit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppQuit.swift; sourceTree = "<group>"; };
 		E14A39291BE957B80053F741 /* LoggedOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedOut.swift; sourceTree = "<group>"; };
@@ -1145,7 +1143,6 @@
 				C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */,
 				E1AE8CE41BB5A310004E243E /* UIButton+positionLabel.swift */,
 				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
-				E145E64A1B87A590003D1870 /* UIImage+initWithColor.swift */,
 				E17352841B8CEC9B0031950B /* UiHelpers.swift */,
 				E15FF4971BD5F0C700ECDF27 /* Util.swift */,
 			);
@@ -1452,7 +1449,6 @@
 				C200BE231BA8D05D00B7F56F /* TimerView.swift in Sources */,
 				C200BE271BA8D3A300B7F56F /* HourPickerView.swift in Sources */,
 				C283AB371BE9383C0004E8CD /* AviDebugger.swift in Sources */,
-				E145E64B1B87A590003D1870 /* UIImage+initWithColor.swift in Sources */,
 				C21528C71BC855460073502F /* DebugVC.swift in Sources */,
 				C220E0731BC3446600AC7C85 /* Ready.swift in Sources */,
 				C28ECB261BCECE5F00887763 /* Ping.swift in Sources */,
