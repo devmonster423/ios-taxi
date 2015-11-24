@@ -30,8 +30,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   func start() {
     manager.activityType = .AutomotiveNavigation
     manager.delegate = self
-    manager.desiredAccuracy = 100
-    manager.distanceFilter = 100
+    manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+    manager.distanceFilter = kCLDistanceFilterNone
     manager.requestAlwaysAuthorization()
     manager.startUpdatingLocation()
     postNotification(SfoNotification.Location.managerStarted, value: nil)
