@@ -117,6 +117,7 @@ class DebugVC: UIViewController {
   }
   
   func logout() {
+    LoggedOut.sharedInstance.fire()
     DriverCredential.clear()
     self.navigationController?.popToRootViewControllerAnimated(true)
   }
