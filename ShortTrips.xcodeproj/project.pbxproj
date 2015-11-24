@@ -142,6 +142,8 @@
 		C2DFE5CA1B56D2CB0090B55F /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DFE5C91B56D2CB0090B55F /* DashboardVC.swift */; };
 		C2DFE5CF1B56D2CB0090B55F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5CE1B56D2CB0090B55F /* Images.xcassets */; };
 		C2DFE5D21B56D2CB0090B55F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */; };
+		C2EAD0A71C03E11A00EAEBBF /* TripValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAD0A61C03E11A00EAEBBF /* TripValidation.swift */; };
+		C2EAD0A91C03E17700EAEBBF /* MockTripValidationString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAD0A81C03E17700EAEBBF /* MockTripValidationString.swift */; };
 		C2F3E9071BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3E9061BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift */; };
 		C2F3E90F1BF402F800B852EF /* OptionalEntryCheckFailed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3E90E1BF402F800B852EF /* OptionalEntryCheckFailed.swift */; };
 		C2FC60FE1BFE49EE00F50A80 /* ExitingTerminals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC60FD1BFE49EE00F50A80 /* ExitingTerminals.swift */; };
@@ -376,6 +378,8 @@
 		C2DFE5D11B56D2CB0090B55F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C2DFE5D71B56D2CB0090B55F /* ShortTripsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShortTripsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2DFE5DC1B56D2CB0090B55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2EAD0A61C03E11A00EAEBBF /* TripValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripValidation.swift; sourceTree = "<group>"; };
+		C2EAD0A81C03E17700EAEBBF /* MockTripValidationString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTripValidationString.swift; sourceTree = "<group>"; };
 		C2F3E9061BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatingDriverAndVehicleAtHoldingLotExit.swift; sourceTree = "<group>"; };
 		C2F3E90E1BF402F800B852EF /* OptionalEntryCheckFailed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalEntryCheckFailed.swift; sourceTree = "<group>"; };
 		C2FC60FD1BFE49EE00F50A80 /* ExitingTerminals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExitingTerminals.swift; sourceTree = "<group>"; };
@@ -510,6 +514,8 @@
 				8EEFB7EB1BE2C74D00B8A962 /* PingSpec.swift */,
 				E1259FD11BF167B200EA0628 /* MockTripIdResponse.swift */,
 				8EEFB7E51BE2C58200B8A962 /* TripIdSpec.swift */,
+				C2EAD0A61C03E11A00EAEBBF /* TripValidation.swift */,
+				C2EAD0A81C03E17700EAEBBF /* MockTripValidationString.swift */,
 			);
 			name = Trip;
 			sourceTree = "<group>";
@@ -1545,6 +1551,7 @@
 				E1F153BF1BF0110D00E212ED /* MockAutomaticVehicleId.swift in Sources */,
 				C29341CE1BD1C6F100A7CB9E /* PingManagerSpec.swift in Sources */,
 				E1BE7B6E1BE3FD510085D3CA /* TripScenario2Spec.swift in Sources */,
+				C2EAD0A71C03E11A00EAEBBF /* TripValidation.swift in Sources */,
 				E12A62471BF1157700440B57 /* MockReferenceConfigResponse.swift in Sources */,
 				E1ADA7031BBC325B00766DB1 /* ReferenceConfigSpec.swift in Sources */,
 				E1259FD21BF167B200EA0628 /* MockTripIdResponse.swift in Sources */,
@@ -1587,6 +1594,7 @@
 				C215CE071BD1C31700991D9D /* PollerSpec.swift in Sources */,
 				E1FDB2681BBC47E500F8F452 /* DriverCredentialSpec.swift in Sources */,
 				8EEFB7EE1BE2C89700B8A962 /* MobileStateChangeSpec.swift in Sources */,
+				C2EAD0A91C03E17700EAEBBF /* MockTripValidationString.swift in Sources */,
 				8EEFB7E31BE2C46800B8A962 /* GeofenceListWrapperSpec.swift in Sources */,
 				8EEFB7E61BE2C58200B8A962 /* TripIdSpec.swift in Sources */,
 				C220E0781BC34ACE00AC7C85 /* TripScenario1Spec.swift in Sources */,
