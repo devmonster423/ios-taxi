@@ -20,7 +20,7 @@ class MobileStateInfoSpec: QuickSpec {
   override func spec() {
     describe("the Ping") {
       beforeEach {
-        self.mobileStateInfo = MobileStateInfo(longitude: 37.615716, latitude: -122.388321, tripId: 41)
+        self.mobileStateInfo = MobileStateInfo(longitude: 37.615716, latitude: -122.388321, sessionId: 1, tripId: 41)
         self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
       }
       

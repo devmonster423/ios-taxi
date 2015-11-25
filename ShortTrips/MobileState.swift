@@ -44,11 +44,13 @@ enum MobileState: Int {
 struct MobileStateInfo: Mappable {
   var longitude: Double!
   var latitude: Double!
+  var sessionId: Int!
   var tripId: Int?
   
-  init(longitude: Double, latitude: Double, tripId: Int?) {
+  init(longitude: Double, latitude: Double, sessionId: Int, tripId: Int? = nil) {
     self.longitude = longitude
     self.latitude = latitude
+    self.sessionId = sessionId
     self.tripId = tripId
   }
   
@@ -57,6 +59,7 @@ struct MobileStateInfo: Mappable {
   mutating func mapping(map: Map) {
     longitude <- map["longitude"]
     latitude <- map["latitude"]
+    sessionId <- map["session_id"]
     tripId <- map["trip_id"]
   }
 }
