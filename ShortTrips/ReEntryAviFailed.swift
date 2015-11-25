@@ -10,27 +10,27 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct OptionalInboundAviFailed {
-  let eventNames = ["optionalInboundAviFailed"]
-  static let sharedInstance = OptionalInboundAviFailed()
+struct ReEntryAviFailed {
+  let eventNames = ["reEntryAviFailed"]
+  static let sharedInstance = ReEntryAviFailed()
   
   private var events: [TKEvent]
   
   private init() {
     events = [TKEvent(name: eventNames[0],
-      transitioningFromStates: [VerifyingInboundAvi.sharedInstance.getState()],
+      transitioningFromStates: [VerifyingEntryGateAvi.sharedInstance.getState()],
       toState: InProgress.sharedInstance.getState())]
   }
 }
 
-extension OptionalInboundAviFailed: Event {
+extension ReEntryAviFailed: Event {
   func getEvents() -> [TKEvent] {
     return events
   }
 }
 
-extension OptionalInboundAviFailed: Observable {
+extension ReEntryAviFailed: Observable {
   func eventIsFiring(info: Any?) {
-    postNotification(SfoNotification.Trip.inboundStepFailed, value: nil)
+    postNotification(SfoNotification.Trip.reEntryAviFailed, value: nil)
   }
 }

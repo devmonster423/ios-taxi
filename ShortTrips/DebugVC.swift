@@ -67,15 +67,14 @@ class DebugVC: UIViewController {
   var waitForExitAvi: NotificationObserver<Any?, AnyObject>?
   var waitForTaxiLoopAvi: NotificationObserver<Any?, AnyObject>?
   var waitForTripToStart: NotificationObserver<Any?, AnyObject>?
-  var waitForInboundAvi: NotificationObserver<Any?, AnyObject>?
   
   // Trip
-  var entryStepFailedObserver: NotificationObserver<Any?, AnyObject>?
-  var inboundStepFailedObserver: NotificationObserver<Any?, AnyObject>?
+  var invalidatedObserver: NotificationObserver<[ValidationStepWrapper]?, AnyObject>?
+  var optionalEntryStepFailedObserver: NotificationObserver<Any?, AnyObject>?
+  var reEntryAviFailedObserver: NotificationObserver<Any?, AnyObject>?
   var timeExpiredObserver: NotificationObserver<Any?, AnyObject>?
   var tripStartedObserver: NotificationObserver<Int, AnyObject>?
   var validatedObserver: NotificationObserver<Any?, AnyObject>?
-  var invalidatedObserver: NotificationObserver<[ValidationStepWrapper]?, AnyObject>?
   var warningObserver: NotificationObserver<TripWarning, AnyObject>?
 
   override func loadView() {

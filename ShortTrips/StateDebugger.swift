@@ -98,11 +98,5 @@ extension DebugVC {
       self.debugView().updateState("Waiting for Trip to Start")
       self.updateFakeButtons((title: "Generate Trip ID & Start", action: "generateTripId"))
     })
-    
-    waitForInboundAvi = NotificationObserver(notification: SfoNotification.State.waitForInboundAvi, handler: { antenna, _ in
-      self.debugView().printDebugLine("Entered Waiting For Inbound Avi")
-      self.debugView().updateState("Waiting for Inbound Avi")
-      self.updateFakeButtons((title: "Fake Inbound Avi Read", action: "fakeInboundAviread"))
-    })
   }
 }

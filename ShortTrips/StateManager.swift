@@ -25,7 +25,6 @@ class StateManager {
     ValidatingTrip.sharedInstance.getState(),
     VerifyingEntryGateAvi.sharedInstance.getState(),
     VerifyingExitAvi.sharedInstance.getState(),
-    VerifyingInboundAvi.sharedInstance.getState(),
     VerifyingTaxiLoopAvi.sharedInstance.getState(),
     WaitingForEntryCid.sharedInstance.getState(),
     WaitingForPaymentCid.sharedInstance.getState(),
@@ -45,14 +44,13 @@ class StateManager {
     events += InsideTaxiLoopExit.sharedInstance.getEvents()
     events += LatestAviReadAtExit.sharedInstance.getEvents()
     events += LatestAviReadAtTaxiLoop.sharedInstance.getEvents()
-    events += LatestAviReadInbound.sharedInstance.getEvents()
     events += LatestCidIsEntryCid.sharedInstance.getEvents()
     events += LatestCidIsPaymentCid.sharedInstance.getEvents()
     events += LoggedOut.sharedInstance.getEvents()
     events += NotInTerminalExit.sharedInstance.getEvents()
     events += OptionalEntryCheckFailed.sharedInstance.getEvents()
-    events += OptionalInboundAviFailed.sharedInstance.getEvents()
     events += OutsideShortTripGeofence.sharedInstance.getEvents()
+    events += ReEntryAviFailed.sharedInstance.getEvents()
     events += TripInvalidated.sharedInstance.getEvents()
     events += TripStarted.sharedInstance.getEvents()
     events += TimeExpired.sharedInstance.getEvents()

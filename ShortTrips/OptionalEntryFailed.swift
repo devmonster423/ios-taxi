@@ -33,6 +33,6 @@ extension OptionalEntryCheckFailed: Event {
 
 extension OptionalEntryCheckFailed: Observable {
   func eventIsFiring(info: Any?) {
-    postNotification(SfoNotification.Trip.entryStepFailed, value: nil)
+    postNotification(SfoNotification.Trip.optionalEntryStepFailed, value: nil)
   }
 }

@@ -41,7 +41,7 @@ struct VerifyingEntryGateAvi {
       }, failure: {
         if let tripId = TripManager.sharedInstance.getTripId() {
           ApiClient.invalidate(tripId, validation: .Vehicle)
-          Failure.sharedInstance.fire()
+          ReEntryAviFailed.sharedInstance.fire()
         } else {
           OptionalEntryCheckFailed.sharedInstance.fire()
         }

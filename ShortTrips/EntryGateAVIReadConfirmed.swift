@@ -28,7 +28,7 @@ struct EntryGateAVIReadConfirmed {
     
     let tripEndEvent = TKEvent(name: eventNames[1],
       transitioningFromStates: [VerifyingEntryGateAvi.sharedInstance.getState()],
-      toState: ValidatingTrip.sharedInstance.getState())
+      toState: WaitingForEntryCid.sharedInstance.getState())
     
     tripEndEvent.setShouldFireEventBlock { _, _ -> Bool in
       return TripManager.sharedInstance.getTripId() != nil

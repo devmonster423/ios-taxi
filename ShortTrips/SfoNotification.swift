@@ -69,14 +69,13 @@ struct SfoNotification {
     static let waitForPaymentCid = Notification<Any?, AnyObject>(name: "WaitForPaymentCid")
     static let waitForExitAvi = Notification<Any?, AnyObject>(name: "WaitForExitAvi")
     static let waitForTripToStart = Notification<Any?, AnyObject>(name: "WaitForStartTrip")
-    static let waitForInboundAvi = Notification<Any?, AnyObject>(name: "WaitForInboundavi")
     static let notReady = Notification<Any?, AnyObject>(name: "NotReady")
   }
   
   struct Trip {
-    static let entryStepFailed = Notification<Any?, AnyObject>(name: "entryStepFailed")
-    static let inboundStepFailed = Notification<Any?, AnyObject>(name: "inboundStepFailed")
     static let invalidated = Notification<[ValidationStepWrapper]?, AnyObject>(name: "TripInvalidated")
+    static let optionalEntryStepFailed = Notification<Any?, AnyObject>(name: "optionalEntryStepFailed")
+    static let reEntryAviFailed = Notification<Any?, AnyObject>(name: "reEntryAviFailed")
     static let started = Notification<Int, AnyObject>(name: "TripStarted")
     static let timeExpired = Notification<Any?, AnyObject>(name: "TripTimeExpired")
     static let validated = Notification<Any?, AnyObject>(name: "TripValidated")

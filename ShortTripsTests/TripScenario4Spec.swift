@@ -73,7 +73,7 @@ class TripScenario4Spec: QuickSpec {
         TripManager.sharedInstance.setTripId(123)
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         InsideSfo.sharedInstance.fire()
-        expect(machine.isInState(VerifyingInboundAvi.sharedInstance.getState())).to(beTrue())
+        expect(machine.isInState(VerifyingEntryGateAvi.sharedInstance.getState())).to(beTrue())
         LatestAviReadInbound.sharedInstance.fire()
         expect(machine.isInState(WaitingForEntryCid.sharedInstance.getState())).to(beTrue())
         
@@ -150,8 +150,8 @@ class TripScenario4Spec: QuickSpec {
         TripManager.sharedInstance.setTripId(123)
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         InsideSfo.sharedInstance.fire()
-        expect(machine.isInState(VerifyingInboundAvi.sharedInstance.getState())).to(beTrue())
-        LatestAviReadInbound.sharedInstance.fire()
+        expect(machine.isInState(VerifyingEntryGateAvi.sharedInstance.getState())).to(beTrue())
+        EntryGateAVIReadConfirmed.sharedInstance.fire()
         expect(machine.isInState(WaitingForEntryCid.sharedInstance.getState())).to(beTrue())
         
         LatestCidIsEntryCid.sharedInstance.fire()

@@ -12,19 +12,29 @@ import JSQNotificationObserverKit
 
 struct DriverAndVehicleAssociated {
   let eventNames = ["driverAndVehicleAssociatedAtEntry",
-  "driverAndVehicleAssociatedAtHoldingLotExit"]
+    "driverAndVehicleAssociatedAtHoldingLotExit",
+    "driverAndVehicleAssociatedAtReEntry"]
   static let sharedInstance = DriverAndVehicleAssociated()
     
   private var events: [TKEvent]
   
   private init() {
-    events = [
-      TKEvent(name: eventNames[0],
+    
+    let driverAndVehicleAssociatedAtEntry = TKEvent(name: eventNames[0],
       transitioningFromStates: [AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()],
-      toState: VerifyingEntryGateAvi.sharedInstance.getState()),
-      TKEvent(name: eventNames[1],
-        transitioningFromStates: [AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState()],
-        toState: VerifyingTaxiLoopAvi.sharedInstance.getState())
+      toState: VerifyingEntryGateAvi.sharedInstance.getState())
+    
+    let driverAndVehicleAssociatedAtHoldingLotExit = TKEvent(name: eventNames[1],
+      transitioningFromStates: [AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState()],
+      toState: VerifyingTaxiLoopAvi.sharedInstance.getState())
+    
+    let driverAndVehicleAssociatedAtReEntry = TKEvent(name: eventNames[0],
+      transitioningFromStates: [AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()],
+      toState: VerifyingEntryGateAvi.sharedInstance.getState())
+    
+    events = [
+      driverAndVehicleAssociatedAtEntry,
+      
     ]
   }
 }
