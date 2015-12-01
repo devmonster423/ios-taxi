@@ -21,7 +21,7 @@ struct WaitingForStartTrip {
     
     state.setDidEnterStateBlock { _, _ in
       
-      postNotification(SfoNotification.State.waitForTripToStart, value: nil)
+      postNotification(SfoNotification.State.update, value: self.getState())
       
       if let driver = DriverManager.sharedInstance.getCurrentDriver(),
       sessionId = driver.sessionId,

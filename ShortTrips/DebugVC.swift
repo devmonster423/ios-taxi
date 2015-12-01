@@ -9,12 +9,11 @@
 import UIKit
 import CoreLocation
 import JSQNotificationObserverKit
+import TransitionKit
 
 typealias ButtonUpdateInfo = (title: String, action: Selector)
 
 class DebugVC: UIViewController {
-  
-  let stateManager = StateManager.sharedInstance // needed, to start the state machine
   
   // Avi
   var entryGateAvi: NotificationObserver<Antenna, AnyObject>?
@@ -54,19 +53,7 @@ class DebugVC: UIViewController {
   var responseObserver: NotificationObserver<NSHTTPURLResponse, AnyObject>?
   
   // State
-  var associatingDriverAndVehicleAtEntry: NotificationObserver<Any?, AnyObject>?
-  var associatingDriverAndVehicleAtHoldingLotExit: NotificationObserver<Any?, AnyObject>?
-  var enteredNotReadyState: NotificationObserver<Any?, AnyObject>?
-  var enteredReadyState: NotificationObserver<Any?, AnyObject>?
-  var inProgressState: NotificationObserver<Any?, AnyObject>?
-  var startingToWaitInHoldingLot: NotificationObserver<Any?, AnyObject>?
-  var validatingTrip: NotificationObserver<Any?, AnyObject>?
-  var waitForEntryCidObserver: NotificationObserver<Any?, AnyObject>?
-  var waitForEntryGateAviObserver: NotificationObserver<Any?, AnyObject>?
-  var waitForPaymentCid: NotificationObserver<Any?, AnyObject>?
-  var waitForExitAvi: NotificationObserver<Any?, AnyObject>?
-  var waitForTaxiLoopAvi: NotificationObserver<Any?, AnyObject>?
-  var waitForTripToStart: NotificationObserver<Any?, AnyObject>?
+  var stateUpdateObserver: NotificationObserver<TKState, AnyObject>?
   
   // Trip
   var invalidatedObserver: NotificationObserver<[ValidationStepWrapper]?, AnyObject>?
@@ -82,18 +69,6 @@ class DebugVC: UIViewController {
     debugView.logOutButton.addTarget(self,
       action: "logout",
       forControlEvents: .TouchUpInside)
-    debugView.fakeButton.setTitle("Fake Inside SFO", forState: .Normal)
-    debugView.fakeButton.addTarget(self,
-      action: "triggerInsideSfo",
-      forControlEvents: .TouchUpInside)
-    debugView.updateState("Not Ready")
-
-    debugView.secondFakeButton.setTitle("Inside Taxi Loop Exit", forState: .Normal)
-    debugView.secondFakeButton.addTarget(self,
-      action: "triggerAtTerminalExit",
-      forControlEvents: .TouchUpInside)
-    
-    debugView.thirdFakeButton.setTitle("Not Active", forState: .Normal)
     view = debugView
   }
   
@@ -109,6 +84,8 @@ class DebugVC: UIViewController {
     setupRequestObservers()
     setupStateObservers()
     setupTripObservers()
+    
+    updateForState(StateManager.sharedInstance.getMachine().currentState)
   }
   
   func debugView() -> DebugView {

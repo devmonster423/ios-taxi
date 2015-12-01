@@ -20,7 +20,7 @@ struct InProgress {
     state = TKState(name: stateName)
     
     state.setDidEnterStateBlock { _, _ in
-      postNotification(SfoNotification.State.inProgress, value: nil)
+      postNotification(SfoNotification.State.update, value: self.getState())
       TripManager.sharedInstance.start()
     }
     

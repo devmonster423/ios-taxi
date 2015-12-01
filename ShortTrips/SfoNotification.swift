@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import JSQNotificationObserverKit
+import TransitionKit
 
 struct SfoNotification {
   struct Avi {
@@ -57,19 +58,7 @@ struct SfoNotification {
   }
   
   struct State {
-    static let associatingDriverAndVehicleAtEntry = Notification<Any?, AnyObject>(name: "AssociatingDriverAndVehicleAtEntry")
-    static let associatingDriverAndVehicleAtHoldingLotExit = Notification<Any?, AnyObject>(name: "AssociatingDriverAndVehicleAtHoldingLotExit")
-    static let waitInHoldingLot = Notification<Any?, AnyObject>(name: "StartingToWaitInHoldingLot")
-    static let ready = Notification<Any?, AnyObject>(name: "EnteredReadyState")
-    static let inProgress = Notification<Any?, AnyObject>(name: "InProgress")
-    static let validatingTrip = Notification<Any?, AnyObject>(name: "ValidatingTrip")
-    static let waitForEntryCid = Notification<Any?, AnyObject>(name: "WaitForEntryCid")
-    static let waitForEntryGateAvi = Notification<Any?, AnyObject>(name: "WaitForEntryGateAvi")
-    static let waitForTaxiLoopAvi = Notification<Any?, AnyObject>(name: "WaitForTaxiLoopAvi")    
-    static let waitForPaymentCid = Notification<Any?, AnyObject>(name: "WaitForPaymentCid")
-    static let waitForExitAvi = Notification<Any?, AnyObject>(name: "WaitForExitAvi")
-    static let waitForTripToStart = Notification<Any?, AnyObject>(name: "WaitForStartTrip")
-    static let notReady = Notification<Any?, AnyObject>(name: "NotReady")
+    static let update = Notification<TKState, AnyObject>(name: "StateUpdate")
   }
   
   struct Trip {

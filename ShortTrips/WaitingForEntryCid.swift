@@ -22,7 +22,7 @@ struct WaitingForEntryCid {
     state = TKState(name: stateName)
 
     state.setDidEnterStateBlock { _, _ in
-      postNotification(SfoNotification.State.waitForEntryCid, value: nil)
+      postNotification(SfoNotification.State.update, value: self.getState())
       
       self.poller = Poller.init(action: {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {

@@ -22,7 +22,7 @@ struct AssociatingDriverAndVehicleAtHoldingLotExit {
 
     state.setDidEnterStateBlock { _, _ in
 
-      postNotification(SfoNotification.State.associatingDriverAndVehicleAtHoldingLotExit, value: nil)
+      postNotification(SfoNotification.State.update, value: self.getState())
 
       self.poller = Poller.init(action: {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {

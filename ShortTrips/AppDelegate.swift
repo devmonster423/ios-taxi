@@ -14,6 +14,7 @@ import IQKeyboardManagerSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
+  let stateManager = StateManager.sharedInstance // needed, to start the state machine
   var window: UIWindow?
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

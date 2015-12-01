@@ -21,7 +21,7 @@ struct ValidatingTrip {
     
     state.setDidEnterStateBlock { _, _ in
       
-      postNotification(SfoNotification.State.validatingTrip, value: nil)
+      postNotification(SfoNotification.State.update, value: self.getState())
       
       if let tripId = TripManager.sharedInstance.getTripId(),
         driver = DriverManager.sharedInstance.getCurrentDriver(),

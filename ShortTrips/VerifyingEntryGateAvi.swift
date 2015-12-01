@@ -23,7 +23,7 @@ struct VerifyingEntryGateAvi {
     
     state.setDidEnterStateBlock { _, _ in
       
-      postNotification(SfoNotification.State.waitForEntryGateAvi, value: nil)
+      postNotification(SfoNotification.State.update, value: self.getState())
       
       self.poller = Poller.init(action: {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {

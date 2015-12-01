@@ -8,74 +8,66 @@
 
 import Foundation
 import JSQNotificationObserverKit
+import TransitionKit
 
 extension DebugVC {
   
   func setupStateObservers() {
-
-    associatingDriverAndVehicleAtEntry = NotificationObserver(notification: SfoNotification.State.associatingDriverAndVehicleAtEntry, handler: { _, _ in
-      self.debugView().printDebugLine("Associating Driver And Vehicle")
-      self.debugView().updateState("Associating Driver And Vehicle")
-      self.updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
-    })
-
-    associatingDriverAndVehicleAtHoldingLotExit = NotificationObserver(notification: SfoNotification.State.associatingDriverAndVehicleAtHoldingLotExit, handler: { _, _ in
-      self.debugView().printDebugLine("Associating Driver And Vehicle")
-      self.debugView().updateState("Associating Driver And Vehicle")
-      self.updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
-    })
-
-    enteredNotReadyState = NotificationObserver(notification: SfoNotification.State.notReady, handler: { _, _ in
-      self.debugView().printDebugLine("Entered Not Ready State")
-      self.debugView().updateState("Not Ready")
-      self.updateFakeButtons((title: "Fake Inside SFO", action: "triggerInsideSfo"), second: (title: "Inside Taxi Loop Exit", action: "triggerAtTerminalExit"))
-    })
     
-    enteredReadyState = NotificationObserver(notification: SfoNotification.State.ready, handler: { _, _ in
-      self.debugView().printDebugLine("Entered Ready State")
-      self.debugView().updateState("Ready")
-      self.updateFakeButtons((title: "Fake Exiting Terminals", action: "fakeExitingTerminals"))
-    })
-    
-    inProgressState = NotificationObserver(notification: SfoNotification.State.inProgress, handler: { _, _ in
-      self.debugView().printDebugLine("Entered InProgress State")
-      self.debugView().updateState("InProgress")
+    stateUpdateObserver = NotificationObserver(notification: SfoNotification.State.update) { state, _ in
+      self.updateForState(state)
+    }
+  }
+  
+  func updateForState(state: TKState) {
+    if state == AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()
+      || state == AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState() {
+      debugView().printDebugLine("Associating Driver And Vehicle")
+      debugView().updateState("Associating Driver And Vehicle")
+      updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
       
-      self.updateFakeButtons((title: "Drop Passenger", action: "dropPassenger"),
+    } else if state == NotReady.sharedInstance.getState() {
+      debugView().printDebugLine("Entered Not Ready State")
+      debugView().updateState("Not Ready")
+      updateFakeButtons((title: "Fake Inside SFO", action: "triggerInsideSfo"), second: (title: "Inside Taxi Loop Exit", action: "triggerAtTerminalExit"))
+      
+    } else if state == Ready.sharedInstance.getState() {
+      debugView().printDebugLine("Entered Ready State")
+      debugView().updateState("Ready")
+      updateFakeButtons((title: "Fake Exiting Terminals", action: "fakeExitingTerminals"))
+      
+    } else if state == InProgress.sharedInstance.getState() {
+      debugView().printDebugLine("Entered InProgress State")
+      debugView().updateState("InProgress")
+      updateFakeButtons((title: "Drop Passenger", action: "dropPassenger"),
         second: (title: "Outside Geofences", action: "fakeOutsideGeofences"),
         third: (title: "Timeout", action: "fakeTimeExpired"))
-    })
+      
+    } else if state == WaitingInHoldingLot.sharedInstance.getState() {
+      debugView().printDebugLine("starting to wait in holding lot")
+      debugView().updateState("Waiting In Holding Lot")
+      updateFakeButtons((title: "Fake At Terminal Exit", action: "triggerAtTerminalExit"))
+      
+    } else if state == ValidatingTrip.sharedInstance.getState() {
+      debugView().updateState("Validating Trip")
+      debugView().printDebugLine("Validating Trip")
     
-    startingToWaitInHoldingLot = NotificationObserver(notification: SfoNotification.State.waitInHoldingLot, handler: { _, _ in
-      self.debugView().printDebugLine("starting to wait in holding lot")
-      self.debugView().updateState("Waiting In Holding Lot")
-      self.updateFakeButtons((title: "Fake At Terminal Exit", action: "triggerAtTerminalExit"))
-    })
-    
-    validatingTrip = NotificationObserver(notification: SfoNotification.State.validatingTrip) { _, _ in
-      self.debugView().updateState("Validating Trip")
-      self.debugView().printDebugLine("Validating Trip")
-    }
-    
-    waitForEntryCidObserver = NotificationObserver(notification: SfoNotification.State.waitForEntryCid) { _, _ in
-      self.debugView().printDebugLine("Entered Waiting for Entry Cid")
-      self.debugView().updateState("Waiting for Entry Cid")
-      self.updateFakeButtons((title:"Trigger Cid Entry", action: "triggerEntryCid"))
-    }
-    
-    waitForEntryGateAviObserver = NotificationObserver(notification: SfoNotification.State.waitForEntryGateAvi) { _, _ in
-      self.debugView().printDebugLine("Entered Waiting for Entry Gate Avi")
-      self.debugView().updateState("Waiting for Entry Gate Avi")
-      self.updateFakeButtons((title: "Confirm Entry Gate Avi Read", action: "confirmEntryGateAviRead"))
-    }
-    
-    waitForPaymentCid = NotificationObserver(notification: SfoNotification.State.waitForPaymentCid, handler: { antenna, _ in
-      self.debugView().printDebugLine("Entered Waiting for Payment Cid")
-      self.debugView().updateState("Waiting for Payment Cid")
-      self.updateFakeButtons((title: "Fake Cid Payment", action: "fakeCidPayment"))
-    })
-    
-    waitForExitAvi = NotificationObserver(notification: SfoNotification.State.waitForExitAvi, handler: { antenna, _ in
+    } else if state == WaitingForEntryCid.sharedInstance.getState() {
+      debugView().printDebugLine("Entered Waiting for Entry Cid")
+      debugView().updateState("Waiting for Entry Cid")
+      updateFakeButtons((title:"Trigger Cid Entry", action: "triggerEntryCid"))
+      
+    } else if state == VerifyingEntryGateAvi.sharedInstance.getState() {
+      debugView().printDebugLine("Entered Waiting for Entry Gate Avi")
+      debugView().updateState("Waiting for Entry Gate Avi")
+      updateFakeButtons((title: "Confirm Entry Gate Avi Read", action: "confirmEntryGateAviRead"))
+      
+    } else if state == WaitingForPaymentCid.sharedInstance.getState() {
+      debugView().printDebugLine("Entered Waiting for Payment Cid")
+      debugView().updateState("Waiting for Payment Cid")
+      updateFakeButtons((title: "Fake Cid Payment", action: "fakeCidPayment"))
+      
+    } else if state == VerifyingExitAvi.sharedInstance.getState() {
       self.debugView().printDebugLine("Entered Waiting for Exit Avi")
       self.debugView().updateState("Waiting for Exit Avi")
       self.updateFakeButtons((title: "Fake Exit AVI Read", action: "latestExitAviRead"),
@@ -85,18 +77,16 @@ extension DebugVC {
         self.debugView().printDebugLine("not exiting terminals")
         self.notInTerminalExitObserver = nil
       }
-    })
-    
-    waitForTaxiLoopAvi = NotificationObserver(notification: SfoNotification.State.waitForTaxiLoopAvi, handler: { antenna, _ in
-      self.debugView().printDebugLine("Entered Waiting For Taxi Loop Avi")
-      self.debugView().updateState("Waiting for Taxi Loop Avi")
-      self.updateFakeButtons((title: "Latest Avi Read At Taxi Loop", action: "latestAviReadAtTaxiLoop"))
-    })
-    
-    waitForTripToStart = NotificationObserver(notification: SfoNotification.State.waitForTripToStart, handler: { antenna, _ in
-      self.debugView().printDebugLine("Entered Waiting For Trip to Start")
-      self.debugView().updateState("Waiting for Trip to Start")
-      self.updateFakeButtons((title: "Generate Trip ID & Start", action: "generateTripId"))
-    })
+      
+    } else if state == VerifyingTaxiLoopAvi.sharedInstance.getState() {
+      debugView().printDebugLine("Entered Waiting For Taxi Loop Avi")
+      debugView().updateState("Waiting for Taxi Loop Avi")
+      updateFakeButtons((title: "Latest Avi Read At Taxi Loop", action: "latestAviReadAtTaxiLoop"))
+      
+    } else if state == WaitingForStartTrip.sharedInstance.getState() {
+      debugView().printDebugLine("Entered Waiting For Trip to Start")
+      debugView().updateState("Waiting for Trip to Start")
+      updateFakeButtons((title: "Generate Trip ID & Start", action: "generateTripId"))
+    }
   }
 }

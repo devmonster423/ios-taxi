@@ -22,7 +22,7 @@ struct NotReady {
     state.setDidEnterStateBlock { _, _ in
       
       TripManager.sharedInstance.setTripId(nil)
-      postNotification(SfoNotification.State.notReady, value: nil)
+      postNotification(SfoNotification.State.update, value: self.getState())
     }
   }
   

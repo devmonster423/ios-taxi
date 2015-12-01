@@ -22,7 +22,7 @@ struct Ready {
     
     state.setDidEnterStateBlock { _, _ in
       
-      postNotification(SfoNotification.State.ready, value: nil)
+      postNotification(SfoNotification.State.update, value: self.getState())
       
       if let location = LocationManager.sharedInstance.getLastKnownLocation(), sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
           ApiClient.updateMobileState(.Ready, mobileStateInfo: MobileStateInfo(longitude: location.coordinate.longitude,
