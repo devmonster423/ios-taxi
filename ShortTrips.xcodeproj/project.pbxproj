@@ -179,7 +179,7 @@
 		E18228FF1BC4932400614256 /* ValidatingTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18228FE1BC4932400614256 /* ValidatingTrip.swift */; };
 		E18229031BC495A000614256 /* TripValidated.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18229021BC495A000614256 /* TripValidated.swift */; };
 		E187B2751BE036F10031F07C /* WaitingInHoldingLot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187B2741BE036F10031F07C /* WaitingInHoldingLot.swift */; };
-		E187B2771BE037550031F07C /* EntryGateAVIReadConfirmed.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187B2761BE037550031F07C /* EntryGateAVIReadConfirmed.swift */; };
+		E187B2771BE037550031F07C /* LatestAviReadAtEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E187B2761BE037550031F07C /* LatestAviReadAtEntry.swift */; };
 		E189CD321BF3A83B000AE583 /* MockFlightDetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E189CD311BF3A83B000AE583 /* MockFlightDetailsResponse.swift */; };
 		E18FF68D1BA8667500FE93B9 /* AutomaticVehicleId.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FF68C1BA8667500FE93B9 /* AutomaticVehicleId.swift */; };
 		E18FF68F1BA869A300FE93B9 /* Antenna.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18FF68E1BA869A300FE93B9 /* Antenna.swift */; };
@@ -416,7 +416,7 @@
 		E18228FE1BC4932400614256 /* ValidatingTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ValidatingTrip.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E18229021BC495A000614256 /* TripValidated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripValidated.swift; sourceTree = "<group>"; };
 		E187B2741BE036F10031F07C /* WaitingInHoldingLot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingInHoldingLot.swift; sourceTree = "<group>"; };
-		E187B2761BE037550031F07C /* EntryGateAVIReadConfirmed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryGateAVIReadConfirmed.swift; sourceTree = "<group>"; };
+		E187B2761BE037550031F07C /* LatestAviReadAtEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestAviReadAtEntry.swift; sourceTree = "<group>"; };
 		E189CD311BF3A83B000AE583 /* MockFlightDetailsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFlightDetailsResponse.swift; sourceTree = "<group>"; };
 		E18FF68C1BA8667500FE93B9 /* AutomaticVehicleId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutomaticVehicleId.swift; sourceTree = "<group>"; };
 		E18FF68E1BA869A300FE93B9 /* Antenna.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Antenna.swift; sourceTree = "<group>"; };
@@ -639,7 +639,6 @@
 			children = (
 				E14A39271BE957340053F741 /* AppQuit.swift */,
 				8EEFB79B1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift */,
-				E187B2761BE037550031F07C /* EntryGateAVIReadConfirmed.swift */,
 				C220E07D1BC3511200AC7C85 /* Event.swift */,
 				C221EDE81BE2CEE500BDB4CD /* ExitAviReadFailed.swift */,
 				C2FC60FD1BFE49EE00F50A80 /* ExitingTerminals.swift */,
@@ -647,6 +646,7 @@
 				8E27540D1BF17C2A00F36047 /* GpsDisabled.swift */,
 				C28ECB2D1BCF033E00887763 /* InsideSfo.swift */,
 				C220E0701BC3440C00AC7C85 /* InsideTaxiLoopExit.swift */,
+				E187B2761BE037550031F07C /* LatestAviReadAtEntry.swift */,
 				C221EDE61BE2CD3200BDB4CD /* LatestAviReadAtExit.swift */,
 				8EEFB7A71BE04DD600B8A962 /* LatestAviReadAtTaxiLoop.swift */,
 				C2AB51391BD02CC0003ACB4C /* LatestCidIsEntryCid.swift */,
@@ -1501,7 +1501,7 @@
 				E18FF6911BA870AF00FE93B9 /* Cid.swift in Sources */,
 				C28ECB421BCF21DE00887763 /* GeofenceManager.swift in Sources */,
 				C215CDFD1BD19FCA00991D9D /* DriverManager.swift in Sources */,
-				E187B2771BE037550031F07C /* EntryGateAVIReadConfirmed.swift in Sources */,
+				E187B2771BE037550031F07C /* LatestAviReadAtEntry.swift in Sources */,
 				C2DAD68D1BE8360800CB142C /* PingDebugger.swift in Sources */,
 				C2635E301BB0CE1C003C22B1 /* GeofenceClient.swift in Sources */,
 				C20A98851BE153BA009E29E7 /* TripId.swift in Sources */,

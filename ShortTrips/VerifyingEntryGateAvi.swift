@@ -31,7 +31,7 @@ struct VerifyingEntryGateAvi {
 
             if let antenna = antenna, let device = antenna.device() {
               if device == .TaxiEntry {
-                EntryGateAVIReadConfirmed.sharedInstance.fire(antenna)
+                LatestAviReadAtEntry.sharedInstance.fire(antenna)
               } else {
                 postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
               }

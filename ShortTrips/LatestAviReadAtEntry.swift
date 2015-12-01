@@ -1,5 +1,5 @@
 //
-//  EntryGateAVIReadConfirmed.swift
+//  LatestAviReadAtEntry.swift
 //  ShortTrips
 //
 //  Created by Joshua Adams on 10/27/15.
@@ -10,9 +10,9 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct EntryGateAVIReadConfirmed {
-  let eventNames = ["entryGateAVIReadConfirmedStart", "entryGateAVIReadConfirmedEnd"]
-  static let sharedInstance = EntryGateAVIReadConfirmed()
+struct LatestAviReadAtEntry {
+  let eventNames = ["LatestAviReadAtEntryStart", "LatestAviReadAtEntryEnd"]
+  static let sharedInstance = LatestAviReadAtEntry()
   
   private var events: [TKEvent]
   
@@ -38,13 +38,13 @@ struct EntryGateAVIReadConfirmed {
   }
 }
 
-extension EntryGateAVIReadConfirmed: Event {
+extension LatestAviReadAtEntry: Event {
   func getEvents() -> [TKEvent] {
     return events
   }
 }
 
-extension EntryGateAVIReadConfirmed: Observable {
+extension LatestAviReadAtEntry: Observable {
   func eventIsFiring(info: Any?) {
     if let antenna = info as? Antenna {
       postNotification(SfoNotification.Avi.entryGate, value: antenna)

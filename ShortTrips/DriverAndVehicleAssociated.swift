@@ -24,17 +24,26 @@ struct DriverAndVehicleAssociated {
       transitioningFromStates: [AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()],
       toState: VerifyingEntryGateAvi.sharedInstance.getState())
     
+    driverAndVehicleAssociatedAtEntry.setShouldFireEventBlock { _, _ -> Bool in
+      return TripManager.sharedInstance.getTripId() == nil
+    }
+    
     let driverAndVehicleAssociatedAtHoldingLotExit = TKEvent(name: eventNames[1],
       transitioningFromStates: [AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState()],
       toState: VerifyingTaxiLoopAvi.sharedInstance.getState())
     
-    let driverAndVehicleAssociatedAtReEntry = TKEvent(name: eventNames[0],
+    let driverAndVehicleAssociatedAtReEntry = TKEvent(name: eventNames[2],
       transitioningFromStates: [AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()],
-      toState: VerifyingEntryGateAvi.sharedInstance.getState())
+      toState: ValidatingTrip.sharedInstance.getState())
+    
+    driverAndVehicleAssociatedAtReEntry.setShouldFireEventBlock { _, _ -> Bool in
+      return TripManager.sharedInstance.getTripId() != nil
+    }
     
     events = [
       driverAndVehicleAssociatedAtEntry,
-      
+      driverAndVehicleAssociatedAtHoldingLotExit,
+      driverAndVehicleAssociatedAtReEntry
     ]
   }
 }

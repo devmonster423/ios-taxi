@@ -34,7 +34,7 @@ class TripScenario1Spec: QuickSpec {
         DriverAndVehicleAssociated.sharedInstance.fire()
         expect(machine.isInState(VerifyingEntryGateAvi.sharedInstance.getState())).to(beTrue())
         
-        EntryGateAVIReadConfirmed.sharedInstance.fire()
+        LatestAviReadAtEntry.sharedInstance.fire()
         expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
         
         // can fire DriverDispatched and make correct state change
@@ -63,16 +63,13 @@ class TripScenario1Spec: QuickSpec {
         InsideSfo.sharedInstance.fire()
         expect(machine.isInState(VerifyingEntryGateAvi.sharedInstance.getState())).to(beTrue())
         
-        LatestAviReadInbound.sharedInstance.fire()
+        LatestAviReadAtEntry.sharedInstance.fire()
         expect(machine.isInState(WaitingForEntryCid.sharedInstance.getState())).to(beTrue())
         
         LatestCidIsEntryCid.sharedInstance.fire()
         expect(machine.isInState(AssociatingDriverAndVehicleAtEntry.sharedInstance.getState())).to(beTrue())
         
         DriverAndVehicleAssociated.sharedInstance.fire()
-        expect(machine.isInState(VerifyingEntryGateAvi.sharedInstance.getState())).to(beTrue())
-        
-        EntryGateAVIReadConfirmed.sharedInstance.fire()
         expect(machine.isInState(ValidatingTrip.sharedInstance.getState())).to(beTrue())
         
         // can fire TripValidated and make correct state change
