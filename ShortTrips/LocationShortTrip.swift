@@ -20,7 +20,7 @@ extension ShortTripVC {
     
     sfoObservers.locationObserver = NotificationObserver(notification: SfoNotification.Location.read, handler: { location, _ in
       self.shortTripView().notificationLabel.text = "Read Location: (\(location.coordinate.latitude), \(location.coordinate.longitude)) at \(location.timestamp)"
-      self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
+      self.shortTripView().notificationImageView.image = UIImage(named: "notInGeofence.png")
     })
     
     sfoObservers.locationStatusObserver = NotificationObserver(notification: SfoNotification.Location.statusUpdated, handler: { status, _ in
