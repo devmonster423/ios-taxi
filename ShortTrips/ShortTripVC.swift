@@ -11,7 +11,6 @@ import CoreLocation
 import JSQNotificationObserverKit
 
 class ShortTripVC: UIViewController {
-  let stateManager = StateManager.sharedInstance // needed, to start the state machine
   var sfoObservers = SfoObservers()
   
   override func loadView() {
