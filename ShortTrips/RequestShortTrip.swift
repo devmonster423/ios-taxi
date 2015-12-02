@@ -1,20 +1,20 @@
 //
-//  RequestDebugger.swift
+//  RequestShortTrip.swift
 //  ShortTrips
 //
-//  Created by Matt Luedke on 11/3/15.
+//  Created by Joshua Adams on 12/1/15.
 //  Copyright © 2015 SFO. All rights reserved.
 //
 
 import Foundation
 import JSQNotificationObserverKit
 
-extension DebugVC {
+extension ShortTripVC {
   
   func setupRequestObservers() {
     sfoObservers.responseObserver = NotificationObserver(notification: SfoNotification.Request.response, handler: { response, _ in
-      self.debugView().printDebugLine("URL: \(response.URL!)\nstatusCode: \(response.statusCode)",
-        type: StatusCode.isSuccessful(response.statusCode) ? .Positive : .Negative )
+      self.shortTripView().notificationLabel.text = "URL: \(response.URL!)\n statusCode: \(response.statusCode)"
+      self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
     })
   }
 }

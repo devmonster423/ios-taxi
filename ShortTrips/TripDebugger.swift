@@ -13,27 +13,27 @@ extension DebugVC {
   
   func setupTripObservers() {
 
-    optionalEntryStepFailedObserver = NotificationObserver(notification: SfoNotification.Trip.optionalEntryStepFailed) { _, _ in
+    sfoObservers.optionalEntryStepFailedObserver = NotificationObserver(notification: SfoNotification.Trip.optionalEntryStepFailed) { _, _ in
       self.debugView().printDebugLine("Optional entry step failed, moving on...", type: .Negative)
     }
     
-    reEntryAviFailedObserver = NotificationObserver(notification: SfoNotification.Trip.reEntryAviFailed) { _, _ in
+    sfoObservers.reEntryAviFailedObserver = NotificationObserver(notification: SfoNotification.Trip.reEntryAviFailed) { _, _ in
       self.debugView().printDebugLine("optional entry avi step failed, moving back to InProgress state...", type: .Negative)
     }
 
-    timeExpiredObserver = NotificationObserver(notification: SfoNotification.Trip.timeExpired) { _, _ in
+    sfoObservers.timeExpiredObserver = NotificationObserver(notification: SfoNotification.Trip.timeExpired) { _, _ in
       self.debugView().printDebugLine("Time Expired")
     }
     
-    tripStartedObserver = NotificationObserver(notification: SfoNotification.Trip.started) { tripId, _ in
+    sfoObservers.tripStartedObserver = NotificationObserver(notification: SfoNotification.Trip.started) { tripId, _ in
       self.debugView().printDebugLine("Trip started: \(tripId)", type: .Positive)
     }
     
-    validatedObserver = NotificationObserver(notification: SfoNotification.Trip.validated) { _, _ in
+    sfoObservers.validatedObserver = NotificationObserver(notification: SfoNotification.Trip.validated) { _, _ in
       self.debugView().printDebugLine("Trip is valid", type: .Positive)
     }
     
-    invalidatedObserver = NotificationObserver(notification: SfoNotification.Trip.invalidated) { validationSteps, _ in
+    sfoObservers.invalidatedObserver = NotificationObserver(notification: SfoNotification.Trip.invalidated) { validationSteps, _ in
       
       if let validationSteps = validationSteps {
         self.debugView().printDebugLine("Trip is invalid for reasons:", type: .Negative)
@@ -45,7 +45,7 @@ extension DebugVC {
       }
     }
     
-    warningObserver = NotificationObserver(notification: SfoNotification.Trip.warning) { warning, _ in
+    sfoObservers.warningObserver = NotificationObserver(notification: SfoNotification.Trip.warning) { warning, _ in
       self.debugView().printDebugLine("Trip Warning: \(warning.rawValue)")
     }
   }

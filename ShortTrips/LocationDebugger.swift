@@ -13,16 +13,16 @@ import JSQNotificationObserverKit
 extension DebugVC {
   
   func setupLocationObservers() {
-    locationManagerStartedObserver = NotificationObserver(notification: SfoNotification.Location.managerStarted) { _, _ in
+    sfoObservers.locationManagerStartedObserver = NotificationObserver(notification: SfoNotification.Location.managerStarted) { _, _ in
       self.debugView().printDebugLine("started location manager", type: .BigDeal)
     }
     
-    locationObserver = NotificationObserver(notification: SfoNotification.Location.read, handler: { location, _ in
+    sfoObservers.locationObserver = NotificationObserver(notification: SfoNotification.Location.read, handler: { location, _ in
       self.debugView().printDebugLine("read location: (\(location.coordinate.latitude), \(location.coordinate.longitude)) at \(location.timestamp)")
       self.debugView().updateGPS(location.coordinate.latitude, longitude: location.coordinate.longitude)
     })
 
-    locationStatusObserver = NotificationObserver(notification: SfoNotification.Location.statusUpdated, handler: { status, _ in
+    sfoObservers.locationStatusObserver = NotificationObserver(notification: SfoNotification.Location.statusUpdated, handler: { status, _ in
       if status == .AuthorizedAlways {
         self.debugView().printDebugLine("location status updated: GPS on")
       } else {

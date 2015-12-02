@@ -13,22 +13,22 @@ extension DebugVC {
   
   func setupGeofenceObservers() {
     
-    exitingTerminalsObserver = NotificationObserver(notification: SfoNotification.Geofence.exitingTerminals) { _, _ in
+    sfoObservers.exitingTerminalsObserver = NotificationObserver(notification: SfoNotification.Geofence.exitingTerminals) { _, _ in
       self.debugView().printDebugLine("exiting terminals event!", type: .Positive)
     }
     
-    foundInsideGeofencesObserver = NotificationObserver(notification: SfoNotification.Geofence.foundInside) { geofences, _ in
+    sfoObservers.foundInsideGeofencesObserver = NotificationObserver(notification: SfoNotification.Geofence.foundInside) { geofences, _ in
       self.debugView().updateGeofenceList(geofences)
       for geofence in geofences {
         self.debugView().printDebugLine("in geofence: \(geofence.name)", type: .Positive)
       }
     }
     
-    insideSfoObserver = NotificationObserver(notification: SfoNotification.Geofence.insideSfo) { _, _ in
+    sfoObservers.insideSfoObserver = NotificationObserver(notification: SfoNotification.Geofence.insideSfo) { _, _ in
       self.debugView().printDebugLine("inside SFO event!", type: .Positive)
     }
     
-    outsideShortTripObserver = NotificationObserver(notification: SfoNotification.Geofence.outsideShortTrip) { _, _ in
+    sfoObservers.outsideShortTripObserver = NotificationObserver(notification: SfoNotification.Geofence.outsideShortTrip) { _, _ in
       self.debugView().printDebugLine("Trip went outside Short Trip geofence", type: .Negative)
     }
   }

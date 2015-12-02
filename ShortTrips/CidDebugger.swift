@@ -13,17 +13,17 @@ extension DebugVC {
   
   func setupCidObservers() {
     
-    entryCidRead = NotificationObserver(notification: SfoNotification.Cid.entry) { cid, _ in
+    sfoObservers.entryCidRead = NotificationObserver(notification: SfoNotification.Cid.entry) { cid, _ in
       self.debugView().updateCid("\(cid)")
       self.debugView().printDebugLine("entry cid read detected")
     }
     
-    paymentCidRead = NotificationObserver(notification: SfoNotification.Cid.payment) { cid, _ in
+    sfoObservers.paymentCidRead = NotificationObserver(notification: SfoNotification.Cid.payment) { cid, _ in
       self.debugView().updateCid("\(cid)")
       self.debugView().printDebugLine("payment cid read detected")
     }
     
-    unexpectedCidRead = NotificationObserver(notification: SfoNotification.Cid.unexpected, handler: { cidDevices, _ in
+    sfoObservers.unexpectedCidRead = NotificationObserver(notification: SfoNotification.Cid.unexpected, handler: { cidDevices, _ in
       self.debugView().printDebugLine("unexpected cid. expected \(cidDevices.expected.rawValue), found \(cidDevices.found.rawValue)", type: .Negative)
     })
   }

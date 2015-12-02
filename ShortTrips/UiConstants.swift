@@ -16,12 +16,14 @@ struct UiConstants {
     static let fullnessFontSize: CGFloat = 48.0
     static let fullnessLabelFontSize: CGFloat = 29.0
     static let progressHeight: CGFloat = 50.0
-    static let terminalStatusFontSize: CGFloat = 17.0
-    static let terminalStatusWidth: CGFloat = 200.0
-    static let terminalStatusHeight: CGFloat = 60.0
+    static let buttonFontSize: CGFloat = 17.0
+    static let terminalStatusWidth: CGFloat = 150.0
+    static let shortTripWidth: CGFloat = 130.0
+    static let buttonHeight: CGFloat = 60.0
     static let buttonTimerOffset: CGFloat = -10.0
     static let titleWidth: CGFloat = 60.0
     static let titleHeight: CGFloat = 30.0
+    static let buttonMargin: CGFloat = 16.0
   }
   
   struct TerminalSummary {
