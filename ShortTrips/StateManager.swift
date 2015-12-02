@@ -35,7 +35,6 @@ class StateManager {
   static func allEvents() -> [TKEvent] {
     var events = AppQuit.sharedInstance.getEvents()
     events += DriverAndVehicleAssociated.sharedInstance.getEvents()
-    events += ExitAviReadFailed.sharedInstance.getEvents()
     events += ExitingTerminals.sharedInstance.getEvents()
     events += Failure.sharedInstance.getEvents()
     events += GpsDisabled.sharedInstance.getEvents()
@@ -49,6 +48,7 @@ class StateManager {
     events += LoggedOut.sharedInstance.getEvents()
     events += NotInTerminalExit.sharedInstance.getEvents()
     events += OptionalEntryCheckFailed.sharedInstance.getEvents()
+    events += OutsideSfo.sharedInstance.getEvents()
     events += OutsideShortTripGeofence.sharedInstance.getEvents()
     events += ReEntryAviFailed.sharedInstance.getEvents()
     events += TripInvalidated.sharedInstance.getEvents()

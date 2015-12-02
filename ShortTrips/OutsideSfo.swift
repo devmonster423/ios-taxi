@@ -10,9 +10,9 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-class ExitAviReadFailed {
-  let eventNames = ["exitAviReadFailed"]
-  static let sharedInstance = ExitAviReadFailed()
+class OutsideSfo {
+  let eventNames = ["OutsideSfo"]
+  static let sharedInstance = OutsideSfo()
   
   private var events: [TKEvent]
   
@@ -23,14 +23,14 @@ class ExitAviReadFailed {
   }
 }
 
-extension ExitAviReadFailed: Event {
+extension OutsideSfo: Event {
   func getEvents() -> [TKEvent] {
     return events
   }
 }
 
-extension ExitAviReadFailed: Observable {
+extension OutsideSfo: Observable {
   func eventIsFiring(info: Any?) {
-    postNotification(SfoNotification.Trip.warning, value: .ExitAviFailed)
+    postNotification(SfoNotification.Geofence.outsideSfo, value: nil)
   }
 }
