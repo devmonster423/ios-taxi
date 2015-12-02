@@ -15,7 +15,7 @@ class ShortTripVC: UIViewController {
   
   override func loadView() {
     let shortTripView = ShortTripView(frame: UIScreen.mainScreen().bounds)
-        shortTripView.logOutButton.addTarget(self, action: "logout", forControlEvents: .TouchUpInside)
+    shortTripView.logOutButton.addTarget(self, action: "logout", forControlEvents: .TouchUpInside)
     view = shortTripView
   }
   
