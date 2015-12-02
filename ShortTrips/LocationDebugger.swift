@@ -18,7 +18,6 @@ extension DebugVC {
     }
     
     sfoObservers.locationObserver = NotificationObserver(notification: SfoNotification.Location.read, handler: { location, _ in
-      self.debugView().printDebugLine("read location: (\(location.coordinate.latitude), \(location.coordinate.longitude)) at \(location.timestamp)")
       self.debugView().updateGPS(location.coordinate.latitude, longitude: location.coordinate.longitude)
     })
 
