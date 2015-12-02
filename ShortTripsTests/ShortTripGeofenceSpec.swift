@@ -15,19 +15,19 @@ class ShortTripGeofenceSpec: QuickSpec {
   
   override func spec() {
     
-    describe("the geofence") {
+    describe("the entry gate geofence") {
       it("denotes a bad point as being outside the geofence") {
         
-        let badPoint = CLLocationCoordinate2D(latitude: 38.00, longitude: -109.06)
+        let badPoint = CLLocationCoordinate2D(latitude: 37.610560, longitude: -122.393328)
         
-        expect(GeofenceArbiter.location(badPoint, isInsideRegion: ShortTripGeofence)).to(beFalse())
+        expect(GeofenceArbiter.location(badPoint, isInsideRegion: EntryGateGeofences[0])).to(beFalse())
       }
       
       it("denotes a good point as being inside the geofence") {
         
-        let goodPoint = CLLocationCoordinate2D(latitude: 38.00, longitude: -109.04)
+        let goodPoint = CLLocationCoordinate2D(latitude: 37.615699660000075, longitude: -122.3883)
         
-        expect(GeofenceArbiter.location(goodPoint, isInsideRegion: ShortTripGeofence)).to(beTrue())
+        expect(GeofenceArbiter.location(goodPoint, isInsideRegion: EntryGateGeofences[0])).to(beTrue())
       }
     }
   }

@@ -8,18 +8,10 @@
 
 import Foundation
 import MapKit
-import ObjectMapper
 
-struct LocalGeofence: Mappable {
-  var rings: [[[Double]]]!
+struct LocalGeofence {
 
-  init?(_ map: Map){}
-
-  mutating func mapping(map: Map) {
-    rings <- map["rings"]
-  }
-
-  func polygons() -> [MKPolygon] {
+  static func polygons(rings: [[[Double]]]) -> [MKPolygon] {
 
     var polygons = [MKPolygon]()
 

@@ -236,6 +236,8 @@
 		FA32EC0E1B883B44001428B5 /* terminal_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC0D1B883B44001428B5 /* terminal_bg.jpg */; };
 		FA6380F21BED1FEA00CF51CC /* GtmsLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */; };
 		FA650FF81BB20CDB003D1939 /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA650FF71BB20CDB003D1939 /* DateTransform.swift */; };
+		FAD0418C1C0E66E900D9F8A1 /* LocalGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */; };
+		FAD0418E1C0E6A0500D9F8A1 /* EntryGateGeofences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0418D1C0E6A0500D9F8A1 /* EntryGateGeofences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -485,6 +487,8 @@
 		FA32EC0F1B885B92001428B5 /* ShortTrips.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ShortTrips.entitlements; sourceTree = "<group>"; };
 		FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GtmsLocation.swift; sourceTree = "<group>"; };
 		FA650FF71BB20CDB003D1939 /* DateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTransform.swift; sourceTree = "<group>"; };
+		FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofence.swift; sourceTree = "<group>"; };
+		FAD0418D1C0E6A0500D9F8A1 /* EntryGateGeofences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryGateGeofences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -601,6 +605,8 @@
 		C215CDFB1BD19F9400991D9D /* Local Geofences */ = {
 			isa = PBXGroup;
 			children = (
+				FAD0418D1C0E6A0500D9F8A1 /* EntryGateGeofences.swift */,
+				FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */,
 				C257FB3F1BC4624700468CF1 /* ShortTripGeofence.swift */,
 			);
 			name = "Local Geofences";
@@ -1533,6 +1539,7 @@
 				E19A80231BE8024C00FEB76B /* OutsideShortTripGeofence.swift in Sources */,
 				C215CE011BD1AED200991D9D /* Failure.swift in Sources */,
 				C28ECB281BCEE3C100887763 /* GeofenceListWrapper.swift in Sources */,
+				FAD0418C1C0E66E900D9F8A1 /* LocalGeofence.swift in Sources */,
 				E18FF6951BA8783600FE93B9 /* MobileState.swift in Sources */,
 				C28ECB351BCF151800887763 /* Debuggable.swift in Sources */,
 				E187B2751BE036F10031F07C /* WaitingInHoldingLot.swift in Sources */,
@@ -1572,6 +1579,7 @@
 				C2635E261BB0CA3F003C22B1 /* DispatcherClient.swift in Sources */,
 				FA6380F21BED1FEA00CF51CC /* GtmsLocation.swift in Sources */,
 				E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */,
+				FAD0418E1C0E6A0500D9F8A1 /* EntryGateGeofences.swift in Sources */,
 				E1B3937B1BAC66FE00FC2970 /* LotStatus.swift in Sources */,
 				8EEFB7A41BE04AD900B8A962 /* VerifyingTaxiLoopAvi.swift in Sources */,
 				E1B3937D1BAC681B00FC2970 /* LotStatusEnum.swift in Sources */,
