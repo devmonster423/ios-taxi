@@ -21,11 +21,6 @@ struct InProgress {
     
     state.setDidEnterStateBlock { _, _ in
       postNotification(SfoNotification.State.update, value: self.getState())
-      TripManager.sharedInstance.start()
-    }
-    
-    state.setDidExitStateBlock { _, _ in
-      TripManager.sharedInstance.stop()
     }
   }
   

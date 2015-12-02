@@ -22,8 +22,8 @@ class TripManager: NSObject {
     return tripId
   }
   
-  func setTripId(tripId: Int?) {
-    self.tripId = tripId
+  func resetTripId() {
+    self.tripId = nil
   }
   
   func setStartTime(time: NSDate) {
@@ -44,7 +44,9 @@ class TripManager: NSObject {
     }
   }
   
-  func start() {
+  func start(tripId: Int) {
+    self.tripId = tripId
+    
     PingManager.sharedInstance.start()
     
     if let tripTimer = tripTimer {
@@ -56,6 +58,8 @@ class TripManager: NSObject {
       selector: "checkLength",
       userInfo: nil,
       repeats: true)
+    
+    TripStarted.sharedInstance.fire(tripId)
   }
   
   func stop() {

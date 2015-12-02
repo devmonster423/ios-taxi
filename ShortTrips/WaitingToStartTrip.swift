@@ -31,7 +31,7 @@ struct WaitingForStartTrip {
         ApiClient.start(TripBody(sessionId: sessionId, medallion: medallion, smartCardId: cardId)) { tripId in
           
           if let tripId = tripId {
-            TripStarted.sharedInstance.fire(tripId)
+            TripManager.sharedInstance.start(tripId)
             
           } else {
             Failure.sharedInstance.fire()

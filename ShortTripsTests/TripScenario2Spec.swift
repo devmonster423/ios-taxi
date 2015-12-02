@@ -55,12 +55,10 @@ class TripScenario2Spec: QuickSpec {
         LatestAviReadAtExit.sharedInstance.fire()
         expect(machine.isInState(WaitingForStartTrip.sharedInstance.getState())).to(beTrue())
         
-        TripStarted.sharedInstance.fire()
-        TripManager.sharedInstance.setTripId(123)
+        TripManager.sharedInstance.start(123)
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         
         TimeExpired.sharedInstance.fire()
-        TripManager.sharedInstance.setTripId(nil)
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
       }
     }

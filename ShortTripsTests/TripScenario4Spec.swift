@@ -69,8 +69,7 @@ class TripScenario4Spec: QuickSpec {
         expect(machine.isInState(VerifyingExitAvi.sharedInstance.getState())).to(beTrue())
         LatestAviReadAtExit.sharedInstance.fire()
         expect(machine.isInState(WaitingForStartTrip.sharedInstance.getState())).to(beTrue())
-        TripStarted.sharedInstance.fire()
-        TripManager.sharedInstance.setTripId(123)
+        TripManager.sharedInstance.start(123)
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         InsideSfo.sharedInstance.fire()
         expect(machine.isInState(VerifyingEntryGateAvi.sharedInstance.getState())).to(beTrue())
@@ -84,7 +83,6 @@ class TripScenario4Spec: QuickSpec {
         expect(machine.isInState(ValidatingTrip.sharedInstance.getState())).to(beTrue())
         
         TripValidated.sharedInstance.fire()
-        TripManager.sharedInstance.setTripId(nil)
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
       }
       
@@ -144,8 +142,7 @@ class TripScenario4Spec: QuickSpec {
         expect(machine.isInState(VerifyingExitAvi.sharedInstance.getState())).to(beTrue())
         LatestAviReadAtExit.sharedInstance.fire()
         expect(machine.isInState(WaitingForStartTrip.sharedInstance.getState())).to(beTrue())
-        TripStarted.sharedInstance.fire()
-        TripManager.sharedInstance.setTripId(123)
+        TripManager.sharedInstance.start(123)
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         InsideSfo.sharedInstance.fire()
         expect(machine.isInState(VerifyingEntryGateAvi.sharedInstance.getState())).to(beTrue())
@@ -159,7 +156,6 @@ class TripScenario4Spec: QuickSpec {
         expect(machine.isInState(ValidatingTrip.sharedInstance.getState())).to(beTrue())
         
         TripValidated.sharedInstance.fire()
-        TripManager.sharedInstance.setTripId(nil)
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
       }
     }
