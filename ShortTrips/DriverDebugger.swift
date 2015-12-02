@@ -12,7 +12,7 @@ import JSQNotificationObserverKit
 extension DebugVC {
   
   func setupDriverObservers() {
-    driverAndVehicleAssociated = NotificationObserver(notification: SfoNotification.Driver.vehicleAssociated, handler: { data, _ in
+    sfoObservers.driverAndVehicleAssociated = NotificationObserver(notification: SfoNotification.Driver.vehicleAssociated, handler: { data, _ in
       let vehicle = data.vehicle
       let driver = data.driver
       

@@ -14,7 +14,7 @@ extension DebugVC {
   
   func setupStateObservers() {
     
-    stateUpdateObserver = NotificationObserver(notification: SfoNotification.State.update) { state, _ in
+    sfoObservers.stateUpdateObserver = NotificationObserver(notification: SfoNotification.State.update) { state, _ in
       self.updateForState(state)
     }
   }
@@ -73,9 +73,9 @@ extension DebugVC {
       self.updateFakeButtons((title: "Fake Exit AVI Read", action: "latestExitAviRead"),
         second: (title: "Out of SFO Exit", action: "triggerOutsideSfo"))
       
-      self.notInTerminalExitObserver = NotificationObserver(notification: SfoNotification.Geofence.notInTerminalExit) { _, _ in
+      sfoObservers.notInTerminalExitObserver = NotificationObserver(notification: SfoNotification.Geofence.notInTerminalExit) { _, _ in
         self.debugView().printDebugLine("not exiting terminals")
-        self.notInTerminalExitObserver = nil
+        self.sfoObservers.notInTerminalExitObserver = nil
       }
       
     } else if state == VerifyingTaxiLoopAvi.sharedInstance.getState() {

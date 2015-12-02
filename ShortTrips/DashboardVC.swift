@@ -16,6 +16,9 @@ class DashboardVC: UIViewController {
     dashboardView.flightStatusBtn.addTarget(self,
       action: "showTerminalStatus",
       forControlEvents: .TouchUpInside)
+    dashboardView.shortTripBtn.addTarget(self,
+      action: "showShortTrip",
+      forControlEvents: .TouchUpInside)
     dashboardView.timerView.start(requestLotStatus, updateInterval: 60)
     let secretSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: "openDebugMode")
     secretSwipeRecognizer.numberOfTouchesRequired = 2
@@ -68,9 +71,13 @@ class DashboardVC: UIViewController {
   }
   
   func openDebugMode() {
-    navigationController?.pushViewController(LoginVC(), animated: true)
+    navigationController?.pushViewController(LoginVC(debug: true), animated: true)
   }
-
+  
+  func showShortTrip() {
+    navigationController?.pushViewController(LoginVC(debug: false), animated: true)
+  }
+  
   func showTerminalStatus() {
     navigationController?.pushViewController(TerminalSummaryVC(), animated: true)
   }
