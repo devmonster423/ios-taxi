@@ -12,7 +12,7 @@ import ObjectMapper
 struct Vehicle: Mappable {
   var gtmsTripId: Int!
   var licensePlate: String!
-  var medallion: Int!
+  var medallion: Int?
   var transponderId: Int!
   var vehicleId: Int!
   

@@ -27,9 +27,17 @@ struct ValidatingTrip {
         driver = DriverManager.sharedInstance.getCurrentDriver(),
         sessionId = driver.sessionId,
         cardId = driver.cardId,
-        medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion {
+        vehicleId = DriverManager.sharedInstance.getCurrentVehicle()?.vehicleId
+         {
 
-          ApiClient.end(tripId, tripBody: TripBody(sessionId: sessionId, medallion: medallion, smartCardId: cardId)) { validation in
+          let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion
+          
+          let tripBody = TripBody(sessionId: sessionId,
+            medallion: medallion,
+            vehicleId: vehicleId,
+            smartCardId: cardId)
+      
+          ApiClient.end(tripId, tripBody: tripBody) { validation in
             
             if let validation = validation {
               if validation.valid! {

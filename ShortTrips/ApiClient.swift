@@ -29,6 +29,7 @@ struct ApiClient {
     
     headers["driver"] = "\(DriverManager.sharedInstance.getCurrentDriver()?.driverId)"
     headers["medallion"] = "\(DriverManager.sharedInstance.getCurrentVehicle()?.medallion)"
+    headers["vehicle_id"] = "\(DriverManager.sharedInstance.getCurrentVehicle()?.vehicleId)"
     
     return headers
   }

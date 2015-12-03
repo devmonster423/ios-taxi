@@ -22,7 +22,11 @@ class TripClientSpec: QuickSpec {
         
         let tripId = 1;
 
-        let ping = Ping(location: CLLocation(latitude: 37.615716, longitude: -122.388321), tripId: 123, sessionId: 456, medallion: 789)
+        let ping = Ping(location: CLLocation(latitude: 37.615716, longitude: -122.388321),
+          tripId: 123,
+          vehicleId: 123,
+          sessionId: 456,
+          medallion: 789)
         
         self.stub(uri(Url.Trip.ping(tripId)), builder: json(TripPingMock))
         
@@ -32,7 +36,10 @@ class TripClientSpec: QuickSpec {
       }
       
       it("can start") {
-        let tripBody = TripBody(sessionId: 123, medallion: 456, smartCardId: "1234")
+        let tripBody = TripBody(sessionId: 123,
+          medallion: 456,
+          vehicleId: 789,
+          smartCardId: "1234")
         
         self.stub(uri(Url.Trip.start), builder: json(TripStartMock))
         ApiClient.start(tripBody) { geofences in

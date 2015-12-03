@@ -31,20 +31,22 @@ struct Ping: Mappable {
   var timestamp: NSDate!
   var tripId: Int!
   var sessionId: Int!
-  var medallion: Int!
+  var medallion: Int?
+  var vehicleId: Int!
   var geofenceStatus: GeofenceStatus!
   
   static let transform = DateTransform(dateFormat: "yyyy-MM-dd'T'HH:mm:ss'Z'") // 2015-09-15T16:13:48Z
   
   init?(_ map: Map){}
   
-  init(location: CLLocation, tripId: Int, sessionId: Int, medallion: Int) {
+  init(location: CLLocation, tripId: Int, vehicleId: Int, sessionId: Int, medallion: Int?) {
     self.latitude = location.coordinate.latitude
     self.longitude = location.coordinate.longitude
     self.timestamp = location.timestamp
     self.tripId = tripId
     self.sessionId = sessionId
     self.medallion = medallion
+    self.vehicleId = vehicleId
     
     // TODO: actually determine locally
     self.geofenceStatus = .Invalid
@@ -54,6 +56,7 @@ struct Ping: Mappable {
     tripId <- map["trip_id"]
     sessionId <- map["session_id"]
     medallion <- map["medallion"]
+    vehicleId <- map["vehicle_id"]
     latitude <- map["latitude"]
     longitude <- map["longitude"]
     timestamp <- (map["timestamp"], Ping.transform)

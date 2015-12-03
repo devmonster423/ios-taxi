@@ -26,9 +26,16 @@ struct WaitingForStartTrip {
       if let driver = DriverManager.sharedInstance.getCurrentDriver(),
       sessionId = driver.sessionId,
       cardId = driver.cardId,
-      medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion  {
-          
-        ApiClient.start(TripBody(sessionId: sessionId, medallion: medallion, smartCardId: cardId)) { tripId in
+      vehicleId = DriverManager.sharedInstance.getCurrentVehicle()?.vehicleId {
+      
+        let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion
+        
+        let tripBody = TripBody(sessionId: sessionId,
+          medallion: medallion,
+          vehicleId: vehicleId,
+          smartCardId: cardId)
+        
+        ApiClient.start(tripBody) { tripId in
           
           if let tripId = tripId {
             TripManager.sharedInstance.start(tripId)

@@ -78,9 +78,17 @@ class PingManager: NSObject {
     if let location = LocationManager.sharedInstance.getLastKnownLocation(),
       let tripId = TripManager.sharedInstance.getTripId(),
       let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId,
-      let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion {
+      let vehicleId = DriverManager.sharedInstance.getCurrentVehicle()?.vehicleId
+      {
+    
+        let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion
+    
+        let ping = Ping(location: location,
+          tripId: tripId,
+          vehicleId: vehicleId,
+          sessionId: sessionId,
+          medallion: medallion)
         
-        let ping = Ping(location: location, tripId: tripId, sessionId: sessionId, medallion: medallion)
         postNotification(SfoNotification.Ping.attempting, value: ping)
         ApiClient.ping(tripId, ping: ping) { geofenceStatus in
           
