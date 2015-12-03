@@ -12,13 +12,15 @@ typealias Action = Void -> Void
 
 class Poller: NSObject {
   
+  static let standardTimeout: NSTimeInterval = 60
+  
   private var action: Action
   private var creationDate: NSDate!
   private var timeout: NSTimeInterval?
   private var timer: NSTimer!
   private var failure: Action
 
-  init(timeout: NSTimeInterval? = 60,
+  init(timeout: NSTimeInterval? = standardTimeout,
     action: Action,
     failure: Action = {Failure.sharedInstance.fire()}) {
 

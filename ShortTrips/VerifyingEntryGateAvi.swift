@@ -25,7 +25,9 @@ struct VerifyingEntryGateAvi {
       
       postNotification(SfoNotification.State.update, value: self.getState())
       
-      self.poller = Poller.init(action: {
+      let tripActive = TripManager.sharedInstance.getTripId() != nil
+      
+      self.poller = Poller.init(timeout: tripActive ? nil : Poller.standardTimeout, action: {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
 
@@ -39,12 +41,7 @@ struct VerifyingEntryGateAvi {
           }
         }
       }, failure: {
-        if let tripId = TripManager.sharedInstance.getTripId() {
-          ApiClient.invalidate(tripId, validation: .Vehicle)
-          ReEntryAviFailed.sharedInstance.fire()
-        } else {
-          OptionalEntryCheckFailed.sharedInstance.fire()
-        }
+        OptionalEntryCheckFailed.sharedInstance.fire()
       })
     }
     

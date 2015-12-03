@@ -69,6 +69,6 @@ extension DebugVC {
   }
   
   func triggerOutsideSfo() {
-    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.610560, longitude: -122.393328))
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.65, longitude: -122.405))
   }
 }

@@ -60,7 +60,7 @@ extension DebugVC {
     } else if state == VerifyingEntryGateAvi.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting for Entry Gate Avi")
       debugView().updateState("Waiting for Entry Gate Avi")
-      updateFakeButtons((title: "Confirm Entry Gate Avi Read", action: "confirmEntryGateAviRead"))
+      updateFakeButtons((title: "Confirm Entry Gate Avi Read", action: "confirmEntryGateAviRead"), second: (title: "Outside SFO", action: "triggerOutsideSfo"))
       
     } else if state == WaitingForPaymentCid.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting for Payment Cid")
