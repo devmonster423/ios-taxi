@@ -75,7 +75,14 @@ class DashboardVC: UIViewController {
   }
   
   func showShortTrip() {
-    navigationController?.pushViewController(LoginVC(debug: false), animated: true)
+    let alertController = UIAlertController(title: NSLocalizedString("Coming Soon", comment: ""),
+      message: "",
+      preferredStyle: .Alert)
+    let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
+      style: .Default, handler: nil)
+    alertController.addAction(OKAction)
+    self.presentViewController(alertController, animated: true, completion: nil)
+//    navigationController?.pushViewController(LoginVC(debug: false), animated: true)
   }
   
   func showTerminalStatus() {
