@@ -35,8 +35,10 @@ class DebugView: UIView {
   private let geofenceLabel = UILabel()
   private let gpsLabel = UILabel()
   private let stateLabel = UILabel()
+  private let gtmsLabel = UILabel()
   private let cidLabel = UILabel()
   private let aviLabel = UILabel()
+  private var gtmsCount: Int = 0
   
   let fakeButton = UIButton()
   let secondFakeButton = UIButton()
@@ -56,6 +58,7 @@ class DebugView: UIView {
     addSubview(geofenceLabel)
     addSubview(gpsLabel)
     addSubview(stateLabel)
+    addSubview(gtmsLabel)
     addSubview(fakeButton)
     addSubview(secondFakeButton)
     addSubview(thirdFakeButton)
@@ -101,7 +104,18 @@ class DebugView: UIView {
     stateLabel.snp_makeConstraints { make in
       make.height.equalTo(50)
       make.leading.equalTo(self)
-      make.width.equalTo(self)
+      make.width.equalTo(self).dividedBy(2)
+      make.top.equalTo(geofenceLabel.snp_bottom)
+    }
+    
+    gtmsLabel.backgroundColor = UIColor(red: 0.90, green: 0.20, blue: 0.90, alpha: 1.0)
+    gtmsLabel.font = Font.MyriadPro.size(14)
+    gtmsLabel.numberOfLines = 0
+    updateGtms()
+    gtmsLabel.snp_makeConstraints { make in
+      make.height.equalTo(50)
+      make.trailing.equalTo(self)
+      make.width.equalTo(self).dividedBy(2)
       make.top.equalTo(geofenceLabel.snp_bottom)
     }
     
@@ -165,6 +179,11 @@ class DebugView: UIView {
     }
   }
   
+  func incrementGtms() {
+    gtmsCount += 1
+    updateGtms()
+  }
+  
   func updateGeofenceList(geofences: [Geofence]) {
     var text = NSLocalizedString("Last verified geofence(s)", comment: "") + ":\n"
     
@@ -182,7 +201,7 @@ class DebugView: UIView {
   
   func updateState(text: String?) {
     if let text = text {
-      stateLabel.text = NSLocalizedString("Current State: \(text)", comment: "")
+      stateLabel.text = NSLocalizedString("State", comment: "") + ": \(text)"
     }
   }
   
@@ -190,6 +209,10 @@ class DebugView: UIView {
     if let text = text {
       cidLabel.text = NSLocalizedString("Last CID", comment: "") + ": \(text)"
     }
+  }
+
+  func updateGtms() {
+      gtmsLabel.text = NSLocalizedString("GTMS calls", comment: "") + ": \(gtmsCount)"
   }
   
   func updateAvi(text: String?) {

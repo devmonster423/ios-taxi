@@ -9,6 +9,10 @@
 /* Debug */
 "Last verified geofence(s)" = "Geofence(s) derniers verifié";
 "Last verified location" = "Emplacement dernier verifié";
+"Last CID" = "Dernier CID";
+"Last AVI" = "Dernier AVI";
+"State" = "État";
+"GTMS calls" = "Appels GTMS";
 
 /* Login */
 "Username" = "Nom d'utilisateur";

@@ -43,7 +43,6 @@ extension ApiClient {
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
-        
         response(antenna)
     }
   }
@@ -55,7 +54,6 @@ extension ApiClient {
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
-        
         response(cid)
     }
   }

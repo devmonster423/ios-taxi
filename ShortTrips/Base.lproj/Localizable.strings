@@ -11,6 +11,8 @@
 "Last verified location" = "Last verified location";
 "Last CID" = "Last CID";
 "Last AVI" = "Last AVI";
+"State" = "State";
+"GTMS calls" = "GTMS calls";
 
 /* Login */
 "Username" = "Username";
