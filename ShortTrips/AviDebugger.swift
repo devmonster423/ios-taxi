@@ -16,25 +16,30 @@ extension DebugVC {
     sfoObservers.entryGateAvi = NotificationObserver(notification: SfoNotification.Avi.entryGate, handler: { antenna, _ in
       self.debugView().updateAvi("\(antenna)")
       self.debugView().printDebugLine("entry gate avi detected: (\(antenna)")
+      self.debugView().incrementGtms()
     })
     
     sfoObservers.exitAviRead = NotificationObserver(notification: SfoNotification.Avi.exit, handler: { antenna, _ in
       self.debugView().updateAvi("\(antenna)")
       self.debugView().printDebugLine("Exit AVI read: (\(antenna)")
+      self.debugView().incrementGtms()
     })
     
     sfoObservers.inboundAviRead = NotificationObserver(notification: SfoNotification.Avi.exit, handler: { antenna, _ in
       self.debugView().updateAvi("\(antenna)")
       self.debugView().printDebugLine("Inbound AVI read: (\(antenna)")
+      self.debugView().incrementGtms()
     })
     
     sfoObservers.taxiLoopAviRead = NotificationObserver(notification: SfoNotification.Avi.taxiLoop, handler: { antenna, _ in
       self.debugView().updateAvi("\(antenna)")
       self.debugView().printDebugLine("Taxiloop AVI read: (\(antenna)")
+      self.debugView().incrementGtms()
     })
     
     sfoObservers.unexpectedAviRead = NotificationObserver(notification: SfoNotification.Avi.unexpected, handler: { gtmsLocations, _ in
       self.debugView().printDebugLine("unexpected avi. expected \(gtmsLocations.expected.rawValue), found \(gtmsLocations.found.rawValue)", type: .Negative)
+      self.debugView().incrementGtms()
     })
   }
   

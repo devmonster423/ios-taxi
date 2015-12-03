@@ -15,8 +15,8 @@ extension DebugVC {
     sfoObservers.driverAndVehicleAssociated = NotificationObserver(notification: SfoNotification.Driver.vehicleAssociated, handler: { data, _ in
       let vehicle = data.vehicle
       let driver = data.driver
-      
       self.debugView().printDebugLine("driver \(driver.firstName) \(driver.lastName) is associated with transponder: \(vehicle.transponderId)")
+      self.debugView().incrementGtms()
     })
   }
   
