@@ -13,7 +13,7 @@ import JSQNotificationObserverKit
 struct VerifyingExitAvi {
   let stateName = "verifyingExitAvi"
   static let sharedInstance = VerifyingExitAvi()
-  private let expectedAvi: GtmsLocation = .TerminalExit
+  private let expectedAvi: GtmsLocation = .DtExit
   
   private var poller: Poller?
   private var state: TKState

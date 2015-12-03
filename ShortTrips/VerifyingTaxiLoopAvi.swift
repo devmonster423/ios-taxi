@@ -13,7 +13,7 @@ import JSQNotificationObserverKit
 struct VerifyingTaxiLoopAvi {
   let stateName = "verifyingTaxiLoopAvi"
   static let sharedInstance = VerifyingTaxiLoopAvi()
-  private let expectedAvi: GtmsLocation = .HoldingLotExit
+  private let expectedAvi: GtmsLocation = .DtaRecirculation
   
   private var poller: Poller?
   private var state: TKState

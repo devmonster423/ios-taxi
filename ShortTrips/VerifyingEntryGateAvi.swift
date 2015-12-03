@@ -13,7 +13,7 @@ import JSQNotificationObserverKit
 struct VerifyingEntryGateAvi {
   let stateName = "verifyingEntryGateAvi"
   static let sharedInstance = VerifyingEntryGateAvi()
-  private let expectedAvi: GtmsLocation = .Inbound
+  private let expectedAvi: GtmsLocation = .TaxiEntry
   
   private var poller: Poller?
   private var state: TKState

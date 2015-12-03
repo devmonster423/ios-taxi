@@ -33,10 +33,6 @@ enum GtmsLocation: String {
   case GtuArea = "Location #33 GTU Area"
   case RentalCar = "Location #35 Rental Car"
   
-//  case HoldingLotExit = "Location #12 Holding Lot Exit"
-  case Inbound = "Location #1 Inbound"
-  case TerminalExit = "Location #2 Terminal Exit"
-  
   static func from(cidId id: String) -> GtmsLocation? {
     switch id {
     case "CID11", "CID12", "CID13", "CID14":
@@ -70,11 +66,6 @@ enum GtmsLocation: String {
       return .ItaEntrance
     case "L8AVI1", "L8AVI2", "L8AVI3", "L8AVI4", "L8AVI5":
       return .ItdEntrance
-    
-//    case "L1AVI1":
-//      return .Inbound
-//    case "L2AVI1":
-//      return .TerminalExit
     case "L9AVI1", "L9AVI2", "L9AVI3", "L9AVI4":
       return .DtaEntrance
     case "L10AVI1":
@@ -87,8 +78,6 @@ enum GtmsLocation: String {
       return .DtaExit
     case "L14AVI1", "L14AVI2":
       return .DtdRecirculation
-//    case "L12AVI1":
-//      return .HoldingLotExit
     case "L15AVI1", "L15AVI2", "L15AVI3":
       return .TaxiMainLot
     case "L16AVI1":
