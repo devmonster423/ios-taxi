@@ -11,7 +11,6 @@ import Quick
 import Nimble
 import CoreLocation
 import ObjectMapper
-import MapKit
 
 class ShortTripGeofenceSpec: QuickSpec {
   
