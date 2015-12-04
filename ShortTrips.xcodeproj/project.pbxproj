@@ -133,6 +133,8 @@
 		C2B60A7E1BF66A8E00A8A452 /* TripBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B60A7D1BF66A8E00A8A452 /* TripBody.swift */; };
 		C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667101BA7577600BA28E2 /* DashboardView.swift */; };
 		C2B667291BA7833400BA28E2 /* TerminalSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */; };
+		C2CE0B141C1219AB00496607 /* LocalGeofenceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */; };
+		C2CE0B161C12220D00496607 /* EntryGateString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CE0B151C12220D00496607 /* EntryGateString.swift */; };
 		C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */; };
 		C2DAD68B1BE7F06200CB142C /* TripManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAD68A1BE7F06200CB142C /* TripManager.swift */; };
 		C2DAD68D1BE8360800CB142C /* PingDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAD68C1BE8360800CB142C /* PingDebugger.swift */; };
@@ -237,7 +239,6 @@
 		FA6380F21BED1FEA00CF51CC /* GtmsLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */; };
 		FA650FF81BB20CDB003D1939 /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA650FF71BB20CDB003D1939 /* DateTransform.swift */; };
 		FAD0418C1C0E66E900D9F8A1 /* LocalGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */; };
-		FAD0418E1C0E6A0500D9F8A1 /* EntryGateGeofences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0418D1C0E6A0500D9F8A1 /* EntryGateGeofences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -377,6 +378,8 @@
 		C2B60A7D1BF66A8E00A8A452 /* TripBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripBody.swift; sourceTree = "<group>"; };
 		C2B667101BA7577600BA28E2 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryView.swift; sourceTree = "<group>"; };
+		C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofenceFeature.swift; sourceTree = "<group>"; };
+		C2CE0B151C12220D00496607 /* EntryGateString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryGateString.swift; sourceTree = "<group>"; };
 		C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVCSpec.swift; sourceTree = "<group>"; };
 		C2DAD68A1BE7F06200CB142C /* TripManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripManager.swift; sourceTree = "<group>"; };
 		C2DAD68C1BE8360800CB142C /* PingDebugger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingDebugger.swift; sourceTree = "<group>"; };
@@ -488,7 +491,6 @@
 		FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GtmsLocation.swift; sourceTree = "<group>"; };
 		FA650FF71BB20CDB003D1939 /* DateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTransform.swift; sourceTree = "<group>"; };
 		FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofence.swift; sourceTree = "<group>"; };
-		FAD0418D1C0E6A0500D9F8A1 /* EntryGateGeofences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryGateGeofences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -605,8 +607,8 @@
 		C215CDFB1BD19F9400991D9D /* Local Geofences */ = {
 			isa = PBXGroup;
 			children = (
-				FAD0418D1C0E6A0500D9F8A1 /* EntryGateGeofences.swift */,
 				FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */,
+				C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */,
 				C257FB3F1BC4624700468CF1 /* ShortTripGeofence.swift */,
 			);
 			name = "Local Geofences";
@@ -762,6 +764,7 @@
 			isa = PBXGroup;
 			children = (
 				C257FB431BC4653000468CF1 /* ShortTripGeofenceSpec.swift */,
+				C2CE0B151C12220D00496607 /* EntryGateString.swift */,
 			);
 			name = Geofences;
 			sourceTree = "<group>";
@@ -1529,6 +1532,7 @@
 				C20A988E1BE1A1BC009E29E7 /* TripStarted.swift in Sources */,
 				C28ECB3D1BCF193300887763 /* PingManager.swift in Sources */,
 				C21775F91BB08CAC008B24EA /* Color.swift in Sources */,
+				C2CE0B141C1219AB00496607 /* LocalGeofenceFeature.swift in Sources */,
 				C2F3E90F1BF402F800B852EF /* OptionalEntryFailed.swift in Sources */,
 				C2FC60FE1BFE49EE00F50A80 /* ExitingTerminals.swift in Sources */,
 				E14A39281BE957340053F741 /* AppQuit.swift in Sources */,
@@ -1579,7 +1583,6 @@
 				C2635E261BB0CA3F003C22B1 /* DispatcherClient.swift in Sources */,
 				FA6380F21BED1FEA00CF51CC /* GtmsLocation.swift in Sources */,
 				E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */,
-				FAD0418E1C0E6A0500D9F8A1 /* EntryGateGeofences.swift in Sources */,
 				E1B3937B1BAC66FE00FC2970 /* LotStatus.swift in Sources */,
 				8EEFB7A41BE04AD900B8A962 /* VerifyingTaxiLoopAvi.swift in Sources */,
 				E1B3937D1BAC681B00FC2970 /* LotStatusEnum.swift in Sources */,
@@ -1639,6 +1642,7 @@
 				C221EDEB1BE2E12E00BDB4CD /* MockAntennaResponse.swift in Sources */,
 				8EEFB7C71BE1B24500B8A962 /* TripClientSpec.swift in Sources */,
 				8EEFB7B91BE1A6BA00B8A962 /* DeviceClientSpec.swift in Sources */,
+				C2CE0B161C12220D00496607 /* EntryGateString.swift in Sources */,
 				C22167971BD59419002D7994 /* MultipleGeofenceMock.swift in Sources */,
 				E14A39261BE945960053F741 /* TripScenario4Spec.swift in Sources */,
 				E1C045BD1BF110FB000A3F42 /* MockLotStatusResponse.swift in Sources */,

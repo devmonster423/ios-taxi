@@ -14,7 +14,6 @@ import ObjectMapper
 
 class AirlineSpec: QuickSpec {
   var airline: Airline!
-  var map: Map!
   
   override func spec() {
     describe("the Airline") {

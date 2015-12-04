@@ -7,25 +7,15 @@
 //
 
 import Foundation
-import MapKit
+import ObjectMapper
 
-struct LocalGeofence {
+struct LocalGeofence: Mappable {
 
-  static func polygons(rings: [[[Double]]]) -> [MKPolygon] {
+  var features: [LocalGeofenceFeature]!
 
-    var polygons = [MKPolygon]()
+  init?(_ map: Map){}
 
-    for ring in rings {
-
-      var points = [CLLocationCoordinate2D]()
-
-      for point in ring {
-        points.append(CLLocationCoordinate2D(latitude: point[1], longitude: point[0]))
-      }
-
-      polygons.append(MKPolygon(coordinates: &points, count: points.count))
-    }
-
-    return polygons
+  mutating func mapping(map: Map) {
+    features <- map["features"]
   }
 }
