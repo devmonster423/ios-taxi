@@ -15,7 +15,7 @@ import MapKit
 
 class ShortTripGeofenceSpec: QuickSpec {
   
-  var polygons: [MKPolygon]!
+  var polygonInfo: [PolygonInfo]!
 
   override func spec() {
     
@@ -24,21 +24,21 @@ class ShortTripGeofenceSpec: QuickSpec {
 
         let localGeofence = Mapper<LocalGeofence>().map(EntryGateString)!
         let feature = localGeofence.features[0]
-        self.polygons = feature.polygons()
+        self.polygonInfo = feature.polygonInfo()
       }
 
       it("denotes a bad point as being outside the geofence") {
         
         let badPoint = CLLocationCoordinate2D(latitude: 37.610560, longitude: -122.393328)
         
-        expect(GeofenceArbiter.location(badPoint, isInsideRegion: self.polygons[0])).to(beFalse())
+        expect(GeofenceArbiter.location(badPoint, satisfiesPolygonInfo: self.polygonInfo)).to(beFalse())
       }
       
       it("denotes a good point as being inside the geofence") {
         
         let goodPoint = CLLocationCoordinate2D(latitude: 37.615699660000075, longitude: -122.3883)
         
-        expect(GeofenceArbiter.location(goodPoint, isInsideRegion: self.polygons[0])).to(beTrue())
+        expect(GeofenceArbiter.location(goodPoint, satisfiesPolygonInfo: self.polygonInfo)).to(beTrue())
       }
     }
   }

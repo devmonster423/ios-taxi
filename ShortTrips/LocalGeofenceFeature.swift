@@ -10,6 +10,8 @@ import Foundation
 import ObjectMapper
 import MapKit
 
+typealias PolygonInfo = (polygon: MKPolygon, additive: Bool)
+
 struct LocalGeofenceFeature: Mappable {
 
   var rings: [[[Double]]]!
@@ -20,9 +22,9 @@ struct LocalGeofenceFeature: Mappable {
     rings <- map["geometry.rings"]
   }
 
-  func polygons() -> [MKPolygon] {
+  func polygonInfo() -> [PolygonInfo] {
 
-    var polygons = [MKPolygon]()
+    var polygons = [PolygonInfo]()
 
     for ring in self.rings {
 
@@ -31,10 +33,26 @@ struct LocalGeofenceFeature: Mappable {
       for point in ring {
         points.append(CLLocationCoordinate2D(latitude: point[1], longitude: point[0]))
       }
+      
+      let polygon = MKPolygon(coordinates: &points, count: points.count)
 
-      polygons.append(MKPolygon(coordinates: &points, count: points.count))
+      polygons.append((polygon: polygon, additive: ringIsClockwise(ring)))
     }
 
     return polygons
+  }
+  
+  // thanks to http://stackoverflow.com/a/1165943/2577986
+  func ringIsClockwise(ring: [[Double]]) -> Bool {
+    var clockwisiness: Double = 0
+    
+    for i in 0..<ring.count {
+      let currentCoord = ring[i]
+      let nextCoord = i < ring.count - 1 ? ring[i+1] : ring[0]
+      
+      clockwisiness += (nextCoord[0] - currentCoord[0]) * (nextCoord[1] + currentCoord[1])
+    }
+    
+    return clockwisiness > 0
   }
 }

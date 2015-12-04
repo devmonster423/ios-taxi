@@ -15,6 +15,17 @@ struct GeofenceArbiter {
   
   static let buffer = 0.1
   
+  static func location(location: CLLocationCoordinate2D, satisfiesPolygonInfo polygonInfos:[PolygonInfo]) -> Bool {
+
+    for polygonInfo in polygonInfos {
+      if polygonInfo.additive != self.location(location, isInsideRegion: polygonInfo.polygon) {
+        return false
+      }
+    }
+    
+    return true
+  }
+  
   static func location(location: CLLocationCoordinate2D, isInsideRegion region: MKPolygon) -> Bool {
     
     let mutablePathRef = CGPathCreateMutable()
