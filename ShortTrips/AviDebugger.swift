@@ -39,6 +39,7 @@ extension DebugVC {
     
     sfoObservers.unexpectedAviRead = NotificationObserver(notification: SfoNotification.Avi.unexpected, handler: { gtmsLocations, _ in
       self.debugView().printDebugLine("unexpected avi. expected \(gtmsLocations.expected.rawValue), found \(gtmsLocations.found.rawValue)", type: .Negative)
+      self.debugView().updateAvi("\(gtmsLocations.found.rawValue)")
       self.debugView().incrementGtms()
     })
   }
