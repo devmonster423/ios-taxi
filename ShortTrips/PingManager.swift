@@ -23,8 +23,6 @@ class PingManager: NSObject {
   
   static let sharedInstance = PingManager()
 
-  override private init() {}
-
   func start() {
     
     if let _ = timer {} else {

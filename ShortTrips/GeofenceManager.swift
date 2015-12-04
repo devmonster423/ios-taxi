@@ -10,35 +10,40 @@ import Foundation
 import CoreLocation
 import JSQNotificationObserverKit
 
-class GeofenceManager {
-
-  var locationObserver: NotificationObserver<CLLocation, AnyObject>?
+class GeofenceManager: NSObject {
+  
+  let updateFrequency = NSTimeInterval(30)
 
   static let sharedInstance = GeofenceManager()
-
-  private init() {}
+  
+  private var timer: NSTimer?
 
   func start() {
-    if let _ = locationObserver {} else {
-      self.locationObserver = NotificationObserver(notification: SfoNotification.Location.read, handler: { location, _ in
-        self.process(location)
-      })
+    if let _ = timer {} else {
+      timer = NSTimer.scheduledTimerWithTimeInterval(updateFrequency,
+        target: self,
+        selector: "processLastKnownLocation",
+        userInfo: nil,
+        repeats: true)
     }
   }
 
   func stop() {
-    locationObserver = nil
+    timer?.invalidate()
+    timer = nil
   }
-
-  private func process(location: CLLocation) {
-    ApiClient.requestGeofencesForLocation(location.coordinate.latitude,
-      longitude: location.coordinate.longitude,
-      buffer: GeofenceArbiter.buffer) { geofences in
-        
-        if let geofences = geofences {
-          self.process(geofences.map { geofence -> SfoGeofence in return geofence.geofence! })
-          postNotification(SfoNotification.Geofence.foundInside, value: geofences)
-        }
+  
+  func processLastKnownLocation() {
+    if let location = LocationManager.sharedInstance.getLastKnownLocation() {
+      ApiClient.requestGeofencesForLocation(location.coordinate.latitude,
+        longitude: location.coordinate.longitude,
+        buffer: GeofenceArbiter.buffer) { geofences in
+          
+          if let geofences = geofences {
+            self.process(geofences.map { geofence -> SfoGeofence in return geofence.geofence! })
+            postNotification(SfoNotification.Geofence.foundInside, value: geofences)
+          }
+      }
     }
   }
 
