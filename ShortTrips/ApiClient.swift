@@ -27,9 +27,17 @@ struct ApiClient {
   static func headers() -> [String: String]? {
     var headers = [String: String]()
     
-    headers["driver"] = "\(DriverManager.sharedInstance.getCurrentDriver()?.driverId)"
-    headers["medallion"] = "\(DriverManager.sharedInstance.getCurrentVehicle()?.medallion)"
-    headers["vehicle_id"] = "\(DriverManager.sharedInstance.getCurrentVehicle()?.vehicleId)"
+    if let driverId = DriverManager.sharedInstance.getCurrentDriver()?.driverId {
+      headers["driver"] = "\(driverId)"
+    }
+    
+    if let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion {
+      headers["medallion"] = "\(medallion)"
+    }
+    
+    if let vehicleId = DriverManager.sharedInstance.getCurrentVehicle()?.vehicleId {
+      headers["vehicle_id"] = "\(vehicleId)"
+    }
     
     return headers
   }
