@@ -14,12 +14,14 @@ struct TripBody: Mappable {
   var medallion: Int?
   var vehicleId: Int!
   var smartCardId: String!
+  var deviceUuid: String!
   
   init(sessionId: Int, medallion: Int?, vehicleId: Int, smartCardId: String) {
     self.sessionId = sessionId
     self.medallion = medallion
     self.vehicleId = vehicleId
     self.smartCardId = smartCardId
+    self.deviceUuid = UIDevice.currentDevice().identifierForVendor!.UUIDString
   }
   
   init?(_ map: Map){}
@@ -29,5 +31,6 @@ struct TripBody: Mappable {
     medallion <- map["medallion"]
     vehicleId <- map["vehicle_id"]
     smartCardId <- map["driver_card_id"]
+    deviceUuid <- map["device_uuid"]
   }
 }

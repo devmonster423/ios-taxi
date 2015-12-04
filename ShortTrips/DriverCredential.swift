@@ -14,12 +14,20 @@ struct DriverCredential: Mappable {
   var macAddress: String!
   var osVersion: String!
   var deviceOs: String!
-  var longitude: String!
-  var latitude: String!
+  var longitude: String?
+  var latitude: String?
+  var deviceUuid: String!
+
   
   init(username: String, password: String) {
     self.username = username
     self.password = password
+    self.deviceOs = "ios"
+    self.osVersion = UIDevice.currentDevice().systemVersion
+    self.deviceUuid = UIDevice.currentDevice().identifierForVendor!.UUIDString
+    let location = LocationManager.sharedInstance.getLastKnownLocation()
+    self.latitude = "\(location?.coordinate.latitude)"
+    self.longitude = "\(location?.coordinate.longitude)"
   }
   
   init() {}
@@ -31,9 +39,10 @@ struct DriverCredential: Mappable {
     password <- map["password"]
     macAddress <- map["mac_address"]
     osVersion <- map["os_version"]
-    deviceOs <- map["device_os"]
+    deviceOs <- map["driver_device_os"]
     longitude <- map["longitude"]
     latitude <- map["latitude"]
+    deviceUuid <- map["device_uuid"]
   }
   
   static func test() -> DriverCredential {
