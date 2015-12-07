@@ -32,6 +32,7 @@ enum SfoGeofence: Int {
   case Colma = 16
   case DalyCity = 17
   case SfoTerminalExit = 18
+  case TaxiWaitingZone = 19
 }
 
 struct Geofence: Mappable {
