@@ -40,7 +40,7 @@ class GeofenceManager: NSObject {
         buffer: GeofenceArbiter.buffer) { geofences in
           
           if let geofences = geofences {
-            self.process(geofences.map { geofence -> SfoGeofence in return geofence.geofence! })
+            self.process(geofences.flatMap { geofence -> SfoGeofence? in return geofence.geofence })
             postNotification(SfoNotification.Geofence.foundInside, value: geofences)
           }
       }

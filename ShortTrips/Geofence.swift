@@ -37,7 +37,7 @@ enum SfoGeofence: Int {
 struct Geofence: Mappable {
   var category: Category?
   var description: String?
-  var geofence: SfoGeofence!
+  var geofence: SfoGeofence?
   var name: String!
   
   init(category: Category, description: String, geofence: SfoGeofence, name: String) {
