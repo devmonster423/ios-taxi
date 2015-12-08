@@ -29,7 +29,7 @@ extension DebugVC {
     } else if state == NotReady.sharedInstance.getState() {
       debugView().printDebugLine("Entered Not Ready State")
       debugView().updateState("Not Ready")
-      updateFakeButtons((title: "Fake Inside SFO", action: "triggerInsideSfo"), second: (title: "Inside Taxi Loop Exit", action: "triggerAtTerminalExit"))
+      updateFakeButtons((title: "Fake Inside Taxi Waiting Zone", action: "triggerInsideTaxiWaitingZone"), second: (title: "Inside Taxi Loop Exit", action: "triggerAtTerminalExit"))
       
     } else if state == Ready.sharedInstance.getState() {
       debugView().printDebugLine("Entered Ready State")

@@ -40,6 +40,7 @@ class StateManager {
     events += GpsDisabled.sharedInstance.getEvents()
     events += InsideSfo.sharedInstance.getEvents()
     events += InsideTaxiLoopExit.sharedInstance.getEvents()
+    events += InsideTaxiWaitingZone.sharedInstance.getEvents()
     events += LatestAviReadAtEntry.sharedInstance.getEvents()
     events += LatestAviReadAtExit.sharedInstance.getEvents()
     events += LatestAviReadAtTaxiLoop.sharedInstance.getEvents()

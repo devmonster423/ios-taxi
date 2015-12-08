@@ -25,7 +25,7 @@ class TripScenario1Spec: QuickSpec {
         // has initial state of not ready
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
       
-        InsideSfo.sharedInstance.fire()
+        InsideTaxiWaitingZone.sharedInstance.fire()
         expect(machine.isInState(WaitingForEntryCid.sharedInstance.getState())).to(beTrue())
         
         LatestCidIsEntryCid.sharedInstance.fire()

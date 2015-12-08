@@ -57,6 +57,10 @@ class GeofenceManager {
       OutsideSfo.sharedInstance.fire()
     }
     
+    if geofences.contains(.TaxiWaitingZone) {
+      InsideTaxiWaitingZone.sharedInstance.fire()
+    }
+    
     if (geofences.contains(.SfoInternationalExit) || geofences.contains(.SfoTaxiDomesticExit))
       && !geofences.contains(.TaxiWaitingZone) {
       InsideTaxiLoopExit.sharedInstance.fire()

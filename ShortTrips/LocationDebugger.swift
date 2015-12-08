@@ -68,6 +68,10 @@ extension DebugVC {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.621313, longitude: -122.378955))
   }
   
+  func triggerInsideTaxiWaitingZone() {
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.615319, longitude: -122.390206))
+  }
+  
   func triggerOutsideSfo() {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.65, longitude: -122.405))
   }
