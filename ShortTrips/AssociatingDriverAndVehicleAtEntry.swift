@@ -24,7 +24,7 @@ struct AssociatingDriverAndVehicleAtEntry {
 
       postNotification(SfoNotification.State.update, value: self.getState())
 
-      self.poller = Poller.init(action: {
+      self.poller = Poller.init() {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
           ApiClient.getVehicle(driver.cardId) { vehicle in
 
@@ -33,14 +33,7 @@ struct AssociatingDriverAndVehicleAtEntry {
             }
           }
         }
-      }, failure: {
-        if let tripId = TripManager.sharedInstance.getTripId() {
-          ApiClient.invalidate(tripId, validation: .Vehicle)
-          Failure.sharedInstance.fire()
-        } else {
-          OptionalEntryCheckFailed.sharedInstance.fire()
-        }
-      })
+      }
     }
 
     state.setDidExitStateBlock { _, _ in

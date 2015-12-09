@@ -24,7 +24,7 @@ struct WaitingForEntryCid {
     state.setDidEnterStateBlock { _, _ in
       postNotification(SfoNotification.State.update, value: self.getState())
       
-      self.poller = Poller.init(action: {
+      self.poller = Poller.init() {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
           ApiClient.requestCid(driver.driverId) { cid in
             
@@ -37,14 +37,7 @@ struct WaitingForEntryCid {
             }
           }
         }
-      }, failure: {
-        if let tripId = TripManager.sharedInstance.getTripId() {
-          ApiClient.invalidate(tripId, validation: .DriverCardId)
-          Failure.sharedInstance.fire()
-        } else {
-          OptionalEntryCheckFailed.sharedInstance.fire()
-        }
-      })
+      }
     }
 
     state.setDidExitStateBlock { _, _ in
