@@ -18,7 +18,7 @@ struct OutsideTaxiWaitingZone {
   private init() {
     events = [
       TKEvent(name: eventNames[0],
-        transitioningFromStates: [WaitingForEntryCid.sharedInstance.getState(), AssociatingDriverAndVehicleAtEntry.sharedInstance.getState(), WaitingForEntryAvi.sharedInstance.getState()],
+        transitioningFromStates: [WaitingForEntryCid.sharedInstance.getState(), AssociatingDriverAndVehicleAtEntry.sharedInstance.getState(), WaitingForEntryAvi.sharedInstance.getState(), WaitingInHoldingLot.sharedInstance.getState()],
         toState: NotReady.sharedInstance.getState())
     ]
   }
