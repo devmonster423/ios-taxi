@@ -28,7 +28,7 @@ extension DebugVC {
     } else if state == AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState() {
       debugView().printDebugLine("Associating Driver And Vehicle")
       debugView().updateState("Associating Driver And Vehicle")
-      updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
+      updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"), second: (title: "OutsideDomExit", action: "triggerOutsideDomesticTerminalExit"))
       
     } else if state == AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState() {
       debugView().printDebugLine("Associating Driver And Vehicle")
@@ -55,7 +55,8 @@ extension DebugVC {
     } else if state == WaitingInHoldingLot.sharedInstance.getState() {
       debugView().printDebugLine("starting to wait in holding lot")
       debugView().updateState("Waiting In Holding Lot")
-      updateFakeButtons((title: "Fake At Terminal Exit", action: "triggerAtTerminalExit"))
+      updateFakeButtons((title: "Fake At Terminal Exit", action: "triggerAtTerminalExit"), second: (title: "Outside SFO", action:
+      "triggerOutsideSfo"))
       
     } else if state == ValidatingTrip.sharedInstance.getState() {
       debugView().updateState("Validating Trip")
@@ -84,7 +85,7 @@ extension DebugVC {
     } else if state == WaitingForPaymentCid.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting for Payment Cid")
       debugView().updateState("Waiting for Payment Cid")
-      updateFakeButtons((title: "Fake Cid Payment", action: "fakeCidPayment"))
+      updateFakeButtons((title: "Fake Cid Payment", action: "fakeCidPayment"), second: (title: "OutsideDomExit", action: "triggerOutsideDomesticTerminalExit"))
       
     } else if state == WaitingForExitAvi.sharedInstance.getState() {
       self.debugView().printDebugLine("Entered Waiting for Exit Avi")
@@ -100,7 +101,7 @@ extension DebugVC {
     } else if state == WaitingForTaxiLoopAvi.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting For Taxi Loop Avi")
       debugView().updateState("Waiting for Taxi Loop Avi")
-      updateFakeButtons((title: "Latest Avi Read At Taxi Loop", action: "latestAviReadAtTaxiLoop"))
+      updateFakeButtons((title: "Latest Avi Read At Taxi Loop", action: "latestAviReadAtTaxiLoop"), second: (title: "OutsideDomExit", action: "triggerOutsideDomesticTerminalExit"))
       
     } else if state == WaitingForStartTrip.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting For Trip to Start")
