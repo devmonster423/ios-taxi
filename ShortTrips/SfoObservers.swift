@@ -28,9 +28,7 @@ struct SfoObservers {
   var driverAndVehicleAssociated: NotificationObserver<(driver: Driver, vehicle: Vehicle), AnyObject>?
   
   // Geofence
-  var exitingTerminalsObserver: NotificationObserver<Any?, AnyObject>?
   var foundInsideGeofencesObserver: NotificationObserver<[Geofence], AnyObject>?
-  var insideSfoObserver: NotificationObserver<Any?, AnyObject>?
   var notInTerminalExitObserver: NotificationObserver<Any?, AnyObject>?
   var outsideShortTripObserver: NotificationObserver<Any?, AnyObject>?
   

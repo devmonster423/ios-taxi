@@ -13,21 +13,11 @@ extension ShortTripVC {
   
   func setupGeofenceObservers() {
     
-    sfoObservers.exitingTerminalsObserver = NotificationObserver(notification: SfoNotification.Geofence.exitingTerminals) { _, _ in
-      self.shortTripView().notificationLabel.text = "Exiting Terminals Event!"
-      self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
-    }
-    
     sfoObservers.foundInsideGeofencesObserver = NotificationObserver(notification: SfoNotification.Geofence.foundInside) { geofences, _ in
       self.shortTripView().notificationLabel.text = ""
       for geofence in geofences {
         self.shortTripView().notificationLabel.text! += "In Geofence: \(geofence.name) "
       }
-      self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
-    }
-    
-    sfoObservers.insideSfoObserver = NotificationObserver(notification: SfoNotification.Geofence.insideSfo) { _, _ in
-      self.shortTripView().notificationLabel.text = "Inside SFO Event!"
       self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
     }
     

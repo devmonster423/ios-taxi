@@ -28,9 +28,3 @@ extension ExitingTerminals: Event {
     return events
   }
 }
-
-extension ExitingTerminals: Observable {
-  func eventIsFiring(info: Any?) {
-    postNotification(SfoNotification.Geofence.exitingTerminals, value: nil)
-  }
-}

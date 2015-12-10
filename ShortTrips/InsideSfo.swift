@@ -32,9 +32,3 @@ extension InsideSfo: Event {
     return events
   }
 }
-
-extension InsideSfo: Observable {
-  func eventIsFiring(info: Any?) {
-    postNotification(SfoNotification.Geofence.insideSfo, value: nil)
-  }
-}

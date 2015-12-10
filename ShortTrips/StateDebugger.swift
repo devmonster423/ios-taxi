@@ -20,8 +20,17 @@ extension DebugVC {
   }
   
   func updateForState(state: TKState) {
-    if state == AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()
-      || state == AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState() {
+    if state == AssociatingDriverAndVehicleAtEntry.sharedInstance.getState() {
+      debugView().printDebugLine("Associating Driver And Vehicle")
+      debugView().updateState("Associating Driver And Vehicle")
+      updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"), second: (title: "Inside Taxi Loop Exit", action: "triggerAtTerminalExit"), third: (title: "Out of WaitingZone", action: "triggerOutsideTaxiWaitingZone"))
+
+    } else if state == AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState() {
+      debugView().printDebugLine("Associating Driver And Vehicle")
+      debugView().updateState("Associating Driver And Vehicle")
+      updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
+      
+    } else if state == AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState() {
       debugView().printDebugLine("Associating Driver And Vehicle")
       debugView().updateState("Associating Driver And Vehicle")
       updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
@@ -55,12 +64,22 @@ extension DebugVC {
     } else if state == WaitingForEntryCid.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting for Entry Cid")
       debugView().updateState("Waiting for Entry Cid")
-      updateFakeButtons((title:"Trigger Cid Entry", action: "triggerEntryCid"))
+      updateFakeButtons((title:"Trigger Cid Entry", action: "triggerEntryCid"), second: (title: "Inside Taxi Loop Exit", action: "triggerAtTerminalExit"), third: (title: "Out of WaitingZone", action: "triggerOutsideTaxiWaitingZone"))
+      
+    } else if state == WaitingForReEntryCid.sharedInstance.getState() {
+      debugView().printDebugLine("Entered Waiting for ReEntry Cid")
+      debugView().updateState("Waiting for ReEntry Cid")
+      updateFakeButtons((title:"Trigger Cid ReEntry", action: "triggerEntryCid"))
       
     } else if state == WaitingForEntryAvi.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting for Entry Gate Avi")
       debugView().updateState("Waiting for Entry Gate Avi")
-      updateFakeButtons((title: "Confirm Entry Gate Avi Read", action: "confirmEntryGateAviRead"), second: (title: "Outside SFO", action: "triggerOutsideSfo"))
+      updateFakeButtons((title: "Confirm Entry Gate Avi Read", action: "confirmEntryGateAviRead"), second: (title: "Inside Taxi Loop Exit", action: "triggerAtTerminalExit"), third: (title: "Out of WaitingZone", action: "triggerOutsideTaxiWaitingZone"))
+      
+    } else if state == WaitingForReEntryAvi.sharedInstance.getState() {
+      debugView().printDebugLine("Entered Waiting for ReEntry Gate Avi")
+      debugView().updateState("Waiting for ReEntry Gate Avi")
+      updateFakeButtons((title: "Confirm ReEntry Gate Avi Read", action: "confirmEntryGateAviRead"), second: (title: "Outside SFO", action: "triggerOutsideSfo"))
       
     } else if state == WaitingForPaymentCid.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting for Payment Cid")
