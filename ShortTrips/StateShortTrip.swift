@@ -65,7 +65,7 @@ extension ShortTripVC {
         self.shortTripView().notificationLabel.text = "Not Exiting Terminals"
         self.sfoObservers.notInTerminalExitObserver = nil
       }
-    } else if state == VerifyingTaxiLoopAvi.sharedInstance.getState() {
+    } else if state == WaitingForTaxiLoopAvi.sharedInstance.getState() {
       self.shortTripView().notificationLabel.text = "Entered Waiting For Taxi Loop AVI"
       self.shortTripView().currentStateLabel.text = "Waiting for Taxi Loop AVI"
       self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")

@@ -78,7 +78,7 @@ extension DebugVC {
         self.sfoObservers.notInTerminalExitObserver = nil
       }
       
-    } else if state == VerifyingTaxiLoopAvi.sharedInstance.getState() {
+    } else if state == WaitingForTaxiLoopAvi.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting For Taxi Loop Avi")
       debugView().updateState("Waiting for Taxi Loop Avi")
       updateFakeButtons((title: "Latest Avi Read At Taxi Loop", action: "latestAviReadAtTaxiLoop"))

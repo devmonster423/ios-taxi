@@ -28,7 +28,7 @@ class TripScenario8Spec: QuickSpec {
         LatestCidIsPaymentCid.sharedInstance.fire()
         expect(machine.isInState(AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState())).to(beTrue())
         DriverAndVehicleAssociated.sharedInstance.fire()
-        expect(machine.isInState(VerifyingTaxiLoopAvi.sharedInstance.getState())).to(beTrue())
+        expect(machine.isInState(WaitingForTaxiLoopAvi.sharedInstance.getState())).to(beTrue())
         
         LatestAviAtTaxiLoop.sharedInstance.fire()
         expect(machine.isInState(Ready.sharedInstance.getState())).to(beTrue())

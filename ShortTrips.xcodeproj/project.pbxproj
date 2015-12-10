@@ -14,7 +14,7 @@
 		8EEFB79C1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB79B1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift */; };
 		8EEFB7A01BE0324600B8A962 /* WaitingForEntryAvi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB79F1BE0324600B8A962 /* WaitingForEntryAvi.swift */; };
 		8EEFB7A21BE041F800B8A962 /* WaitingForPaymentCid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A11BE041F800B8A962 /* WaitingForPaymentCid.swift */; };
-		8EEFB7A41BE04AD900B8A962 /* VerifyingTaxiLoopAvi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A31BE04AD900B8A962 /* VerifyingTaxiLoopAvi.swift */; };
+		8EEFB7A41BE04AD900B8A962 /* WaitingForTaxiLoopAvi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A31BE04AD900B8A962 /* WaitingForTaxiLoopAvi.swift */; };
 		8EEFB7A61BE04B5400B8A962 /* LatestCidIsPaymentCid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A51BE04B5400B8A962 /* LatestCidIsPaymentCid.swift */; };
 		8EEFB7A81BE04DD600B8A962 /* LatestAviAtTaxiLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A71BE04DD600B8A962 /* LatestAviAtTaxiLoop.swift */; };
 		8EEFB7AF1BE198C300B8A962 /* DriverClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7AE1BE198C300B8A962 /* DriverClientSpec.swift */; };
@@ -263,7 +263,7 @@
 		8EEFB79B1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverAndVehicleAssociated.swift; sourceTree = "<group>"; };
 		8EEFB79F1BE0324600B8A962 /* WaitingForEntryAvi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingForEntryAvi.swift; sourceTree = "<group>"; };
 		8EEFB7A11BE041F800B8A962 /* WaitingForPaymentCid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingForPaymentCid.swift; sourceTree = "<group>"; };
-		8EEFB7A31BE04AD900B8A962 /* VerifyingTaxiLoopAvi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyingTaxiLoopAvi.swift; sourceTree = "<group>"; };
+		8EEFB7A31BE04AD900B8A962 /* WaitingForTaxiLoopAvi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingForTaxiLoopAvi.swift; sourceTree = "<group>"; };
 		8EEFB7A51BE04B5400B8A962 /* LatestCidIsPaymentCid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestCidIsPaymentCid.swift; sourceTree = "<group>"; };
 		8EEFB7A71BE04DD600B8A962 /* LatestAviAtTaxiLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestAviAtTaxiLoop.swift; sourceTree = "<group>"; };
 		8EEFB7AE1BE198C300B8A962 /* DriverClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverClientSpec.swift; sourceTree = "<group>"; };
@@ -656,13 +656,13 @@
 				C220E0721BC3446600AC7C85 /* Ready.swift */,
 				E18228FA1BC48F2300614256 /* InProgress.swift */,
 				E18228FE1BC4932400614256 /* ValidatingTrip.swift */,
-				8EEFB7A31BE04AD900B8A962 /* VerifyingTaxiLoopAvi.swift */,
 				C221EDE21BE2C57700BDB4CD /* VerifyingExitAvi.swift */,
 				8EEFB79F1BE0324600B8A962 /* WaitingForEntryAvi.swift */,
 				C28ECB2B1BCF01F200887763 /* WaitingForEntryCid.swift */,
 				8EEFB7A11BE041F800B8A962 /* WaitingForPaymentCid.swift */,
 				C285F1D61C18F4CA00AA3363 /* WaitingForReEntryAvi.swift */,
 				C285F1D41C18F46D00AA3363 /* WaitingForReEntryCid.swift */,
+				8EEFB7A31BE04AD900B8A962 /* WaitingForTaxiLoopAvi.swift */,
 				E187B2741BE036F10031F07C /* WaitingInHoldingLot.swift */,
 				C20A988B1BE1A066009E29E7 /* WaitingToStartTrip.swift */,
 			);
@@ -1593,7 +1593,7 @@
 				FA6380F21BED1FEA00CF51CC /* GtmsLocation.swift in Sources */,
 				E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */,
 				E1B3937B1BAC66FE00FC2970 /* LotStatus.swift in Sources */,
-				8EEFB7A41BE04AD900B8A962 /* VerifyingTaxiLoopAvi.swift in Sources */,
+				8EEFB7A41BE04AD900B8A962 /* WaitingForTaxiLoopAvi.swift in Sources */,
 				E1B3937D1BAC681B00FC2970 /* LotStatusEnum.swift in Sources */,
 				FA650FF81BB20CDB003D1939 /* DateTransform.swift in Sources */,
 				E1472CFA1C0E7AFF00D27D60 /* DriverShortTrip.swift in Sources */,

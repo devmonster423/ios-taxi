@@ -18,7 +18,7 @@ class LatestAviAtTaxiLoop {
   
   private init() {
     events = [TKEvent(name: eventNames[0],
-      transitioningFromStates: [VerifyingTaxiLoopAvi.sharedInstance.getState()],
+      transitioningFromStates: [WaitingForTaxiLoopAvi.sharedInstance.getState()],
       toState: Ready.sharedInstance.getState())]
   }
 }

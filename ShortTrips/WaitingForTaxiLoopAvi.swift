@@ -10,9 +10,9 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct VerifyingTaxiLoopAvi {
-  let stateName = "verifyingTaxiLoopAvi"
-  static let sharedInstance = VerifyingTaxiLoopAvi()
+struct WaitingForTaxiLoopAvi {
+  let stateName = "WaitingForTaxiLoopAvi"
+  static let sharedInstance = WaitingForTaxiLoopAvi()
   private let expectedAvi: GtmsLocation = .DtaRecirculation
   
   private var poller: Poller?
