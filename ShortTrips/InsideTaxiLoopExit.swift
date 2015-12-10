@@ -22,16 +22,7 @@ struct InsideTaxiLoopExit {
       toState: WaitingForPaymentCid.sharedInstance.getState())
     
     insideTaxiLoopExitEvent.setShouldFireEventBlock { _, transition -> Bool in
-      
-      if transition.sourceState == WaitingForEntryCid.sharedInstance.getState()
-        || transition.sourceState == AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()
-        || transition.sourceState == WaitingForEntryAvi.sharedInstance.getState() {
-        
-          return TripManager.sharedInstance.getTripId() == nil
-            && LocationManager.locationActiveAndAuthorized()
-      } else {
-        return LocationManager.locationActiveAndAuthorized()
-      }
+      return LocationManager.locationActiveAndAuthorized()
     }
     
     events = [insideTaxiLoopExitEvent]

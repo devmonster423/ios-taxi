@@ -52,6 +52,7 @@ class StateManager {
     events += LatestCidIsPaymentCid.sharedInstance.getEvents()
     events += LatestCidIsReEntryCid.sharedInstance.getEvents()
     events += LoggedOut.sharedInstance.getEvents()
+    events += NotInDomesticExit.sharedInstance.getEvents()
     events += NotInTerminalExit.sharedInstance.getEvents()
     events += OutsideSfo.sharedInstance.getEvents()
     events += OutsideShortTripGeofence.sharedInstance.getEvents()
