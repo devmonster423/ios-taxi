@@ -47,7 +47,7 @@ class StateManager {
     events += LatestAviAtEntry.sharedInstance.getEvents()
     events += LatestAviAtExit.sharedInstance.getEvents()
     events += LatestAviAtReEntry.sharedInstance.getEvents()
-    events += LatestAviReadAtTaxiLoop.sharedInstance.getEvents()
+    events += LatestAviAtTaxiLoop.sharedInstance.getEvents()
     events += LatestCidIsEntryCid.sharedInstance.getEvents()
     events += LatestCidIsPaymentCid.sharedInstance.getEvents()
     events += LatestCidIsReEntryCid.sharedInstance.getEvents()

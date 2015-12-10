@@ -30,7 +30,7 @@ struct VerifyingTaxiLoopAvi {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
             if let antenna = antenna, let device = antenna.device() {
               if device == self.expectedAvi {
-                LatestAviReadAtTaxiLoop.sharedInstance.fire(antenna)
+                LatestAviAtTaxiLoop.sharedInstance.fire(antenna)
               } else {
                 postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
               }

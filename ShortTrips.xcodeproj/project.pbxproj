@@ -16,7 +16,7 @@
 		8EEFB7A21BE041F800B8A962 /* WaitingForPaymentCid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A11BE041F800B8A962 /* WaitingForPaymentCid.swift */; };
 		8EEFB7A41BE04AD900B8A962 /* VerifyingTaxiLoopAvi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A31BE04AD900B8A962 /* VerifyingTaxiLoopAvi.swift */; };
 		8EEFB7A61BE04B5400B8A962 /* LatestCidIsPaymentCid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A51BE04B5400B8A962 /* LatestCidIsPaymentCid.swift */; };
-		8EEFB7A81BE04DD600B8A962 /* LatestAviReadAtTaxiLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A71BE04DD600B8A962 /* LatestAviReadAtTaxiLoop.swift */; };
+		8EEFB7A81BE04DD600B8A962 /* LatestAviAtTaxiLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7A71BE04DD600B8A962 /* LatestAviAtTaxiLoop.swift */; };
 		8EEFB7AF1BE198C300B8A962 /* DriverClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7AE1BE198C300B8A962 /* DriverClientSpec.swift */; };
 		8EEFB7B11BE19A1900B8A962 /* DriverLoginMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7B01BE19A1900B8A962 /* DriverLoginMock.swift */; };
 		8EEFB7B31BE1A1AC00B8A962 /* DriverVehicleMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7B21BE1A1AC00B8A962 /* DriverVehicleMock.swift */; };
@@ -265,7 +265,7 @@
 		8EEFB7A11BE041F800B8A962 /* WaitingForPaymentCid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingForPaymentCid.swift; sourceTree = "<group>"; };
 		8EEFB7A31BE04AD900B8A962 /* VerifyingTaxiLoopAvi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerifyingTaxiLoopAvi.swift; sourceTree = "<group>"; };
 		8EEFB7A51BE04B5400B8A962 /* LatestCidIsPaymentCid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestCidIsPaymentCid.swift; sourceTree = "<group>"; };
-		8EEFB7A71BE04DD600B8A962 /* LatestAviReadAtTaxiLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestAviReadAtTaxiLoop.swift; sourceTree = "<group>"; };
+		8EEFB7A71BE04DD600B8A962 /* LatestAviAtTaxiLoop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestAviAtTaxiLoop.swift; sourceTree = "<group>"; };
 		8EEFB7AE1BE198C300B8A962 /* DriverClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverClientSpec.swift; sourceTree = "<group>"; };
 		8EEFB7B01BE19A1900B8A962 /* DriverLoginMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverLoginMock.swift; sourceTree = "<group>"; };
 		8EEFB7B21BE1A1AC00B8A962 /* DriverVehicleMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverVehicleMock.swift; sourceTree = "<group>"; };
@@ -684,7 +684,7 @@
 				E187B2761BE037550031F07C /* LatestAviAtEntry.swift */,
 				C285F1D81C18F4F600AA3363 /* LatestAviAtReEntry.swift */,
 				C221EDE61BE2CD3200BDB4CD /* LatestAviAtExit.swift */,
-				8EEFB7A71BE04DD600B8A962 /* LatestAviReadAtTaxiLoop.swift */,
+				8EEFB7A71BE04DD600B8A962 /* LatestAviAtTaxiLoop.swift */,
 				C2AB51391BD02CC0003ACB4C /* LatestCidIsEntryCid.swift */,
 				8EEFB7A51BE04B5400B8A962 /* LatestCidIsPaymentCid.swift */,
 				C285F1DA1C18F56600AA3363 /* LatestCidIsReEntryCid.swift */,
@@ -1509,7 +1509,7 @@
 				C2FCF8DF1C165D0C000E12D5 /* InsideTaxiWaitingZone.swift in Sources */,
 				C28ECB241BCECB5700887763 /* FoundGeofenceStatus.swift in Sources */,
 				E18228FF1BC4932400614256 /* ValidatingTrip.swift in Sources */,
-				8EEFB7A81BE04DD600B8A962 /* LatestAviReadAtTaxiLoop.swift in Sources */,
+				8EEFB7A81BE04DD600B8A962 /* LatestAviAtTaxiLoop.swift in Sources */,
 				C28ECB2E1BCF033E00887763 /* InsideSfo.swift in Sources */,
 				8EEFB7A61BE04B5400B8A962 /* LatestCidIsPaymentCid.swift in Sources */,
 				E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */,

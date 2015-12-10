@@ -45,7 +45,7 @@ class TripScenario2Spec: QuickSpec {
         DriverAndVehicleAssociated.sharedInstance.fire()
         expect(machine.isInState(VerifyingTaxiLoopAvi.sharedInstance.getState())).to(beTrue())
         
-        LatestAviReadAtTaxiLoop.sharedInstance.fire()
+        LatestAviAtTaxiLoop.sharedInstance.fire()
         expect(machine.isInState(Ready.sharedInstance.getState())).to(beTrue())
         
         // can fire DriverExitsSfo and make correct state change
