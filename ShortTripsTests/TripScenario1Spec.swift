@@ -34,7 +34,7 @@ class TripScenario1Spec: QuickSpec {
         DriverAndVehicleAssociated.sharedInstance.fire()
         expect(machine.isInState(WaitingForEntryAvi.sharedInstance.getState())).to(beTrue())
         
-        LatestAviReadAtEntry.sharedInstance.fire()
+        LatestAviAtEntry.sharedInstance.fire()
         expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
         
         // can fire DriverDispatched and make correct state change

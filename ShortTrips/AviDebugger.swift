@@ -45,7 +45,7 @@ extension DebugVC {
   }
   
   func confirmEntryGateAviRead() {
-    LatestAviReadAtEntry.sharedInstance.fire(Antenna(antennaId: "123", aviLocation: "Location #15 Taxi Main Lot", aviDate: NSDate()))
+    LatestAviAtEntry.sharedInstance.fire(Antenna(antennaId: "123", aviLocation: "Location #15 Taxi Main Lot", aviDate: NSDate()))
   }
   
   func latestAviReadAtTaxiLoop() {

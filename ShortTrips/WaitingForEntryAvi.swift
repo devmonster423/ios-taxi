@@ -31,7 +31,7 @@ struct WaitingForEntryAvi {
 
             if let antenna = antenna, let device = antenna.device() {
               if device == .TaxiEntry {
-                LatestAviReadAtEntry.sharedInstance.fire(antenna)
+                LatestAviAtEntry.sharedInstance.fire(antenna)
               } else {
                 postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
               }

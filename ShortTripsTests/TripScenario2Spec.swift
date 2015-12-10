@@ -33,7 +33,7 @@ class TripScenario2Spec: QuickSpec {
         DriverAndVehicleAssociated.sharedInstance.fire()
         expect(machine.isInState(WaitingForEntryAvi.sharedInstance.getState())).to(beTrue())
         
-        LatestAviReadAtEntry.sharedInstance.fire()
+        LatestAviAtEntry.sharedInstance.fire()
         expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
         
         InsideTaxiLoopExit.sharedInstance.fire()
