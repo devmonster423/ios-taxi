@@ -32,7 +32,7 @@ class TripScenario1Spec: QuickSpec {
         expect(machine.isInState(AssociatingDriverAndVehicleAtEntry.sharedInstance.getState())).to(beTrue())
         
         DriverAndVehicleAssociated.sharedInstance.fire()
-        expect(machine.isInState(VerifyingEntryGateAvi.sharedInstance.getState())).to(beTrue())
+        expect(machine.isInState(WaitingForEntryAvi.sharedInstance.getState())).to(beTrue())
         
         LatestAviReadAtEntry.sharedInstance.fire()
         expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())

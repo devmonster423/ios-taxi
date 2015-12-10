@@ -57,7 +57,7 @@ extension DebugVC {
       debugView().updateState("Waiting for Entry Cid")
       updateFakeButtons((title:"Trigger Cid Entry", action: "triggerEntryCid"))
       
-    } else if state == VerifyingEntryGateAvi.sharedInstance.getState() {
+    } else if state == WaitingForEntryAvi.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting for Entry Gate Avi")
       debugView().updateState("Waiting for Entry Gate Avi")
       updateFakeButtons((title: "Confirm Entry Gate Avi Read", action: "confirmEntryGateAviRead"), second: (title: "Outside SFO", action: "triggerOutsideSfo"))

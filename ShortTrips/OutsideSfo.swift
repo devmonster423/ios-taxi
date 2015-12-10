@@ -22,7 +22,7 @@ class OutsideSfo {
       transitioningFromStates: [VerifyingExitAvi.sharedInstance.getState()],
       toState: WaitingForStartTrip.sharedInstance.getState()),
       TKEvent(name: eventNames[1],
-      transitioningFromStates: [VerifyingEntryGateAvi.sharedInstance.getState()],
+      transitioningFromStates: [WaitingForEntryAvi.sharedInstance.getState()],
       toState: InProgress.sharedInstance.getState())
     ]
   }

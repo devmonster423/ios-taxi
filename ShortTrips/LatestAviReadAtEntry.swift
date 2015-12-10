@@ -19,7 +19,7 @@ struct LatestAviReadAtEntry {
   private init() {
     
     let tripStartEvent = TKEvent(name: eventNames[0],
-      transitioningFromStates: [VerifyingEntryGateAvi.sharedInstance.getState()],
+      transitioningFromStates: [WaitingForEntryAvi.sharedInstance.getState()],
       toState: WaitingInHoldingLot.sharedInstance.getState())
     
     tripStartEvent.setShouldFireEventBlock { _, _ -> Bool in
@@ -27,7 +27,7 @@ struct LatestAviReadAtEntry {
     }
     
     let tripEndEvent = TKEvent(name: eventNames[1],
-      transitioningFromStates: [VerifyingEntryGateAvi.sharedInstance.getState()],
+      transitioningFromStates: [WaitingForEntryAvi.sharedInstance.getState()],
       toState: WaitingForEntryCid.sharedInstance.getState())
     
     tripEndEvent.setShouldFireEventBlock { _, _ -> Bool in

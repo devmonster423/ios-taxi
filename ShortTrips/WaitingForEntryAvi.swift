@@ -10,9 +10,9 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct VerifyingEntryGateAvi {
-  let stateName = "verifyingEntryGateAvi"
-  static let sharedInstance = VerifyingEntryGateAvi()
+struct WaitingForEntryAvi {
+  let stateName = "WaitingForEntryAvi"
+  static let sharedInstance = WaitingForEntryAvi()
   private let expectedAvi: GtmsLocation = .TaxiEntry
   
   private var poller: Poller?

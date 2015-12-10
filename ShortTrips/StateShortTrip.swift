@@ -49,7 +49,7 @@ extension ShortTripVC {
       self.shortTripView().notificationLabel.text = "Entered Waiting for Entry CID"
       self.shortTripView().currentStateLabel.text = "Waiting for Entry CID"
       self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
-    } else if state == VerifyingEntryGateAvi.sharedInstance.getState() {
+    } else if state == WaitingForEntryAvi.sharedInstance.getState() {
       self.shortTripView().notificationLabel.text = "Entered Waiting for Entry Gate AVI"
       self.shortTripView().currentStateLabel.text = "Waiting for Entry Gate AVI"
       self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")

@@ -22,7 +22,8 @@ struct DriverAndVehicleAssociated {
     events = [
       TKEvent(name: eventNames[0],
         transitioningFromStates: [AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()],
-        toState: VerifyingEntryGateAvi.sharedInstance.getState()),
+        toState: WaitingForEntryAvi
+          .sharedInstance.getState()),
       
       TKEvent(name: eventNames[1],
         transitioningFromStates: [AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState()],
