@@ -118,6 +118,7 @@
 		C285F1D71C18F4CA00AA3363 /* WaitingForReEntryAvi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C285F1D61C18F4CA00AA3363 /* WaitingForReEntryAvi.swift */; };
 		C285F1D91C18F4F600AA3363 /* LatestAviAtReEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C285F1D81C18F4F600AA3363 /* LatestAviAtReEntry.swift */; };
 		C285F1DB1C18F56600AA3363 /* LatestCidIsReEntryCid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C285F1DA1C18F56600AA3363 /* LatestCidIsReEntryCid.swift */; };
+		C285F1DD1C18FFC400AA3363 /* OutsideTaxiWaitingZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C285F1DC1C18FFC400AA3363 /* OutsideTaxiWaitingZone.swift */; };
 		C28ECB201BCEBDD400887763 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB1F1BCEBDD400887763 /* LocationManager.swift */; };
 		C28ECB221BCECA9700887763 /* TripClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB211BCECA9700887763 /* TripClient.swift */; };
 		C28ECB241BCECB5700887763 /* FoundGeofenceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB231BCECB5700887763 /* FoundGeofenceStatus.swift */; };
@@ -365,6 +366,7 @@
 		C285F1D61C18F4CA00AA3363 /* WaitingForReEntryAvi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingForReEntryAvi.swift; sourceTree = "<group>"; };
 		C285F1D81C18F4F600AA3363 /* LatestAviAtReEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestAviAtReEntry.swift; sourceTree = "<group>"; };
 		C285F1DA1C18F56600AA3363 /* LatestCidIsReEntryCid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestCidIsReEntryCid.swift; sourceTree = "<group>"; };
+		C285F1DC1C18FFC400AA3363 /* OutsideTaxiWaitingZone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutsideTaxiWaitingZone.swift; sourceTree = "<group>"; };
 		C28ECB1F1BCEBDD400887763 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		C28ECB211BCECA9700887763 /* TripClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripClient.swift; sourceTree = "<group>"; };
 		C28ECB231BCECB5700887763 /* FoundGeofenceStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundGeofenceStatus.swift; sourceTree = "<group>"; };
@@ -693,6 +695,7 @@
 				C20A98891BE17AEC009E29E7 /* Observable.swift */,
 				C221EDE81BE2CEE500BDB4CD /* OutsideSfo.swift */,
 				E19A80221BE8024C00FEB76B /* OutsideShortTripGeofence.swift */,
+				C285F1DC1C18FFC400AA3363 /* OutsideTaxiWaitingZone.swift */,
 				E1BE7B6F1BE4025C0085D3CA /* TimeExpired.swift */,
 				C26530B31BE3F7CB002C0A97 /* TripInvalidated.swift */,
 				C20A988D1BE1A1BC009E29E7 /* TripStarted.swift */,
@@ -1599,6 +1602,7 @@
 				E1472CFA1C0E7AFF00D27D60 /* DriverShortTrip.swift in Sources */,
 				E18229031BC495A000614256 /* TripValidated.swift in Sources */,
 				C221EDE51BE2CB1700BDB4CD /* TripWarning.swift in Sources */,
+				C285F1DD1C18FFC400AA3363 /* OutsideTaxiWaitingZone.swift in Sources */,
 				C283AB3B1BE939F50004E8CD /* LocationDebugger.swift in Sources */,
 				C23315851BB472490079B916 /* Airline.swift in Sources */,
 				E1472D001C0E7B3200D27D60 /* PingShortTrip.swift in Sources */,
