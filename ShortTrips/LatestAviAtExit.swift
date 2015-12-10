@@ -10,9 +10,9 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-class LatestAviReadAtExit {
-  let eventNames = ["latestAviReadAtExit"]
-  static let sharedInstance = LatestAviReadAtExit()
+class LatestAviAtExit {
+  let eventNames = ["LatestAviAtExit"]
+  static let sharedInstance = LatestAviAtExit()
   
   private var events: [TKEvent]
   
@@ -23,13 +23,13 @@ class LatestAviReadAtExit {
   }
 }
 
-extension LatestAviReadAtExit: Event {
+extension LatestAviAtExit: Event {
   func getEvents() -> [TKEvent] {
     return events
   }
 }
 
-extension LatestAviReadAtExit: Observable {
+extension LatestAviAtExit: Observable {
   func eventIsFiring(info: Any?) {
     if let antenna = info as? Antenna {
       postNotification(SfoNotification.Avi.exit, value: antenna)

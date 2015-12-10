@@ -31,7 +31,7 @@ struct VerifyingExitAvi {
 
             if let antenna = antenna, let device = antenna.device() {
               if device == self.expectedAvi {
-                LatestAviReadAtExit.sharedInstance.fire(antenna)
+                LatestAviAtExit.sharedInstance.fire(antenna)
                 TripManager.sharedInstance.setStartTime(antenna.aviDate)
               } else {
                 postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))

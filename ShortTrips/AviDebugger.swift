@@ -53,6 +53,6 @@ extension DebugVC {
   }
 
   func latestExitAviRead() {
-    LatestAviReadAtExit.sharedInstance.fire(Antenna(antennaId: "123", aviLocation: "Location #15 Taxi Main Lot", aviDate: NSDate()))
+    LatestAviAtExit.sharedInstance.fire(Antenna(antennaId: "123", aviLocation: "Location #15 Taxi Main Lot", aviDate: NSDate()))
   }
 }
