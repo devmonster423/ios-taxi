@@ -33,7 +33,7 @@ extension DebugVC {
     } else if state == AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState() {
       debugView().printDebugLine("Associating Driver And Vehicle")
       debugView().updateState("Associating Driver And Vehicle")
-      updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
+      updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"), second: (title: "Outside SFO", action: "triggerOutsideSfo"))
       
     } else if state == NotReady.sharedInstance.getState() {
       debugView().printDebugLine("Entered Not Ready State")
@@ -43,7 +43,7 @@ extension DebugVC {
     } else if state == Ready.sharedInstance.getState() {
       debugView().printDebugLine("Entered Ready State")
       debugView().updateState("Ready")
-      updateFakeButtons((title: "Fake Exiting Terminals", action: "fakeExitingTerminals"))
+      updateFakeButtons((title: "Fake Exiting Terminals", action: "fakeExitingTerminals"), second: (title: "Outside SFO", action: "triggerOutsideSfo"))
       
     } else if state == InProgress.sharedInstance.getState() {
       debugView().printDebugLine("Entered InProgress State")
@@ -70,7 +70,7 @@ extension DebugVC {
     } else if state == WaitingForReEntryCid.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting for ReEntry Cid")
       debugView().updateState("Waiting for ReEntry Cid")
-      updateFakeButtons((title:"Trigger Cid ReEntry", action: "triggerEntryCid"))
+      updateFakeButtons((title:"Trigger Cid ReEntry", action: "triggerReEntryCid"), second: (title: "Outside SFO", action: "triggerOutsideSfo"))
       
     } else if state == WaitingForEntryAvi.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting for Entry Gate Avi")
@@ -80,7 +80,7 @@ extension DebugVC {
     } else if state == WaitingForReEntryAvi.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting for ReEntry Gate Avi")
       debugView().updateState("Waiting for ReEntry Gate Avi")
-      updateFakeButtons((title: "Confirm ReEntry Gate Avi Read", action: "confirmEntryGateAviRead"), second: (title: "Outside SFO", action: "triggerOutsideSfo"))
+      updateFakeButtons((title: "Confirm ReEntry Gate Avi Read", action: "confirmReEntryGateAviRead"), second: (title: "Outside SFO", action: "triggerOutsideSfo"))
       
     } else if state == WaitingForPaymentCid.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting for Payment Cid")

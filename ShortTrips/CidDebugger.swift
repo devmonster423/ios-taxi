@@ -40,4 +40,9 @@ extension DebugVC {
     let cid = Cid(cidId: "123", cidLocation: "entry", cidTimeRead: NSDate())
     LatestCidIsEntryCid.sharedInstance.fire(cid)
   }
+  
+  func triggerReEntryCid() {
+    let cid = Cid(cidId: "123", cidLocation: "entry", cidTimeRead: NSDate())
+    LatestCidIsReEntryCid.sharedInstance.fire(cid)
+  }
 }
