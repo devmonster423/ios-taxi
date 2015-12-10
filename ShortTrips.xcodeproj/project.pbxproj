@@ -81,7 +81,7 @@
 		C22167931BD59199002D7994 /* AllGeofenceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22167921BD59199002D7994 /* AllGeofenceMock.swift */; };
 		C22167951BD592C4002D7994 /* SingleGeofenceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22167941BD592C4002D7994 /* SingleGeofenceMock.swift */; };
 		C22167971BD59419002D7994 /* MultipleGeofenceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22167961BD59419002D7994 /* MultipleGeofenceMock.swift */; };
-		C221EDE31BE2C57700BDB4CD /* VerifyingExitAvi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDE21BE2C57700BDB4CD /* VerifyingExitAvi.swift */; };
+		C221EDE31BE2C57700BDB4CD /* WaitingForExitAvi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDE21BE2C57700BDB4CD /* WaitingForExitAvi.swift */; };
 		C221EDE51BE2CB1700BDB4CD /* TripWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDE41BE2CB1700BDB4CD /* TripWarning.swift */; };
 		C221EDE71BE2CD3200BDB4CD /* LatestAviAtExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDE61BE2CD3200BDB4CD /* LatestAviAtExit.swift */; };
 		C221EDE91BE2CEE500BDB4CD /* OutsideSfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDE81BE2CEE500BDB4CD /* OutsideSfo.swift */; };
@@ -331,7 +331,7 @@
 		C22167921BD59199002D7994 /* AllGeofenceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGeofenceMock.swift; sourceTree = "<group>"; };
 		C22167941BD592C4002D7994 /* SingleGeofenceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleGeofenceMock.swift; sourceTree = "<group>"; };
 		C22167961BD59419002D7994 /* MultipleGeofenceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleGeofenceMock.swift; sourceTree = "<group>"; };
-		C221EDE21BE2C57700BDB4CD /* VerifyingExitAvi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = VerifyingExitAvi.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C221EDE21BE2C57700BDB4CD /* WaitingForExitAvi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = WaitingForExitAvi.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C221EDE41BE2CB1700BDB4CD /* TripWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripWarning.swift; sourceTree = "<group>"; };
 		C221EDE61BE2CD3200BDB4CD /* LatestAviAtExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestAviAtExit.swift; sourceTree = "<group>"; };
 		C221EDE81BE2CEE500BDB4CD /* OutsideSfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutsideSfo.swift; sourceTree = "<group>"; };
@@ -656,9 +656,9 @@
 				C220E0721BC3446600AC7C85 /* Ready.swift */,
 				E18228FA1BC48F2300614256 /* InProgress.swift */,
 				E18228FE1BC4932400614256 /* ValidatingTrip.swift */,
-				C221EDE21BE2C57700BDB4CD /* VerifyingExitAvi.swift */,
 				8EEFB79F1BE0324600B8A962 /* WaitingForEntryAvi.swift */,
 				C28ECB2B1BCF01F200887763 /* WaitingForEntryCid.swift */,
+				C221EDE21BE2C57700BDB4CD /* WaitingForExitAvi.swift */,
 				8EEFB7A11BE041F800B8A962 /* WaitingForPaymentCid.swift */,
 				C285F1D61C18F4CA00AA3363 /* WaitingForReEntryAvi.swift */,
 				C285F1D41C18F46D00AA3363 /* WaitingForReEntryCid.swift */,
@@ -1587,7 +1587,7 @@
 				C21905681BB0B74E00A3E779 /* Url.swift in Sources */,
 				E1472D041C0E7B6900D27D60 /* StateShortTrip.swift in Sources */,
 				E15FF4981BD5F0C700ECDF27 /* Util.swift in Sources */,
-				C221EDE31BE2C57700BDB4CD /* VerifyingExitAvi.swift in Sources */,
+				C221EDE31BE2C57700BDB4CD /* WaitingForExitAvi.swift in Sources */,
 				C215CDFA1BD18F7200991D9D /* StatusCode.swift in Sources */,
 				C2635E261BB0CA3F003C22B1 /* DispatcherClient.swift in Sources */,
 				FA6380F21BED1FEA00CF51CC /* GtmsLocation.swift in Sources */,

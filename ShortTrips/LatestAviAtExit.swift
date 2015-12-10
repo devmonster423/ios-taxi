@@ -18,7 +18,7 @@ class LatestAviAtExit {
   
   private init() {
     events = [TKEvent(name: eventNames[0],
-      transitioningFromStates: [VerifyingExitAvi.sharedInstance.getState()],
+      transitioningFromStates: [WaitingForExitAvi.sharedInstance.getState()],
       toState: WaitingForStartTrip.sharedInstance.getState())]
   }
 }

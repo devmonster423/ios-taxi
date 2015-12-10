@@ -67,7 +67,7 @@ extension DebugVC {
       debugView().updateState("Waiting for Payment Cid")
       updateFakeButtons((title: "Fake Cid Payment", action: "fakeCidPayment"))
       
-    } else if state == VerifyingExitAvi.sharedInstance.getState() {
+    } else if state == WaitingForExitAvi.sharedInstance.getState() {
       self.debugView().printDebugLine("Entered Waiting for Exit Avi")
       self.debugView().updateState("Waiting for Exit Avi")
       self.updateFakeButtons((title: "Fake Exit AVI Read", action: "latestExitAviRead"),

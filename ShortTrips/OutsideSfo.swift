@@ -19,7 +19,7 @@ class OutsideSfo {
   private init() {
     events = [
       TKEvent(name: eventNames[0],
-      transitioningFromStates: [VerifyingExitAvi.sharedInstance.getState()],
+      transitioningFromStates: [WaitingForExitAvi.sharedInstance.getState()],
       toState: WaitingForStartTrip.sharedInstance.getState()),
       TKEvent(name: eventNames[1],
       transitioningFromStates: [WaitingForEntryAvi.sharedInstance.getState()],
