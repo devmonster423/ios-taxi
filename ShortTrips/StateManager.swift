@@ -19,6 +19,7 @@ class StateManager {
   static let allStates = [
     AssociatingDriverAndVehicleAtEntry.sharedInstance.getState(),
     AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState(),
+    AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState(),
     InProgress.sharedInstance.getState(),
     NotReady.sharedInstance.getState(),
     Ready.sharedInstance.getState(),
@@ -28,6 +29,8 @@ class StateManager {
     VerifyingTaxiLoopAvi.sharedInstance.getState(),
     WaitingForEntryCid.sharedInstance.getState(),
     WaitingForPaymentCid.sharedInstance.getState(),
+    WaitingForReEntryAvi.sharedInstance.getState(),
+    WaitingForReEntryCid.sharedInstance.getState(),
     WaitingForStartTrip.sharedInstance.getState(),
     WaitingInHoldingLot.sharedInstance.getState()
   ]
@@ -41,11 +44,13 @@ class StateManager {
     events += InsideSfo.sharedInstance.getEvents()
     events += InsideTaxiLoopExit.sharedInstance.getEvents()
     events += InsideTaxiWaitingZone.sharedInstance.getEvents()
+    events += LatestAviAtReEntry.sharedInstance.getEvents()
     events += LatestAviReadAtEntry.sharedInstance.getEvents()
     events += LatestAviReadAtExit.sharedInstance.getEvents()
     events += LatestAviReadAtTaxiLoop.sharedInstance.getEvents()
     events += LatestCidIsEntryCid.sharedInstance.getEvents()
     events += LatestCidIsPaymentCid.sharedInstance.getEvents()
+    events += LatestCidIsReEntryCid.sharedInstance.getEvents()
     events += LoggedOut.sharedInstance.getEvents()
     events += NotInTerminalExit.sharedInstance.getEvents()
     events += OutsideSfo.sharedInstance.getEvents()

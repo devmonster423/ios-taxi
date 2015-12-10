@@ -21,7 +21,7 @@ struct InsideSfo {
     
     let reEnterSfoGeofenceEvent = TKEvent(name: eventNames[0],
       transitioningFromStates: [InProgress.sharedInstance.getState()],
-      toState: VerifyingEntryGateAvi.sharedInstance.getState())
+      toState: WaitingForReEntryAvi.sharedInstance.getState())
     
     events = [reEnterSfoGeofenceEvent]
   }
