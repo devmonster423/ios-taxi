@@ -14,8 +14,11 @@ class GeofenceManager {
   
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
   var lastCheckedLocation: CLLocation?
+  var insideSfo = false
+  var checkThreshold: Double {
+    return insideSfo ? 30 : 300
+  }
   
-  let checkThreshold: Double = 50 // meters
   static let sharedInstance = GeofenceManager()
   
   func start() {
@@ -53,8 +56,10 @@ class GeofenceManager {
     
     if geofences.contains(.Sfo) {
       InsideSfo.sharedInstance.fire()
+      insideSfo = true
     } else {
       OutsideSfo.sharedInstance.fire()
+      insideSfo = false
     }
     
     if geofences.contains(.SfoTaxiDomesticExit)
