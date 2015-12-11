@@ -23,17 +23,17 @@ extension DebugVC {
     if state == AssociatingDriverAndVehicleAtEntry.sharedInstance.getState() {
       debugView().printDebugLine("Associating Driver And Vehicle")
       debugView().updateState("Associating Driver And Vehicle")
-      updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"), second: (title: "Inside Taxi Loop Exit", action: "triggerAtTerminalExit"), third: (title: "Out of WaitingZone", action: "triggerOutsideTaxiWaitingZone"))
+      updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"), second: (title: "Inside Taxi Loop Exit", action: "triggerAtTerminalExit"))
 
     } else if state == AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState() {
       debugView().printDebugLine("Associating Driver And Vehicle")
       debugView().updateState("Associating Driver And Vehicle")
-      updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"), second: (title: "OutsideDomExit", action: "triggerOutsideDomesticTerminalExit"))
+      updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
       
     } else if state == AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState() {
       debugView().printDebugLine("Associating Driver And Vehicle")
       debugView().updateState("Associating Driver And Vehicle")
-      updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"), second: (title: "Outside SFO", action: "triggerOutsideSfo"))
+      updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
       
     } else if state == NotReady.sharedInstance.getState() {
       debugView().printDebugLine("Entered Not Ready State")
@@ -70,12 +70,12 @@ extension DebugVC {
     } else if state == WaitingForReEntryCid.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting for ReEntry Cid")
       debugView().updateState("Waiting for ReEntry Cid")
-      updateFakeButtons((title:"Trigger Cid ReEntry", action: "triggerReEntryCid"), second: (title: "Outside SFO", action: "triggerOutsideSfo"))
+      updateFakeButtons((title:"Trigger Cid ReEntry", action: "triggerReEntryCid"))
       
     } else if state == WaitingForEntryAvi.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting for Entry Gate Avi")
       debugView().updateState("Waiting for Entry Gate Avi")
-      updateFakeButtons((title: "Confirm Entry Gate Avi Read", action: "confirmEntryGateAviRead"), second: (title: "Inside Taxi Loop Exit", action: "triggerAtTerminalExit"), third: (title: "Out of WaitingZone", action: "triggerOutsideTaxiWaitingZone"))
+      updateFakeButtons((title: "Confirm Entry Gate Avi Read", action: "confirmEntryGateAviRead"), second: (title: "Inside Taxi Loop Exit", action: "triggerAtTerminalExit"))
       
     } else if state == WaitingForReEntryAvi.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting for ReEntry Gate Avi")
@@ -102,7 +102,7 @@ extension DebugVC {
     } else if state == WaitingForTaxiLoopAvi.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting For Taxi Loop Avi")
       debugView().updateState("Waiting for Taxi Loop Avi")
-      updateFakeButtons((title: "Latest Avi Read At Taxi Loop", action: "latestAviReadAtTaxiLoop"), second: (title: "OutsideDomExit", action: "triggerOutsideDomesticTerminalExit"))
+      updateFakeButtons((title: "Latest Avi Read At Taxi Loop", action: "latestAviReadAtTaxiLoop"))
       
     } else if state == WaitingForStartTrip.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting For Trip to Start")
