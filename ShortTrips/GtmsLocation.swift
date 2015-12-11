@@ -98,4 +98,3 @@ enum GtmsLocation: String {
     }
   }
 }
-

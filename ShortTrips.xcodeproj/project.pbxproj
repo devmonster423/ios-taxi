@@ -160,6 +160,7 @@
 		C2FE05E61C1B4F80005D6705 /* TimedOutReEntryCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE05E51C1B4F80005D6705 /* TimedOutReEntryCheck.swift */; };
 		C2FE05E81C1B5BE8005D6705 /* TripFallbackSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE05E71C1B5BE8005D6705 /* TripFallbackSpec.swift */; };
 		C2FE05EB1C1B7308005D6705 /* ShortTripVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE05EA1C1B7308005D6705 /* ShortTripVCSpec.swift */; };
+		C2FE05EE1C1B74B1005D6705 /* GtmsLocationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE05ED1C1B74B1005D6705 /* GtmsLocationSpec.swift */; };
 		E108B1751BA7C1DE00481AF1 /* ReferenceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */; };
 		E10CE6801BED1DD600322077 /* MockDriverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */; };
 		E112C3031BB2FD2500B1DF48 /* GeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C3021BB2FD2500B1DF48 /* GeofenceSpec.swift */; };
@@ -418,6 +419,7 @@
 		C2FE05E51C1B4F80005D6705 /* TimedOutReEntryCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedOutReEntryCheck.swift; sourceTree = "<group>"; };
 		C2FE05E71C1B5BE8005D6705 /* TripFallbackSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripFallbackSpec.swift; sourceTree = "<group>"; };
 		C2FE05EA1C1B7308005D6705 /* ShortTripVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortTripVCSpec.swift; sourceTree = "<group>"; };
+		C2FE05ED1C1B74B1005D6705 /* GtmsLocationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GtmsLocationSpec.swift; sourceTree = "<group>"; };
 		D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
 		E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConfig.swift; sourceTree = "<group>"; };
 		E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDriverResponse.swift; sourceTree = "<group>"; };
@@ -943,6 +945,14 @@
 			name = ShortTrip;
 			sourceTree = "<group>";
 		};
+		C2FE05EC1C1B7496005D6705 /* Gtms */ = {
+			isa = PBXGroup;
+			children = (
+				C2FE05ED1C1B74B1005D6705 /* GtmsLocationSpec.swift */,
+			);
+			name = Gtms;
+			sourceTree = "<group>";
+		};
 		E112C3011BB2FCE500B1DF48 /* Geofence */ = {
 			isa = PBXGroup;
 			children = (
@@ -1076,6 +1086,7 @@
 				E1E6EF9C1BB2053B0039C5F3 /* Driver */,
 				E18FFE2C1BB1A0A0003D192A /* Flight */,
 				E112C3011BB2FCE500B1DF48 /* Geofence */,
+				C2FE05EC1C1B7496005D6705 /* Gtms */,
 				E112C30A1BB3130E00B1DF48 /* LotStatus */,
 				E17C22EF1BBC4B1100E40E6C /* TerminalSummary */,
 				E1ADA7061BBC328700766DB1 /* ReferenceConfig */,
@@ -1677,6 +1688,7 @@
 				E17C22F11BBC4B8900E40E6C /* TerminalSummarySpec.swift in Sources */,
 				8EEFB7EC1BE2C74E00B8A962 /* PingSpec.swift in Sources */,
 				E1D6E1CE1BF3B9C600810EB0 /* MockCidResponse.swift in Sources */,
+				C2FE05EE1C1B74B1005D6705 /* GtmsLocationSpec.swift in Sources */,
 				E1598CE41BB1ACB100E933AD /* FlightSpec.swift in Sources */,
 				C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */,
 				8EEFB7B51BE1A31A00B8A962 /* DispatcherClientSpec.swift in Sources */,
