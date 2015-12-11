@@ -27,6 +27,8 @@ class Poller: NSObject {
       selector: "check",
       userInfo: nil,
       repeats: true)
+    
+    action()
   }
   
   func stop() {
