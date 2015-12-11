@@ -159,6 +159,7 @@
 		C2FE05E41C1B4F72005D6705 /* TimedOutPaymentCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE05E31C1B4F72005D6705 /* TimedOutPaymentCheck.swift */; };
 		C2FE05E61C1B4F80005D6705 /* TimedOutReEntryCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE05E51C1B4F80005D6705 /* TimedOutReEntryCheck.swift */; };
 		C2FE05E81C1B5BE8005D6705 /* TripFallbackSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE05E71C1B5BE8005D6705 /* TripFallbackSpec.swift */; };
+		C2FE05EB1C1B7308005D6705 /* ShortTripVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE05EA1C1B7308005D6705 /* ShortTripVCSpec.swift */; };
 		E108B1751BA7C1DE00481AF1 /* ReferenceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */; };
 		E10CE6801BED1DD600322077 /* MockDriverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */; };
 		E112C3031BB2FD2500B1DF48 /* GeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C3021BB2FD2500B1DF48 /* GeofenceSpec.swift */; };
@@ -416,6 +417,7 @@
 		C2FE05E31C1B4F72005D6705 /* TimedOutPaymentCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedOutPaymentCheck.swift; sourceTree = "<group>"; };
 		C2FE05E51C1B4F80005D6705 /* TimedOutReEntryCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedOutReEntryCheck.swift; sourceTree = "<group>"; };
 		C2FE05E71C1B5BE8005D6705 /* TripFallbackSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripFallbackSpec.swift; sourceTree = "<group>"; };
+		C2FE05EA1C1B7308005D6705 /* ShortTripVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortTripVCSpec.swift; sourceTree = "<group>"; };
 		D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
 		E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConfig.swift; sourceTree = "<group>"; };
 		E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDriverResponse.swift; sourceTree = "<group>"; };
@@ -933,6 +935,14 @@
 			name = Utility;
 			sourceTree = "<group>";
 		};
+		C2FE05E91C1B72E8005D6705 /* ShortTrip */ = {
+			isa = PBXGroup;
+			children = (
+				C2FE05EA1C1B7308005D6705 /* ShortTripVCSpec.swift */,
+			);
+			name = ShortTrip;
+			sourceTree = "<group>";
+		};
 		E112C3011BB2FCE500B1DF48 /* Geofence */ = {
 			isa = PBXGroup;
 			children = (
@@ -1046,6 +1056,7 @@
 				C29341CA1BD1C55400A7CB9E /* Auth */,
 				C21528CB1BC869380073502F /* Debug */,
 				C257FB411BC4650200468CF1 /* LocationManagement */,
+				C2FE05E91C1B72E8005D6705 /* ShortTrip */,
 				C220E0761BC34AA700AC7C85 /* TripManager */,
 				C2897A921BB5E6CC00FE1B40 /* Networking */,
 				C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */,
@@ -1706,6 +1717,7 @@
 				C220E0781BC34ACE00AC7C85 /* TripScenario1Spec.swift in Sources */,
 				C29341CC1BD1C56200A7CB9E /* DriverManagerSpec.swift in Sources */,
 				8EEFB7CD1BE28DCD00B8A962 /* StatusCodeSpec.swift in Sources */,
+				C2FE05EB1C1B7308005D6705 /* ShortTripVCSpec.swift in Sources */,
 				C221678F1BD58AAF002D7994 /* TerminalSummaryMock.swift in Sources */,
 				E112C30C1BB3135600B1DF48 /* LotStatusEnumSpec.swift in Sources */,
 				E1F153C51BF02DE600E212ED /* TerminalSummaryArrivalsWrapperSpec.swift in Sources */,
