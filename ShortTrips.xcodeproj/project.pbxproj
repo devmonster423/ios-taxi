@@ -88,7 +88,6 @@
 		C221EDEB1BE2E12E00BDB4CD /* MockAntennaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDEA1BE2E12E00BDB4CD /* MockAntennaResponse.swift */; };
 		C23315851BB472490079B916 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23315841BB472490079B916 /* Airline.swift */; };
 		C257FB3D1BC44E4200468CF1 /* GeofenceArbiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C257FB3C1BC44E4200468CF1 /* GeofenceArbiter.swift */; };
-		C257FB401BC4624700468CF1 /* ShortTripGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C257FB3F1BC4624700468CF1 /* ShortTripGeofence.swift */; };
 		C257FB441BC4653000468CF1 /* ShortTripGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C257FB431BC4653000468CF1 /* ShortTripGeofenceSpec.swift */; };
 		C25C9D2B1BEC057A0028FA81 /* TripScenario7Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25C9D2A1BEC057A0028FA81 /* TripScenario7Spec.swift */; };
 		C2635E261BB0CA3F003C22B1 /* DispatcherClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2635E251BB0CA3F003C22B1 /* DispatcherClient.swift */; };
@@ -250,8 +249,8 @@
 		FA32EC0E1B883B44001428B5 /* terminal_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC0D1B883B44001428B5 /* terminal_bg.jpg */; };
 		FA6380F21BED1FEA00CF51CC /* GtmsLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */; };
 		FA650FF81BB20CDB003D1939 /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA650FF71BB20CDB003D1939 /* DateTransform.swift */; };
-		FAD0418C1C0E66E900D9F8A1 /* LocalGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */; };
 		FA7B79F31C1A5D3E000CDC3B /* InsideSfoNotExitingTerminals.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B79F21C1A5D3E000CDC3B /* InsideSfoNotExitingTerminals.swift */; };
+		FAD0418C1C0E66E900D9F8A1 /* LocalGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -349,7 +348,6 @@
 		C221EDEA1BE2E12E00BDB4CD /* MockAntennaResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAntennaResponse.swift; sourceTree = "<group>"; };
 		C23315841BB472490079B916 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		C257FB3C1BC44E4200468CF1 /* GeofenceArbiter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceArbiter.swift; sourceTree = "<group>"; };
-		C257FB3F1BC4624700468CF1 /* ShortTripGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortTripGeofence.swift; sourceTree = "<group>"; };
 		C257FB431BC4653000468CF1 /* ShortTripGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortTripGeofenceSpec.swift; sourceTree = "<group>"; };
 		C25C9D2A1BEC057A0028FA81 /* TripScenario7Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TripScenario7Spec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C2635E251BB0CA3F003C22B1 /* DispatcherClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatcherClient.swift; sourceTree = "<group>"; };
@@ -515,8 +513,8 @@
 		FA32EC0F1B885B92001428B5 /* ShortTrips.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ShortTrips.entitlements; sourceTree = "<group>"; };
 		FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GtmsLocation.swift; sourceTree = "<group>"; };
 		FA650FF71BB20CDB003D1939 /* DateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTransform.swift; sourceTree = "<group>"; };
-		FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofence.swift; sourceTree = "<group>"; };
 		FA7B79F21C1A5D3E000CDC3B /* InsideSfoNotExitingTerminals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideSfoNotExitingTerminals.swift; sourceTree = "<group>"; };
+		FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -635,7 +633,6 @@
 			children = (
 				FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */,
 				C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */,
-				C257FB3F1BC4624700468CF1 /* ShortTripGeofence.swift */,
 			);
 			name = "Local Geofences";
 			sourceTree = "<group>";
@@ -1533,7 +1530,6 @@
 			files = (
 				E1472D061C0E7B7800D27D60 /* TripShortTrip.swift in Sources */,
 				C200BE211BA8C21600B7F56F /* TerminalView.swift in Sources */,
-				C257FB401BC4624700468CF1 /* ShortTripGeofence.swift in Sources */,
 				C2AB513C1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift in Sources */,
 				C285F1DF1C190C9000AA3363 /* NotInDomesticExit.swift in Sources */,
 				C2F3E9071BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift in Sources */,
@@ -1596,7 +1592,6 @@
 				C28ECB3D1BCF193300887763 /* PingManager.swift in Sources */,
 				C21775F91BB08CAC008B24EA /* Color.swift in Sources */,
 				C2CE0B141C1219AB00496607 /* LocalGeofenceFeature.swift in Sources */,
-				C2F3E90F1BF402F800B852EF /* OptionalEntryFailed.swift in Sources */,
 				C2FC60FE1BFE49EE00F50A80 /* ExitingTerminals.swift in Sources */,
 				E14A39281BE957340053F741 /* AppQuit.swift in Sources */,
 				C2AB513A1BD02CC0003ACB4C /* LatestCidIsEntryCid.swift in Sources */,
