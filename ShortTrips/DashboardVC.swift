@@ -64,8 +64,10 @@ class DashboardVC: UIViewController {
             message += NSLocalizedString("The status object was nil.", comment:"")
           }
         }
-        
-        UiHelpers.displayErrorMessage(self, message: message)
+      
+        if self.navigationController?.visibleViewController == self {
+          UiHelpers.displayErrorMessage(self, message: message)
+        }
       }
     }
   }
