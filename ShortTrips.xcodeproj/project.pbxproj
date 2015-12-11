@@ -158,6 +158,7 @@
 		C2FE05E21C1B4F58005D6705 /* TimedOutEntryCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE05E11C1B4F58005D6705 /* TimedOutEntryCheck.swift */; };
 		C2FE05E41C1B4F72005D6705 /* TimedOutPaymentCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE05E31C1B4F72005D6705 /* TimedOutPaymentCheck.swift */; };
 		C2FE05E61C1B4F80005D6705 /* TimedOutReEntryCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE05E51C1B4F80005D6705 /* TimedOutReEntryCheck.swift */; };
+		C2FE05E81C1B5BE8005D6705 /* TripFallbackSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE05E71C1B5BE8005D6705 /* TripFallbackSpec.swift */; };
 		E108B1751BA7C1DE00481AF1 /* ReferenceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */; };
 		E10CE6801BED1DD600322077 /* MockDriverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */; };
 		E112C3031BB2FD2500B1DF48 /* GeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E112C3021BB2FD2500B1DF48 /* GeofenceSpec.swift */; };
@@ -414,6 +415,7 @@
 		C2FE05E11C1B4F58005D6705 /* TimedOutEntryCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedOutEntryCheck.swift; sourceTree = "<group>"; };
 		C2FE05E31C1B4F72005D6705 /* TimedOutPaymentCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedOutPaymentCheck.swift; sourceTree = "<group>"; };
 		C2FE05E51C1B4F80005D6705 /* TimedOutReEntryCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimedOutReEntryCheck.swift; sourceTree = "<group>"; };
+		C2FE05E71C1B5BE8005D6705 /* TripFallbackSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripFallbackSpec.swift; sourceTree = "<group>"; };
 		D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
 		E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConfig.swift; sourceTree = "<group>"; };
 		E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDriverResponse.swift; sourceTree = "<group>"; };
@@ -728,6 +730,7 @@
 				E14A39251BE945960053F741 /* TripScenario4Spec.swift */,
 				C25C9D2A1BEC057A0028FA81 /* TripScenario7Spec.swift */,
 				E1F18B1A1BE96FDD007BC7F8 /* TripScenario8Spec.swift */,
+				C2FE05E71C1B5BE8005D6705 /* TripFallbackSpec.swift */,
 			);
 			name = TripManager;
 			sourceTree = "<group>";
@@ -1710,6 +1713,7 @@
 				8EEFB7B71BE1A3B100B8A962 /* LotStatusMock.swift in Sources */,
 				C221678D1BD5886A002D7994 /* FlightArrivalMock.swift in Sources */,
 				8EEFB7C51BE1B1F700B8A962 /* RequestReferenceConfigMock.swift in Sources */,
+				C2FE05E81C1B5BE8005D6705 /* TripFallbackSpec.swift in Sources */,
 				E16E5E161BB1B690003A315A /* FlightStatusSpec.swift in Sources */,
 				8EEFB7C11BE1AFBB00B8A962 /* RequestCidForSmartCardMock.swift in Sources */,
 				E14E159B1BB1D856009D1E17 /* AntennaSpec.swift in Sources */,
