@@ -8,7 +8,6 @@
 
 import Foundation
 import TransitionKit
-import JSQNotificationObserverKit
 
 struct InsideSfo {
   
@@ -18,12 +17,11 @@ struct InsideSfo {
   private var events: [TKEvent]
 
   private init() {
-    
-    let reEnterSfoGeofenceEvent = TKEvent(name: eventNames[0],
-      transitioningFromStates: [InProgress.sharedInstance.getState()],
-      toState: WaitingForReEntryAvi.sharedInstance.getState())
-    
-    events = [reEnterSfoGeofenceEvent]
+    events = [
+      TKEvent(name: eventNames[0],
+        transitioningFromStates: [InProgress.sharedInstance.getState()],
+        toState: WaitingForReEntryAvi.sharedInstance.getState())
+    ]
   }
 }
 

@@ -64,6 +64,10 @@ extension DebugVC {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.614319, longitude: -122.390206))
   }
   
+  func triggerAtIntlTerminal() {
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.6149, longitude: -122.39))
+  }
+  
   func triggerAtTerminalExit() {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.6168, longitude: -122.3843))
   }
