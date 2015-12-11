@@ -12,7 +12,7 @@ typealias Action = Void -> Void
 
 class Poller: NSObject {
   
-  private let interval: NSTimeInterval = 5
+  private let interval: NSTimeInterval = 10
   private var action: Action
   private var timer: NSTimer!
 
