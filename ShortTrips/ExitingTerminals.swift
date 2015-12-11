@@ -19,18 +19,12 @@ struct ExitingTerminals {
   private init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [Ready.sharedInstance.getState()],
-      toState: VerifyingExitAvi.sharedInstance.getState())]
+      toState: WaitingForExitAvi.sharedInstance.getState())]
   }
 }
 
 extension ExitingTerminals: Event {
   func getEvents() -> [TKEvent] {
     return events
-  }
-}
-
-extension ExitingTerminals: Observable {
-  func eventIsFiring(info: Any?) {
-    postNotification(SfoNotification.Geofence.exitingTerminals, value: nil)
   }
 }

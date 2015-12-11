@@ -12,6 +12,7 @@ import JSQNotificationObserverKit
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
   
+  let requiredAccuracy: CLLocationAccuracy = 100
   let manager = CLLocationManager()
   
   static let sharedInstance = LocationManager()
@@ -43,7 +44,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   
   func locationManager(manager: CLLocationManager,
     didUpdateLocations locations: [CLLocation]) {
-      postNotification(SfoNotification.Location.read, value: locations.last!)
+      if let location = locations.last where location.horizontalAccuracy < requiredAccuracy {
+        postNotification(SfoNotification.Location.read, value: location)
+      }
   }
 
   func locationManager(manager: CLLocationManager,

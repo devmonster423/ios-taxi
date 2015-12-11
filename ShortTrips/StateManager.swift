@@ -19,16 +19,19 @@ class StateManager {
   static let allStates = [
     AssociatingDriverAndVehicleAtEntry.sharedInstance.getState(),
     AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState(),
+    AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState(),
     InProgress.sharedInstance.getState(),
     NotReady.sharedInstance.getState(),
     Ready.sharedInstance.getState(),
     ValidatingTrip.sharedInstance.getState(),
-    VerifyingEntryGateAvi.sharedInstance.getState(),
-    VerifyingExitAvi.sharedInstance.getState(),
-    VerifyingTaxiLoopAvi.sharedInstance.getState(),
+    WaitingForEntryAvi.sharedInstance.getState(),
     WaitingForEntryCid.sharedInstance.getState(),
+    WaitingForExitAvi.sharedInstance.getState(),
     WaitingForPaymentCid.sharedInstance.getState(),
+    WaitingForReEntryAvi.sharedInstance.getState(),
+    WaitingForReEntryCid.sharedInstance.getState(),
     WaitingForStartTrip.sharedInstance.getState(),
+    WaitingForTaxiLoopAvi.sharedInstance.getState(),
     WaitingInHoldingLot.sharedInstance.getState()
   ]
   
@@ -39,20 +42,27 @@ class StateManager {
     events += Failure.sharedInstance.getEvents()
     events += GpsDisabled.sharedInstance.getEvents()
     events += InsideSfo.sharedInstance.getEvents()
+    events += InsideSfoNotExitingTerminals.sharedInstance.getEvents()
     events += InsideTaxiLoopExit.sharedInstance.getEvents()
-    events += LatestAviReadAtEntry.sharedInstance.getEvents()
-    events += LatestAviReadAtExit.sharedInstance.getEvents()
-    events += LatestAviReadAtTaxiLoop.sharedInstance.getEvents()
+    events += InsideTaxiWaitingZone.sharedInstance.getEvents()
+    events += LatestAviAtEntry.sharedInstance.getEvents()
+    events += LatestAviAtExit.sharedInstance.getEvents()
+    events += LatestAviAtReEntry.sharedInstance.getEvents()
+    events += LatestAviAtTaxiLoop.sharedInstance.getEvents()
     events += LatestCidIsEntryCid.sharedInstance.getEvents()
     events += LatestCidIsPaymentCid.sharedInstance.getEvents()
+    events += LatestCidIsReEntryCid.sharedInstance.getEvents()
     events += LoggedOut.sharedInstance.getEvents()
-    events += NotInTerminalExit.sharedInstance.getEvents()
-    events += OptionalEntryCheckFailed.sharedInstance.getEvents()
+    events += NotInDomesticExit.sharedInstance.getEvents()
     events += OutsideSfo.sharedInstance.getEvents()
     events += OutsideShortTripGeofence.sharedInstance.getEvents()
+    events += OutsideTaxiWaitingZone.sharedInstance.getEvents()
     events += TripInvalidated.sharedInstance.getEvents()
-    events += TripStarted.sharedInstance.getEvents()
+    events += TimedOutEntryCheck.sharedInstance.getEvents()
+    events += TimedOutPaymentCheck.sharedInstance.getEvents()
+    events += TimedOutReEntryCheck.sharedInstance.getEvents()
     events += TimeExpired.sharedInstance.getEvents()
+    events += TripStarted.sharedInstance.getEvents()
     events += TripValidated.sharedInstance.getEvents()
     return events
   }

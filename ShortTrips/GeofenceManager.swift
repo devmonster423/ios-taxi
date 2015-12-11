@@ -10,39 +10,44 @@ import Foundation
 import CoreLocation
 import JSQNotificationObserverKit
 
-class GeofenceManager: NSObject {
+class GeofenceManager {
   
-  let updateFrequency = NSTimeInterval(30)
-
+  var locationObserver: NotificationObserver<CLLocation, AnyObject>?
+  var lastCheckedLocation: CLLocation?
+  var insideSfo = false
+  var checkThreshold: Double {
+    return insideSfo ? 30 : 300
+  }
+  
   static let sharedInstance = GeofenceManager()
   
-  private var timer: NSTimer?
-
   func start() {
-    if let _ = timer {} else {
-      timer = NSTimer.scheduledTimerWithTimeInterval(updateFrequency,
-        target: self,
-        selector: "processLastKnownLocation",
-        userInfo: nil,
-        repeats: true)
+    if let _ = locationObserver {} else {
+      self.locationObserver = NotificationObserver(notification: SfoNotification.Location.read) { location, _ in
+        self.process(location)
+      }
     }
   }
 
   func stop() {
-    timer?.invalidate()
-    timer = nil
+    locationObserver = nil
   }
   
-  func processLastKnownLocation() {
-    if let location = LocationManager.sharedInstance.getLastKnownLocation() {
+  func process(location: CLLocation) {
+    
+    if lastCheckedLocation == nil
+      || location.distanceFromLocation(lastCheckedLocation!) > checkThreshold {
+      
       ApiClient.requestGeofencesForLocation(location.coordinate.latitude,
         longitude: location.coordinate.longitude,
         buffer: GeofenceArbiter.buffer) { geofences in
           
           if let geofences = geofences {
-            self.process(geofences.map { geofence -> SfoGeofence in return geofence.geofence! })
+            self.process(geofences.flatMap { geofence -> SfoGeofence? in return geofence.geofence })
             postNotification(SfoNotification.Geofence.foundInside, value: geofences)
           }
+          
+          self.lastCheckedLocation = location
       }
     }
   }
@@ -51,22 +56,34 @@ class GeofenceManager: NSObject {
     
     if geofences.contains(.Sfo) {
       InsideSfo.sharedInstance.fire()
+      insideSfo = true
     } else {
       OutsideSfo.sharedInstance.fire()
+      insideSfo = false
     }
     
-    if geofences.contains(.SfoInternationalExit) || geofences.contains(.SfoTaxiDomesticExit) {
+    if geofences.contains(.SfoTaxiDomesticExit)
+      && !geofences.contains(.TaxiWaitingZone) {
       InsideTaxiLoopExit.sharedInstance.fire()
+    }
+    
+    if geofences.contains(.TaxiWaitingZone) {
+      InsideTaxiWaitingZone.sharedInstance.fire()
+    } else {
+      OutsideTaxiWaitingZone.sharedInstance.fire()
     }
     
     if geofences.contains(.SfoTerminalExit)
       && !geofences.contains(.SfoInternationalExit)
       && !geofences.contains(.SfoTaxiDomesticExit) {
       ExitingTerminals.sharedInstance.fire()
+        
+    } else if geofences.contains(.Sfo) {
+      InsideSfoNotExitingTerminals.sharedInstance.fire()
     }
     
-    if !geofences.contains(.SfoTerminalExit) {
-      NotInTerminalExit.sharedInstance.fire()
+    if !geofences.contains(.SfoTaxiDomesticExit) {
+      NotInDomesticExit.sharedInstance.fire()
     }
   }
 }

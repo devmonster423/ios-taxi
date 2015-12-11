@@ -19,31 +19,19 @@ struct DriverAndVehicleAssociated {
   private var events: [TKEvent]
   
   private init() {
-    
-    let driverAndVehicleAssociatedAtEntry = TKEvent(name: eventNames[0],
-      transitioningFromStates: [AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()],
-      toState: VerifyingEntryGateAvi.sharedInstance.getState())
-    
-    driverAndVehicleAssociatedAtEntry.setShouldFireEventBlock { _, _ -> Bool in
-      return TripManager.sharedInstance.getTripId() == nil
-    }
-    
-    let driverAndVehicleAssociatedAtHoldingLotExit = TKEvent(name: eventNames[1],
-      transitioningFromStates: [AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState()],
-      toState: VerifyingTaxiLoopAvi.sharedInstance.getState())
-    
-    let driverAndVehicleAssociatedAtReEntry = TKEvent(name: eventNames[2],
-      transitioningFromStates: [AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()],
-      toState: ValidatingTrip.sharedInstance.getState())
-    
-    driverAndVehicleAssociatedAtReEntry.setShouldFireEventBlock { _, _ -> Bool in
-      return TripManager.sharedInstance.getTripId() != nil
-    }
-    
     events = [
-      driverAndVehicleAssociatedAtEntry,
-      driverAndVehicleAssociatedAtHoldingLotExit,
-      driverAndVehicleAssociatedAtReEntry
+      TKEvent(name: eventNames[0],
+        transitioningFromStates: [AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()],
+        toState: WaitingForEntryAvi
+          .sharedInstance.getState()),
+      
+      TKEvent(name: eventNames[1],
+        transitioningFromStates: [AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState()],
+        toState: WaitingForTaxiLoopAvi.sharedInstance.getState()),
+      
+      TKEvent(name: eventNames[2],
+        transitioningFromStates: [AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState()],
+        toState: ValidatingTrip.sharedInstance.getState())
     ]
   }
 }

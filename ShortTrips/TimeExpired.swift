@@ -35,6 +35,7 @@ extension TimeExpired: Observable {
 
     if let tripId = TripManager.sharedInstance.getTripId() {
       ApiClient.invalidate(tripId, validation: .Duration)
+      TripManager.sharedInstance.stop()
     }
   }
 }

@@ -49,7 +49,7 @@ extension ShortTripVC {
       self.shortTripView().notificationLabel.text = "Entered Waiting for Entry CID"
       self.shortTripView().currentStateLabel.text = "Waiting for Entry CID"
       self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
-    } else if state == VerifyingEntryGateAvi.sharedInstance.getState() {
+    } else if state == WaitingForEntryAvi.sharedInstance.getState() {
       self.shortTripView().notificationLabel.text = "Entered Waiting for Entry Gate AVI"
       self.shortTripView().currentStateLabel.text = "Waiting for Entry Gate AVI"
       self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
@@ -57,7 +57,7 @@ extension ShortTripVC {
       self.shortTripView().notificationLabel.text = "Entered Waiting for Payment CID"
       self.shortTripView().currentStateLabel.text = "Waiting for Payment CID"
       self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
-    } else if state == VerifyingExitAvi.sharedInstance.getState() {
+    } else if state == WaitingForExitAvi.sharedInstance.getState() {
       self.shortTripView().notificationLabel.text = "Entered Waiting for Exit AVI"
       self.shortTripView().currentStateLabel.text = "Waiting for Exit AVI"
       self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
@@ -65,7 +65,7 @@ extension ShortTripVC {
         self.shortTripView().notificationLabel.text = "Not Exiting Terminals"
         self.sfoObservers.notInTerminalExitObserver = nil
       }
-    } else if state == VerifyingTaxiLoopAvi.sharedInstance.getState() {
+    } else if state == WaitingForTaxiLoopAvi.sharedInstance.getState() {
       self.shortTripView().notificationLabel.text = "Entered Waiting For Taxi Loop AVI"
       self.shortTripView().currentStateLabel.text = "Waiting for Taxi Loop AVI"
       self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")

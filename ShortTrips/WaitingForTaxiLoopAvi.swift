@@ -1,8 +1,8 @@
 //
-//  VerifyingExitAVI.swift
+//  VerifyingTaxiLoopAVI.swift
 //  ShortTrips
 //
-//  Created by Matt Luedke on 10/29/15.
+//  Created by Pierre Exygy on 10/27/15.
 //  Copyright © 2015 SFO. All rights reserved.
 //
 
@@ -10,10 +10,10 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct VerifyingExitAvi {
-  let stateName = "verifyingExitAvi"
-  static let sharedInstance = VerifyingExitAvi()
-  private let expectedAvi: GtmsLocation = .Exit
+struct WaitingForTaxiLoopAvi {
+  let stateName = "WaitingForTaxiLoopAvi"
+  static let sharedInstance = WaitingForTaxiLoopAvi()
+  private let expectedAvi: GtmsLocation = .DtaRecirculation
   
   private var poller: Poller?
   private var state: TKState
@@ -22,26 +22,22 @@ struct VerifyingExitAvi {
     state = TKState(name: stateName)
     
     state.setDidEnterStateBlock { _, _ in
-      
+    
       postNotification(SfoNotification.State.update, value: self.getState())
       
-      self.poller = Poller.init(timeout: nil, action: {
+      self.poller = Poller.init(failure: { TimedOutPaymentCheck.sharedInstance.fire() }) {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
-
             if let antenna = antenna, let device = antenna.device() {
               if device == self.expectedAvi {
-                LatestAviReadAtExit.sharedInstance.fire(antenna)
-                TripManager.sharedInstance.setStartTime(antenna.aviDate)
+                LatestAviAtTaxiLoop.sharedInstance.fire(antenna)
               } else {
                 postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
               }
             }
           }
-        } else {
-          Failure.sharedInstance.fire()
         }
-      })
+      }
     }
     
     state.setDidExitStateBlock { _, _ in

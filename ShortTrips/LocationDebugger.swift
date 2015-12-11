@@ -60,15 +60,31 @@ extension DebugVC {
     postNotification(SfoNotification.Ping.created, value: (ping: ping, geofenceStatus: geofenceStatus))
   }
   
+  func triggerOutsideDomesticTerminalExit() {
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.614319, longitude: -122.390206))
+  }
+  
+  func triggerAtIntlTerminal() {
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.6149, longitude: -122.39))
+  }
+  
   func triggerAtTerminalExit() {
-    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.615319, longitude: -122.390206))
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.6168, longitude: -122.3843))
   }
   
   func triggerInsideSfo() {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.621313, longitude: -122.378955))
   }
   
+  func triggerInsideTaxiWaitingZone() {
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.616424, longitude: -122.386107))
+  }
+  
   func triggerOutsideSfo() {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.65, longitude: -122.405))
+  }
+  
+  func triggerOutsideTaxiWaitingZone() {
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.621313, longitude: -122.378955))
   }
 }

@@ -162,6 +162,7 @@ class DebugView: UIView {
     }
 
     thirdFakeButton.backgroundColor = UIColor.blackColor()
+    thirdFakeButton.titleLabel?.font = Font.MyriadPro.size(12)
     thirdFakeButton.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(logOutButton)
       make.leading.equalTo(secondFakeButton.snp_trailing)

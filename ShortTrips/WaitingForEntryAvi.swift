@@ -10,9 +10,9 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct VerifyingEntryGateAvi {
-  let stateName = "verifyingEntryGateAvi"
-  static let sharedInstance = VerifyingEntryGateAvi()
+struct WaitingForEntryAvi {
+  let stateName = "WaitingForEntryAvi"
+  static let sharedInstance = WaitingForEntryAvi()
   private let expectedAvi: GtmsLocation = .TaxiEntry
   
   private var poller: Poller?
@@ -25,24 +25,20 @@ struct VerifyingEntryGateAvi {
       
       postNotification(SfoNotification.State.update, value: self.getState())
       
-      let tripActive = TripManager.sharedInstance.getTripId() != nil
-      
-      self.poller = Poller.init(timeout: tripActive ? nil : Poller.standardTimeout, action: {
+      self.poller = Poller.init(failure: { TimedOutEntryCheck.sharedInstance.fire() }) {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
 
             if let antenna = antenna, let device = antenna.device() {
               if device == .TaxiEntry {
-                LatestAviReadAtEntry.sharedInstance.fire(antenna)
+                LatestAviAtEntry.sharedInstance.fire(antenna)
               } else {
                 postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
               }
             }
           }
         }
-      }, failure: {
-        OptionalEntryCheckFailed.sharedInstance.fire()
-      })
+      }
     }
     
     state.setDidExitStateBlock { _, _ in

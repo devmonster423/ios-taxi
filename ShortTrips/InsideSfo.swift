@@ -8,41 +8,25 @@
 
 import Foundation
 import TransitionKit
-import JSQNotificationObserverKit
 
 struct InsideSfo {
   
-  let eventNames = ["enterSfoGeofence", "reEnterSfoGeofence"]
+  let eventNames = ["reEnterSfoGeofence"]
   static let sharedInstance = InsideSfo()
 
   private var events: [TKEvent]
 
   private init() {
-    
-    let enterSfoGeofenceEvent = TKEvent(name: eventNames[0],
-      transitioningFromStates: [NotReady.sharedInstance.getState()],
-      toState: WaitingForEntryCid.sharedInstance.getState())
-    
-    enterSfoGeofenceEvent.setShouldFireEventBlock { _, _ -> Bool in
-      return LocationManager.locationActiveAndAuthorized()
-    }
-    
-    let reEnterSfoGeofenceEvent = TKEvent(name: eventNames[1],
-      transitioningFromStates: [InProgress.sharedInstance.getState()],
-      toState: VerifyingEntryGateAvi.sharedInstance.getState())
-    
-    events = [enterSfoGeofenceEvent, reEnterSfoGeofenceEvent]
+    events = [
+      TKEvent(name: eventNames[0],
+        transitioningFromStates: [InProgress.sharedInstance.getState()],
+        toState: WaitingForReEntryAvi.sharedInstance.getState())
+    ]
   }
 }
 
 extension InsideSfo: Event {
   func getEvents() -> [TKEvent] {
     return events
-  }
-}
-
-extension InsideSfo: Observable {
-  func eventIsFiring(info: Any?) {
-    postNotification(SfoNotification.Geofence.insideSfo, value: nil)
   }
 }

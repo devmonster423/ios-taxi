@@ -13,7 +13,7 @@ import MapKit
 
 struct GeofenceArbiter {
   
-  static let buffer = 0.1
+  static let buffer: Double = 0
   
   static func location(location: CLLocationCoordinate2D, satisfiesPolygonInfo polygonInfos:[PolygonInfo]) -> Bool {
 

@@ -45,14 +45,18 @@ extension DebugVC {
   }
   
   func confirmEntryGateAviRead() {
-    LatestAviReadAtEntry.sharedInstance.fire(Antenna(antennaId: "123", aviLocation: "Location #15 Taxi Main Lot", aviDate: NSDate()))
+    LatestAviAtEntry.sharedInstance.fire(Antenna(antennaId: "123", aviLocation: "Location #15 Taxi Main Lot", aviDate: NSDate()))
+  }
+  
+  func confirmReEntryGateAviRead() {
+    LatestAviAtReEntry.sharedInstance.fire(Antenna(antennaId: "123", aviLocation: "Location #15 Taxi Main Lot", aviDate: NSDate()))
   }
   
   func latestAviReadAtTaxiLoop() {
-    LatestAviReadAtTaxiLoop.sharedInstance.fire(Antenna(antennaId: "123", aviLocation: "Location #15 Taxi Main Lot", aviDate: NSDate()))
+    LatestAviAtTaxiLoop.sharedInstance.fire(Antenna(antennaId: "123", aviLocation: "Location #15 Taxi Main Lot", aviDate: NSDate()))
   }
 
   func latestExitAviRead() {
-    LatestAviReadAtExit.sharedInstance.fire(Antenna(antennaId: "123", aviLocation: "Location #15 Taxi Main Lot", aviDate: NSDate()))
+    LatestAviAtExit.sharedInstance.fire(Antenna(antennaId: "123", aviLocation: "Location #15 Taxi Main Lot", aviDate: NSDate()))
   }
 }

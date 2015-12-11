@@ -32,12 +32,13 @@ enum SfoGeofence: Int {
   case Colma = 16
   case DalyCity = 17
   case SfoTerminalExit = 18
+  case TaxiWaitingZone = 19
 }
 
 struct Geofence: Mappable {
   var category: Category?
   var description: String?
-  var geofence: SfoGeofence!
+  var geofence: SfoGeofence?
   var name: String!
   
   init(category: Category, description: String, geofence: SfoGeofence, name: String) {

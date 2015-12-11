@@ -12,17 +12,17 @@ typealias Action = Void -> Void
 
 class Poller: NSObject {
   
-  static let standardTimeout: NSTimeInterval = 60
-  
+  private static let standardTimeout: NSTimeInterval = 60 * 5 // 5 min
+  private let interval: NSTimeInterval = 10
   private var action: Action
   private var creationDate: NSDate!
-  private var timeout: NSTimeInterval?
+  private var timeout: NSTimeInterval
   private var timer: NSTimer!
-  private var failure: Action
+  private var failure: Action?
 
-  init(timeout: NSTimeInterval? = standardTimeout,
-    action: Action,
-    failure: Action = {Failure.sharedInstance.fire()}) {
+  init(timeout: NSTimeInterval = standardTimeout,
+    failure: Action? = nil,
+    action: Action) {
 
     self.timeout = timeout
     self.action = action
@@ -31,11 +31,13 @@ class Poller: NSObject {
 
     super.init()
 
-    timer = NSTimer.scheduledTimerWithTimeInterval(5,
+    timer = NSTimer.scheduledTimerWithTimeInterval(interval,
       target: self,
       selector: "check",
       userInfo: nil,
       repeats: true)
+    
+    action()
   }
   
   func stop() {
@@ -44,10 +46,12 @@ class Poller: NSObject {
   }
   
   func check() {
-    if let timeout = timeout where creationDate.timeIntervalSinceNow < -timeout {
+    if let failure = failure
+      where creationDate.timeIntervalSinceNow < -timeout {
+        
       stop()
       failure()
-      
+        
     } else {
       action()
     }

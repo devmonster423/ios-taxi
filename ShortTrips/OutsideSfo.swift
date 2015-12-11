@@ -11,7 +11,7 @@ import TransitionKit
 import JSQNotificationObserverKit
 
 class OutsideSfo {
-  let eventNames = ["OutsideSfo", "StopEntryCheck"]
+  let eventNames = ["StartTripAfterPayment", "StopReEntryCheck"]
   static let sharedInstance = OutsideSfo()
   
   private var events: [TKEvent]
@@ -19,10 +19,11 @@ class OutsideSfo {
   private init() {
     events = [
       TKEvent(name: eventNames[0],
-      transitioningFromStates: [VerifyingExitAvi.sharedInstance.getState()],
+      transitioningFromStates: [Ready.sharedInstance.getState(), WaitingForExitAvi.sharedInstance.getState()],
       toState: WaitingForStartTrip.sharedInstance.getState()),
+      
       TKEvent(name: eventNames[1],
-      transitioningFromStates: [VerifyingEntryGateAvi.sharedInstance.getState()],
+      transitioningFromStates: [WaitingForReEntryAvi.sharedInstance.getState()],
       toState: InProgress.sharedInstance.getState())
     ]
   }
