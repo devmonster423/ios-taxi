@@ -50,6 +50,13 @@
 		C20A988A1BE17AEC009E29E7 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A98891BE17AEC009E29E7 /* Observable.swift */; };
 		C20A988C1BE1A066009E29E7 /* WaitingToStartTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A988B1BE1A066009E29E7 /* WaitingToStartTrip.swift */; };
 		C20A988E1BE1A1BC009E29E7 /* TripStarted.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A988D1BE1A1BC009E29E7 /* TripStarted.swift */; };
+		C21421061C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json in Resources */ = {isa = PBXBuildFile; fileRef = C21421001C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json */; };
+		C21421071C1B7F6D0066DCA5 /* Entry_Gate.json in Resources */ = {isa = PBXBuildFile; fileRef = C21421011C1B7F6D0066DCA5 /* Entry_Gate.json */; };
+		C21421081C1B7F6D0066DCA5 /* International_Pax_Pickup.json in Resources */ = {isa = PBXBuildFile; fileRef = C21421021C1B7F6D0066DCA5 /* International_Pax_Pickup.json */; };
+		C21421091C1B7F6D0066DCA5 /* SFO.json in Resources */ = {isa = PBXBuildFile; fileRef = C21421031C1B7F6D0066DCA5 /* SFO.json */; };
+		C214210A1C1B7F6D0066DCA5 /* Terminal_Exit.json in Resources */ = {isa = PBXBuildFile; fileRef = C21421041C1B7F6D0066DCA5 /* Terminal_Exit.json */; };
+		C214210B1C1B7F6D0066DCA5 /* Valid_Cities.json in Resources */ = {isa = PBXBuildFile; fileRef = C21421051C1B7F6D0066DCA5 /* Valid_Cities.json */; };
+		C214210D1C1B7FF00066DCA5 /* LocalGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C214210C1C1B7FF00066DCA5 /* LocalGeofenceSpec.swift */; };
 		C21528C21BC839990073502F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C11BC839990073502F /* LoginVC.swift */; };
 		C21528C51BC83A820073502F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C41BC83A820073502F /* LoginView.swift */; };
 		C21528C71BC855460073502F /* DebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C61BC855460073502F /* DebugVC.swift */; };
@@ -310,6 +317,13 @@
 		C20A98891BE17AEC009E29E7 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		C20A988B1BE1A066009E29E7 /* WaitingToStartTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = WaitingToStartTrip.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C20A988D1BE1A1BC009E29E7 /* TripStarted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripStarted.swift; sourceTree = "<group>"; };
+		C21421001C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Domestic_Pax_Pickup.json; sourceTree = "<group>"; };
+		C21421011C1B7F6D0066DCA5 /* Entry_Gate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Entry_Gate.json; sourceTree = "<group>"; };
+		C21421021C1B7F6D0066DCA5 /* International_Pax_Pickup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = International_Pax_Pickup.json; sourceTree = "<group>"; };
+		C21421031C1B7F6D0066DCA5 /* SFO.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SFO.json; sourceTree = "<group>"; };
+		C21421041C1B7F6D0066DCA5 /* Terminal_Exit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Terminal_Exit.json; sourceTree = "<group>"; };
+		C21421051C1B7F6D0066DCA5 /* Valid_Cities.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Valid_Cities.json; sourceTree = "<group>"; };
+		C214210C1C1B7FF00066DCA5 /* LocalGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofenceSpec.swift; sourceTree = "<group>"; };
 		C21528C11BC839990073502F /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		C21528C41BC83A820073502F /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C21528C61BC855460073502F /* DebugVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DebugVC.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -631,8 +645,12 @@
 		C215CDFB1BD19F9400991D9D /* Local Geofences */ = {
 			isa = PBXGroup;
 			children = (
-				FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */,
-				C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */,
+				C21421001C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json */,
+				C21421011C1B7F6D0066DCA5 /* Entry_Gate.json */,
+				C21421021C1B7F6D0066DCA5 /* International_Pax_Pickup.json */,
+				C21421031C1B7F6D0066DCA5 /* SFO.json */,
+				C21421041C1B7F6D0066DCA5 /* Terminal_Exit.json */,
+				C21421051C1B7F6D0066DCA5 /* Valid_Cities.json */,
 			);
 			name = "Local Geofences";
 			sourceTree = "<group>";
@@ -770,6 +788,8 @@
 		C24486EE1BA89DD100A19A9D /* Geofence */ = {
 			isa = PBXGroup;
 			children = (
+				FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */,
+				C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */,
 				C215CDFB1BD19F9400991D9D /* Local Geofences */,
 				E11D60961BA7A40100FD4276 /* Geofence.swift */,
 				C28ECB271BCEE3C100887763 /* GeofenceListWrapper.swift */,
@@ -965,6 +985,7 @@
 				E112C3021BB2FD2500B1DF48 /* GeofenceSpec.swift */,
 				8EEFB7E21BE2C46800B8A962 /* GeofenceListWrapperSpec.swift */,
 				E1359CF21BF3E51F006ED65A /* MockGeofenceResponse.swift */,
+				C214210C1C1B7FF00066DCA5 /* LocalGeofenceSpec.swift */,
 			);
 			name = Geofence;
 			sourceTree = "<group>";
@@ -1392,15 +1413,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C21421091C1B7F6D0066DCA5 /* SFO.json in Resources */,
 				E1CDE7A81B66E95E00AB27D2 /* MyriadPro-Bold.otf in Resources */,
 				FA32EC081B8836B7001428B5 /* green_bg.jpg in Resources */,
 				E1CDE7951B66E95E00AB27D2 /* MyriadPro-Regular.otf in Resources */,
 				C2DFE5D21B56D2CB0090B55F /* LaunchScreen.xib in Resources */,
 				E1CDE7941B66E95E00AB27D2 /* MyriadPro-Semibold.otf in Resources */,
+				C21421081C1B7F6D0066DCA5 /* International_Pax_Pickup.json in Resources */,
+				C21421071C1B7F6D0066DCA5 /* Entry_Gate.json in Resources */,
 				FA32EC0E1B883B44001428B5 /* terminal_bg.jpg in Resources */,
+				C214210B1C1B7F6D0066DCA5 /* Valid_Cities.json in Resources */,
 				FA32EC0A1B8836B7001428B5 /* yellow_bg.jpg in Resources */,
 				FA32EC091B8836B7001428B5 /* red_bg.jpg in Resources */,
+				C214210A1C1B7F6D0066DCA5 /* Terminal_Exit.json in Resources */,
 				E122649E1B795A65002B36CA /* Localizable.strings in Resources */,
+				C21421061C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json in Resources */,
 				C2DFE5CF1B56D2CB0090B55F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1713,6 +1740,7 @@
 				C22167871BD5868D002D7994 /* IataCodeMock.swift in Sources */,
 				E1598CE61BB1AE3B00E933AD /* FlightDetailsWrapperSpec.swift in Sources */,
 				E1E6EF9E1BB205520039C5F3 /* DriverSpec.swift in Sources */,
+				C214210D1C1B7FF00066DCA5 /* LocalGeofenceSpec.swift in Sources */,
 				E189CD321BF3A83B000AE583 /* MockFlightDetailsResponse.swift in Sources */,
 				E112C30E1BB3195500B1DF48 /* LotStatusSpec.swift in Sources */,
 				C21528CF1BC869820073502F /* DebugVCSpec.swift in Sources */,
