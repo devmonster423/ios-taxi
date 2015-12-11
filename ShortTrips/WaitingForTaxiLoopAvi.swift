@@ -25,7 +25,7 @@ struct WaitingForTaxiLoopAvi {
     
       postNotification(SfoNotification.State.update, value: self.getState())
       
-      self.poller = Poller.init(action: {
+      self.poller = Poller.init(failure: { TimedOutPaymentCheck.sharedInstance.fire() }) {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
             if let antenna = antenna, let device = antenna.device() {
@@ -37,7 +37,7 @@ struct WaitingForTaxiLoopAvi {
             }
           }
         }
-      })
+      }
     }
     
     state.setDidExitStateBlock { _, _ in

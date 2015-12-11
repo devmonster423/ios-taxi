@@ -18,7 +18,7 @@ struct NotInDomesticExit {
   
   private init() {
     events = [TKEvent(name: eventNames[0],
-      transitioningFromStates: [WaitingForPaymentCid.sharedInstance.getState(), AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState(), WaitingForTaxiLoopAvi.sharedInstance.getState()],
+      transitioningFromStates: [WaitingForPaymentCid.sharedInstance.getState()],
       toState: WaitingInHoldingLot.sharedInstance.getState())]
   }
 }

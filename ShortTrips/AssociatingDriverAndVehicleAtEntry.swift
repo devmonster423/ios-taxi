@@ -24,7 +24,7 @@ struct AssociatingDriverAndVehicleAtEntry {
 
       postNotification(SfoNotification.State.update, value: self.getState())
 
-      self.poller = Poller.init() {
+      self.poller = Poller.init(failure: { TimedOutEntryCheck.sharedInstance.fire() }) {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
           ApiClient.getVehicle(driver.cardId) { vehicle in
 

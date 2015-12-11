@@ -12,13 +12,22 @@ typealias Action = Void -> Void
 
 class Poller: NSObject {
   
+  private static let standardTimeout: NSTimeInterval = 60 * 5 // 5 min
   private let interval: NSTimeInterval = 10
   private var action: Action
+  private var creationDate: NSDate!
+  private var timeout: NSTimeInterval
   private var timer: NSTimer!
+  private var failure: Action?
 
-  init(action: Action) {
+  init(timeout: NSTimeInterval = standardTimeout,
+    failure: Action? = nil,
+    action: Action) {
 
+    self.timeout = timeout
     self.action = action
+    self.creationDate = NSDate()
+    self.failure = failure
 
     super.init()
 
@@ -37,6 +46,14 @@ class Poller: NSObject {
   }
   
   func check() {
-    action()
+    if let failure = failure
+      where creationDate.timeIntervalSinceNow < -timeout {
+        
+      stop()
+      failure()
+        
+    } else {
+      action()
+    }
   }
 }

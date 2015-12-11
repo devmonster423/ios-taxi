@@ -24,7 +24,7 @@ struct AssociatingDriverAndVehicleAtHoldingLotExit {
 
       postNotification(SfoNotification.State.update, value: self.getState())
 
-      self.poller = Poller.init(action: {
+      self.poller = Poller.init(failure: { TimedOutPaymentCheck.sharedInstance.fire() }) {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
           ApiClient.getVehicle(driver.cardId) { vehicle in
 
@@ -33,7 +33,7 @@ struct AssociatingDriverAndVehicleAtHoldingLotExit {
             }
           }
         }
-      })
+      }
     }
 
     state.setDidExitStateBlock { _, _ in

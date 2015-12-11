@@ -23,7 +23,7 @@ class OutsideSfo {
       toState: WaitingForStartTrip.sharedInstance.getState()),
       
       TKEvent(name: eventNames[1],
-      transitioningFromStates: [WaitingForReEntryAvi.sharedInstance.getState(), WaitingForReEntryCid.sharedInstance.getState(), AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState()],
+      transitioningFromStates: [WaitingForReEntryAvi.sharedInstance.getState()],
       toState: InProgress.sharedInstance.getState())
     ]
   }

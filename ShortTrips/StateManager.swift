@@ -58,8 +58,11 @@ class StateManager {
     events += OutsideShortTripGeofence.sharedInstance.getEvents()
     events += OutsideTaxiWaitingZone.sharedInstance.getEvents()
     events += TripInvalidated.sharedInstance.getEvents()
-    events += TripStarted.sharedInstance.getEvents()
+    events += TimedOutEntryCheck.sharedInstance.getEvents()
+    events += TimedOutPaymentCheck.sharedInstance.getEvents()
+    events += TimedOutReEntryCheck.sharedInstance.getEvents()
     events += TimeExpired.sharedInstance.getEvents()
+    events += TripStarted.sharedInstance.getEvents()
     events += TripValidated.sharedInstance.getEvents()
     return events
   }

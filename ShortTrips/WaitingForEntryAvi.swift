@@ -25,7 +25,7 @@ struct WaitingForEntryAvi {
       
       postNotification(SfoNotification.State.update, value: self.getState())
       
-      self.poller = Poller.init() {
+      self.poller = Poller.init(failure: { TimedOutEntryCheck.sharedInstance.fire() }) {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
 
