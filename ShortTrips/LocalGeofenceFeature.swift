@@ -22,7 +22,7 @@ struct LocalGeofenceFeature: Mappable {
     rings <- map["geometry.rings"]
   }
 
-  func polygonInfo() -> [PolygonInfo] {
+  func polygonInfos() -> [PolygonInfo] {
 
     var polygons = [PolygonInfo]()
 

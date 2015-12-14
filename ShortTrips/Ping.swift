@@ -23,6 +23,10 @@ enum GeofenceStatus: Int {
       return false
     }
   }
+  
+  static func fromBool(bool: Bool) -> GeofenceStatus {
+    return bool ? .Valid : .Invalid
+  }
 }
 
 struct Ping: Mappable {
@@ -47,9 +51,7 @@ struct Ping: Mappable {
     self.sessionId = sessionId
     self.medallion = medallion
     self.vehicleId = vehicleId
-    
-    // TODO: actually determine locally
-    self.geofenceStatus = .Invalid
+    self.geofenceStatus = GeofenceStatus.fromBool(GeofenceArbiter.checkLocation(location.coordinate))
   }
   
   mutating func mapping(map: Map) {

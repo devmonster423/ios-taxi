@@ -10,12 +10,36 @@ import Foundation
 
 import CoreLocation
 import MapKit
+import ObjectMapper
 
 struct GeofenceArbiter {
   
   static let buffer: Double = 0
   
-  static func location(location: CLLocationCoordinate2D, satisfiesPolygonInfo polygonInfos:[PolygonInfo]) -> Bool {
+  static var shortTripGeofence: LocalGeofence = {
+    
+    let path = NSBundle.mainBundle().pathForResource("Valid_Cities", ofType: "json")!
+    
+    var jsonString: String!
+    
+    do {
+      jsonString = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
+    } catch {}
+    
+    return Mapper<LocalGeofence>().map(jsonString!)!
+  }()
+  
+  static func checkLocation(location: CLLocationCoordinate2D, againstFeatures features:[LocalGeofenceFeature] = shortTripGeofence.features) -> Bool {
+    for feature in features {
+      if !self.location(location, satisfiesPolygonInfo: feature.polygonInfos()) {
+        return false
+      }
+    }
+    
+    return true
+  }
+  
+  private static func location(location: CLLocationCoordinate2D, satisfiesPolygonInfo polygonInfos:[PolygonInfo]) -> Bool {
 
     for polygonInfo in polygonInfos {
       if polygonInfo.additive != self.location(location, isInsideRegion: polygonInfo.polygon) {
@@ -26,7 +50,7 @@ struct GeofenceArbiter {
     return true
   }
   
-  static func location(location: CLLocationCoordinate2D, isInsideRegion region: MKPolygon) -> Bool {
+  private static func location(location: CLLocationCoordinate2D, isInsideRegion region: MKPolygon) -> Bool {
     
     let mutablePathRef = CGPathCreateMutable()
     
