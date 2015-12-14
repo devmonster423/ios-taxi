@@ -15,24 +15,21 @@ import ObjectMapper
 class LocalGeofenceSpec: QuickSpec {
   
   override func spec() {
-    describe("the Entry Gate geofence") {
+    describe("the domestic pickup geofence") {
       
       it("can parse") {
         
-        let path = NSBundle.mainBundle().pathForResource("Entry_Gate", ofType: "json")!
+        let path = NSBundle.mainBundle().pathForResource("Domestic_Pax_Pickup", ofType: "json")!
         
         var jsonString: String!
-        var jsonObj: AnyObject!
         
         do {
           let stringWithBreaks = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
           let stringWithWhiteSpace = stringWithBreaks.stringByReplacingOccurrencesOfString("\n", withString: "")
-          jsonString = stringWithWhiteSpace.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())  //
-//          jsonObj = try NSJSONSerialization.JSONObjectWithData(NSData(contentsOfFile: path)!, options: .AllowFragments)
-          jsonObj = try NSJSONSerialization.JSONObjectWithData(jsonString.dataUsingEncoding(NSUTF8StringEncoding)!, options: .AllowFragments)
+          jsonString = stringWithWhiteSpace.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         } catch {}
         
-        let geofence = Mapper<LocalGeofence>().map(jsonString)!
+        let geofence = Mapper<LocalGeofence>().map(jsonString)
         
         expect(geofence).toNot(beNil())
       }
