@@ -31,12 +31,12 @@ struct GeofenceArbiter {
   
   static func checkLocation(location: CLLocationCoordinate2D, againstFeatures features:[LocalGeofenceFeature] = shortTripGeofence.features) -> Bool {
     for feature in features {
-      if !self.location(location, satisfiesPolygonInfo: feature.polygonInfos()) {
-        return false
+      if self.location(location, satisfiesPolygonInfo: feature.polygonInfos()) {
+        return true
       }
     }
     
-    return true
+    return false
   }
   
   private static func location(location: CLLocationCoordinate2D, satisfiesPolygonInfo polygonInfos:[PolygonInfo]) -> Bool {
