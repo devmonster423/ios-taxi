@@ -24,12 +24,10 @@ class LocalGeofenceSpec: QuickSpec {
         var jsonString: String!
         
         do {
-          let stringWithBreaks = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-          let stringWithWhiteSpace = stringWithBreaks.stringByReplacingOccurrencesOfString("\n", withString: "")
-          jsonString = stringWithWhiteSpace.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+          jsonString = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
         } catch {}
         
-        let geofence = Mapper<LocalGeofence>().map(jsonString)
+        let geofence = Mapper<LocalGeofence>().map(jsonString!)
         
         expect(geofence).toNot(beNil())
       }
@@ -48,7 +46,7 @@ class LocalGeofenceSpec: QuickSpec {
         }
         catch {}
         
-        let geofence = Mapper<LocalGeofence>().map(jsonString)
+        let geofence = Mapper<LocalGeofence>().map(jsonString!)
         
         expect(geofence).toNot(beNil())
       }
@@ -67,7 +65,7 @@ class LocalGeofenceSpec: QuickSpec {
         }
         catch {}
         
-        let geofence = Mapper<LocalGeofence>().map(jsonString)
+        let geofence = Mapper<LocalGeofence>().map(jsonString!)
         
         expect(geofence).toNot(beNil())
       }
@@ -86,7 +84,7 @@ class LocalGeofenceSpec: QuickSpec {
         }
         catch {}
         
-        let geofence = Mapper<LocalGeofence>().map(jsonString)
+        let geofence = Mapper<LocalGeofence>().map(jsonString!)
         
         expect(geofence).toNot(beNil())
       }
@@ -105,7 +103,7 @@ class LocalGeofenceSpec: QuickSpec {
         }
         catch {}
         
-        let geofence = Mapper<LocalGeofence>().map(jsonString)
+        let geofence = Mapper<LocalGeofence>().map(jsonString!)
         
         expect(geofence).toNot(beNil())
       }
@@ -124,7 +122,7 @@ class LocalGeofenceSpec: QuickSpec {
         }
         catch {}
         
-        let geofence = Mapper<LocalGeofence>().map(jsonString)
+        let geofence = Mapper<LocalGeofence>().map(jsonString!)
         
         expect(geofence).toNot(beNil())
       }
