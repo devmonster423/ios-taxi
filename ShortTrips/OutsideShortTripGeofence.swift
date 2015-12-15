@@ -18,7 +18,7 @@ struct OutsideShortTripGeofence {
   
   private init() {
     events = [TKEvent(name: eventNames[0],
-      transitioningFromStates: [InProgress.sharedInstance.getState()],
+      transitioningFromStates: StateManager.allStates,
       toState: NotReady.sharedInstance.getState())]
   }
 }
