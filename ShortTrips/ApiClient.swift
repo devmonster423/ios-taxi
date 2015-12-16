@@ -11,7 +11,7 @@ import Alamofire
 
 struct ApiClient {
   
-  private static let sfoUsername = "taxi_short@staging"
+  private static let sfoUsername = "taxi_short@sfo"
   private static let sfoPassword = "mvUh6tYEwU9nYDrQ"
   
   static func authedRequest(
