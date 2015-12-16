@@ -34,7 +34,7 @@ struct WaitingForTaxiLoopAvi {
               } else {
                 postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
                 
-                if !GeofenceManager.sharedInstance.stillInsideTaxiLoopExit() {
+                if !GeofenceManager.sharedInstance.stillInsideDomesticExit() {
                   NotInsideTaxiLoopExitAfterFailedPaymentCheck.sharedInstance.fire()
                 }
               }

@@ -30,6 +30,27 @@ class TripFallbackSpec: QuickSpec {
         
         NotInsideTaxiWaitZoneAfterFailedEntryCheck.sharedInstance.fire()
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
+        
+        InsideTaxiWaitingZone.sharedInstance.fire()
+        expect(machine.isInState(WaitingForEntryCid.sharedInstance.getState())).to(beTrue())
+
+        LatestCidIsEntryCid.sharedInstance.fire()
+        expect(machine.isInState(AssociatingDriverAndVehicleAtEntry.sharedInstance.getState())).to(beTrue())
+        
+        NotInsideTaxiWaitZoneAfterFailedEntryCheck.sharedInstance.fire()
+        expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
+       
+        InsideTaxiWaitingZone.sharedInstance.fire()
+        expect(machine.isInState(WaitingForEntryCid.sharedInstance.getState())).to(beTrue())
+        
+        LatestCidIsEntryCid.sharedInstance.fire()
+        expect(machine.isInState(AssociatingDriverAndVehicleAtEntry.sharedInstance.getState())).to(beTrue())
+        
+        DriverAndVehicleAssociated.sharedInstance.fire()
+        expect(machine.isInState(WaitingForEntryAvi.sharedInstance.getState())).to(beTrue())
+        
+        NotInsideTaxiWaitZoneAfterFailedEntryCheck.sharedInstance.fire()
+        expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
       }
       
       it("can fallback from payment") {
@@ -55,6 +76,27 @@ class TripFallbackSpec: QuickSpec {
         
         InsideTaxiLoopExit.sharedInstance.fire()
         expect(machine.isInState(WaitingForPaymentCid.sharedInstance.getState())).to(beTrue())
+        
+        NotInsideTaxiLoopExitAfterFailedPaymentCheck.sharedInstance.fire()
+        expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
+        
+        InsideTaxiLoopExit.sharedInstance.fire()
+        expect(machine.isInState(WaitingForPaymentCid.sharedInstance.getState())).to(beTrue())
+        
+        LatestCidIsPaymentCid.sharedInstance.fire()
+        expect(machine.isInState(AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState())).to(beTrue())
+        
+        NotInsideTaxiLoopExitAfterFailedPaymentCheck.sharedInstance.fire()
+        expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
+        
+        InsideTaxiLoopExit.sharedInstance.fire()
+        expect(machine.isInState(WaitingForPaymentCid.sharedInstance.getState())).to(beTrue())
+        
+        LatestCidIsPaymentCid.sharedInstance.fire()
+        expect(machine.isInState(AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState())).to(beTrue())
+        
+        DriverAndVehicleAssociated.sharedInstance.fire()
+        expect(machine.isInState(WaitingForTaxiLoopAvi.sharedInstance.getState())).to(beTrue())
         
         NotInsideTaxiLoopExitAfterFailedPaymentCheck.sharedInstance.fire()
         expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
@@ -108,6 +150,27 @@ class TripFallbackSpec: QuickSpec {
         
         InsideSfo.sharedInstance.fire()
         expect(machine.isInState(WaitingForReEntryAvi.sharedInstance.getState())).to(beTrue())
+        
+        NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
+        expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
+        
+        InsideSfo.sharedInstance.fire()
+        expect(machine.isInState(WaitingForReEntryAvi.sharedInstance.getState())).to(beTrue())
+        
+        LatestAviAtReEntry.sharedInstance.fire()
+        expect(machine.isInState(WaitingForReEntryCid.sharedInstance.getState())).to(beTrue())
+        
+        NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
+        expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
+        
+        InsideSfo.sharedInstance.fire()
+        expect(machine.isInState(WaitingForReEntryAvi.sharedInstance.getState())).to(beTrue())
+        
+        LatestAviAtReEntry.sharedInstance.fire()
+        expect(machine.isInState(WaitingForReEntryCid.sharedInstance.getState())).to(beTrue())
+        
+        LatestCidIsReEntryCid.sharedInstance.fire()
+        expect(machine.isInState(AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState())).to(beTrue())
         
         NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
