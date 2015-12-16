@@ -14,10 +14,11 @@ class GeofenceManager {
   
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
   var lastCheckedLocation: CLLocation?
-  var insideSfo = false
+  private var insideSfo = false
   var checkThreshold: Double {
     return insideSfo ? 30 : 300
   }
+  private var lastKnownGeofences: [SfoGeofence]?
   
   static let sharedInstance = GeofenceManager()
   
@@ -70,7 +71,7 @@ class GeofenceManager {
     if geofences.contains(.TaxiWaitingZone) {
       InsideTaxiWaitingZone.sharedInstance.fire()
     } else {
-      OutsideTaxiWaitingZone.sharedInstance.fire()
+      OutsideTaxiWaitZone.sharedInstance.fire()
     }
     
     if geofences.contains(.SfoTerminalExit)
@@ -82,8 +83,26 @@ class GeofenceManager {
       InsideSfoNotExitingTerminals.sharedInstance.fire()
     }
     
-    if !geofences.contains(.SfoTaxiDomesticExit) {
-      NotInDomesticExit.sharedInstance.fire()
+    lastKnownGeofences = geofences
+  }
+  
+  func stillInsideTaxiWaitZone() -> Bool {
+    if let lastKnownGeofences = lastKnownGeofences {
+      return lastKnownGeofences.contains(.TaxiWaitingZone)
+    } else {
+      return false
     }
+  }
+  
+  func stillInsideDomesticExit() -> Bool {
+    if let lastKnownGeofences = lastKnownGeofences {
+      return lastKnownGeofences.contains(.SfoTaxiDomesticExit)
+    } else {
+      return false
+    }
+  }
+  
+  func stillInsideSfo() -> Bool {
+    return insideSfo
   }
 }

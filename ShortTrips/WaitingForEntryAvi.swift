@@ -25,7 +25,7 @@ struct WaitingForEntryAvi {
       
       postNotification(SfoNotification.State.update, value: self.getState())
       
-      self.poller = Poller.init(failure: { TimedOutEntryCheck.sharedInstance.fire() }) {
+      self.poller = Poller.init() {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
 
@@ -34,6 +34,10 @@ struct WaitingForEntryAvi {
                 LatestAviAtEntry.sharedInstance.fire(antenna)
               } else {
                 postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
+                
+                if !GeofenceManager.sharedInstance.stillInsideTaxiWaitZone() {
+                  NotInsideTaxiWaitZoneAfterFailedEntryCheck.sharedInstance.fire()
+                }
               }
             }
           }

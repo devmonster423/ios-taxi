@@ -24,7 +24,7 @@ struct WaitingForReEntryCid {
     state.setDidEnterStateBlock { _, _ in
       postNotification(SfoNotification.State.update, value: self.getState())
       
-      self.poller = Poller.init(failure: { TimedOutReEntryCheck.sharedInstance.fire() }) {
+      self.poller = Poller.init() {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
           ApiClient.requestCid(driver.driverId) { cid in
             
@@ -33,6 +33,10 @@ struct WaitingForReEntryCid {
                 LatestCidIsReEntryCid.sharedInstance.fire(cid)
               } else {
                 postNotification(SfoNotification.Cid.unexpected, value: (expected: self.expectedCid, found: device))
+                
+                if !GeofenceManager.sharedInstance.stillInsideSfo() {
+                  NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
+                }
               }
             }
           }

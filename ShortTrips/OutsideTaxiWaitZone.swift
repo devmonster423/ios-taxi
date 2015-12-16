@@ -9,22 +9,22 @@
 import Foundation
 import TransitionKit
 
-struct OutsideTaxiWaitingZone {
-  let eventNames = ["OutsideTaxiWaitingZone"]
-  static let sharedInstance = OutsideTaxiWaitingZone()
+struct OutsideTaxiWaitZone {
+  let eventNames = ["OutsideTaxiWaitZone"]
+  static let sharedInstance = OutsideTaxiWaitZone()
   
   private var events: [TKEvent]
   
   private init() {
     events = [
       TKEvent(name: eventNames[0],
-        transitioningFromStates: [WaitingForEntryCid.sharedInstance.getState(), WaitingInHoldingLot.sharedInstance.getState()],
+        transitioningFromStates: [WaitingInHoldingLot.sharedInstance.getState()],
         toState: NotReady.sharedInstance.getState())
     ]
   }
 }
 
-extension OutsideTaxiWaitingZone: Event {
+extension OutsideTaxiWaitZone: Event {
   func getEvents() -> [TKEvent] {
     return events
   }

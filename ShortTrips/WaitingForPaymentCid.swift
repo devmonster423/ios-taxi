@@ -25,7 +25,7 @@ struct WaitingForPaymentCid {
       
       postNotification(SfoNotification.State.update, value: self.getState())
       
-      self.poller = Poller.init(action: {
+      self.poller = Poller.init() {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
           ApiClient.requestCid(driver.driverId) { cid in
           
@@ -34,11 +34,15 @@ struct WaitingForPaymentCid {
                 LatestCidIsPaymentCid.sharedInstance.fire(cid)
               } else {
                 postNotification(SfoNotification.Cid.unexpected, value: (expected: self.expectedCid, found: device))
+                
+                if !GeofenceManager.sharedInstance.stillInsideTaxiLoopExit() {
+                  NotInsideTaxiLoopExitAfterFailedPaymentCheck.sharedInstance.fire()
+                }
               }
             }
           }
         }
-      })
+      }
     }
     
     state.setDidExitStateBlock { _, _ in

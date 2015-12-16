@@ -28,7 +28,7 @@ class TripFallbackSpec: QuickSpec {
         InsideTaxiWaitingZone.sharedInstance.fire()
         expect(machine.isInState(WaitingForEntryCid.sharedInstance.getState())).to(beTrue())
         
-        OutsideTaxiWaitingZone.sharedInstance.fire()
+        NotInsideTaxiWaitZoneAfterFailedEntryCheck.sharedInstance.fire()
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
       }
       
@@ -56,7 +56,7 @@ class TripFallbackSpec: QuickSpec {
         InsideTaxiLoopExit.sharedInstance.fire()
         expect(machine.isInState(WaitingForPaymentCid.sharedInstance.getState())).to(beTrue())
         
-        NotInDomesticExit.sharedInstance.fire()
+        NotInsideTaxiLoopExitAfterFailedPaymentCheck.sharedInstance.fire()
         expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
       }
       
@@ -109,7 +109,7 @@ class TripFallbackSpec: QuickSpec {
         InsideSfo.sharedInstance.fire()
         expect(machine.isInState(WaitingForReEntryAvi.sharedInstance.getState())).to(beTrue())
         
-        OutsideSfo.sharedInstance.fire()
+        NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         
         Failure.sharedInstance.fire()

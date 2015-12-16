@@ -24,12 +24,15 @@ struct AssociatingDriverAndVehicleAtReEntry {
       
       postNotification(SfoNotification.State.update, value: self.getState())
       
-      self.poller = Poller.init(failure: { TimedOutReEntryCheck.sharedInstance.fire() }) {
+      self.poller = Poller.init() {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
           ApiClient.getVehicle(driver.cardId) { vehicle in
             
             if let vehicle = vehicle {
               DriverManager.sharedInstance.setCurrentVehicle(vehicle)
+              
+            } else if !GeofenceManager.sharedInstance.stillInsideSfo() {
+              NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
             }
           }
         }
