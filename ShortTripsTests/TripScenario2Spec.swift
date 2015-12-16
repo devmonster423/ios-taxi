@@ -48,11 +48,7 @@ class TripScenario2Spec: QuickSpec {
         LatestAviAtTaxiLoop.sharedInstance.fire()
         expect(machine.isInState(Ready.sharedInstance.getState())).to(beTrue())
         
-        // can fire DriverExitsSfo and make correct state change
-        ExitingTerminals.sharedInstance.fire()
-        expect(machine.isInState(WaitingForExitAvi.sharedInstance.getState())).to(beTrue())
-        
-        LatestAviAtExit.sharedInstance.fire()
+        OutsideSfo.sharedInstance.fire()
         expect(machine.isInState(WaitingForStartTrip.sharedInstance.getState())).to(beTrue())
         
         TripManager.sharedInstance.start(123)
