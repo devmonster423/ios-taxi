@@ -32,6 +32,7 @@ extension LatestAviAtExit: Event {
 extension LatestAviAtExit: Observable {
   func eventIsFiring(info: Any?) {
     if let antenna = info as? Antenna {
+      TripManager.sharedInstance.setStartTime(antenna.aviDate)
       postNotification(SfoNotification.Avi.exit, value: antenna)
     }
   }

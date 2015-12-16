@@ -32,7 +32,6 @@ struct WaitingForExitAvi {
             if let antenna = antenna, let device = antenna.device() {
               if device == self.expectedAvi {
                 LatestAviAtExit.sharedInstance.fire(antenna)
-                TripManager.sharedInstance.setStartTime(antenna.aviDate)
               } else {
                 postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
               }
