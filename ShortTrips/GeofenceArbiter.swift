@@ -18,7 +18,7 @@ struct GeofenceArbiter {
   
   static var shortTripGeofence: LocalGeofence = {
     
-    let path = NSBundle.mainBundle().pathForResource("Valid_Cities", ofType: "json")!
+    let path = NSBundle.mainBundle().pathForResource("taxi_sfo_merged", ofType: "json")!
     
     var jsonString: String!
     
