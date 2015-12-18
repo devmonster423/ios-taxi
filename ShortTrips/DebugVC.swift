@@ -44,12 +44,6 @@ class DebugVC: UIViewController {
     return self.view as! DebugView
   }
   
-  func logout() {
-    LoggedOut.sharedInstance.fire()
-    DriverCredential.clear()
-    self.navigationController?.popToRootViewControllerAnimated(true)
-  }
-  
   func updateFakeButtons(first: ButtonUpdateInfo?, second: ButtonUpdateInfo? = nil, third: ButtonUpdateInfo? = nil) {
     updateButton(self.debugView().fakeButton, info: first)
     updateButton(self.debugView().secondFakeButton, info: second)

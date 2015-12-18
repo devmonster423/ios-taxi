@@ -36,10 +36,4 @@ class ShortTripVC: UIViewController {
   func shortTripView() -> ShortTripView {
     return self.view as! ShortTripView
   }
-  
-  func logout() {
-    LoggedOut.sharedInstance.fire()
-    DriverCredential.clear()
-    self.navigationController?.popToRootViewControllerAnimated(true)
-  }
 }

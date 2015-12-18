@@ -150,6 +150,7 @@
 		C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667101BA7577600BA28E2 /* DashboardView.swift */; };
 		C2B667291BA7833400BA28E2 /* TerminalSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */; };
 		C2BC85101C24832B005FC6F8 /* AutoLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC850F1C24832B005FC6F8 /* AutoLoginView.swift */; };
+		C2BC85141C24912F005FC6F8 /* LogoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85131C24912F005FC6F8 /* LogoutExtension.swift */; };
 		C2CE0B141C1219AB00496607 /* LocalGeofenceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */; };
 		C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */; };
 		C2DAD68B1BE7F06200CB142C /* TripManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAD68A1BE7F06200CB142C /* TripManager.swift */; };
@@ -414,6 +415,7 @@
 		C2B667101BA7577600BA28E2 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryView.swift; sourceTree = "<group>"; };
 		C2BC850F1C24832B005FC6F8 /* AutoLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLoginView.swift; sourceTree = "<group>"; };
+		C2BC85131C24912F005FC6F8 /* LogoutExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutExtension.swift; sourceTree = "<group>"; };
 		C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofenceFeature.swift; sourceTree = "<group>"; };
 		C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVCSpec.swift; sourceTree = "<group>"; };
 		C2DAD68A1BE7F06200CB142C /* TripManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripManager.swift; sourceTree = "<group>"; };
@@ -867,6 +869,7 @@
 			children = (
 				C215CDFC1BD19FCA00991D9D /* DriverManager.swift */,
 				C21528C11BC839990073502F /* LoginVC.swift */,
+				C2BC85131C24912F005FC6F8 /* LogoutExtension.swift */,
 			);
 			name = Auth;
 			sourceTree = "<group>";
@@ -1646,6 +1649,7 @@
 				C28ECB201BCEBDD400887763 /* LocationManager.swift in Sources */,
 				C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */,
 				E1BE7B701BE4025C0085D3CA /* TimeExpired.swift in Sources */,
+				C2BC85141C24912F005FC6F8 /* LogoutExtension.swift in Sources */,
 				8EEFB79C1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift in Sources */,
 				C283AB3F1BE93B790004E8CD /* StateDebugger.swift in Sources */,
 				E1472CFC1C0E7B1000D27D60 /* GeofenceShortTrip.swift in Sources */,
