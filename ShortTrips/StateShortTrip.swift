@@ -26,17 +26,13 @@ extension ShortTripVC {
         self.shortTripView().notificationImageView.image = Image.sfoTime.image()
         
     } else if state == NotReady.sharedInstance.getState() {
-      self.shortTripView().notificationLabel.text = "Entered Not Ready State"
       self.shortTripView().currentStateLabel.text = "Not Ready"
-      self.shortTripView().notificationImageView.image = Image.thumbsdown.image()
       
     } else if state == Ready.sharedInstance.getState() {
-      self.shortTripView().notificationLabel.text = "Entered Ready State"
       self.shortTripView().currentStateLabel.text = "Ready"
       self.shortTripView().notificationImageView.image = Image.thumbsup.image()
       
     } else if state == InProgress.sharedInstance.getState() {
-      self.shortTripView().notificationLabel.text = "Entered InProgress State"
       self.shortTripView().currentStateLabel.text = "InProgress"
       self.shortTripView().notificationImageView.image = Image.taxicab.image()
       

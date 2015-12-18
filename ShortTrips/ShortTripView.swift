@@ -35,7 +35,6 @@ class ShortTripView: UIView {
     currentStateLabel.font = Font.MyriadPro.size(28)
     currentStateLabel.textAlignment = .Center
     currentStateLabel.numberOfLines = 0
-    currentStateLabel.text = "Current State: TBD"
     currentStateLabel.textColor = UIColor.whiteColor()
     currentStateLabel.snp_makeConstraints { make in
       make.leading.equalTo(self)
@@ -46,6 +45,7 @@ class ShortTripView: UIView {
     }
     
     notificationImageView.contentMode = .ScaleAspectFit
+    notificationImageView.image = Image.thumbsdown.image()
     notificationImageView.snp_makeConstraints { make in
       make.centerX.equalTo(self)
       make.width.equalTo(200)
@@ -55,9 +55,9 @@ class ShortTripView: UIView {
     
     notificationLabel.backgroundColor = Color.Auth.fadedWhite
     notificationLabel.font = Font.MyriadPro.size(14)
-    notificationLabel.textAlignment = .Center
     notificationLabel.numberOfLines = 0
-    notificationLabel.text = "Notification: TBD"
+    notificationLabel.text = "Not Ready"
+    notificationLabel.textAlignment = .Center
     notificationLabel.textColor = UIColor.whiteColor()
     notificationLabel.snp_makeConstraints { make in
       make.leading.equalTo(self).offset(30)
