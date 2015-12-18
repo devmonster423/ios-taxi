@@ -20,56 +20,34 @@ extension ShortTripVC {
   }
   
   func updateForState(state: TKState) {
-    if state == AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()
-      || state == AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState() {
-        self.shortTripView().notificationLabel.text = "Associating Driver And Vehicle"
-        self.shortTripView().notificationImageView.image = Image.sfoTime.image()
+    if state == NotReady.sharedInstance.getState()
+      || state == WaitingForEntryCid.sharedInstance.getState()
+      || state == AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()
+      || state == WaitingForEntryAvi.sharedInstance.getState()
+      || state == WaitingInHoldingLot.sharedInstance.getState()
+      || state == WaitingForPaymentCid.sharedInstance.getState()
+      || state == AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState()
+      || state == WaitingForTaxiLoopAvi.sharedInstance.getState() {
         
-    } else if state == NotReady.sharedInstance.getState() {
       self.shortTripView().currentStateLabel.text = "Not Ready"
+      self.shortTripView().notificationImageView.image = Image.thumbsdown.image()
       
-    } else if state == Ready.sharedInstance.getState() {
-      self.shortTripView().currentStateLabel.text = "Ready"
+    } else if state == Ready.sharedInstance.getState()
+      || state == WaitingForExitAvi.sharedInstance.getState()
+      || state == WaitingForStartTrip.sharedInstance.getState() {
+        self.shortTripView().currentStateLabel.text = "Ready"
       self.shortTripView().notificationImageView.image = Image.thumbsup.image()
       
-    } else if state == InProgress.sharedInstance.getState() {
-      self.shortTripView().currentStateLabel.text = "InProgress"
+    } else if state == InProgress.sharedInstance.getState()
+      || state == WaitingForReEntryAvi.sharedInstance.getState()
+      || state == AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState()
+      || state == WaitingForReEntryCid.sharedInstance.getState() {
+        
+      self.shortTripView().currentStateLabel.text = "In Progress"
       self.shortTripView().notificationImageView.image = Image.taxicab.image()
       
-    } else if state == WaitingInHoldingLot.sharedInstance.getState() {
-      self.shortTripView().notificationLabel.text = "Waiting in holding lot"
-      self.shortTripView().notificationImageView.image = Image.sfoTime.image()
-      
     } else if state == ValidatingTrip.sharedInstance.getState() {
-      self.shortTripView().notificationLabel.text = "Validating Trip"
-      self.shortTripView().notificationImageView.image = Image.sfoTime.image()
-      
-    } else if state == WaitingForEntryCid.sharedInstance.getState() {
-      self.shortTripView().notificationLabel.text = "Waiting for Entry CID"
-      self.shortTripView().notificationImageView.image = Image.sfoTime.image()
-      
-    } else if state == WaitingForEntryAvi.sharedInstance.getState() {
-      self.shortTripView().notificationLabel.text = "Waiting for Entry Gate AVI"
-      self.shortTripView().notificationImageView.image = Image.sfoTime.image()
-      
-    } else if state == WaitingForPaymentCid.sharedInstance.getState() {
-      self.shortTripView().notificationLabel.text = "Entered Waiting for Payment CID"
-      self.shortTripView().notificationImageView.image = Image.sfoTime.image()
-      
-    } else if state == WaitingForExitAvi.sharedInstance.getState() {
-      self.shortTripView().notificationLabel.text = "Waiting for Exit AVI"
-      self.shortTripView().notificationImageView.image = Image.sfoTime.image()
-      
-      self.sfoObservers.notInTerminalExitObserver = NotificationObserver(notification: SfoNotification.Geofence.notInTerminalExit) { _, _ in
-        self.shortTripView().notificationLabel.text = "Not Exiting Terminals"
-        self.sfoObservers.notInTerminalExitObserver = nil
-      }
-    } else if state == WaitingForTaxiLoopAvi.sharedInstance.getState() {
-      self.shortTripView().notificationLabel.text = "Waiting For Taxi Loop AVI"
-      self.shortTripView().notificationImageView.image = Image.sfoTime.image()
-      
-    } else if state == WaitingForStartTrip.sharedInstance.getState() {
-      self.shortTripView().notificationLabel.text = "Waiting For Trip to Start"
+      self.shortTripView().currentStateLabel.text = "Validating Trip"
       self.shortTripView().notificationImageView.image = Image.sfoTime.image()
     }
   }

@@ -43,7 +43,6 @@ class DebugView: UIView {
   let fakeButton = UIButton()
   let secondFakeButton = UIButton()
   let thirdFakeButton = UIButton()
-  let logOutButton = UIButton()
   
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -62,7 +61,6 @@ class DebugView: UIView {
     addSubview(fakeButton)
     addSubview(secondFakeButton)
     addSubview(thirdFakeButton)
-    addSubview(logOutButton)
     addSubview(cidLabel)
     addSubview(aviLabel)
     
@@ -83,7 +81,7 @@ class DebugView: UIView {
     geofenceLabel.snp_makeConstraints { make in
       make.leading.equalTo(self)
       make.width.equalTo(self).multipliedBy(0.5)
-      make.top.equalTo(self).offset(64)
+      make.top.equalTo(self)
       make.height.equalTo(100)
     }
     
@@ -145,38 +143,29 @@ class DebugView: UIView {
 
     fakeButton.backgroundColor = UIColor.blueColor()
     fakeButton.snp_makeConstraints { make in
-      make.height.equalTo(logOutButton)
+      make.height.equalTo(44)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.bottom.equalTo(logOutButton.snp_top)
+      make.bottom.equalTo(secondFakeButton.snp_top)
     }
 
     secondFakeButton.backgroundColor = UIColor(red: 0.25, green: 0.5, blue: 0.5, alpha: 1.0)
     secondFakeButton.titleLabel?.font = Font.MyriadPro.size(12)
     secondFakeButton.titleLabel?.numberOfLines = 2
     secondFakeButton.snp_makeConstraints { (make) -> Void in
-      make.height.equalTo(logOutButton)
+      make.height.equalTo(44)
       make.leading.equalTo(self)
-      make.width.equalTo(self).dividedBy(3)
+      make.width.equalTo(self).dividedBy(2)
       make.bottom.equalTo(self)
     }
 
     thirdFakeButton.backgroundColor = UIColor.blackColor()
     thirdFakeButton.titleLabel?.font = Font.MyriadPro.size(12)
     thirdFakeButton.snp_makeConstraints { (make) -> Void in
-      make.height.equalTo(logOutButton)
+      make.height.equalTo(secondFakeButton)
       make.leading.equalTo(secondFakeButton.snp_trailing)
-      make.width.equalTo(self).dividedBy(3)
+      make.width.equalTo(self).dividedBy(2)
       make.bottom.equalTo(self)
-    }
-    
-    logOutButton.setTitle(NSLocalizedString("Logout", comment: ""), forState: .Normal)
-    logOutButton.backgroundColor = UIColor.redColor()
-    logOutButton.snp_makeConstraints { make in
-      make.height.equalTo(44)
-      make.width.equalTo(self).dividedBy(3)
-      make.bottom.equalTo(self)
-      make.trailing.equalTo(self)
     }
   }
   
