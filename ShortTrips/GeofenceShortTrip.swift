@@ -12,18 +12,9 @@ import JSQNotificationObserverKit
 extension ShortTripVC {
   
   func setupGeofenceObservers() {
-    
-    sfoObservers.foundInsideGeofencesObserver = NotificationObserver(notification: SfoNotification.Geofence.foundInside) { geofences, _ in
-      self.shortTripView().notificationLabel.text = ""
-      for geofence in geofences {
-        self.shortTripView().notificationLabel.text! += "In Geofence: \(geofence.name) "
-      }
-      self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
-    }
-    
     sfoObservers.outsideShortTripObserver = NotificationObserver(notification: SfoNotification.Geofence.outsideShortTrip) { _, _ in
       self.shortTripView().notificationLabel.text = "Trip Went Outside Short Trip Geofence"
-      self.shortTripView().notificationImageView.image = UIImage(named: "notInGeofence.png")
+      self.shortTripView().notificationImageView.image = Image.taxicross.image()
     }
   }
 }

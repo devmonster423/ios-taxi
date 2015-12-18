@@ -190,7 +190,6 @@
 		E1472CFC1C0E7B1000D27D60 /* GeofenceShortTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472CFB1C0E7B1000D27D60 /* GeofenceShortTrip.swift */; };
 		E1472CFE1C0E7B2300D27D60 /* LocationShortTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472CFD1C0E7B2300D27D60 /* LocationShortTrip.swift */; };
 		E1472D001C0E7B3200D27D60 /* PingShortTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472CFF1C0E7B3200D27D60 /* PingShortTrip.swift */; };
-		E1472D021C0E7B5400D27D60 /* RequestShortTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472D011C0E7B5400D27D60 /* RequestShortTrip.swift */; };
 		E1472D041C0E7B6900D27D60 /* StateShortTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472D031C0E7B6900D27D60 /* StateShortTrip.swift */; };
 		E1472D061C0E7B7800D27D60 /* TripShortTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472D051C0E7B7800D27D60 /* TripShortTrip.swift */; };
 		E1472D081C0E7BC900D27D60 /* SfoObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472D071C0E7BC900D27D60 /* SfoObservers.swift */; };
@@ -462,7 +461,6 @@
 		E1472CFB1C0E7B1000D27D60 /* GeofenceShortTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceShortTrip.swift; sourceTree = "<group>"; };
 		E1472CFD1C0E7B2300D27D60 /* LocationShortTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationShortTrip.swift; sourceTree = "<group>"; };
 		E1472CFF1C0E7B3200D27D60 /* PingShortTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingShortTrip.swift; sourceTree = "<group>"; };
-		E1472D011C0E7B5400D27D60 /* RequestShortTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestShortTrip.swift; sourceTree = "<group>"; };
 		E1472D031C0E7B6900D27D60 /* StateShortTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateShortTrip.swift; sourceTree = "<group>"; };
 		E1472D051C0E7B7800D27D60 /* TripShortTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripShortTrip.swift; sourceTree = "<group>"; };
 		E1472D071C0E7BC900D27D60 /* SfoObservers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SfoObservers.swift; sourceTree = "<group>"; };
@@ -1049,7 +1047,6 @@
 				E1472CFB1C0E7B1000D27D60 /* GeofenceShortTrip.swift */,
 				E1472CFD1C0E7B2300D27D60 /* LocationShortTrip.swift */,
 				E1472CFF1C0E7B3200D27D60 /* PingShortTrip.swift */,
-				E1472D011C0E7B5400D27D60 /* RequestShortTrip.swift */,
 				E1472CF31C0E7A7A00D27D60 /* ShortTripVC.swift */,
 				E1472D031C0E7B6900D27D60 /* StateShortTrip.swift */,
 				E1472D051C0E7B7800D27D60 /* TripShortTrip.swift */,
@@ -1671,7 +1668,6 @@
 				C28ECB2C1BCF01F200887763 /* WaitingForEntryCid.swift in Sources */,
 				C283AB351BE936B30004E8CD /* CidDebugger.swift in Sources */,
 				FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */,
-				E1472D021C0E7B5400D27D60 /* RequestShortTrip.swift in Sources */,
 				E18FF6911BA870AF00FE93B9 /* Cid.swift in Sources */,
 				C28ECB421BCF21DE00887763 /* GeofenceManager.swift in Sources */,
 				C215CDFD1BD19FCA00991D9D /* DriverManager.swift in Sources */,

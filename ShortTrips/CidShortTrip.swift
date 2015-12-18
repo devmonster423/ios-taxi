@@ -15,17 +15,10 @@ extension ShortTripVC {
     
     sfoObservers.entryCidRead = NotificationObserver(notification: SfoNotification.Cid.entry) { cid, _ in
       self.shortTripView().notificationLabel.text = "Entry CID Read Detected"
-      self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
     }
     
     sfoObservers.paymentCidRead = NotificationObserver(notification: SfoNotification.Cid.payment) { cid, _ in
       self.shortTripView().notificationLabel.text = "Payment CID Read Detected"
-      self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
     }
-    
-    sfoObservers.unexpectedCidRead = NotificationObserver(notification: SfoNotification.Cid.unexpected, handler: { cidDevices, _ in
-      self.shortTripView().notificationLabel.text = "Unexpected CID - Expected \(cidDevices.expected.rawValue), found \(cidDevices.found.rawValue)"
-      self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
-    })
   }
 }

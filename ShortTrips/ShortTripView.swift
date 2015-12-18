@@ -45,10 +45,10 @@ class ShortTripView: UIView {
       make.height.equalTo(75)
     }
     
-    notificationImageView.image = UIImage(named: "unknownArline.png")
+    notificationImageView.contentMode = .ScaleAspectFit
     notificationImageView.snp_makeConstraints { make in
-      make.leading.equalTo(self)
-      make.trailing.equalTo(self)
+      make.centerX.equalTo(self)
+      make.width.equalTo(200)
       make.top.equalTo(currentStateLabel.snp_bottom)
       make.bottom.equalTo(notificationLabel.snp_top)
     }

@@ -32,6 +32,7 @@ enum Image: String {
   
   case bgBlur = "bg_blur"
   
+  case sfoTime = "sfo_time"
   case taxicab = "taxicab"
   case taxicheckmark = "taxicheckmark"
   case taxicross = "taxicross"

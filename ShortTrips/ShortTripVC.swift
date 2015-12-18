@@ -27,7 +27,6 @@ class ShortTripVC: UIViewController {
     setupGeofenceObservers()
     setupLocationObservers()
     setupPingObservers()
-    setupRequestObservers()
     setupStateObservers()
     setupTripObservers()
   

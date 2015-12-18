@@ -12,11 +12,10 @@ import JSQNotificationObserverKit
 extension ShortTripVC {
   
   func setupDriverObservers() {
-    sfoObservers.driverAndVehicleAssociated = NotificationObserver(notification: SfoNotification.Driver.vehicleAssociated, handler: { data, _ in
+    sfoObservers.driverAndVehicleAssociated = NotificationObserver(notification: SfoNotification.Driver.vehicleAssociated) { data, _ in
       let vehicle = data.vehicle
       let driver = data.driver
       self.shortTripView().notificationLabel.text = "Driver \(driver.firstName) \(driver.lastName) Is Associated with Transponder: \(vehicle.transponderId)"
-      self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
-    })
+    }
   }
 }

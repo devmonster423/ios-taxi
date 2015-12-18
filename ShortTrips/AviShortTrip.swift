@@ -13,24 +13,16 @@ extension ShortTripVC {
   
   func setupAviObservers() {
     
-    sfoObservers.entryGateAvi = NotificationObserver(notification: SfoNotification.Avi.entryGate, handler: { antenna, _ in
-      self.shortTripView().notificationLabel.text = "Entry Gate AVI Detected: \(antenna)"
-      self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
-    })
+    sfoObservers.entryGateAvi = NotificationObserver(notification: SfoNotification.Avi.entryGate) { antenna, _ in
+      self.shortTripView().notificationLabel.text = "Entry Gate AVI Detected"
+    }
     
-    sfoObservers.exitAviRead = NotificationObserver(notification: SfoNotification.Avi.exit, handler: { antenna, _ in
-      self.shortTripView().notificationLabel.text = "Exit AVI Read: (\(antenna)"
-      self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
-    })
+    sfoObservers.exitAviRead = NotificationObserver(notification: SfoNotification.Avi.exit) { antenna, _ in
+      self.shortTripView().notificationLabel.text = "Exit AVI Detected"
+    }
     
-    sfoObservers.taxiLoopAviRead = NotificationObserver(notification: SfoNotification.Avi.taxiLoop, handler: { antenna, _ in
-      self.shortTripView().notificationLabel.text = "Taxiloop AVI Read: (\(antenna)"
-      self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
-    })
-    
-    sfoObservers.unexpectedAviRead = NotificationObserver(notification: SfoNotification.Avi.unexpected, handler: { gtmsLocations, _ in
-      self.shortTripView().notificationLabel.text = "Unexpected AVI - Expected \(gtmsLocations.expected.rawValue), Found \(gtmsLocations.found.rawValue)"
-      self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
-    })
+    sfoObservers.taxiLoopAviRead = NotificationObserver(notification: SfoNotification.Avi.taxiLoop) { antenna, _ in
+      self.shortTripView().notificationLabel.text = "Taxiloop AVI Detected"
+    }
   }
 }
