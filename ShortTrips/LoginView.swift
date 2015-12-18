@@ -22,13 +22,19 @@ class LoginView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
+    let blurBgImageView = UIImageView()
+    blurBgImageView.image = Image.bgBlur.image()
+    addSubview(blurBgImageView)
+    blurBgImageView.snp_makeConstraints { make in
+      make.edges.equalTo(self)
+    }
+    
     addSubview(usernameTextField)
     addSubview(passwordTextField)
     addSubview(loginButton)
     
-    backgroundColor = UIColor.whiteColor()
-    
-    usernameTextField.placeholder = NSLocalizedString("Username", comment: "")
+    usernameTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Username", comment: ""), attributes: [NSForegroundColorAttributeName: Color.Auth.offWhite])
+    usernameTextField.textColor = UIColor.whiteColor()
     usernameTextField.snp_makeConstraints { make in
       make.centerX.equalTo(self)
       make.top.equalTo(self).offset(100)
@@ -36,7 +42,9 @@ class LoginView: UIView {
       make.height.equalTo(80)
     }
     
-    passwordTextField.placeholder = NSLocalizedString("Password", comment: "")
+    passwordTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Password", comment: ""), attributes: [NSForegroundColorAttributeName: Color.Auth.offWhite])
+    passwordTextField.secureTextEntry = true
+    passwordTextField.textColor = UIColor.whiteColor()
     passwordTextField.snp_makeConstraints { make in
       make.centerX.equalTo(usernameTextField)
       make.top.equalTo(usernameTextField.snp_bottom).offset(50)
@@ -45,7 +53,7 @@ class LoginView: UIView {
     }
     
     loginButton.setTitle(NSLocalizedString("Login", comment: ""), forState: .Normal)
-    loginButton.backgroundColor = UIColor.blueColor()
+    loginButton.backgroundColor = Color.Auth.buttonBlue
     loginButton.snp_makeConstraints { make in
       make.centerX.equalTo(passwordTextField)
       make.top.equalTo(passwordTextField.snp_bottom).offset(50)

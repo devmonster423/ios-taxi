@@ -10,6 +10,11 @@ import UIKit
 
 struct Color {
   
+  struct Auth {
+    static let buttonBlue = UIColor(red: 92.0/255.0, green: 120/255.0, blue: 143/255.0, alpha: 1.0)
+    static let offWhite = UIColor(red: 224.0/255.0, green: 226.0/255.0, blue: 223.0/255.0, alpha: 0.8)
+  }
+  
   struct Debug {
     static let green = StatusColor.green
     static let red = StatusColor.red

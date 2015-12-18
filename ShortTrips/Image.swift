@@ -30,6 +30,8 @@ enum Image: String {
   
   case splashLogo = "splashLogo"
   
+  case bgBlur = "bg_blur"
+  
   func image() -> UIImage {
     return UIImage(named: self.rawValue)!
   }
