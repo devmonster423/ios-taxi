@@ -12,10 +12,6 @@ import JSQNotificationObserverKit
 extension DebugVC {
   
   func setupTripObservers() {
-
-    sfoObservers.optionalEntryStepFailedObserver = NotificationObserver(notification: SfoNotification.Trip.optionalEntryStepFailed) { _, _ in
-      self.debugView().printDebugLine("Optional entry step failed, moving on...", type: .Negative)
-    }
     
     sfoObservers.reEntryAviFailedObserver = NotificationObserver(notification: SfoNotification.Trip.reEntryAviFailed) { _, _ in
       self.debugView().printDebugLine("optional entry avi step failed, moving back to InProgress state...", type: .Negative)
