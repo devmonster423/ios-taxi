@@ -51,10 +51,6 @@ struct ValidatingTrip {
           }
       }
     }
-    
-    state.setDidExitStateBlock { _, _ in
-      TripManager.sharedInstance.stop()
-    }
   }
   
   func getState() -> TKState {

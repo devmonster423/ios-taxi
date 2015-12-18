@@ -29,22 +29,27 @@ extension ShortTripVC {
       || state == AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState()
       || state == WaitingForTaxiLoopAvi.sharedInstance.getState() {
         
-      self.shortTripView().currentStateLabel.text = "Not Ready"
-      self.shortTripView().notificationImageView.image = Image.thumbsdown.image()
+        self.shortTripView().currentStateLabel.text = "Not Ready"
+        if TripManager.sharedInstance.mostRecentTripWasValid() {
+          self.shortTripView().notificationImageView.image = Image.taxicheckmark.image()
+        } else {
+          self.shortTripView().notificationImageView.image = Image.thumbsdown.image()
+        }
       
     } else if state == Ready.sharedInstance.getState()
       || state == WaitingForExitAvi.sharedInstance.getState()
       || state == WaitingForStartTrip.sharedInstance.getState() {
+        
         self.shortTripView().currentStateLabel.text = "Ready"
-      self.shortTripView().notificationImageView.image = Image.thumbsup.image()
+        self.shortTripView().notificationImageView.image = Image.thumbsup.image()
       
     } else if state == InProgress.sharedInstance.getState()
       || state == WaitingForReEntryAvi.sharedInstance.getState()
       || state == AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState()
       || state == WaitingForReEntryCid.sharedInstance.getState() {
         
-      self.shortTripView().currentStateLabel.text = "In Progress"
-      self.shortTripView().notificationImageView.image = Image.taxicab.image()
+        self.shortTripView().currentStateLabel.text = "In Progress"
+        self.shortTripView().notificationImageView.image = Image.taxicab.image()
       
     } else if state == ValidatingTrip.sharedInstance.getState() {
       self.shortTripView().currentStateLabel.text = "Validating Trip"
