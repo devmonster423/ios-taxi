@@ -32,6 +32,12 @@ enum Image: String {
   
   case bgBlur = "bg_blur"
   
+  case taxicab = "taxicab"
+  case taxicheckmark = "taxicheckmark"
+  case taxicross = "taxicross"
+  case thumbsdown = "thumbsdown"
+  case thumbsup = "thumbsup"
+  
   func image() -> UIImage {
     return UIImage(named: self.rawValue)!
   }
