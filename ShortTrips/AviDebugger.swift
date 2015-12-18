@@ -25,12 +25,6 @@ extension DebugVC {
       self.debugView().incrementGtms()
     })
     
-    sfoObservers.inboundAviRead = NotificationObserver(notification: SfoNotification.Avi.exit, handler: { antenna, _ in
-      self.debugView().updateAvi("\(antenna)")
-      self.debugView().printDebugLine("Inbound AVI read: (\(antenna)")
-      self.debugView().incrementGtms()
-    })
-    
     sfoObservers.taxiLoopAviRead = NotificationObserver(notification: SfoNotification.Avi.taxiLoop, handler: { antenna, _ in
       self.debugView().updateAvi("\(antenna)")
       self.debugView().printDebugLine("Taxiloop AVI read: (\(antenna)")

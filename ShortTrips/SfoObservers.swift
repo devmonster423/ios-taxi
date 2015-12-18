@@ -15,7 +15,6 @@ struct SfoObservers {
   // Avi
   var entryGateAvi: NotificationObserver<Antenna, AnyObject>?
   var exitAviRead: NotificationObserver<Antenna, AnyObject>?
-  var inboundAviRead: NotificationObserver<Antenna, AnyObject>?
   var taxiLoopAviRead: NotificationObserver<Antenna, AnyObject>?
   var unexpectedAviRead: NotificationObserver<(expected: GtmsLocation, found: GtmsLocation), AnyObject>?
   

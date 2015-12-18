@@ -23,11 +23,6 @@ extension ShortTripVC {
       self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
     })
     
-    sfoObservers.inboundAviRead = NotificationObserver(notification: SfoNotification.Avi.exit, handler: { antenna, _ in
-      self.shortTripView().notificationLabel.text = "Inbound AVI Read: (\(antenna)"
-      self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
-    })
-    
     sfoObservers.taxiLoopAviRead = NotificationObserver(notification: SfoNotification.Avi.taxiLoop, handler: { antenna, _ in
       self.shortTripView().notificationLabel.text = "Taxiloop AVI Read: (\(antenna)"
       self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")

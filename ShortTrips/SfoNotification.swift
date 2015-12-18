@@ -15,7 +15,6 @@ struct SfoNotification {
   struct Avi {
     static let entryGate = Notification<Antenna, AnyObject>(name: "EntryGateAvi")
     static let exit = Notification<Antenna, AnyObject>(name: "ExitAvi")
-    static let inbound = Notification<Antenna, AnyObject>(name: "InboundAvi")
     static let taxiLoop = Notification<Antenna, AnyObject>(name: "TaxiLoopAviRead")
     static let unexpected = Notification<(expected: GtmsLocation, found: GtmsLocation), AnyObject>(name: "UnexpectedAvi")
   }
