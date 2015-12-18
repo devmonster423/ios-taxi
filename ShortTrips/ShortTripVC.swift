@@ -21,6 +21,7 @@ class ShortTripVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     setupAviObservers()
     setupCidObservers()
     setupDriverObservers()
@@ -30,7 +31,16 @@ class ShortTripVC: UIViewController {
     setupRequestObservers()
     setupStateObservers()
     setupTripObservers()
+  
+    configureNavBar()
+    
     updateForState(StateManager.sharedInstance.getMachine().currentState)
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    configureTitle()
   }
   
   func shortTripView() -> ShortTripView {

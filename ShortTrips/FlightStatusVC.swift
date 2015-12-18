@@ -27,11 +27,7 @@ class FlightStatusVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-    navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .Plain, target: self, action: "goBack")
-    navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-    navigationController?.navigationBar.translucent = false
-    navigationController?.navigationBar.setBackgroundImage(Image.navbarBlue.image(), forBarMetrics: .Default)
+    configureNavBar()
     updateFlightTable()
   }
   
@@ -43,17 +39,6 @@ class FlightStatusVC: UIViewController {
   
   func flightStatusView() -> FlightStatusView {
     return view as! FlightStatusView
-  }
-  
-  private func configureTitle() {
-    let titleImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: UiConstants.Dashboard.titleWidth, height: UiConstants.Dashboard.titleHeight))
-    titleImageView.image = Image.sfoLogoAlpha.image()
-    titleImageView.contentMode = .ScaleAspectFit
-    navigationItem.titleView = titleImageView
-  }
-  
-  func goBack() {
-    navigationController?.popViewControllerAnimated(true)
   }
   
   func updateFlightTable() {

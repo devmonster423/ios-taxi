@@ -151,6 +151,7 @@
 		C2B667291BA7833400BA28E2 /* TerminalSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */; };
 		C2BC85101C24832B005FC6F8 /* AutoLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC850F1C24832B005FC6F8 /* AutoLoginView.swift */; };
 		C2BC85141C24912F005FC6F8 /* LogoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85131C24912F005FC6F8 /* LogoutExtension.swift */; };
+		C2BC85171C249CA0005FC6F8 /* NavBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */; };
 		C2CE0B141C1219AB00496607 /* LocalGeofenceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */; };
 		C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */; };
 		C2DAD68B1BE7F06200CB142C /* TripManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAD68A1BE7F06200CB142C /* TripManager.swift */; };
@@ -416,6 +417,7 @@
 		C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryView.swift; sourceTree = "<group>"; };
 		C2BC850F1C24832B005FC6F8 /* AutoLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLoginView.swift; sourceTree = "<group>"; };
 		C2BC85131C24912F005FC6F8 /* LogoutExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutExtension.swift; sourceTree = "<group>"; };
+		C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarExtension.swift; sourceTree = "<group>"; };
 		C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofenceFeature.swift; sourceTree = "<group>"; };
 		C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVCSpec.swift; sourceTree = "<group>"; };
 		C2DAD68A1BE7F06200CB142C /* TripManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripManager.swift; sourceTree = "<group>"; };
@@ -869,7 +871,6 @@
 			children = (
 				C215CDFC1BD19FCA00991D9D /* DriverManager.swift */,
 				C21528C11BC839990073502F /* LoginVC.swift */,
-				C2BC85131C24912F005FC6F8 /* LogoutExtension.swift */,
 			);
 			name = Auth;
 			sourceTree = "<group>";
@@ -901,6 +902,15 @@
 				C21528C41BC83A820073502F /* LoginView.swift */,
 			);
 			name = Auth;
+			sourceTree = "<group>";
+		};
+		C2BC85151C249C86005FC6F8 /* ViewControllerExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				C2BC85131C24912F005FC6F8 /* LogoutExtension.swift */,
+				C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */,
+			);
+			name = ViewControllerExtensions;
 			sourceTree = "<group>";
 		};
 		C2DFE5B91B56D2CB0090B55F = {
@@ -1146,6 +1156,7 @@
 		E1A2EBA31B6C2AA400C27EB2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C2BC85151C249C86005FC6F8 /* ViewControllerExtensions */,
 				C28ECB3E1BCF208400887763 /* Auth */,
 				C21528C01BC8390F0073502F /* Debug */,
 				C21528BF1BC839050073502F /* Dashboard */,
@@ -1612,6 +1623,7 @@
 				C200BE271BA8D3A300B7F56F /* HourPickerView.swift in Sources */,
 				C283AB371BE9383C0004E8CD /* AviDebugger.swift in Sources */,
 				C285F1DB1C18F56600AA3363 /* LatestCidIsReEntryCid.swift in Sources */,
+				C2BC85171C249CA0005FC6F8 /* NavBarExtension.swift in Sources */,
 				C21528C71BC855460073502F /* DebugVC.swift in Sources */,
 				C220E0731BC3446600AC7C85 /* Ready.swift in Sources */,
 				C28ECB261BCECE5F00887763 /* Ping.swift in Sources */,
