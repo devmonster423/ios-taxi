@@ -49,17 +49,20 @@ class ShortTripView: UIView {
     notificationImageView.snp_makeConstraints { make in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
+      make.top.equalTo(currentStateLabel.snp_bottom)
+      make.bottom.equalTo(notificationLabel.snp_top)
     }
     
+    notificationLabel.backgroundColor = Color.Auth.fadedWhite
     notificationLabel.font = Font.MyriadPro.size(14)
     notificationLabel.textAlignment = .Center
     notificationLabel.numberOfLines = 0
     notificationLabel.text = "Notification: TBD"
     notificationLabel.textColor = UIColor.whiteColor()
     notificationLabel.snp_makeConstraints { make in
-      make.leading.equalTo(self)
-      make.trailing.equalTo(self)
-      make.bottom.equalTo(self)
+      make.leading.equalTo(self).offset(30)
+      make.trailing.equalTo(self).offset(-30)
+      make.bottom.equalTo(self).offset(-30)
       make.height.equalTo(75)
     }
   }

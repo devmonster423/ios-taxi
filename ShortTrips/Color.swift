@@ -12,6 +12,7 @@ struct Color {
   
   struct Auth {
     static let buttonBlue = UIColor(red: 92.0/255.0, green: 120/255.0, blue: 143/255.0, alpha: 1.0)
+    static let fadedWhite = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.15)
     static let offWhite = UIColor(red: 224.0/255.0, green: 226.0/255.0, blue: 223.0/255.0, alpha: 0.8)
   }
   
