@@ -9,6 +9,14 @@
 import UIKit
 
 extension UIViewController {
+  
+  func addLogoutButton() {
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout",
+      style: .Plain,
+      target: self,
+      action: "logout")
+  }
+  
   func logout() {
     LoggedOut.sharedInstance.fire()
     DriverCredential.clear()

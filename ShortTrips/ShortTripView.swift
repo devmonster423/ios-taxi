@@ -13,7 +13,6 @@ class ShortTripView: UIView {
   let currentStateLabel = UILabel()
   let notificationImageView = UIImageView()
   let notificationLabel = UILabel()
-  let logOutButton = UIButton()
   
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -26,7 +25,6 @@ class ShortTripView: UIView {
     addSubview(currentStateLabel)
     addSubview(notificationImageView)
     addSubview(notificationLabel)
-    addSubview(logOutButton)
     
     currentStateLabel.font = Font.MyriadPro.size(28)
     currentStateLabel.textAlignment = .Center
@@ -57,25 +55,6 @@ class ShortTripView: UIView {
       make.trailing.equalTo(self)
       make.bottom.equalTo(self)
       make.height.equalTo(75)
-    }
-    
-    // Logout Button
-    logOutButton.setTitle(NSLocalizedString("Logout", comment: "").uppercaseString, forState: .Normal)
-    logOutButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-    logOutButton.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
-    logOutButton.setBackgroundImage(Image.from(UIColor.blackColor()), forState: .Normal)
-    logOutButton.setBackgroundImage(Image.from(UIColor.blackColor()), forState: .Highlighted)
-    logOutButton.titleLabel?.font = Font.MyriadProSemibold.size(UiConstants.Dashboard.buttonFontSize)
-    logOutButton.layer.borderColor = UIColor.whiteColor().CGColor
-    logOutButton.layer.borderWidth = UiConstants.Dashboard.statusBorderWidth
-    logOutButton.layer.cornerRadius = UiConstants.Dashboard.statusCornerRadius
-    logOutButton.clipsToBounds = true
-    logOutButton.snp_makeConstraints { (make) -> Void in
-      make.width.equalTo(UiConstants.Dashboard.shortTripWidth)
-      make.height.equalTo(UiConstants.Dashboard.buttonHeight)
-      make.bottom.equalTo(notificationLabel.snp_top).offset(UiConstants.Dashboard.buttonMargin)
-      make.top.equalTo(notificationImageView.snp_bottom)
-      make.centerX.equalTo(self.snp_centerX)
     }
   }
 }
