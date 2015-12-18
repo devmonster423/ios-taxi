@@ -21,7 +21,13 @@ class ShortTripView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    backgroundColor = Color.Sfo.gray
+    let blurBgImageView = UIImageView()
+    blurBgImageView.image = Image.bgBlur.image()
+    addSubview(blurBgImageView)
+    blurBgImageView.snp_makeConstraints { make in
+      make.edges.equalTo(self)
+    }
+    
     addSubview(currentStateLabel)
     addSubview(notificationImageView)
     addSubview(notificationLabel)
