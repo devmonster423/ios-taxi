@@ -52,7 +52,6 @@ struct SfoObservers {
   
   // Trip
   var invalidatedObserver: NotificationObserver<[ValidationStepWrapper]?, AnyObject>?
-  var reEntryAviFailedObserver: NotificationObserver<Any?, AnyObject>?
   var timeExpiredObserver: NotificationObserver<Any?, AnyObject>?
   var tripStartedObserver: NotificationObserver<Int, AnyObject>?
   var validatedObserver: NotificationObserver<Any?, AnyObject>?

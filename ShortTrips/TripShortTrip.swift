@@ -13,11 +13,6 @@ extension ShortTripVC {
   
   func setupTripObservers() {
     
-    sfoObservers.reEntryAviFailedObserver = NotificationObserver(notification: SfoNotification.Trip.reEntryAviFailed) { _, _ in
-      self.shortTripView().notificationLabel.text = "Optional Inbound Step Failed, Moving On..."
-      self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
-    }
-    
     sfoObservers.timeExpiredObserver = NotificationObserver(notification: SfoNotification.Trip.timeExpired) { _, _ in
       self.shortTripView().notificationLabel.text = "Time Expired"
       self.shortTripView().notificationImageView.image = UIImage(named: "unknownAirline.png")
