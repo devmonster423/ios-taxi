@@ -258,6 +258,7 @@
 		FA6380F21BED1FEA00CF51CC /* GtmsLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */; };
 		FA650FF81BB20CDB003D1939 /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA650FF71BB20CDB003D1939 /* DateTransform.swift */; };
 		FA7B79F31C1A5D3E000CDC3B /* InsideSfoNotExitingTerminals.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B79F21C1A5D3E000CDC3B /* InsideSfoNotExitingTerminals.swift */; };
+		FAB97C721C23867F008F5421 /* GeofenceVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB97C711C23867F008F5421 /* GeofenceVars.swift */; };
 		FAD0418C1C0E66E900D9F8A1 /* LocalGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */; };
 /* End PBXBuildFile section */
 
@@ -530,6 +531,7 @@
 		FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GtmsLocation.swift; sourceTree = "<group>"; };
 		FA650FF71BB20CDB003D1939 /* DateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTransform.swift; sourceTree = "<group>"; };
 		FA7B79F21C1A5D3E000CDC3B /* InsideSfoNotExitingTerminals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideSfoNotExitingTerminals.swift; sourceTree = "<group>"; };
+		FAB97C711C23867F008F5421 /* GeofenceVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceVars.swift; sourceTree = "<group>"; };
 		FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -646,13 +648,7 @@
 		C215CDFB1BD19F9400991D9D /* Local Geofences */ = {
 			isa = PBXGroup;
 			children = (
-				C21421001C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json */,
-				C21421011C1B7F6D0066DCA5 /* Entry_Gate.json */,
-				C21421021C1B7F6D0066DCA5 /* International_Pax_Pickup.json */,
-				C21421031C1B7F6D0066DCA5 /* SFO.json */,
-				C29F59F31C221AAA007EFA1D /* taxi_sfo_merged.json */,
-				C21421041C1B7F6D0066DCA5 /* Terminal_Exit.json */,
-				C21421051C1B7F6D0066DCA5 /* Valid_Cities.json */,
+				FAB97C6F1C238644008F5421 /* JSON */,
 			);
 			name = "Local Geofences";
 			sourceTree = "<group>";
@@ -793,6 +789,7 @@
 				FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */,
 				C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */,
 				E11D60961BA7A40100FD4276 /* Geofence.swift */,
+				FAB97C711C23867F008F5421 /* GeofenceVars.swift */,
 				C28ECB271BCEE3C100887763 /* GeofenceListWrapper.swift */,
 			);
 			name = Geofence;
@@ -1337,6 +1334,20 @@
 			name = Gtms;
 			sourceTree = "<group>";
 		};
+		FAB97C6F1C238644008F5421 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				C21421001C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json */,
+				C21421011C1B7F6D0066DCA5 /* Entry_Gate.json */,
+				C21421021C1B7F6D0066DCA5 /* International_Pax_Pickup.json */,
+				C21421031C1B7F6D0066DCA5 /* SFO.json */,
+				C29F59F31C221AAA007EFA1D /* taxi_sfo_merged.json */,
+				C21421041C1B7F6D0066DCA5 /* Terminal_Exit.json */,
+				C21421051C1B7F6D0066DCA5 /* Valid_Cities.json */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1685,6 +1696,7 @@
 				E15FF4981BD5F0C700ECDF27 /* Util.swift in Sources */,
 				C221EDE31BE2C57700BDB4CD /* WaitingForExitAvi.swift in Sources */,
 				C215CDFA1BD18F7200991D9D /* StatusCode.swift in Sources */,
+				FAB97C721C23867F008F5421 /* GeofenceVars.swift in Sources */,
 				C2635E261BB0CA3F003C22B1 /* DispatcherClient.swift in Sources */,
 				FA6380F21BED1FEA00CF51CC /* GtmsLocation.swift in Sources */,
 				E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */,

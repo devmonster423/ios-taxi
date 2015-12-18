@@ -47,6 +47,10 @@ struct Geofence: Mappable {
     self.geofence = geofence
     self.name = name
   }
+  
+  init(_ localGeofence: LocalGeofence) {
+    // TODO
+  }
 
   init?(_ map: Map){}
   

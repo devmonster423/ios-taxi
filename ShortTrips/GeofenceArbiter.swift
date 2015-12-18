@@ -10,26 +10,31 @@ import Foundation
 
 import CoreLocation
 import MapKit
-import ObjectMapper
 
 struct GeofenceArbiter {
   
   static let buffer: Double = 0
   
-  static var shortTripGeofence: LocalGeofence = {
+  static func requestGeofencesForLocation(location: CLLocationCoordinate2D, response: MultipleGeofencesClosure) {
     
-    let path = NSBundle.mainBundle().pathForResource("taxi_sfo_merged", ofType: "json")!
-    
-    var jsonString: String!
-    
-    do {
-      jsonString = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-    } catch {}
-    
-    return Mapper<LocalGeofence>().map(jsonString!)!
-  }()
+    let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+    dispatch_async(dispatch_get_global_queue(priority, 0)) {
+      
+      var validGeofences = [Geofence]()
+      
+      for localGeofence in allGeofences {
+        if checkLocation(location, againstFeatures: localGeofence.features) {
+          validGeofences.append(Geofence(localGeofence))
+        }
+      }
+      
+      dispatch_async(dispatch_get_main_queue()) {
+        response(validGeofences)
+      }
+    }
+  }
   
-  static func checkLocation(location: CLLocationCoordinate2D, againstFeatures features:[LocalGeofenceFeature] = shortTripGeofence.features) -> Bool {
+  static func checkLocation(location: CLLocationCoordinate2D, againstFeatures features:[LocalGeofenceFeature] = taxiMergedGeofence.features) -> Bool {
     for feature in features {
       if self.location(location, satisfiesPolygonInfo: feature.polygonInfos()) {
         return true
