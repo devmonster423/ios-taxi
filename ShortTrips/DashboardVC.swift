@@ -73,18 +73,11 @@ class DashboardVC: UIViewController {
   }
   
   func openDebugMode() {
-    navigationController?.pushViewController(LoginVC(debug: true), animated: true)
+    navigationController?.pushViewController(DebugVC(), animated: true)
   }
   
   func showShortTrip() {
-    let alertController = UIAlertController(title: NSLocalizedString("Coming Soon", comment: ""),
-      message: "",
-      preferredStyle: .Alert)
-    let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
-      style: .Default, handler: nil)
-    alertController.addAction(OKAction)
-    self.presentViewController(alertController, animated: true, completion: nil)
-//    navigationController?.pushViewController(LoginVC(debug: false), animated: true)
+    navigationController?.pushViewController(ShortTripVC(), animated: true)
   }
   
   func showTerminalStatus() {

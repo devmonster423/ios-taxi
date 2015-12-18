@@ -28,6 +28,8 @@ enum Image: String {
   
   case unknownAirline = "unknownAirline"
   
+  case splashLogo = "splashLogo"
+  
   func image() -> UIImage {
     return UIImage(named: self.rawValue)!
   }

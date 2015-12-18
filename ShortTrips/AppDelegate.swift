@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
-    window?.rootViewController = UINavigationController(rootViewController: DashboardVC())
+    window?.rootViewController = UINavigationController(rootViewController: LoginVC())
     window?.makeKeyAndVisible()
     Fabric.with([Crashlytics.self()])
     IQKeyboardManager.sharedManager().enable = true

@@ -149,6 +149,7 @@
 		C2B60A7E1BF66A8E00A8A452 /* TripBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B60A7D1BF66A8E00A8A452 /* TripBody.swift */; };
 		C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667101BA7577600BA28E2 /* DashboardView.swift */; };
 		C2B667291BA7833400BA28E2 /* TerminalSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */; };
+		C2BC85101C24832B005FC6F8 /* AutoLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC850F1C24832B005FC6F8 /* AutoLoginView.swift */; };
 		C2CE0B141C1219AB00496607 /* LocalGeofenceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */; };
 		C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */; };
 		C2DAD68B1BE7F06200CB142C /* TripManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAD68A1BE7F06200CB142C /* TripManager.swift */; };
@@ -412,6 +413,7 @@
 		C2B60A7D1BF66A8E00A8A452 /* TripBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripBody.swift; sourceTree = "<group>"; };
 		C2B667101BA7577600BA28E2 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryView.swift; sourceTree = "<group>"; };
+		C2BC850F1C24832B005FC6F8 /* AutoLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLoginView.swift; sourceTree = "<group>"; };
 		C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofenceFeature.swift; sourceTree = "<group>"; };
 		C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVCSpec.swift; sourceTree = "<group>"; };
 		C2DAD68A1BE7F06200CB142C /* TripManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripManager.swift; sourceTree = "<group>"; };
@@ -626,7 +628,6 @@
 		C21528C31BC83A610073502F /* Debug */ = {
 			isa = PBXGroup;
 			children = (
-				C21528C41BC83A820073502F /* LoginView.swift */,
 				C21528C81BC8557B0073502F /* DebugView.swift */,
 			);
 			name = Debug;
@@ -888,6 +889,15 @@
 				C2DAD68A1BE7F06200CB142C /* TripManager.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		C2BC850E1C2482E6005FC6F8 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C2BC850F1C24832B005FC6F8 /* AutoLoginView.swift */,
+				C21528C41BC83A820073502F /* LoginView.swift */,
+			);
+			name = Auth;
 			sourceTree = "<group>";
 		};
 		C2DFE5B91B56D2CB0090B55F = {
@@ -1167,6 +1177,7 @@
 		E1A2EBA51B6C2BC600C27EB2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C2BC850E1C2482E6005FC6F8 /* Auth */,
 				C21528C31BC83A610073502F /* Debug */,
 				E177ED031BB4710400DD4499 /* Dashboard */,
 				E1472D091C0E7C0600D27D60 /* ShortTrip */,
@@ -1676,6 +1687,7 @@
 				C285F1DD1C18FFC400AA3363 /* OutsideTaxiWaitZone.swift in Sources */,
 				C283AB3B1BE939F50004E8CD /* LocationDebugger.swift in Sources */,
 				C23315851BB472490079B916 /* Airline.swift in Sources */,
+				C2BC85101C24832B005FC6F8 /* AutoLoginView.swift in Sources */,
 				E1472D001C0E7B3200D27D60 /* PingShortTrip.swift in Sources */,
 				C221EDE71BE2CD3200BDB4CD /* LatestAviAtExit.swift in Sources */,
 				C219056A1BB0C87200A3E779 /* DeviceClient.swift in Sources */,

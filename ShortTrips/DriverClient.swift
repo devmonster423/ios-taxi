@@ -11,7 +11,7 @@ import AlamofireObjectMapper
 import JSQNotificationObserverKit
 import ObjectMapper
 
-typealias DriverClosure = (DriverCredential, Driver?) -> Void
+typealias DriverClosure = Driver? -> Void
 typealias VehicleClosure = Vehicle? -> Void
 
 extension ApiClient {
@@ -21,7 +21,7 @@ extension ApiClient {
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
-        completion(credential, driver)
+        completion(driver)
     }
   }
   

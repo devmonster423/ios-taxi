@@ -21,8 +21,8 @@ class DriverClientSpec: QuickSpec {
         self.stub(uri(Url.Driver.login), builder: json(DriverLoginMock))
 
         let credential = DriverCredential(username: "🐅", password: "🐃");
-        ApiClient.authenticateDriver(credential) { response, error in
-          expect(response).toNot(beNil())
+        ApiClient.authenticateDriver(credential) { driver in
+          expect(driver).toNot(beNil())
         }
       }
       
