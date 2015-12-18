@@ -11,9 +11,11 @@ import MBProgressHUD
 
 class LoginVC: UIViewController {
   private let credential: DriverCredential?
+  private let startup: Bool
   
-  init() {
+  init(startup: Bool = false) {
     self.credential = DriverCredential.load()
+    self.startup = startup
     super.init(nibName: nil, bundle: nil)
   }
 
@@ -59,8 +61,11 @@ class LoginVC: UIViewController {
       if let driver = driver {
         credential.save()
         DriverManager.sharedInstance.setCurrentDriver(driver)
-//        self.dismissViewControllerAnimated(true, completion: nil)
-        self.navigationController?.pushViewController(DashboardVC(), animated: true)
+        if self.startup {
+          self.presentViewController(UINavigationController(rootViewController: DashboardVC()), animated: false, completion: nil)
+        } else {
+          self.dismissViewControllerAnimated(true, completion: nil)
+        }
       } else {
         let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
           message: NSLocalizedString("An error occurred while logging in.", comment: ""),
