@@ -71,7 +71,12 @@ class LoginVC: UIViewController {
           message: NSLocalizedString("An error occurred while logging in.", comment: ""),
           preferredStyle: .Alert)
         let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
-          style: .Default, handler: nil)
+          style: .Default) { _ in
+            if let _ = self.credential {
+              DriverCredential.clear()
+              self.presentViewController(LoginVC(startup: true), animated: true, completion: nil)
+            }
+        }
         alertController.addAction(OKAction)
         self.presentViewController(alertController, animated: true, completion: nil)
       }
