@@ -15,7 +15,7 @@ extension ShortTripVC {
     sfoObservers.driverAndVehicleAssociated = NotificationObserver(notification: SfoNotification.Driver.vehicleAssociated) { data, _ in
       let vehicle = data.vehicle
       let driver = data.driver
-      self.shortTripView().notificationLabel.text = "Driver \(driver.firstName) \(driver.lastName) Is Associated with Transponder: \(vehicle.transponderId)"
+      self.shortTripView().notify(String(format: NSLocalizedString("Driver Is Associated with Transponder", comment: ""), arguments: [driver.firstName, driver.lastName, vehicle.transponderId]))
     }
   }
 }

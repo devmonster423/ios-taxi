@@ -14,11 +14,11 @@ extension ShortTripVC {
   func setupCidObservers() {
     
     sfoObservers.entryCidRead = NotificationObserver(notification: SfoNotification.Cid.entry) { cid, _ in
-      self.shortTripView().notificationLabel.text = "Entry CID Read Detected"
+      self.shortTripView().notify(NSLocalizedString("Entry CID Read Detected", comment: ""))
     }
     
     sfoObservers.paymentCidRead = NotificationObserver(notification: SfoNotification.Cid.payment) { cid, _ in
-      self.shortTripView().notificationLabel.text = "Payment CID Read Detected"
+      self.shortTripView().notify(NSLocalizedString("Payment CID Read Detected", comment: ""))
     }
   }
 }

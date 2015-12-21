@@ -8,12 +8,13 @@
 
 import UIKit
 import SnapKit
+import AVFoundation
 
 class ShortTripView: UIView {
   let countdownLabel = UILabel()
   let currentStateLabel = UILabel()
   let notificationImageView = UIImageView()
-  let notificationLabel = UILabel()
+  private let notificationLabel = UILabel()
   
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -76,5 +77,10 @@ class ShortTripView: UIView {
       make.bottom.equalTo(self).offset(-30)
       make.height.equalTo(75)
     }
+  }
+  
+  func notify(notification: String) {
+    notificationLabel.text = notification
+    AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: notification))
   }
 }

@@ -13,7 +13,7 @@ extension ShortTripVC {
   
   func setupPingObservers() {
     sfoObservers.invalidPingObserver = NotificationObserver(notification: SfoNotification.Ping.invalid) { _, _ in
-      self.shortTripView().notificationLabel.text = "Trip Went Outside Short Trip Geofence"
+      self.shortTripView().notify(NSLocalizedString("Trip Went Outside Short Trip Geofence", comment: ""))
       self.shortTripView().notificationImageView.image = Image.taxicross.image()
     }
   }

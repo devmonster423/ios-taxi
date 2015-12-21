@@ -15,9 +15,9 @@ extension ShortTripVC {
   func setupLocationObservers() {
     sfoObservers.locationStatusObserver = NotificationObserver(notification: SfoNotification.Location.statusUpdated, handler: { status, _ in
       if status == .AuthorizedAlways {
-        self.shortTripView().notificationLabel.text = "Location Status Updated: GPS On"
+        self.shortTripView().notify(NSLocalizedString("Location Status Updated: GPS On", comment: ""))
       } else {
-        self.shortTripView().notificationLabel.text = "Location Status Updated: GPS Off"
+        self.shortTripView().notify(NSLocalizedString("Location Status Updated: GPS Off", comment: ""))
         self.shortTripView().notificationImageView.image = Image.thumbsdown.image()
       }
     })
