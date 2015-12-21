@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window?.makeKeyAndVisible()
     Fabric.with([Crashlytics.self()])
     IQKeyboardManager.sharedManager().enable = true
+    UIApplication.sharedApplication().idleTimerDisabled = true
     return true
   }
 
