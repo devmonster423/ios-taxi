@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 
 class ShortTripView: UIView {
+  let countdownLabel = UILabel()
   let currentStateLabel = UILabel()
   let notificationImageView = UIImageView()
   let notificationLabel = UILabel()
@@ -28,9 +29,21 @@ class ShortTripView: UIView {
       make.edges.equalTo(self)
     }
     
+    addSubview(countdownLabel)
     addSubview(currentStateLabel)
     addSubview(notificationImageView)
     addSubview(notificationLabel)
+    
+    countdownLabel.backgroundColor = Color.Auth.fadedWhite
+    countdownLabel.font = Font.MyriadPro.size(14)
+    countdownLabel.textAlignment = .Left
+    countdownLabel.textColor = UIColor.whiteColor()
+    countdownLabel.snp_makeConstraints { make in
+      make.leading.equalTo(notificationLabel)
+      make.trailing.equalTo(notificationLabel)
+      make.bottom.equalTo(notificationLabel.snp_top)
+      make.height.equalTo(40)
+    }
     
     currentStateLabel.font = Font.MyriadPro.size(28)
     currentStateLabel.textAlignment = .Center
@@ -49,7 +62,7 @@ class ShortTripView: UIView {
       make.centerX.equalTo(self)
       make.width.equalTo(200)
       make.top.equalTo(currentStateLabel.snp_bottom)
-      make.bottom.equalTo(notificationLabel.snp_top)
+      make.bottom.equalTo(countdownLabel.snp_top)
     }
     
     notificationLabel.backgroundColor = Color.Auth.fadedWhite
