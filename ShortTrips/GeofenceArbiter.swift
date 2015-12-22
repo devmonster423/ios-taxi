@@ -20,11 +20,11 @@ struct GeofenceArbiter {
     let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
     dispatch_async(dispatch_get_global_queue(priority, 0)) {
       
-      var validGeofences = [Geofence]()
+      var validGeofences = [SfoGeofence]()
       
       for localGeofence in allGeofences {
         if checkLocation(location, againstFeatures: localGeofence.features) {
-          validGeofences.append(Geofence(localGeofence))
+          validGeofences.append(localGeofence.sfoGeofence)
         }
       }
       

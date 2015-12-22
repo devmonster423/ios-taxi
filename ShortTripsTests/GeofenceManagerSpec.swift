@@ -14,7 +14,7 @@ import JSQNotificationObserverKit
 
 class GeofenceManagerSpec: QuickSpec {
   
-  var observer: NotificationObserver<[Geofence], AnyObject>?
+  var observer: NotificationObserver<[SfoGeofence], AnyObject>?
   
   override func spec() {
     

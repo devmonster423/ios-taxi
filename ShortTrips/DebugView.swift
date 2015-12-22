@@ -174,11 +174,11 @@ class DebugView: UIView {
     updateGtms()
   }
   
-  func updateGeofenceList(geofences: [Geofence]) {
+  func updateGeofenceList(geofences: [SfoGeofence]) {
     var text = NSLocalizedString("Last verified geofence(s)", comment: "") + ":\n"
     
     for geofence in geofences {
-      text += geofence.name + "\n"
+      text += "\(geofence)" + "\n"
     }
     
     geofenceLabel.text = text

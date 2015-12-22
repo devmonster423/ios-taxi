@@ -39,12 +39,10 @@ class GeofenceManager {
     if lastCheckedLocation == nil
       || location.distanceFromLocation(lastCheckedLocation!) > checkThreshold {
       
-      ApiClient.requestGeofencesForLocation(location.coordinate.latitude,
-        longitude: location.coordinate.longitude,
-        buffer: GeofenceArbiter.buffer) { geofences in
+      GeofenceArbiter.requestGeofencesForLocation(location.coordinate) { geofences in
           
           if let geofences = geofences {
-            self.process(geofences.flatMap { geofence -> SfoGeofence? in return geofence.geofence })
+            self.process(geofences)
             postNotification(SfoNotification.Geofence.foundInside, value: geofences)
           }
           

@@ -52,7 +52,7 @@ class ShortTripVCSpec: QuickSpec {
         
         postNotification(SfoNotification.Ping.attempting, value: ping)
         
-        postNotification(SfoNotification.Geofence.foundInside, value: [Geofence]())
+        postNotification(SfoNotification.Geofence.foundInside, value: [SfoGeofence]())
         
         postNotification(SfoNotification.Location.managerStarted, value: nil)
         

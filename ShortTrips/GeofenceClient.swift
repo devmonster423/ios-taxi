@@ -11,7 +11,7 @@ import ObjectMapper
 import AlamofireObjectMapper
 import JSQNotificationObserverKit
 
-typealias MultipleGeofencesClosure = [Geofence]? -> Void
+typealias MultipleGeofencesClosure = [SfoGeofence]? -> Void
 typealias GeofenceClosure = (Geofence?, ErrorType?) -> Void
 
 extension ApiClient {
@@ -22,7 +22,7 @@ extension ApiClient {
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
-        response(geofenceListWrapper?.geofenceList)
+        response(geofenceListWrapper?.geofenceList.flatMap({ geofence -> SfoGeofence? in return geofence.geofence }))
     }
   }
 }
