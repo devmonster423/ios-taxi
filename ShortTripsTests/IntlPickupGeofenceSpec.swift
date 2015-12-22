@@ -20,6 +20,7 @@ class IntlPickupGeofenceSpec: QuickSpec {
       
       it("can parse") {
         expect(intlPickupGeofence).toNot(beNil())
+        expect(intlPickupGeofence.sfoGeofence) == SfoGeofence.SfoInternationalExit
       }
       
       it("denotes a bad point as being outside the geofence") {

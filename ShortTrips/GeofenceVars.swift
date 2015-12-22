@@ -20,11 +20,11 @@ let allGeofences = [
   validCitiesGeofence
 ]
 
-let domesticPickupGeofence = LocalGeofence("Domestic_Pax_Pickup")
-let entryGateGeofence = LocalGeofence("Entry_Gate")
-let intlPickupGeofence = LocalGeofence("International_Pax_Pickup")
-let sfoGeofence = LocalGeofence("SFO")
-let taxiMergedGeofence = LocalGeofence("taxi_sfo_merged")
-let taxiWaitingZone = LocalGeofence("Taxi_Waiting_Zone")
-let terminalExitGeofence = LocalGeofence("Terminal_Exit")
-let validCitiesGeofence = LocalGeofence("Valid_Cities")
+let domesticPickupGeofence = LocalGeofence(jsonFileName: "Domestic_Pax_Pickup", sfoGeofence: .SfoTaxiDomesticExit)
+let entryGateGeofence = LocalGeofence(jsonFileName: "Entry_Gate", sfoGeofence: .SfoTaxiEntryGate)
+let intlPickupGeofence = LocalGeofence(jsonFileName: "International_Pax_Pickup", sfoGeofence: .SfoInternationalExit)
+let sfoGeofence = LocalGeofence(jsonFileName: "SFO", sfoGeofence: .Sfo)
+let taxiMergedGeofence = LocalGeofence(jsonFileName: "taxi_sfo_merged", sfoGeofence: .TaxiSfoMerged)
+let taxiWaitingZone = LocalGeofence(jsonFileName: "Taxi_Waiting_Zone", sfoGeofence: .TaxiWaitingZone)
+let terminalExitGeofence = LocalGeofence(jsonFileName: "Terminal_Exit", sfoGeofence: .SfoTerminalExit)
+let validCitiesGeofence = LocalGeofence(jsonFileName: "Valid_Cities", sfoGeofence: .TaxiSfoMerged)

@@ -20,6 +20,7 @@ class SfoGeofenceSpec: QuickSpec {
       
       it("can parse") {
         expect(sfoGeofence).toNot(beNil())
+        expect(sfoGeofence.sfoGeofence) == SfoGeofence.Sfo
       }
       
       it("denotes a bad point as being outside the geofence") {

@@ -12,10 +12,11 @@ import ObjectMapper
 struct LocalGeofence: Mappable {
 
   var features: [LocalGeofenceFeature]!
+  var sfoGeofence: SfoGeofence!
 
   init?(_ map: Map){}
   
-  init(_ jsonFileName: String) {
+  init(jsonFileName: String, sfoGeofence: SfoGeofence) {
     let path = NSBundle.mainBundle().pathForResource(jsonFileName, ofType: "json")!
     
     var jsonString: String!
@@ -25,6 +26,7 @@ struct LocalGeofence: Mappable {
     } catch {}
     
     self = Mapper<LocalGeofence>().map(jsonString!)!
+    self.sfoGeofence = sfoGeofence
   }
 
   mutating func mapping(map: Map) {

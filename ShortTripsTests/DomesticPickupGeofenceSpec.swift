@@ -19,6 +19,7 @@ class DomesticPickupGeofenceSpec: QuickSpec {
       
       it("can parse") {
         expect(domesticPickupGeofence).toNot(beNil())
+        expect(domesticPickupGeofence.sfoGeofence) == SfoGeofence.SfoTaxiDomesticExit
       }
       
       it("denotes a bad point as being outside the geofence") {

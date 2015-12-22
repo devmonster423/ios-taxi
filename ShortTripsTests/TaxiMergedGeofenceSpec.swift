@@ -1,5 +1,5 @@
 //
-//  ValidCitiesGeofenceSpec.swift
+//  TaxiMergedGeofenceSpec.swift
 //  ShortTrips
 //
 //  Created by Matt Luedke on 12/22/15.
@@ -12,15 +12,16 @@ import Nimble
 import Foundation
 import CoreLocation
 
-class ValidCitiesGeofenceSpec: QuickSpec {
+class TaxiMergedGeofenceSpec: QuickSpec {
   
   override func spec() {
-    describe("the valid cities geofence") {
+    describe("the taxi merged geofence") {
       
       it("can parse") {
-        expect(validCitiesGeofence).toNot(beNil())
-        expect(validCitiesGeofence.sfoGeofence) == SfoGeofence.TaxiSfoMerged
+        expect(taxiMergedGeofence).toNot(beNil())
+        expect(taxiMergedGeofence.sfoGeofence) == SfoGeofence.TaxiSfoMerged
       }
+      
       it("finds a point in SF outside the geofence") {
         
         let sfPoint = CLLocationCoordinate2D(latitude: 37.752598, longitude: -122.415504)

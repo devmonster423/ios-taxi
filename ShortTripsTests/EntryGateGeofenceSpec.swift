@@ -21,6 +21,7 @@ class EntryGateGeofenceSpec: QuickSpec {
       
       it("can parse") {
         expect(entryGateGeofence).toNot(beNil())
+        expect(entryGateGeofence.sfoGeofence) == SfoGeofence.SfoTaxiEntryGate
       }
       
       it("denotes a bad point as being outside the geofence") {

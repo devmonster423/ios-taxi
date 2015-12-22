@@ -266,6 +266,7 @@
 		FAEA59B01C29A668009BF1F4 /* SfoGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA59AF1C29A668009BF1F4 /* SfoGeofenceSpec.swift */; };
 		FAEA59B21C29A68A009BF1F4 /* TerminalExitGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA59B11C29A68A009BF1F4 /* TerminalExitGeofenceSpec.swift */; };
 		FAEA59B41C29A6B3009BF1F4 /* ValidCitiesGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA59B31C29A6B3009BF1F4 /* ValidCitiesGeofenceSpec.swift */; };
+		FAF1FBE61C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1FBE51C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -545,6 +546,7 @@
 		FAEA59AF1C29A668009BF1F4 /* SfoGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SfoGeofenceSpec.swift; sourceTree = "<group>"; };
 		FAEA59B11C29A68A009BF1F4 /* TerminalExitGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalExitGeofenceSpec.swift; sourceTree = "<group>"; };
 		FAEA59B31C29A6B3009BF1F4 /* ValidCitiesGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidCitiesGeofenceSpec.swift; sourceTree = "<group>"; };
+		FAF1FBE51C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxiMergedGeofenceSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1343,6 +1345,7 @@
 				FAEA59AB1C29A5F2009BF1F4 /* EntryGateGeofenceSpec.swift */,
 				FAEA59AD1C29A630009BF1F4 /* IntlPickupGeofenceSpec.swift */,
 				FAEA59AF1C29A668009BF1F4 /* SfoGeofenceSpec.swift */,
+				FAF1FBE51C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift */,
 				C214210C1C1B7FF00066DCA5 /* TaxiWaitZoneGeofenceSpec.swift */,
 				FAEA59B11C29A68A009BF1F4 /* TerminalExitGeofenceSpec.swift */,
 				FAEA59B31C29A6B3009BF1F4 /* ValidCitiesGeofenceSpec.swift */,
@@ -1804,6 +1807,7 @@
 				8EEFB7CD1BE28DCD00B8A962 /* StatusCodeSpec.swift in Sources */,
 				C2FE05EB1C1B7308005D6705 /* ShortTripVCSpec.swift in Sources */,
 				C221678F1BD58AAF002D7994 /* TerminalSummaryMock.swift in Sources */,
+				FAF1FBE61C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift in Sources */,
 				E112C30C1BB3135600B1DF48 /* LotStatusEnumSpec.swift in Sources */,
 				E1F153C51BF02DE600E212ED /* TerminalSummaryArrivalsWrapperSpec.swift in Sources */,
 				C22167841BD58639002D7994 /* AirlineClientSpec.swift in Sources */,
