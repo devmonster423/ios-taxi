@@ -9,20 +9,22 @@
 import Foundation
 import ObjectMapper
 
-var allGeofences = [
+let allGeofences = [
   domesticPickupGeofence,
   entryGateGeofence,
   intlPickupGeofence,
   sfoGeofence,
   taxiMergedGeofence,
+  taxiWaitingZone,
   terminalExitGeofence,
   validCitiesGeofence
 ]
 
-var domesticPickupGeofence = LocalGeofence("Domestic_Pax_Pickup")
-var entryGateGeofence = LocalGeofence("Entry_Gate")
-var intlPickupGeofence = LocalGeofence("International_Pax_Pickup")
-var sfoGeofence = LocalGeofence("SFO")
-var taxiMergedGeofence = LocalGeofence("taxi_sfo_merged")
-var terminalExitGeofence = LocalGeofence("Terminal_Exit")
-var validCitiesGeofence = LocalGeofence("Valid_Cities")
+let domesticPickupGeofence = LocalGeofence("Domestic_Pax_Pickup")
+let entryGateGeofence = LocalGeofence("Entry_Gate")
+let intlPickupGeofence = LocalGeofence("International_Pax_Pickup")
+let sfoGeofence = LocalGeofence("SFO")
+let taxiMergedGeofence = LocalGeofence("taxi_sfo_merged")
+let taxiWaitingZone = LocalGeofence("Taxi_Waiting_Zone")
+let terminalExitGeofence = LocalGeofence("Terminal_Exit")
+let validCitiesGeofence = LocalGeofence("Valid_Cities")

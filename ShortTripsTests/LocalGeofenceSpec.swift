@@ -18,113 +18,49 @@ class LocalGeofenceSpec: QuickSpec {
     describe("the domestic pickup geofence") {
       
       it("can parse") {
-        
-        let path = NSBundle.mainBundle().pathForResource("Domestic_Pax_Pickup", ofType: "json")!
-        
-        var jsonString: String!
-        
-        do {
-          jsonString = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-        } catch {}
-        
-        let geofence = Mapper<LocalGeofence>().map(jsonString!)
-        
-        expect(geofence).toNot(beNil())
+        expect(LocalGeofence("Domestic_Pax_Pickup")).toNot(beNil())
       }
     }
 
     describe("the entry gate geofence") {
       
       it("can parse") {
-        
-        let path = NSBundle.mainBundle().pathForResource("Entry_Gate", ofType: "json")!
-        
-        var jsonString: String?
-        
-        do {
-          jsonString = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-        }
-        catch {}
-        
-        let geofence = Mapper<LocalGeofence>().map(jsonString!)
-        
-        expect(geofence).toNot(beNil())
+        expect(LocalGeofence("Entry_Gate")).toNot(beNil())
       }
     }
 
     describe("the international pickup geofence") {
       
       it("can parse") {
-        
-        let path = NSBundle.mainBundle().pathForResource("International_Pax_Pickup", ofType: "json")!
-        
-        var jsonString: String?
-        
-        do {
-          jsonString = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-        }
-        catch {}
-        
-        let geofence = Mapper<LocalGeofence>().map(jsonString!)
-        
-        expect(geofence).toNot(beNil())
+        expect(LocalGeofence("International_Pax_Pickup")).toNot(beNil())
       }
     }
 
     describe("the sfo geofence") {
       
       it("can parse") {
-        
-        let path = NSBundle.mainBundle().pathForResource("SFO", ofType: "json")!
-        
-        var jsonString: String?
-        
-        do {
-          jsonString = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-        }
-        catch {}
-        
-        let geofence = Mapper<LocalGeofence>().map(jsonString!)
-        
-        expect(geofence).toNot(beNil())
+        expect(LocalGeofence("SFO")).toNot(beNil())
       }
     }
     
     describe("the terminal exit geofence") {
       
       it("can parse") {
-        
-        let path = NSBundle.mainBundle().pathForResource("Terminal_Exit", ofType: "json")!
-        
-        var jsonString: String?
-        
-        do {
-          jsonString = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-        }
-        catch {}
-        
-        let geofence = Mapper<LocalGeofence>().map(jsonString!)
-        
-        expect(geofence).toNot(beNil())
+        expect(LocalGeofence("Terminal_Exit")).toNot(beNil())
       }
     }
 
     describe("the valid cities geofence") {
       
       it("can parse") {
-        
-        let path = NSBundle.mainBundle().pathForResource("Valid_Cities", ofType: "json")!
-        
-        var jsonString: String?
-        
-        do {
-          jsonString = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-        }
-        catch {}
-        
-        let geofence = Mapper<LocalGeofence>().map(jsonString!)
-        
-        expect(geofence).toNot(beNil())
+        expect(LocalGeofence("Valid_Cities")).toNot(beNil())
+      }
+    }
+    
+    describe("the taxi wait zone geofence") {
+      
+      it("can parse") {
+        expect(LocalGeofence("Taxi_Waiting_Zone")).toNot(beNil())
       }
     }
   }

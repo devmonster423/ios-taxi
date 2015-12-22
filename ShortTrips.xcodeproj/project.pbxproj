@@ -260,6 +260,7 @@
 		FA7B79F31C1A5D3E000CDC3B /* InsideSfoNotExitingTerminals.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7B79F21C1A5D3E000CDC3B /* InsideSfoNotExitingTerminals.swift */; };
 		FAB97C721C23867F008F5421 /* GeofenceVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB97C711C23867F008F5421 /* GeofenceVars.swift */; };
 		FAD0418C1C0E66E900D9F8A1 /* LocalGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */; };
+		FAEA59A71C29A1EB009BF1F4 /* Taxi_Waiting_Zone.json in Resources */ = {isa = PBXBuildFile; fileRef = FAEA59A61C29A1EB009BF1F4 /* Taxi_Waiting_Zone.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -533,6 +534,7 @@
 		FA7B79F21C1A5D3E000CDC3B /* InsideSfoNotExitingTerminals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideSfoNotExitingTerminals.swift; sourceTree = "<group>"; };
 		FAB97C711C23867F008F5421 /* GeofenceVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceVars.swift; sourceTree = "<group>"; };
 		FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofence.swift; sourceTree = "<group>"; };
+		FAEA59A61C29A1EB009BF1F4 /* Taxi_Waiting_Zone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Taxi_Waiting_Zone.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -643,14 +645,6 @@
 				C21528CE1BC869820073502F /* DebugVCSpec.swift */,
 			);
 			name = Debug;
-			sourceTree = "<group>";
-		};
-		C215CDFB1BD19F9400991D9D /* Local Geofences */ = {
-			isa = PBXGroup;
-			children = (
-				FAB97C6F1C238644008F5421 /* JSON */,
-			);
-			name = "Local Geofences";
 			sourceTree = "<group>";
 		};
 		C21905661BB0B73E00A3E779 /* Networking */ = {
@@ -785,7 +779,7 @@
 		C24486EE1BA89DD100A19A9D /* Geofence */ = {
 			isa = PBXGroup;
 			children = (
-				C215CDFB1BD19F9400991D9D /* Local Geofences */,
+				FAB97C6F1C238644008F5421 /* JSON */,
 				FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */,
 				C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */,
 				E11D60961BA7A40100FD4276 /* Geofence.swift */,
@@ -1342,6 +1336,7 @@
 				C21421021C1B7F6D0066DCA5 /* International_Pax_Pickup.json */,
 				C21421031C1B7F6D0066DCA5 /* SFO.json */,
 				C29F59F31C221AAA007EFA1D /* taxi_sfo_merged.json */,
+				FAEA59A61C29A1EB009BF1F4 /* Taxi_Waiting_Zone.json */,
 				C21421041C1B7F6D0066DCA5 /* Terminal_Exit.json */,
 				C21421051C1B7F6D0066DCA5 /* Valid_Cities.json */,
 			);
@@ -1460,6 +1455,7 @@
 				E122649E1B795A65002B36CA /* Localizable.strings in Resources */,
 				C21421061C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json in Resources */,
 				C2DFE5CF1B56D2CB0090B55F /* Images.xcassets in Resources */,
+				FAEA59A71C29A1EB009BF1F4 /* Taxi_Waiting_Zone.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
