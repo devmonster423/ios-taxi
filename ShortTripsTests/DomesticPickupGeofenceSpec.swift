@@ -20,6 +20,20 @@ class DomesticPickupGeofenceSpec: QuickSpec {
       it("can parse") {
         expect(domesticPickupGeofence).toNot(beNil())
       }
+      
+      it("denotes a bad point as being outside the geofence") {
+        
+        let badPoint = CLLocationCoordinate2D(latitude: 37.615091, longitude: -122.390150)
+        
+        expect(GeofenceArbiter.checkLocation(badPoint, againstFeatures: domesticPickupGeofence.features)).to(beFalse())
+      }
+      
+      it("denotes a good point as being inside the geofence") {
+        
+        let goodPoint = CLLocationCoordinate2D(latitude: 37.614938, longitude: -122.386390)
+        
+        expect(GeofenceArbiter.checkLocation(goodPoint, againstFeatures: domesticPickupGeofence.features)).to(beTrue())
+      }
     }
   }
 }
