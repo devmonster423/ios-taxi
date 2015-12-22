@@ -1,58 +1,29 @@
 //
-//  ShortTripGeofenceSpec.swift
+//  ValidCitiesGeofenceSpec.swift
 //  ShortTrips
 //
-//  Created by Matt Luedke on 10/6/15.
+//  Created by Matt Luedke on 12/22/15.
 //  Copyright © 2015 SFO. All rights reserved.
 //
 
 @testable import ShortTrips
 import Quick
 import Nimble
+import Foundation
 import CoreLocation
-import ObjectMapper
 
-class ShortTripGeofenceSpec: QuickSpec {
-
-  lazy var entryGateGeofence: LocalGeofence = {
-    
-    let path = NSBundle.mainBundle().pathForResource("Entry_Gate", ofType: "json")!
-    
-    var jsonString: String?
-    
-    do {
-      jsonString = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
-    }
-    catch {}
-    
-    return Mapper<LocalGeofence>().map(jsonString!)!
-  }()
+class ValidCitiesGeofenceSpec: QuickSpec {
   
   override func spec() {
-    
-    describe("the entry gate geofence") {
-
-      it("denotes a bad point as being outside the geofence") {
-        
-        let badPoint = CLLocationCoordinate2D(latitude: 37.610560, longitude: -122.393328)
-        
-        expect(GeofenceArbiter.checkLocation(badPoint, againstFeatures: self.entryGateGeofence.features)).to(beFalse())
-      }
+    describe("the valid cities geofence") {
       
-      it("denotes a good point as being inside the geofence") {
-        
-        let goodPoint = CLLocationCoordinate2D(latitude: 37.615699660000075, longitude: -122.3883)
-        
-        expect(GeofenceArbiter.checkLocation(goodPoint, againstFeatures: self.entryGateGeofence.features)).to(beTrue())
+      it("can parse") {
+        expect(LocalGeofence("Valid_Cities")).toNot(beNil())
       }
-    }
-    
-    describe("the short trip geofence") {
-      
       it("finds a point in SF outside the geofence") {
         
         let sfPoint = CLLocationCoordinate2D(latitude: 37.752598, longitude: -122.415504)
-
+        
         expect(GeofenceArbiter.checkLocation(sfPoint)).to(beFalse())
       }
       
