@@ -19,7 +19,21 @@ class IntlPickupGeofenceSpec: QuickSpec {
     describe("the international pickup geofence") {
       
       it("can parse") {
-        expect(LocalGeofence("International_Pax_Pickup")).toNot(beNil())
+        expect(intlPickupGeofence).toNot(beNil())
+      }
+      
+      it("denotes a bad point as being outside the geofence") {
+        
+        let badPoint = CLLocationCoordinate2D(latitude: 37.615256, longitude: -122.393191)
+        
+        expect(GeofenceArbiter.checkLocation(badPoint, againstFeatures: intlPickupGeofence.features)).to(beFalse())
+      }
+      
+      it("denotes a good point as being inside the geofence") {
+        
+        let goodPoint = CLLocationCoordinate2D(latitude: 37.615305, longitude: -122.390220)
+        
+        expect(GeofenceArbiter.checkLocation(goodPoint, againstFeatures: intlPickupGeofence.features)).to(beTrue())
       }
     }
   }

@@ -19,7 +19,21 @@ class SfoGeofenceSpec: QuickSpec {
     describe("the sfo geofence") {
       
       it("can parse") {
-        expect(LocalGeofence("SFO")).toNot(beNil())
+        expect(sfoGeofence).toNot(beNil())
+      }
+      
+      it("denotes a bad point as being outside the geofence") {
+        
+        let badPoint = CLLocationCoordinate2D(latitude: 37.648945, longitude: -122.410311)
+        
+        expect(GeofenceArbiter.checkLocation(badPoint, againstFeatures: sfoGeofence.features)).to(beFalse())
+      }
+      
+      it("denotes a good point as being inside the geofence") {
+        
+        let goodPoint = CLLocationCoordinate2D(latitude: 37.616202, longitude: -122.387245)
+        
+        expect(GeofenceArbiter.checkLocation(goodPoint, againstFeatures: sfoGeofence.features)).to(beTrue())
       }
     }
   }

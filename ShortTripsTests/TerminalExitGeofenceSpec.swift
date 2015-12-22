@@ -18,7 +18,21 @@ class TerminalExitGeofenceSpec: QuickSpec {
     describe("the terminal exit geofence") {
       
       it("can parse") {
-        expect(LocalGeofence("Terminal_Exit")).toNot(beNil())
+        expect(terminalExitGeofence).toNot(beNil())
+      }
+      
+      it("denotes a bad point as being outside the geofence") {
+        
+        let badPoint = CLLocationCoordinate2D(latitude: 37.648945, longitude: -122.410311)
+        
+        expect(GeofenceArbiter.checkLocation(badPoint, againstFeatures: terminalExitGeofence.features)).to(beFalse())
+      }
+      
+      it("denotes a good point as being inside the geofence") {
+        
+        let goodPoint = CLLocationCoordinate2D(latitude: 37.615884, longitude: -122.391408)
+        
+        expect(GeofenceArbiter.checkLocation(goodPoint, againstFeatures: terminalExitGeofence.features)).to(beTrue())
       }
     }
   }
