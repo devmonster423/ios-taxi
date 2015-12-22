@@ -33,4 +33,12 @@ struct Vehicle: Mappable {
     transponderId <- map["response.transponder_id"]
     vehicleId <- map["response.vehicle_id"]
   }
+  
+  func isValid() -> Bool {
+    return gtmsTripId != nil
+      && licensePlate != nil
+      && medallion != nil
+      && transponderId != nil
+      && vehicleId != nil
+  }
 }

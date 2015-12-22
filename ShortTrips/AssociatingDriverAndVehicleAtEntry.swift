@@ -28,7 +28,7 @@ struct AssociatingDriverAndVehicleAtEntry {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
           ApiClient.getVehicle(driver.cardId) { vehicle in
 
-            if let vehicle = vehicle {
+            if let vehicle = vehicle where vehicle.isValid() {
               DriverManager.sharedInstance.setCurrentVehicle(vehicle)
               
             } else if !GeofenceManager.sharedInstance.stillInsideTaxiWaitZone() {
