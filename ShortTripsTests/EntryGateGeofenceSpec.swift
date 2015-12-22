@@ -19,10 +19,7 @@ class EntryGateGeofenceSpec: QuickSpec {
     
     describe("the entry gate geofence") {
       
-      var entryGateGeofence: LocalGeofence!
-      
       it("can parse") {
-        entryGateGeofence = LocalGeofence("Entry_Gate")
         expect(entryGateGeofence).toNot(beNil())
       }
       

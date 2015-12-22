@@ -18,7 +18,7 @@ class DomesticPickupGeofenceSpec: QuickSpec {
     describe("the domestic pickup geofence") {
       
       it("can parse") {
-        expect(LocalGeofence("Domestic_Pax_Pickup")).toNot(beNil())
+        expect(domesticPickupGeofence).toNot(beNil())
       }
     }
   }
