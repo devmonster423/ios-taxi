@@ -72,6 +72,28 @@ class DebugVCSpec: QuickSpec {
         
         viewController.fakeTimeExpired()
         
+        viewController.backToSFO()
+        
+        viewController.dropPassenger()
+        
+        viewController.fakeExitingTerminals()
+        
+        viewController.fakeOutsideGeofences()
+        
+        viewController.triggerAtIntlTerminal()
+        
+        viewController.triggerAtTerminalExit()
+        
+        viewController.triggerInsideSfo()
+        
+        viewController.triggerInsideTaxiWaitingZone()
+        
+        viewController.triggerOutsideDomesticTerminalExit()
+        
+        viewController.triggerOutsideSfo()
+        
+        viewController.triggerOutsideTaxiWaitingZone()
+        
         expect(viewController).toNot(beNil())
       }
     }

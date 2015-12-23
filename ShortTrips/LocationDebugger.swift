@@ -45,19 +45,20 @@ extension DebugVC {
   
   func fakeOutsideGeofences() {
     
-    let medallion = DriverManager.sharedInstance.getCurrentVehicle()!.medallion!
-    let sessionId = DriverManager.sharedInstance.getCurrentDriver()!.sessionId
-    let tripId = TripManager.sharedInstance.getTripId()!
+    if let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion,
+      let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId,
+      let tripId = TripManager.sharedInstance.getTripId() {
     
-    let ping = Ping(location: CLLocation(latitude: 37.760661, longitude: -122.434092),
-      tripId: tripId,
-      vehicleId: 123,
-      sessionId: sessionId,
-      medallion: medallion)
-    
-    let geofenceStatus = FoundGeofenceStatus(status: .Invalid, geofence: nil)
-    
-    postNotification(SfoNotification.Ping.created, value: (ping: ping, geofenceStatus: geofenceStatus))
+      let ping = Ping(location: CLLocation(latitude: 37.760661, longitude: -122.434092),
+        tripId: tripId,
+        vehicleId: 123,
+        sessionId: sessionId,
+        medallion: medallion)
+      
+      let geofenceStatus = FoundGeofenceStatus(status: .Invalid, geofence: nil)
+      
+      postNotification(SfoNotification.Ping.created, value: (ping: ping, geofenceStatus: geofenceStatus))
+    }
   }
   
   func triggerOutsideDomesticTerminalExit() {
