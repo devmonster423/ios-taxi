@@ -268,6 +268,7 @@
 		FAEA59B41C29A6B3009BF1F4 /* ValidCitiesGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA59B31C29A6B3009BF1F4 /* ValidCitiesGeofenceSpec.swift */; };
 		FAF1FBE61C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1FBE51C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift */; };
 		FAF6F5D01C2AF2C2004B93ED /* LoginVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6F5CF1C2AF2C2004B93ED /* LoginVCSpec.swift */; };
+		FAF6F5D21C2AF55D004B93ED /* ValidationStepSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6F5D11C2AF55D004B93ED /* ValidationStepSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -549,6 +550,7 @@
 		FAEA59B31C29A6B3009BF1F4 /* ValidCitiesGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidCitiesGeofenceSpec.swift; sourceTree = "<group>"; };
 		FAF1FBE51C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxiMergedGeofenceSpec.swift; sourceTree = "<group>"; };
 		FAF6F5CF1C2AF2C2004B93ED /* LoginVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVCSpec.swift; sourceTree = "<group>"; };
+		FAF6F5D11C2AF55D004B93ED /* ValidationStepSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationStepSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -602,6 +604,7 @@
 				C2EAD0A61C03E11A00EAEBBF /* TripValidation.swift */,
 				C2EAD0A81C03E17700EAEBBF /* MockTripValidationString.swift */,
 				C2EAD0AF1C03E50600EAEBBF /* MockFoundGeofenceStatusString.swift */,
+				FAF6F5D11C2AF55D004B93ED /* ValidationStepSpec.swift */,
 			);
 			name = Trip;
 			sourceTree = "<group>";
@@ -1825,6 +1828,7 @@
 				E14E159B1BB1D856009D1E17 /* AntennaSpec.swift in Sources */,
 				C221678B1BD587A4002D7994 /* FlightClientSpec.swift in Sources */,
 				8EEFB7D01BE29CFC00B8A962 /* AirlineSpec.swift in Sources */,
+				FAF6F5D21C2AF55D004B93ED /* ValidationStepSpec.swift in Sources */,
 				E1B8120A1BEC1562002EC540 /* MockAirlineListResponse.swift in Sources */,
 				E1F153C71BF02E0200E212ED /* TerminalSummaryDeparturesWrapperSpec.swift in Sources */,
 				C22167931BD59199002D7994 /* AllGeofenceMock.swift in Sources */,
