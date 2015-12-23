@@ -2,7 +2,7 @@
 //  LoginVCSpec.swift
 //  ShortTrips
 //
-//  Created by Matt Luedke on 12/23/15.
+//  Created by Matt Luedke on 10/9/15.
 //  Copyright © 2015 SFO. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import Quick
 import Nimble
 import PivotalCoreKit
 
-class LoginVCSpec: QuickSpec {
+class AutoLoginVCSpec: QuickSpec {
   
   override func spec() {
     
@@ -21,9 +21,10 @@ class LoginVCSpec: QuickSpec {
       
       beforeEach {
         
-        DriverCredential.clear()
+        let driverCredential = DriverCredential(username: "testdriver6", password: "testdriver6@")
+        driverCredential.save()
         
-        viewController = LoginVC(startup: false)
+        viewController = LoginVC()
         
         UIApplication.sharedApplication().keyWindow!.rootViewController = viewController
         let _ = viewController.view

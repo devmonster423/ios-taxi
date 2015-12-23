@@ -61,7 +61,7 @@
 		C21528C51BC83A820073502F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C41BC83A820073502F /* LoginView.swift */; };
 		C21528C71BC855460073502F /* DebugVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C61BC855460073502F /* DebugVC.swift */; };
 		C21528C91BC8557B0073502F /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C81BC8557B0073502F /* DebugView.swift */; };
-		C21528CD1BC869790073502F /* LoginVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528CC1BC869790073502F /* LoginVCSpec.swift */; };
+		C21528CD1BC869790073502F /* AutoLoginVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528CC1BC869790073502F /* AutoLoginVCSpec.swift */; };
 		C21528CF1BC869820073502F /* DebugVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528CE1BC869820073502F /* DebugVCSpec.swift */; };
 		C215CDFA1BD18F7200991D9D /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CDF91BD18F7200991D9D /* StatusCode.swift */; };
 		C215CDFD1BD19FCA00991D9D /* DriverManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C215CDFC1BD19FCA00991D9D /* DriverManager.swift */; };
@@ -267,6 +267,7 @@
 		FAEA59B21C29A68A009BF1F4 /* TerminalExitGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA59B11C29A68A009BF1F4 /* TerminalExitGeofenceSpec.swift */; };
 		FAEA59B41C29A6B3009BF1F4 /* ValidCitiesGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA59B31C29A6B3009BF1F4 /* ValidCitiesGeofenceSpec.swift */; };
 		FAF1FBE61C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1FBE51C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift */; };
+		FAF6F5D01C2AF2C2004B93ED /* LoginVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6F5CF1C2AF2C2004B93ED /* LoginVCSpec.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -337,7 +338,7 @@
 		C21528C41BC83A820073502F /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C21528C61BC855460073502F /* DebugVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DebugVC.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C21528C81BC8557B0073502F /* DebugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
-		C21528CC1BC869790073502F /* LoginVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVCSpec.swift; sourceTree = "<group>"; };
+		C21528CC1BC869790073502F /* AutoLoginVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLoginVCSpec.swift; sourceTree = "<group>"; };
 		C21528CE1BC869820073502F /* DebugVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugVCSpec.swift; sourceTree = "<group>"; };
 		C215CDF91BD18F7200991D9D /* StatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
 		C215CDFC1BD19FCA00991D9D /* DriverManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverManager.swift; sourceTree = "<group>"; };
@@ -547,6 +548,7 @@
 		FAEA59B11C29A68A009BF1F4 /* TerminalExitGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalExitGeofenceSpec.swift; sourceTree = "<group>"; };
 		FAEA59B31C29A6B3009BF1F4 /* ValidCitiesGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidCitiesGeofenceSpec.swift; sourceTree = "<group>"; };
 		FAF1FBE51C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxiMergedGeofenceSpec.swift; sourceTree = "<group>"; };
+		FAF6F5CF1C2AF2C2004B93ED /* LoginVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVCSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -864,7 +866,8 @@
 			isa = PBXGroup;
 			children = (
 				C29341CB1BD1C56200A7CB9E /* DriverManagerSpec.swift */,
-				C21528CC1BC869790073502F /* LoginVCSpec.swift */,
+				C21528CC1BC869790073502F /* AutoLoginVCSpec.swift */,
+				FAF6F5CF1C2AF2C2004B93ED /* LoginVCSpec.swift */,
 			);
 			name = Auth;
 			sourceTree = "<group>";
@@ -1746,6 +1749,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2EAD0B31C03E74900EAEBBF /* ErrorLoggerSpec.swift in Sources */,
+				FAF6F5D01C2AF2C2004B93ED /* LoginVCSpec.swift in Sources */,
 				8EEFB7BF1BE1AF8D00B8A962 /* RequestAllCidsMock.swift in Sources */,
 				E1359CF31BF3E51F006ED65A /* MockGeofenceResponse.swift in Sources */,
 				E1F153BF1BF0110D00E212ED /* MockAutomaticVehicleId.swift in Sources */,
@@ -1788,7 +1792,7 @@
 				E10CE6801BED1DD600322077 /* MockDriverResponse.swift in Sources */,
 				C29341D01BD1C9B300A7CB9E /* GeofenceManagerSpec.swift in Sources */,
 				E1BDE28A1BB1E76C006C0A42 /* AutomaticVehicleIdListWrapperSpec.swift in Sources */,
-				C21528CD1BC869790073502F /* LoginVCSpec.swift in Sources */,
+				C21528CD1BC869790073502F /* AutoLoginVCSpec.swift in Sources */,
 				8EEFB7C91BE28CFB00B8A962 /* TripPingMock.swift in Sources */,
 				8EEFB7CB1BE28D1400B8A962 /* TripStartMock.swift in Sources */,
 				8EEFB7C31BE1B03500B8A962 /* ReferenceClientSpec.swift in Sources */,
