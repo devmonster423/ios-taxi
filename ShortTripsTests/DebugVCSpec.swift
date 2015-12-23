@@ -94,6 +94,12 @@ class DebugVCSpec: QuickSpec {
         
         viewController.triggerOutsideTaxiWaitingZone()
         
+        viewController.fakeCidPayment()
+        
+        viewController.triggerEntryCid()
+        
+        viewController.triggerReEntryCid()
+        
         expect(viewController).toNot(beNil())
       }
     }
