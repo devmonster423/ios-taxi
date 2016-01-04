@@ -59,7 +59,7 @@ class FlightStatusView: UIView {
     }
     
     timerView.snp_makeConstraints { (make) -> Void in
-      make.bottom.equalTo(self)
+      make.bottom.equalTo(self).offset(-tabBarHeight)
       make.height.equalTo(60)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)

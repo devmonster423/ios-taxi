@@ -40,7 +40,7 @@ class DashboardView: UIView {
       make.top.equalTo(self)
       make.left.equalTo(self)
       make.right.equalTo(self)
-      make.bottom.equalTo(self)
+      make.bottom.equalTo(timerView.snp_top)
     }
 
     // "FULL"
@@ -65,7 +65,7 @@ class DashboardView: UIView {
     // Progress View and "Last updated 2 minutes ago"
     timerView.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(UiConstants.Dashboard.progressHeight)
-      make.bottom.equalTo(self)
+      make.bottom.equalTo(self).offset(-tabBarHeight)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
     }

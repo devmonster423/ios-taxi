@@ -74,7 +74,7 @@ class ShortTripView: UIView {
     notificationLabel.snp_makeConstraints { make in
       make.leading.equalTo(self).offset(30)
       make.trailing.equalTo(self).offset(-30)
-      make.bottom.equalTo(self).offset(-30)
+      make.bottom.equalTo(self).offset(-(tabBarHeight + 30))
       make.height.equalTo(75)
     }
   }

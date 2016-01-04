@@ -8,6 +8,10 @@
 
 import UIKit
 
+var tabBarHeight: CGFloat {
+  return MainTabBarController.tabBar.frame.height
+}
+
 var MainTabBarController: UITabBarController {
 
   let mainTabBarController = UITabBarController()
