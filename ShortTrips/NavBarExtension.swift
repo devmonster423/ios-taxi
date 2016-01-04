@@ -10,12 +10,15 @@ import UIKit
 
 extension UIViewController {
   
-  func configureNavBar() {
+  func configureNavBar(back: Bool = true) {
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-    navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .Plain, target: self, action: "goBack")
     navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     navigationController?.navigationBar.translucent = false
     navigationController?.navigationBar.setBackgroundImage(Image.navbarBlue.image(), forBarMetrics: .Default)
+    
+    if back {
+      navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .Plain, target: self, action: "goBack")
+    }
   }
   
   func configureTitle() {
