@@ -29,6 +29,7 @@ class FlightStatusVC: UIViewController {
     super.viewDidLoad()
     configureNavBar()
     updateFlightTable()
+    addLogoutButton()
   }
   
   override func viewWillAppear(animated: Bool) {

@@ -15,17 +15,19 @@ var MainTabBarController: UITabBarController {
   let flightStatusNavVC = UINavigationController(rootViewController: TerminalSummaryVC())
   flightStatusNavVC.tabBarItem = UITabBarItem(title: "Flight", image: Image.greenCircle.image(), selectedImage: nil)
   
-  let dashboardVC = DashboardVC()
-  dashboardVC.tabBarItem = UITabBarItem(title: "Dashboard", image: Image.greenCircle.image(), selectedImage: nil)
+  let dashboardNavVC = UINavigationController(rootViewController: DashboardVC())
+  dashboardNavVC.tabBarItem = UITabBarItem(title: "Dashboard", image: Image.greenCircle.image(), selectedImage: nil)
   
-  let shortTripVC = ShortTripVC()
-  shortTripVC.tabBarItem = UITabBarItem(title: "Trip", image: Image.blueCircle.image(), selectedImage: nil)
+  let shortTripNavVC = UINavigationController(rootViewController: ShortTripVC())
+  shortTripNavVC.tabBarItem = UITabBarItem(title: "Trip", image: Image.blueCircle.image(), selectedImage: nil)
   
   mainTabBarController.viewControllers = [
     flightStatusNavVC,
-    dashboardVC,
-    shortTripVC
+    dashboardNavVC,
+    shortTripNavVC
   ]
+  
+  mainTabBarController.selectedIndex = 1
 
   return mainTabBarController
 }

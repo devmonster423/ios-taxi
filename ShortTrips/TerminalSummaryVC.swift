@@ -52,6 +52,7 @@ class TerminalSummaryVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureNavBar(false)
+    addLogoutButton()
     updateTerminalTable()
     terminalSummaryView().picker.delegate = self
     terminalSummaryView().picker.dataSource = self

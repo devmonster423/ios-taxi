@@ -31,13 +31,8 @@ class DashboardVC: UIViewController {
     super.viewDidLoad()
     navigationItem.title = "";
     requestLotStatus()
-  }
-  
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    navigationController?.navigationBar.translucent = true
-    navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
-    navigationController?.navigationBar.shadowImage = UIImage()
+    configureNavBar(false)
+    addLogoutButton()
   }
   
   func dashboardView() -> DashboardView {

@@ -31,7 +31,7 @@ class ShortTripVC: UIViewController {
     setupStateObservers()
     setupTripObservers()
   
-    configureNavBar()
+    configureNavBar(false)
     addLogoutButton()
     
     updateForState(StateManager.sharedInstance.getMachine().currentState)
