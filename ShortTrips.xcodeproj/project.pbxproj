@@ -152,6 +152,7 @@
 		C2BC85141C24912F005FC6F8 /* LogoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85131C24912F005FC6F8 /* LogoutExtension.swift */; };
 		C2BC85171C249CA0005FC6F8 /* NavBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */; };
 		C2CE0B141C1219AB00496607 /* LocalGeofenceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */; };
+		C2D2899B1C3B094300A636AA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D2899A1C3B094300A636AA /* MainTabBarController.swift */; };
 		C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */; };
 		C2DAD68B1BE7F06200CB142C /* TripManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAD68A1BE7F06200CB142C /* TripManager.swift */; };
 		C2DAD68D1BE8360800CB142C /* PingDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAD68C1BE8360800CB142C /* PingDebugger.swift */; };
@@ -427,6 +428,7 @@
 		C2BC85131C24912F005FC6F8 /* LogoutExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutExtension.swift; sourceTree = "<group>"; };
 		C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarExtension.swift; sourceTree = "<group>"; };
 		C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofenceFeature.swift; sourceTree = "<group>"; };
+		C2D2899A1C3B094300A636AA /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVCSpec.swift; sourceTree = "<group>"; };
 		C2DAD68A1BE7F06200CB142C /* TripManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripManager.swift; sourceTree = "<group>"; };
 		C2DAD68C1BE8360800CB142C /* PingDebugger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingDebugger.swift; sourceTree = "<group>"; };
@@ -624,8 +626,6 @@
 			isa = PBXGroup;
 			children = (
 				C2DFE5C91B56D2CB0090B55F /* DashboardVC.swift */,
-				E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */,
-				E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -884,6 +884,15 @@
 				C2DAD68A1BE7F06200CB142C /* TripManager.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		C2AC81F71C3B03C4003695C8 /* FlightStatus */ = {
+			isa = PBXGroup;
+			children = (
+				E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */,
+				E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */,
+			);
+			name = FlightStatus;
 			sourceTree = "<group>";
 		};
 		C2BC850E1C2482E6005FC6F8 /* Auth */ = {
@@ -1149,10 +1158,12 @@
 				C28ECB3E1BCF208400887763 /* Auth */,
 				C21528C01BC8390F0073502F /* Debug */,
 				C21528BF1BC839050073502F /* Dashboard */,
+				C2AC81F71C3B03C4003695C8 /* FlightStatus */,
 				C257FB3B1BC44E2000468CF1 /* LocationManagement */,
 				C21905661BB0B73E00A3E779 /* Networking */,
 				E1472CF21C0E7A4300D27D60 /* ShortTrip */,
 				C220E0671BC339E200AC7C85 /* StateManagement */,
+				C2D2899A1C3B094300A636AA /* MainTabBarController.swift */,
 				E1472D071C0E7BC900D27D60 /* SfoObservers.swift */,
 			);
 			name = Controllers;
@@ -1657,6 +1668,7 @@
 				E18FF68D1BA8667500FE93B9 /* AutomaticVehicleId.swift in Sources */,
 				C21528C21BC839990073502F /* LoginVC.swift in Sources */,
 				C20A988E1BE1A1BC009E29E7 /* TripStarted.swift in Sources */,
+				C2D2899B1C3B094300A636AA /* MainTabBarController.swift in Sources */,
 				C285F1D91C18F4F600AA3363 /* LatestAviAtReEntry.swift in Sources */,
 				C28ECB3D1BCF193300887763 /* PingManager.swift in Sources */,
 				C21775F91BB08CAC008B24EA /* Color.swift in Sources */,
