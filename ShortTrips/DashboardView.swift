@@ -15,8 +15,6 @@ class DashboardView: UIView {
   private let bgOverlayView = UIImageView()
   private let fullnessTitleLabel = UILabel()
   internal let fullnessLabel = UILabel()
-  let flightStatusBtn = UIButton()
-  let shortTripBtn = UIButton()
   let timerView = TimerView()
 
   required init(coder aDecoder: NSCoder) {
@@ -33,8 +31,6 @@ class DashboardView: UIView {
     addSubview(fullnessLabel)
     addSubview(fullnessTitleLabel)
     addSubview(bgOverlayView)
-    addSubview(flightStatusBtn)
-    addSubview(shortTripBtn)
     addSubview(timerView)
 
     // background
@@ -44,7 +40,7 @@ class DashboardView: UIView {
       make.top.equalTo(self)
       make.left.equalTo(self)
       make.right.equalTo(self)
-      make.bottom.equalTo(flightStatusBtn.snp_top).offset(UiConstants.Dashboard.buttonBgOffset)
+      make.bottom.equalTo(self)
     }
 
     // "FULL"
@@ -72,42 +68,6 @@ class DashboardView: UIView {
       make.bottom.equalTo(self)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-    }
-
-    // Flight Status Button
-    flightStatusBtn.setTitle(NSLocalizedString("Flight Status", comment: "").uppercaseString, forState: .Normal)
-    flightStatusBtn.setTitleColor(Color.Sfo.blue, forState: .Normal)
-    flightStatusBtn.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
-    flightStatusBtn.setBackgroundImage(Image.from(UIColor.whiteColor()), forState: .Normal)
-    flightStatusBtn.setBackgroundImage(Image.from(Color.Sfo.blue), forState: .Highlighted)
-    flightStatusBtn.titleLabel?.font = Font.MyriadProSemibold.size(UiConstants.Dashboard.buttonFontSize)
-    flightStatusBtn.layer.borderColor = Color.Sfo.blue.CGColor
-    flightStatusBtn.layer.borderWidth = UiConstants.Dashboard.statusBorderWidth
-    flightStatusBtn.layer.cornerRadius = UiConstants.Dashboard.statusCornerRadius
-    flightStatusBtn.clipsToBounds = true
-    flightStatusBtn.snp_makeConstraints { (make) -> Void in
-      make.width.equalTo(UiConstants.Dashboard.terminalStatusWidth)
-      make.height.equalTo(UiConstants.Dashboard.buttonHeight)
-      make.leading.equalTo(self).offset(UiConstants.Dashboard.buttonMargin)
-      make.bottom.equalTo(timerView.snp_top).offset(UiConstants.Dashboard.buttonTimerOffset)
-    }
-    
-    // Short Trip Button
-    shortTripBtn.setTitle(NSLocalizedString("Short Trip", comment: "").uppercaseString, forState: .Normal)
-    shortTripBtn.setTitleColor(Color.Sfo.blue, forState: .Normal)
-    shortTripBtn.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
-    shortTripBtn.setBackgroundImage(Image.from(UIColor.whiteColor()), forState: .Normal)
-    shortTripBtn.setBackgroundImage(Image.from(Color.Sfo.blue), forState: .Highlighted)
-    shortTripBtn.titleLabel?.font = Font.MyriadProSemibold.size(UiConstants.Dashboard.buttonFontSize)
-    shortTripBtn.layer.borderColor = Color.Sfo.blue.CGColor
-    shortTripBtn.layer.borderWidth = UiConstants.Dashboard.statusBorderWidth
-    shortTripBtn.layer.cornerRadius = UiConstants.Dashboard.statusCornerRadius
-    shortTripBtn.clipsToBounds = true
-    shortTripBtn.snp_makeConstraints { (make) -> Void in
-      make.width.equalTo(UiConstants.Dashboard.shortTripWidth)
-      make.height.equalTo(UiConstants.Dashboard.buttonHeight)
-      make.trailing.equalTo(self).offset(-1 * UiConstants.Dashboard.buttonMargin)
-      make.bottom.equalTo(timerView.snp_top).offset(UiConstants.Dashboard.buttonTimerOffset)
     }
   }
 

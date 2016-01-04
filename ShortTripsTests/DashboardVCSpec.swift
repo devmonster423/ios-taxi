@@ -32,10 +32,6 @@ class DashboardVCSpec: QuickSpec {
         expect(viewController).toNot(beNil())
       }
       
-      it("has a flight status button") {
-        expect(viewController.dashboardView().flightStatusBtn).toNot(beNil())
-      }
-      
       describe("the lot-fullness field") {
         it("is non-nil") {
           expect(viewController.dashboardView().fullnessLabel).toNot(beNil())
@@ -47,22 +43,6 @@ class DashboardVCSpec: QuickSpec {
         it("is non-blank") {
           viewController.dashboardView().updateStatusUI(.Green)
           expect(viewController.dashboardView().fullnessLabel.text).toNot(equal(""))
-        }
-      }
-      
-      describe("tapping on the flight status button") {
-        beforeEach {
-          viewController.dashboardView().flightStatusBtn.tap()
-        }
-        
-        it("should present a flight status screen") {
-          let seconds = 4.0
-          let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-          let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-          
-          dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-            expect(viewController.navigationController!.topViewController).to(beAnInstanceOf(TerminalSummaryVC.self))
-          })
         }
       }
     }
