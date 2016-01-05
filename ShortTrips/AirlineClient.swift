@@ -14,11 +14,20 @@ typealias AirlinesClosure = ([Airline]?, ErrorType?) -> Void
 typealias ImageClosure = UIImage? -> Void
 
 extension ApiClient {
+  static var airlineImages:[String:UIImage] = Dictionary()
+  
   static func imageForIataCode(iataCode: String, width: Int, height: Int, completion: ImageClosure) {
-    
-    let params = ["width": width, "height": height]
-    authedRequest(.GET, Url.Airline.logoPng(iataCode), parameters: params).responseImage { (_, _, result) -> Void in
-      completion(result.value)
+    if let airlineImage = airlineImages[iataCode] {
+      completion(airlineImage);
+    }
+    else {
+      let params = ["width": width, "height": height]
+      authedRequest(.GET, Url.Airline.logoPng(iataCode), parameters: params).responseImage { (_, _, result) -> Void in
+        if airlineImages[iataCode] == nil {
+          airlineImages[iataCode] = result.value
+        }
+        completion(result.value)
+      }
     }
   }
   
