@@ -58,7 +58,7 @@ class ShortTripVCSpec: QuickSpec {
         
         postNotification(SfoNotification.Location.read, value: location)
         
-        postNotification(SfoNotification.Request.response, value: NSHTTPURLResponse(URL: NSURL(string: Url.Flight.summary)!, statusCode: 200, HTTPVersion: "HTTP/1.1", headerFields: nil)!)
+        postNotification(SfoNotification.Request.response, value: NSHTTPURLResponse(URL: NSURL(string: Url.Flight.Departure.summary)!, statusCode: 200, HTTPVersion: "HTTP/1.1", headerFields: nil)!)
         
         postNotification(SfoNotification.Ping.attempting, value: ping)
         
@@ -66,7 +66,7 @@ class ShortTripVCSpec: QuickSpec {
         
         postNotification(SfoNotification.Driver.vehicleAssociated, value: (driver: driver, vehicle: vehicle))
         
-        postNotification(SfoNotification.Request.response, value: NSHTTPURLResponse(URL: NSURL(string: Url.Flight.summary)!, statusCode: 200, HTTPVersion: "HTTP/1.1", headerFields: nil)!)
+        postNotification(SfoNotification.Request.response, value: NSHTTPURLResponse(URL: NSURL(string: Url.Flight.Departure.summary)!, statusCode: 200, HTTPVersion: "HTTP/1.1", headerFields: nil)!)
         
         postNotification(SfoNotification.Ping.successful, value: ping)
         

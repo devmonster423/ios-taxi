@@ -67,8 +67,6 @@ struct Url {
   struct Flight {
     private static let flight = base + "flight/"
     
-    static let summary = flight + "summary"
-    
     struct Arrival {
       private static let arrival = flight + "arrival/"
       
