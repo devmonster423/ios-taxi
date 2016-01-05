@@ -14,6 +14,7 @@ class ShortTripView: UIView {
   let countdownLabel = UILabel()
   let currentStateLabel = UILabel()
   let notificationImageView = UIImageView()
+  let topImageView = UIImageView()
   private let notificationLabel = UILabel()
   
   required init(coder aDecoder: NSCoder) {
@@ -29,6 +30,7 @@ class ShortTripView: UIView {
     addSubview(currentStateLabel)
     addSubview(notificationImageView)
     addSubview(notificationLabel)
+    addSubview(topImageView)
     
     countdownLabel.backgroundColor = Color.Auth.fadedWhite
     countdownLabel.font = Font.MyriadPro.size(14)
@@ -48,8 +50,7 @@ class ShortTripView: UIView {
     currentStateLabel.snp_makeConstraints { make in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.top.equalTo(self).offset(32)
-      make.bottom.equalTo(notificationImageView.snp_top)
+      make.top.equalTo(self).offset(10)
       make.height.equalTo(75)
     }
     
@@ -57,7 +58,7 @@ class ShortTripView: UIView {
     notificationImageView.snp_makeConstraints { make in
       make.centerX.equalTo(self)
       make.width.equalTo(200)
-      make.top.equalTo(currentStateLabel.snp_bottom)
+      make.height.equalTo(200)
       make.bottom.equalTo(countdownLabel.snp_top)
     }
     
@@ -71,6 +72,16 @@ class ShortTripView: UIView {
       make.trailing.equalTo(self).offset(-30)
       make.bottom.equalTo(self).offset(-30)
       make.height.equalTo(75)
+    }
+    
+    topImageView.contentMode = .Center
+    topImageView.clipsToBounds = true
+    topImageView.image = Image.tripHorizontalDivider.image()
+    topImageView.snp_makeConstraints { (make) -> Void in
+      make.centerX.equalTo(self)
+      make.width.equalTo(notificationImageView)
+      make.top.equalTo(currentStateLabel.snp_bottom)
+      make.bottom.equalTo(notificationImageView.snp_top)
     }
   }
   
