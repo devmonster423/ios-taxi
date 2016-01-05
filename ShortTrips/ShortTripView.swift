@@ -23,12 +23,7 @@ class ShortTripView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    let blurBgImageView = UIImageView()
-    blurBgImageView.image = Image.bgBlur.image()
-    addSubview(blurBgImageView)
-    blurBgImageView.snp_makeConstraints { make in
-      make.edges.equalTo(self)
-    }
+    backgroundColor = UIColor.whiteColor()
     
     addSubview(countdownLabel)
     addSubview(currentStateLabel)
