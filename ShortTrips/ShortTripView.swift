@@ -39,19 +39,16 @@ class ShortTripView: UIView {
     countdownLabel.textAlignment = .Center
     countdownLabel.textColor = Color.Trip.Time.title
     countdownLabel.snp_makeConstraints { make in
-      make.leading.equalTo(notificationLabel)
-      make.trailing.equalTo(notificationLabel)
-      make.bottom.equalTo(notificationLabel.snp_top)
-      make.height.equalTo(40)
+      make.edges.equalTo(notificationLabel)
     }
     
     countdownSubtitleLabel.font = Font.MyriadPro.size(12)
     countdownSubtitleLabel.textAlignment = .Center
     countdownSubtitleLabel.textColor = Color.Trip.Time.subtitle
     countdownSubtitleLabel.snp_makeConstraints { make in
-      make.leading.equalTo(notificationLabel)
-      make.trailing.equalTo(notificationLabel)
-      make.bottom.equalTo(notificationLabel.snp_top)
+      make.leading.equalTo(countdownLabel)
+      make.trailing.equalTo(countdownLabel)
+      make.bottom.equalTo(countdownLabel)
       make.height.equalTo(40)
     }
     
@@ -71,7 +68,7 @@ class ShortTripView: UIView {
       make.centerX.equalTo(self)
       make.width.equalTo(200)
       make.height.equalTo(200)
-      make.bottom.equalTo(countdownLabel.snp_top)
+      make.bottom.equalTo(countdownLabel.snp_top).offset(-20)
     }
     
     notificationLabel.backgroundColor = Color.Auth.fadedWhite
@@ -80,10 +77,10 @@ class ShortTripView: UIView {
     notificationLabel.textAlignment = .Center
     notificationLabel.textColor = Color.Trip.subtitle
     notificationLabel.snp_makeConstraints { make in
-      make.leading.equalTo(self).offset(30)
-      make.trailing.equalTo(self).offset(-30)
-      make.bottom.equalTo(self).offset(-30)
-      make.height.equalTo(75)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.bottom.equalTo(self)
+      make.height.equalTo(150)
     }
     
     topImageView.contentMode = .Center
