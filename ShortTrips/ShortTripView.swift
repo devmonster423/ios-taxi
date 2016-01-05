@@ -12,6 +12,7 @@ import AVFoundation
 
 class ShortTripView: UIView {
   let countdownLabel = UILabel()
+  let countdownSubtitleLabel = UILabel()
   let currentStateLabel = UILabel()
   let notificationImageView = UIImageView()
   let topImageView = UIImageView()
@@ -27,16 +28,27 @@ class ShortTripView: UIView {
     backgroundColor = UIColor.whiteColor()
     
     addSubview(countdownLabel)
+    addSubview(countdownSubtitleLabel)
     addSubview(currentStateLabel)
     addSubview(notificationImageView)
     addSubview(notificationLabel)
     addSubview(topImageView)
     
-    countdownLabel.backgroundColor = Color.Auth.fadedWhite
+    countdownLabel.backgroundColor = Color.Trip.Time.background
     countdownLabel.font = Font.MyriadPro.size(14)
-    countdownLabel.textAlignment = .Left
-    countdownLabel.textColor = UIColor.whiteColor()
+    countdownLabel.textAlignment = .Center
+    countdownLabel.textColor = Color.Trip.Time.title
     countdownLabel.snp_makeConstraints { make in
+      make.leading.equalTo(notificationLabel)
+      make.trailing.equalTo(notificationLabel)
+      make.bottom.equalTo(notificationLabel.snp_top)
+      make.height.equalTo(40)
+    }
+    
+    countdownSubtitleLabel.font = Font.MyriadPro.size(12)
+    countdownSubtitleLabel.textAlignment = .Center
+    countdownSubtitleLabel.textColor = Color.Trip.Time.subtitle
+    countdownSubtitleLabel.snp_makeConstraints { make in
       make.leading.equalTo(notificationLabel)
       make.trailing.equalTo(notificationLabel)
       make.bottom.equalTo(notificationLabel.snp_top)
@@ -46,7 +58,7 @@ class ShortTripView: UIView {
     currentStateLabel.font = Font.MyriadPro.size(28)
     currentStateLabel.textAlignment = .Center
     currentStateLabel.numberOfLines = 0
-    currentStateLabel.textColor = UIColor.whiteColor()
+    currentStateLabel.textColor = Color.Trip.title
     currentStateLabel.snp_makeConstraints { make in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
@@ -66,7 +78,7 @@ class ShortTripView: UIView {
     notificationLabel.font = Font.MyriadPro.size(14)
     notificationLabel.numberOfLines = 0
     notificationLabel.textAlignment = .Center
-    notificationLabel.textColor = UIColor.whiteColor()
+    notificationLabel.textColor = Color.Trip.subtitle
     notificationLabel.snp_makeConstraints { make in
       make.leading.equalTo(self).offset(30)
       make.trailing.equalTo(self).offset(-30)
