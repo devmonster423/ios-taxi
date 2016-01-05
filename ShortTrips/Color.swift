@@ -65,4 +65,8 @@ struct Color {
     static let darkBackground = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1.0)
     static let lightBackground = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
   }
+  
+  struct TabBar {
+    static let background = UIColor(red: 63.0/255.0, green: 64.0/255.0, blue: 67.0/255.0, alpha: 1.0)
+  }
 }

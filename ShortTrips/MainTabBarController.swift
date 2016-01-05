@@ -8,22 +8,21 @@
 
 import UIKit
 
-var tabBarHeight: CGFloat {
-  return MainTabBarController.tabBar.frame.height
-}
-
 var MainTabBarController: UITabBarController {
 
   let mainTabBarController = UITabBarController()
   
   let flightStatusNavVC = UINavigationController(rootViewController: TerminalSummaryVC())
-  flightStatusNavVC.tabBarItem = UITabBarItem(title: "Flight", image: Image.greenCircle.image(), selectedImage: nil)
+  flightStatusNavVC.tabBarItem = UITabBarItem(title: "", image: Image.flightsIcon.image(), selectedImage: nil)
+  flightStatusNavVC.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0)
   
   let dashboardNavVC = UINavigationController(rootViewController: DashboardVC())
-  dashboardNavVC.tabBarItem = UITabBarItem(title: "Dashboard", image: Image.greenCircle.image(), selectedImage: nil)
+  dashboardNavVC.tabBarItem = UITabBarItem(title: "", image: Image.dashboardIcon.image(), selectedImage: nil)
+  dashboardNavVC.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0)
   
   let shortTripNavVC = UINavigationController(rootViewController: ShortTripVC())
-  shortTripNavVC.tabBarItem = UITabBarItem(title: "Trip", image: Image.blueCircle.image(), selectedImage: nil)
+  shortTripNavVC.tabBarItem = UITabBarItem(title: "", image: Image.tripIcon.image(), selectedImage: nil)
+  shortTripNavVC.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0)
   
   mainTabBarController.viewControllers = [
     flightStatusNavVC,
@@ -32,6 +31,9 @@ var MainTabBarController: UITabBarController {
   ]
   
   mainTabBarController.selectedIndex = 1
+  mainTabBarController.tabBar.barTintColor = Color.TabBar.background
+  mainTabBarController.tabBar.tintColor = UIColor.whiteColor()
+  mainTabBarController.tabBar.translucent = false
 
   return mainTabBarController
 }

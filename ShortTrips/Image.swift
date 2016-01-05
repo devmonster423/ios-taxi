@@ -39,6 +39,10 @@ enum Image: String {
   case thumbsdown = "thumbsdown"
   case thumbsup = "thumbsup"
   
+  case dashboardIcon = "dashboard_icon"
+  case flightsIcon = "flights_icon"
+  case tripIcon = "trip_icon"
+  
   func image() -> UIImage {
     return UIImage(named: self.rawValue)!
   }
