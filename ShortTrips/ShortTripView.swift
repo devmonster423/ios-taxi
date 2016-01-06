@@ -97,5 +97,10 @@ class ShortTripView: UIView {
   func notify(notification: String) {
     notificationLabel.text = notification
     AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: notification))
+    
+    if !notification.isEmpty {
+      countdownLabel.hidden = true
+      countdownSubtitleLabel.hidden = true
+    }
   }
 }
