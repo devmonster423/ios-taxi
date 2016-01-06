@@ -50,6 +50,7 @@
 		C20A988A1BE17AEC009E29E7 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A98891BE17AEC009E29E7 /* Observable.swift */; };
 		C20A988C1BE1A066009E29E7 /* WaitingToStartTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A988B1BE1A066009E29E7 /* WaitingToStartTrip.swift */; };
 		C20A988E1BE1A1BC009E29E7 /* TripStarted.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A988D1BE1A1BC009E29E7 /* TripStarted.swift */; };
+		C20FEAC51C3DD48F00072E2D /* TerminalSummaryVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20FEAC41C3DD48F00072E2D /* TerminalSummaryVCSpec.swift */; };
 		C21421061C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json in Resources */ = {isa = PBXBuildFile; fileRef = C21421001C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json */; };
 		C21421071C1B7F6D0066DCA5 /* Entry_Gate.json in Resources */ = {isa = PBXBuildFile; fileRef = C21421011C1B7F6D0066DCA5 /* Entry_Gate.json */; };
 		C21421081C1B7F6D0066DCA5 /* International_Pax_Pickup.json in Resources */ = {isa = PBXBuildFile; fileRef = C21421021C1B7F6D0066DCA5 /* International_Pax_Pickup.json */; };
@@ -107,7 +108,6 @@
 		C28224621BB09A8A007F284F /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76C1B66E95E00AB27D2 /* MyriadPro-Semibold.otf */; };
 		C28224631BB09A8A007F284F /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */; };
 		C28224641BB09A8A007F284F /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */; };
-		C28224661BB09BCB007F284F /* TerminalSummaryVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28224651BB09BCB007F284F /* TerminalSummaryVCSpec.swift */; };
 		C28224681BB09C32007F284F /* FlightStatusVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */; };
 		C283AB351BE936B30004E8CD /* CidDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C283AB341BE936B30004E8CD /* CidDebugger.swift */; };
 		C283AB371BE9383C0004E8CD /* AviDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C283AB361BE9383C0004E8CD /* AviDebugger.swift */; };
@@ -325,6 +325,7 @@
 		C20A98891BE17AEC009E29E7 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		C20A988B1BE1A066009E29E7 /* WaitingToStartTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = WaitingToStartTrip.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C20A988D1BE1A1BC009E29E7 /* TripStarted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripStarted.swift; sourceTree = "<group>"; };
+		C20FEAC41C3DD48F00072E2D /* TerminalSummaryVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryVCSpec.swift; sourceTree = "<group>"; };
 		C21421001C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Domestic_Pax_Pickup.json; sourceTree = "<group>"; };
 		C21421011C1B7F6D0066DCA5 /* Entry_Gate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Entry_Gate.json; sourceTree = "<group>"; };
 		C21421021C1B7F6D0066DCA5 /* International_Pax_Pickup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = International_Pax_Pickup.json; sourceTree = "<group>"; };
@@ -379,7 +380,6 @@
 		C26530B31BE3F7CB002C0A97 /* TripInvalidated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripInvalidated.swift; sourceTree = "<group>"; };
 		C26530B51BE3FB66002C0A97 /* TripValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripValidation.swift; sourceTree = "<group>"; };
 		C27450BB1BB4988200D33CDD /* AirlineListWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineListWrapper.swift; sourceTree = "<group>"; };
-		C28224651BB09BCB007F284F /* TerminalSummaryVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerminalSummaryVCSpec.swift; path = Pods/TerminalSummaryVCSpec.swift; sourceTree = SOURCE_ROOT; };
 		C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatusVCSpec.swift; sourceTree = "<group>"; };
 		C283AB341BE936B30004E8CD /* CidDebugger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidDebugger.swift; sourceTree = "<group>"; };
 		C283AB361BE9383C0004E8CD /* AviDebugger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AviDebugger.swift; sourceTree = "<group>"; };
@@ -1104,7 +1104,7 @@
 				C2897A921BB5E6CC00FE1B40 /* Networking */,
 				C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */,
 				C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */,
-				C28224651BB09BCB007F284F /* TerminalSummaryVCSpec.swift */,
+				C20FEAC41C3DD48F00072E2D /* TerminalSummaryVCSpec.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1761,7 +1761,6 @@
 				E1259FD21BF167B200EA0628 /* MockTripIdResponse.swift in Sources */,
 				8EEFB7F01BE2CA0500B8A962 /* GeofenceStatusSpec.swift in Sources */,
 				E1FBA9181BF1580B0042358F /* MockVehicleResponse.swift in Sources */,
-				C28224661BB09BCB007F284F /* TerminalSummaryVCSpec.swift in Sources */,
 				E17C22F11BBC4B8900E40E6C /* TerminalSummarySpec.swift in Sources */,
 				8EEFB7EC1BE2C74E00B8A962 /* PingSpec.swift in Sources */,
 				E1D6E1CE1BF3B9C600810EB0 /* MockCidResponse.swift in Sources */,
@@ -1829,6 +1828,7 @@
 				E1F153C71BF02E0200E212ED /* TerminalSummaryDeparturesWrapperSpec.swift in Sources */,
 				C22167931BD59199002D7994 /* AllGeofenceMock.swift in Sources */,
 				8EEFB7B31BE1A1AC00B8A962 /* DriverVehicleMock.swift in Sources */,
+				C20FEAC51C3DD48F00072E2D /* TerminalSummaryVCSpec.swift in Sources */,
 				C2EAD0AE1C03E4AD00EAEBBF /* FoundGeofenceStatusSpec.swift in Sources */,
 				E112C3031BB2FD2500B1DF48 /* GeofenceSpec.swift in Sources */,
 				FAEA59AC1C29A5F2009BF1F4 /* EntryGateGeofenceSpec.swift in Sources */,

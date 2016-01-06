@@ -31,12 +31,6 @@ class DashboardVCSpec: QuickSpec {
       it("is instantiated") {
         expect(viewController).toNot(beNil())
       }
-      
-      describe("the lot-fullness image") {
-        it("is non-nil") {
-          expect(viewController.dashboardView().bgImageView.image).toNot(beNil())
-        }
-      }
     }
   }
 }

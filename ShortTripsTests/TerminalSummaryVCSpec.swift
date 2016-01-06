@@ -32,17 +32,6 @@ class TerminalSummaryVCSpec: QuickSpec {
         expect(viewController).toNot(beNil())
       }
       
-      describe("when it appears") {
-        beforeEach {
-          viewController.viewWillAppear(false)
-        }
-        
-        it("has the SFO logo as a navigation item title") {
-          let imageView = viewController.navigationItem.titleView as! UIImageView
-          expect(imageView.image).to(equal(Image.sfoLogoAlpha.image()))
-        }
-      }
-      
       describe("tapping the plus from +1") {
         
         beforeEach {
