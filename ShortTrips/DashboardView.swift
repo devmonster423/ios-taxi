@@ -36,6 +36,15 @@ class DashboardView: UIView {
       make.bottom.equalTo(timerView.snp_top)
     }
     
+    let whiteCircle = UIImageView(image: Image.whiteCircle.image())
+    whiteCircle.contentMode = .ScaleAspectFit
+    addSubview(whiteCircle)
+    whiteCircle.snp_makeConstraints { (make) -> Void in
+      make.center.equalTo(self)
+      make.height.equalTo(215)
+      make.width.equalTo(215)
+    }
+    
     let blackCircle = UIImageView(image: Image.blackCircle.image())
     blackCircle.contentMode = .ScaleAspectFit
     addSubview(blackCircle)
