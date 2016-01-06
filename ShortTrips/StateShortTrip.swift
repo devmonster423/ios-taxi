@@ -30,13 +30,22 @@ extension ShortTripVC {
       || state == WaitingForTaxiLoopAvi.sharedInstance.getState() {
         
         self.shortTripView().updateTitle(NSLocalizedString("Trip cannot be started", comment: "").uppercaseString)
-        self.shortTripView().notify(NSLocalizedString("Not In Holding Lot", comment: ""))
         if TripManager.sharedInstance.mostRecentTripWasValid() {
           self.shortTripView().topImageView.image = Image.tripCheck.image()
           self.shortTripView().notificationImageView.image = Image.tripCar.image()
         } else {
           self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
           self.shortTripView().notificationImageView.image = Image.tripAlert.image()
+        }
+        
+        if state == NotReady.sharedInstance.getState()
+          || state == WaitingForEntryCid.sharedInstance.getState()
+          || state == AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()
+          || state == WaitingForEntryAvi.sharedInstance.getState() {
+            
+            self.shortTripView().notify(NSLocalizedString("Not In Holding Lot", comment: ""))
+        } else {
+          self.shortTripView().notify(NSLocalizedString("In Holding Lot", comment: ""))
         }
       
     } else if state == Ready.sharedInstance.getState()
