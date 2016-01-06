@@ -60,6 +60,8 @@
 "Flight Status" = "Flight Status";
 "Requesting Lot Status..." = "Requesting Lot Status...";
 "Dashboard" = "Dashboard";
+"Holding Lot" = "Holding Lot";
+"Are Available" = "Are Available";
 
 /* Flight Status */
 "Terminals" = "Terminals";

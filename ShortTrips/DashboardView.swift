@@ -64,6 +64,31 @@ class DashboardView: UIView {
       make.width.equalTo(245)
     }
     
+    let holdingLotLabel = UILabel()
+    holdingLotLabel.font = Font.MyriadProSemibold.size(28)
+    holdingLotLabel.text = NSLocalizedString("Holding Lot", comment: "").uppercaseString
+    holdingLotLabel.textAlignment = .Center
+    addSubview(holdingLotLabel)
+    holdingLotLabel.snp_makeConstraints { (make) -> Void in
+      make.centerX.equalTo(self)
+      make.height.equalTo(40)
+      make.width.equalTo(200)
+      make.top.equalTo(self).offset(50)
+    }
+
+    let availableLabel = UILabel()
+    availableLabel.font = Font.MyriadProBold.size(28)
+    availableLabel.text = NSLocalizedString("Are Available", comment: "").uppercaseString
+    availableLabel.textAlignment = .Center
+    availableLabel.textColor = Color.Dashboard.darkBlue
+    addSubview(availableLabel)
+    availableLabel.snp_makeConstraints { (make) -> Void in
+      make.centerX.equalTo(self)
+      make.height.equalTo(50)
+      make.width.equalTo(200)
+      make.bottom.equalTo(bgView).offset(-25)
+    }
+
     // Progress View and "Last updated 2 minutes ago"
     timerView.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(UiConstants.Dashboard.progressHeight)
