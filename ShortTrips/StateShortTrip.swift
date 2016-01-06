@@ -43,6 +43,7 @@ extension ShortTripVC {
       || state == WaitingForExitAvi.sharedInstance.getState()
       || state == WaitingForStartTrip.sharedInstance.getState() {
         
+        self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
         self.shortTripView().currentStateLabel.text = NSLocalizedString("Ready", comment: "")
         self.shortTripView().notify(NSLocalizedString("In Ready State", comment: ""))
         self.shortTripView().notificationImageView.image = Image.thumbsup.image()
@@ -52,11 +53,13 @@ extension ShortTripVC {
       || state == AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState()
       || state == WaitingForReEntryCid.sharedInstance.getState() {
         
+        self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
         self.shortTripView().currentStateLabel.text = NSLocalizedString("Trip In Progress", comment: "")
         self.shortTripView().notify(NSLocalizedString("Trip In Progress", comment: ""))
         self.shortTripView().notificationImageView.image = Image.taxicab.image()
       
     } else if state == ValidatingTrip.sharedInstance.getState() {
+      self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
       self.shortTripView().currentStateLabel.text = NSLocalizedString("Validating Trip", comment: "")
       self.shortTripView().notify(NSLocalizedString("Validating Trip", comment: ""))
       self.shortTripView().notificationImageView.image = Image.sfoTime.image()
