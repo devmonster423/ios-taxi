@@ -12,6 +12,7 @@ enum Image: String {
   
   // auth
   case blueGrandient = "blue_gradient_bg"
+  case sfoLogoAndName = "sfo_logo2"
   
   case sfoLogoAlpha = "sfo_logo_alpha"
   
