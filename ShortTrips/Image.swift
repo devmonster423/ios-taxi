@@ -49,6 +49,11 @@ enum Image: String {
   case tripThumbsUp = "thumbsup_icon"
   case tripX = "x_icon"
   
+  // TODO: remove when ring is real
+  case greenRing = "green_ring_segment"
+  case yellowRing = "yellow_ring_segment"
+  case redRing = "red_ring"
+  
   case genericBackground = "generic_background"
   func image() -> UIImage {
     return UIImage(named: self.rawValue)!

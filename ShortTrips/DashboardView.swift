@@ -11,6 +11,7 @@ import SnapKit
 
 class DashboardView: UIView {
 
+  private let fullnessRing = UIImageView()
   let timerView = TimerView()
 
   required init(coder aDecoder: NSCoder) {
@@ -52,6 +53,15 @@ class DashboardView: UIView {
       make.center.equalTo(self)
       make.height.equalTo(200)
       make.width.equalTo(200)
+    }
+    
+    fullnessRing.image = Image.yellowRing.image()
+    fullnessRing.contentMode = .ScaleAspectFit
+    addSubview(fullnessRing)
+    fullnessRing.snp_makeConstraints { (make) -> Void in
+      make.center.equalTo(self)
+      make.height.equalTo(245)
+      make.width.equalTo(245)
     }
     
     // Progress View and "Last updated 2 minutes ago"
