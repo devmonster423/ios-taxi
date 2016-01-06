@@ -62,6 +62,7 @@
 "Dashboard" = "Dashboard";
 "Holding Lot" = "Holding Lot";
 "Are Available" = "Are Available";
+"%@ out of %@ spots" = "%@ out of %@ spots";
 
 /* Flight Status */
 "Terminals" = "Terminals";

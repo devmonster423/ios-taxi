@@ -78,8 +78,6 @@ class DashboardView: UIView {
       make.top.equalTo(self).offset(50)
     }
     
-    percentLabel.text = "75%"
-    
     percentLabel.font = Font.MyriadProSemibold.size(50)
     percentLabel.textAlignment = .Center
     percentLabel.textColor = UIColor.whiteColor()
@@ -103,6 +101,16 @@ class DashboardView: UIView {
       make.bottom.equalTo(bgView).offset(-10)
     }
     
+    spotsLabel.font = Font.MyriadProSemibold.size(28)
+    spotsLabel.textAlignment = .Center
+    addSubview(spotsLabel)
+    spotsLabel.snp_makeConstraints { (make) -> Void in
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.top.equalTo(fullnessRing.snp_bottom)
+      make.bottom.equalTo(availableLabel.snp_top)
+    }
+    
     // Progress View and "Last updated 2 minutes ago"
     timerView.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(UiConstants.Dashboard.progressHeight)
@@ -113,16 +121,13 @@ class DashboardView: UIView {
   }
 
   func updateStatusUI(lotStatus: LotStatusEnum) {
-//    switch lotStatus {
-//
-//    case .Green:
-//      bgImageView.image = nil
-//
-//    case .Yellow:
-//      bgImageView.image = nil
-//
-//    case .Red:
-//      bgImageView.image = nil
-//    }
+    switch lotStatus {
+    case .Green:
+      spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["300", "400"]).uppercaseString
+    case .Yellow:
+      spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["100", "400"]).uppercaseString
+    case .Red:
+      spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["0", "400"]).uppercaseString
+    }
   }
 }
