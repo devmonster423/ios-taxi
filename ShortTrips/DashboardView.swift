@@ -57,7 +57,6 @@ class DashboardView: UIView {
       make.width.equalTo(200)
     }
     
-//    fullnessRing.image = Image.greenRing.image()
     fullnessRing.contentMode = .ScaleAspectFit
     addSubview(fullnessRing)
     fullnessRing.snp_makeConstraints { (make) -> Void in
@@ -123,16 +122,19 @@ class DashboardView: UIView {
   func updateStatusUI(lotStatus: LotStatusEnum) {
     switch lotStatus {
     case .Green:
-      percentLabel.text = "75%"
-      spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["300", "400"]).uppercaseString
+      fullnessRing.image = Image.greenRing.image()
+      percentLabel.text = "100%"
+      spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["400", "400"]).uppercaseString
       spotsLabel.textColor = Color.StatusColor.green
     case .Yellow:
-      percentLabel.text = "25%"
-      spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["100", "400"]).uppercaseString
+      fullnessRing.image = Image.yellowRing.image()
+      percentLabel.text = "50%"
+      spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["200", "400"]).uppercaseString
       spotsLabel.textColor = Color.StatusColor.yellow
     case .Red:
-      percentLabel.text = "0%"
-      spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["0", "400"]).uppercaseString
+      fullnessRing.image = Image.redRing.image()
+      percentLabel.text = "25%"
+      spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["100", "400"]).uppercaseString
       spotsLabel.textColor = Color.StatusColor.red
     }
   }

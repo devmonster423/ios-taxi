@@ -50,9 +50,9 @@ enum Image: String {
   case tripX = "x_icon"
   
   // TODO: remove when ring is real
-  case greenRing = "green_ring_segment_big"
-  case yellowRing = "yellow_ring_segment"
-  case redRing = "red_ring"
+  case greenRing = "green_ring"
+  case yellowRing = "circle_yellow"
+  case redRing = "circle_red"
   
   case genericBackground = "generic_background"
   func image() -> UIImage {
