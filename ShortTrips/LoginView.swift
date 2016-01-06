@@ -43,34 +43,56 @@ class LoginView: UIView {
       make.width.equalTo(150)
     }
     
-    usernameTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Username", comment: ""), attributes: [NSForegroundColorAttributeName: Color.Auth.offWhite])
+    let usernameLabel = UILabel()
+    usernameLabel.font = Font.MyriadPro.size(18)
+    usernameLabel.text = NSLocalizedString("Username", comment: "") + ":"
+    usernameLabel.textColor = Color.Auth.offWhite
+    addSubview(usernameLabel)
+    usernameLabel.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(logoImage.snp_bottom).offset(10)
+      make.leading.equalTo(self).offset(25)
+      make.height.equalTo(50)
+      make.width.equalTo(100)
+    }
+    
     usernameTextField.autocapitalizationType = .None
     usernameTextField.autocorrectionType = .No
     usernameTextField.spellCheckingType = .No
     usernameTextField.textColor = UIColor.whiteColor()
     usernameTextField.snp_makeConstraints { make in
-      make.centerX.equalTo(self)
-      make.top.equalTo(logoImage.snp_bottom).offset(10)
-      make.width.equalTo(300)
-      make.height.equalTo(80)
+      make.leading.equalTo(usernameLabel.snp_trailing).offset(10)
+      make.top.equalTo(usernameLabel)
+      make.trailing.equalTo(self).offset(-25)
+      make.height.equalTo(usernameLabel)
     }
     
     let divider = UIView()
     divider.backgroundColor = Color.Auth.fadedWhite
     addSubview(divider)
     divider.snp_makeConstraints { (make) -> Void in
-      make.leading.equalTo(usernameTextField)
+      make.leading.equalTo(usernameLabel)
       make.trailing.equalTo(usernameTextField)
       make.height.equalTo(1)
       make.top.equalTo(usernameTextField.snp_bottom).offset(10)
     }
     
-    passwordTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Password", comment: ""), attributes: [NSForegroundColorAttributeName: Color.Auth.offWhite])
+    let passwordLabel = UILabel()
+    passwordLabel.font = Font.MyriadPro.size(18)
+    passwordLabel.text = NSLocalizedString("Password", comment: "") + ":"
+    passwordLabel.textColor = Color.Auth.offWhite
+    addSubview(passwordLabel)
+    passwordLabel.snp_makeConstraints { (make) -> Void in
+      make.leading.equalTo(usernameLabel)
+      make.trailing.equalTo(usernameLabel)
+      make.height.equalTo(usernameLabel)
+      make.top.equalTo(divider.snp_bottom).offset(10)
+    }
+    
     passwordTextField.secureTextEntry = true
     passwordTextField.textColor = UIColor.whiteColor()
     passwordTextField.snp_makeConstraints { make in
-      make.centerX.equalTo(usernameTextField)
-      make.top.equalTo(divider.snp_bottom).offset(10)
+      make.leading.equalTo(usernameTextField)
+      make.top.equalTo(passwordLabel)
       make.width.equalTo(usernameTextField)
       make.height.equalTo(usernameTextField)
     }
@@ -82,7 +104,7 @@ class LoginView: UIView {
       make.leading.equalTo(self)
       make.top.equalTo(passwordTextField.snp_bottom).offset(10)
       make.trailing.equalTo(self)
-      make.height.equalTo(passwordTextField)
+      make.height.equalTo(80)
     }
   }
   
