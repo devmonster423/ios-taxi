@@ -20,7 +20,7 @@ extension ShortTripVC {
       } else {
         self.shortTripView().topImageView.image = Image.tripX.image()
         self.shortTripView().notify(NSLocalizedString("Location Status Updated: GPS Off", comment: ""))
-        self.shortTripView().notificationImageView.image = Image.thumbsdown.image()
+        self.shortTripView().notificationImageView.image = Image.tripGps.image()
       }
     })
   }

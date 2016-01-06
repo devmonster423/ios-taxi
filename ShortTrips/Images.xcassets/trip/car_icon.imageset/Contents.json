@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "car_icon.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "notInGeofence.png",
       "scale" : "2x"
     },
     {

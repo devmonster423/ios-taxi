@@ -14,15 +14,17 @@ extension ShortTripVC {
   func setupTripObservers() {
     
     sfoObservers.timeExpiredObserver = NotificationObserver(notification: SfoNotification.Trip.timeExpired) { _, _ in
+      self.shortTripView().topImageView.image = Image.tripX.image()
       self.shortTripView().currentStateLabel.text = NSLocalizedString("Time Expired", comment: "")
       self.shortTripView().notify(NSLocalizedString("Time Expired", comment: ""))
-      self.shortTripView().notificationImageView.image = Image.taxicross.image()
+      self.shortTripView().notificationImageView.image = Image.tripTime.image()
     }
     
     sfoObservers.validatedObserver = NotificationObserver(notification: SfoNotification.Trip.validated) { _, _ in
+      self.shortTripView().topImageView.image = Image.tripCheck.image()
       self.shortTripView().currentStateLabel.text = NSLocalizedString("Trip is valid", comment: "")
       self.shortTripView().notify(NSLocalizedString("Trip is valid", comment: ""))
-      self.shortTripView().notificationImageView.image = Image.taxicheckmark.image()
+      self.shortTripView().notificationImageView.image = Image.tripCar.image()
     }
     
     sfoObservers.invalidatedObserver = NotificationObserver(notification: SfoNotification.Trip.invalidated) { validationSteps, _ in
@@ -35,8 +37,9 @@ extension ShortTripVC {
       } else {
         self.shortTripView().notify(NSLocalizedString("Trip Is Invalid", comment: ""))
       }
+      self.shortTripView().topImageView.image = Image.tripX.image()
       self.shortTripView().currentStateLabel.text = NSLocalizedString("Trip Is Invalid", comment: "")
-      self.shortTripView().notificationImageView.image = Image.taxicross.image()
+      self.shortTripView().notificationImageView.image = Image.tripCarInProgress.image()
     }
   }
 }

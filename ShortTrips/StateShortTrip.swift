@@ -33,10 +33,10 @@ extension ShortTripVC {
         self.shortTripView().notify(NSLocalizedString("In Not Ready State", comment: ""))
         if TripManager.sharedInstance.mostRecentTripWasValid() {
           self.shortTripView().topImageView.image = Image.tripCheck.image()
-          self.shortTripView().notificationImageView.image = Image.taxicheckmark.image()
+          self.shortTripView().notificationImageView.image = Image.tripCar.image()
         } else {
           self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
-          self.shortTripView().notificationImageView.image = Image.thumbsdown.image()
+          self.shortTripView().notificationImageView.image = Image.tripAlert.image()
         }
       
     } else if state == Ready.sharedInstance.getState()
@@ -46,7 +46,7 @@ extension ShortTripVC {
         self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
         self.shortTripView().currentStateLabel.text = NSLocalizedString("Ready", comment: "")
         self.shortTripView().notify(NSLocalizedString("In Ready State", comment: ""))
-        self.shortTripView().notificationImageView.image = Image.thumbsup.image()
+        self.shortTripView().notificationImageView.image = Image.tripThumbsUp.image()
       
     } else if state == InProgress.sharedInstance.getState()
       || state == WaitingForReEntryAvi.sharedInstance.getState()
@@ -56,13 +56,13 @@ extension ShortTripVC {
         self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
         self.shortTripView().currentStateLabel.text = NSLocalizedString("Trip In Progress", comment: "")
         self.shortTripView().notify(NSLocalizedString("Trip In Progress", comment: ""))
-        self.shortTripView().notificationImageView.image = Image.taxicab.image()
+        self.shortTripView().notificationImageView.image = Image.tripCarInProgress.image()
       
     } else if state == ValidatingTrip.sharedInstance.getState() {
       self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
       self.shortTripView().currentStateLabel.text = NSLocalizedString("Validating Trip", comment: "")
       self.shortTripView().notify(NSLocalizedString("Validating Trip", comment: ""))
-      self.shortTripView().notificationImageView.image = Image.sfoTime.image()
+      self.shortTripView().notificationImageView.image = Image.tripCarInProgress.image()
     }
   }
 }

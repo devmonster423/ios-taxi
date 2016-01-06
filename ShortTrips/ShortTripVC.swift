@@ -64,6 +64,7 @@ class ShortTripVC: UIViewController {
       shortTripView().countdownLabel.hidden = false
       shortTripView().countdownLabel.text = "\(remainingHours)h \(remainingMinutes)m \(remainingSeconds)s"
       shortTripView().countdownSubtitleLabel.hidden = false
+      shortTripView().notify("")
     } else {
       shortTripView().countdownLabel.hidden = true
       shortTripView().countdownLabel.text = ""

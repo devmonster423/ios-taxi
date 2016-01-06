@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "sfo_time.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "gps_icon.png",
       "scale" : "2x"
     },
     {
