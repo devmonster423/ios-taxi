@@ -84,14 +84,13 @@ class ShortTripView: UIView {
       make.height.equalTo(150)
     }
     
-    topImageView.contentMode = .Center
+    topImageView.contentMode = .ScaleAspectFit
     topImageView.clipsToBounds = true
-    topImageView.image = Image.tripHorizontalDivider.image()
     topImageView.snp_makeConstraints { (make) -> Void in
       make.centerX.equalTo(self)
       make.width.equalTo(notificationImageView)
       make.top.equalTo(currentStateLabel.snp_bottom)
-      make.bottom.equalTo(notificationImageView.snp_top)
+      make.bottom.equalTo(notificationImageView.snp_top).offset(-10)
     }
   }
   

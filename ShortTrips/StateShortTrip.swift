@@ -32,8 +32,10 @@ extension ShortTripVC {
         self.shortTripView().currentStateLabel.text = NSLocalizedString("Not Ready", comment: "")
         self.shortTripView().notify(NSLocalizedString("In Not Ready State", comment: ""))
         if TripManager.sharedInstance.mostRecentTripWasValid() {
+          self.shortTripView().topImageView.image = Image.tripCheck.image()
           self.shortTripView().notificationImageView.image = Image.taxicheckmark.image()
         } else {
+          self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
           self.shortTripView().notificationImageView.image = Image.thumbsdown.image()
         }
       

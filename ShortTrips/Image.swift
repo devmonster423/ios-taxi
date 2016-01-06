@@ -43,7 +43,9 @@ enum Image: String {
   case flightsIcon = "flights_icon"
   case tripIcon = "trip_icon"
   
+  case tripCheck = "check_icon"
   case tripHorizontalDivider = "trip_horiz_divider"
+  case tripX = "x_icon"
   
   func image() -> UIImage {
     return UIImage(named: self.rawValue)!
