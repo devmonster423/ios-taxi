@@ -29,7 +29,7 @@ extension ShortTripVC {
       || state == AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState()
       || state == WaitingForTaxiLoopAvi.sharedInstance.getState() {
         
-        self.shortTripView().updateTitle(NSLocalizedString("Trip cannot be started", comment: "").uppercaseString)
+        self.shortTripView().updateTitle(.NotReady)
         if TripManager.sharedInstance.mostRecentTripWasValid() {
           self.shortTripView().topImageView.image = Image.tripCheck.image()
           self.shortTripView().notificationImageView.image = Image.tripCar.image()
@@ -53,7 +53,7 @@ extension ShortTripVC {
       || state == WaitingForStartTrip.sharedInstance.getState() {
         
         self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
-        self.shortTripView().updateTitle(NSLocalizedString("Ready to start trip", comment: "").uppercaseString)
+        self.shortTripView().updateTitle(.Ready)
         self.shortTripView().notify("")
         self.shortTripView().notificationImageView.image = Image.tripThumbsUp.image()
       
@@ -63,13 +63,13 @@ extension ShortTripVC {
       || state == WaitingForReEntryCid.sharedInstance.getState() {
         
         self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
-        self.shortTripView().updateTitle(NSLocalizedString("Trip In Progress", comment: "").uppercaseString)
+        self.shortTripView().updateTitle(.InProgress)
         self.shortTripView().notify("")
         self.shortTripView().notificationImageView.image = Image.tripCarInProgress.image()
       
     } else if state == ValidatingTrip.sharedInstance.getState() {
       self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
-      self.shortTripView().updateTitle(NSLocalizedString("Validating Trip", comment: "").uppercaseString)
+      self.shortTripView().updateTitle(.Validating)
       self.shortTripView().notify("")
       self.shortTripView().notificationImageView.image = Image.tripCarInProgress.image()
     }

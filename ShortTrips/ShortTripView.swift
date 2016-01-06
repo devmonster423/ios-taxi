@@ -10,6 +10,32 @@ import UIKit
 import SnapKit
 import AVFoundation
 
+enum StateTitle {
+  case NotReady
+  case Ready
+  case InProgress
+  case Validating
+  case Invalid
+  case Valid
+  
+  func toString() -> String {
+    switch self {
+    case .NotReady:
+      return NSLocalizedString("Trip cannot be started", comment: "").uppercaseString
+    case .Ready:
+      return NSLocalizedString("Ready to start trip", comment: "").uppercaseString
+    case .InProgress:
+      return NSLocalizedString("Trip In Progress", comment: "").uppercaseString
+    case .Validating:
+      return NSLocalizedString("Validating Trip", comment: "").uppercaseString
+    case .Invalid:
+      return NSLocalizedString("Invalid trip", comment: "").uppercaseString
+    case .Valid:
+      return NSLocalizedString("Valid trip", comment: "").uppercaseString
+    }
+  }
+}
+
 class ShortTripView: UIView {
   let countdownLabel = UILabel()
   let countdownSubtitleLabel = UILabel()
@@ -17,6 +43,7 @@ class ShortTripView: UIView {
   let notificationImageView = UIImageView()
   let topImageView = UIImageView()
   private let notificationLabel = UILabel()
+  private var currentTitle: StateTitle?
   
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -94,9 +121,12 @@ class ShortTripView: UIView {
     }
   }
   
-  func updateTitle(title: String) {
-    currentStateLabel.text = title
-    AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: title))
+  func updateTitle(title: StateTitle) {
+    if title != currentTitle {
+      currentStateLabel.text = title.toString()
+      AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: title.toString()))
+      currentTitle = title
+    }
   }
   
   func notify(notification: String) {
