@@ -52,13 +52,13 @@ class DashboardView: UIView {
     switch lotStatus {
 
     case .Green:
-      bgImageView.image = Image.available.image()
+      bgImageView.image = nil
 
     case .Yellow:
-      bgImageView.image = Image.almostFull.image()
+      bgImageView.image = nil
 
     case .Red:
-      bgImageView.image = Image.full.image()
+      bgImageView.image = nil
     }
   }
 }

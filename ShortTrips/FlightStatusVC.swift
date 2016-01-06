@@ -27,7 +27,7 @@ class FlightStatusVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    configureNavBar(Image.shortTripBackground.image(), back: true)
+    configureNavBar(back: true, title: NSLocalizedString("Flight Status", comment: "").uppercaseString)
     updateFlightTable()
     addLogoutButton()
   }

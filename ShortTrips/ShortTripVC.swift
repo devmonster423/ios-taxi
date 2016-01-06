@@ -27,7 +27,7 @@ class ShortTripVC: UIViewController {
     setupStateObservers()
     setupTripObservers()
   
-    configureNavBar(Image.shortTripBackground.image(), back:false)
+    configureNavBar(back:false, title: NSLocalizedString("Short Trip", comment: "").uppercaseString)
     addLogoutButton()
     
     updateForState(StateManager.sharedInstance.getMachine().currentState)

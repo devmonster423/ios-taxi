@@ -25,7 +25,7 @@ class DashboardVC: UIViewController {
     super.viewDidLoad()
     navigationItem.title = "";
     requestLotStatus()
-    configureNavBar(Image.dashboardBackground.image(), back: false)
+    configureNavBar(back: false, title: NSLocalizedString("Dashboard", comment: "").uppercaseString)
     addLogoutButton()
   }
     

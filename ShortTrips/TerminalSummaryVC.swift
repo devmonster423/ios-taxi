@@ -51,7 +51,7 @@ class TerminalSummaryVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    configureNavBar(Image.shortTripBackground.image(), back: false)
+    configureNavBar(back: false, title: NSLocalizedString("Flight Status", comment: "").uppercaseString)
     addLogoutButton()
     updateTerminalTable()
     terminalSummaryView().picker.delegate = self

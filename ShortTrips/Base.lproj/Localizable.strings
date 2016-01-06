@@ -28,6 +28,7 @@
 "Time Expired" = "Time Expired";
 "Trip Started" = "Trip Started: %@";
 "Trip Warning" = "Trip Warning";
+"Short Trip" = "Short Trip";
 
 /* Debug */
 "Last verified geofence(s)" = "Last verified geofence(s)";
@@ -58,7 +59,7 @@
 /* Dashboard */
 "Flight Status" = "Flight Status";
 "Requesting Lot Status..." = "Requesting Lot Status...";
-"DASHBOARD = DASHBOARD";
+"Dashboard" = "Dashboard";
 
 /* Flight Status */
 "Terminals" = "Terminals";
@@ -67,7 +68,6 @@
 "Arrivals" = "Arrivals";
 "Departures" = "Departures";
 "Done" = "Done";
-"SHORT TRIP" = "SHORT TRIP";
 
 /* Flight Status */
 "Flights" = "Flights";
