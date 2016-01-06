@@ -29,8 +29,8 @@ extension ShortTripVC {
       || state == AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState()
       || state == WaitingForTaxiLoopAvi.sharedInstance.getState() {
         
-        self.shortTripView().currentStateLabel.text = NSLocalizedString("Not Ready", comment: "")
-        self.shortTripView().notify(NSLocalizedString("In Not Ready State", comment: ""))
+        self.shortTripView().updateTitle(NSLocalizedString("Trip cannot be started", comment: "").uppercaseString)
+        self.shortTripView().notify(NSLocalizedString("Not In Holding Lot", comment: ""))
         if TripManager.sharedInstance.mostRecentTripWasValid() {
           self.shortTripView().topImageView.image = Image.tripCheck.image()
           self.shortTripView().notificationImageView.image = Image.tripCar.image()
@@ -44,8 +44,8 @@ extension ShortTripVC {
       || state == WaitingForStartTrip.sharedInstance.getState() {
         
         self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
-        self.shortTripView().currentStateLabel.text = NSLocalizedString("Ready", comment: "")
-        self.shortTripView().notify(NSLocalizedString("In Ready State", comment: ""))
+        self.shortTripView().updateTitle(NSLocalizedString("Ready to start trip", comment: "").uppercaseString)
+        self.shortTripView().notify("")
         self.shortTripView().notificationImageView.image = Image.tripThumbsUp.image()
       
     } else if state == InProgress.sharedInstance.getState()
@@ -54,14 +54,14 @@ extension ShortTripVC {
       || state == WaitingForReEntryCid.sharedInstance.getState() {
         
         self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
-        self.shortTripView().currentStateLabel.text = NSLocalizedString("Trip In Progress", comment: "")
-        self.shortTripView().notify(NSLocalizedString("Trip In Progress", comment: ""))
+        self.shortTripView().updateTitle(NSLocalizedString("Trip In Progress", comment: "").uppercaseString)
+        self.shortTripView().notify("")
         self.shortTripView().notificationImageView.image = Image.tripCarInProgress.image()
       
     } else if state == ValidatingTrip.sharedInstance.getState() {
       self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
-      self.shortTripView().currentStateLabel.text = NSLocalizedString("Validating Trip", comment: "")
-      self.shortTripView().notify(NSLocalizedString("Validating Trip", comment: ""))
+      self.shortTripView().updateTitle(NSLocalizedString("Validating Trip", comment: "").uppercaseString)
+      self.shortTripView().notify("")
       self.shortTripView().notificationImageView.image = Image.tripCarInProgress.image()
     }
   }

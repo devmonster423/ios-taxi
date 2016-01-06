@@ -18,6 +18,7 @@ extension ShortTripVC {
         self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
         self.shortTripView().notify(NSLocalizedString("Location Status Updated: GPS On", comment: ""))
       } else {
+        self.shortTripView().updateTitle(NSLocalizedString("Invalid trip", comment: "").uppercaseString)
         self.shortTripView().topImageView.image = Image.tripX.image()
         self.shortTripView().notify(NSLocalizedString("Location Status Updated: GPS Off", comment: ""))
         self.shortTripView().notificationImageView.image = Image.tripGps.image()

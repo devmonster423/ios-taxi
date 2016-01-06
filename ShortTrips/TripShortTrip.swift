@@ -15,30 +15,28 @@ extension ShortTripVC {
     
     sfoObservers.timeExpiredObserver = NotificationObserver(notification: SfoNotification.Trip.timeExpired) { _, _ in
       self.shortTripView().topImageView.image = Image.tripX.image()
-      self.shortTripView().currentStateLabel.text = NSLocalizedString("Time Expired", comment: "")
+      self.shortTripView().updateTitle(NSLocalizedString("Invalid trip", comment: "").uppercaseString)
       self.shortTripView().notify(NSLocalizedString("Time Expired", comment: ""))
       self.shortTripView().notificationImageView.image = Image.tripTime.image()
     }
     
     sfoObservers.validatedObserver = NotificationObserver(notification: SfoNotification.Trip.validated) { _, _ in
+      self.shortTripView().updateTitle(NSLocalizedString("Valid trip", comment: "").uppercaseString)
       self.shortTripView().topImageView.image = Image.tripCheck.image()
-      self.shortTripView().currentStateLabel.text = NSLocalizedString("Trip is valid", comment: "")
-      self.shortTripView().notify(NSLocalizedString("Trip is valid", comment: ""))
       self.shortTripView().notificationImageView.image = Image.tripCar.image()
     }
     
     sfoObservers.invalidatedObserver = NotificationObserver(notification: SfoNotification.Trip.invalidated) { validationSteps, _ in
       if let validationSteps = validationSteps {
-        var message = NSLocalizedString("Trip Is Invalid for Reasons", comment: "") + ": "
+        var message = ""
         for validationStep in validationSteps {
           message += validationStep.description + " "
         }
         self.shortTripView().notify(message)
-      } else {
-        self.shortTripView().notify(NSLocalizedString("Trip Is Invalid", comment: ""))
       }
+      
+      self.shortTripView().updateTitle(NSLocalizedString("Invalid trip", comment: "").uppercaseString)
       self.shortTripView().topImageView.image = Image.tripX.image()
-      self.shortTripView().currentStateLabel.text = NSLocalizedString("Trip Is Invalid", comment: "")
       self.shortTripView().notificationImageView.image = Image.tripCarInProgress.image()
     }
   }

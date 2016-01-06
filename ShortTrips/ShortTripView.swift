@@ -13,7 +13,7 @@ import AVFoundation
 class ShortTripView: UIView {
   let countdownLabel = UILabel()
   let countdownSubtitleLabel = UILabel()
-  let currentStateLabel = UILabel()
+  private let currentStateLabel = UILabel()
   let notificationImageView = UIImageView()
   let topImageView = UIImageView()
   private let notificationLabel = UILabel()
@@ -94,9 +94,13 @@ class ShortTripView: UIView {
     }
   }
   
+  func updateTitle(title: String) {
+    currentStateLabel.text = title
+    AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: title))
+  }
+  
   func notify(notification: String) {
     notificationLabel.text = notification
-    AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: notification))
     
     if !notification.isEmpty {
       countdownLabel.hidden = true
