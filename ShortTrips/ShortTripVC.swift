@@ -31,7 +31,7 @@ class ShortTripVC: UIViewController {
     setupStateObservers()
     setupTripObservers()
   
-    configureNavBar(false)
+    configureNavBar(Image.shortTripBackground.image(), back:false)
     addLogoutButton()
     
     updateForState(StateManager.sharedInstance.getMachine().currentState)
@@ -47,12 +47,6 @@ class ShortTripVC: UIViewController {
       repeats: true)
     
     checkTime()
-  }
-  
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    
-    configureTitle()
   }
   
   func shortTripView() -> ShortTripView {

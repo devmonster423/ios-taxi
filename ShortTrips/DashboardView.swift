@@ -11,10 +11,8 @@ import SnapKit
 
 class DashboardView: UIView {
 
-  private let bgImageView = UIImageView()
+  let bgImageView = UIImageView()
   private let bgOverlayView = UIImageView()
-  private let fullnessTitleLabel = UILabel()
-  internal let fullnessLabel = UILabel()
   let timerView = TimerView()
 
   required init(coder aDecoder: NSCoder) {
@@ -28,8 +26,6 @@ class DashboardView: UIView {
 
     // add subviews
     addSubview(bgImageView)
-    addSubview(fullnessLabel)
-    addSubview(fullnessTitleLabel)
     addSubview(bgOverlayView)
     addSubview(timerView)
 
@@ -41,25 +37,6 @@ class DashboardView: UIView {
       make.left.equalTo(self)
       make.right.equalTo(self)
       make.bottom.equalTo(timerView.snp_top)
-    }
-
-    // "FULL"
-    fullnessLabel.font = Font.MyriadProBold.size(UiConstants.Dashboard.fullnessFontSize)
-    fullnessLabel.numberOfLines = 0
-    fullnessLabel.textColor = UIColor.whiteColor()
-    fullnessLabel.snp_makeConstraints { (make) -> Void in
-      make.centerX.equalTo(bgImageView)
-      make.centerY.equalTo(bgImageView)
-    }
-  
-    // "Our holding lot is"
-    fullnessTitleLabel.text = NSLocalizedString("Our holding lot is", comment: "")
-    fullnessTitleLabel.font = Font.MyriadPro.size(UiConstants.Dashboard.fullnessLabelFontSize)
-    fullnessTitleLabel.numberOfLines = 0
-    fullnessTitleLabel.textColor = UIColor.whiteColor()
-    fullnessTitleLabel.snp_makeConstraints { (make) -> Void in
-      make.centerX.equalTo(bgImageView)
-      make.bottom.equalTo(fullnessLabel.snp_top)
     }
     
     // Progress View and "Last updated 2 minutes ago"
@@ -75,16 +52,13 @@ class DashboardView: UIView {
     switch lotStatus {
 
     case .Green:
-      bgImageView.image = UIImage(named: "greenDashBg.png")
-      fullnessLabel.text = NSLocalizedString("not full", comment: "").uppercaseString
+      bgImageView.image = Image.available.image()
 
     case .Yellow:
-      bgImageView.image = UIImage(named: "yellowDashBg.png")
-      fullnessLabel.text = NSLocalizedString("almost full", comment: "").uppercaseString
+      bgImageView.image = Image.almostFull.image()
 
     case .Red:
-      bgImageView.image = UIImage(named: "redDashBg.png")
-      fullnessLabel.text = NSLocalizedString("full", comment: "").uppercaseString
+      bgImageView.image = Image.full.image()
     }
   }
 }

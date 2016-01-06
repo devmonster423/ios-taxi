@@ -25,10 +25,10 @@ class DashboardVC: UIViewController {
     super.viewDidLoad()
     navigationItem.title = "";
     requestLotStatus()
-    configureNavBar(false)
+    configureNavBar(Image.dashboardBackground.image(), back: false)
     addLogoutButton()
   }
-  
+    
   func dashboardView() -> DashboardView {
     return self.view as! DashboardView
   }

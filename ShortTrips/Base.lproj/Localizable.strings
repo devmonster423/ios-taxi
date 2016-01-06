@@ -58,12 +58,9 @@
 "An error occurred while logging in." = "An error occurred while logging in.";
 
 /* Dashboard */
-"Our holding lot is" = "Our holding lot is";
-"full" = "full";
-"almost full" = "almost full";
-"not full" = "not full";
 "Flight Status" = "Flight Status";
 "Requesting Lot Status..." = "Requesting Lot Status...";
+"DASHBOARD = DASHBOARD";
 
 /* Flight Status */
 "Terminals" = "Terminals";
@@ -72,6 +69,7 @@
 "Arrivals" = "Arrivals";
 "Departures" = "Departures";
 "Done" = "Done";
+"SHORT TRIP" = "SHORT TRIP";
 
 /* Flight Status */
 "Flights" = "Flights";

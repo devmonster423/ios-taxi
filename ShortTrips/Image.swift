@@ -23,9 +23,7 @@ enum Image: String {
   
   case indicatorArrow = "indicator_arrow"
   case downArrow = "down_arrow"
-  
-  case navbarBlue = "navbar_blue"
-  
+    
   case unknownAirline = "unknownAirline"
   
   case splashLogo = "splashLogo"
@@ -38,6 +36,13 @@ enum Image: String {
   case taxicross = "taxicross"
   case thumbsdown = "thumbsdown"
   case thumbsup = "thumbsup"
+  
+  case full = "full"
+  case available = "available"
+  case almostFull = "almost_full"
+  case dashboardBackground = "dashboard_background"
+  case shortTripBackground = "short_trip_background"
+  case genericBackground = "generic_background"
   
   func image() -> UIImage {
     return UIImage(named: self.rawValue)!

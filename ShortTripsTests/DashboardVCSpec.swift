@@ -32,17 +32,9 @@ class DashboardVCSpec: QuickSpec {
         expect(viewController).toNot(beNil())
       }
       
-      describe("the lot-fullness field") {
+      describe("the lot-fullness image") {
         it("is non-nil") {
-          expect(viewController.dashboardView().fullnessLabel).toNot(beNil())
-        }
-        it("is visible") {
-          expect(viewController.dashboardView().fullnessLabel.hidden).toNot(beTrue())
-        }
-        
-        it("is non-blank") {
-          viewController.dashboardView().updateStatusUI(.Green)
-          expect(viewController.dashboardView().fullnessLabel.text).toNot(equal(""))
+          expect(viewController.dashboardView().bgImageView.image).toNot(beNil())
         }
       }
     }
