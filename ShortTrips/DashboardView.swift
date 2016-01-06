@@ -123,11 +123,17 @@ class DashboardView: UIView {
   func updateStatusUI(lotStatus: LotStatusEnum) {
     switch lotStatus {
     case .Green:
+      percentLabel.text = "75%"
       spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["300", "400"]).uppercaseString
+      spotsLabel.textColor = Color.StatusColor.green
     case .Yellow:
+      percentLabel.text = "25%"
       spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["100", "400"]).uppercaseString
+      spotsLabel.textColor = Color.StatusColor.yellow
     case .Red:
+      percentLabel.text = "0%"
       spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["0", "400"]).uppercaseString
+      spotsLabel.textColor = Color.StatusColor.red
     }
   }
 }
