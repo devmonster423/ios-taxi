@@ -51,15 +51,11 @@ class TerminalSummaryVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    configureNavBar()
+    configureNavBar(back: false, title: NSLocalizedString("Flight Status", comment: "").uppercaseString)
+    addLogoutButton()
     updateTerminalTable()
     terminalSummaryView().picker.delegate = self
     terminalSummaryView().picker.dataSource = self
-  }
-  
-  override func viewWillAppear(animated: Bool) {
-    super.viewDidAppear(animated)
-    configureTitle()
   }
   
   func terminalSummaryView() -> TerminalSummaryView {

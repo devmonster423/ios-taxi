@@ -27,13 +27,13 @@ class FlightStatusVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    configureNavBar()
+    configureNavBar(back: true, title: NSLocalizedString("Flight Status", comment: "").uppercaseString)
     updateFlightTable()
+    addLogoutButton()
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    configureTitle()
     flightStatusView().tableHeader.text = selectedTerminalId.asLocalizedString() + " " + flightType.asLocalizedString()
   }
   

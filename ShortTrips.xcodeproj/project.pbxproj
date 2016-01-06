@@ -50,6 +50,7 @@
 		C20A988A1BE17AEC009E29E7 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A98891BE17AEC009E29E7 /* Observable.swift */; };
 		C20A988C1BE1A066009E29E7 /* WaitingToStartTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A988B1BE1A066009E29E7 /* WaitingToStartTrip.swift */; };
 		C20A988E1BE1A1BC009E29E7 /* TripStarted.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A988D1BE1A1BC009E29E7 /* TripStarted.swift */; };
+		C20FEAC51C3DD48F00072E2D /* TerminalSummaryVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20FEAC41C3DD48F00072E2D /* TerminalSummaryVCSpec.swift */; };
 		C21421061C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json in Resources */ = {isa = PBXBuildFile; fileRef = C21421001C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json */; };
 		C21421071C1B7F6D0066DCA5 /* Entry_Gate.json in Resources */ = {isa = PBXBuildFile; fileRef = C21421011C1B7F6D0066DCA5 /* Entry_Gate.json */; };
 		C21421081C1B7F6D0066DCA5 /* International_Pax_Pickup.json in Resources */ = {isa = PBXBuildFile; fileRef = C21421021C1B7F6D0066DCA5 /* International_Pax_Pickup.json */; };
@@ -107,7 +108,6 @@
 		C28224621BB09A8A007F284F /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76C1B66E95E00AB27D2 /* MyriadPro-Semibold.otf */; };
 		C28224631BB09A8A007F284F /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */; };
 		C28224641BB09A8A007F284F /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */; };
-		C28224661BB09BCB007F284F /* TerminalSummaryVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28224651BB09BCB007F284F /* TerminalSummaryVCSpec.swift */; };
 		C28224681BB09C32007F284F /* FlightStatusVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */; };
 		C283AB351BE936B30004E8CD /* CidDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C283AB341BE936B30004E8CD /* CidDebugger.swift */; };
 		C283AB371BE9383C0004E8CD /* AviDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C283AB361BE9383C0004E8CD /* AviDebugger.swift */; };
@@ -152,6 +152,7 @@
 		C2BC85141C24912F005FC6F8 /* LogoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85131C24912F005FC6F8 /* LogoutExtension.swift */; };
 		C2BC85171C249CA0005FC6F8 /* NavBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */; };
 		C2CE0B141C1219AB00496607 /* LocalGeofenceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */; };
+		C2D2899B1C3B094300A636AA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D2899A1C3B094300A636AA /* MainTabBarController.swift */; };
 		C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */; };
 		C2DAD68B1BE7F06200CB142C /* TripManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAD68A1BE7F06200CB142C /* TripManager.swift */; };
 		C2DAD68D1BE8360800CB142C /* PingDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAD68C1BE8360800CB142C /* PingDebugger.swift */; };
@@ -183,10 +184,6 @@
 		E13BCEF31BABB733006FDFF5 /* FlightDetailsWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13BCEF21BABB733006FDFF5 /* FlightDetailsWrapper.swift */; };
 		E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */; };
 		E1472CF41C0E7A7A00D27D60 /* ShortTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472CF31C0E7A7A00D27D60 /* ShortTripVC.swift */; };
-		E1472CF61C0E7AD600D27D60 /* AviShortTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472CF51C0E7AD600D27D60 /* AviShortTrip.swift */; };
-		E1472CF81C0E7AE700D27D60 /* CidShortTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472CF71C0E7AE700D27D60 /* CidShortTrip.swift */; };
-		E1472CFA1C0E7AFF00D27D60 /* DriverShortTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472CF91C0E7AFF00D27D60 /* DriverShortTrip.swift */; };
-		E1472CFC1C0E7B1000D27D60 /* GeofenceShortTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472CFB1C0E7B1000D27D60 /* GeofenceShortTrip.swift */; };
 		E1472CFE1C0E7B2300D27D60 /* LocationShortTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472CFD1C0E7B2300D27D60 /* LocationShortTrip.swift */; };
 		E1472D001C0E7B3200D27D60 /* PingShortTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472CFF1C0E7B3200D27D60 /* PingShortTrip.swift */; };
 		E1472D041C0E7B6900D27D60 /* StateShortTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472D031C0E7B6900D27D60 /* StateShortTrip.swift */; };
@@ -328,6 +325,7 @@
 		C20A98891BE17AEC009E29E7 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		C20A988B1BE1A066009E29E7 /* WaitingToStartTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = WaitingToStartTrip.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C20A988D1BE1A1BC009E29E7 /* TripStarted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripStarted.swift; sourceTree = "<group>"; };
+		C20FEAC41C3DD48F00072E2D /* TerminalSummaryVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryVCSpec.swift; sourceTree = "<group>"; };
 		C21421001C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Domestic_Pax_Pickup.json; sourceTree = "<group>"; };
 		C21421011C1B7F6D0066DCA5 /* Entry_Gate.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Entry_Gate.json; sourceTree = "<group>"; };
 		C21421021C1B7F6D0066DCA5 /* International_Pax_Pickup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = International_Pax_Pickup.json; sourceTree = "<group>"; };
@@ -382,7 +380,6 @@
 		C26530B31BE3F7CB002C0A97 /* TripInvalidated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripInvalidated.swift; sourceTree = "<group>"; };
 		C26530B51BE3FB66002C0A97 /* TripValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripValidation.swift; sourceTree = "<group>"; };
 		C27450BB1BB4988200D33CDD /* AirlineListWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineListWrapper.swift; sourceTree = "<group>"; };
-		C28224651BB09BCB007F284F /* TerminalSummaryVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerminalSummaryVCSpec.swift; path = Pods/TerminalSummaryVCSpec.swift; sourceTree = SOURCE_ROOT; };
 		C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatusVCSpec.swift; sourceTree = "<group>"; };
 		C283AB341BE936B30004E8CD /* CidDebugger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidDebugger.swift; sourceTree = "<group>"; };
 		C283AB361BE9383C0004E8CD /* AviDebugger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AviDebugger.swift; sourceTree = "<group>"; };
@@ -427,6 +424,7 @@
 		C2BC85131C24912F005FC6F8 /* LogoutExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutExtension.swift; sourceTree = "<group>"; };
 		C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarExtension.swift; sourceTree = "<group>"; };
 		C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofenceFeature.swift; sourceTree = "<group>"; };
+		C2D2899A1C3B094300A636AA /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVCSpec.swift; sourceTree = "<group>"; };
 		C2DAD68A1BE7F06200CB142C /* TripManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripManager.swift; sourceTree = "<group>"; };
 		C2DAD68C1BE8360800CB142C /* PingDebugger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingDebugger.swift; sourceTree = "<group>"; };
@@ -464,10 +462,6 @@
 		E13BCEF21BABB733006FDFF5 /* FlightDetailsWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightDetailsWrapper.swift; sourceTree = "<group>"; };
 		E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryVC.swift; sourceTree = "<group>"; };
 		E1472CF31C0E7A7A00D27D60 /* ShortTripVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortTripVC.swift; sourceTree = "<group>"; };
-		E1472CF51C0E7AD600D27D60 /* AviShortTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AviShortTrip.swift; sourceTree = "<group>"; };
-		E1472CF71C0E7AE700D27D60 /* CidShortTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidShortTrip.swift; sourceTree = "<group>"; };
-		E1472CF91C0E7AFF00D27D60 /* DriverShortTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverShortTrip.swift; sourceTree = "<group>"; };
-		E1472CFB1C0E7B1000D27D60 /* GeofenceShortTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceShortTrip.swift; sourceTree = "<group>"; };
 		E1472CFD1C0E7B2300D27D60 /* LocationShortTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationShortTrip.swift; sourceTree = "<group>"; };
 		E1472CFF1C0E7B3200D27D60 /* PingShortTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingShortTrip.swift; sourceTree = "<group>"; };
 		E1472D031C0E7B6900D27D60 /* StateShortTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateShortTrip.swift; sourceTree = "<group>"; };
@@ -624,8 +618,6 @@
 			isa = PBXGroup;
 			children = (
 				C2DFE5C91B56D2CB0090B55F /* DashboardVC.swift */,
-				E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */,
-				E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -886,6 +878,15 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
+		C2AC81F71C3B03C4003695C8 /* FlightStatus */ = {
+			isa = PBXGroup;
+			children = (
+				E1A2EB9F1B6BEF3900C27EB2 /* FlightStatusVC.swift */,
+				E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */,
+			);
+			name = FlightStatus;
+			sourceTree = "<group>";
+		};
 		C2BC850E1C2482E6005FC6F8 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -1034,10 +1035,6 @@
 		E1472CF21C0E7A4300D27D60 /* ShortTrip */ = {
 			isa = PBXGroup;
 			children = (
-				E1472CF51C0E7AD600D27D60 /* AviShortTrip.swift */,
-				E1472CF71C0E7AE700D27D60 /* CidShortTrip.swift */,
-				E1472CF91C0E7AFF00D27D60 /* DriverShortTrip.swift */,
-				E1472CFB1C0E7B1000D27D60 /* GeofenceShortTrip.swift */,
 				E1472CFD1C0E7B2300D27D60 /* LocationShortTrip.swift */,
 				E1472CFF1C0E7B3200D27D60 /* PingShortTrip.swift */,
 				E1472CF31C0E7A7A00D27D60 /* ShortTripVC.swift */,
@@ -1107,7 +1104,7 @@
 				C2897A921BB5E6CC00FE1B40 /* Networking */,
 				C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */,
 				C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */,
-				C28224651BB09BCB007F284F /* TerminalSummaryVCSpec.swift */,
+				C20FEAC41C3DD48F00072E2D /* TerminalSummaryVCSpec.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1149,10 +1146,12 @@
 				C28ECB3E1BCF208400887763 /* Auth */,
 				C21528C01BC8390F0073502F /* Debug */,
 				C21528BF1BC839050073502F /* Dashboard */,
+				C2AC81F71C3B03C4003695C8 /* FlightStatus */,
 				C257FB3B1BC44E2000468CF1 /* LocationManagement */,
 				C21905661BB0B73E00A3E779 /* Networking */,
 				E1472CF21C0E7A4300D27D60 /* ShortTrip */,
 				C220E0671BC339E200AC7C85 /* StateManagement */,
+				C2D2899A1C3B094300A636AA /* MainTabBarController.swift */,
 				E1472D071C0E7BC900D27D60 /* SfoObservers.swift */,
 			);
 			name = Controllers;
@@ -1602,7 +1601,6 @@
 				C200BE211BA8C21600B7F56F /* TerminalView.swift in Sources */,
 				C2AB513C1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift in Sources */,
 				C2F3E9071BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift in Sources */,
-				E1472CF61C0E7AD600D27D60 /* AviShortTrip.swift in Sources */,
 				8E0F5BC51BEBEC83001DE4C2 /* TimerDebugger.swift in Sources */,
 				C28ECB221BCECA9700887763 /* TripClient.swift in Sources */,
 				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
@@ -1657,6 +1655,7 @@
 				E18FF68D1BA8667500FE93B9 /* AutomaticVehicleId.swift in Sources */,
 				C21528C21BC839990073502F /* LoginVC.swift in Sources */,
 				C20A988E1BE1A1BC009E29E7 /* TripStarted.swift in Sources */,
+				C2D2899B1C3B094300A636AA /* MainTabBarController.swift in Sources */,
 				C285F1D91C18F4F600AA3363 /* LatestAviAtReEntry.swift in Sources */,
 				C28ECB3D1BCF193300887763 /* PingManager.swift in Sources */,
 				C21775F91BB08CAC008B24EA /* Color.swift in Sources */,
@@ -1684,7 +1683,6 @@
 				C2BC85141C24912F005FC6F8 /* LogoutExtension.swift in Sources */,
 				8EEFB79C1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift in Sources */,
 				C283AB3F1BE93B790004E8CD /* StateDebugger.swift in Sources */,
-				E1472CFC1C0E7B1000D27D60 /* GeofenceShortTrip.swift in Sources */,
 				C285F1D51C18F46D00AA3363 /* WaitingForReEntryCid.swift in Sources */,
 				E1F153C91BF02F8900E212ED /* MockTerminalSummary.swift in Sources */,
 				C2635E2A1BB0CC86003C22B1 /* FlightClient.swift in Sources */,
@@ -1694,7 +1692,6 @@
 				E18FF6911BA870AF00FE93B9 /* Cid.swift in Sources */,
 				C28ECB421BCF21DE00887763 /* GeofenceManager.swift in Sources */,
 				C215CDFD1BD19FCA00991D9D /* DriverManager.swift in Sources */,
-				E1472CF81C0E7AE700D27D60 /* CidShortTrip.swift in Sources */,
 				E187B2771BE037550031F07C /* LatestAviAtEntry.swift in Sources */,
 				C2DAD68D1BE8360800CB142C /* PingDebugger.swift in Sources */,
 				C29F59F21C221148007EFA1D /* NotInsideSfoAfterFailedReEntryCheck.swift in Sources */,
@@ -1716,7 +1713,6 @@
 				8EEFB7A41BE04AD900B8A962 /* WaitingForTaxiLoopAvi.swift in Sources */,
 				E1B3937D1BAC681B00FC2970 /* LotStatusEnum.swift in Sources */,
 				FA650FF81BB20CDB003D1939 /* DateTransform.swift in Sources */,
-				E1472CFA1C0E7AFF00D27D60 /* DriverShortTrip.swift in Sources */,
 				E18229031BC495A000614256 /* TripValidated.swift in Sources */,
 				C221EDE51BE2CB1700BDB4CD /* TripWarning.swift in Sources */,
 				C29F59EE1C220B2F007EFA1D /* NotInsideTaxiWaitZoneAfterFailedEntryCheck.swift in Sources */,
@@ -1765,7 +1761,6 @@
 				E1259FD21BF167B200EA0628 /* MockTripIdResponse.swift in Sources */,
 				8EEFB7F01BE2CA0500B8A962 /* GeofenceStatusSpec.swift in Sources */,
 				E1FBA9181BF1580B0042358F /* MockVehicleResponse.swift in Sources */,
-				C28224661BB09BCB007F284F /* TerminalSummaryVCSpec.swift in Sources */,
 				E17C22F11BBC4B8900E40E6C /* TerminalSummarySpec.swift in Sources */,
 				8EEFB7EC1BE2C74E00B8A962 /* PingSpec.swift in Sources */,
 				E1D6E1CE1BF3B9C600810EB0 /* MockCidResponse.swift in Sources */,
@@ -1833,6 +1828,7 @@
 				E1F153C71BF02E0200E212ED /* TerminalSummaryDeparturesWrapperSpec.swift in Sources */,
 				C22167931BD59199002D7994 /* AllGeofenceMock.swift in Sources */,
 				8EEFB7B31BE1A1AC00B8A962 /* DriverVehicleMock.swift in Sources */,
+				C20FEAC51C3DD48F00072E2D /* TerminalSummaryVCSpec.swift in Sources */,
 				C2EAD0AE1C03E4AD00EAEBBF /* FoundGeofenceStatusSpec.swift in Sources */,
 				E112C3031BB2FD2500B1DF48 /* GeofenceSpec.swift in Sources */,
 				FAEA59AC1C29A5F2009BF1F4 /* EntryGateGeofenceSpec.swift in Sources */,

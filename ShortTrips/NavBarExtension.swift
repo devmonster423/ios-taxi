@@ -9,22 +9,27 @@
 import UIKit
 
 extension UIViewController {
-  
-  func configureNavBar() {
+  func configureNavBar(background: UIImage = Image.genericBackground.image(), back: Bool = true, title: String) {
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-    navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "backButton"), style: .Plain, target: self, action: "goBack")
-    navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-    navigationController?.navigationBar.translucent = false
-    navigationController?.navigationBar.setBackgroundImage(Image.navbarBlue.image(), forBarMetrics: .Default)
+    navigationController?.navigationBar.setBackgroundImage(background.stretchableImageWithLeftCapWidth(0, topCapHeight: 0), forBarMetrics: .Default)
+    
+    if back {
+      navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.backButton.image(), style: .Plain, target: self, action: "goBack")
+      navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
+    } else {
+      let titleImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: UiConstants.Dashboard.titleWidth, height: UiConstants.Dashboard.titleHeight))
+      titleImageView.image = Image.sfoLogoAlpha.image()
+      titleImageView.contentMode = .ScaleAspectFit
+      navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleImageView)
+    }
+    
+    let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: UiConstants.Dashboard.titleWidth, height: UiConstants.Dashboard.titleHeight))
+    titleLabel.text = title
+    titleLabel.textColor = UIColor.whiteColor()
+    titleLabel.font = Font.MyriadProSemibold.size(18)
+    navigationItem.titleView = titleLabel
   }
-  
-  func configureTitle() {
-    let titleImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: UiConstants.Dashboard.titleWidth, height: UiConstants.Dashboard.titleHeight))
-    titleImageView.image = Image.sfoLogoAlpha.image()
-    titleImageView.contentMode = .ScaleAspectFit
-    navigationItem.titleView = titleImageView
-  }
-  
+    
   func goBack() {
     navigationController?.popViewControllerAnimated(true)
   }

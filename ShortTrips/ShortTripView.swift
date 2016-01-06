@@ -10,11 +10,40 @@ import UIKit
 import SnapKit
 import AVFoundation
 
+enum StateTitle {
+  case NotReady
+  case Ready
+  case InProgress
+  case Validating
+  case Invalid
+  case Valid
+  
+  func toString() -> String {
+    switch self {
+    case .NotReady:
+      return NSLocalizedString("Trip cannot be started", comment: "").uppercaseString
+    case .Ready:
+      return NSLocalizedString("Ready to start trip", comment: "").uppercaseString
+    case .InProgress:
+      return NSLocalizedString("Trip In Progress", comment: "").uppercaseString
+    case .Validating:
+      return NSLocalizedString("Validating Trip", comment: "").uppercaseString
+    case .Invalid:
+      return NSLocalizedString("Invalid trip", comment: "").uppercaseString
+    case .Valid:
+      return NSLocalizedString("Valid trip", comment: "").uppercaseString
+    }
+  }
+}
+
 class ShortTripView: UIView {
   let countdownLabel = UILabel()
-  let currentStateLabel = UILabel()
+  let countdownSubtitleLabel = UILabel()
+  private let currentStateLabel = UILabel()
   let notificationImageView = UIImageView()
+  let topImageView = UIImageView()
   private let notificationLabel = UILabel()
+  private var currentTitle: StateTitle?
   
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -23,38 +52,42 @@ class ShortTripView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    let blurBgImageView = UIImageView()
-    blurBgImageView.image = Image.bgBlur.image()
-    addSubview(blurBgImageView)
-    blurBgImageView.snp_makeConstraints { make in
-      make.edges.equalTo(self)
-    }
+    backgroundColor = UIColor.whiteColor()
     
     addSubview(countdownLabel)
+    addSubview(countdownSubtitleLabel)
     addSubview(currentStateLabel)
     addSubview(notificationImageView)
     addSubview(notificationLabel)
+    addSubview(topImageView)
     
-    countdownLabel.backgroundColor = Color.Auth.fadedWhite
-    countdownLabel.font = Font.MyriadPro.size(14)
-    countdownLabel.textAlignment = .Left
-    countdownLabel.textColor = UIColor.whiteColor()
+    countdownLabel.backgroundColor = Color.Trip.Time.background
+    countdownLabel.font = Font.MyriadPro.size(28)
+    countdownLabel.textAlignment = .Center
+    countdownLabel.textColor = Color.Trip.Time.title
     countdownLabel.snp_makeConstraints { make in
-      make.leading.equalTo(notificationLabel)
-      make.trailing.equalTo(notificationLabel)
-      make.bottom.equalTo(notificationLabel.snp_top)
+      make.edges.equalTo(notificationLabel)
+    }
+    
+    countdownSubtitleLabel.font = Font.MyriadPro.size(24)
+    countdownSubtitleLabel.text = NSLocalizedString("Time Remaining", comment: "")
+    countdownSubtitleLabel.textAlignment = .Center
+    countdownSubtitleLabel.textColor = Color.Trip.Time.subtitle
+    countdownSubtitleLabel.snp_makeConstraints { make in
+      make.leading.equalTo(countdownLabel)
+      make.trailing.equalTo(countdownLabel)
+      make.bottom.equalTo(countdownLabel)
       make.height.equalTo(40)
     }
     
     currentStateLabel.font = Font.MyriadPro.size(28)
     currentStateLabel.textAlignment = .Center
     currentStateLabel.numberOfLines = 0
-    currentStateLabel.textColor = UIColor.whiteColor()
+    currentStateLabel.textColor = Color.Trip.title
     currentStateLabel.snp_makeConstraints { make in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.top.equalTo(self).offset(32)
-      make.bottom.equalTo(notificationImageView.snp_top)
+      make.top.equalTo(self).offset(10)
       make.height.equalTo(75)
     }
     
@@ -62,25 +95,46 @@ class ShortTripView: UIView {
     notificationImageView.snp_makeConstraints { make in
       make.centerX.equalTo(self)
       make.width.equalTo(200)
-      make.top.equalTo(currentStateLabel.snp_bottom)
-      make.bottom.equalTo(countdownLabel.snp_top)
+      make.height.equalTo(200)
+      make.bottom.equalTo(countdownLabel.snp_top).offset(-20)
     }
     
     notificationLabel.backgroundColor = Color.Auth.fadedWhite
-    notificationLabel.font = Font.MyriadPro.size(14)
+    notificationLabel.font = Font.MyriadPro.size(20)
     notificationLabel.numberOfLines = 0
     notificationLabel.textAlignment = .Center
-    notificationLabel.textColor = UIColor.whiteColor()
+    notificationLabel.textColor = Color.Trip.subtitle
     notificationLabel.snp_makeConstraints { make in
-      make.leading.equalTo(self).offset(30)
-      make.trailing.equalTo(self).offset(-30)
-      make.bottom.equalTo(self).offset(-30)
-      make.height.equalTo(75)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.bottom.equalTo(self)
+      make.height.equalTo(150)
+    }
+    
+    topImageView.contentMode = .ScaleAspectFit
+    topImageView.clipsToBounds = true
+    topImageView.snp_makeConstraints { (make) -> Void in
+      make.centerX.equalTo(self)
+      make.width.equalTo(notificationImageView)
+      make.top.equalTo(currentStateLabel.snp_bottom)
+      make.bottom.equalTo(notificationImageView.snp_top).offset(-10)
+    }
+  }
+  
+  func updateTitle(title: StateTitle) {
+    if title != currentTitle {
+      currentStateLabel.text = title.toString()
+      AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: title.toString()))
+      currentTitle = title
     }
   }
   
   func notify(notification: String) {
     notificationLabel.text = notification
-    AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: notification))
+    
+    if !notification.isEmpty {
+      countdownLabel.hidden = true
+      countdownSubtitleLabel.hidden = true
+    }
   }
 }

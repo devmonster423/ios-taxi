@@ -23,22 +23,38 @@ enum Image: String {
   
   case indicatorArrow = "indicator_arrow"
   case downArrow = "down_arrow"
-  
-  case navbarBlue = "navbar_blue"
-  
+  case backButton = "backButton"
+    
   case unknownAirline = "unknownAirline"
   
   case splashLogo = "splashLogo"
   
   case bgBlur = "bg_blur"
   
-  case sfoTime = "sfo_time"
-  case taxicab = "taxicab"
-  case taxicheckmark = "taxicheckmark"
-  case taxicross = "taxicross"
-  case thumbsdown = "thumbsdown"
-  case thumbsup = "thumbsup"
+  case dashboardIcon = "dashboard_icon"
+  case flightsIcon = "flights_icon"
+  case tripIcon = "trip_icon"
   
+  case blackCircle = "black_circle"
+  case whiteCircle = "white_circle"
+  
+  case tripAlert = "alert_icon"
+  case tripCar = "car_icon"
+  case tripCarInProgress = "car_in_progress_icon"
+  case tripCheck = "check_icon"
+  case tripGeofence = "geofence_icon"
+  case tripGps = "gps_icon"
+  case tripHorizontalDivider = "trip_horiz_divider"
+  case tripTime = "time_icon"
+  case tripThumbsUp = "thumbsup_icon"
+  case tripX = "x_icon"
+  
+  // TODO: remove when ring is real
+  case greenRing = "green_ring"
+  case yellowRing = "circle_yellow"
+  case redRing = "circle_red"
+  
+  case genericBackground = "generic_background"
   func image() -> UIImage {
     return UIImage(named: self.rawValue)!
   }

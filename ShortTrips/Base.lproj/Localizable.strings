@@ -18,18 +18,17 @@
 "Location Status Updated: GPS On" = "Location Status Updated: GPS On";
 "Location Status Updated: GPS Off" = "Location Status Updated: GPS Off";
 "Trip Went Outside Short Trip Geofence" = "Trip Went Outside Short Trip Geofence";
-"Not Ready" = "Not Ready";
-"In Not Ready State" = "In Not Ready State";
-"Ready" = "Ready";
-"In Ready State" = "In Ready State";
+"Trip cannot be started" = "Trip cannot be started";
+"Not In Holding Lot" = "Not In Holding Lot";
+"Ready to start trip" = "Ready to start trip";
+"Invalid trip" = "Invalid trip";
+"Valid trip" = "Valid trip";
 "Trip In Progress" = "Trip In Progress";
 "Validating Trip" = "Validating Trip";
 "Time Expired" = "Time Expired";
 "Trip Started" = "Trip Started: %@";
-"Trip is valid" = "Trip is valid";
-"Trip Is Invalid" = "Trip Is Invalid";
-"Trip Is Invalid for Reasons" = "Trip Is Invalid for Reasons";
 "Trip Warning" = "Trip Warning";
+"Short Trip" = "Short Trip";
 
 /* Debug */
 "Last verified geofence(s)" = "Last verified geofence(s)";
@@ -58,12 +57,12 @@
 "An error occurred while logging in." = "An error occurred while logging in.";
 
 /* Dashboard */
-"Our holding lot is" = "Our holding lot is";
-"full" = "full";
-"almost full" = "almost full";
-"not full" = "not full";
 "Flight Status" = "Flight Status";
 "Requesting Lot Status..." = "Requesting Lot Status...";
+"Dashboard" = "Dashboard";
+"Holding Lot" = "Holding Lot";
+"Are Available" = "Are Available";
+"%@ out of %@ spots" = "%@ out of %@ spots";
 
 /* Flight Status */
 "Terminals" = "Terminals";

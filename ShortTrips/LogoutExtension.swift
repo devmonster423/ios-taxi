@@ -11,10 +11,12 @@ import UIKit
 extension UIViewController {
   
   func addLogoutButton() {
+    //UIView.appearance().tintColor = UIColor.whiteColor()
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout",
       style: .Plain,
       target: self,
       action: "logout")
+    navigationItem.rightBarButtonItem?.tintColor = UIColor.whiteColor()
   }
   
   func logout() {

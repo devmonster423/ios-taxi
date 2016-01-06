@@ -61,11 +61,14 @@ class LoginVC: UIViewController {
       if let driver = driver {
         credential.save()
         DriverManager.sharedInstance.setCurrentDriver(driver)
+        
         if self.startup {
-          self.presentViewController(UINavigationController(rootViewController: DashboardVC()), animated: false, completion: nil)
+          self.presentViewController(MainTabBarController, animated: false, completion: nil)
+          
         } else {
           self.dismissViewControllerAnimated(true, completion: nil)
         }
+        
       } else {
         let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
           message: NSLocalizedString("An error occurred while logging in.", comment: ""),
