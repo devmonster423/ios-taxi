@@ -11,8 +11,6 @@ import SnapKit
 
 class DashboardView: UIView {
 
-  let bgImageView = UIImageView()
-  private let bgOverlayView = UIImageView()
   let timerView = TimerView()
 
   required init(coder aDecoder: NSCoder) {
@@ -25,18 +23,26 @@ class DashboardView: UIView {
     backgroundColor = UIColor.whiteColor()
 
     // add subviews
-    addSubview(bgImageView)
-    addSubview(bgOverlayView)
     addSubview(timerView)
 
     // background
-    bgImageView.clipsToBounds = true
-    bgImageView.contentMode = .ScaleAspectFill
-    bgImageView.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(self)
+    let bgView = UIView()
+    bgView.backgroundColor = Color.Dashboard.lightBlue
+    addSubview(bgView)
+    bgView.snp_makeConstraints { make in
+      make.top.equalTo(self.snp_centerY)
       make.left.equalTo(self)
       make.right.equalTo(self)
       make.bottom.equalTo(timerView.snp_top)
+    }
+    
+    let blackCircle = UIImageView(image: Image.blackCircle.image())
+    blackCircle.contentMode = .ScaleAspectFit
+    addSubview(blackCircle)
+    blackCircle.snp_makeConstraints { (make) -> Void in
+      make.center.equalTo(self)
+      make.height.equalTo(200)
+      make.width.equalTo(200)
     }
     
     // Progress View and "Last updated 2 minutes ago"
@@ -49,16 +55,16 @@ class DashboardView: UIView {
   }
 
   func updateStatusUI(lotStatus: LotStatusEnum) {
-    switch lotStatus {
-
-    case .Green:
-      bgImageView.image = nil
-
-    case .Yellow:
-      bgImageView.image = nil
-
-    case .Red:
-      bgImageView.image = nil
-    }
+//    switch lotStatus {
+//
+//    case .Green:
+//      bgImageView.image = nil
+//
+//    case .Yellow:
+//      bgImageView.image = nil
+//
+//    case .Red:
+//      bgImageView.image = nil
+//    }
   }
 }

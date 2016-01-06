@@ -35,6 +35,8 @@ enum Image: String {
   case flightsIcon = "flights_icon"
   case tripIcon = "trip_icon"
   
+  case blackCircle = "black_circle"
+  
   case tripAlert = "alert_icon"
   case tripCar = "car_icon"
   case tripCarInProgress = "car_in_progress_icon"
