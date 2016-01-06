@@ -12,6 +12,8 @@ import SnapKit
 class DashboardView: UIView {
 
   private let fullnessRing = UIImageView()
+  private let percentLabel = UILabel()
+  private let spotsLabel = UILabel()
   let timerView = TimerView()
 
   required init(coder aDecoder: NSCoder) {
@@ -55,7 +57,7 @@ class DashboardView: UIView {
       make.width.equalTo(200)
     }
     
-    fullnessRing.image = Image.yellowRing.image()
+//    fullnessRing.image = Image.greenRing.image()
     fullnessRing.contentMode = .ScaleAspectFit
     addSubview(fullnessRing)
     fullnessRing.snp_makeConstraints { (make) -> Void in
@@ -75,20 +77,32 @@ class DashboardView: UIView {
       make.width.equalTo(200)
       make.top.equalTo(self).offset(50)
     }
-
+    
+    percentLabel.text = "75%"
+    
+    percentLabel.font = Font.MyriadProSemibold.size(50)
+    percentLabel.textAlignment = .Center
+    percentLabel.textColor = UIColor.whiteColor()
+    addSubview(percentLabel)
+    percentLabel.snp_makeConstraints { (make) -> Void in
+      make.center.equalTo(self)
+      make.height.equalTo(150)
+      make.width.equalTo(150)
+    }
+    
     let availableLabel = UILabel()
-    availableLabel.font = Font.MyriadProBold.size(28)
+    availableLabel.font = Font.MyriadProBold.size(40)
     availableLabel.text = NSLocalizedString("Are Available", comment: "").uppercaseString
     availableLabel.textAlignment = .Center
     availableLabel.textColor = Color.Dashboard.darkBlue
     addSubview(availableLabel)
     availableLabel.snp_makeConstraints { (make) -> Void in
-      make.centerX.equalTo(self)
       make.height.equalTo(50)
-      make.width.equalTo(200)
-      make.bottom.equalTo(bgView).offset(-25)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.bottom.equalTo(bgView).offset(-10)
     }
-
+    
     // Progress View and "Last updated 2 minutes ago"
     timerView.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(UiConstants.Dashboard.progressHeight)
