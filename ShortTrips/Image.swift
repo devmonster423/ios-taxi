@@ -30,12 +30,20 @@ enum Image: String {
   
   case bgBlur = "bg_blur"
   
-  case sfoTime = "sfo_time"
-  case taxicab = "taxicab"
-  case taxicheckmark = "taxicheckmark"
-  case taxicross = "taxicross"
-  case thumbsdown = "thumbsdown"
-  case thumbsup = "thumbsup"
+  case dashboardIcon = "dashboard_icon"
+  case flightsIcon = "flights_icon"
+  case tripIcon = "trip_icon"
+  
+  case tripAlert = "alert_icon"
+  case tripCar = "car_icon"
+  case tripCarInProgress = "car_in_progress_icon"
+  case tripCheck = "check_icon"
+  case tripGeofence = "geofence_icon"
+  case tripGps = "gps_icon"
+  case tripHorizontalDivider = "trip_horiz_divider"
+  case tripTime = "time_icon"
+  case tripThumbsUp = "thumbsup_icon"
+  case tripX = "x_icon"
   
   case full = "full"
   case available = "available"

@@ -34,6 +34,9 @@ class LoginView: UIView {
     addSubview(loginButton)
     
     usernameTextField.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Username", comment: ""), attributes: [NSForegroundColorAttributeName: Color.Auth.offWhite])
+    usernameTextField.autocapitalizationType = .None
+    usernameTextField.autocorrectionType = .No
+    usernameTextField.spellCheckingType = .No
     usernameTextField.textColor = UIColor.whiteColor()
     usernameTextField.snp_makeConstraints { make in
       make.centerX.equalTo(self)

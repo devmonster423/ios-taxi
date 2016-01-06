@@ -14,38 +14,30 @@ extension ShortTripVC {
   func setupTripObservers() {
     
     sfoObservers.timeExpiredObserver = NotificationObserver(notification: SfoNotification.Trip.timeExpired) { _, _ in
-      self.shortTripView().currentStateLabel.text = NSLocalizedString("Time Expired", comment: "")
+      self.shortTripView().topImageView.image = Image.tripX.image()
+      self.shortTripView().updateTitle(.Invalid)
       self.shortTripView().notify(NSLocalizedString("Time Expired", comment: ""))
-      self.shortTripView().notificationImageView.image = Image.taxicross.image()
-    }
-    
-    sfoObservers.tripStartedObserver = NotificationObserver(notification: SfoNotification.Trip.started) { tripId, _ in
-      self.shortTripView().notify(String(format: NSLocalizedString("Trip Started", comment: ""), arguments: ["\(tripId)"]))
-      self.shortTripView().notificationImageView.image = Image.taxicab.image()
+      self.shortTripView().notificationImageView.image = Image.tripTime.image()
     }
     
     sfoObservers.validatedObserver = NotificationObserver(notification: SfoNotification.Trip.validated) { _, _ in
-      self.shortTripView().currentStateLabel.text = NSLocalizedString("Trip is valid", comment: "")
-      self.shortTripView().notify(NSLocalizedString("Trip is valid", comment: ""))
-      self.shortTripView().notificationImageView.image = Image.taxicheckmark.image()
+      self.shortTripView().updateTitle(.Valid)
+      self.shortTripView().topImageView.image = Image.tripCheck.image()
+      self.shortTripView().notificationImageView.image = Image.tripCar.image()
     }
     
     sfoObservers.invalidatedObserver = NotificationObserver(notification: SfoNotification.Trip.invalidated) { validationSteps, _ in
       if let validationSteps = validationSteps {
-        var message = NSLocalizedString("Trip Is Invalid for Reasons", comment: "") + ": "
+        var message = ""
         for validationStep in validationSteps {
           message += validationStep.description + " "
         }
         self.shortTripView().notify(message)
-      } else {
-        self.shortTripView().notify(NSLocalizedString("Trip Is Invalid", comment: ""))
       }
-      self.shortTripView().currentStateLabel.text = NSLocalizedString("Trip Is Invalid", comment: "")
-      self.shortTripView().notificationImageView.image = Image.taxicross.image()
-    }
-    
-    sfoObservers.warningObserver = NotificationObserver(notification: SfoNotification.Trip.warning) { warning, _ in
-      self.shortTripView().notify(NSLocalizedString("Trip Warning", comment: "") + ": \(warning.rawValue)")
+      
+      self.shortTripView().updateTitle(.Invalid)
+      self.shortTripView().topImageView.image = Image.tripX.image()
+      self.shortTripView().notificationImageView.image = Image.tripCarInProgress.image()
     }
   }
 }

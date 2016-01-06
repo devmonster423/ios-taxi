@@ -22,10 +22,6 @@ class ShortTripVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    setupAviObservers()
-    setupCidObservers()
-    setupDriverObservers()
-    setupGeofenceObservers()
     setupLocationObservers()
     setupPingObservers()
     setupStateObservers()
@@ -40,7 +36,7 @@ class ShortTripVC: UIViewController {
       tripTimer.invalidate()
     }
     
-    tripTimer = NSTimer.scheduledTimerWithTimeInterval(60,
+    tripTimer = NSTimer.scheduledTimerWithTimeInterval(1,
       target: self,
       selector: "checkTime",
       userInfo: nil,
@@ -58,10 +54,15 @@ class ShortTripVC: UIViewController {
       let remainingTime = Int(2 * 60 * 60 - elapsedTime)
       let remainingHours = Int(remainingTime / (60 * 60))
       let remainingMinutes = Int((remainingTime - remainingHours * 60 * 60) / 60)
-      shortTripView().countdownLabel.text = "  " + NSLocalizedString("Time Remaining", comment: "") + ": \(remainingHours)h \(remainingMinutes)m"
-      print(NSLocalizedString("Time Remaining", comment: "") + ": \(remainingHours)h \(remainingMinutes)m")
+      let remainingSeconds = Int(remainingTime - remainingHours * 60 * 60 - remainingMinutes * 60)
+      shortTripView().countdownLabel.hidden = false
+      shortTripView().countdownLabel.text = "\(remainingHours)h \(remainingMinutes)m \(remainingSeconds)s"
+      shortTripView().countdownSubtitleLabel.hidden = false
+      shortTripView().notify("")
     } else {
+      shortTripView().countdownLabel.hidden = true
       shortTripView().countdownLabel.text = ""
+      shortTripView().countdownSubtitleLabel.hidden = true
     }
   }
 }

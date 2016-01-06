@@ -65,4 +65,19 @@ struct Color {
     static let darkBackground = UIColor(red: 247.0/255.0, green: 247.0/255.0, blue: 247.0/255.0, alpha: 1.0)
     static let lightBackground = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
   }
+  
+  struct TabBar {
+    static let background = UIColor(red: 63.0/255.0, green: 64.0/255.0, blue: 67.0/255.0, alpha: 1.0)
+  }
+  
+  struct Trip {
+    static let title = UIColor(red: 71.0/255.0, green: 71.0/255.0, blue: 76.0/255.0, alpha: 1.0)
+    static let subtitle = UIColor(red: 44.0/255.0, green: 124.0/255.0, blue: 149.0/255.0, alpha: 1.0)
+    
+    struct Time {
+      static let title = UIColor(red: 0/255.0, green: 89.0/255.0, blue: 120.0/255.0, alpha: 1.0)
+      static let subtitle = UIColor(red: 52.0/255.0, green: 126.0/255.0, blue: 151.0/255.0, alpha: 1.0)
+      static let background = UIColor(red: 242.0/255.0, green: 246.0/255.0, blue: 248.0/255.0, alpha: 1.0)
+    }
+  }
 }
