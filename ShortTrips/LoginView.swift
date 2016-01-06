@@ -22,10 +22,10 @@ class LoginView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    let blurBgImageView = UIImageView()
-    blurBgImageView.image = Image.bgBlur.image()
-    addSubview(blurBgImageView)
-    blurBgImageView.snp_makeConstraints { make in
+    let bgImageView = UIImageView()
+    bgImageView.image = Image.blueGrandient.image()
+    addSubview(bgImageView)
+    bgImageView.snp_makeConstraints { make in
       make.edges.equalTo(self)
     }
     

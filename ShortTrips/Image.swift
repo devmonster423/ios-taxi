@@ -10,6 +10,9 @@ import UIKit
 
 enum Image: String {
   
+  // auth
+  case blueGrandient = "blue_gradient_bg"
+  
   case sfoLogoAlpha = "sfo_logo_alpha"
   
   case greenCircle = "green_circle"
@@ -28,8 +31,6 @@ enum Image: String {
   case unknownAirline = "unknownAirline"
   
   case splashLogo = "splashLogo"
-  
-  case bgBlur = "bg_blur"
   
   case dashboardIcon = "dashboard_icon"
   case flightsIcon = "flights_icon"
