@@ -43,6 +43,7 @@ class ShortTripView: UIView {
     }
     
     countdownSubtitleLabel.font = Font.MyriadPro.size(12)
+    countdownSubtitleLabel.text = NSLocalizedString("Time Remaining", comment: "")
     countdownSubtitleLabel.textAlignment = .Center
     countdownSubtitleLabel.textColor = Color.Trip.Time.subtitle
     countdownSubtitleLabel.snp_makeConstraints { make in
@@ -72,7 +73,7 @@ class ShortTripView: UIView {
     }
     
     notificationLabel.backgroundColor = Color.Auth.fadedWhite
-    notificationLabel.font = Font.MyriadPro.size(14)
+    notificationLabel.font = Font.MyriadPro.size(20)
     notificationLabel.numberOfLines = 0
     notificationLabel.textAlignment = .Center
     notificationLabel.textColor = Color.Trip.subtitle

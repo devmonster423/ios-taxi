@@ -19,11 +19,6 @@ extension ShortTripVC {
       self.shortTripView().notificationImageView.image = Image.taxicross.image()
     }
     
-    sfoObservers.tripStartedObserver = NotificationObserver(notification: SfoNotification.Trip.started) { tripId, _ in
-      self.shortTripView().notify(String(format: NSLocalizedString("Trip Started", comment: ""), arguments: ["\(tripId)"]))
-      self.shortTripView().notificationImageView.image = Image.taxicab.image()
-    }
-    
     sfoObservers.validatedObserver = NotificationObserver(notification: SfoNotification.Trip.validated) { _, _ in
       self.shortTripView().currentStateLabel.text = NSLocalizedString("Trip is valid", comment: "")
       self.shortTripView().notify(NSLocalizedString("Trip is valid", comment: ""))
@@ -42,10 +37,6 @@ extension ShortTripVC {
       }
       self.shortTripView().currentStateLabel.text = NSLocalizedString("Trip Is Invalid", comment: "")
       self.shortTripView().notificationImageView.image = Image.taxicross.image()
-    }
-    
-    sfoObservers.warningObserver = NotificationObserver(notification: SfoNotification.Trip.warning) { warning, _ in
-      self.shortTripView().notify(NSLocalizedString("Trip Warning", comment: "") + ": \(warning.rawValue)")
     }
   }
 }
