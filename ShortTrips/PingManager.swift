@@ -99,6 +99,8 @@ class PingManager: NSObject {
           
           if let geofenceStatus = geofenceStatus {
             postNotification(SfoNotification.Ping.created, value: (ping: ping, geofenceStatus: geofenceStatus))
+          } else {
+            self.missedPings.append(ping)
           }
         }
     }
