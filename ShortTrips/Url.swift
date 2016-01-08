@@ -116,5 +116,8 @@ struct Url {
     static func ping(tripId: Int) -> String {
       return trip + "\(tripId)/ping"
     }
+    static func pings(tripId: Int) -> String {
+      return trip + "\(tripId)/delayed_pings"
+    }
   }
 }

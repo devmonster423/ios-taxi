@@ -28,6 +28,16 @@ extension ApiClient {
     }
   }
   
+  static func pings(tripId: Int, pings: PingBatch, response: GeofenceStatusClosure) {
+    authedRequest(.POST, Url.Trip.pings(tripId), parameters: Mapper().toJSON(PingBatchWrapper(pings)))
+      .response { _, raw, _, _ in
+        
+        if let raw = raw {
+          postNotification(SfoNotification.Request.response, value: raw)
+        }
+    }
+  }
+  
   static func start(tripBody: TripBody, response: TripIdClosure) {
     authedRequest(.POST, Url.Trip.start, parameters: Mapper().toJSON(tripBody))
       .responseObject { (_, raw, tripId: TripId?, _, _) in

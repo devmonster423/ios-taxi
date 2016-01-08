@@ -165,6 +165,7 @@
 		C2E6B95D1C40430300100C83 /* LatestAviAtDomesticReEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6B95C1C40430300100C83 /* LatestAviAtDomesticReEntry.swift */; };
 		C2E6B95F1C40529A00100C83 /* TripBackToDomSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6B95E1C40529A00100C83 /* TripBackToDomSpec.swift */; };
 		C2E6B9611C40553300100C83 /* MainTabBarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6B9601C40553300100C83 /* MainTabBarSpec.swift */; };
+		C2E6B9631C40613E00100C83 /* PingBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6B9621C40613E00100C83 /* PingBatch.swift */; };
 		C2EAD0A71C03E11A00EAEBBF /* TripValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAD0A61C03E11A00EAEBBF /* TripValidation.swift */; };
 		C2EAD0A91C03E17700EAEBBF /* MockTripValidationString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAD0A81C03E17700EAEBBF /* MockTripValidationString.swift */; };
 		C2EAD0AE1C03E4AD00EAEBBF /* FoundGeofenceStatusSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAD0AD1C03E4AD00EAEBBF /* FoundGeofenceStatusSpec.swift */; };
@@ -446,6 +447,7 @@
 		C2E6B95C1C40430300100C83 /* LatestAviAtDomesticReEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestAviAtDomesticReEntry.swift; sourceTree = "<group>"; };
 		C2E6B95E1C40529A00100C83 /* TripBackToDomSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripBackToDomSpec.swift; sourceTree = "<group>"; };
 		C2E6B9601C40553300100C83 /* MainTabBarSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarSpec.swift; sourceTree = "<group>"; };
+		C2E6B9621C40613E00100C83 /* PingBatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingBatch.swift; sourceTree = "<group>"; };
 		C2EAD0A61C03E11A00EAEBBF /* TripValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripValidation.swift; sourceTree = "<group>"; };
 		C2EAD0A81C03E17700EAEBBF /* MockTripValidationString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTripValidationString.swift; sourceTree = "<group>"; };
 		C2EAD0AD1C03E4AD00EAEBBF /* FoundGeofenceStatusSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundGeofenceStatusSpec.swift; sourceTree = "<group>"; };
@@ -827,6 +829,7 @@
 				C28ECB231BCECB5700887763 /* FoundGeofenceStatus.swift */,
 				E18FF6941BA8783600FE93B9 /* MobileState.swift */,
 				C28ECB251BCECE5F00887763 /* Ping.swift */,
+				C2E6B9621C40613E00100C83 /* PingBatch.swift */,
 				C2B60A7D1BF66A8E00A8A452 /* TripBody.swift */,
 				C20A98841BE153BA009E29E7 /* TripId.swift */,
 				C26530B51BE3FB66002C0A97 /* TripValidation.swift */,
@@ -1753,6 +1756,7 @@
 				C2E6B9591C403F7200100C83 /* WaitingForDomesticReEntryAvi.swift in Sources */,
 				C21528C91BC8557B0073502F /* DebugView.swift in Sources */,
 				E1A2EBA91B6D747F00C27EB2 /* Flight.swift in Sources */,
+				C2E6B9631C40613E00100C83 /* PingBatch.swift in Sources */,
 				E14A392A1BE957B80053F741 /* LoggedOut.swift in Sources */,
 				C283AB411BE93B830004E8CD /* TripDebugger.swift in Sources */,
 				E18228FB1BC48F2300614256 /* InProgress.swift in Sources */,
