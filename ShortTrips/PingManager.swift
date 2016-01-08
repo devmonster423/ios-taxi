@@ -29,7 +29,7 @@ class PingManager: NSObject {
     if timer == nil {
       timer = NSTimer.scheduledTimerWithTimeInterval(updateFrequency,
         target: self,
-        selector: "processLastKnownLocation",
+        selector: "sendPings",
         userInfo: nil,
         repeats: true)
     }
@@ -73,7 +73,13 @@ class PingManager: NSObject {
     pingObserver = nil
   }
 
-  func processLastKnownLocation() {
+  func sendPings() {
+    sendNewPing()
+    sendOldPings()
+  }
+  
+  func sendNewPing() {
+
     if let location = LocationManager.sharedInstance.getLastKnownLocation(),
       let tripId = TripManager.sharedInstance.getTripId(),
       let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId,
@@ -93,6 +99,21 @@ class PingManager: NSObject {
           
           if let geofenceStatus = geofenceStatus {
             postNotification(SfoNotification.Ping.created, value: (ping: ping, geofenceStatus: geofenceStatus))
+          }
+        }
+    }
+  }
+  
+  func sendOldPings() {
+    if let pingBatch = getPingBatch(),
+      let tripId = TripManager.sharedInstance.getTripId() {
+        
+        let sentPings = pingBatch.pings
+        self.missedPings.removeAll()
+        
+        ApiClient.pings(tripId, pings: pingBatch) { success in
+          if !success {
+            self.missedPings.appendContentsOf(sentPings)
           }
         }
     }

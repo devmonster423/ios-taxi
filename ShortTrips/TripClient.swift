@@ -12,6 +12,7 @@ import JSQNotificationObserverKit
 import ObjectMapper
 
 typealias GeofenceStatusClosure = FoundGeofenceStatus? -> Void
+typealias SuccessClosure = Bool -> Void
 typealias TripIdClosure = Int? -> Void
 typealias ValidationClosure = TripValidation? -> Void
 
@@ -28,12 +29,15 @@ extension ApiClient {
     }
   }
   
-  static func pings(tripId: Int, pings: PingBatch, response: GeofenceStatusClosure) {
+  static func pings(tripId: Int, pings: PingBatch, response: SuccessClosure) {
     authedRequest(.POST, Url.Trip.pings(tripId), parameters: Mapper().toJSON(PingBatchWrapper(pings)))
       .response { _, raw, _, _ in
         
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
+          response(raw.statusCode == Util.HttpStatusCodes.Ok.rawValue)
+        } else {
+          response(false)
         }
     }
   }
