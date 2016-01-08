@@ -24,6 +24,7 @@ class StateManager {
     NotReady.sharedInstance.getState(),
     Ready.sharedInstance.getState(),
     ValidatingTrip.sharedInstance.getState(),
+    WaitingForDomesticReEntryAvi.sharedInstance.getState(),
     WaitingForEntryAvi.sharedInstance.getState(),
     WaitingForEntryCid.sharedInstance.getState(),
     WaitingForExitAvi.sharedInstance.getState(),
@@ -45,8 +46,10 @@ class StateManager {
     events += InsideSfoNotExitingTerminals.sharedInstance.getEvents()
     events += InsideTaxiLoopExit.sharedInstance.getEvents()
     events += InsideTaxiWaitingZone.sharedInstance.getEvents()
+    events += LatestAviAtDomesticReEntry.sharedInstance.getEvents()
     events += LatestAviAtEntry.sharedInstance.getEvents()
     events += LatestAviAtExit.sharedInstance.getEvents()
+    events += LatestAviAtIntlArrivalExit.sharedInstance.getEvents()
     events += LatestAviAtReEntry.sharedInstance.getEvents()
     events += LatestAviAtTaxiLoop.sharedInstance.getEvents()
     events += LatestCidIsEntryCid.sharedInstance.getEvents()

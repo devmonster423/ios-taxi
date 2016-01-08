@@ -10,9 +10,10 @@ import Foundation
 
 enum GtmsLocation: String {
   case DtEntrance = "Location #1 DT Entrance"
-  case Exit = "Location #2 DT Exit | Location #3 ITA Exit"
+  case DomExit = "Location #2 DT Exit"
+  case IntlArrivalExit = "Location #3 ITA Exit"
   case CourtyardG = "Location #4 Courtyard G "
-  case ItdExit = "Location #5 ITD exit"
+  case IntlDepartureExit = "Location #5 ITD exit"
   case CourtyardA = "Location #6 Courtyard A"
   case ItaEntrance = "Location #7 ITA Entrance"
   case ItdEntrance = "Location #8 ITD Entrance"
@@ -51,12 +52,14 @@ enum GtmsLocation: String {
     switch id {
     case "L1AVI1", "L1AVI2", "L1AVI3":
       return .DtEntrance
-    case "L2AVI1", "L2AVI2", "L2AVI3", "L3AVI1":
-      return .Exit
+    case "L2AVI1", "L2AVI2", "L2AVI3":
+      return .DomExit
+    case "L3AVI1":
+      return .IntlArrivalExit
     case "L4AVI1", "L4AVI2":
       return .CourtyardG
     case "L5AVI1", "L5AVI2":
-      return .ItdExit
+      return .IntlDepartureExit
     case "L6AVI1":
       return .CourtyardA
     case "L7AVI1", "L7AVI2", "L7AVI3":

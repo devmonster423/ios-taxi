@@ -1,18 +1,19 @@
 //
-//  VerifyingExitAVI.swift
+//  WaitingForDomesticReEntryAvi.swift
 //  ShortTrips
 //
-//  Created by Matt Luedke on 10/29/15.
-//  Copyright © 2015 SFO. All rights reserved.
+//  Created by Matt Luedke on 1/8/16.
+//  Copyright © 2016 SFO. All rights reserved.
 //
 
 import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct WaitingForExitAvi {
-  let stateName = "WaitingForExitAvi"
-  static let sharedInstance = WaitingForExitAvi()
+struct WaitingForDomesticReEntryAvi {
+  let stateName = "WaitingForDomesticReEntryAvi"
+  static let sharedInstance = WaitingForDomesticReEntryAvi()
+  private let expectedAvi: GtmsLocation = .DtEntrance
   
   private var poller: Poller?
   private var state: TKState
@@ -27,20 +28,15 @@ struct WaitingForExitAvi {
       self.poller = Poller.init() {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
-
+            
             if let antenna = antenna, let device = antenna.device() {
-              
-              if device == .DomExit {
-                LatestAviAtExit.sharedInstance.fire(antenna)
-              } else if device == .IntlArrivalExit {
-                LatestAviAtIntlArrivalExit.sharedInstance.fire(antenna)
+              if device == self.expectedAvi {
+                LatestAviAtDomesticReEntry.sharedInstance.fire(antenna)
               } else {
-                postNotification(SfoNotification.Avi.unexpected, value: (expected: .DomExit, found: device))
+                postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
               }
             }
           }
-        } else {
-          Failure.sharedInstance.fire()
         }
       }
     }

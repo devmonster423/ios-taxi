@@ -48,7 +48,7 @@ class TripManager: NSObject {
   func start(tripId: Int) {
     self.tripId = tripId
     
-    if let _ = startTime {} else {
+    if startTime == nil {
       startTime = NSDate()
     }
 

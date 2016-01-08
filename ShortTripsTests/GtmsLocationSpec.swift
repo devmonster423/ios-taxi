@@ -27,9 +27,10 @@ class GtmsLocationSpec: QuickSpec {
       
       it("can be made from an avi string") {
         expect(GtmsLocation.from(aviId: "L1AVI1")) == .DtEntrance
-        expect(GtmsLocation.from(aviId: "L2AVI1")) == .Exit
+        expect(GtmsLocation.from(aviId: "L2AVI1")) == .DomExit
+        expect(GtmsLocation.from(aviId: "L3AVI1")) == .IntlArrivalExit
         expect(GtmsLocation.from(aviId: "L4AVI1")) == .CourtyardG
-        expect(GtmsLocation.from(aviId: "L5AVI1")) == .ItdExit
+        expect(GtmsLocation.from(aviId: "L5AVI1")) == .IntlDepartureExit
         expect(GtmsLocation.from(aviId: "L6AVI1")) == .CourtyardA
         expect(GtmsLocation.from(aviId: "L7AVI1")) == .ItaEntrance
         expect(GtmsLocation.from(aviId: "L8AVI1")) == .ItdEntrance
