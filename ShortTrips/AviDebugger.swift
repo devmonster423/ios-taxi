@@ -21,7 +21,19 @@ extension DebugVC {
     
     sfoObservers.domExitAviRead = NotificationObserver(notification: SfoNotification.Avi.domExit, handler: { antenna, _ in
       self.debugView().updateAvi("\(antenna)")
-      self.debugView().printDebugLine("Exit AVI read: (\(antenna)")
+      self.debugView().printDebugLine("Domestic Exit AVI read: (\(antenna)")
+      self.debugView().incrementGtms()
+    })
+    
+    sfoObservers.domReEntryAvi = NotificationObserver(notification: SfoNotification.Avi.domesticReEntry, handler: { antenna, _ in
+      self.debugView().updateAvi("\(antenna)")
+      self.debugView().printDebugLine("Domestic ReEntry AVI read: (\(antenna)")
+      self.debugView().incrementGtms()
+    })
+    
+    sfoObservers.intlArrivalExitAvi = NotificationObserver(notification: SfoNotification.Avi.intlArrivalExit, handler: { antenna, _ in
+      self.debugView().updateAvi("\(antenna)")
+      self.debugView().printDebugLine("Intl Arrival Exit AVI: (\(antenna)")
       self.debugView().incrementGtms()
     })
     
