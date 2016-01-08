@@ -166,6 +166,7 @@
 		C2E6B95F1C40529A00100C83 /* TripBackToDomSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6B95E1C40529A00100C83 /* TripBackToDomSpec.swift */; };
 		C2E6B9611C40553300100C83 /* MainTabBarSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6B9601C40553300100C83 /* MainTabBarSpec.swift */; };
 		C2E6B9631C40613E00100C83 /* PingBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6B9621C40613E00100C83 /* PingBatch.swift */; };
+		C2E6B9651C406C5500100C83 /* PingBatchSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E6B9641C406C5500100C83 /* PingBatchSpec.swift */; };
 		C2EAD0A71C03E11A00EAEBBF /* TripValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAD0A61C03E11A00EAEBBF /* TripValidation.swift */; };
 		C2EAD0A91C03E17700EAEBBF /* MockTripValidationString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAD0A81C03E17700EAEBBF /* MockTripValidationString.swift */; };
 		C2EAD0AE1C03E4AD00EAEBBF /* FoundGeofenceStatusSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EAD0AD1C03E4AD00EAEBBF /* FoundGeofenceStatusSpec.swift */; };
@@ -448,6 +449,7 @@
 		C2E6B95E1C40529A00100C83 /* TripBackToDomSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripBackToDomSpec.swift; sourceTree = "<group>"; };
 		C2E6B9601C40553300100C83 /* MainTabBarSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarSpec.swift; sourceTree = "<group>"; };
 		C2E6B9621C40613E00100C83 /* PingBatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingBatch.swift; sourceTree = "<group>"; };
+		C2E6B9641C406C5500100C83 /* PingBatchSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingBatchSpec.swift; sourceTree = "<group>"; };
 		C2EAD0A61C03E11A00EAEBBF /* TripValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripValidation.swift; sourceTree = "<group>"; };
 		C2EAD0A81C03E17700EAEBBF /* MockTripValidationString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTripValidationString.swift; sourceTree = "<group>"; };
 		C2EAD0AD1C03E4AD00EAEBBF /* FoundGeofenceStatusSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundGeofenceStatusSpec.swift; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 				C2EAD0AD1C03E4AD00EAEBBF /* FoundGeofenceStatusSpec.swift */,
 				8EEFB7EF1BE2CA0500B8A962 /* GeofenceStatusSpec.swift */,
 				8EEFB7ED1BE2C89700B8A962 /* MobileStateChangeSpec.swift */,
+				C2E6B9641C406C5500100C83 /* PingBatchSpec.swift */,
 				8EEFB7EB1BE2C74D00B8A962 /* PingSpec.swift */,
 				E1259FD11BF167B200EA0628 /* MockTripIdResponse.swift */,
 				8EEFB7E51BE2C58200B8A962 /* TripIdSpec.swift */,
@@ -1842,6 +1845,7 @@
 				8EEFB7C51BE1B1F700B8A962 /* RequestReferenceConfigMock.swift in Sources */,
 				C2FE05E81C1B5BE8005D6705 /* TripFallbackSpec.swift in Sources */,
 				FAEA59B21C29A68A009BF1F4 /* TerminalExitGeofenceSpec.swift in Sources */,
+				C2E6B9651C406C5500100C83 /* PingBatchSpec.swift in Sources */,
 				E16E5E161BB1B690003A315A /* FlightStatusSpec.swift in Sources */,
 				8EEFB7C11BE1AFBB00B8A962 /* RequestCidForSmartCardMock.swift in Sources */,
 				E14E159B1BB1D856009D1E17 /* AntennaSpec.swift in Sources */,
