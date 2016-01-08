@@ -16,6 +16,7 @@ class PingManager: NSObject {
   let updateFrequency = NSTimeInterval(30)
   private var invalidPings: Int = 0
   private let maxInvalidPings: Int = 3
+  private var missedPings = [Ping]()
   
   private var timer: NSTimer?
 
@@ -25,7 +26,7 @@ class PingManager: NSObject {
 
   func start() {
     
-    if let _ = timer {} else {
+    if timer == nil {
       timer = NSTimer.scheduledTimerWithTimeInterval(updateFrequency,
         target: self,
         selector: "processLastKnownLocation",
@@ -33,7 +34,7 @@ class PingManager: NSObject {
         repeats: true)
     }
     
-    if let _ = pingObserver {} else {
+    if pingObserver == nil {
       self.pingObserver = NotificationObserver(notification: SfoNotification.Ping.created, handler: { info, _ in
         
         let ping = info.ping
@@ -94,6 +95,18 @@ class PingManager: NSObject {
             postNotification(SfoNotification.Ping.created, value: (ping: ping, geofenceStatus: geofenceStatus))
           }
         }
+    }
+  }
+  
+  func getPingBatch() -> PingBatch? {
+    
+    if let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId
+      where missedPings.count > 0 {
+      
+      return PingBatch(sessionId: sessionId, pings: missedPings)
+        
+    } else {
+      return nil
     }
   }
 }

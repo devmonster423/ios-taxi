@@ -29,6 +29,11 @@ struct PingBatch: Mappable {
   
   init?(_ map: Map){}
   
+  init(sessionId: Int, pings: [Ping]) {
+    self.sessionId = sessionId
+    self.pings = pings
+  }
+  
   mutating func mapping(map: Map) {
     sessionId <- map["session_id"]
     pings <- map["pings"]
