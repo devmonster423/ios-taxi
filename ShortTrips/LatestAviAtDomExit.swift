@@ -33,7 +33,7 @@ extension LatestAviAtDomExit: Observable {
   func eventIsFiring(info: Any?) {
     if let antenna = info as? Antenna {
       TripManager.sharedInstance.setStartTime(antenna.aviDate)
-      postNotification(SfoNotification.Avi.exit, value: antenna)
+      postNotification(SfoNotification.Avi.domExit, value: antenna)
     }
   }
 }

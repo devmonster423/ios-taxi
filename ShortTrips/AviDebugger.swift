@@ -19,7 +19,7 @@ extension DebugVC {
       self.debugView().incrementGtms()
     })
     
-    sfoObservers.exitAviRead = NotificationObserver(notification: SfoNotification.Avi.exit, handler: { antenna, _ in
+    sfoObservers.domExitAviRead = NotificationObserver(notification: SfoNotification.Avi.domExit, handler: { antenna, _ in
       self.debugView().updateAvi("\(antenna)")
       self.debugView().printDebugLine("Exit AVI read: (\(antenna)")
       self.debugView().incrementGtms()
