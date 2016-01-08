@@ -50,8 +50,7 @@ extension DebugVC {
       debugView().updateState("InProgress")
       updateFakeButtons((title: "Drop Passenger", action: "dropPassenger"),
         second: (title: "Outside Geofences", action: "fakeOutsideGeofences"),
-        third: (title: "Turn Off Pings", action: "turnOffPings"))
-//        third: (title: "Timeout", action: "fakeTimeExpired"))
+        third: (title: "Timeout", action: "fakeTimeExpired"))
       
     } else if state == WaitingInHoldingLot.sharedInstance.getState() {
       debugView().printDebugLine("starting to wait in holding lot")
