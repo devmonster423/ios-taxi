@@ -31,7 +31,7 @@ struct WaitingForExitAvi {
             if let antenna = antenna, let device = antenna.device() {
               
               if device == .DomExit {
-                LatestAviAtExit.sharedInstance.fire(antenna)
+                LatestAviAtDomExit.sharedInstance.fire(antenna)
               } else if device == .IntlArrivalExit {
                 LatestAviAtIntlArrivalExit.sharedInstance.fire(antenna)
               } else {

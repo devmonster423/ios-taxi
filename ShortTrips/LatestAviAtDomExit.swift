@@ -10,9 +10,9 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-class LatestAviAtExit {
-  let eventNames = ["LatestAviAtExit"]
-  static let sharedInstance = LatestAviAtExit()
+class LatestAviAtDomExit {
+  let eventNames = ["LatestAviAtDomExit"]
+  static let sharedInstance = LatestAviAtDomExit()
   
   private var events: [TKEvent]
   
@@ -23,13 +23,13 @@ class LatestAviAtExit {
   }
 }
 
-extension LatestAviAtExit: Event {
+extension LatestAviAtDomExit: Event {
   func getEvents() -> [TKEvent] {
     return events
   }
 }
 
-extension LatestAviAtExit: Observable {
+extension LatestAviAtDomExit: Observable {
   func eventIsFiring(info: Any?) {
     if let antenna = info as? Antenna {
       TripManager.sharedInstance.setStartTime(antenna.aviDate)
