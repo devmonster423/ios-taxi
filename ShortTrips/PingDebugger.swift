@@ -33,4 +33,8 @@ extension DebugVC {
       self.debugView().printDebugLine("invalid ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)", type: .Negative)
     })
   }
+  
+  func turnOffPings() {
+    PingKiller.sharedInstance.turnOffPingsForAWhile()
+  }
 }

@@ -18,6 +18,12 @@ typealias ValidationClosure = TripValidation? -> Void
 
 extension ApiClient {
   static func ping(tripId: Int, ping: Ping, response: GeofenceStatusClosure) {
+    
+    if PingKiller.sharedInstance.shouldKillPings() && Util.debug {
+      response(nil)
+      return
+    }
+    
     authedRequest(.POST, Url.Trip.ping(tripId), parameters: Mapper().toJSON(ping))
       .responseObject { (_, raw, geofenceStatus: FoundGeofenceStatus?, _, _) in
         
@@ -30,12 +36,18 @@ extension ApiClient {
   }
   
   static func pings(tripId: Int, pings: PingBatch, response: SuccessClosure) {
+    
+    if PingKiller.sharedInstance.shouldKillPings() && Util.debug {
+      response(false)
+      return
+    }
+    
     authedRequest(.POST, Url.Trip.pings(tripId), parameters: Mapper().toJSON(PingBatchWrapper(pings)))
       .response { _, raw, _, _ in
         
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
-          response(raw.statusCode == Util.HttpStatusCodes.Ok.rawValue)
+          response(StatusCode.isSuccessful(raw.statusCode))
         } else {
           response(false)
         }

@@ -23,7 +23,7 @@ class GeofenceManager {
   static let sharedInstance = GeofenceManager()
   
   func start() {
-    if let _ = locationObserver {} else {
+    if locationObserver == nil {
       self.locationObserver = NotificationObserver(notification: SfoNotification.Location.read) { location, _ in
         self.process(location)
       }
