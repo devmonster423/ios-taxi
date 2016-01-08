@@ -90,7 +90,7 @@ extension DebugVC {
     } else if state == WaitingForExitAvi.sharedInstance.getState() {
       self.debugView().printDebugLine("Entered Waiting for Exit Avi")
       self.debugView().updateState("Waiting for Exit Avi")
-      self.updateFakeButtons((title: "Fake Exit AVI Read", action: "latestExitAviRead"),
+      self.updateFakeButtons((title: "Fake Dom Exit AVI Read", action: "latestDomExitAviRead"),
         second: (title: "Out of SFO Exit", action: "triggerOutsideSfo"),
         third: (title: "At Intl Term", action: "triggerAtIntlTerminal"))
       
