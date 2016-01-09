@@ -13,7 +13,7 @@ import Nimble
 import Foundation
 import ObjectMapper
 
-var MockPingBatchString = "{\"session_id\":12345,\"pings\":[{\"geofence_status\":0,\"session_id\":\"21008\",\"timestamp\":\"2015-12-18T23:23:48Z\",\"longitude\":-122.409925,\"latitude\":37.55517},{\"geofence_status\":0,\"session_id\":\"21008\",\"timestamp\":\"2015-12-18T23:23:48Z\",\"longitude\":-122.409925,\"latitude\":37.55517}]}"
+var MockPingBatchString = "{\"session_id\":\"12345\",\"pings\":[{\"geofence_status\":0,\"session_id\":\"21008\",\"timestamp\":\"2015-12-18T23:23:48Z\",\"longitude\":-122.409925,\"latitude\":37.55517},{\"geofence_status\":0,\"session_id\":\"21008\",\"timestamp\":\"2015-12-18T23:23:48Z\",\"longitude\":-122.409925,\"latitude\":37.55517}]}"
 
 class PingBatchSpec: QuickSpec {
   var pingBatch: PingBatch!
