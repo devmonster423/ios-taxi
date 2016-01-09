@@ -24,13 +24,13 @@ struct PingBatchWrapper: Mappable {
 }
 
 struct PingBatch: Mappable {
-  var sessionId: Int!
+  var sessionId: String!
   var pings: [Ping]!
   
   init?(_ map: Map){}
   
   init(sessionId: Int, pings: [Ping]) {
-    self.sessionId = sessionId
+    self.sessionId = "\(sessionId)"
     self.pings = pings
   }
   

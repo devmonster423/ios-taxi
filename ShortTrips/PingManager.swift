@@ -100,7 +100,7 @@ class PingManager: NSObject {
           if let geofenceStatus = geofenceStatus {
             postNotification(SfoNotification.Ping.created, value: (ping: ping, geofenceStatus: geofenceStatus))
           } else {
-            self.missedPings.append(ping)
+            self.appendStrip(ping)
           }
         }
     }
@@ -119,6 +119,14 @@ class PingManager: NSObject {
           }
         }
     }
+  }
+  
+  func appendStrip(var ping: Ping) {
+    ping.medallion = nil
+    ping.sessionId = nil
+    ping.tripId = nil
+    ping.vehicleId = nil
+    self.missedPings.append(ping)
   }
   
   func getPingBatch() -> PingBatch? {
