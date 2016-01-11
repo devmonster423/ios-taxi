@@ -13,16 +13,13 @@ var MainTabBarController: UITabBarController {
   let mainTabBarController = UITabBarController()
   
   let flightStatusNavVC = UINavigationController(rootViewController: TerminalSummaryVC())
-  flightStatusNavVC.tabBarItem = UITabBarItem(title: "", image: Image.flightsIcon.image(), selectedImage: nil)
-  flightStatusNavVC.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0)
+  flightStatusNavVC.tabBarItem = UITabBarItem(title: NSLocalizedString("Flights", comment: ""), image: Image.flightsIcon.image(), selectedImage: nil)
   
   let dashboardNavVC = UINavigationController(rootViewController: DashboardVC())
-  dashboardNavVC.tabBarItem = UITabBarItem(title: "", image: Image.dashboardIcon.image(), selectedImage: nil)
-  dashboardNavVC.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0)
+  dashboardNavVC.tabBarItem = UITabBarItem(title: NSLocalizedString("Lot Status", comment: ""), image: Image.dashboardIcon.image(), selectedImage: nil)
   
   let shortTripNavVC = UINavigationController(rootViewController: ShortTripVC())
-  shortTripNavVC.tabBarItem = UITabBarItem(title: "", image: Image.tripIcon.image(), selectedImage: nil)
-  shortTripNavVC.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0)
+  shortTripNavVC.tabBarItem = UITabBarItem(title: NSLocalizedString("Trip", comment: ""), image: Image.tripIcon.image(), selectedImage: nil)
   
   mainTabBarController.viewControllers = [
     flightStatusNavVC,

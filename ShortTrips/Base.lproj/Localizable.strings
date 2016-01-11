@@ -27,7 +27,8 @@
 "Time Expired" = "Time Expired";
 "Trip Started" = "Trip Started: %@";
 "Trip Warning" = "Trip Warning";
-"Short Trip" = "Short Trip";
+"Trip Status" = "Trip Status";
+"Trip" = "Trip";
 
 /* Debug */
 "Last verified geofence(s)" = "Last verified geofence(s)";
@@ -56,6 +57,7 @@
 "An error occurred while logging in." = "An error occurred while logging in.";
 
 /* Dashboard */
+"Lot Status" = "Lot Status";
 "Flight Status" = "Flight Status";
 "Requesting Lot Status..." = "Requesting Lot Status...";
 "Dashboard" = "Dashboard";
