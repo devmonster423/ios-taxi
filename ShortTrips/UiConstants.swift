@@ -73,4 +73,8 @@ struct UiConstants {
     static let statusImageDiameter: CGFloat = 10.0
     static let statusImageVerticalOffset: CGFloat = -2.0
   }
+  
+  struct Trip {
+    static let dividerOffset: CGFloat = 30.0
+  }
 }

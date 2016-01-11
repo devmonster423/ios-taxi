@@ -78,6 +78,7 @@ struct Color {
   struct Trip {
     static let title = UIColor(red: 71.0/255.0, green: 71.0/255.0, blue: 76.0/255.0, alpha: 1.0)
     static let subtitle = UIColor(red: 44.0/255.0, green: 124.0/255.0, blue: 149.0/255.0, alpha: 1.0)
+    static let divider = UIColor(red: 86.0/255.0, green: 86.0/255.0, blue: 90.0/255.0, alpha: 1.0)
     
     struct Time {
       static let title = UIColor(red: 0/255.0, green: 89.0/255.0, blue: 120.0/255.0, alpha: 1.0)

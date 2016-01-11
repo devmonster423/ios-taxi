@@ -22,10 +22,7 @@ class ShortTripVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    setupLocationObservers()
-    setupPingObservers()
-    setupStateObservers()
-    setupTripObservers()
+    setupObservers()
   
     configureNavBar(back:false, title: NSLocalizedString("Short Trip", comment: "").uppercaseString)
     addLogoutButton()

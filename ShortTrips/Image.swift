@@ -33,6 +33,7 @@ enum Image: String {
   
   case splashLogo = "splashLogo"
   
+  // tab bar
   case dashboardIcon = "dashboard_icon"
   case flightsIcon = "flights_icon"
   case tripIcon = "trip_icon"
@@ -40,21 +41,16 @@ enum Image: String {
   case blackCircle = "black_circle"
   case whiteCircle = "white_circle"
   
-  case tripAlert = "alert_icon"
-  case tripCar = "car_icon"
-  case tripCarInProgress = "car_in_progress_icon"
-  case tripCheck = "check_icon"
-  case tripGeofence = "geofence_icon"
-  case tripGps = "gps_icon"
-  case tripHorizontalDivider = "trip_horiz_divider"
-  case tripTime = "time_icon"
-  case tripThumbsUp = "thumbsup_icon"
-  case tripX = "x_icon"
-  
   // TODO: remove when ring is real
   case greenRing = "green_ring"
   case yellowRing = "circle_yellow"
   case redRing = "circle_red"
+  
+  // Trip Prompts
+  case notReady = "not_ready"
+  case ready = "ready"
+  case inProgress = "in_progress"
+  case blueCheckmark = "blue_checkmark"
   
   case genericBackground = "generic_background"
   func image() -> UIImage {

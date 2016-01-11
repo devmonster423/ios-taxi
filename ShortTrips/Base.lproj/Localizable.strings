@@ -6,6 +6,12 @@
   Copyright (c) 2015 SFO. All rights reserved.
 */
 
+/*Trip Prompts */
+"Go to SFO holding lot to start your next trip." = "Go to SFO holding lot to start your next trip.";
+"Pay to start your next trip." = "Pay to start your next trip.";
+"Your trip will start when you exit the airport." = "Your trip will start when you exit the airport.";
+"Your short trip is in progress." = "Your short trip is in progress.";
+
 /* Trip Status */
 "Time Remaining" = "Time Remaining";
 "Entry Gate AVI Detected" = "Entry Gate AVI Detected";
@@ -18,13 +24,6 @@
 "Location Status Updated: GPS On" = "Location Status Updated: GPS On";
 "Location Status Updated: GPS Off" = "Location Status Updated: GPS Off";
 "Trip Went Outside Short Trip Geofence" = "Trip Went Outside Short Trip Geofence";
-"Trip cannot be started" = "Trip cannot be started";
-"Not In Holding Lot" = "Not In Holding Lot";
-"Ready to start trip" = "Ready to start trip";
-"Invalid trip" = "Invalid trip";
-"Valid trip" = "Valid trip";
-"Trip In Progress" = "Trip In Progress";
-"Validating Trip" = "Validating Trip";
 "Time Expired" = "Time Expired";
 "Trip Started" = "Trip Started: %@";
 "Trip Warning" = "Trip Warning";

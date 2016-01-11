@@ -10,28 +10,35 @@ import UIKit
 import SnapKit
 import AVFoundation
 
-enum StateTitle {
-  case NotReady
+enum StatePrompt {
+  case GoToSfo
+  case Pay
   case Ready
   case InProgress
-  case Validating
-  case Invalid
-  case Valid
   
   func toString() -> String {
     switch self {
-    case .NotReady:
-      return NSLocalizedString("Trip cannot be started", comment: "").uppercaseString
+    case .GoToSfo:
+      return NSLocalizedString("Go to SFO holding lot to start your next trip.", comment: "")
+    case .Pay:
+      return NSLocalizedString("Pay to start your next trip.", comment: "")
     case .Ready:
-      return NSLocalizedString("Ready to start trip", comment: "").uppercaseString
+      return NSLocalizedString("Your trip will start when you exit the airport.", comment: "")
     case .InProgress:
-      return NSLocalizedString("Trip In Progress", comment: "").uppercaseString
-    case .Validating:
-      return NSLocalizedString("Validating Trip", comment: "").uppercaseString
-    case .Invalid:
-      return NSLocalizedString("Invalid trip", comment: "").uppercaseString
-    case .Valid:
-      return NSLocalizedString("Valid trip", comment: "").uppercaseString
+      return NSLocalizedString("Your short trip is in progress.", comment: "")
+    }
+  }
+  
+  func image() -> UIImage {
+    switch self {
+    case .GoToSfo:
+      return Image.notReady.image()
+    case .Pay:
+      return Image.notReady.image()
+    case .Ready:
+      return Image.ready.image()
+    case .InProgress:
+      return Image.inProgress.image()
     }
   }
 }
@@ -39,11 +46,10 @@ enum StateTitle {
 class ShortTripView: UIView {
   let countdownLabel = UILabel()
   let countdownSubtitleLabel = UILabel()
-  private let currentStateLabel = UILabel()
-  let notificationImageView = UIImageView()
-  let topImageView = UIImageView()
+  private let promptLabel = UILabel()
+  private let promptImageView = UIImageView()
   private let notificationLabel = UILabel()
-  private var currentTitle: StateTitle?
+  private var currentPrompt: StatePrompt?
   
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -56,10 +62,9 @@ class ShortTripView: UIView {
     
     addSubview(countdownLabel)
     addSubview(countdownSubtitleLabel)
-    addSubview(currentStateLabel)
-    addSubview(notificationImageView)
+    addSubview(promptLabel)
+    addSubview(promptImageView)
     addSubview(notificationLabel)
-    addSubview(topImageView)
     
     countdownLabel.backgroundColor = Color.Trip.Time.background
     countdownLabel.font = Font.MyriadPro.size(28)
@@ -80,22 +85,32 @@ class ShortTripView: UIView {
       make.height.equalTo(40)
     }
     
-    currentStateLabel.font = Font.MyriadPro.size(28)
-    currentStateLabel.textAlignment = .Center
-    currentStateLabel.numberOfLines = 0
-    currentStateLabel.textColor = Color.Trip.title
-    currentStateLabel.snp_makeConstraints { make in
+    promptLabel.font = Font.MyriadPro.size(28)
+    promptLabel.textAlignment = .Center
+    promptLabel.numberOfLines = 0
+    promptLabel.textColor = Color.Trip.title
+    promptLabel.snp_makeConstraints { make in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.top.equalTo(self).offset(10)
       make.height.equalTo(75)
     }
     
-    notificationImageView.contentMode = .ScaleAspectFit
-    notificationImageView.snp_makeConstraints { make in
+    let horizontalDivider = UIView()
+    horizontalDivider.backgroundColor = Color.Trip.divider
+    addSubview(horizontalDivider)
+    horizontalDivider.snp_makeConstraints { (make) -> Void in
+      make.leading.equalTo(self).offset(UiConstants.Trip.dividerOffset)
+      make.height.equalTo(1)
+      make.trailing.equalTo(self).offset(-UiConstants.Trip.dividerOffset)
+      make.top.equalTo(promptLabel.snp_bottom)
+    }
+    
+    promptImageView.contentMode = .ScaleAspectFit
+    promptImageView.snp_makeConstraints { make in
       make.centerX.equalTo(self)
       make.width.equalTo(200)
-      make.height.equalTo(200)
+      make.top.equalTo(horizontalDivider.snp_bottom).offset(20)
       make.bottom.equalTo(countdownLabel.snp_top).offset(-20)
     }
     
@@ -110,22 +125,15 @@ class ShortTripView: UIView {
       make.bottom.equalTo(self)
       make.height.equalTo(150)
     }
-    
-    topImageView.contentMode = .ScaleAspectFit
-    topImageView.clipsToBounds = true
-    topImageView.snp_makeConstraints { (make) -> Void in
-      make.centerX.equalTo(self)
-      make.width.equalTo(notificationImageView)
-      make.top.equalTo(currentStateLabel.snp_bottom)
-      make.bottom.equalTo(notificationImageView.snp_top).offset(-10)
-    }
   }
   
-  func updateTitle(title: StateTitle) {
-    if title != currentTitle {
-      currentStateLabel.text = title.toString()
-      AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: title.toString()))
-      currentTitle = title
+  func updatePrompt(prompt: StatePrompt) {
+    if prompt != currentPrompt {
+      promptLabel.text = prompt.toString()
+      promptImageView.image = prompt.image()
+      AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: prompt.toString()))
+  
+      currentPrompt = prompt
     }
   }
   
