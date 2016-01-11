@@ -44,7 +44,8 @@ extension ShortTripVC {
           || state == WaitingForEntryAvi.sharedInstance.getState() {
             
             self.shortTripView().notify(NSLocalizedString("Not In Holding Lot", comment: ""))
-        } else {
+            
+        } else if state == WaitingInHoldingLot.sharedInstance.getState() {
           self.shortTripView().notify(NSLocalizedString("In Holding Lot", comment: ""))
         }
       
