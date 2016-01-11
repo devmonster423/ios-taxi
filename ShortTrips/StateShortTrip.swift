@@ -57,10 +57,7 @@ extension ShortTripVC {
         self.shortTripView().notify("")
         self.shortTripView().notificationImageView.image = Image.tripThumbsUp.image()
       
-    } else if state == InProgress.sharedInstance.getState()
-      || state == WaitingForReEntryAvi.sharedInstance.getState()
-      || state == AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState()
-      || state == WaitingForReEntryCid.sharedInstance.getState() {
+    } else if tripInProgress(state) {
         
         self.shortTripView().topImageView.image = Image.tripHorizontalDivider.image()
         self.shortTripView().updateTitle(.InProgress)
@@ -73,5 +70,15 @@ extension ShortTripVC {
       self.shortTripView().notify("")
       self.shortTripView().notificationImageView.image = Image.tripCarInProgress.image()
     }
+    
+    shortTripView().countdownLabel.hidden = !tripInProgress(state)
+    shortTripView().countdownSubtitleLabel.hidden = !tripInProgress(state)
+  }
+
+  func tripInProgress(state: TKState) -> Bool {
+    return state == InProgress.sharedInstance.getState()
+      || state == WaitingForReEntryAvi.sharedInstance.getState()
+      || state == AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState()
+      || state == WaitingForReEntryCid.sharedInstance.getState()
   }
 }

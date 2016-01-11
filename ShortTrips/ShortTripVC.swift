@@ -55,14 +55,11 @@ class ShortTripVC: UIViewController {
       let remainingHours = Int(remainingTime / (60 * 60))
       let remainingMinutes = Int((remainingTime - remainingHours * 60 * 60) / 60)
       let remainingSeconds = Int(remainingTime - remainingHours * 60 * 60 - remainingMinutes * 60)
-      shortTripView().countdownLabel.hidden = false
+      
       shortTripView().countdownLabel.text = "\(remainingHours)h \(remainingMinutes)m \(remainingSeconds)s"
-      shortTripView().countdownSubtitleLabel.hidden = false
       shortTripView().notify("")
     } else {
-      shortTripView().countdownLabel.hidden = true
       shortTripView().countdownLabel.text = ""
-      shortTripView().countdownSubtitleLabel.hidden = true
     }
   }
 }
