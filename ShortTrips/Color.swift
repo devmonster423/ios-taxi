@@ -81,7 +81,7 @@ struct Color {
     static let divider = title
     
     struct Notification {
-      static let red = UIColor(red: 248/255.0, green: 200/255.0, blue: 200/255.0, alpha: 1.0)
+      static let red = UIColor(red: 248/255.0, green: 217/255.0, blue: 221/255.0, alpha: 1.0)
       static let green = UIColor(red: 242/255.0, green: 248/255.0, blue: 245/255.0, alpha: 1.0)
     }
     
