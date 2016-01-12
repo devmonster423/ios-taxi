@@ -75,10 +75,11 @@ struct UiConstants {
   }
   
   struct Trip {
+    static let countdownHeight: CGFloat = 150.0
     static let topMargin: CGFloat = 50.0
-    static let promptHeight: CGFloat = 100.0
+    static let promptHeight: CGFloat = 150.0
     static let dividerMargin: CGFloat = 15.0
-    static let imageCenterOffset: CGFloat = (topMargin + promptHeight + dividerMargin)/2
+    static let imageCenterOffset: CGFloat = (topMargin + promptHeight + dividerMargin - countdownHeight)/2
     
     struct Notification {
       static let offset: CGFloat = 10.0
