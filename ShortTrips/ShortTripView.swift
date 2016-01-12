@@ -93,23 +93,24 @@ class ShortTripView: UIView {
       make.centerX.equalTo(self)
       make.height.equalTo(1)
       make.width.equalTo(self).dividedBy(2)
-      make.bottom.equalTo(promptImageView.snp_top).offset(-UiConstants.Trip.verticalMargin)
+      make.top.equalTo(promptLabel.snp_bottom).offset(UiConstants.Trip.dividerMargin)
     }
     
-    promptLabel.font = Font.OpenSansBold.size(28)
+    promptLabel.font = Font.OpenSansSemibold.size(25)
     promptLabel.textAlignment = .Center
     promptLabel.numberOfLines = 0
     promptLabel.textColor = Color.Trip.title
     promptLabel.snp_makeConstraints { make in
-      make.leading.equalTo(self)
-      make.trailing.equalTo(self)
-      make.height.equalTo(75)
-      make.bottom.equalTo(horizontalDivider.snp_top).offset(-UiConstants.Trip.verticalMargin)
+      make.leading.equalTo(self).offset(25)
+      make.trailing.equalTo(self).offset(-25)
+      make.height.equalTo(UiConstants.Trip.promptHeight)
+      make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
     }
     
     promptImageView.contentMode = .ScaleAspectFit
     promptImageView.snp_makeConstraints { make in
-      make.center.equalTo(self)
+      make.centerX.equalTo(self)
+      make.centerY.equalTo(self).offset(UiConstants.Trip.imageCenterOffset)
       make.width.equalTo(200)
       make.height.equalTo(200)
     }
