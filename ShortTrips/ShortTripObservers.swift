@@ -71,8 +71,7 @@ extension ShortTripVC {
         self.shortTripView().updatePrompt(.InProgress)
     }
     
-    shortTripView().countdownLabel.hidden = !tripInProgress(state)
-    shortTripView().countdownSubtitleLabel.hidden = !tripInProgress(state)
+    shortTripView().countdown.hidden = !tripInProgress(state)
   }
 
   func tripInProgress(state: TKState) -> Bool {

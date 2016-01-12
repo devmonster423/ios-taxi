@@ -43,8 +43,7 @@ enum StatePrompt {
 }
 
 class ShortTripView: UIView {
-  let countdownLabel = UILabel()
-  let countdownSubtitleLabel = UILabel()
+  let countdown = CountdownView()
   private let promptLabel = UILabel()
   private let promptImageView = UIImageView()
   private let notificationView = NotificationView()
@@ -59,31 +58,15 @@ class ShortTripView: UIView {
     
     backgroundColor = UIColor.whiteColor()
     
-    addSubview(countdownLabel)
-    addSubview(countdownSubtitleLabel)
+    addSubview(countdown)
     addSubview(promptLabel)
     addSubview(promptImageView)
     
-    countdownLabel.backgroundColor = Color.Trip.Time.background
-    countdownLabel.font = Font.OpenSansBold.size(40)
-    countdownLabel.textAlignment = .Center
-    countdownLabel.textColor = Color.Trip.Time.title
-    countdownLabel.snp_makeConstraints { make in
+    countdown.snp_makeConstraints { make in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.bottom.equalTo(self)
       make.height.equalTo(UiConstants.Trip.countdownHeight)
-    }
-    
-    countdownSubtitleLabel.font = Font.OpenSansSemibold.size(20)
-    countdownSubtitleLabel.text = NSLocalizedString("Time Remaining", comment: "").uppercaseString
-    countdownSubtitleLabel.textAlignment = .Center
-    countdownSubtitleLabel.textColor = Color.Trip.Time.subtitle
-    countdownSubtitleLabel.snp_makeConstraints { make in
-      make.leading.equalTo(countdownLabel)
-      make.trailing.equalTo(countdownLabel)
-      make.bottom.equalTo(countdownLabel).offset(-5)
-      make.height.equalTo(40)
     }
     
     let horizontalDivider = UIView()
@@ -180,5 +163,9 @@ class ShortTripView: UIView {
   
   func hideNotification() {
     notificationView.hidden = true
+  }
+  
+  func updateCountdown(elapsedTime: NSTimeInterval?) {
+    countdown.updateCountdown(elapsedTime)
   }
 }
