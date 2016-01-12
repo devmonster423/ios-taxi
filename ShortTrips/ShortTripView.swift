@@ -65,7 +65,7 @@ class ShortTripView: UIView {
     addSubview(promptImageView)
     
     countdownLabel.backgroundColor = Color.Trip.Time.background
-    countdownLabel.font = Font.OpenSans.size(28)
+    countdownLabel.font = Font.OpenSansBold.size(40)
     countdownLabel.textAlignment = .Center
     countdownLabel.textColor = Color.Trip.Time.title
     countdownLabel.snp_makeConstraints { make in
@@ -75,14 +75,14 @@ class ShortTripView: UIView {
       make.height.equalTo(UiConstants.Trip.countdownHeight)
     }
     
-    countdownSubtitleLabel.font = Font.OpenSans.size(24)
+    countdownSubtitleLabel.font = Font.OpenSansSemibold.size(20)
     countdownSubtitleLabel.text = NSLocalizedString("Time Remaining", comment: "").uppercaseString
     countdownSubtitleLabel.textAlignment = .Center
     countdownSubtitleLabel.textColor = Color.Trip.Time.subtitle
     countdownSubtitleLabel.snp_makeConstraints { make in
       make.leading.equalTo(countdownLabel)
       make.trailing.equalTo(countdownLabel)
-      make.bottom.equalTo(countdownLabel)
+      make.bottom.equalTo(countdownLabel).offset(-5)
       make.height.equalTo(40)
     }
     

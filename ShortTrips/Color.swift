@@ -87,7 +87,7 @@ struct Color {
     
     struct Time {
       static let title = UIColor(red: 0/255.0, green: 89.0/255.0, blue: 120.0/255.0, alpha: 1.0)
-      static let subtitle = UIColor(red: 52.0/255.0, green: 126.0/255.0, blue: 151.0/255.0, alpha: 1.0)
+      static let subtitle = UIColor(red: 72.0/255.0, green: 136.0/255.0, blue: 158.0/255.0, alpha: 1.0)
       static let background = UIColor(red: 242.0/255.0, green: 246.0/255.0, blue: 248.0/255.0, alpha: 1.0)
     }
   }
