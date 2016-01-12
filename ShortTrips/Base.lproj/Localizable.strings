@@ -8,7 +8,7 @@
 
 /*Trip Prompts */
 "Go to SFO holding lot to start your next trip." = "Go to SFO holding lot to start your next trip.";
-"Pay to start your next trip." = "Pay to start your next trip.";
+"Pay and go to terminal curbside to start your next trip." = "Pay and go to terminal curbside to start your next trip.";
 "Your trip will start when you exit the airport." = "Your trip will start when you exit the airport.";
 "Your short trip is in progress." = "Your short trip is in progress.";
 "Your trip is now a long." = "Your trip is now a long.";

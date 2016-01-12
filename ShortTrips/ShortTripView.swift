@@ -20,7 +20,7 @@ enum StatePrompt {
     case .GoToSfo:
       return NSLocalizedString("Go to SFO holding lot to start your next trip.", comment: "")
     case .Pay:
-      return NSLocalizedString("Pay to start your next trip.", comment: "")
+      return NSLocalizedString("Pay and go to terminal curbside to start your next trip.", comment: "")
     case .Ready:
       return NSLocalizedString("Your trip will start when you exit the airport.", comment: "")
     case .InProgress:
