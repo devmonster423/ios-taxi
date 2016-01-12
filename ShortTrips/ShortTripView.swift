@@ -32,13 +32,13 @@ enum StatePrompt {
   func image() -> UIImage {
     switch self {
     case .GoToSfo:
-      return Image.notReady.image()
+      return Image.exclamationPoint.image()
     case .Pay:
-      return Image.notReady.image()
+      return Image.exclamationPoint.image()
     case .Ready:
-      return Image.ready.image()
+      return Image.mapPin.image()
     case .InProgress:
-      return Image.inProgress.image()
+      return Image.car.image()
     }
   }
 }

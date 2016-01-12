@@ -18,7 +18,7 @@ extension DebugVC {
     }
     
     sfoObservers.outsideShortTripObserver = NotificationObserver(notification: SfoNotification.Geofence.outsideShortTrip) { _, _ in
-      self.debugView().printDebugLine("Trip went outside Short Trip geofence", type: .Negative)
+      self.debugView().printDebugLine("Outside short trip geofence.", type: .Negative)
     }
   }
 }

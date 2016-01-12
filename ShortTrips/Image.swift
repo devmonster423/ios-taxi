@@ -47,9 +47,9 @@ enum Image: String {
   case redRing = "circle_red"
   
   // Trip Prompts
-  case notReady = "not_ready"
-  case ready = "ready"
-  case inProgress = "in_progress"
+  case exclamationPoint = "exclamation_point"
+  case mapPin = "map_pin"
+  case car = "car"
   case blueCheckmark = "blue_checkmark"
   
   case genericBackground = "generic_background"

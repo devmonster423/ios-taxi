@@ -11,6 +11,17 @@
 "Pay to start your next trip." = "Pay to start your next trip.";
 "Your trip will start when you exit the airport." = "Your trip will start when you exit the airport.";
 "Your short trip is in progress." = "Your short trip is in progress.";
+"Your trip is now a long." = "Your trip is now a long.";
+"Time expired." = "Time expired.";
+"Vehicle mismatch." = "Vehicle mismatch.";
+"Card error." = "Card error.";
+"Phone error." = "Phone error.";
+"Outside short trip geofence." = "Outside short trip geofence.";
+"GPS off." = "GPS off.";
+"Network failure." = "Network failure.";
+"User logout." = "User logout.";
+"App quit." = "App quit.";
+"App crash." = "App crash.";
 
 /* Trip Status */
 "Time Remaining" = "Time Remaining";
@@ -20,11 +31,8 @@
 "Entry CID Read Detected" = "Entry CID Read Detected";
 "Payment CID Read Detected" = "Payment CID Read Detected";
 "Driver Is Associated with Transponder" = "Driver %@ &@ Is Associated with Transponder: %@";
-"Trip Went Outside Short Trip Geofence" = "Trip Went Outside Short Trip Geofence";
 "Location Status Updated: GPS On" = "Location Status Updated: GPS On";
 "Location Status Updated: GPS Off" = "Location Status Updated: GPS Off";
-"Trip Went Outside Short Trip Geofence" = "Trip Went Outside Short Trip Geofence";
-"Time Expired" = "Time Expired";
 "Trip Started" = "Trip Started: %@";
 "Trip Warning" = "Trip Warning";
 "Trip Status" = "Trip Status";
