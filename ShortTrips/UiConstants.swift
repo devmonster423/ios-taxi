@@ -76,5 +76,9 @@ struct UiConstants {
   
   struct Trip {
     static let dividerOffset: CGFloat = 30.0
+    
+    struct Notification {
+      static let offset: CGFloat = 10.0
+    }
   }
 }

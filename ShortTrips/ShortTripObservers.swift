@@ -15,20 +15,16 @@ extension ShortTripVC {
   func setupObservers() {
     
     sfoObservers.invalidatedObserver = NotificationObserver(notification: SfoNotification.Trip.invalidated) { validationSteps, _ in
-      if let validationSteps = validationSteps {
-        var message = ""
-        for validationStep in validationSteps {
-          message += validationStep.description + " "
-        }
-        self.shortTripView().notify(message)
+      if let validationSteps = validationSteps where validationSteps.count > 0 {
+        self.shortTripView().notify(validationSteps.first!.validationStep)
+      } else {
+        self.shortTripView().notify(.Unspecified)
       }
-      
-      // TODO
     }
     
     sfoObservers.locationStatusObserver = NotificationObserver(notification: SfoNotification.Location.statusUpdated) { status, _ in
       if status != .AuthorizedAlways {
-        // TODO notify
+        self.shortTripView().notify(.GpsFailure)
       }
     }
     
@@ -36,18 +32,16 @@ extension ShortTripVC {
       self.updateForState(state)
     }
     
-    sfoObservers.outsideShortTripObserver = NotificationObserver(notification: SfoNotification.Geofence.outsideShortTrip) { (value, sender) -> Void in
-     
-      // TODO
+    sfoObservers.outsideShortTripObserver = NotificationObserver(notification: SfoNotification.Geofence.outsideShortTrip) { _, _ in
+      self.shortTripView().notify(.Geofence)
     }
     
     sfoObservers.timeExpiredObserver = NotificationObserver(notification: SfoNotification.Trip.timeExpired) { _, _ in
-      self.shortTripView().notify(NSLocalizedString("Time Expired", comment: ""))
+      self.shortTripView().notify(.Duration)
     }
     
     sfoObservers.validatedObserver = NotificationObserver(notification: SfoNotification.Trip.validated) { _, _ in
-      
-      // TODO
+      self.shortTripView().notify(.Valid)
     }
   }
   
@@ -71,6 +65,7 @@ extension ShortTripVC {
       || state == WaitingForStartTrip.sharedInstance.getState() {
         
         self.shortTripView().updatePrompt(.Ready)
+        self.shortTripView().hideNotification()
       
     } else if tripInProgress(state) {
         self.shortTripView().updatePrompt(.InProgress)

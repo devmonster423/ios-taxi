@@ -95,6 +95,7 @@
 		C221EDE91BE2CEE500BDB4CD /* OutsideSfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDE81BE2CEE500BDB4CD /* OutsideSfo.swift */; };
 		C221EDEB1BE2E12E00BDB4CD /* MockAntennaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDEA1BE2E12E00BDB4CD /* MockAntennaResponse.swift */; };
 		C23315851BB472490079B916 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23315841BB472490079B916 /* Airline.swift */; };
+		C24388431C447B4E00984CB8 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24388421C447B4E00984CB8 /* NotificationView.swift */; };
 		C257FB3D1BC44E4200468CF1 /* GeofenceArbiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C257FB3C1BC44E4200468CF1 /* GeofenceArbiter.swift */; };
 		C25C9D2B1BEC057A0028FA81 /* TripScenario7Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25C9D2A1BEC057A0028FA81 /* TripScenario7Spec.swift */; };
 		C2635E261BB0CA3F003C22B1 /* DispatcherClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2635E251BB0CA3F003C22B1 /* DispatcherClient.swift */; };
@@ -375,6 +376,7 @@
 		C221EDE81BE2CEE500BDB4CD /* OutsideSfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutsideSfo.swift; sourceTree = "<group>"; };
 		C221EDEA1BE2E12E00BDB4CD /* MockAntennaResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAntennaResponse.swift; sourceTree = "<group>"; };
 		C23315841BB472490079B916 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
+		C24388421C447B4E00984CB8 /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		C257FB3C1BC44E4200468CF1 /* GeofenceArbiter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceArbiter.swift; sourceTree = "<group>"; };
 		C25C9D2A1BEC057A0028FA81 /* TripScenario7Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TripScenario7Spec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C2635E251BB0CA3F003C22B1 /* DispatcherClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatcherClient.swift; sourceTree = "<group>"; };
@@ -1061,6 +1063,7 @@
 		E1472D091C0E7C0600D27D60 /* ShortTrip */ = {
 			isa = PBXGroup;
 			children = (
+				C24388421C447B4E00984CB8 /* NotificationView.swift */,
 				E1472D0A1C0E7C2400D27D60 /* ShortTripView.swift */,
 			);
 			name = ShortTrip;
@@ -1621,6 +1624,7 @@
 				C285F1D31C18F1C800AA3363 /* AssociatingDriverAndVehicleAtReEntry.swift in Sources */,
 				E18FF68F1BA869A300FE93B9 /* Antenna.swift in Sources */,
 				E17352851B8CEC9B0031950B /* UiHelpers.swift in Sources */,
+				C24388431C447B4E00984CB8 /* NotificationView.swift in Sources */,
 				C220E06D1BC33C1D00AC7C85 /* NotReady.swift in Sources */,
 				E1472D081C0E7BC900D27D60 /* SfoObservers.swift in Sources */,
 				C220E0711BC3440C00AC7C85 /* InsideTaxiLoopExit.swift in Sources */,

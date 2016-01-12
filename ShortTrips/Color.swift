@@ -80,6 +80,11 @@ struct Color {
     static let subtitle = UIColor(red: 44.0/255.0, green: 124.0/255.0, blue: 149.0/255.0, alpha: 1.0)
     static let divider = UIColor(red: 86.0/255.0, green: 86.0/255.0, blue: 90.0/255.0, alpha: 1.0)
     
+    struct Notification {
+      static let red = StatusColor.red
+      static let green = StatusColor.green
+    }
+    
     struct Time {
       static let title = UIColor(red: 0/255.0, green: 89.0/255.0, blue: 120.0/255.0, alpha: 1.0)
       static let subtitle = UIColor(red: 52.0/255.0, green: 126.0/255.0, blue: 151.0/255.0, alpha: 1.0)

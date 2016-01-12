@@ -48,7 +48,7 @@ class ShortTripView: UIView {
   let countdownSubtitleLabel = UILabel()
   private let promptLabel = UILabel()
   private let promptImageView = UIImageView()
-  private let notificationLabel = UILabel()
+  private let notificationView = NotificationView()
   private var currentPrompt: StatePrompt?
   
   required init(coder aDecoder: NSCoder) {
@@ -64,14 +64,17 @@ class ShortTripView: UIView {
     addSubview(countdownSubtitleLabel)
     addSubview(promptLabel)
     addSubview(promptImageView)
-    addSubview(notificationLabel)
+    addSubview(notificationView)
     
     countdownLabel.backgroundColor = Color.Trip.Time.background
     countdownLabel.font = Font.MyriadPro.size(28)
     countdownLabel.textAlignment = .Center
     countdownLabel.textColor = Color.Trip.Time.title
     countdownLabel.snp_makeConstraints { make in
-      make.edges.equalTo(notificationLabel)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.bottom.equalTo(self)
+      make.height.equalTo(150)
     }
     
     countdownSubtitleLabel.font = Font.MyriadPro.size(24)
@@ -114,17 +117,7 @@ class ShortTripView: UIView {
       make.bottom.equalTo(countdownLabel.snp_top).offset(-20)
     }
     
-    notificationLabel.backgroundColor = Color.Auth.fadedWhite
-    notificationLabel.font = Font.MyriadPro.size(20)
-    notificationLabel.numberOfLines = 0
-    notificationLabel.textAlignment = .Center
-    notificationLabel.textColor = Color.Trip.subtitle
-    notificationLabel.snp_makeConstraints { make in
-      make.leading.equalTo(self)
-      make.trailing.equalTo(self)
-      make.bottom.equalTo(self)
-      make.height.equalTo(150)
-    }
+    notificationView.hidden = true
   }
   
   func updatePrompt(prompt: StatePrompt) {
@@ -137,12 +130,41 @@ class ShortTripView: UIView {
     }
   }
   
-  func notify(notification: String) {
-    notificationLabel.text = notification
+  func notify(validationStep: ValidationStep) {
     
-    if !notification.isEmpty {
-      countdownLabel.hidden = true
-      countdownSubtitleLabel.hidden = true
+    notificationView.snp_remakeConstraints { make in
+      make.height.equalTo(self).multipliedBy(0.75)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.bottom.equalTo(self)
     }
+    notificationView.setNeedsUpdateConstraints()
+    layoutIfNeeded()
+    
+    let duration: NSTimeInterval = 0.5
+    let delay: NSTimeInterval = 5
+    
+    notificationView.notify(validationStep, delay: delay, duration: duration)
+    
+    notificationView.snp_remakeConstraints { make in
+      make.height.equalTo(self).multipliedBy(0.25)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.bottom.equalTo(self)
+    }
+    
+    notificationView.setNeedsUpdateConstraints()
+    notificationView.hidden = false
+    UIView.animateWithDuration(duration,
+      delay: delay,
+      options: UIViewAnimationOptions.CurveEaseInOut,
+      animations: {
+        self.layoutIfNeeded()
+      },
+      completion: nil)
+  }
+  
+  func hideNotification() {
+    notificationView.hidden = true
   }
 }
