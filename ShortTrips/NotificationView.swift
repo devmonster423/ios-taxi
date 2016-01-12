@@ -47,7 +47,7 @@ class NotificationView: UIView {
   
   func notifySuccess() {
     backgroundColor = Color.Trip.Notification.green
-    notificationLabel.text = NSLocalizedString("Your trip finished and it was short.", comment: "")
+    notificationLabel.text = NSLocalizedString("Your trip finished and it was short", comment: "").uppercaseString
     notificationImageView.image = Image.blueCheckmark.image()
     notificationImageView.alpha = 1
     Speaker.speak(notificationLabel.text!)
@@ -55,35 +55,35 @@ class NotificationView: UIView {
   
   func notifyFail(validationStep: ValidationStep, delay: NSTimeInterval, duration: NSTimeInterval) {
       
-    var notificationText = NSLocalizedString("Your trip is now a long.", comment: "") + " "
+    var notificationText = NSLocalizedString("Your trip is now a long", comment: "") + "\n"
     
     switch validationStep {
     case .Duration:
-      notificationText += NSLocalizedString("Time expired.", comment: "")
+      notificationText += NSLocalizedString("Time expired", comment: "")
     case .Vehicle:
-      notificationText += NSLocalizedString("Vehicle mismatch.", comment: "")
+      notificationText += NSLocalizedString("Vehicle mismatch", comment: "")
     case .DriverCardId:
-      notificationText += NSLocalizedString("Card error.", comment: "")
+      notificationText += NSLocalizedString("Card error", comment: "")
     case .MacAddress:
-      notificationText += NSLocalizedString("Phone error.", comment: "")
+      notificationText += NSLocalizedString("Phone error", comment: "")
     case .Geofence:
-      notificationText += NSLocalizedString("Outside short trip geofence.", comment: "")
+      notificationText += NSLocalizedString("Outside short trip geofence", comment: "")
     case .GpsFailure:
-      notificationText += NSLocalizedString("GPS off.", comment: "")
+      notificationText += NSLocalizedString("GPS off", comment: "")
     case .NetworkFailure:
-      notificationText += NSLocalizedString("Network failure.", comment: "")
+      notificationText += NSLocalizedString("Network failure", comment: "")
     case .UserLogout:
-      notificationText += NSLocalizedString("User logout.", comment: "")
+      notificationText += NSLocalizedString("User logout", comment: "")
     case .AppQuit:
-      notificationText += NSLocalizedString("App quit.", comment: "")
+      notificationText += NSLocalizedString("App quit", comment: "")
     case .AppCrash:
-      notificationText += NSLocalizedString("App crash.", comment: "")
+      notificationText += NSLocalizedString("App crash", comment: "")
     default:
       break
     }
     
     backgroundColor = Color.Trip.Notification.red
-    notificationLabel.text = notificationText
+    notificationLabel.text = notificationText.uppercaseString
     notificationImageView.image = Image.exclamationPoint.image()
     
     Speaker.speak(notificationLabel.text!)

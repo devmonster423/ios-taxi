@@ -18,13 +18,13 @@ enum StatePrompt {
   func toString() -> String {
     switch self {
     case .GoToSfo:
-      return NSLocalizedString("Go to SFO holding lot to start your next trip.", comment: "")
+      return NSLocalizedString("Go to SFO holding lot to start your next trip", comment: "").uppercaseString
     case .Pay:
-      return NSLocalizedString("Pay and go to terminal curbside to start your next trip.", comment: "")
+      return NSLocalizedString("Pay and go to terminal curbside to start your next trip", comment: "").uppercaseString
     case .Ready:
-      return NSLocalizedString("Your trip will start when you exit the airport.", comment: "")
+      return NSLocalizedString("Your trip will start when you exit the airport", comment: "").uppercaseString
     case .InProgress:
-      return NSLocalizedString("Your short trip is in progress.", comment: "")
+      return NSLocalizedString("Your short trip is in progress", comment: "").uppercaseString
     }
   }
   
@@ -76,7 +76,7 @@ class ShortTripView: UIView {
     }
     
     countdownSubtitleLabel.font = Font.MyriadPro.size(24)
-    countdownSubtitleLabel.text = NSLocalizedString("Time Remaining", comment: "")
+    countdownSubtitleLabel.text = NSLocalizedString("Time Remaining", comment: "").uppercaseString
     countdownSubtitleLabel.textAlignment = .Center
     countdownSubtitleLabel.textColor = Color.Trip.Time.subtitle
     countdownSubtitleLabel.snp_makeConstraints { make in
