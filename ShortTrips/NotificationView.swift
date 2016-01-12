@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import SnapKit
-import AVFoundation
 
 class NotificationView: UIView {
 
@@ -34,7 +33,7 @@ class NotificationView: UIView {
       make.leading.equalTo(self).offset(UiConstants.Trip.Notification.offset)
       make.trailing.equalTo(self).offset(-UiConstants.Trip.Notification.offset)
       make.top.equalTo(self).offset(UiConstants.Trip.Notification.offset)
-      make.height.equalTo(self).dividedBy(3)
+      make.height.equalTo(self).dividedBy(2)
     }
     
     notificationImageView.contentMode = .ScaleAspectFit
@@ -51,7 +50,7 @@ class NotificationView: UIView {
     notificationLabel.text = NSLocalizedString("Your trip finished and it was short.", comment: "")
     notificationImageView.image = Image.blueCheckmark.image()
     notificationImageView.alpha = 1
-    AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: notificationLabel.text!))
+    Speaker.speak(notificationLabel.text!)
   }
   
   func notifyFail(validationStep: ValidationStep, delay: NSTimeInterval, duration: NSTimeInterval) {
@@ -87,7 +86,7 @@ class NotificationView: UIView {
     notificationLabel.text = notificationText
     notificationImageView.image = Image.exclamationPoint.image()
     
-    AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: notificationLabel.text!))
+    Speaker.speak(notificationLabel.text!)
     
     notificationImageView.alpha = 1
     UIView.animateWithDuration(duration,

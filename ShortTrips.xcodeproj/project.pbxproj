@@ -105,6 +105,7 @@
 		C2635E301BB0CE1C003C22B1 /* GeofenceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2635E2F1BB0CE1C003C22B1 /* GeofenceClient.swift */; };
 		C26530B41BE3F7CB002C0A97 /* TripInvalidated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26530B31BE3F7CB002C0A97 /* TripInvalidated.swift */; };
 		C26530B61BE3FB66002C0A97 /* TripValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26530B51BE3FB66002C0A97 /* TripValidation.swift */; };
+		C26ABD131C45936100EF4684 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26ABD121C45936100EF4684 /* Speaker.swift */; };
 		C27450BC1BB4988200D33CDD /* AirlineListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27450BB1BB4988200D33CDD /* AirlineListWrapper.swift */; };
 		C28224621BB09A8A007F284F /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76C1B66E95E00AB27D2 /* MyriadPro-Semibold.otf */; };
 		C28224631BB09A8A007F284F /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */; };
@@ -386,6 +387,7 @@
 		C2635E2F1BB0CE1C003C22B1 /* GeofenceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceClient.swift; sourceTree = "<group>"; };
 		C26530B31BE3F7CB002C0A97 /* TripInvalidated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripInvalidated.swift; sourceTree = "<group>"; };
 		C26530B51BE3FB66002C0A97 /* TripValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripValidation.swift; sourceTree = "<group>"; };
+		C26ABD121C45936100EF4684 /* Speaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
 		C27450BB1BB4988200D33CDD /* AirlineListWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineListWrapper.swift; sourceTree = "<group>"; };
 		C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatusVCSpec.swift; sourceTree = "<group>"; };
 		C283AB341BE936B30004E8CD /* CidDebugger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidDebugger.swift; sourceTree = "<group>"; };
@@ -1309,6 +1311,7 @@
 				FA0E1FD11BAF1DD500B8F921 /* Font.swift */,
 				C2B15ADE1BBB16010049B97C /* Image.swift */,
 				C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */,
+				C26ABD121C45936100EF4684 /* Speaker.swift */,
 				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
 				E17352841B8CEC9B0031950B /* UiHelpers.swift */,
 				E15FF4971BD5F0C700ECDF27 /* Util.swift */,
@@ -1758,6 +1761,7 @@
 				C2E6B9631C40613E00100C83 /* PingBatch.swift in Sources */,
 				E14A392A1BE957B80053F741 /* LoggedOut.swift in Sources */,
 				C283AB411BE93B830004E8CD /* TripDebugger.swift in Sources */,
+				C26ABD131C45936100EF4684 /* Speaker.swift in Sources */,
 				E18228FB1BC48F2300614256 /* InProgress.swift in Sources */,
 				E1F153C31BF02B7C00E212ED /* TerminalSummaryDeparturesWrapper.swift in Sources */,
 				8E27540E1BF17C2A00F36047 /* GpsDisabled.swift in Sources */,

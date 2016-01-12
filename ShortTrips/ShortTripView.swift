@@ -8,7 +8,6 @@
 
 import UIKit
 import SnapKit
-import AVFoundation
 
 enum StatePrompt {
   case GoToSfo
@@ -64,7 +63,6 @@ class ShortTripView: UIView {
     addSubview(countdownSubtitleLabel)
     addSubview(promptLabel)
     addSubview(promptImageView)
-    addSubview(notificationView)
     
     countdownLabel.backgroundColor = Color.Trip.Time.background
     countdownLabel.font = Font.MyriadPro.size(28)
@@ -117,6 +115,7 @@ class ShortTripView: UIView {
       make.bottom.equalTo(countdownLabel.snp_top).offset(-20)
     }
     
+    addSubview(notificationView)
     notificationView.hidden = true
   }
   
@@ -124,7 +123,7 @@ class ShortTripView: UIView {
     if prompt != currentPrompt {
       promptLabel.text = prompt.toString()
       promptImageView.image = prompt.image()
-      AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: prompt.toString()))
+      Speaker.speak(prompt.toString())
   
       currentPrompt = prompt
     }
@@ -142,6 +141,7 @@ class ShortTripView: UIView {
     layoutIfNeeded()
     
     notificationView.notifySuccess()
+    notificationView.hidden = false
   }
   
   func notifyFail(validationStep: ValidationStep) {
