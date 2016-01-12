@@ -18,13 +18,13 @@ enum DebugType {
   func fontAndColor() -> (font: UIFont, color: UIColor) {
     switch self {
     case .Normal:
-      return (Font.MyriadPro.size(20), UIColor.blackColor())
+      return (Font.OpenSans.size(20), UIColor.blackColor())
     case .Positive:
-      return (Font.MyriadProSemibold.size(20), Color.Debug.green)
+      return (Font.OpenSansSemibold.size(20), Color.Debug.green)
     case .Negative:
-      return (Font.MyriadProSemibold.size(20), Color.Debug.red)
+      return (Font.OpenSansSemibold.size(20), Color.Debug.red)
     case .BigDeal:
-      return (Font.MyriadProBold.size(24), UIColor.blackColor())
+      return (Font.OpenSansBold.size(24), UIColor.blackColor())
     }
   }
 }
@@ -74,7 +74,7 @@ class DebugView: UIView {
     }
     
     geofenceLabel.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.5, alpha: 1.0)
-    geofenceLabel.font = Font.MyriadPro.size(14)
+    geofenceLabel.font = Font.OpenSans.size(14)
     geofenceLabel.numberOfLines = 0
     geofenceLabel.text = NSLocalizedString("Last verified geofence(s)", comment: "")
       + ":"
@@ -86,7 +86,7 @@ class DebugView: UIView {
     }
     
     gpsLabel.backgroundColor = UIColor(red: 0.5, green: 0.95, blue: 0.95, alpha: 1.0)
-    gpsLabel.font = Font.MyriadPro.size(14)
+    gpsLabel.font = Font.OpenSans.size(14)
     gpsLabel.numberOfLines = 0
     gpsLabel.text = NSLocalizedString("Last verified location", comment: "") + ":"
     gpsLabel.snp_makeConstraints { make in
@@ -97,7 +97,7 @@ class DebugView: UIView {
     }
     
     stateLabel.backgroundColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1.0)
-    stateLabel.font = Font.MyriadPro.size(14)
+    stateLabel.font = Font.OpenSans.size(14)
     stateLabel.numberOfLines = 0
     stateLabel.snp_makeConstraints { make in
       make.height.equalTo(50)
@@ -107,7 +107,7 @@ class DebugView: UIView {
     }
     
     gtmsLabel.backgroundColor = UIColor(red: 0.90, green: 0.20, blue: 0.90, alpha: 1.0)
-    gtmsLabel.font = Font.MyriadPro.size(14)
+    gtmsLabel.font = Font.OpenSans.size(14)
     gtmsLabel.numberOfLines = 0
     updateGtms()
     gtmsLabel.snp_makeConstraints { make in
@@ -118,7 +118,7 @@ class DebugView: UIView {
     }
     
     cidLabel.backgroundColor = UIColor(red: 0.25, green: 0.25, blue: 0.95, alpha: 1.0)
-    cidLabel.font = Font.MyriadPro.size(14)
+    cidLabel.font = Font.OpenSans.size(14)
     cidLabel.textColor = UIColor.whiteColor()
     cidLabel.numberOfLines = 0
     cidLabel.text = NSLocalizedString("Last CID", comment: "") + ":"
@@ -130,7 +130,7 @@ class DebugView: UIView {
     }
     
     aviLabel.backgroundColor = UIColor(red: 0.95, green: 0.25, blue: 0.5, alpha: 1.0)
-    aviLabel.font = Font.MyriadPro.size(14)
+    aviLabel.font = Font.OpenSans.size(14)
     aviLabel.textColor = UIColor.whiteColor()
     aviLabel.numberOfLines = 0
     aviLabel.text = NSLocalizedString("Last AVI", comment: "") + ":"
@@ -150,7 +150,7 @@ class DebugView: UIView {
     }
 
     secondFakeButton.backgroundColor = UIColor(red: 0.25, green: 0.5, blue: 0.5, alpha: 1.0)
-    secondFakeButton.titleLabel?.font = Font.MyriadPro.size(12)
+    secondFakeButton.titleLabel?.font = Font.OpenSans.size(12)
     secondFakeButton.titleLabel?.numberOfLines = 2
     secondFakeButton.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(44)
@@ -160,7 +160,7 @@ class DebugView: UIView {
     }
 
     thirdFakeButton.backgroundColor = UIColor.blackColor()
-    thirdFakeButton.titleLabel?.font = Font.MyriadPro.size(12)
+    thirdFakeButton.titleLabel?.font = Font.OpenSans.size(12)
     thirdFakeButton.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(secondFakeButton)
       make.leading.equalTo(secondFakeButton.snp_trailing)

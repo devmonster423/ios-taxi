@@ -29,13 +29,13 @@ struct UiConstants {
   struct TerminalSummary {
     static let arrivalsDeparturesWidth: CGFloat = 100.0
     static let arrivalsDeparturesHeight: CGFloat = 40.0
-    static let toggleFont = Font.MyriadProSemibold.size(20.0)
+    static let toggleFont = Font.OpenSansSemibold.size(20.0)
     static let fadeDuration: NSTimeInterval = 0.3
     static let grayViewAlpha: CGFloat = 0.5
   }
   
   struct FlightStatus {
-    static let tableHeaderFont = Font.MyriadProSemibold.size(20.0)
+    static let tableHeaderFont = Font.OpenSansSemibold.size(20.0)
     static let tableHeaderHeight: CGFloat = 40.0
   }
   
@@ -53,14 +53,14 @@ struct UiConstants {
   }
   
   struct NavController {
-    static let fontNormal = Font.MyriadProBold.size(30)
-    static let fontSmall = Font.MyriadProBold.size(20)
+    static let fontNormal = Font.OpenSansBold.size(30)
+    static let fontSmall = Font.OpenSansBold.size(20)
   }
   
   struct FlightCell {
-    static let fontNormal = Font.MyriadProSemibold.size(14)
-    static let fontSmallish = Font.MyriadProSemibold.size(11)
-    static let fontSmall = Font.MyriadProSemibold.size(10)
+    static let fontNormal = Font.OpenSansSemibold.size(14)
+    static let fontSmallish = Font.OpenSansSemibold.size(11)
+    static let fontSmall = Font.OpenSansSemibold.size(10)
     static let standardMargin = 5.0
     static let bigMargin = 10.0
     static let rowHeight: CGFloat = 80.0
@@ -75,7 +75,7 @@ struct UiConstants {
   }
   
   struct Trip {
-    static let dividerOffset: CGFloat = 30.0
+    static let verticalMargin: CGFloat = 15.0
     
     struct Notification {
       static let offset: CGFloat = 10.0

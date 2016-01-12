@@ -66,7 +66,7 @@ class DashboardView: UIView {
     }
     
     let holdingLotLabel = UILabel()
-    holdingLotLabel.font = Font.MyriadProSemibold.size(28)
+    holdingLotLabel.font = Font.OpenSansSemibold.size(28)
     holdingLotLabel.text = NSLocalizedString("Holding Lot", comment: "").uppercaseString
     holdingLotLabel.textAlignment = .Center
     addSubview(holdingLotLabel)
@@ -77,7 +77,7 @@ class DashboardView: UIView {
       make.top.equalTo(self).offset(50)
     }
     
-    percentLabel.font = Font.MyriadProSemibold.size(50)
+    percentLabel.font = Font.OpenSansSemibold.size(50)
     percentLabel.textAlignment = .Center
     percentLabel.textColor = UIColor.whiteColor()
     addSubview(percentLabel)
@@ -88,7 +88,7 @@ class DashboardView: UIView {
     }
     
     let availableLabel = UILabel()
-    availableLabel.font = Font.MyriadProBold.size(40)
+    availableLabel.font = Font.OpenSansBold.size(40)
     availableLabel.text = NSLocalizedString("Are Available", comment: "").uppercaseString
     availableLabel.textAlignment = .Center
     availableLabel.textColor = Color.Dashboard.darkBlue
@@ -100,7 +100,7 @@ class DashboardView: UIView {
       make.bottom.equalTo(bgView).offset(-10)
     }
     
-    spotsLabel.font = Font.MyriadProSemibold.size(28)
+    spotsLabel.font = Font.OpenSansSemibold.size(28)
     spotsLabel.textAlignment = .Center
     addSubview(spotsLabel)
     spotsLabel.snp_makeConstraints { (make) -> Void in

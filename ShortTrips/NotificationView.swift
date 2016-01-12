@@ -25,7 +25,7 @@ class NotificationView: UIView {
     addSubview(notificationLabel)
     addSubview(notificationImageView)
     
-    notificationLabel.font = Font.MyriadPro.size(20)
+    notificationLabel.font = Font.OpenSans.size(20)
     notificationLabel.numberOfLines = 0
     notificationLabel.textAlignment = .Center
     notificationLabel.textColor = UIColor.whiteColor()

@@ -65,7 +65,7 @@ class ShortTripView: UIView {
     addSubview(promptImageView)
     
     countdownLabel.backgroundColor = Color.Trip.Time.background
-    countdownLabel.font = Font.MyriadPro.size(28)
+    countdownLabel.font = Font.OpenSans.size(28)
     countdownLabel.textAlignment = .Center
     countdownLabel.textColor = Color.Trip.Time.title
     countdownLabel.snp_makeConstraints { make in
@@ -75,7 +75,7 @@ class ShortTripView: UIView {
       make.height.equalTo(150)
     }
     
-    countdownSubtitleLabel.font = Font.MyriadPro.size(24)
+    countdownSubtitleLabel.font = Font.OpenSans.size(24)
     countdownSubtitleLabel.text = NSLocalizedString("Time Remaining", comment: "").uppercaseString
     countdownSubtitleLabel.textAlignment = .Center
     countdownSubtitleLabel.textColor = Color.Trip.Time.subtitle
@@ -86,33 +86,32 @@ class ShortTripView: UIView {
       make.height.equalTo(40)
     }
     
-    promptLabel.font = Font.MyriadPro.size(28)
+    let horizontalDivider = UIView()
+    horizontalDivider.backgroundColor = Color.Trip.divider
+    addSubview(horizontalDivider)
+    horizontalDivider.snp_makeConstraints { (make) -> Void in
+      make.centerX.equalTo(self)
+      make.height.equalTo(1)
+      make.width.equalTo(self).dividedBy(2)
+      make.bottom.equalTo(promptImageView.snp_top).offset(-UiConstants.Trip.verticalMargin)
+    }
+    
+    promptLabel.font = Font.OpenSansBold.size(28)
     promptLabel.textAlignment = .Center
     promptLabel.numberOfLines = 0
     promptLabel.textColor = Color.Trip.title
     promptLabel.snp_makeConstraints { make in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.top.equalTo(self).offset(10)
       make.height.equalTo(75)
-    }
-    
-    let horizontalDivider = UIView()
-    horizontalDivider.backgroundColor = Color.Trip.divider
-    addSubview(horizontalDivider)
-    horizontalDivider.snp_makeConstraints { (make) -> Void in
-      make.leading.equalTo(self).offset(UiConstants.Trip.dividerOffset)
-      make.height.equalTo(1)
-      make.trailing.equalTo(self).offset(-UiConstants.Trip.dividerOffset)
-      make.top.equalTo(promptLabel.snp_bottom)
+      make.bottom.equalTo(horizontalDivider.snp_top).offset(-UiConstants.Trip.verticalMargin)
     }
     
     promptImageView.contentMode = .ScaleAspectFit
     promptImageView.snp_makeConstraints { make in
-      make.centerX.equalTo(self)
+      make.center.equalTo(self)
       make.width.equalTo(200)
-      make.top.equalTo(horizontalDivider.snp_bottom).offset(20)
-      make.bottom.equalTo(countdownLabel.snp_top).offset(-20)
+      make.height.equalTo(200)
     }
     
     addSubview(notificationView)

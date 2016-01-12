@@ -44,7 +44,7 @@ class LoginView: UIView {
     }
     
     let usernameLabel = UILabel()
-    usernameLabel.font = Font.MyriadPro.size(18)
+    usernameLabel.font = Font.OpenSans.size(18)
     usernameLabel.text = NSLocalizedString("Username", comment: "") + ":"
     usernameLabel.textColor = Color.Auth.offWhite
     addSubview(usernameLabel)
@@ -77,7 +77,7 @@ class LoginView: UIView {
     }
     
     let passwordLabel = UILabel()
-    passwordLabel.font = Font.MyriadPro.size(18)
+    passwordLabel.font = Font.OpenSans.size(18)
     passwordLabel.text = NSLocalizedString("Password", comment: "") + ":"
     passwordLabel.textColor = Color.Auth.offWhite
     addSubview(passwordLabel)
@@ -98,7 +98,7 @@ class LoginView: UIView {
     }
     
     loginButton.setTitle(NSLocalizedString("Login", comment: "").uppercaseString, forState: .Normal)
-    loginButton.titleLabel?.font = Font.MyriadPro.size(24)
+    loginButton.titleLabel?.font = Font.OpenSans.size(24)
     loginButton.backgroundColor = Color.Auth.fadedWhite
     loginButton.snp_makeConstraints { make in
       make.leading.equalTo(self)

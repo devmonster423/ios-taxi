@@ -60,7 +60,7 @@ class TerminalView: UIButton {
     }
     
     onTimeLabel.sizeToFit()
-    onTimeLabel.font = Font.MyriadProSemibold.size(18)
+    onTimeLabel.font = Font.OpenSansSemibold.size(18)
     onTimeLabel.textAlignment = .Center
     onTimeLabel.textColor = Color.TerminalSummary.onTimeContent
     onTimeLabel.snp_makeConstraints { (make) -> Void in
@@ -69,7 +69,7 @@ class TerminalView: UIButton {
     }
     
     onTimeTitleLabel.sizeToFit()
-    onTimeTitleLabel.font = Font.MyriadProSemibold.size(13)
+    onTimeTitleLabel.font = Font.OpenSansSemibold.size(13)
     onTimeTitleLabel.textAlignment = .Center
     onTimeTitleLabel.text = NSLocalizedString("On Time", comment: "").uppercaseString
     onTimeTitleLabel.textColor = Color.TerminalSummary.onTimeTitle
@@ -138,7 +138,7 @@ class TerminalView: UIButton {
     onTimeImageView.hidden = false
     onTimeLabel.hidden = true
     onTimeTitleLabel.hidden = false
-    terminalTitleLabel.font = Font.MyriadProBold.size(14)
+    terminalTitleLabel.font = Font.OpenSansBold.size(14)
     terminalTitleLabel.text = NSLocalizedString("Terminals", comment: "").uppercaseString
   }
   
@@ -154,7 +154,7 @@ class TerminalView: UIButton {
     onTimeImageView.hidden = true
     onTimeLabel.text = "\(totals.onTime)"
     onTimeTitleLabel.hidden = true
-    terminalTitleLabel.font = Font.MyriadProBold.size(14)
+    terminalTitleLabel.font = Font.OpenSansBold.size(14)
     terminalTitleLabel.text = NSLocalizedString("Totals", comment: "").uppercaseString
   }
 
@@ -171,7 +171,7 @@ class TerminalView: UIButton {
     onTimeImageView.hidden = true
     onTimeLabel.text = "\(summary.onTimeCount)"
     onTimeTitleLabel.hidden = true
-    terminalTitleLabel.font = Font.MyriadProSemibold.size(14)
+    terminalTitleLabel.font = Font.OpenSansSemibold.size(14)
 
     switch summary.terminalId! {
 

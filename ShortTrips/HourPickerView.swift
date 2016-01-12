@@ -56,7 +56,7 @@ class HourPickerView: UIView {
       make.width.equalTo(increaseButton.snp_height)
     }
     
-    topLabel.font = Font.MyriadProSemibold.size(20)
+    topLabel.font = Font.OpenSansSemibold.size(20)
     topLabel.text = NSLocalizedString("Flights In", comment: "")
     topLabel.textAlignment = .Center
     topLabel.textColor = Color.Sfo.blue
@@ -67,7 +67,7 @@ class HourPickerView: UIView {
       make.bottom.equalTo(mainLabel.snp_top)
     }
     
-    mainLabel.font = Font.MyriadProSemibold.size(40)
+    mainLabel.font = Font.OpenSansSemibold.size(40)
     mainLabel.text = String(format: NSLocalizedString("%dh", comment: ""), currentHour)
     mainLabel.textAlignment = .Center
     mainLabel.textColor = Color.Sfo.blue
@@ -77,7 +77,7 @@ class HourPickerView: UIView {
       make.center.equalTo(self)
     }
     
-    bottomLabel.font = Font.MyriadProSemibold.size(20)
+    bottomLabel.font = Font.OpenSansSemibold.size(20)
     bottomLabel.textAlignment = .Center
     bottomLabel.textColor = Color.Sfo.blue
     bottomLabel.snp_makeConstraints { (make) -> Void in

@@ -9,9 +9,10 @@
 import UIKit
 
 enum Font: String {
-  case MyriadPro = "MyriadPro-Regular"
-  case MyriadProBold = "MyriadPro-Bold"
-  case MyriadProSemibold = "MyriadPro-Semibold"
+  case OpenSans = "OpenSans"
+  case OpenSansBold = "OpenSans-Bold"
+  case OpenSansSemibold = "OpenSans-Semibold"
+  // TODO all the other fonts
   
   func size(size: CGFloat) -> UIFont {
     return UIFont(name: self.rawValue, size: size)!

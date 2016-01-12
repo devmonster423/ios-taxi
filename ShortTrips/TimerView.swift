@@ -43,7 +43,7 @@ class TimerView: UIView {
       make.height.equalTo(UiConstants.Timer.progressHeight)
     }
 
-    updateLabel.font = Font.MyriadProSemibold.size(UiConstants.Timer.updateHeight)
+    updateLabel.font = Font.OpenSansSemibold.size(UiConstants.Timer.updateHeight)
     updateLabel.textAlignment = .Center
     updateLabel.textColor = Color.Sfo.gray
     updateLabel.snp_makeConstraints { (make) -> Void in

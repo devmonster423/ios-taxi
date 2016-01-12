@@ -26,7 +26,7 @@ extension UIViewController {
     let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: UiConstants.Dashboard.titleWidth, height: UiConstants.Dashboard.titleHeight))
     titleLabel.text = title
     titleLabel.textColor = UIColor.whiteColor()
-    titleLabel.font = Font.MyriadProSemibold.size(18)
+    titleLabel.font = Font.OpenSansSemibold.size(18)
     navigationItem.titleView = titleLabel
   }
     

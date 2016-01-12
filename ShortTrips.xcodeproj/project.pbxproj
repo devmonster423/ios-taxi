@@ -106,10 +106,17 @@
 		C26530B41BE3F7CB002C0A97 /* TripInvalidated.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26530B31BE3F7CB002C0A97 /* TripInvalidated.swift */; };
 		C26530B61BE3FB66002C0A97 /* TripValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26530B51BE3FB66002C0A97 /* TripValidation.swift */; };
 		C26ABD131C45936100EF4684 /* Speaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26ABD121C45936100EF4684 /* Speaker.swift */; };
+		C26ABD1E1C45ADAF00EF4684 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C26ABD141C45ADAF00EF4684 /* OpenSans-Bold.ttf */; };
+		C26ABD1F1C45ADAF00EF4684 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C26ABD151C45ADAF00EF4684 /* OpenSans-BoldItalic.ttf */; };
+		C26ABD201C45ADAF00EF4684 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C26ABD161C45ADAF00EF4684 /* OpenSans-ExtraBold.ttf */; };
+		C26ABD211C45ADAF00EF4684 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C26ABD171C45ADAF00EF4684 /* OpenSans-ExtraBoldItalic.ttf */; };
+		C26ABD221C45ADAF00EF4684 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C26ABD181C45ADAF00EF4684 /* OpenSans-Italic.ttf */; };
+		C26ABD231C45ADAF00EF4684 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C26ABD191C45ADAF00EF4684 /* OpenSans-Light.ttf */; };
+		C26ABD241C45ADAF00EF4684 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C26ABD1A1C45ADAF00EF4684 /* OpenSans-LightItalic.ttf */; };
+		C26ABD251C45ADAF00EF4684 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C26ABD1B1C45ADAF00EF4684 /* OpenSans-Regular.ttf */; };
+		C26ABD261C45ADAF00EF4684 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C26ABD1C1C45ADAF00EF4684 /* OpenSans-Semibold.ttf */; };
+		C26ABD271C45ADAF00EF4684 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C26ABD1D1C45ADAF00EF4684 /* OpenSans-SemiboldItalic.ttf */; };
 		C27450BC1BB4988200D33CDD /* AirlineListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27450BB1BB4988200D33CDD /* AirlineListWrapper.swift */; };
-		C28224621BB09A8A007F284F /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76C1B66E95E00AB27D2 /* MyriadPro-Semibold.otf */; };
-		C28224631BB09A8A007F284F /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */; };
-		C28224641BB09A8A007F284F /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */; };
 		C28224681BB09C32007F284F /* FlightStatusVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */; };
 		C283AB351BE936B30004E8CD /* CidDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C283AB341BE936B30004E8CD /* CidDebugger.swift */; };
 		C283AB371BE9383C0004E8CD /* AviDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C283AB361BE9383C0004E8CD /* AviDebugger.swift */; };
@@ -238,9 +245,6 @@
 		E1BE7B701BE4025C0085D3CA /* TimeExpired.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BE7B6F1BE4025C0085D3CA /* TimeExpired.swift */; };
 		E1C045BD1BF110FB000A3F42 /* MockLotStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C045BC1BF110FB000A3F42 /* MockLotStatusResponse.swift */; };
 		E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */; };
-		E1CDE7941B66E95E00AB27D2 /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76C1B66E95E00AB27D2 /* MyriadPro-Semibold.otf */; };
-		E1CDE7951B66E95E00AB27D2 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */; };
-		E1CDE7A81B66E95E00AB27D2 /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */; };
 		E1D6E1CE1BF3B9C600810EB0 /* MockCidResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6E1CD1BF3B9C600810EB0 /* MockCidResponse.swift */; };
 		E1E07F1F1BE8150400D6D07D /* TripScenario3Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E07F1E1BE8150400D6D07D /* TripScenario3Spec.swift */; };
 		E1E6EF9E1BB205520039C5F3 /* DriverSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */; };
@@ -388,6 +392,16 @@
 		C26530B31BE3F7CB002C0A97 /* TripInvalidated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripInvalidated.swift; sourceTree = "<group>"; };
 		C26530B51BE3FB66002C0A97 /* TripValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripValidation.swift; sourceTree = "<group>"; };
 		C26ABD121C45936100EF4684 /* Speaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Speaker.swift; sourceTree = "<group>"; };
+		C26ABD141C45ADAF00EF4684 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		C26ABD151C45ADAF00EF4684 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C26ABD161C45ADAF00EF4684 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		C26ABD171C45ADAF00EF4684 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		C26ABD181C45ADAF00EF4684 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		C26ABD191C45ADAF00EF4684 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		C26ABD1A1C45ADAF00EF4684 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		C26ABD1B1C45ADAF00EF4684 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		C26ABD1C1C45ADAF00EF4684 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		C26ABD1D1C45ADAF00EF4684 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		C27450BB1BB4988200D33CDD /* AirlineListWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirlineListWrapper.swift; sourceTree = "<group>"; };
 		C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatusVCSpec.swift; sourceTree = "<group>"; };
 		C283AB341BE936B30004E8CD /* CidDebugger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidDebugger.swift; sourceTree = "<group>"; };
@@ -523,9 +537,6 @@
 		E1BE7B6F1BE4025C0085D3CA /* TimeExpired.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeExpired.swift; sourceTree = "<group>"; };
 		E1C045BC1BF110FB000A3F42 /* MockLotStatusResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockLotStatusResponse.swift; sourceTree = "<group>"; };
 		E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UiConstants.swift; sourceTree = "<group>"; };
-		E1CDE76C1B66E95E00AB27D2 /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
-		E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
-		E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Bold.otf"; sourceTree = "<group>"; };
 		E1D6E1CD1BF3B9C600810EB0 /* MockCidResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockCidResponse.swift; sourceTree = "<group>"; };
 		E1E07F1E1BE8150400D6D07D /* TripScenario3Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TripScenario3Spec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E1E6EF9D1BB205520039C5F3 /* DriverSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverSpec.swift; sourceTree = "<group>"; };
@@ -1283,9 +1294,16 @@
 		E1CDE7101B66DF0600AB27D2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				E1CDE76C1B66E95E00AB27D2 /* MyriadPro-Semibold.otf */,
-				E1CDE76D1B66E95E00AB27D2 /* MyriadPro-Regular.otf */,
-				E1CDE7801B66E95E00AB27D2 /* MyriadPro-Bold.otf */,
+				C26ABD141C45ADAF00EF4684 /* OpenSans-Bold.ttf */,
+				C26ABD151C45ADAF00EF4684 /* OpenSans-BoldItalic.ttf */,
+				C26ABD161C45ADAF00EF4684 /* OpenSans-ExtraBold.ttf */,
+				C26ABD171C45ADAF00EF4684 /* OpenSans-ExtraBoldItalic.ttf */,
+				C26ABD181C45ADAF00EF4684 /* OpenSans-Italic.ttf */,
+				C26ABD191C45ADAF00EF4684 /* OpenSans-Light.ttf */,
+				C26ABD1A1C45ADAF00EF4684 /* OpenSans-LightItalic.ttf */,
+				C26ABD1B1C45ADAF00EF4684 /* OpenSans-Regular.ttf */,
+				C26ABD1C1C45ADAF00EF4684 /* OpenSans-Semibold.ttf */,
+				C26ABD1D1C45ADAF00EF4684 /* OpenSans-SemiboldItalic.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -1475,23 +1493,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				C21421091C1B7F6D0066DCA5 /* SFO.json in Resources */,
-				E1CDE7A81B66E95E00AB27D2 /* MyriadPro-Bold.otf in Resources */,
 				FA32EC081B8836B7001428B5 /* green_bg.jpg in Resources */,
-				E1CDE7951B66E95E00AB27D2 /* MyriadPro-Regular.otf in Resources */,
+				C26ABD1E1C45ADAF00EF4684 /* OpenSans-Bold.ttf in Resources */,
 				C2DFE5D21B56D2CB0090B55F /* LaunchScreen.xib in Resources */,
-				E1CDE7941B66E95E00AB27D2 /* MyriadPro-Semibold.otf in Resources */,
 				C21421081C1B7F6D0066DCA5 /* International_Pax_Pickup.json in Resources */,
 				C21421071C1B7F6D0066DCA5 /* Entry_Gate.json in Resources */,
+				C26ABD271C45ADAF00EF4684 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				FA32EC0E1B883B44001428B5 /* terminal_bg.jpg in Resources */,
+				C26ABD1F1C45ADAF00EF4684 /* OpenSans-BoldItalic.ttf in Resources */,
 				C214210B1C1B7F6D0066DCA5 /* Valid_Cities.json in Resources */,
+				C26ABD231C45ADAF00EF4684 /* OpenSans-Light.ttf in Resources */,
 				FA32EC0A1B8836B7001428B5 /* yellow_bg.jpg in Resources */,
 				FA32EC091B8836B7001428B5 /* red_bg.jpg in Resources */,
+				C26ABD261C45ADAF00EF4684 /* OpenSans-Semibold.ttf in Resources */,
+				C26ABD211C45ADAF00EF4684 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				C26ABD201C45ADAF00EF4684 /* OpenSans-ExtraBold.ttf in Resources */,
+				C26ABD221C45ADAF00EF4684 /* OpenSans-Italic.ttf in Resources */,
 				C214210A1C1B7F6D0066DCA5 /* Terminal_Exit.json in Resources */,
+				C26ABD241C45ADAF00EF4684 /* OpenSans-LightItalic.ttf in Resources */,
 				C29F59F41C221AAB007EFA1D /* taxi_sfo_merged.json in Resources */,
 				E122649E1B795A65002B36CA /* Localizable.strings in Resources */,
 				C21421061C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json in Resources */,
 				C2DFE5CF1B56D2CB0090B55F /* Images.xcassets in Resources */,
 				FAEA59A71C29A1EB009BF1F4 /* Taxi_Waiting_Zone.json in Resources */,
+				C26ABD251C45ADAF00EF4684 /* OpenSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1499,9 +1524,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C28224621BB09A8A007F284F /* MyriadPro-Semibold.otf in Resources */,
-				C28224631BB09A8A007F284F /* MyriadPro-Regular.otf in Resources */,
-				C28224641BB09A8A007F284F /* MyriadPro-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
