@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import AVFoundation
 
 class NotificationView: UIView {
 
@@ -91,6 +92,8 @@ class NotificationView: UIView {
       notificationLabel.text = notificationText
       notificationImageView.image = Image.exclamationPoint.image()
     }
+    
+    AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: notificationLabel.text!))
     
     notificationImageView.alpha = 1
     UIView.animateWithDuration(duration,
