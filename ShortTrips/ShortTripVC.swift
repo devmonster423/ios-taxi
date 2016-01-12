@@ -13,6 +13,11 @@ import JSQNotificationObserverKit
 class ShortTripVC: UIViewController {
   var sfoObservers = SfoObservers()
   private var tripTimer: NSTimer?
+  private var numberFormatter: NSNumberFormatter {
+    let formatter = NSNumberFormatter()
+    formatter.minimumIntegerDigits = 2
+    return formatter
+  }
   
   override func loadView() {
     let shortTripView = ShortTripView(frame: UIScreen.mainScreen().bounds)
@@ -53,7 +58,7 @@ class ShortTripVC: UIViewController {
       let remainingMinutes = Int((remainingTime - remainingHours * 60 * 60) / 60)
       let remainingSeconds = Int(remainingTime - remainingHours * 60 * 60 - remainingMinutes * 60)
       
-      shortTripView().countdownLabel.text = "\(remainingHours)h \(remainingMinutes)m \(remainingSeconds)s"
+      shortTripView().countdownLabel.text = "\(remainingHours)h \(numberFormatter.stringFromNumber(remainingMinutes)!)m \(numberFormatter.stringFromNumber(remainingSeconds)!)s"
     } else {
       shortTripView().countdownLabel.text = ""
     }
