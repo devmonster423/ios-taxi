@@ -14,6 +14,7 @@ class NotificationView: UIView {
 
   private let notificationLabel = UILabel()
   private let notificationImageView = UIImageView()
+  private let divider = UIView()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -24,6 +25,7 @@ class NotificationView: UIView {
   
     addSubview(notificationLabel)
     addSubview(notificationImageView)
+    addSubview(divider)
     
     notificationLabel.font = Font.OpenSansSemibold.size(25)
     notificationLabel.numberOfLines = 0
@@ -36,20 +38,30 @@ class NotificationView: UIView {
       make.height.equalTo(120)
     }
     
+    divider.backgroundColor = Color.Trip.divider
+    addSubview(divider)
+    divider.snp_makeConstraints { (make) -> Void in
+      make.centerX.equalTo(self)
+      make.height.equalTo(1)
+      make.width.equalTo(self).dividedBy(2)
+      make.top.equalTo(notificationLabel.snp_bottom).offset(UiConstants.Trip.dividerMargin)
+    }
+    
     notificationImageView.contentMode = .ScaleAspectFit
     notificationImageView.snp_makeConstraints { make in
       make.centerX.equalTo(self)
       make.width.equalTo(self).dividedBy(3)
       make.height.equalTo(self.snp_width).dividedBy(3)
-      make.top.equalTo(notificationLabel.snp_bottom).offset(UiConstants.Trip.Notification.offset)
+      make.top.equalTo(divider.snp_bottom).offset(30)
     }
   }
   
   func notifySuccess() {
     backgroundColor = Color.Trip.Notification.green
-    notificationLabel.text = NSLocalizedString("Your trip finished and it was short", comment: "").uppercaseString
+    notificationLabel.text = NSLocalizedString("Your trip finished\nand it was short", comment: "").uppercaseString
     notificationImageView.image = Image.greenCheckmark.image()
     notificationImageView.alpha = 1
+    divider.alpha = 1
     Speaker.speak(notificationLabel.text!)
   }
   
@@ -88,11 +100,13 @@ class NotificationView: UIView {
     
     Speaker.speak(notificationLabel.text!)
     
+    divider.alpha = 1
     notificationImageView.alpha = 1
     UIView.animateWithDuration(duration,
       delay: delay,
       options: UIViewAnimationOptions.CurveEaseInOut,
       animations: {
+        self.divider.alpha = 0
         self.notificationImageView.alpha = 0
       },
       completion: nil)

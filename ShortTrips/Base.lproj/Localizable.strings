@@ -22,6 +22,7 @@
 "User logout" = "User logout";
 "App quit" = "App quit";
 "App crash" = "App crash";
+"Your trip finished\nand it was short" = "Your trip finished\nand it was short";
 
 /* Trip Status */
 "Time Remaining" = "Time Remaining";
