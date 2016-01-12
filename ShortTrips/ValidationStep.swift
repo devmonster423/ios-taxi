@@ -10,8 +10,7 @@ import Foundation
 import ObjectMapper
 
 enum ValidationStep: Int {
-  case Unspecified = -1
-  case Valid = 0
+  case Unspecified = 0
   case Duration = 1
   case Vehicle = 2
   case DriverCardId = 3
@@ -38,8 +37,6 @@ enum ValidationStep: Int {
     switch self {
     case .Unspecified:
       return "unspecified"
-    case .Valid:
-      return "valid"
     case .Duration:
       return "validate_trip_duration"
     case .Vehicle:

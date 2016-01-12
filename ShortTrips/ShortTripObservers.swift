@@ -16,15 +16,15 @@ extension ShortTripVC {
     
     sfoObservers.invalidatedObserver = NotificationObserver(notification: SfoNotification.Trip.invalidated) { validationSteps, _ in
       if let validationSteps = validationSteps where validationSteps.count > 0 {
-        self.shortTripView().notify(validationSteps.first!.validationStep)
+        self.shortTripView().notifyFail(validationSteps.first!.validationStep)
       } else {
-        self.shortTripView().notify(.Unspecified)
+        self.shortTripView().notifyFail(.Unspecified)
       }
     }
     
     sfoObservers.locationStatusObserver = NotificationObserver(notification: SfoNotification.Location.statusUpdated) { status, _ in
       if status != .AuthorizedAlways {
-        self.shortTripView().notify(.GpsFailure)
+        self.shortTripView().notifyFail(.GpsFailure)
       }
     }
     
@@ -33,15 +33,15 @@ extension ShortTripVC {
     }
     
     sfoObservers.outsideShortTripObserver = NotificationObserver(notification: SfoNotification.Geofence.outsideShortTrip) { _, _ in
-      self.shortTripView().notify(.Geofence)
+      self.shortTripView().notifyFail(.Geofence)
     }
     
     sfoObservers.timeExpiredObserver = NotificationObserver(notification: SfoNotification.Trip.timeExpired) { _, _ in
-      self.shortTripView().notify(.Duration)
+      self.shortTripView().notifyFail(.Duration)
     }
     
     sfoObservers.validatedObserver = NotificationObserver(notification: SfoNotification.Trip.validated) { _, _ in
-      self.shortTripView().notify(.Valid)
+      self.shortTripView().notifySuccess()
     }
   }
   

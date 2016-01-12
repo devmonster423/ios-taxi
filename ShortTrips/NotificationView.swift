@@ -46,52 +46,46 @@ class NotificationView: UIView {
     }
   }
   
-  func notify(validationStep: ValidationStep, delay: NSTimeInterval, duration: NSTimeInterval) {
+  func notifySuccess() {
+    backgroundColor = Color.Trip.Notification.green
+    notificationLabel.text = NSLocalizedString("Your trip finished and it was short.", comment: "")
+    notificationImageView.image = Image.blueCheckmark.image()
+    notificationImageView.alpha = 1
+    AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: notificationLabel.text!))
+  }
+  
+  func notifyFail(validationStep: ValidationStep, delay: NSTimeInterval, duration: NSTimeInterval) {
+      
+    var notificationText = NSLocalizedString("Your trip is now a long.", comment: "") + " "
     
-    if validationStep == .Valid {
-      backgroundColor = Color.Trip.Notification.green
-      notificationLabel.text = NSLocalizedString("Your trip finished and it was short.", comment: "")
-      notificationImageView.image = Image.blueCheckmark.image()
-      
-    } else {
-      
-      var notificationText = NSLocalizedString("Your trip is now a long.", comment: "") + " "
-      
-      if validationStep == .Duration {
-        notificationText += NSLocalizedString("Time expired.", comment: "")
-        
-      } else if validationStep == .Vehicle {
-        notificationText += NSLocalizedString("Vehicle mismatch.", comment: "")
-        
-      } else if validationStep == .DriverCardId {
-        notificationText += NSLocalizedString("Card error.", comment: "")
-        
-      } else if validationStep == .MacAddress {
-        notificationText += NSLocalizedString("Phone error.", comment: "")
-        
-      } else if validationStep == .Geofence {
-        notificationText += NSLocalizedString("Outside short trip geofence.", comment: "")
-        
-      } else if validationStep == .GpsFailure {
-        notificationText += NSLocalizedString("GPS off.", comment: "")
-        
-      } else if validationStep == .NetworkFailure {
-        notificationText += NSLocalizedString("Network failure.", comment: "")
-        
-      } else if validationStep == .UserLogout {
-        notificationText += NSLocalizedString("User logout.", comment: "")
-        
-      } else if validationStep == .AppQuit {
-        notificationText += NSLocalizedString("App quit.", comment: "")
-        
-      } else if validationStep == .AppCrash {
-        notificationText += NSLocalizedString("App crash.", comment: "")
-      }
-      
-      backgroundColor = Color.Trip.Notification.red
-      notificationLabel.text = notificationText
-      notificationImageView.image = Image.exclamationPoint.image()
+    switch validationStep {
+    case .Duration:
+      notificationText += NSLocalizedString("Time expired.", comment: "")
+    case .Vehicle:
+      notificationText += NSLocalizedString("Vehicle mismatch.", comment: "")
+    case .DriverCardId:
+      notificationText += NSLocalizedString("Card error.", comment: "")
+    case .MacAddress:
+      notificationText += NSLocalizedString("Phone error.", comment: "")
+    case .Geofence:
+      notificationText += NSLocalizedString("Outside short trip geofence.", comment: "")
+    case .GpsFailure:
+      notificationText += NSLocalizedString("GPS off.", comment: "")
+    case .NetworkFailure:
+      notificationText += NSLocalizedString("Network failure.", comment: "")
+    case .UserLogout:
+      notificationText += NSLocalizedString("User logout.", comment: "")
+    case .AppQuit:
+      notificationText += NSLocalizedString("App quit.", comment: "")
+    case .AppCrash:
+      notificationText += NSLocalizedString("App crash.", comment: "")
+    default:
+      break
     }
+    
+    backgroundColor = Color.Trip.Notification.red
+    notificationLabel.text = notificationText
+    notificationImageView.image = Image.exclamationPoint.image()
     
     AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: notificationLabel.text!))
     

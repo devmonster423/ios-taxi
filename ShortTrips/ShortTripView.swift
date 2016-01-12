@@ -130,7 +130,21 @@ class ShortTripView: UIView {
     }
   }
   
-  func notify(validationStep: ValidationStep) {
+  func notifySuccess() {
+    
+    notificationView.snp_remakeConstraints { make in
+      make.height.equalTo(self)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.bottom.equalTo(self)
+    }
+    notificationView.setNeedsUpdateConstraints()
+    layoutIfNeeded()
+    
+    notificationView.notifySuccess()
+  }
+  
+  func notifyFail(validationStep: ValidationStep) {
     
     notificationView.snp_remakeConstraints { make in
       make.height.equalTo(self).multipliedBy(0.75)
@@ -144,7 +158,7 @@ class ShortTripView: UIView {
     let duration: NSTimeInterval = 0.5
     let delay: NSTimeInterval = 5
     
-    notificationView.notify(validationStep, delay: delay, duration: duration)
+    notificationView.notifyFail(validationStep, delay: delay, duration: duration)
     
     notificationView.snp_remakeConstraints { make in
       make.height.equalTo(self).multipliedBy(0.25)
