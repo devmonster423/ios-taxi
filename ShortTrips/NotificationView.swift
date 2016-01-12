@@ -25,15 +25,15 @@ class NotificationView: UIView {
     addSubview(notificationLabel)
     addSubview(notificationImageView)
     
-    notificationLabel.font = Font.OpenSans.size(20)
+    notificationLabel.font = Font.OpenSansSemibold.size(25)
     notificationLabel.numberOfLines = 0
     notificationLabel.textAlignment = .Center
-    notificationLabel.textColor = UIColor.whiteColor()
+    notificationLabel.textColor = Color.Trip.title
     notificationLabel.snp_makeConstraints { make in
       make.leading.equalTo(self).offset(UiConstants.Trip.Notification.offset)
       make.trailing.equalTo(self).offset(-UiConstants.Trip.Notification.offset)
       make.top.equalTo(self).offset(UiConstants.Trip.Notification.offset)
-      make.height.equalTo(self).dividedBy(2)
+      make.height.equalTo(120)
     }
     
     notificationImageView.contentMode = .ScaleAspectFit
@@ -48,7 +48,7 @@ class NotificationView: UIView {
   func notifySuccess() {
     backgroundColor = Color.Trip.Notification.green
     notificationLabel.text = NSLocalizedString("Your trip finished and it was short", comment: "").uppercaseString
-    notificationImageView.image = Image.blueCheckmark.image()
+    notificationImageView.image = Image.greenCheckmark.image()
     notificationImageView.alpha = 1
     Speaker.speak(notificationLabel.text!)
   }

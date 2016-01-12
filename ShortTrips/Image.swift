@@ -50,7 +50,7 @@ enum Image: String {
   case exclamationPoint = "exclamation_point"
   case mapPin = "map_pin"
   case car = "car"
-  case blueCheckmark = "blue_checkmark"
+  case greenCheckmark = "green_check"
   
   case genericBackground = "generic_background"
   func image() -> UIImage {
