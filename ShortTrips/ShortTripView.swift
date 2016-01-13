@@ -66,7 +66,7 @@ class ShortTripView: UIView {
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.bottom.equalTo(self)
-      make.height.equalTo(UiConstants.Trip.countdownHeight)
+      make.height.equalTo(self).dividedBy(4)
     }
     
     let horizontalDivider = UIView()
@@ -86,16 +86,15 @@ class ShortTripView: UIView {
     promptLabel.snp_makeConstraints { make in
       make.leading.equalTo(self).offset(25)
       make.trailing.equalTo(self).offset(-25)
-      make.height.equalTo(UiConstants.Trip.promptHeight)
       make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
     }
     
     promptImageView.contentMode = .ScaleAspectFit
     promptImageView.snp_makeConstraints { make in
       make.centerX.equalTo(self)
-      make.centerY.equalTo(self).offset(UiConstants.Trip.imageCenterOffset)
-      make.width.equalTo(136)
-      make.height.equalTo(136)
+      make.top.equalTo(horizontalDivider.snp_bottom).offset(UiConstants.Trip.dividerMargin)
+      make.bottom.equalTo(countdown.snp_top).offset(-UiConstants.Trip.dividerMargin)
+      make.width.equalTo(self).dividedBy(2)
     }
     
     addSubview(notificationView)
@@ -144,7 +143,7 @@ class ShortTripView: UIView {
     notificationView.notifyFail(validationStep, delay: delay, duration: duration)
     
     notificationView.snp_remakeConstraints { make in
-      make.height.equalTo(self).multipliedBy(0.25)
+      make.height.equalTo(self).dividedBy(4)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.bottom.equalTo(self)
