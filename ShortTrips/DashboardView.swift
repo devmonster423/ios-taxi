@@ -44,8 +44,8 @@ class DashboardView: UIView {
     addSubview(whiteCircle)
     whiteCircle.snp_makeConstraints { (make) -> Void in
       make.center.equalTo(self)
-      make.height.equalTo(215)
-      make.width.equalTo(215)
+      make.height.equalTo(self.snp_width).dividedBy(3)
+      make.width.equalTo(self.snp_width).dividedBy(3)
     }
     
     let blackCircle = UIImageView(image: Image.blackCircle.image())
@@ -53,16 +53,16 @@ class DashboardView: UIView {
     addSubview(blackCircle)
     blackCircle.snp_makeConstraints { (make) -> Void in
       make.center.equalTo(self)
-      make.height.equalTo(200)
-      make.width.equalTo(200)
+      make.height.equalTo(whiteCircle).multipliedBy(0.93)
+      make.width.equalTo(whiteCircle).multipliedBy(0.93)
     }
     
     fullnessRing.contentMode = .ScaleAspectFit
     addSubview(fullnessRing)
     fullnessRing.snp_makeConstraints { (make) -> Void in
       make.center.equalTo(self)
-      make.height.equalTo(245)
-      make.width.equalTo(245)
+      make.height.equalTo(whiteCircle).multipliedBy(1.14)
+      make.width.equalTo(whiteCircle).multipliedBy(1.14)
     }
     
     let holdingLotLabel = UILabel()
@@ -77,7 +77,7 @@ class DashboardView: UIView {
       make.top.equalTo(self).offset(50)
     }
     
-    percentLabel.font = Font.OpenSansSemibold.size(50)
+    percentLabel.font = Font.OpenSansSemibold.size(40)
     percentLabel.textAlignment = .Center
     percentLabel.textColor = UIColor.whiteColor()
     addSubview(percentLabel)
@@ -88,16 +88,16 @@ class DashboardView: UIView {
     }
     
     let availableLabel = UILabel()
-    availableLabel.font = Font.OpenSansBold.size(40)
+    availableLabel.font = Font.OpenSansBold.size(32)
     availableLabel.text = NSLocalizedString("Are Available", comment: "").uppercaseString
     availableLabel.textAlignment = .Center
     availableLabel.textColor = Color.Dashboard.darkBlue
     addSubview(availableLabel)
     availableLabel.snp_makeConstraints { (make) -> Void in
-      make.height.equalTo(50)
+      make.height.equalTo(30)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.bottom.equalTo(bgView).offset(-10)
+      make.bottom.equalTo(bgView).offset(-5)
     }
     
     spotsLabel.font = Font.OpenSansSemibold.size(28)
