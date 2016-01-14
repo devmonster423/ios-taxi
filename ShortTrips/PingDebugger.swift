@@ -17,14 +17,6 @@ extension DebugVC {
       self.debugView().printDebugLine("attempting ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
     }
     
-    sfoObservers.successfulPingObserver = NotificationObserver(notification: SfoNotification.Ping.successful, handler: { ping, _ in
-      self.debugView().printDebugLine("successful ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
-    })
-    
-    sfoObservers.unsuccessfulPingObserver = NotificationObserver(notification: SfoNotification.Ping.unsuccessful, handler: { ping, _ in
-      self.debugView().printDebugLine("unsuccessful ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)", type: .Negative)
-    })
-    
     sfoObservers.validPingObserver = NotificationObserver(notification: SfoNotification.Ping.valid, handler: { ping, _ in
       self.debugView().printDebugLine("valid ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
     })

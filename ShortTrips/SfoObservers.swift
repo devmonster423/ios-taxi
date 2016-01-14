@@ -41,8 +41,6 @@ struct SfoObservers {
   // Ping
   var attemptingPingObserver: NotificationObserver<Ping, AnyObject>?
   var invalidPingObserver: NotificationObserver<Ping, AnyObject>?
-  var successfulPingObserver: NotificationObserver<Ping, AnyObject>?
-  var unsuccessfulPingObserver: NotificationObserver<Ping, AnyObject>?
   var validPingObserver: NotificationObserver<Ping, AnyObject>?
   
   // Request

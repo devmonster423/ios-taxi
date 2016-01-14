@@ -68,8 +68,6 @@ class ShortTripVCSpec: QuickSpec {
         
         postNotification(SfoNotification.Request.response, value: NSHTTPURLResponse(URL: NSURL(string: Url.Flight.Departure.summary)!, statusCode: 200, HTTPVersion: "HTTP/1.1", headerFields: nil)!)
         
-        postNotification(SfoNotification.Ping.successful, value: ping)
-        
         expect(viewController).toNot(beNil())
       }
     }

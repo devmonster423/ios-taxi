@@ -20,7 +20,7 @@ class PingManager: NSObject {
   
   private var timer: NSTimer?
 
-  var pingObserver: NotificationObserver<(ping: Ping, geofenceStatus: FoundGeofenceStatus), AnyObject>?
+  var pingObserver: NotificationObserver<Ping, AnyObject>?
   
   static let sharedInstance = PingManager()
 
@@ -35,35 +35,23 @@ class PingManager: NSObject {
     }
     
     if pingObserver == nil {
-      self.pingObserver = NotificationObserver(notification: SfoNotification.Ping.created, handler: { info, _ in
-        
-        let ping = info.ping
-        var geofenceStatus = info.geofenceStatus.status
-        
-        if geofenceStatus == .NotVerified {
-          geofenceStatus = ping.geofenceStatus
-        }
+      self.pingObserver = NotificationObserver(notification: SfoNotification.Ping.created) { ping, _ in
       
-        if let geofenceStatus = geofenceStatus {
-          self.lastSuccessfulPingDate = NSDate()
-          postNotification(SfoNotification.Ping.successful, value: ping)
+        self.lastSuccessfulPingDate = NSDate()
+        
+        if ping.geofenceStatus.toBool() {
+          postNotification(SfoNotification.Ping.valid, value: ping)
+          self.invalidPings = 0 // must be consecutive
           
-          if geofenceStatus.toBool() {
-            postNotification(SfoNotification.Ping.valid, value: ping)
-            self.invalidPings = 0 // must be consecutive
-            
-          } else {
-            postNotification(SfoNotification.Ping.invalid, value: ping)
-            self.invalidPings++
-            if self.invalidPings >= self.maxInvalidPings {
-              OutsideShortTripGeofence.sharedInstance.fire()
-              self.invalidPings = 0 // reset invalid pings
-            }
-          }
         } else {
-          postNotification(SfoNotification.Ping.unsuccessful, value: ping)
+          postNotification(SfoNotification.Ping.invalid, value: ping)
+          self.invalidPings++
+          if self.invalidPings >= self.maxInvalidPings {
+            OutsideShortTripGeofence.sharedInstance.fire()
+            self.invalidPings = 0 // reset invalid pings
+          }
         }
-      })
+      }
     }
   }
 
@@ -95,10 +83,10 @@ class PingManager: NSObject {
           medallion: medallion)
         
         postNotification(SfoNotification.Ping.attempting, value: ping)
-        ApiClient.ping(tripId, ping: ping) { geofenceStatus in
+        ApiClient.ping(tripId, ping: ping) { success in
           
-          if let geofenceStatus = geofenceStatus {
-            postNotification(SfoNotification.Ping.created, value: (ping: ping, geofenceStatus: geofenceStatus))
+          if success {
+            postNotification(SfoNotification.Ping.created, value: ping)
           } else {
             self.appendStrip(ping)
           }

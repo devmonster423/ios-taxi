@@ -56,9 +56,7 @@ extension DebugVC {
         sessionId: sessionId,
         medallion: medallion)
       
-      let geofenceStatus = FoundGeofenceStatus(status: .Invalid, geofence: nil)
-      
-      postNotification(SfoNotification.Ping.created, value: (ping: ping, geofenceStatus: geofenceStatus))
+      postNotification(SfoNotification.Ping.created, value: ping)
     }
   }
   

@@ -11,27 +11,31 @@ import AlamofireObjectMapper
 import JSQNotificationObserverKit
 import ObjectMapper
 
-typealias GeofenceStatusClosure = FoundGeofenceStatus? -> Void
 typealias SuccessClosure = Bool -> Void
 typealias TripIdClosure = Int? -> Void
 typealias ValidationClosure = TripValidation? -> Void
 
 extension ApiClient {
-  static func ping(tripId: Int, ping: Ping, response: GeofenceStatusClosure) {
+  static func ping(tripId: Int, ping: Ping, response: SuccessClosure) {
     
     if PingKiller.sharedInstance.shouldKillPings() && Util.debug {
-      response(nil)
+      response(false)
       return
     }
     
     authedRequest(.POST, Url.Trip.ping(tripId), parameters: Mapper().toJSON(ping))
-      .responseObject { (_, raw, geofenceStatus: FoundGeofenceStatus?, _, _) in
+      .response { _, raw, _, _ in
         
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
 
-        response(geofenceStatus)
+        if let raw = raw {
+          postNotification(SfoNotification.Request.response, value: raw)
+          response(StatusCode.isSuccessful(raw.statusCode))
+        } else {
+          response(false)
+        }
     }
   }
   
