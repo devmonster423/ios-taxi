@@ -28,10 +28,6 @@ extension ApiClient {
         
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
-        }
-
-        if let raw = raw {
-          postNotification(SfoNotification.Request.response, value: raw)
           response(StatusCode.isSuccessful(raw.statusCode))
         } else {
           response(false)
@@ -46,7 +42,7 @@ extension ApiClient {
       return
     }
     
-    authedRequest(.POST, Url.Trip.pings(tripId), parameters: Mapper().toJSON(PingBatchWrapper(pings)))
+    authedRequest(.POST, Url.Trip.pings(tripId), parameters: Mapper().toJSON(pings), encoding: .JSON)
       .response { _, raw, _, _ in
         
         if let raw = raw {

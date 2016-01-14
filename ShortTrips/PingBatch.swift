@@ -9,20 +9,6 @@
 import Foundation
 import ObjectMapper
 
-struct PingBatchWrapper: Mappable {
-  var pingBatch: String?
-
-  init?(_ map: Map){}
-  
-  init(_ pingBatch: PingBatch) {
-    self.pingBatch = Mapper().toJSONString(pingBatch, prettyPrint: false)
-  }
-  
-  mutating func mapping(map: Map) {
-    pingBatch <- map["pings"]
-  }
-}
-
 struct PingBatch: Mappable {
   var sessionId: String!
   var pings: [Ping]!

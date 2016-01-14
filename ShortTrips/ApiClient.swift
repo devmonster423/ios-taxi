@@ -17,10 +17,11 @@ struct ApiClient {
   static func authedRequest(
     method: Alamofire.Method,
     _ URLString: URLStringConvertible,
-    parameters: [String: AnyObject]? = nil)
+    parameters: [String: AnyObject]? = nil,
+    encoding: ParameterEncoding = .URL)
     -> Request
   {
-    let request = Alamofire.request(method, URLString, parameters: parameters, encoding: .URL, headers: headers())
+    let request = Alamofire.request(method, URLString, parameters: parameters, encoding: encoding, headers: headers())
     return request.authenticate(user: sfoUsername, password: sfoPassword, persistence: .Permanent)
   }
   
