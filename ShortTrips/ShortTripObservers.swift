@@ -46,13 +46,15 @@ extension ShortTripVC {
   }
   
   func updateForState(state: TKState) {
-    if state == NotReady.sharedInstance.getState() {
-      self.shortTripView().updatePrompt(.GoToSfo)
-      
-    } else if state == WaitingForEntryCid.sharedInstance.getState()
+    
+    if state == NotReady.sharedInstance.getState()
+      || state == WaitingForEntryCid.sharedInstance.getState()
       || state == AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()
-      || state == WaitingForEntryAvi.sharedInstance.getState()
-      || state == WaitingInHoldingLot.sharedInstance.getState()
+      || state == WaitingForEntryAvi.sharedInstance.getState() {
+        
+        self.shortTripView().updatePrompt(.GoToSfo)
+      
+    } else if state == WaitingInHoldingLot.sharedInstance.getState()
       || state == WaitingForPaymentCid.sharedInstance.getState()
       || state == AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState()
       || state == WaitingForTaxiLoopAvi.sharedInstance.getState() {
