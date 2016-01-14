@@ -11,8 +11,10 @@ import AVFoundation
 
 struct Speaker {
   static func speak(var input: String) {
-    input = input.stringByReplacingOccurrencesOfString("\n", withString: ". ", options: .CaseInsensitiveSearch)
-    input = input.stringByReplacingOccurrencesOfString("geofence", withString: "G oh fence", options: .CaseInsensitiveSearch)
+    input = input.lowercaseString
+    
+    input = input.stringByReplacingOccurrencesOfString("\n", withString: "... ")
+    input = input.stringByReplacingOccurrencesOfString("geofence", withString: "G oh fence")
     
     AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: input))
   }
