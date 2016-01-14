@@ -27,15 +27,14 @@ class NotificationView: UIView {
     addSubview(notificationImageView)
     addSubview(divider)
     
-    notificationLabel.font = Font.OpenSansSemibold.size(25)
     notificationLabel.numberOfLines = 0
     notificationLabel.textAlignment = .Center
     notificationLabel.textColor = Color.Trip.title
     notificationLabel.snp_makeConstraints { make in
       make.leading.equalTo(self).offset(UiConstants.Trip.Notification.offset)
       make.trailing.equalTo(self).offset(-UiConstants.Trip.Notification.offset)
-      make.top.equalTo(self).offset(UiConstants.Trip.Notification.offset)
-      make.height.equalTo(120)
+      make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
+      make.height.equalTo(self).dividedBy(4)
     }
     
     divider.backgroundColor = Color.Trip.divider
@@ -52,12 +51,13 @@ class NotificationView: UIView {
       make.centerX.equalTo(self)
       make.width.equalTo(self).dividedBy(3)
       make.height.equalTo(self.snp_width).dividedBy(3)
-      make.top.equalTo(divider.snp_bottom).offset(30)
+      make.top.equalTo(divider.snp_bottom).offset(UiConstants.Trip.dividerMargin)
     }
   }
   
   func notifySuccess() {
     backgroundColor = Color.Trip.Notification.green
+    notificationLabel.font = Font.OpenSansSemibold.size(25)
     notificationLabel.text = NSLocalizedString("Your trip finished\nand it was short", comment: "").uppercaseString
     notificationImageView.image = Image.greenCheckmark.image()
     notificationImageView.alpha = 1
@@ -66,7 +66,8 @@ class NotificationView: UIView {
   }
   
   func notifyFail(validationStep: ValidationStep, delay: NSTimeInterval, duration: NSTimeInterval) {
-      
+    
+    notificationLabel.font = Font.OpenSansSemibold.size(18)
     var notificationText = NSLocalizedString("Your trip is now a long", comment: "") + "\n"
     
     switch validationStep {
@@ -100,12 +101,20 @@ class NotificationView: UIView {
     
     Speaker.speak(notificationLabel.text!)
     
+    notificationLabel.snp_remakeConstraints { make in
+      make.leading.equalTo(self).offset(UiConstants.Trip.Notification.offset)
+      make.trailing.equalTo(self).offset(-UiConstants.Trip.Notification.offset)
+      make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
+    }
+    
     divider.alpha = 1
     notificationImageView.alpha = 1
+    notificationLabel.setNeedsUpdateConstraints()
     UIView.animateWithDuration(duration,
       delay: delay,
       options: UIViewAnimationOptions.CurveEaseInOut,
       animations: {
+        self.layoutIfNeeded()
         self.divider.alpha = 0
         self.notificationImageView.alpha = 0
       },
