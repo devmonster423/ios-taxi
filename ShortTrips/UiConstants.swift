@@ -15,7 +15,7 @@ struct UiConstants {
     static let buttonBgOffset: CGFloat = -10.0
     static let fullnessFontSize: CGFloat = 48.0
     static let fullnessLabelFontSize: CGFloat = 29.0
-    static let progressHeight: CGFloat = 50.0
+    static let progressHeight: CGFloat = 35.0
     static let buttonFontSize: CGFloat = 17.0
     static let terminalStatusWidth: CGFloat = 150.0
     static let shortTripWidth: CGFloat = 130.0
@@ -49,7 +49,7 @@ struct UiConstants {
     static let updateInterval: NSTimeInterval = 1.0
     static let progressHeight: CGFloat = 10.0
     static let updateHeight: CGFloat = 13.0
-    static let bottomOffset: CGFloat = -5.0
+    static let bottomOffset: CGFloat = -3.0
   }
   
   struct NavController {
@@ -65,7 +65,7 @@ struct UiConstants {
     static let bigMargin = 10.0
     static let rowHeight: CGFloat = 80.0
     static let airlineIconWidth: CGFloat = 0.17
-    static let timesTitleWidth: CGFloat = 0.18
+    static let timesTitleWidth: CGFloat = 0.20
     static let timesWidth: CGFloat = 0.17
     static let statusWidth: CGFloat = 0.17
     static let iPhone5Width: CGFloat = 320.0

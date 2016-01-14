@@ -153,7 +153,7 @@ class TerminalSummaryView: UIView {
     
     timerView.snp_makeConstraints { (make) -> Void in
       make.bottom.equalTo(self)
-      make.height.equalTo(60)
+      make.height.equalTo(UiConstants.Dashboard.progressHeight)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
     }

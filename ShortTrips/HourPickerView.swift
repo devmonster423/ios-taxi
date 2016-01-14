@@ -61,8 +61,8 @@ class HourPickerView: UIView {
     topLabel.textAlignment = .Center
     topLabel.textColor = Color.Sfo.blue
     topLabel.snp_makeConstraints { (make) -> Void in
-      make.height.equalTo(20)
-      make.width.equalTo(80)
+      make.height.equalTo(25)
+      make.width.equalTo(90)
       make.centerX.equalTo(self)
       make.bottom.equalTo(mainLabel.snp_top)
     }
