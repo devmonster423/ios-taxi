@@ -27,7 +27,7 @@ var MainTabBarController: UITabBarController {
     shortTripNavVC
   ]
   
-  mainTabBarController.selectedIndex = 1
+  mainTabBarController.selectedIndex = 2
   mainTabBarController.tabBar.barTintColor = Color.TabBar.background
   mainTabBarController.tabBar.tintColor = UIColor.whiteColor()
   mainTabBarController.tabBar.translucent = false
