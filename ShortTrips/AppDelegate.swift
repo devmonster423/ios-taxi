@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Fabric.with([Crashlytics.self()])
     IQKeyboardManager.sharedManager().enable = true
     UIApplication.sharedApplication().idleTimerDisabled = true
+    Speaker.enableBackgroundAudio()
     return true
   }
 
