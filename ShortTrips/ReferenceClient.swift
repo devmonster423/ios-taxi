@@ -10,13 +10,25 @@ import Foundation
 import ObjectMapper
 import AlamofireObjectMapper
 
+typealias IntResponse = Int? -> Void
 typealias ReferenceConfigClosure = (ReferenceConfig?, ErrorType?) -> Void
 
 extension ApiClient {
   static func requestReferenceConfig(response: ReferenceConfigClosure) {
-    authedRequest(.GET, Url.Reference.config, parameters: nil)
+    authedRequest(.GET, Url.Reference.config)
       .responseObject { (referenceConfig: ReferenceConfig?, error: ErrorType?) in
       response(referenceConfig, error)
+    }
+  }
+  
+  static func requestLotCapacity(response: IntResponse) {
+    authedRequest(.GET, Url.Reference.lotCapacity)
+      .responseString { _, _, resultString in
+        if let string = resultString.value {
+          response(Int(string))
+        } else {
+          response(nil)
+        }
     }
   }
 }

@@ -36,27 +36,16 @@ class DashboardVC: UIViewController {
   func requestLotStatus() {
     let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
     hud.labelText = NSLocalizedString("Requesting Lot Status", comment: "")
-    ApiClient.requestLotStatus { lotStatus, statusCode in
+    
+    ApiClient.requestQueueLengthAndCapacity { info in
       
       hud.hide(true)
       
-      if let color = lotStatus?.color  {
-        self.dashboardView().updateStatusUI(color)
+      if let info = info {
+        self.dashboardView().updateSpots(info)
         
-      } else {
-        var message = NSLocalizedString("An error occurred while fetching parking-lot data.", comment: "")
-        
-        if Util.debug {
-          if let statusCode = statusCode where statusCode != Util.HttpStatusCodes.Ok.rawValue {
-            message += NSLocalizedString("Status code: ", comment: "") + String(statusCode)
-          } else {
-            message += NSLocalizedString("The status object was nil.", comment:"")
-          }
-        }
-      
-        if self.navigationController?.visibleViewController == self {
-          UiHelpers.displayErrorMessage(self, message: message)
-        }
+      } else if self.navigationController?.visibleViewController == self {
+          UiHelpers.displayErrorMessage(self, message: NSLocalizedString("An error occurred while fetching parking-lot data.", comment: ""))
       }
     }
   }

@@ -118,23 +118,24 @@ class DashboardView: UIView {
       make.trailing.equalTo(self)
     }
   }
-
-  func updateStatusUI(lotStatus: LotStatusEnum) {
-    switch lotStatus {
-    case .Green:
+  
+  func updateSpots(length length: Int, capacity: Int) {
+    let remaining = capacity - length
+    let percent: Int = remaining * 100 / capacity
+    
+    percentLabel.text = "\(percent)%"
+    spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["\(remaining)", "\(capacity)"]).uppercaseString
+    
+    if percent > 50 {
       fullnessRing.image = Image.greenRing.image()
-      percentLabel.text = "100%"
-      spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["400", "400"]).uppercaseString
       spotsLabel.textColor = Color.StatusColor.green
-    case .Yellow:
+      
+    } else if percent > 25 {
       fullnessRing.image = Image.yellowRing.image()
-      percentLabel.text = "50%"
-      spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["200", "400"]).uppercaseString
       spotsLabel.textColor = Color.StatusColor.yellow
-    case .Red:
+      
+    } else {
       fullnessRing.image = Image.redRing.image()
-      percentLabel.text = "25%"
-      spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["100", "400"]).uppercaseString
       spotsLabel.textColor = Color.StatusColor.red
     }
   }

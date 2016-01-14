@@ -48,12 +48,6 @@ struct Url {
     }
   }
   
-  struct Dispatcher {
-    private static let dispatcher = base + "dispatcher/"
-    
-    static let holdingLotCapacity = dispatcher + "holdinglot/capacity"
-  }
-  
   struct Driver {
     private static let driver = base + "driver/"
     
@@ -92,11 +86,15 @@ struct Url {
     }
   }
   
+  struct Queue {
+    static let currentLength = base + "queue/current_size"
+  }
+  
   struct Reference {
     private static let reference = base + "reference/"
     
     static let config = reference + "config"
-    static let state = reference + "state"
+    static let lotCapacity = reference + "lot_capacity"
   }
   
   struct Trip {
