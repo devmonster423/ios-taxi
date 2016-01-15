@@ -255,6 +255,7 @@
 		FA0CD4BD1C4972A300C071AC /* Terminal_exit_buffered.json in Resources */ = {isa = PBXBuildFile; fileRef = FA0CD4BC1C4972A300C071AC /* Terminal_exit_buffered.json */; };
 		FA0CD4C01C4986EA00C071AC /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CD4BF1C4986EA00C071AC /* SettingsVC.swift */; };
 		FA0CD4C31C49876E00C071AC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CD4C21C49876E00C071AC /* SettingsView.swift */; };
+		FA0CD4C61C4991BD00C071AC /* SettingsVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CD4C51C4991BD00C071AC /* SettingsVCSpec.swift */; };
 		FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1FD11BAF1DD500B8F921 /* Font.swift */; };
 		FA23ACA71C489BEA006AA9D5 /* InternetDisabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23ACA61C489BEA006AA9D5 /* InternetDisabled.swift */; };
 		FA32EC081B8836B7001428B5 /* green_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC051B8836B7001428B5 /* green_bg.jpg */; };
@@ -546,6 +547,7 @@
 		FA0CD4BC1C4972A300C071AC /* Terminal_exit_buffered.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Terminal_exit_buffered.json; sourceTree = "<group>"; };
 		FA0CD4BF1C4986EA00C071AC /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		FA0CD4C21C49876E00C071AC /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FA0CD4C51C4991BD00C071AC /* SettingsVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVCSpec.swift; sourceTree = "<group>"; };
 		FA0E1FD11BAF1DD500B8F921 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		FA23ACA61C489BEA006AA9D5 /* InternetDisabled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetDisabled.swift; sourceTree = "<group>"; };
 		FA32EC051B8836B7001428B5 /* green_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green_bg.jpg; sourceTree = "<group>"; };
@@ -1134,6 +1136,7 @@
 				C2FE05E91C1B72E8005D6705 /* ShortTrip */,
 				C220E0761BC34AA700AC7C85 /* TripManager */,
 				C2897A921BB5E6CC00FE1B40 /* Networking */,
+				FA0CD4C41C4991AF00C071AC /* Settings */,
 				C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */,
 				C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */,
 				C2E6B9601C40553300100C83 /* MainTabBarSpec.swift */,
@@ -1327,6 +1330,14 @@
 			isa = PBXGroup;
 			children = (
 				FA0CD4C21C49876E00C071AC /* SettingsView.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		FA0CD4C41C4991AF00C071AC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FA0CD4C51C4991BD00C071AC /* SettingsVCSpec.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -1835,6 +1846,7 @@
 				8EEFB7D41BE2A15200B8A962 /* AirlineListWrapperSpec.swift in Sources */,
 				C2EAD0B01C03E50600EAEBBF /* MockFoundGeofenceStatusString.swift in Sources */,
 				FAEA59B01C29A668009BF1F4 /* SfoGeofenceSpec.swift in Sources */,
+				FA0CD4C61C4991BD00C071AC /* SettingsVCSpec.swift in Sources */,
 				C221EDEB1BE2E12E00BDB4CD /* MockAntennaResponse.swift in Sources */,
 				C27E3A961C4731FF00F1A163 /* QueueLengthSpec.swift in Sources */,
 				8EEFB7C71BE1B24500B8A962 /* TripClientSpec.swift in Sources */,
