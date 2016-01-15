@@ -31,9 +31,7 @@ class TerminalExitBufferedGeofenceSpec: QuickSpec {
       
       it("denotes a good point as being inside the geofence") {
         
-//        let goodPoint = CLLocationCoordinate2D(latitude: 37.614695, longitude: -122.39468)
-        
-        let goodPoint = CLLocationCoordinate2D(latitude: 37.615205, longitude: -122.39307)
+        let goodPoint = CLLocationCoordinate2D(latitude: 37.614695, longitude: -122.39468)
         
         expect(GeofenceArbiter.checkLocation(goodPoint, againstFeatures: terminalExitBufferedGeofence.features)).to(beTrue())
       }
