@@ -122,7 +122,7 @@ class TripBackToDomSpec: QuickSpec {
         LatestAviAtIntlArrivalExit.sharedInstance.fire()
         expect(machine.isInState(WaitingForDomesticReEntryAvi.sharedInstance.getState())).to(beTrue())
         
-        OutsideSfo.sharedInstance.fire()
+        OutsideBufferedExit.sharedInstance.fire()
         expect(machine.isInState(WaitingForStartTrip.sharedInstance.getState())).to(beTrue())
         
         TripManager.sharedInstance.start(123)

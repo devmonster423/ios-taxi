@@ -53,7 +53,7 @@ class TripScenario3Spec: QuickSpec {
         ExitingTerminals.sharedInstance.fire()
         expect(machine.isInState(WaitingForExitAvi.sharedInstance.getState())).to(beTrue())
         
-        OutsideSfo.sharedInstance.fire()
+        OutsideBufferedExit.sharedInstance.fire()
         expect(machine.isInState(WaitingForStartTrip.sharedInstance.getState())).to(beTrue())
         
         TripManager.sharedInstance.start(123)
