@@ -21,7 +21,7 @@ class SettingsView: UIView {
     super.init(frame: frame)
    
     addSubview(tableView)
-    
+  
     tableView.snp_makeConstraints { make in
       make.edges.equalTo(self)
     }

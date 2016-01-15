@@ -62,7 +62,7 @@ class NotificationView: UIView {
     notificationImageView.image = Image.greenCheckmark.image()
     notificationImageView.alpha = 1
     divider.alpha = 1
-    Speaker.speak(notificationLabel.text!)
+    Speaker.sharedInstance.speak(notificationLabel.text!)
   }
   
   func notifyFail(validationStep: ValidationStep, delay: NSTimeInterval, duration: NSTimeInterval) {
@@ -99,7 +99,7 @@ class NotificationView: UIView {
     notificationLabel.text = notificationText.uppercaseString
     notificationImageView.image = Image.exclamationPoint.image()
     
-    Speaker.speak(notificationLabel.text!)
+    Speaker.sharedInstance.speak(notificationLabel.text!)
     
     notificationLabel.snp_remakeConstraints { make in
       make.leading.equalTo(self).offset(UiConstants.Trip.Notification.offset)

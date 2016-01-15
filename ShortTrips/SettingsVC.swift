@@ -58,6 +58,7 @@ extension SettingsVC: UITableViewDataSource {
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
     let cell = UITableViewCell(style: .Default, reuseIdentifier: cellId)
+    cell.selectionStyle = .None
     
     switch SettingsSection(rawValue: indexPath.section)! {
     case .Audio:
@@ -73,5 +74,17 @@ extension SettingsVC: UITableViewDataSource {
 }
 
 extension SettingsVC: UITableViewDelegate {
-  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+    switch SettingsSection(rawValue: indexPath.section)! {
+    case .Audio:
+      Speaker.sharedInstance.audioEnabled = !Speaker.sharedInstance.audioEnabled
+    case .Faq:
+      UiHelpers.displayMessage(self,
+        title: "Coming Soon!",
+        message: "")
+    case .Logout:
+      logout()
+    }
+  }
 }

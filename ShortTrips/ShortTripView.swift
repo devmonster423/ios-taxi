@@ -105,7 +105,7 @@ class ShortTripView: UIView {
     if prompt != currentPrompt {
       promptLabel.text = prompt.toString()
       promptImageView.image = prompt.image()
-      Speaker.speak(prompt.toString())
+      Speaker.sharedInstance.speak(prompt.toString())
   
       currentPrompt = prompt
     }

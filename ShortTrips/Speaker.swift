@@ -9,17 +9,25 @@
 import Foundation
 import AVFoundation
 
-struct Speaker {
-  static func speak(var input: String) {
+class Speaker {
+  
+  static let sharedInstance = Speaker()
+  private init() { }
+  
+  var audioEnabled = true
+  
+  func speak(var input: String) {
     input = input.lowercaseString
     
     input = input.stringByReplacingOccurrencesOfString("\n", withString: "... ")
     input = input.stringByReplacingOccurrencesOfString("geofence", withString: "G oh fence")
     
-    AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: input))
+    if audioEnabled {
+      AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: input))
+    }
   }
   
-  static func enableBackgroundAudio() {
+  func enableBackgroundAudio() {
     let session = AVAudioSession.sharedInstance()
     do {
       try session.setCategory(AVAudioSessionCategoryPlayback, withOptions: AVAudioSessionCategoryOptions.MixWithOthers)
