@@ -34,7 +34,7 @@ class DebugVC: UIViewController {
     setupStateObservers()
     setupTripObservers()
     
-    configureNavBar(title: "Debug")
+    configureNavBar(back: true, title: "Debug")
     addLogoutButton()
     
     updateForState(StateManager.sharedInstance.getMachine().currentState)
