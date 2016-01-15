@@ -252,6 +252,7 @@
 		E1FBA9181BF1580B0042358F /* MockVehicleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FBA9171BF1580B0042358F /* MockVehicleResponse.swift */; };
 		E1FDB2681BBC47E500F8F452 /* DriverCredentialSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FDB2671BBC47E500F8F452 /* DriverCredentialSpec.swift */; };
 		FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1FD11BAF1DD500B8F921 /* Font.swift */; };
+		FA23ACA71C489BEA006AA9D5 /* InternetDisabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23ACA61C489BEA006AA9D5 /* InternetDisabled.swift */; };
 		FA32EC081B8836B7001428B5 /* green_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC051B8836B7001428B5 /* green_bg.jpg */; };
 		FA32EC091B8836B7001428B5 /* red_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC061B8836B7001428B5 /* red_bg.jpg */; };
 		FA32EC0A1B8836B7001428B5 /* yellow_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC071B8836B7001428B5 /* yellow_bg.jpg */; };
@@ -538,6 +539,7 @@
 		E1FBA9171BF1580B0042358F /* MockVehicleResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockVehicleResponse.swift; sourceTree = "<group>"; };
 		E1FDB2671BBC47E500F8F452 /* DriverCredentialSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverCredentialSpec.swift; sourceTree = "<group>"; };
 		FA0E1FD11BAF1DD500B8F921 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		FA23ACA61C489BEA006AA9D5 /* InternetDisabled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetDisabled.swift; sourceTree = "<group>"; };
 		FA32EC051B8836B7001428B5 /* green_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green_bg.jpg; sourceTree = "<group>"; };
 		FA32EC061B8836B7001428B5 /* red_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red_bg.jpg; sourceTree = "<group>"; };
 		FA32EC071B8836B7001428B5 /* yellow_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yellow_bg.jpg; sourceTree = "<group>"; };
@@ -737,6 +739,7 @@
 				FA7B79F21C1A5D3E000CDC3B /* InsideSfoNotExitingTerminals.swift */,
 				C220E0701BC3440C00AC7C85 /* InsideTaxiLoopExit.swift */,
 				C2FCF8DE1C165D0C000E12D5 /* InsideTaxiWaitingZone.swift */,
+				FA23ACA61C489BEA006AA9D5 /* InternetDisabled.swift */,
 				C2E6B95C1C40430300100C83 /* LatestAviAtDomesticReEntry.swift */,
 				E187B2761BE037550031F07C /* LatestAviAtEntry.swift */,
 				C221EDE61BE2CD3200BDB4CD /* LatestAviAtDomExit.swift */,
@@ -1726,6 +1729,7 @@
 				C27E3A901C472A8000F1A163 /* QueueClient.swift in Sources */,
 				C2635E301BB0CE1C003C22B1 /* GeofenceClient.swift in Sources */,
 				C20A98851BE153BA009E29E7 /* TripId.swift in Sources */,
+				FA23ACA71C489BEA006AA9D5 /* InternetDisabled.swift in Sources */,
 				C2DAD68B1BE7F06200CB142C /* TripManager.swift in Sources */,
 				C283AB431BE93C610004E8CD /* DriverDebugger.swift in Sources */,
 				C21905681BB0B74E00A3E779 /* Url.swift in Sources */,

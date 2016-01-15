@@ -1,20 +1,20 @@
 //
-//  LocationReadFailed.swift
+//  InternetDisabled.swift
 //  ShortTrips
 //
-//  Created by Pierre Exygy on 11/9/15.
-//  Copyright © 2015 SFO. All rights reserved.
+//  Created by Matt Luedke on 1/14/16.
+//  Copyright © 2016 SFO. All rights reserved.
 //
 
 import Foundation
 import TransitionKit
 
-struct GpsDisabled {
-  let eventNames = ["gpsDisabled"]
-  static let sharedInstance = GpsDisabled()
-
+struct InternetDisabled {
+  let eventNames = ["InternetDisabled"]
+  static let sharedInstance = InternetDisabled()
+  
   private var events: [TKEvent]
-
+  
   private init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: StateManager.allStates,
@@ -22,16 +22,16 @@ struct GpsDisabled {
   }
 }
 
-extension GpsDisabled: Event {
+extension InternetDisabled: Event {
   func getEvents() -> [TKEvent] {
     return events
   }
 }
 
-extension GpsDisabled: Observable {
+extension InternetDisabled: Observable {
   func eventIsFiring(info: Any?) {
     if let tripId = TripManager.sharedInstance.getTripId() {
-      ApiClient.invalidate(tripId, validation: .GpsFailure)
+      ApiClient.invalidate(tripId, validation: .NetworkFailure)
       TripManager.sharedInstance.stop()
     }
   }

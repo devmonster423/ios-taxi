@@ -46,6 +46,7 @@ class StateManager {
     events += InsideSfoNotExitingTerminals.sharedInstance.getEvents()
     events += InsideTaxiLoopExit.sharedInstance.getEvents()
     events += InsideTaxiWaitingZone.sharedInstance.getEvents()
+    events += InternetDisabled.sharedInstance.getEvents()
     events += LatestAviAtDomesticReEntry.sharedInstance.getEvents()
     events += LatestAviAtDomExit.sharedInstance.getEvents()
     events += LatestAviAtEntry.sharedInstance.getEvents()
