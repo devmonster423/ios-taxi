@@ -44,9 +44,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   
   func locationManager(manager: CLLocationManager,
     didUpdateLocations locations: [CLLocation]) {
-      if let location = locations.last where location.horizontalAccuracy < requiredAccuracy {
+     
+    if let location = locations.last {
+      self.lastKnownLocation = location
+    
+      if location.horizontalAccuracy < requiredAccuracy {
         postNotification(SfoNotification.Location.read, value: location)
       }
+    }
   }
 
   func locationManager(manager: CLLocationManager,
