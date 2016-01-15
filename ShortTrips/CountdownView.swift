@@ -36,20 +36,20 @@ class CountdownView: UIView {
     countdownLabel.snp_makeConstraints { make in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.centerY.equalTo(self).offset(-20)
+      make.centerY.equalTo(self).offset(20)
       make.height.equalTo(80)
     }
     
     let countdownSubtitleLabel = UILabel()
     countdownSubtitleLabel.font = Font.OpenSansSemibold.size(20)
-    countdownSubtitleLabel.text = NSLocalizedString("Time Remaining", comment: "").uppercaseString
+    countdownSubtitleLabel.text = NSLocalizedString("Short Trip expires in", comment: "").uppercaseString
     countdownSubtitleLabel.textAlignment = .Center
     countdownSubtitleLabel.textColor = Color.Trip.Time.subtitle
     addSubview(countdownSubtitleLabel)
     countdownSubtitleLabel.snp_makeConstraints { make in
       make.leading.equalTo(countdownLabel)
       make.trailing.equalTo(countdownLabel)
-      make.centerY.equalTo(self).offset(20)
+      make.centerY.equalTo(self).offset(-20)
       make.height.equalTo(40)
     }
   }

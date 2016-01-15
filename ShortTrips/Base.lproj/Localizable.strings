@@ -25,7 +25,7 @@
 "Your trip finished\nand it was short" = "Your trip finished\nand it was short";
 
 /* Trip Status */
-"Time Remaining" = "Time Remaining";
+"Short Trip expires in" = "Short Trip expires in";
 "Entry Gate AVI Detected" = "Entry Gate AVI Detected";
 "Exit AVI Detected" = "Exit AVI Detected";
 "Taxiloop AVI Detected" = "Taxiloop AVI Detected";
