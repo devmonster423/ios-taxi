@@ -11,7 +11,7 @@ import UIKit
 enum Image: String {
   
   // auth
-  case blueGrandient = "blue_gradient_bg"
+  case blueGradient = "blue_gradient_bg"
   case sfoLogoAndName = "sfo_logo2"
   
   case sfoLogoAlpha = "sfo_logo_alpha"
@@ -52,7 +52,6 @@ enum Image: String {
   case car = "car"
   case greenCheckmark = "green_check"
   
-  case genericBackground = "generic_background"
   func image() -> UIImage {
     return UIImage(named: self.rawValue)!
   }

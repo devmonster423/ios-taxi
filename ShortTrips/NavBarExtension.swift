@@ -11,7 +11,7 @@ import UIKit
 extension UIViewController {
   func configureNavBar(back back: Bool = false, title: String) {
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
-    navigationController?.navigationBar.setBackgroundImage(Image.genericBackground.image().stretchableImageWithLeftCapWidth(0, topCapHeight: 0), forBarMetrics: .Default)
+    navigationController?.navigationBar.setBackgroundImage(Image.from(Color.NavBar.backgroundBlue).stretchableImageWithLeftCapWidth(0, topCapHeight: 0), forBarMetrics: .Default)
     
     if back {
       navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.backButton.image(), style: .Plain, target: self, action: "goBack")

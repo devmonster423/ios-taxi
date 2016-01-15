@@ -23,7 +23,7 @@ class LoginView: UIView {
     super.init(frame: frame)
     
     let bgImageView = UIImageView()
-    bgImageView.image = Image.blueGrandient.image()
+    bgImageView.image = Image.blueGradient.image()
     addSubview(bgImageView)
     bgImageView.snp_makeConstraints { make in
       make.edges.equalTo(self)
