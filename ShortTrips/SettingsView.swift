@@ -11,6 +11,8 @@ import SnapKit
 
 class SettingsView: UIView {
   
+  let tableView = UITableView(frame: CGRectZero, style: .Grouped)
+  
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
   }
@@ -18,6 +20,10 @@ class SettingsView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
    
-    backgroundColor = UIColor.yellowColor()
+    addSubview(tableView)
+    
+    tableView.snp_makeConstraints { make in
+      make.edges.equalTo(self)
+    }
   }
 }
