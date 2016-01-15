@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import JSQNotificationObserverKit
 import TransitionKit
 
 struct LoggedOut {
@@ -30,9 +31,12 @@ extension LoggedOut: Event {
 
 extension LoggedOut: Observable {
   func eventIsFiring(info: Any?) {
+
     if let tripId = TripManager.sharedInstance.getTripId() {
       ApiClient.invalidate(tripId, validation: .UserLogout)
       TripManager.sharedInstance.stop()
     }
+
+    postNotification(SfoNotification.Driver.logout, value: nil)
   }
 }

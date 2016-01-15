@@ -28,6 +28,7 @@ struct SfoNotification {
   }
   
   struct Driver {
+    static let logout = Notification<Any?, AnyObject>(name: "Logout")
     static let vehicleAssociated = Notification<(driver: ShortTrips.Driver, vehicle: Vehicle), AnyObject>(name: "DriverAndVehicleAssociated")
   }
   

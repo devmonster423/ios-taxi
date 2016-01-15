@@ -12,20 +12,30 @@ import TransitionKit
 
 extension ShortTripVC {
   
+  func notifyFail(validationStep: ValidationStep) {
+    if let _ = TripManager.sharedInstance.getTripId() {
+      self.shortTripView().notifyFail(validationStep)
+    }
+  }
+  
   func setupObservers() {
     
     sfoObservers.invalidatedObserver = NotificationObserver(notification: SfoNotification.Trip.invalidated) { validationSteps, _ in
       if let validationSteps = validationSteps where validationSteps.count > 0 {
-        self.shortTripView().notifyFail(validationSteps.first!.validationStep)
+        self.notifyFail(validationSteps.first!.validationStep)
       } else {
-        self.shortTripView().notifyFail(.Unspecified)
+        self.notifyFail(.Unspecified)
       }
     }
     
     sfoObservers.locationStatusObserver = NotificationObserver(notification: SfoNotification.Location.statusUpdated) { status, _ in
       if status != .AuthorizedAlways {
-        self.shortTripView().notifyFail(.GpsFailure)
+        self.notifyFail(.GpsFailure)
       }
+    }
+    
+    sfoObservers.logoutObserver = NotificationObserver(notification: SfoNotification.Driver.logout) { _, _ in
+      self.notifyFail(.UserLogout)
     }
     
     sfoObservers.stateUpdateObserver = NotificationObserver(notification: SfoNotification.State.update) { state, _ in
@@ -33,11 +43,11 @@ extension ShortTripVC {
     }
     
     sfoObservers.outsideShortTripObserver = NotificationObserver(notification: SfoNotification.Geofence.outsideShortTrip) { _, _ in
-      self.shortTripView().notifyFail(.Geofence)
+      self.notifyFail(.Geofence)
     }
     
     sfoObservers.timeExpiredObserver = NotificationObserver(notification: SfoNotification.Trip.timeExpired) { _, _ in
-      self.shortTripView().notifyFail(.Duration)
+      self.notifyFail(.Duration)
     }
     
     sfoObservers.validatedObserver = NotificationObserver(notification: SfoNotification.Trip.validated) { _, _ in
