@@ -6,6 +6,13 @@
   Copyright (c) 2015 SFO. All rights reserved.
 */
 
+/* Settings */
+"Settings" = "Settings";
+"Audio ON. Tap to turn off.";
+"Audio OFF. Tap to turn on.";
+"Frequently Asked Questions" = "Frequently Asked Questions";
+"Logout" = "Logout";
+
 /*Trip Prompts */
 "Go to SFO holding lot to start your next trip" = "Go to SFO holding lot to start your next trip";
 "Pay and go to terminal curbside to start your next trip" = "Pay and go to terminal curbside to start your next trip";
@@ -111,3 +118,5 @@
 
 /* Navigation Bar */
 "Flights" = "Flights";
+
+"Coming Soon!" = "Coming Soon!";

@@ -28,7 +28,7 @@ class SettingsVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    configureNavBar(back: true, title: "Settings")
+    configureNavBar(back: true, title: NSLocalizedString("Settings", comment: "").uppercaseString)
   }
   
   func logout() {
@@ -62,11 +62,13 @@ extension SettingsVC: UITableViewDataSource {
     
     switch SettingsSection(rawValue: indexPath.section)! {
     case .Audio:
-      cell.textLabel?.text = "Audio"
+      cell.textLabel?.text = Speaker.sharedInstance.audioEnabled
+        ? NSLocalizedString("Audio ON. Tap to turn off.", comment: "")
+        : NSLocalizedString("Audio OFF. Tap to turn on.", comment: "")
     case .Faq:
-      cell.textLabel?.text = "FAQ"
+      cell.textLabel?.text = NSLocalizedString("Frequently Asked Questions", comment: "")
     case .Logout:
-      cell.textLabel?.text = "Logout"
+      cell.textLabel?.text = NSLocalizedString("Logout", comment: "")
     }
     
     return cell
@@ -79,10 +81,9 @@ extension SettingsVC: UITableViewDelegate {
     switch SettingsSection(rawValue: indexPath.section)! {
     case .Audio:
       Speaker.sharedInstance.audioEnabled = !Speaker.sharedInstance.audioEnabled
+      tableView.reloadData()
     case .Faq:
-      UiHelpers.displayMessage(self,
-        title: "Coming Soon!",
-        message: "")
+      UiHelpers.displayComingSoonMessage(self)
     case .Logout:
       logout()
     }

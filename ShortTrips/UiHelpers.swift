@@ -31,6 +31,10 @@ class UiHelpers {
     })
   }
   
+  class func displayComingSoonMessage(viewController: UIViewController) {
+    displayMessage(viewController, title: NSLocalizedString("Coming Soon!", comment: ""), message: "")
+  }
+  
   class func displayErrorMessage(viewController: UIViewController, message: String) {
     displayMessage(viewController, title: NSLocalizedString("Error", comment: ""), message: message)
   }
