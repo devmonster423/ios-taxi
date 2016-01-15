@@ -19,6 +19,7 @@ class Speaker {
   func speak(var input: String) {
     input = input.lowercaseString
     
+    input = input.stringByReplacingOccurrencesOfString(". ", withString: "... ")
     input = input.stringByReplacingOccurrencesOfString("\n", withString: "... ")
     input = input.stringByReplacingOccurrencesOfString("geofence", withString: "G oh fence")
     

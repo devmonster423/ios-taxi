@@ -14,7 +14,6 @@ class NotificationView: UIView {
 
   private let notificationLabel = UILabel()
   private let notificationImageView = UIImageView()
-  private let divider = UIView()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -25,7 +24,6 @@ class NotificationView: UIView {
   
     addSubview(notificationLabel)
     addSubview(notificationImageView)
-    addSubview(divider)
     
     notificationLabel.numberOfLines = 0
     notificationLabel.textAlignment = .Center
@@ -34,16 +32,6 @@ class NotificationView: UIView {
       make.leading.equalTo(self).offset(UiConstants.Trip.Notification.offset)
       make.trailing.equalTo(self).offset(-UiConstants.Trip.Notification.offset)
       make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
-      make.height.equalTo(self).dividedBy(4)
-    }
-    
-    divider.backgroundColor = Color.Trip.divider
-    addSubview(divider)
-    divider.snp_makeConstraints { (make) -> Void in
-      make.centerX.equalTo(self)
-      make.height.equalTo(1)
-      make.width.equalTo(self).dividedBy(2)
-      make.top.equalTo(notificationLabel.snp_bottom).offset(UiConstants.Trip.dividerMargin)
     }
     
     notificationImageView.contentMode = .ScaleAspectFit
@@ -51,17 +39,16 @@ class NotificationView: UIView {
       make.centerX.equalTo(self)
       make.width.equalTo(self).dividedBy(3)
       make.height.equalTo(self.snp_width).dividedBy(3)
-      make.top.equalTo(divider.snp_bottom).offset(UiConstants.Trip.dividerMargin)
+      make.top.equalTo(notificationLabel.snp_bottom).offset(UiConstants.Trip.dividerMargin)
     }
   }
   
   func notifySuccess() {
     backgroundColor = Color.Trip.Notification.green
     notificationLabel.font = Font.OpenSansSemibold.size(25)
-    notificationLabel.text = NSLocalizedString("Your trip finished\nand it was short", comment: "").uppercaseString
+    notificationLabel.text = NSLocalizedString("Your trip finished and is a valid short. Go directly to the payment gate to start your next trip.", comment: "").uppercaseString
     notificationImageView.image = Image.greenCheckmark.image()
     notificationImageView.alpha = 1
-    divider.alpha = 1
     Speaker.sharedInstance.speak(notificationLabel.text!)
   }
   
@@ -107,7 +94,6 @@ class NotificationView: UIView {
       make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
     }
     
-    divider.alpha = 1
     notificationImageView.alpha = 1
     notificationLabel.setNeedsUpdateConstraints()
     UIView.animateWithDuration(duration,
@@ -115,7 +101,6 @@ class NotificationView: UIView {
       options: UIViewAnimationOptions.CurveEaseInOut,
       animations: {
         self.layoutIfNeeded()
-        self.divider.alpha = 0
         self.notificationImageView.alpha = 0
       },
       completion: nil)

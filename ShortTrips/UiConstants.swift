@@ -79,7 +79,7 @@ struct UiConstants {
     static let dividerMargin: CGFloat = 15.0
     
     struct Notification {
-      static let offset: CGFloat = 10.0
+      static let offset: CGFloat = 25.0
     }
   }
 }

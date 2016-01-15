@@ -31,7 +31,7 @@
 "User logout" = "User logout";
 "App quit" = "App quit";
 "App crash" = "App crash";
-"Your trip finished\nand it was short" = "Your trip finished\nand it was short";
+"Your trip finished and is a valid short. Go directly to the payment gate to start your next trip." = "Your trip finished and is a valid short. Go directly to the payment gate to start your next trip.";
 
 /* Trip Status */
 "Short Trip expires in" = "Short Trip expires in";
