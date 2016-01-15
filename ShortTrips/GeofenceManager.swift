@@ -57,8 +57,11 @@ class GeofenceManager {
       InsideSfo.sharedInstance.fire()
       insideSfo = true
     } else {
-      OutsideSfo.sharedInstance.fire()
       insideSfo = false
+    }
+    
+    if geofences.contains(.TaxiExitBuffered) {
+      OutsideBufferedExit.sharedInstance.fire()
     }
     
     if geofences.contains(.SfoTaxiDomesticExit)

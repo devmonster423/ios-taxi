@@ -34,6 +34,7 @@ enum SfoGeofence: Int {
   case SfoTerminalExit = 18
   case TaxiWaitingZone = 19
   case TaxiSfoMerged = 23
+  case TaxiExitBuffered = 99 // not on server database
 }
 
 struct Geofence: Mappable {
