@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import JSQNotificationObserverKit
+import Crashlytics
 
 extension DebugVC {
   
@@ -37,7 +38,8 @@ extension DebugVC {
   func dropPassenger() {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.622254, longitude: -122.409925))
     self.updateFakeButtons((title: "Back To SFO", action: "backToSFO"),
-      second: (title: "Turn Off Pings", action: "turnOffPings"))
+      second: (title: "Turn Off Pings", action: "turnOffPings"),
+      third: (title: "Crash App", action: "crash"))
   }
   
   func fakeExitingTerminals() {
@@ -57,6 +59,12 @@ extension DebugVC {
         medallion: medallion)
       
       postNotification(SfoNotification.Ping.created, value: ping)
+    }
+  }
+  
+  func crash() {
+    if Util.debug {
+      Crashlytics.sharedInstance().crash()
     }
   }
   
