@@ -29,7 +29,7 @@ class FlightStatusVC: UIViewController {
     super.viewDidLoad()
     configureNavBar(back: true, title: NSLocalizedString("Flight Status", comment: "").uppercaseString)
     updateFlightTable()
-    addLogoutButton()
+    addSettingsButton()
   }
   
   override func viewWillAppear(animated: Bool) {

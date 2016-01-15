@@ -157,7 +157,7 @@
 		C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667101BA7577600BA28E2 /* DashboardView.swift */; };
 		C2B667291BA7833400BA28E2 /* TerminalSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */; };
 		C2BC85101C24832B005FC6F8 /* AutoLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC850F1C24832B005FC6F8 /* AutoLoginView.swift */; };
-		C2BC85141C24912F005FC6F8 /* LogoutExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85131C24912F005FC6F8 /* LogoutExtension.swift */; };
+		C2BC85141C24912F005FC6F8 /* SettingsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85131C24912F005FC6F8 /* SettingsExtension.swift */; };
 		C2BC85171C249CA0005FC6F8 /* NavBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */; };
 		C2CE0B141C1219AB00496607 /* LocalGeofenceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */; };
 		C2D2899B1C3B094300A636AA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D2899A1C3B094300A636AA /* MainTabBarController.swift */; };
@@ -253,6 +253,8 @@
 		FA0CD4B91C4968FB00C071AC /* OutsideBufferedExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CD4B81C4968FB00C071AC /* OutsideBufferedExit.swift */; };
 		FA0CD4BB1C496A6700C071AC /* TerminalExitBufferedGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CD4BA1C496A6700C071AC /* TerminalExitBufferedGeofenceSpec.swift */; };
 		FA0CD4BD1C4972A300C071AC /* Terminal_exit_buffered.json in Resources */ = {isa = PBXBuildFile; fileRef = FA0CD4BC1C4972A300C071AC /* Terminal_exit_buffered.json */; };
+		FA0CD4C01C4986EA00C071AC /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CD4BF1C4986EA00C071AC /* SettingsVC.swift */; };
+		FA0CD4C31C49876E00C071AC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CD4C21C49876E00C071AC /* SettingsView.swift */; };
 		FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1FD11BAF1DD500B8F921 /* Font.swift */; };
 		FA23ACA71C489BEA006AA9D5 /* InternetDisabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23ACA61C489BEA006AA9D5 /* InternetDisabled.swift */; };
 		FA32EC081B8836B7001428B5 /* green_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC051B8836B7001428B5 /* green_bg.jpg */; };
@@ -440,7 +442,7 @@
 		C2B667101BA7577600BA28E2 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryView.swift; sourceTree = "<group>"; };
 		C2BC850F1C24832B005FC6F8 /* AutoLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLoginView.swift; sourceTree = "<group>"; };
-		C2BC85131C24912F005FC6F8 /* LogoutExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutExtension.swift; sourceTree = "<group>"; };
+		C2BC85131C24912F005FC6F8 /* SettingsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsExtension.swift; sourceTree = "<group>"; };
 		C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarExtension.swift; sourceTree = "<group>"; };
 		C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofenceFeature.swift; sourceTree = "<group>"; };
 		C2D2899A1C3B094300A636AA /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -542,6 +544,8 @@
 		FA0CD4B81C4968FB00C071AC /* OutsideBufferedExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutsideBufferedExit.swift; sourceTree = "<group>"; };
 		FA0CD4BA1C496A6700C071AC /* TerminalExitBufferedGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalExitBufferedGeofenceSpec.swift; sourceTree = "<group>"; };
 		FA0CD4BC1C4972A300C071AC /* Terminal_exit_buffered.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Terminal_exit_buffered.json; sourceTree = "<group>"; };
+		FA0CD4BF1C4986EA00C071AC /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		FA0CD4C21C49876E00C071AC /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FA0E1FD11BAF1DD500B8F921 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		FA23ACA61C489BEA006AA9D5 /* InternetDisabled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetDisabled.swift; sourceTree = "<group>"; };
 		FA32EC051B8836B7001428B5 /* green_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green_bg.jpg; sourceTree = "<group>"; };
@@ -938,8 +942,8 @@
 		C2BC85151C249C86005FC6F8 /* ViewControllerExtensions */ = {
 			isa = PBXGroup;
 			children = (
-				C2BC85131C24912F005FC6F8 /* LogoutExtension.swift */,
 				C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */,
+				C2BC85131C24912F005FC6F8 /* SettingsExtension.swift */,
 			);
 			name = ViewControllerExtensions;
 			sourceTree = "<group>";
@@ -1178,6 +1182,7 @@
 				C2AC81F71C3B03C4003695C8 /* FlightStatus */,
 				C257FB3B1BC44E2000468CF1 /* LocationManagement */,
 				C21905661BB0B73E00A3E779 /* Networking */,
+				FA0CD4BE1C49866500C071AC /* Settings */,
 				E1472CF21C0E7A4300D27D60 /* ShortTrip */,
 				C220E0671BC339E200AC7C85 /* StateManagement */,
 				C2D2899A1C3B094300A636AA /* MainTabBarController.swift */,
@@ -1211,6 +1216,7 @@
 				C2BC850E1C2482E6005FC6F8 /* Auth */,
 				C21528C31BC83A610073502F /* Debug */,
 				E177ED031BB4710400DD4499 /* Dashboard */,
+				FA0CD4C11C49875F00C071AC /* Settings */,
 				E1472D091C0E7C0600D27D60 /* ShortTrip */,
 				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
 			);
@@ -1307,6 +1313,22 @@
 				E1FBA9171BF1580B0042358F /* MockVehicleResponse.swift */,
 			);
 			name = Driver;
+			sourceTree = "<group>";
+		};
+		FA0CD4BE1C49866500C071AC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FA0CD4BF1C4986EA00C071AC /* SettingsVC.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		FA0CD4C11C49875F00C071AC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FA0CD4C21C49876E00C071AC /* SettingsView.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		FA0E1FD01BAF1D9500B8F921 /* Utility */ = {
@@ -1685,10 +1707,12 @@
 				C21528C51BC83A820073502F /* LoginView.swift in Sources */,
 				C283AB391BE939610004E8CD /* GeofenceDebugger.swift in Sources */,
 				E11D60971BA7A40100FD4276 /* Geofence.swift in Sources */,
+				FA0CD4C31C49876E00C071AC /* SettingsView.swift in Sources */,
 				C27450BC1BB4988200D33CDD /* AirlineListWrapper.swift in Sources */,
 				C2DFE5C81B56D2CB0090B55F /* AppDelegate.swift in Sources */,
 				8EEFB7A21BE041F800B8A962 /* WaitingForPaymentCid.swift in Sources */,
 				C2B15ADF1BBB16010049B97C /* Image.swift in Sources */,
+				FA0CD4C01C4986EA00C071AC /* SettingsVC.swift in Sources */,
 				E18FF68D1BA8667500FE93B9 /* AutomaticVehicleId.swift in Sources */,
 				C27E3A931C472B2400F1A163 /* QueueLength.swift in Sources */,
 				C21528C21BC839990073502F /* LoginVC.swift in Sources */,
@@ -1719,7 +1743,7 @@
 				C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */,
 				E1BE7B701BE4025C0085D3CA /* TimeExpired.swift in Sources */,
 				C26ABD291C45C31000EF4684 /* CountdownView.swift in Sources */,
-				C2BC85141C24912F005FC6F8 /* LogoutExtension.swift in Sources */,
+				C2BC85141C24912F005FC6F8 /* SettingsExtension.swift in Sources */,
 				8EEFB79C1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift in Sources */,
 				C283AB3F1BE93B790004E8CD /* StateDebugger.swift in Sources */,
 				C285F1D51C18F46D00AA3363 /* WaitingForReEntryCid.swift in Sources */,

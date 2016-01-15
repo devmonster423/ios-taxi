@@ -26,7 +26,7 @@ class DashboardVC: UIViewController {
     navigationItem.title = "";
     requestLotStatus()
     configureNavBar(title: NSLocalizedString("Dashboard", comment: "").uppercaseString)
-    addLogoutButton()
+    addSettingsButton()
   }
     
   func dashboardView() -> DashboardView {
