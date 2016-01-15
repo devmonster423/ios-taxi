@@ -12,6 +12,8 @@
 "Audio OFF. Tap to turn on.";
 "Frequently Asked Questions" = "Frequently Asked Questions";
 "Logout" = "Logout";
+"Are you sure?" = "Are you sure?";
+"Cancel" = "Cancel";
 
 /*Trip Prompts */
 "Go to SFO holding lot to start your next trip" = "Go to SFO holding lot to start your next trip";

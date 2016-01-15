@@ -31,6 +31,22 @@ class SettingsVC: UIViewController {
     configureNavBar(back: true, title: NSLocalizedString("Settings", comment: "").uppercaseString)
   }
   
+  func showLogoutConfirm() {
+    let alertController = UIAlertController(title: NSLocalizedString("Are you sure?", comment: ""),
+      message: "",
+      preferredStyle: .Alert)
+    
+    let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel, handler: nil)
+    alertController.addAction(cancelAction)
+    
+    let logoutAction = UIAlertAction(title: NSLocalizedString("Logout", comment: ""), style: .Default) { (action) in
+      self.logout()
+    }
+    alertController.addAction(logoutAction)
+    
+    presentViewController(alertController, animated: true, completion: nil)
+  }
+  
   func logout() {
     LoggedOut.sharedInstance.fire()
     DriverCredential.clear()
@@ -85,7 +101,7 @@ extension SettingsVC: UITableViewDelegate {
     case .Faq:
       UiHelpers.displayComingSoonMessage(self)
     case .Logout:
-      logout()
+      showLogoutConfirm()
     }
   }
 }
