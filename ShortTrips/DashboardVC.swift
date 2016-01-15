@@ -44,7 +44,8 @@ class DashboardVC: UIViewController {
       if let info = info {
         self.dashboardView().updateSpots(info)
         
-      } else if self.navigationController?.visibleViewController == self {
+      } else if self.tabBarController?.selectedIndex == MainTabs.Lot.rawValue
+        && self.navigationController?.visibleViewController == self {
           UiHelpers.displayErrorMessage(self, message: NSLocalizedString("An error occurred while fetching parking-lot data.", comment: ""))
       }
     }

@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum MainTabs: Int {
+  case Flights = 0
+  case Lot = 1
+  case Trip = 2
+}
+
 var MainTabBarController: UITabBarController {
 
   let mainTabBarController = UITabBarController()
@@ -27,7 +33,7 @@ var MainTabBarController: UITabBarController {
     shortTripNavVC
   ]
   
-  mainTabBarController.selectedIndex = 2
+  mainTabBarController.selectedIndex = MainTabs.Trip.rawValue
   mainTabBarController.tabBar.barTintColor = Color.TabBar.background
   mainTabBarController.tabBar.tintColor = UIColor.whiteColor()
   mainTabBarController.tabBar.translucent = false
