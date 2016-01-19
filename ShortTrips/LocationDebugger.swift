@@ -95,4 +95,9 @@ extension DebugVC {
   func triggerOutsideTaxiWaitingZone() {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.621313, longitude: -122.378955))
   }
+  
+  func triggerAtDomesticDropoff() {
+    AviManager.sharedInstance.lastKnownAvi = Antenna(antennaId: "L11AVI1", aviLocation: "DTD Entrance", aviDate: NSDate())
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.615943, longitude: -122.384233))
+  }
 }
