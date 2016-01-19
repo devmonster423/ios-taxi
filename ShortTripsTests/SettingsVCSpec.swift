@@ -26,6 +26,7 @@ class SettingsVCSpec: QuickSpec {
         UIApplication.sharedApplication().keyWindow!.rootViewController = navigationController
         let _ = navigationController.view
         let _ = viewController.view
+        (viewController.view as! SettingsView).tableView.reloadData()
       }
       
       it("is instantiated") {
