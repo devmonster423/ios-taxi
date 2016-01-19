@@ -68,7 +68,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   }
   
   static func locationActiveAndAuthorized() -> Bool {
-    if Util.testing() {
+    if Util.debug && (Util.testing() || Util.testingGps) {
       return true
     } else {
       return CLLocationManager.locationServicesEnabled()

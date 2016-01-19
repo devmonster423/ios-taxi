@@ -32,10 +32,12 @@ extension DebugVC {
   }
   
   func backToSFO() {
+    Util.testingGps = true
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.621313, longitude: -122.378955))
   }
   
   func dropPassenger() {
+    Util.testingGps = true
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.622254, longitude: -122.409925))
     self.updateFakeButtons((title: "Back To SFO", action: "backToSFO"),
       second: (title: "Turn Off Pings", action: "turnOffPings"),
@@ -43,6 +45,7 @@ extension DebugVC {
   }
   
   func fakeExitingTerminals() {
+    Util.testingGps = true
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.615119, longitude: -122.393328))
   }
   
@@ -69,34 +72,42 @@ extension DebugVC {
   }
   
   func triggerOutsideDomesticTerminalExit() {
+    Util.testingGps = true
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.614319, longitude: -122.390206))
   }
   
   func triggerAtIntlTerminal() {
+    Util.testingGps = true
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.6149, longitude: -122.39))
   }
   
   func triggerAtTerminalExit() {
+    Util.testingGps = true
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.6168, longitude: -122.3843))
   }
   
   func triggerInsideSfo() {
+    Util.testingGps = true
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.621313, longitude: -122.378955))
   }
   
   func triggerInsideTaxiWaitingZone() {
+    Util.testingGps = true
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.616424, longitude: -122.386107))
   }
   
   func triggerOutsideSfo() {
+    Util.testingGps = true
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.65, longitude: -122.405))
   }
   
   func triggerOutsideTaxiWaitingZone() {
+    Util.testingGps = true
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.621313, longitude: -122.378955))
   }
   
   func triggerAtDomesticDropoff() {
+    Util.testingGps = true
     AviManager.sharedInstance.lastKnownAvi = Antenna(antennaId: "L11AVI1", aviLocation: "DTD Entrance", aviDate: NSDate())
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.615943, longitude: -122.384233))
   }

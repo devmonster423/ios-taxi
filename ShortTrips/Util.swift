@@ -9,7 +9,8 @@
 import Foundation
 
 struct Util {
-  static var debug = true
+  static let debug = true
+  static var testingGps = false
   
   enum HttpStatusCodes: Int {
     case Ok = 200
