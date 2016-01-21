@@ -46,10 +46,10 @@ class NotificationView: UIView {
   func notifySuccess() {
     backgroundColor = Color.Trip.Notification.green
     notificationLabel.font = Font.OpenSansSemibold.size(25)
-    notificationLabel.text = NSLocalizedString("Your trip finished and is a valid short. Go directly to the payment gate to start your next trip.", comment: "").uppercaseString
+    notificationLabel.text = NSLocalizedString("Your trip finished and is a valid short.", comment: "").uppercaseString
     notificationImageView.image = Image.greenCheckmark.image()
     notificationImageView.alpha = 1
-    Speaker.sharedInstance.speak(notificationLabel.text!)
+    Speaker.sharedInstance.speak(notificationLabel.text! + " " + NSLocalizedString("Go directly to the payment gate to start your next trip.", comment: ""))
   }
   
   func notifyFail(validationStep: ValidationStep, delay: NSTimeInterval, duration: NSTimeInterval) {
