@@ -44,6 +44,10 @@ extension ApiClient {
           postNotification(SfoNotification.Request.response, value: raw)
         }
         
+        if let device = antenna?.device() {
+          AviManager.sharedInstance.latestAviLocation = device
+        }
+        
         response(antenna)
     }
   }
@@ -55,6 +59,7 @@ extension ApiClient {
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
+        
         response(cid)
     }
   }

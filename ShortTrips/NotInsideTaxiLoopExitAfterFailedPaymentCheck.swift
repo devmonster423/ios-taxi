@@ -11,15 +11,29 @@ import TransitionKit
 import JSQNotificationObserverKit
 
 struct NotInsideTaxiLoopExitAfterFailedPaymentCheck {
-  let eventNames = ["NotInsideTaxiLoopExitAfterFailedPaymentCheck"]
+  let eventNames = ["NotInsideTaxiLoopExitAfterFailedPaymentCheckHoldingLot", "NotInsideTaxiLoopExitAfterFailedPaymentCheckNotReady"]
   static let sharedInstance = NotInsideTaxiLoopExitAfterFailedPaymentCheck()
   
   private var events: [TKEvent]
   
   private init() {
-    events = [TKEvent(name: eventNames[0],
+    let event1 = TKEvent(name: eventNames[0],
       transitioningFromStates: [WaitingForPaymentCid.sharedInstance.getState(), AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState(), WaitingForTaxiLoopAvi.sharedInstance.getState()],
-      toState: WaitingInHoldingLot.sharedInstance.getState())]
+      toState: WaitingInHoldingLot.sharedInstance.getState())
+    
+    let event2 = TKEvent(name: eventNames[1],
+      transitioningFromStates: [WaitingForPaymentCid.sharedInstance.getState(), AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState(), WaitingForTaxiLoopAvi.sharedInstance.getState()],
+      toState: NotReady.sharedInstance.getState())
+    
+    event1.setShouldFireEventBlock { _, _ -> Bool in
+      return AviManager.sharedInstance.latestAviInTaxiEntryOrStatus()
+    }
+    
+    event2.setShouldFireEventBlock { _, _ -> Bool in
+      return !AviManager.sharedInstance.latestAviInTaxiEntryOrStatus()
+    }
+    
+    events = [event1, event2]
   }
 }
 

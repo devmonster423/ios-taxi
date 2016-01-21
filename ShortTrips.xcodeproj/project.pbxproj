@@ -257,7 +257,7 @@
 		FA0CD4C31C49876E00C071AC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CD4C21C49876E00C071AC /* SettingsView.swift */; };
 		FA0CD4C61C4991BD00C071AC /* SettingsVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CD4C51C4991BD00C071AC /* SettingsVCSpec.swift */; };
 		FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1FD11BAF1DD500B8F921 /* Font.swift */; };
-		FA23ACA71C489BEA006AA9D5 /* InternetDisabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA23ACA61C489BEA006AA9D5 /* InternetDisabled.swift */; };
+		FA27A5391C507C3800278CC6 /* AviManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27A5381C507C3800278CC6 /* AviManager.swift */; };
 		FA32EC081B8836B7001428B5 /* green_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC051B8836B7001428B5 /* green_bg.jpg */; };
 		FA32EC091B8836B7001428B5 /* red_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC061B8836B7001428B5 /* red_bg.jpg */; };
 		FA32EC0A1B8836B7001428B5 /* yellow_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC071B8836B7001428B5 /* yellow_bg.jpg */; };
@@ -549,7 +549,7 @@
 		FA0CD4C21C49876E00C071AC /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FA0CD4C51C4991BD00C071AC /* SettingsVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVCSpec.swift; sourceTree = "<group>"; };
 		FA0E1FD11BAF1DD500B8F921 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		FA23ACA61C489BEA006AA9D5 /* InternetDisabled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetDisabled.swift; sourceTree = "<group>"; };
+		FA27A5381C507C3800278CC6 /* AviManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AviManager.swift; sourceTree = "<group>"; };
 		FA32EC051B8836B7001428B5 /* green_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green_bg.jpg; sourceTree = "<group>"; };
 		FA32EC061B8836B7001428B5 /* red_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red_bg.jpg; sourceTree = "<group>"; };
 		FA32EC071B8836B7001428B5 /* yellow_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yellow_bg.jpg; sourceTree = "<group>"; };
@@ -749,7 +749,6 @@
 				FA7B79F21C1A5D3E000CDC3B /* InsideSfoNotExitingTerminals.swift */,
 				C220E0701BC3440C00AC7C85 /* InsideTaxiLoopExit.swift */,
 				C2FCF8DE1C165D0C000E12D5 /* InsideTaxiWaitingZone.swift */,
-				FA23ACA61C489BEA006AA9D5 /* InternetDisabled.swift */,
 				C2E6B95C1C40430300100C83 /* LatestAviAtDomesticReEntry.swift */,
 				E187B2761BE037550031F07C /* LatestAviAtEntry.swift */,
 				C221EDE61BE2CD3200BDB4CD /* LatestAviAtDomExit.swift */,
@@ -915,6 +914,7 @@
 		C2AB51361BD02A15003ACB4C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				FA27A5381C507C3800278CC6 /* AviManager.swift */,
 				C28ECB411BCF21DE00887763 /* GeofenceManager.swift */,
 				C28ECB3C1BCF193300887763 /* PingManager.swift */,
 				C215CDFE1BD1A4B400991D9D /* Poller.swift */,
@@ -1671,6 +1671,7 @@
 				8E0F5BC51BEBEC83001DE4C2 /* TimerDebugger.swift in Sources */,
 				C28ECB221BCECA9700887763 /* TripClient.swift in Sources */,
 				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
+				FA27A5391C507C3800278CC6 /* AviManager.swift in Sources */,
 				C285F1D31C18F1C800AA3363 /* AssociatingDriverAndVehicleAtReEntry.swift in Sources */,
 				E18FF68F1BA869A300FE93B9 /* Antenna.swift in Sources */,
 				E17352851B8CEC9B0031950B /* UiHelpers.swift in Sources */,
@@ -1772,7 +1773,6 @@
 				C27E3A901C472A8000F1A163 /* QueueClient.swift in Sources */,
 				C2635E301BB0CE1C003C22B1 /* GeofenceClient.swift in Sources */,
 				C20A98851BE153BA009E29E7 /* TripId.swift in Sources */,
-				FA23ACA71C489BEA006AA9D5 /* InternetDisabled.swift in Sources */,
 				C2DAD68B1BE7F06200CB142C /* TripManager.swift in Sources */,
 				C283AB431BE93C610004E8CD /* DriverDebugger.swift in Sources */,
 				C21905681BB0B74E00A3E779 /* Url.swift in Sources */,

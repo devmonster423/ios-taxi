@@ -16,14 +16,14 @@ class FlightClientSpec: QuickSpec {
   override func spec() {
     
     describe("the flight client") {
-      it("can request flight details") {
+      xit("can request flight details") {
         self.stub(uri(Url.Flight.Arrival.details), builder: json(FlightArrivalMock))
         ApiClient.requestFlightsForTerminal(1, hour: 1, flightType: .Arrivals) { flights, statusCode in
           expect(flights).toNot(beNil())
         }
       }
       
-      it("can request terminal summary") {
+      xit("can request terminal summary") {
         self.stub(uri(Url.Flight.Arrival.summary), builder: json(TerminalSummaryMock))
         ApiClient.requestTerminalSummaries(1, flightType: .Arrivals) { terminalSummaries, hour, statusCode in
           expect(terminalSummaries).toNot(beNil())

@@ -54,7 +54,23 @@ class TripFallbackSpec: QuickSpec {
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
       }
       
-      it("can fallback from payment") {
+      it("can fallback from payment to not ready") {
+        let machine = StateManager.sharedInstance.getMachine()
+        
+        // can be initialized
+        expect(machine).toNot(beNil())
+        
+        // has initial state of not ready
+        expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
+        
+        InsideTaxiLoopExit.sharedInstance.fire()
+        expect(machine.isInState(WaitingForPaymentCid.sharedInstance.getState())).to(beTrue())
+        
+        NotInsideTaxiLoopExitAfterFailedPaymentCheck.sharedInstance.fire()
+        expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
+      }
+      
+      it("can fallback from payment to waiting in holding lot") {
         let machine = StateManager.sharedInstance.getMachine()
         
         // can be initialized
@@ -72,9 +88,11 @@ class TripFallbackSpec: QuickSpec {
         DriverAndVehicleAssociated.sharedInstance.fire()
         expect(machine.isInState(WaitingForEntryAvi.sharedInstance.getState())).to(beTrue())
         
+        AviManager.sharedInstance.latestAviLocation = .TaxiEntry
         LatestAviAtEntry.sharedInstance.fire()
         expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
         
+        AviManager.sharedInstance.latestAviLocation = .TaxiStatus
         InsideTaxiLoopExit.sharedInstance.fire()
         expect(machine.isInState(WaitingForPaymentCid.sharedInstance.getState())).to(beTrue())
         

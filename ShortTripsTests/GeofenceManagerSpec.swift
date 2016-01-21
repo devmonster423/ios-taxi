@@ -47,7 +47,7 @@ class GeofenceManagerSpec: QuickSpec {
         postNotification(SfoNotification.Location.read, value: location)
         
         NSRunLoop.mainRunLoop().runUntilDate(NSDate())
-        expect(count).toEventually(equal(1), timeout: 1)
+        expect(count).toEventually(equal(1), timeout: 10)
       }
       
       it("can correctly call a point outside buffered exit") {
@@ -65,7 +65,7 @@ class GeofenceManagerSpec: QuickSpec {
         postNotification(SfoNotification.Location.read, value: location)
         
         NSRunLoop.mainRunLoop().runUntilDate(NSDate())
-        expect(count).toEventually(equal(1), timeout: 1)
+        expect(count).toEventually(equal(1), timeout: 10)
       }
       
       it("can be stopped") {
