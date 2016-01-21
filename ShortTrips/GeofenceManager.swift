@@ -60,7 +60,7 @@ class GeofenceManager {
       insideSfo = false
     }
     
-    if geofences.contains(.TaxiExitBuffered) {
+    if !geofences.contains(.TaxiExitBuffered) {
       OutsideBufferedExit.sharedInstance.fire()
     }
     
