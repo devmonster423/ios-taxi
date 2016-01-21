@@ -22,9 +22,7 @@ struct InsideTaxiLoopExit {
       toState: WaitingForPaymentCid.sharedInstance.getState())
     
     insideTaxiLoopExitEvent.setShouldFireEventBlock { _, transition -> Bool in
-      
-      return AviManager.sharedInstance.lastKnownAvi?.device() != .DtdEntrance
-        && LocationManager.locationActiveAndAuthorized()
+      return LocationManager.locationActiveAndAuthorized()
     }
     
     events = [insideTaxiLoopExitEvent]

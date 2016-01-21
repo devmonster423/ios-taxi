@@ -44,10 +44,6 @@ extension ApiClient {
           postNotification(SfoNotification.Request.response, value: raw)
         }
         
-        if let antenna = antenna {
-          AviManager.sharedInstance.lastKnownAvi = antenna
-        }
-        
         response(antenna)
     }
   }

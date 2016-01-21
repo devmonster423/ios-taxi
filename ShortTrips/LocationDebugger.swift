@@ -108,7 +108,6 @@ extension DebugVC {
   
   func triggerAtDomesticDropoff() {
     Util.testingGps = true
-    AviManager.sharedInstance.lastKnownAvi = Antenna(antennaId: "L11AVI1", aviLocation: "DTD Entrance", aviDate: NSDate())
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.615943, longitude: -122.384233))
   }
 }
