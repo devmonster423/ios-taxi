@@ -57,29 +57,20 @@ extension ShortTripVC {
   
   func updateForState(state: TKState) {
     
-    if state == NotReady.sharedInstance.getState()
-      || state == WaitingForEntryCid.sharedInstance.getState()
-      || state == AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()
-      || state == WaitingForEntryAvi.sharedInstance.getState() {
+    if state == NotReady.sharedInstance.getState() {
         
         self.shortTripView().updatePrompt(.GoToSfo)
       
-    } else if state == WaitingInHoldingLot.sharedInstance.getState()
-      || state == WaitingForPaymentCid.sharedInstance.getState()
-      || state == AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState()
-      || state == WaitingForTaxiLoopAvi.sharedInstance.getState() {
+    } else if state == WaitingInHoldingLot.sharedInstance.getState() {
         
         self.shortTripView().updatePrompt(.Pay)
       
-    } else if state == Ready.sharedInstance.getState()
-      || state == WaitingForExitAvi.sharedInstance.getState()
-      || state == WaitingForDomesticReEntryAvi.sharedInstance.getState()
-      || state == WaitingForStartTrip.sharedInstance.getState() {
+    } else if state == Ready.sharedInstance.getState() {
         
         self.shortTripView().updatePrompt(.Ready)
         self.shortTripView().hideNotification()
       
-    } else if tripInProgress(state) {
+    } else if state == InProgress.sharedInstance.getState() {
         self.shortTripView().updatePrompt(.InProgress)
     }
     
