@@ -14,7 +14,8 @@ import JSQNotificationObserverKit
 
 class GeofenceManagerSpec: QuickSpec {
   
-  var observer: NotificationObserver<[SfoGeofence], AnyObject>?
+  var foundInsideObserver: NotificationObserver<[SfoGeofence], AnyObject>?
+  var bufferedExitobserver: NotificationObserver<Any?, AnyObject>?
   
   override func spec() {
     
@@ -31,20 +32,38 @@ class GeofenceManagerSpec: QuickSpec {
         expect(geofenceManager).toNot(beNil())
       }
       
-      xit("can handle a validlocationRead event") {
+      it("can handle a validlocationRead event") {
         
         var count = 0
         
-        self.observer = NotificationObserver(notification: SfoNotification.Geofence.foundInside, handler: { (value, sender) -> Void in
+        self.foundInsideObserver = NotificationObserver(notification: SfoNotification.Geofence.foundInside) { _, _ in
           count = 1
-        })
+        }
         
-        expect(self.observer).toNot(beNil())
+        expect(self.foundInsideObserver).toNot(beNil())
+        expect(count) == 0
         
         let location = CLLocation(latitude: 37.615716, longitude: -122.388321) // is inside SFO
         postNotification(SfoNotification.Location.read, value: location)
         
-        expect(count).toEventually(equal(1), timeout: 1)
+        expect(count).toEventually(equal(1), timeout: 10)
+      }
+      
+      it("can correctly call a point outside buffered exit") {
+        
+        var count = 0
+        
+        self.bufferedExitobserver = NotificationObserver(notification: SfoNotification.Geofence.outsideBufferedExit) { _, _ in
+          count = 1
+        }
+        
+        expect(self.bufferedExitobserver).toNot(beNil())
+        expect(count) == 0
+        
+        let location = CLLocation(latitude: 37.65, longitude: -122.405) // is outside SFO
+        postNotification(SfoNotification.Location.read, value: location)
+        
+        expect(count).toEventually(equal(1), timeout: 10)
       }
       
       it("can be stopped") {
