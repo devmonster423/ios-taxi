@@ -22,6 +22,7 @@ class TripFallbackSpec: QuickSpec {
         // can be initialized
         expect(machine).toNot(beNil())
         
+        Failure.sharedInstance.fire()
         // has initial state of not ready
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
         

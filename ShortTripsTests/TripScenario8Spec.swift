@@ -58,7 +58,7 @@ class TripScenario8Spec: QuickSpec {
         
         // can fire TripValidated and make correct state change
         TripValidated.sharedInstance.fire()
-        expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
+        expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
       }
     }
   }

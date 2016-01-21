@@ -84,12 +84,13 @@ class TripScenario4Spec: QuickSpec {
         expect(machine.isInState(ValidatingTrip.sharedInstance.getState())).to(beTrue())
         
         TripValidated.sharedInstance.fire()
-        expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
+        expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
       }
       
       it("can handle scenario 4 with an app quit") {
         let machine = StateManager.sharedInstance.getMachine()
         expect(machine).toNot(beNil())
+        Failure.sharedInstance.fire()
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
         InsideTaxiWaitingZone.sharedInstance.fire()
         expect(machine.isInState(WaitingForEntryCid.sharedInstance.getState())).to(beTrue())
@@ -158,7 +159,7 @@ class TripScenario4Spec: QuickSpec {
         expect(machine.isInState(ValidatingTrip.sharedInstance.getState())).to(beTrue())
         
         TripValidated.sharedInstance.fire()
-        expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
+        expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
       }
     }
   }

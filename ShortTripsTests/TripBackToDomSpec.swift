@@ -80,7 +80,7 @@ class TripBackToDomSpec: QuickSpec {
         expect(machine.isInState(ValidatingTrip.sharedInstance.getState())).to(beTrue())
         
         TripValidated.sharedInstance.fire()
-        expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
+        expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
       }
       
       it("can handle the case where driver is assigned to intl terminal and then leaves") {
@@ -88,6 +88,8 @@ class TripBackToDomSpec: QuickSpec {
         
         // can be initialized
         expect(machine).toNot(beNil())
+        
+        Failure.sharedInstance.fire()
         
         // has initial state of not ready
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
@@ -141,7 +143,7 @@ class TripBackToDomSpec: QuickSpec {
         expect(machine.isInState(ValidatingTrip.sharedInstance.getState())).to(beTrue())
         
         TripValidated.sharedInstance.fire()
-        expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
+        expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
       }
     }
   }

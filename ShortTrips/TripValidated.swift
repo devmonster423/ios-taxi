@@ -19,7 +19,7 @@ struct TripValidated {
   private init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [ValidatingTrip.sharedInstance.getState()],
-      toState: NotReady.sharedInstance.getState())]
+      toState: WaitingInHoldingLot.sharedInstance.getState())]
   }
 }
 

@@ -21,6 +21,7 @@ class TripScenario7Spec: QuickSpec {
         // can be initialized
         expect(machine).toNot(beNil())
         
+        Failure.sharedInstance.fire()
         // has initial state of not ready
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
         
@@ -74,7 +75,7 @@ class TripScenario7Spec: QuickSpec {
         
         // can fire TripValidated and make correct state change
         TripValidated.sharedInstance.fire()
-        expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
+        expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
       }
     }
   }
