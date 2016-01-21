@@ -31,6 +31,12 @@ class SettingsVC: UIViewController {
     configureNavBar(back: true, title: NSLocalizedString("Settings", comment: "").uppercaseString)
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    let settingsView = view as! SettingsView
+    settingsView.tableView.reloadData()
+  }
+  
   func showLogoutConfirm() {
     let alertController = UIAlertController(title: NSLocalizedString("Are you sure?", comment: ""),
       message: "",
@@ -85,6 +91,14 @@ extension SettingsVC: UITableViewDataSource {
       cell.textLabel?.text = NSLocalizedString("Frequently Asked Questions", comment: "")
     case .Logout:
       cell.textLabel?.text = NSLocalizedString("Logout", comment: "")
+      let credentials = NSURLCredentialStorage.sharedCredentialStorage()
+        .credentialsForProtectionSpace(DriverCredential.credentialProtectionSpace())
+      if let username = credentials?.first?.1.user {
+        cell.textLabel?.text = NSLocalizedString("Logout", comment: "") + " " + username
+      }
+      else {
+        cell.textLabel?.text = NSLocalizedString("Logout", comment: "")
+      }
     }
     
     return cell

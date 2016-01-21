@@ -1,5 +1,5 @@
 //
-//  Credential.swift
+//  DriverCredential.swift
 //  ShortTrips
 //
 //  Created by Joshua Adams on 9/18/15.
@@ -87,7 +87,7 @@ struct DriverCredential: Mappable {
     }
   }
   
-  private static func credentialProtectionSpace() -> NSURLProtectionSpace {
+  static func credentialProtectionSpace() -> NSURLProtectionSpace {
     let url = NSURL(string: Url.base)!
     return NSURLProtectionSpace(host: url.host!,
       port: (url.port?.integerValue)!,
