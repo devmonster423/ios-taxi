@@ -22,7 +22,7 @@ PODS:
     - Mockingjay/Core
   - Mockingjay/XCTest (1.1.0):
     - Mockingjay/Core
-  - Nimble (3.0.0)
+  - Nimble (3.1.0)
   - ObjectMapper (0.17)
   - PivotalCoreKit (0.3.0):
     - PivotalCoreKit/Core (= 0.3.0)
@@ -51,7 +51,7 @@ DEPENDENCIES:
   - JSQNotificationObserverKit (= 2.0.0)
   - MBProgressHUD (= 0.9.1)
   - Mockingjay (= 1.1.0)
-  - Nimble (= 3.0.0)
+  - Nimble (= 3.1.0)
   - PivotalCoreKit (= 0.3.0)
   - PivotalCoreKit/UIKit/SpecHelper/Extensions
   - Quick (= 0.8.0)
@@ -68,7 +68,7 @@ SPEC CHECKSUMS:
   JSQNotificationObserverKit: 01d1411456cfab1418093cd54401e612744736e9
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   Mockingjay: 5782cb22c9e99dece7aad5bdf738bfa187cfcdcc
-  Nimble: 4c353d43735b38b545cbb4cb91504588eb5de926
+  Nimble: 79d40f4d69d47314229bbabacaa02b8838c779b9
   ObjectMapper: fa286b7cb5a398f1b0d8d64d0dd33fd1b307022c
   PivotalCoreKit: 3dab7cf9bff77eb49ce7ffc7a84e57fa8591f033
   Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
@@ -76,4 +76,6 @@ SPEC CHECKSUMS:
   TransitionKit: 9ceccda4cd0cdc0a05ef85eb235e5a3292c3c250
   URITemplate: 0ebbec80d1eb59a89e29db9b14c99d5908d3e574
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: d0022a94662b321d838f1ac0850d3be73fd3bfa5
+
+COCOAPODS: 1.0.0.beta.2

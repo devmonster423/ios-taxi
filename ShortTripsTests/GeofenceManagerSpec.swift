@@ -46,6 +46,7 @@ class GeofenceManagerSpec: QuickSpec {
         let location = CLLocation(latitude: 37.615716, longitude: -122.388321) // is inside SFO
         postNotification(SfoNotification.Location.read, value: location)
         
+        NSRunLoop.mainRunLoop().runUntilDate(NSDate())
         expect(count).toEventually(equal(1), timeout: 10)
       }
       
@@ -63,6 +64,7 @@ class GeofenceManagerSpec: QuickSpec {
         let location = CLLocation(latitude: 37.65, longitude: -122.405) // is outside SFO
         postNotification(SfoNotification.Location.read, value: location)
         
+        NSRunLoop.mainRunLoop().runUntilDate(NSDate())
         expect(count).toEventually(equal(1), timeout: 10)
       }
       

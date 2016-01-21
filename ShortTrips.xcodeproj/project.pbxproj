@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		01937E5EB89C54E6045C76F1 /* Pods_ShortTrips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81AB3E7D2C8CBBF8AF294E13 /* Pods_ShortTrips.framework */; };
-		5062C2B0F9B113B3BD8778A1 /* Pods_ShortTripsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F853EB5ED3B732FCC78F3D1 /* Pods_ShortTripsTests.framework */; };
+		3A5C5CCDA2265B353D0DA78E /* Pods_ShortTripsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B2E1471FC1E7980E1937F4B /* Pods_ShortTripsTests.framework */; };
+		46CAAAED448BF790152578F1 /* Pods_ShortTrips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B1E19FBA54D056FC1638C0 /* Pods_ShortTrips.framework */; };
 		8E0F5BC51BEBEC83001DE4C2 /* TimerDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F5BC41BEBEC83001DE4C2 /* TimerDebugger.swift */; };
 		8E27540E1BF17C2A00F36047 /* GpsDisabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27540D1BF17C2A00F36047 /* GpsDisabled.swift */; };
 		8EEFB79C1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB79B1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift */; };
@@ -290,10 +290,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6C387AE349CA07C52915EF9A /* Pods-ShortTrips.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.release.xcconfig"; sourceTree = "<group>"; };
-		74CF35C7BCD34379EA4B5AF4 /* Pods-ShortTripsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTripsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		81AB3E7D2C8CBBF8AF294E13 /* Pods_ShortTrips.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTrips.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C1EEE491F8AB773F5CE16CE /* Pods-ShortTripsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTripsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests.release.xcconfig"; sourceTree = "<group>"; };
+		30B1E19FBA54D056FC1638C0 /* Pods_ShortTrips.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTrips.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B5D168C257081EECC4622DB /* Pods-ShortTrips.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.release.xcconfig"; sourceTree = "<group>"; };
+		43660ADF99F3C4FFA42677ED /* Pods-ShortTripsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTripsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests.release.xcconfig"; sourceTree = "<group>"; };
+		7B2E1471FC1E7980E1937F4B /* Pods_ShortTripsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTripsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E0F5BC41BEBEC83001DE4C2 /* TimerDebugger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerDebugger.swift; sourceTree = "<group>"; };
 		8E27540D1BF17C2A00F36047 /* GpsDisabled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GpsDisabled.swift; sourceTree = "<group>"; };
 		8EEFB79B1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverAndVehicleAssociated.swift; sourceTree = "<group>"; };
@@ -324,7 +324,7 @@
 		8EEFB7EB1BE2C74D00B8A962 /* PingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingSpec.swift; sourceTree = "<group>"; };
 		8EEFB7ED1BE2C89700B8A962 /* MobileStateChangeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileStateChangeSpec.swift; sourceTree = "<group>"; };
 		8EEFB7EF1BE2CA0500B8A962 /* GeofenceStatusSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceStatusSpec.swift; sourceTree = "<group>"; };
-		9F853EB5ED3B732FCC78F3D1 /* Pods_ShortTripsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTripsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2841470404AFC9081FC84D9 /* Pods-ShortTripsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTripsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C200BE201BA8C21600B7F56F /* TerminalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalView.swift; sourceTree = "<group>"; };
 		C200BE221BA8D05D00B7F56F /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		C200BE261BA8D3A300B7F56F /* HourPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourPickerView.swift; sourceTree = "<group>"; };
@@ -476,7 +476,7 @@
 		C2FE05E71C1B5BE8005D6705 /* TripFallbackSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripFallbackSpec.swift; sourceTree = "<group>"; };
 		C2FE05EA1C1B7308005D6705 /* ShortTripVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortTripVCSpec.swift; sourceTree = "<group>"; };
 		C2FE05ED1C1B74B1005D6705 /* GtmsLocationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GtmsLocationSpec.swift; sourceTree = "<group>"; };
-		D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
+		D26DC8490578056CC2F124CA /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
 		E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConfig.swift; sourceTree = "<group>"; };
 		E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDriverResponse.swift; sourceTree = "<group>"; };
 		E112C3021BB2FD2500B1DF48 /* GeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceSpec.swift; sourceTree = "<group>"; };
@@ -577,7 +577,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01937E5EB89C54E6045C76F1 /* Pods_ShortTrips.framework in Frameworks */,
+				46CAAAED448BF790152578F1 /* Pods_ShortTrips.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,20 +585,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5062C2B0F9B113B3BD8778A1 /* Pods_ShortTripsTests.framework in Frameworks */,
+				3A5C5CCDA2265B353D0DA78E /* Pods_ShortTripsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		464865FE06C5FC3D8CC382BA /* Frameworks */ = {
+		8E2A970A9C8DBCF96BAE1FFC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				81AB3E7D2C8CBBF8AF294E13 /* Pods_ShortTrips.framework */,
-				9F853EB5ED3B732FCC78F3D1 /* Pods_ShortTripsTests.framework */,
+				D26DC8490578056CC2F124CA /* Pods-ShortTrips.debug.xcconfig */,
+				3B5D168C257081EECC4622DB /* Pods-ShortTrips.release.xcconfig */,
+				A2841470404AFC9081FC84D9 /* Pods-ShortTripsTests.debug.xcconfig */,
+				43660ADF99F3C4FFA42677ED /* Pods-ShortTripsTests.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		8EEFB7CE1BE29CE700B8A962 /* Airline */ = {
@@ -628,15 +630,13 @@
 			name = Trip;
 			sourceTree = "<group>";
 		};
-		B0E9217BCF45743D8A59FDCA /* Pods */ = {
+		8FFA6468425EEFB8C649A389 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */,
-				6C387AE349CA07C52915EF9A /* Pods-ShortTrips.release.xcconfig */,
-				74CF35C7BCD34379EA4B5AF4 /* Pods-ShortTripsTests.debug.xcconfig */,
-				8C1EEE491F8AB773F5CE16CE /* Pods-ShortTripsTests.release.xcconfig */,
+				30B1E19FBA54D056FC1638C0 /* Pods_ShortTrips.framework */,
+				7B2E1471FC1E7980E1937F4B /* Pods_ShortTripsTests.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C21528BF1BC839050073502F /* Dashboard */ = {
@@ -956,8 +956,8 @@
 				C2DFE5C41B56D2CB0090B55F /* ShortTrips */,
 				C2DFE5DA1B56D2CB0090B55F /* ShortTripsTests */,
 				C2DFE5C31B56D2CB0090B55F /* Products */,
-				B0E9217BCF45743D8A59FDCA /* Pods */,
-				464865FE06C5FC3D8CC382BA /* Frameworks */,
+				8E2A970A9C8DBCF96BAE1FFC /* Pods */,
+				8FFA6468425EEFB8C649A389 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1428,13 +1428,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2DFE5E11B56D2CB0090B55F /* Build configuration list for PBXNativeTarget "ShortTrips" */;
 			buildPhases = (
-				80F941BF7BEFAC89FAA6ED51 /* Check Pods Manifest.lock */,
+				77B9865E6F0102E402E893AB /* Check Pods Manifest.lock */,
 				C2DFE5BE1B56D2CB0090B55F /* Sources */,
 				C2DFE5BF1B56D2CB0090B55F /* Frameworks */,
 				C2DFE5C01B56D2CB0090B55F /* Resources */,
-				22232676475BDF9F82A544E6 /* Embed Pods Frameworks */,
-				58BBDC3FAB35F59C25E8B615 /* Copy Pods Resources */,
 				E179C6741BC08BA00093CAA3 /* ShellScript */,
+				93E91376844289B21A197543 /* Embed Pods Frameworks */,
+				A53E088E1C4B3C60F1ACA1BB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1449,12 +1449,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2DFE5E41B56D2CB0090B55F /* Build configuration list for PBXNativeTarget "ShortTripsTests" */;
 			buildPhases = (
-				27C305F25B4DA8342C1EBDCE /* Check Pods Manifest.lock */,
+				75A521B446DD29C0CA25C98B /* Check Pods Manifest.lock */,
 				C2DFE5D31B56D2CB0090B55F /* Sources */,
 				C2DFE5D41B56D2CB0090B55F /* Frameworks */,
 				C2DFE5D51B56D2CB0090B55F /* Resources */,
-				AD6A38E3BBB38FD92B31777A /* Embed Pods Frameworks */,
-				2A54D30F883C670AE2AFD189 /* Copy Pods Resources */,
+				FA5229A0F720CEA7C783BC97 /* Embed Pods Frameworks */,
+				4B306ACBF161217EB556D976 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1555,37 +1555,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		22232676475BDF9F82A544E6 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		27C305F25B4DA8342C1EBDCE /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		2A54D30F883C670AE2AFD189 /* Copy Pods Resources */ = {
+		4B306ACBF161217EB556D976 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1600,22 +1570,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		58BBDC3FAB35F59C25E8B615 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		80F941BF7BEFAC89FAA6ED51 /* Check Pods Manifest.lock */ = {
+		75A521B446DD29C0CA25C98B /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1630,7 +1585,22 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		AD6A38E3BBB38FD92B31777A /* Embed Pods Frameworks */ = {
+		77B9865E6F0102E402E893AB /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		93E91376844289B21A197543 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1642,7 +1612,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A53E088E1C4B3C60F1ACA1BB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E179C6741BC08BA00093CAA3 /* ShellScript */ = {
@@ -1657,6 +1642,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" 70883f6b3a82956cddde2edee94634fd28752993 a4f893d80708afc610abe30ca3ef85271393ea93fd3124ee1ee7efdabe39cf03";
+		};
+		FA5229A0F720CEA7C783BC97 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2034,7 +2034,7 @@
 		};
 		C2DFE5E21B56D2CB0090B55F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D524E6237781C1A38B7FCDF1 /* Pods-ShortTrips.debug.xcconfig */;
+			baseConfigurationReference = D26DC8490578056CC2F124CA /* Pods-ShortTrips.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ShortTrips/ShortTrips.entitlements;
@@ -2052,7 +2052,7 @@
 		};
 		C2DFE5E31B56D2CB0090B55F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C387AE349CA07C52915EF9A /* Pods-ShortTrips.release.xcconfig */;
+			baseConfigurationReference = 3B5D168C257081EECC4622DB /* Pods-ShortTrips.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ShortTrips/ShortTrips.entitlements;
@@ -2064,13 +2064,13 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flysfo.short-trips";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f17ba6bd-e2f6-4b10-a7d3-62fe1b3d31ec";
+				PROVISIONING_PROFILE = "138e311d-30b2-4c45-adab-5f090bdc5e03";
 			};
 			name = Release;
 		};
 		C2DFE5E51B56D2CB0090B55F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 74CF35C7BCD34379EA4B5AF4 /* Pods-ShortTripsTests.debug.xcconfig */;
+			baseConfigurationReference = A2841470404AFC9081FC84D9 /* Pods-ShortTripsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2092,7 +2092,7 @@
 		};
 		C2DFE5E61B56D2CB0090B55F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C1EEE491F8AB773F5CE16CE /* Pods-ShortTripsTests.release.xcconfig */;
+			baseConfigurationReference = 43660ADF99F3C4FFA42677ED /* Pods-ShortTripsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
