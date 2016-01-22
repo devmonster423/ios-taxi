@@ -16,7 +16,7 @@ class AirlineClientSpec: QuickSpec {
   override func spec() {
     
     describe("the airline client") {
-      it("can request codes") {
+      xit("can request codes") {
         
         self.stub(uri(Url.Airline.codes), builder: json(IataCodeMock))
         

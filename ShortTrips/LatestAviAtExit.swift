@@ -10,26 +10,26 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-class LatestAviAtDomExit {
-  let eventNames = ["LatestAviAtDomExit"]
-  static let sharedInstance = LatestAviAtDomExit()
+class LatestAviAtExit {
+  let eventNames = ["LatestAviAtExit"]
+  static let sharedInstance = LatestAviAtExit()
   
   private var events: [TKEvent]
   
   private init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [WaitingForExitAvi.sharedInstance.getState()],
-      toState: WaitingForStartTrip.sharedInstance.getState())]
+      toState: TripStartPending.sharedInstance.getState())]
   }
 }
 
-extension LatestAviAtDomExit: Event {
+extension LatestAviAtExit: Event {
   func getEvents() -> [TKEvent] {
     return events
   }
 }
 
-extension LatestAviAtDomExit: Observable {
+extension LatestAviAtExit: Observable {
   func eventIsFiring(info: Any?) {
     if let antenna = info as? Antenna {
       TripManager.sharedInstance.setStartTime(antenna.aviDate)

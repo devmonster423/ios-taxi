@@ -18,7 +18,7 @@ struct TripStarted {
   
   private init() {
     events = [TKEvent(name: eventNames[0],
-      transitioningFromStates: [WaitingForStartTrip.sharedInstance.getState()],
+      transitioningFromStates: [StartingTrip.sharedInstance.getState()],
       toState: InProgress.sharedInstance.getState())]
   }
 }

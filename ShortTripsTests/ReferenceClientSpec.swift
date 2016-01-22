@@ -18,7 +18,7 @@ class ReferenceClientSpec: QuickSpec {
     
     describe("the reference client") {
       
-      it("can request reference config") {
+      xit("can request reference config") {
         
         self.stub(uri(Url.Reference.config), builder: json(RequestReferenceConfigMock))
         

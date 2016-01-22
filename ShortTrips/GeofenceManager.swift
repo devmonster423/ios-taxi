@@ -80,7 +80,7 @@ class GeofenceManager {
       && !geofences.contains(.SfoTaxiDomesticExit) {
       ExitingTerminals.sharedInstance.fire()
         
-    } else if geofences.contains(.Sfo) {
+    } else if geofences.contains(.TaxiExitBuffered) {
       InsideSfoNotExitingTerminals.sharedInstance.fire()
     }
     

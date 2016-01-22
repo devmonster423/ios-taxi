@@ -104,9 +104,9 @@ extension DebugVC {
       debugView().updateState("Waiting for Taxi Loop Avi")
       updateFakeButtons((title: "Latest Avi Read At Taxi Loop", action: "latestAviReadAtTaxiLoop"))
       
-    } else if state == WaitingForStartTrip.sharedInstance.getState() {
-      debugView().printDebugLine("Entered Waiting For Trip to Start")
-      debugView().updateState("Waiting for Trip to Start")
+    } else if state == StartingTrip.sharedInstance.getState() {
+      debugView().printDebugLine("Entered Starting Trip")
+      debugView().updateState("Starting Trip")
       updateFakeButtons((title: "Generate Trip ID & Start", action: "generateTripId"))
     }
   }

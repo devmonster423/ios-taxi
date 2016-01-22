@@ -18,7 +18,7 @@ class TripClientSpec: QuickSpec {
     
     describe("the trip client") {
       
-      it("can ping") {
+      xit("can ping") {
         
         let tripId = 1;
 
@@ -35,7 +35,7 @@ class TripClientSpec: QuickSpec {
         }
       }
       
-      it("can start") {
+      xit("can start") {
         let tripBody = TripBody(sessionId: 123,
           medallion: 456,
           vehicleId: 789,

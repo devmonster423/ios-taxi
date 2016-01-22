@@ -30,10 +30,8 @@ struct WaitingForExitAvi {
 
             if let antenna = antenna, let device = antenna.device() {
               
-              if device == .DomExit {
-                LatestAviAtDomExit.sharedInstance.fire(antenna)
-              } else if device == .IntlArrivalExit {
-                LatestAviAtIntlArrivalExit.sharedInstance.fire(antenna)
+              if device == .DomExit || device == .IntlArrivalExit {
+                LatestAviAtExit.sharedInstance.fire(antenna)
               } else {
                 postNotification(SfoNotification.Avi.unexpected, value: (expected: .DomExit, found: device))
               }

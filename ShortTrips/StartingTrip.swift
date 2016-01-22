@@ -10,9 +10,9 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct WaitingForStartTrip {
-  let stateName = "waitingForStartTrip"
-  static let sharedInstance = WaitingForStartTrip()
+struct StartingTrip {
+  let stateName = "StartingTrip"
+  static let sharedInstance = StartingTrip()
   
   private var state: TKState
   

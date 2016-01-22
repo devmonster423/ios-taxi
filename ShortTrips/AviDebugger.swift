@@ -67,6 +67,6 @@ extension DebugVC {
 
   func latestDomExitAviRead() {
     let antenna = Antenna(antennaId: "L2AVI1", aviLocation: "Location #2 Domestic Exit", aviDate: NSDate())
-    LatestAviAtDomExit.sharedInstance.fire(antenna)
+    LatestAviAtExit.sharedInstance.fire(antenna)
   }
 }
