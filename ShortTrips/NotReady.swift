@@ -20,8 +20,7 @@ struct NotReady {
     state = TKState(name: stateName)
     
     state.setDidEnterStateBlock { _, _ in
-      
-      TripManager.sharedInstance.resetTripId()
+      TripManager.sharedInstance.reset()
       postNotification(SfoNotification.State.update, value: self.getState())
     }
   }

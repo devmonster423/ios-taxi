@@ -23,10 +23,13 @@ class TripManager: NSObject {
     return tripId
   }
   
-  func resetTripId() {
-    self.tripId = nil
+  func reset() {
+    PingManager.sharedInstance.stop()
+    tripTimer?.invalidate()
+    tripId = nil
+    startTime = nil
   }
-  
+
   func setStartTime(time: NSDate) {
     self.startTime = time
   }
@@ -68,9 +71,8 @@ class TripManager: NSObject {
   }
   
   func stop(valid valid: Bool = false) {
-    PingManager.sharedInstance.stop()
-    tripTimer?.invalidate()
     mostRecentTripValid = valid
+    reset()
   }
   
   func mostRecentTripWasValid() -> Bool {
