@@ -115,4 +115,19 @@ extension DebugVC {
     Util.testingGps = true
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.615943, longitude: -122.384233))
   }
+  
+  func inDomExit() {
+    Util.testingGps = true
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.616798, longitude: -122.384317))
+  }
+  
+  func inIntlExit() {
+    Util.testingGps = true
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.615149, longitude: -122.390133))
+  }
+  
+  func outOfBufferedExit() {
+    Util.testingGps = true
+    postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.616489, longitude: -122.398215))
+  }
 }

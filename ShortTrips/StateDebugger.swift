@@ -57,6 +57,13 @@ extension DebugVC {
         second: (title: "Outside Geofences", action: "fakeOutsideGeofences"),
         third: (title: "Timeout", action: "fakeTimeExpired"))
       
+    } else if state == TripStartPending.sharedInstance.getState() {
+      debugView().printDebugLine("trip start pending")
+      debugView().updateState("trip start pending")
+      updateFakeButtons((title: "inDomExit", action: "inDomExit"),
+        second: (title: "inIntlExit", action: "inIntlExit"),
+        third: (title: "outOfBufferedExit", action: "outOfBufferedExit"))
+      
     } else if state == WaitingInHoldingLot.sharedInstance.getState() {
       debugView().printDebugLine("starting to wait in holding lot")
       debugView().updateState("Waiting In Holding Lot")
