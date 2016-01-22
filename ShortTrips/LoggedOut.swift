@@ -33,7 +33,7 @@ extension LoggedOut: Observable {
   func eventIsFiring(info: Any?) {
 
     if let tripId = TripManager.sharedInstance.getTripId() {
-      ApiClient.invalidate(tripId, validation: .UserLogout)
+      ApiClient.invalidate(tripId, invalidation: .UserLogout)
       TripManager.sharedInstance.stop()
     }
 

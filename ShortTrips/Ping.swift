@@ -39,8 +39,6 @@ struct Ping: Mappable {
   var vehicleId: Int!
   var geofenceStatus: GeofenceStatus!
   
-  static let transform = DateTransform(dateFormat: "yyyy-MM-dd'T'HH:mm:ss'Z'") // 2015-09-15T16:13:48Z
-  
   init?(_ map: Map){}
   
   init(location: CLLocation, tripId: Int, vehicleId: Int, sessionId: Int, medallion: Int?) {
@@ -61,7 +59,7 @@ struct Ping: Mappable {
     vehicleId <- map["vehicle_id"]
     latitude <- map["latitude"]
     longitude <- map["longitude"]
-    timestamp <- (map["timestamp"], Ping.transform)
+    timestamp <- (map["timestamp"], TripDateTransform)
     geofenceStatus <- map["geofence_status"]
   }
 }

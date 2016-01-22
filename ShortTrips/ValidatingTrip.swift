@@ -35,7 +35,9 @@ struct ValidatingTrip {
           let tripBody = TripBody(sessionId: sessionId,
             medallion: medallion,
             vehicleId: vehicleId,
-            smartCardId: cardId)
+            smartCardId: cardId,
+            deviceTimestamp: NSDate()
+          )
       
           ApiClient.end(tripId, tripBody: tripBody) { validation in
             

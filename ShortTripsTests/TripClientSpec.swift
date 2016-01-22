@@ -39,7 +39,9 @@ class TripClientSpec: QuickSpec {
         let tripBody = TripBody(sessionId: 123,
           medallion: 456,
           vehicleId: 789,
-          smartCardId: "1234")
+          smartCardId: "1234",
+          deviceTimestamp: NSDate()
+        )
         
         self.stub(uri(Url.Trip.start), builder: json(TripStartMock))
         ApiClient.start(tripBody) { geofences in

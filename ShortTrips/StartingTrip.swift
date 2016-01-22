@@ -33,7 +33,9 @@ struct StartingTrip {
         let tripBody = TripBody(sessionId: sessionId,
           medallion: medallion,
           vehicleId: vehicleId,
-          smartCardId: cardId)
+          smartCardId: cardId,
+          deviceTimestamp: TripManager.sharedInstance.getStartTime() ?? NSDate()
+        )
         
         ApiClient.start(tripBody) { tripId in
           

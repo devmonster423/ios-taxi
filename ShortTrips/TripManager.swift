@@ -34,6 +34,10 @@ class TripManager: NSObject {
     self.startTime = time
   }
   
+  func getStartTime() -> NSDate? {
+    return startTime
+  }
+  
   func getElapsedTime() -> NSTimeInterval? {
     if let interval = startTime?.timeIntervalSinceNow {
       return -interval

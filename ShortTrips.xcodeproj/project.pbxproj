@@ -117,6 +117,8 @@
 		C27E3A901C472A8000F1A163 /* QueueClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E3A8F1C472A8000F1A163 /* QueueClient.swift */; };
 		C27E3A931C472B2400F1A163 /* QueueLength.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E3A921C472B2400F1A163 /* QueueLength.swift */; };
 		C27E3A961C4731FF00F1A163 /* QueueLengthSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27E3A951C4731FF00F1A163 /* QueueLengthSpec.swift */; };
+		C27F09D21C52EB4400731158 /* TripDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27F09D11C52EB4400731158 /* TripDateTransform.swift */; };
+		C27F09D41C52EF8700731158 /* TripInvalidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27F09D31C52EF8700731158 /* TripInvalidation.swift */; };
 		C28224681BB09C32007F284F /* FlightStatusVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */; };
 		C283AB351BE936B30004E8CD /* CidDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C283AB341BE936B30004E8CD /* CidDebugger.swift */; };
 		C283AB371BE9383C0004E8CD /* AviDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C283AB361BE9383C0004E8CD /* AviDebugger.swift */; };
@@ -405,6 +407,8 @@
 		C27E3A8F1C472A8000F1A163 /* QueueClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueClient.swift; sourceTree = "<group>"; };
 		C27E3A921C472B2400F1A163 /* QueueLength.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueLength.swift; sourceTree = "<group>"; };
 		C27E3A951C4731FF00F1A163 /* QueueLengthSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueLengthSpec.swift; sourceTree = "<group>"; };
+		C27F09D11C52EB4400731158 /* TripDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDateTransform.swift; sourceTree = "<group>"; };
+		C27F09D31C52EF8700731158 /* TripInvalidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripInvalidation.swift; sourceTree = "<group>"; };
 		C28224671BB09C32007F284F /* FlightStatusVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightStatusVCSpec.swift; sourceTree = "<group>"; };
 		C283AB341BE936B30004E8CD /* CidDebugger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CidDebugger.swift; sourceTree = "<group>"; };
 		C283AB361BE9383C0004E8CD /* AviDebugger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AviDebugger.swift; sourceTree = "<group>"; };
@@ -848,7 +852,9 @@
 				C28ECB251BCECE5F00887763 /* Ping.swift */,
 				C2E6B9621C40613E00100C83 /* PingBatch.swift */,
 				C2B60A7D1BF66A8E00A8A452 /* TripBody.swift */,
+				C27F09D11C52EB4400731158 /* TripDateTransform.swift */,
 				C20A98841BE153BA009E29E7 /* TripId.swift */,
+				C27F09D31C52EF8700731158 /* TripInvalidation.swift */,
 				C26530B51BE3FB66002C0A97 /* TripValidation.swift */,
 				C221EDE41BE2CB1700BDB4CD /* TripWarning.swift */,
 				C283AB441BE96D1C0004E8CD /* ValidationStep.swift */,
@@ -1729,6 +1735,7 @@
 				C27450BC1BB4988200D33CDD /* AirlineListWrapper.swift in Sources */,
 				C2DFE5C81B56D2CB0090B55F /* AppDelegate.swift in Sources */,
 				8EEFB7A21BE041F800B8A962 /* WaitingForPaymentCid.swift in Sources */,
+				C27F09D41C52EF8700731158 /* TripInvalidation.swift in Sources */,
 				C2B15ADF1BBB16010049B97C /* Image.swift in Sources */,
 				FA0CD4C01C4986EA00C071AC /* SettingsVC.swift in Sources */,
 				E18FF68D1BA8667500FE93B9 /* AutomaticVehicleId.swift in Sources */,
@@ -1754,6 +1761,7 @@
 				E187B2751BE036F10031F07C /* WaitingInHoldingLot.swift in Sources */,
 				C26530B61BE3FB66002C0A97 /* TripValidation.swift in Sources */,
 				C215CE031BD1B87000991D9D /* Vehicle.swift in Sources */,
+				C27F09D21C52EB4400731158 /* TripDateTransform.swift in Sources */,
 				E1472D0B1C0E7C2400D27D60 /* ShortTripView.swift in Sources */,
 				C2B60A7E1BF66A8E00A8A452 /* TripBody.swift in Sources */,
 				E1A2EBA01B6BEF3900C27EB2 /* FlightStatusVC.swift in Sources */,

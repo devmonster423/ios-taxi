@@ -31,7 +31,7 @@ extension AppQuit: Event {
 extension AppQuit: Observable {
   func eventIsFiring(info: Any?) {
     if let tripId = TripManager.sharedInstance.getTripId() {
-      ApiClient.invalidate(tripId, validation: .AppQuit)
+      ApiClient.invalidate(tripId, invalidation: .AppQuit)
       TripManager.sharedInstance.stop()
     }
   }
