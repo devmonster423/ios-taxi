@@ -35,6 +35,11 @@ extension DebugVC {
       debugView().updateState("Associating Driver And Vehicle")
       updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
       
+    } else if state == GpsIsOff.sharedInstance.getState() {
+      debugView().printDebugLine("Gps is off")
+      debugView().updateState("gps is off")
+      updateFakeButtons((title: "fake gps back on", action: "fakeGpsOn"))
+      
     } else if state == NotReady.sharedInstance.getState() {
       debugView().printDebugLine("Entered Not Ready State")
       debugView().updateState("Not Ready")

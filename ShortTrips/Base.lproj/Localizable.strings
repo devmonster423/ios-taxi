@@ -16,6 +16,8 @@
 "Cancel" = "Cancel";
 
 /*Trip Prompts */
+"Allow this app to use your location" = "Allow this app to use your location";
+"Go to your phone's Settings app. Select Privacy, then Location Services, and allow this app to use your location" = "Go to your phone's Settings app. Select Privacy, then Location Services, and allow this app to use your location";
 "Go to SFO holding lot to start your next trip" = "Go to SFO holding lot to start your next trip";
 "Pay and go to terminal curbside to start your next trip" = "Pay and go to terminal curbside to start your next trip";
 "Your trip will start when you exit the airport" = "Your trip will start when you exit the airport";

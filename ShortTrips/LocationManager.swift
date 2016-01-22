@@ -55,10 +55,12 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   }
 
   func locationManager(manager: CLLocationManager,
-    didChangeAuthorizationStatus status: CLAuthorizationStatus){
+    didChangeAuthorizationStatus status: CLAuthorizationStatus) {
       
       postNotification(SfoNotification.Location.statusUpdated, value: status)
-      if status != .AuthorizedAlways {
+      if status == .AuthorizedAlways {
+        GpsEnabled.sharedInstance.fire()
+      } else {
         GpsDisabled.sharedInstance.fire()
       }
   }
@@ -68,7 +70,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   }
   
   static func locationActiveAndAuthorized() -> Bool {
-    if Util.debug && (Util.testing() || Util.testingGps) {
+    if Util.allowGpsToBeOffForTesting() {
       return true
     } else {
       return CLLocationManager.locationServicesEnabled()

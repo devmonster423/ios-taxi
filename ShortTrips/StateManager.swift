@@ -20,6 +20,7 @@ class StateManager {
     AssociatingDriverAndVehicleAtEntry.sharedInstance.getState(),
     AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState(),
     AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState(),
+    GpsIsOff.sharedInstance.getState(),
     InProgress.sharedInstance.getState(),
     NotReady.sharedInstance.getState(),
     Ready.sharedInstance.getState(),
@@ -42,6 +43,7 @@ class StateManager {
     events += ExitingTerminals.sharedInstance.getEvents()
     events += Failure.sharedInstance.getEvents()
     events += GpsDisabled.sharedInstance.getEvents()
+    events += GpsEnabled.sharedInstance.getEvents()
     events += InsideSfo.sharedInstance.getEvents()
     events += InsideSfoNotExitingTerminals.sharedInstance.getEvents()
     events += InsideTaxiLoopExit.sharedInstance.getEvents()

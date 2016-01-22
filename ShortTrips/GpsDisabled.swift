@@ -16,9 +16,16 @@ struct GpsDisabled {
   private var events: [TKEvent]
 
   private init() {
-    events = [TKEvent(name: eventNames[0],
+    
+    let event = TKEvent(name: eventNames[0],
       transitioningFromStates: StateManager.allStates,
-      toState: NotReady.sharedInstance.getState())]
+      toState: GpsIsOff.sharedInstance.getState())
+    
+    event.setShouldFireEventBlock { _, _ -> Bool in
+      return !Util.allowGpsToBeOffForTesting()
+    }
+    
+    events = [event]
   }
 }
 

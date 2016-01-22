@@ -161,6 +161,10 @@
 		C2BC85171C249CA0005FC6F8 /* NavBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */; };
 		C2CE0B141C1219AB00496607 /* LocalGeofenceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */; };
 		C2D2899B1C3B094300A636AA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D2899A1C3B094300A636AA /* MainTabBarController.swift */; };
+		C2D593661C52CEA600FE2E3F /* GpsEnabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D593651C52CEA600FE2E3F /* GpsEnabled.swift */; };
+		C2D593681C52CF4600FE2E3F /* GpsIsOff.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D593671C52CF4600FE2E3F /* GpsIsOff.swift */; };
+		C2D5936A1C52D11200FE2E3F /* GpsDisabledSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D593691C52D11200FE2E3F /* GpsDisabledSpec.swift */; };
+		C2D5936C1C52D4D100FE2E3F /* StatePrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D5936B1C52D4D100FE2E3F /* StatePrompt.swift */; };
 		C2DA57771BA34451000875D7 /* DashboardVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */; };
 		C2DAD68B1BE7F06200CB142C /* TripManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAD68A1BE7F06200CB142C /* TripManager.swift */; };
 		C2DAD68D1BE8360800CB142C /* PingDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAD68C1BE8360800CB142C /* PingDebugger.swift */; };
@@ -445,6 +449,10 @@
 		C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarExtension.swift; sourceTree = "<group>"; };
 		C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofenceFeature.swift; sourceTree = "<group>"; };
 		C2D2899A1C3B094300A636AA /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		C2D593651C52CEA600FE2E3F /* GpsEnabled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GpsEnabled.swift; sourceTree = "<group>"; };
+		C2D593671C52CF4600FE2E3F /* GpsIsOff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GpsIsOff.swift; sourceTree = "<group>"; };
+		C2D593691C52D11200FE2E3F /* GpsDisabledSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GpsDisabledSpec.swift; sourceTree = "<group>"; };
+		C2D5936B1C52D4D100FE2E3F /* StatePrompt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatePrompt.swift; sourceTree = "<group>"; };
 		C2DA57761BA34451000875D7 /* DashboardVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardVCSpec.swift; sourceTree = "<group>"; };
 		C2DAD68A1BE7F06200CB142C /* TripManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripManager.swift; sourceTree = "<group>"; };
 		C2DAD68C1BE8360800CB142C /* PingDebugger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingDebugger.swift; sourceTree = "<group>"; };
@@ -714,6 +722,7 @@
 				C2F3E9061BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift */,
 				C285F1D21C18F1C800AA3363 /* AssociatingDriverAndVehicleAtReEntry.swift */,
 				C28ECB341BCF151800887763 /* Debuggable.swift */,
+				C2D593671C52CF4600FE2E3F /* GpsIsOff.swift */,
 				C220E06C1BC33C1D00AC7C85 /* NotReady.swift */,
 				C220E0721BC3446600AC7C85 /* Ready.swift */,
 				E18228FA1BC48F2300614256 /* InProgress.swift */,
@@ -741,6 +750,7 @@
 				C2FC60FD1BFE49EE00F50A80 /* ExitingTerminals.swift */,
 				C215CE001BD1AED200991D9D /* Failure.swift */,
 				8E27540D1BF17C2A00F36047 /* GpsDisabled.swift */,
+				C2D593651C52CEA600FE2E3F /* GpsEnabled.swift */,
 				C28ECB2D1BCF033E00887763 /* InsideSfo.swift */,
 				FA7B79F21C1A5D3E000CDC3B /* InsideSfoNotExitingTerminals.swift */,
 				C220E0701BC3440C00AC7C85 /* InsideTaxiLoopExit.swift */,
@@ -772,6 +782,7 @@
 			isa = PBXGroup;
 			children = (
 				C29341CF1BD1C9B300A7CB9E /* GeofenceManagerSpec.swift */,
+				C2D593691C52D11200FE2E3F /* GpsDisabledSpec.swift */,
 				C29341CD1BD1C6F100A7CB9E /* PingManagerSpec.swift */,
 				C215CE061BD1C31700991D9D /* PollerSpec.swift */,
 				C2E6B95E1C40529A00100C83 /* TripBackToDomSpec.swift */,
@@ -1076,6 +1087,7 @@
 				C26ABD281C45C31000EF4684 /* CountdownView.swift */,
 				C24388421C447B4E00984CB8 /* NotificationView.swift */,
 				E1472D0A1C0E7C2400D27D60 /* ShortTripView.swift */,
+				C2D5936B1C52D4D100FE2E3F /* StatePrompt.swift */,
 			);
 			name = ShortTrip;
 			sourceTree = "<group>";
@@ -1663,6 +1675,7 @@
 				C2AB513C1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift in Sources */,
 				C2F3E9071BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift in Sources */,
 				8E0F5BC51BEBEC83001DE4C2 /* TimerDebugger.swift in Sources */,
+				C2D593681C52CF4600FE2E3F /* GpsIsOff.swift in Sources */,
 				C28ECB221BCECA9700887763 /* TripClient.swift in Sources */,
 				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
 				FA27A5391C507C3800278CC6 /* AviManager.swift in Sources */,
@@ -1799,7 +1812,9 @@
 				C20A988A1BE17AEC009E29E7 /* Observable.swift in Sources */,
 				C21528C91BC8557B0073502F /* DebugView.swift in Sources */,
 				E1A2EBA91B6D747F00C27EB2 /* Flight.swift in Sources */,
+				C2D593661C52CEA600FE2E3F /* GpsEnabled.swift in Sources */,
 				C2E6B9631C40613E00100C83 /* PingBatch.swift in Sources */,
+				C2D5936C1C52D4D100FE2E3F /* StatePrompt.swift in Sources */,
 				E14A392A1BE957B80053F741 /* LoggedOut.swift in Sources */,
 				C283AB411BE93B830004E8CD /* TripDebugger.swift in Sources */,
 				C26ABD131C45936100EF4684 /* Speaker.swift in Sources */,
@@ -1872,6 +1887,7 @@
 				C2EAD0A91C03E17700EAEBBF /* MockTripValidationString.swift in Sources */,
 				8EEFB7E31BE2C46800B8A962 /* GeofenceListWrapperSpec.swift in Sources */,
 				8EEFB7E61BE2C58200B8A962 /* TripIdSpec.swift in Sources */,
+				C2D5936A1C52D11200FE2E3F /* GpsDisabledSpec.swift in Sources */,
 				C220E0781BC34ACE00AC7C85 /* TripScenario1Spec.swift in Sources */,
 				C29341CC1BD1C56200A7CB9E /* DriverManagerSpec.swift in Sources */,
 				8EEFB7CD1BE28DCD00B8A962 /* StatusCodeSpec.swift in Sources */,

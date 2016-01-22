@@ -36,6 +36,11 @@ extension DebugVC {
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.621313, longitude: -122.378955))
   }
   
+  func fakeGpsOn() {
+    Util.testingGps = true
+    GpsEnabled.sharedInstance.fire()
+  }
+  
   func dropPassenger() {
     Util.testingGps = true
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.622254, longitude: -122.409925))
