@@ -68,13 +68,4 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   func getLastKnownLocation() -> CLLocation? {
     return lastKnownLocation
   }
-  
-  static func locationActiveAndAuthorized() -> Bool {
-    if Util.allowGpsToBeOffForTesting() {
-      return true
-    } else {
-      return CLLocationManager.locationServicesEnabled()
-        && CLLocationManager.authorizationStatus() == .AuthorizedAlways
-    }
-  }
 }
