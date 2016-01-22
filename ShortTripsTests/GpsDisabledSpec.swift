@@ -16,6 +16,10 @@ class GpsDisabledSpec: QuickSpec {
     
     describe("the trip manager") {
       
+      beforeEach {
+        Util.testingGps = false
+      }
+      
       it("can handle the case where gps disabled during trip") {
         let machine = StateManager.sharedInstance.getMachine()
         
