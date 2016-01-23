@@ -36,4 +36,8 @@ struct Driver: Mappable {
     lastName <- map["response.last_name"]
     driverLicense <- map["response.driver_license"]
   }
+  
+  func fullName() -> String {
+    return firstName + " " + lastName
+  }
 }

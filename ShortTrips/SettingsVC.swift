@@ -31,12 +31,6 @@ class SettingsVC: UIViewController {
     configureNavBar(back: true, title: NSLocalizedString("Settings", comment: "").uppercaseString)
   }
   
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
-    let settingsView = view as! SettingsView
-    settingsView.tableView.reloadData()
-  }
-  
   func showLogoutConfirm() {
     let alertController = UIAlertController(title: NSLocalizedString("Are you sure?", comment: ""),
       message: "",
@@ -77,6 +71,19 @@ extension SettingsVC: UITableViewDataSource {
     }
   }
   
+  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    switch SettingsSection(rawValue: section)! {
+    case .Logout:
+      if let name = DriverManager.sharedInstance.getCurrentDriver()?.fullName() {
+        return NSLocalizedString("Logged in as: ", comment: "") + name
+      } else {
+        return nil
+      }
+    default:
+      return nil
+    }
+  }
+  
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
     let cell = UITableViewCell(style: .Default, reuseIdentifier: cellId)
@@ -91,14 +98,6 @@ extension SettingsVC: UITableViewDataSource {
       cell.textLabel?.text = NSLocalizedString("Frequently Asked Questions", comment: "")
     case .Logout:
       cell.textLabel?.text = NSLocalizedString("Logout", comment: "")
-      let credentials = NSURLCredentialStorage.sharedCredentialStorage()
-        .credentialsForProtectionSpace(DriverCredential.credentialProtectionSpace())
-      if let username = credentials?.first?.1.user {
-        cell.textLabel?.text = NSLocalizedString("Logout", comment: "") + " " + username
-      }
-      else {
-        cell.textLabel?.text = NSLocalizedString("Logout", comment: "")
-      }
     }
     
     return cell
