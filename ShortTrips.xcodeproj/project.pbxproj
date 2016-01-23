@@ -2080,7 +2080,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flysfo.short-trips";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "138e311d-30b2-4c45-adab-5f090bdc5e03";
+				PROVISIONING_PROFILE = "f17ba6bd-e2f6-4b10-a7d3-62fe1b3d31ec";
 			};
 			name = Release;
 		};
