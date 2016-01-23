@@ -57,21 +57,25 @@ extension ShortTripVC {
   
   func updateForState(state: TKState) {
     
-    if state == NotReady.sharedInstance.getState() {
+    if state == GpsIsOff.sharedInstance.getState() {
+      
+      self.shortTripView().updatePrompt(.TurnOnGps)
+      
+    } else if state == NotReady.sharedInstance.getState() {
         
-        self.shortTripView().updatePrompt(.GoToSfo)
+      self.shortTripView().updatePrompt(.GoToSfo)
       
     } else if state == WaitingInHoldingLot.sharedInstance.getState() {
         
-        self.shortTripView().updatePrompt(.Pay)
+      self.shortTripView().updatePrompt(.Pay)
       
     } else if state == Ready.sharedInstance.getState() {
-        
-        self.shortTripView().updatePrompt(.Ready)
-        self.shortTripView().hideNotification()
+
+      self.shortTripView().updatePrompt(.Ready)
+      self.shortTripView().hideNotification()
       
     } else if state == InProgress.sharedInstance.getState() {
-        self.shortTripView().updatePrompt(.InProgress)
+      self.shortTripView().updatePrompt(.InProgress)
     }
     
     shortTripView().countdown.hidden = !tripInProgress(state)

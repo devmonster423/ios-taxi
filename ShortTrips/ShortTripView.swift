@@ -9,39 +9,6 @@
 import UIKit
 import SnapKit
 
-enum StatePrompt {
-  case GoToSfo
-  case Pay
-  case Ready
-  case InProgress
-  
-  func toString() -> String {
-    switch self {
-    case .GoToSfo:
-      return NSLocalizedString("Go to SFO holding lot to start your next trip", comment: "").uppercaseString
-    case .Pay:
-      return NSLocalizedString("Pay and go to terminal curbside to start your next trip", comment: "").uppercaseString
-    case .Ready:
-      return NSLocalizedString("Your trip will start when you exit the airport", comment: "").uppercaseString
-    case .InProgress:
-      return NSLocalizedString("Your short trip is in progress", comment: "").uppercaseString
-    }
-  }
-  
-  func image() -> UIImage {
-    switch self {
-    case .GoToSfo:
-      return Image.exclamationPoint.image()
-    case .Pay:
-      return Image.exclamationPoint.image()
-    case .Ready:
-      return Image.mapPin.image()
-    case .InProgress:
-      return Image.car.image()
-    }
-  }
-}
-
 class ShortTripView: UIView {
   let countdown = CountdownView()
   private let promptLabel = UILabel()
@@ -103,9 +70,9 @@ class ShortTripView: UIView {
   
   func updatePrompt(prompt: StatePrompt) {
     if prompt != currentPrompt {
-      promptLabel.text = prompt.toString()
+      promptLabel.text = prompt.visualString()
       promptImageView.image = prompt.image()
-      Speaker.sharedInstance.speak(prompt.toString())
+      Speaker.sharedInstance.speak(prompt.audioString())
   
       currentPrompt = prompt
     }

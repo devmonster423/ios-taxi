@@ -1,18 +1,19 @@
 //
-//  NotReady.swift
+//  TripStartPending.swift
 //  ShortTrips
 //
-//  Created by Matt Luedke on 10/5/15.
-//  Copyright © 2015 SFO. All rights reserved.
+//  Created by Matt Luedke on 1/21/16.
+//  Copyright © 2016 SFO. All rights reserved.
 //
 
 import Foundation
+import CoreLocation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct NotReady {
-  let stateName = "notReady"
-  static let sharedInstance = NotReady()
+struct TripStartPending {
+  let stateName = "TripStartPending"
+  static let sharedInstance = TripStartPending()
   
   private var state: TKState
   
@@ -20,7 +21,6 @@ struct NotReady {
     state = TKState(name: stateName)
     
     state.setDidEnterStateBlock { _, _ in
-      TripManager.sharedInstance.reset()
       postNotification(SfoNotification.State.update, value: self.getState())
     }
   }

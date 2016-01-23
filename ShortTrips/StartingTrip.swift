@@ -10,9 +10,9 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct WaitingForStartTrip {
-  let stateName = "waitingForStartTrip"
-  static let sharedInstance = WaitingForStartTrip()
+struct StartingTrip {
+  let stateName = "StartingTrip"
+  static let sharedInstance = StartingTrip()
   
   private var state: TKState
   
@@ -33,7 +33,9 @@ struct WaitingForStartTrip {
         let tripBody = TripBody(sessionId: sessionId,
           medallion: medallion,
           vehicleId: vehicleId,
-          smartCardId: cardId)
+          smartCardId: cardId,
+          deviceTimestamp: TripManager.sharedInstance.getStartTime() ?? NSDate()
+        )
         
         ApiClient.start(tripBody) { tripId in
           

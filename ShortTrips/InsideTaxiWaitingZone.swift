@@ -16,16 +16,9 @@ struct InsideTaxiWaitingZone {
   private var events: [TKEvent]
   
   private init() {
-    
-    let insideTaxiWaitingZoneEvent = TKEvent(name: eventNames[0],
+    events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [NotReady.sharedInstance.getState()],
-      toState: WaitingForEntryCid.sharedInstance.getState())
-    
-    insideTaxiWaitingZoneEvent.setShouldFireEventBlock { _, _ -> Bool in
-      return LocationManager.locationActiveAndAuthorized()
-    }
-    
-    events = [insideTaxiWaitingZoneEvent]
+      toState: WaitingForEntryCid.sharedInstance.getState())]
   }
 }
 

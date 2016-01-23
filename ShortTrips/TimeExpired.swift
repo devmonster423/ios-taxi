@@ -34,7 +34,7 @@ extension TimeExpired: Observable {
     postNotification(SfoNotification.Trip.timeExpired, value: nil)
 
     if let tripId = TripManager.sharedInstance.getTripId() {
-      ApiClient.invalidate(tripId, validation: .Duration)
+      ApiClient.invalidate(tripId, invalidation: .Duration)
       TripManager.sharedInstance.stop()
     }
   }

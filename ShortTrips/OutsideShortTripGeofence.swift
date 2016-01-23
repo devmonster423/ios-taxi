@@ -34,7 +34,7 @@ extension OutsideShortTripGeofence: Observable {
     postNotification(SfoNotification.Geofence.outsideShortTrip, value: nil)
 
     if let tripId = TripManager.sharedInstance.getTripId() {
-      ApiClient.invalidate(tripId, validation: .Geofence)
+      ApiClient.invalidate(tripId, invalidation: .Geofence)
       TripManager.sharedInstance.stop()
     }
   }

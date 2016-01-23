@@ -16,16 +16,14 @@ struct InsideTaxiLoopExit {
   private var events: [TKEvent]
   
   private init() {
-    
-    let insideTaxiLoopExitEvent = TKEvent(name: eventNames[0],
-      transitioningFromStates: [WaitingInHoldingLot.sharedInstance.getState(), NotReady.sharedInstance.getState(), WaitingForEntryCid.sharedInstance.getState(), AssociatingDriverAndVehicleAtEntry.sharedInstance.getState(), WaitingForEntryAvi.sharedInstance.getState()],
-      toState: WaitingForPaymentCid.sharedInstance.getState())
-    
-    insideTaxiLoopExitEvent.setShouldFireEventBlock { _, transition -> Bool in
-      return LocationManager.locationActiveAndAuthorized()
-    }
-    
-    events = [insideTaxiLoopExitEvent]
+    events = [TKEvent(name: eventNames[0],
+      transitioningFromStates: [
+        WaitingInHoldingLot.sharedInstance.getState(),
+        NotReady.sharedInstance.getState(),
+        WaitingForEntryCid.sharedInstance.getState(),
+        AssociatingDriverAndVehicleAtEntry.sharedInstance.getState(),
+        WaitingForEntryAvi.sharedInstance.getState()],
+      toState: WaitingForPaymentCid.sharedInstance.getState())]
   }
 }
 

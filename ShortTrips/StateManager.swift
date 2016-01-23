@@ -20,18 +20,19 @@ class StateManager {
     AssociatingDriverAndVehicleAtEntry.sharedInstance.getState(),
     AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState(),
     AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState(),
+    GpsIsOff.sharedInstance.getState(),
     InProgress.sharedInstance.getState(),
     NotReady.sharedInstance.getState(),
     Ready.sharedInstance.getState(),
+    StartingTrip.sharedInstance.getState(),
+    TripStartPending.sharedInstance.getState(),
     ValidatingTrip.sharedInstance.getState(),
-    WaitingForDomesticReEntryAvi.sharedInstance.getState(),
     WaitingForEntryAvi.sharedInstance.getState(),
     WaitingForEntryCid.sharedInstance.getState(),
     WaitingForExitAvi.sharedInstance.getState(),
     WaitingForPaymentCid.sharedInstance.getState(),
     WaitingForReEntryAvi.sharedInstance.getState(),
     WaitingForReEntryCid.sharedInstance.getState(),
-    WaitingForStartTrip.sharedInstance.getState(),
     WaitingForTaxiLoopAvi.sharedInstance.getState(),
     WaitingInHoldingLot.sharedInstance.getState()
   ]
@@ -42,14 +43,13 @@ class StateManager {
     events += ExitingTerminals.sharedInstance.getEvents()
     events += Failure.sharedInstance.getEvents()
     events += GpsDisabled.sharedInstance.getEvents()
+    events += GpsEnabled.sharedInstance.getEvents()
     events += InsideSfo.sharedInstance.getEvents()
     events += InsideSfoNotExitingTerminals.sharedInstance.getEvents()
     events += InsideTaxiLoopExit.sharedInstance.getEvents()
     events += InsideTaxiWaitingZone.sharedInstance.getEvents()
-    events += LatestAviAtDomesticReEntry.sharedInstance.getEvents()
-    events += LatestAviAtDomExit.sharedInstance.getEvents()
     events += LatestAviAtEntry.sharedInstance.getEvents()
-    events += LatestAviAtIntlArrivalExit.sharedInstance.getEvents()
+    events += LatestAviAtExit.sharedInstance.getEvents()
     events += LatestAviAtReEntry.sharedInstance.getEvents()
     events += LatestAviAtTaxiLoop.sharedInstance.getEvents()
     events += LatestCidIsEntryCid.sharedInstance.getEvents()

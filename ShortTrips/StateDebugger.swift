@@ -35,6 +35,11 @@ extension DebugVC {
       debugView().updateState("Associating Driver And Vehicle")
       updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"))
       
+    } else if state == GpsIsOff.sharedInstance.getState() {
+      debugView().printDebugLine("Gps is off")
+      debugView().updateState("gps is off")
+      updateFakeButtons((title: "fake gps back on", action: "fakeGpsOn"))
+      
     } else if state == NotReady.sharedInstance.getState() {
       debugView().printDebugLine("Entered Not Ready State")
       debugView().updateState("Not Ready")
@@ -51,6 +56,13 @@ extension DebugVC {
       updateFakeButtons((title: "Drop Passenger", action: "dropPassenger"),
         second: (title: "Outside Geofences", action: "fakeOutsideGeofences"),
         third: (title: "Timeout", action: "fakeTimeExpired"))
+      
+    } else if state == TripStartPending.sharedInstance.getState() {
+      debugView().printDebugLine("trip start pending")
+      debugView().updateState("trip start pending")
+      updateFakeButtons((title: "inDomExit", action: "inDomExit"),
+        second: (title: "inIntlExit", action: "inIntlExit"),
+        third: (title: "outOfBufferedExit", action: "outOfBufferedExit"))
       
     } else if state == WaitingInHoldingLot.sharedInstance.getState() {
       debugView().printDebugLine("starting to wait in holding lot")
@@ -104,9 +116,9 @@ extension DebugVC {
       debugView().updateState("Waiting for Taxi Loop Avi")
       updateFakeButtons((title: "Latest Avi Read At Taxi Loop", action: "latestAviReadAtTaxiLoop"))
       
-    } else if state == WaitingForStartTrip.sharedInstance.getState() {
-      debugView().printDebugLine("Entered Waiting For Trip to Start")
-      debugView().updateState("Waiting for Trip to Start")
+    } else if state == StartingTrip.sharedInstance.getState() {
+      debugView().printDebugLine("Entered Starting Trip")
+      debugView().updateState("Starting Trip")
       updateFakeButtons((title: "Generate Trip ID & Start", action: "generateTripId"))
     }
   }

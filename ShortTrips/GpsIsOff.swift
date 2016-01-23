@@ -1,18 +1,18 @@
 //
-//  NotReady.swift
+//  GpsIsOff.swift
 //  ShortTrips
 //
-//  Created by Matt Luedke on 10/5/15.
-//  Copyright © 2015 SFO. All rights reserved.
+//  Created by Matt Luedke on 1/22/16.
+//  Copyright © 2016 SFO. All rights reserved.
 //
 
 import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct NotReady {
-  let stateName = "notReady"
-  static let sharedInstance = NotReady()
+struct GpsIsOff {
+  let stateName = "GpsIsOff"
+  static let sharedInstance = GpsIsOff()
   
   private var state: TKState
   

@@ -17,11 +17,11 @@ class StatusCodeSpec: QuickSpec {
     
     describe("the status code") {
       
-      it("can tell if successful") {
+      xit("can tell if successful") {
         expect(StatusCode.isSuccessful(200)).to(beTruthy())
       }
 
-      it("can tell if not successful") {
+      xit("can tell if not successful") {
         expect(StatusCode.isSuccessful(500)).toNot(beTruthy())
       }
       

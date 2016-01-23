@@ -19,7 +19,10 @@ struct InsideSfoNotExitingTerminals {
   private init() {
     events = [
       TKEvent(name: eventNames[0],
-        transitioningFromStates: [WaitingForExitAvi.sharedInstance.getState()],
+        transitioningFromStates: [
+          WaitingForExitAvi.sharedInstance.getState(),
+          TripStartPending.sharedInstance.getState()
+        ],
         toState: Ready.sharedInstance.getState())
     ]
   }
