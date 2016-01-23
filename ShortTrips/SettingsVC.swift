@@ -71,6 +71,19 @@ extension SettingsVC: UITableViewDataSource {
     }
   }
   
+  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    switch SettingsSection(rawValue: section)! {
+    case .Logout:
+      if let name = DriverManager.sharedInstance.getCurrentDriver()?.fullName() {
+        return NSLocalizedString("Logged in as: ", comment: "") + name
+      } else {
+        return nil
+      }
+    default:
+      return nil
+    }
+  }
+  
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
     let cell = UITableViewCell(style: .Default, reuseIdentifier: cellId)

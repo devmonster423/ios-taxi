@@ -1,5 +1,5 @@
 //
-//  Credential.swift
+//  DriverCredential.swift
 //  ShortTrips
 //
 //  Created by Joshua Adams on 9/18/15.
