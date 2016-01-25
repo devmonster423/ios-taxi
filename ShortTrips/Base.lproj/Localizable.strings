@@ -31,7 +31,7 @@
 "Outside short trip geofence" = "Outside short trip geofence";
 "GPS off" = "GPS off";
 "Network failure" = "Network failure";
-"User logout" = "User logout";
+"User logged out" = "User logged out";
 "App quit" = "App quit";
 "App crash" = "App crash";
 "Your trip finished and is a valid short." = "Your trip finished and is a valid short.";

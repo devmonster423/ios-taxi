@@ -31,12 +31,12 @@ extension LoggedOut: Event {
 
 extension LoggedOut: Observable {
   func eventIsFiring(info: Any?) {
-
+    
+    postNotification(SfoNotification.Driver.logout, value: nil)
+    
     if let tripId = TripManager.sharedInstance.getTripId() {
       ApiClient.invalidate(tripId, invalidation: .UserLogout)
       TripManager.sharedInstance.stop()
     }
-
-    postNotification(SfoNotification.Driver.logout, value: nil)
   }
 }

@@ -74,7 +74,7 @@ class NotificationView: UIView {
     case .NetworkFailure:
       notificationText += NSLocalizedString("Network failure", comment: "")
     case .UserLogout:
-      notificationText += NSLocalizedString("User logout", comment: "")
+      notificationText += NSLocalizedString("User logged out", comment: "")
     case .AppQuit:
       notificationText += NSLocalizedString("App quit", comment: "")
     case .AppCrash:
