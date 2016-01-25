@@ -32,6 +32,7 @@ class NotificationView: UIView {
       make.leading.equalTo(self).offset(UiConstants.Trip.Notification.offset)
       make.trailing.equalTo(self).offset(-UiConstants.Trip.Notification.offset)
       make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
+      make.height.equalTo(self).dividedBy(3)
     }
     
     notificationImageView.contentMode = .ScaleAspectFit
@@ -92,6 +93,7 @@ class NotificationView: UIView {
       make.leading.equalTo(self).offset(UiConstants.Trip.Notification.offset)
       make.trailing.equalTo(self).offset(-UiConstants.Trip.Notification.offset)
       make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
+      make.height.equalTo(self).offset(-(2*UiConstants.Trip.topMargin))
     }
     
     notificationImageView.alpha = 1
