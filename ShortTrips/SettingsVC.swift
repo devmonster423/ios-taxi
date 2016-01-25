@@ -31,6 +31,12 @@ class SettingsVC: UIViewController {
     configureNavBar(back: true, title: NSLocalizedString("Settings", comment: "").uppercaseString)
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    let settingsView = view as! SettingsView
+    settingsView.tableView.reloadData()
+  }
+  
   func showLogoutConfirm() {
     let alertController = UIAlertController(title: NSLocalizedString("Are you sure?", comment: ""),
       message: "",
