@@ -46,20 +46,18 @@ class TripScenario8Spec: QuickSpec {
         TripManager.sharedInstance.start(123)
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         
-        // can fire DriverReturnsToSfo and make correct state change
         InsideBufferedExit.sharedInstance.fire()
-        expect(machine.isInState(WaitingForReEntryAvi.sharedInstance.getState())).to(beTrue())
-        
-        LatestAviAtReEntry.sharedInstance.fire()
         expect(machine.isInState(WaitingForReEntryCid.sharedInstance.getState())).to(beTrue())
         
         LatestCidIsReEntryCid.sharedInstance.fire()
         expect(machine.isInState(AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState())).to(beTrue())
         
         DriverAndVehicleAssociated.sharedInstance.fire()
+        expect(machine.isInState(WaitingForReEntryAvi.sharedInstance.getState())).to(beTrue())
+        
+        LatestAviAtReEntry.sharedInstance.fire()
         expect(machine.isInState(ValidatingTrip.sharedInstance.getState())).to(beTrue())
         
-        // can fire TripValidated and make correct state change
         TripValidated.sharedInstance.fire()
         expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
       }

@@ -20,7 +20,7 @@ struct LatestAviAtReEntry {
     events = [
       TKEvent(name: eventNames[0],
         transitioningFromStates: [WaitingForReEntryAvi.sharedInstance.getState()],
-        toState: WaitingForReEntryCid.sharedInstance.getState())
+        toState: ValidatingTrip.sharedInstance.getState())
     ]
   }
 }

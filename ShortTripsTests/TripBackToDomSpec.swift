@@ -71,15 +71,15 @@ class TripBackToDomSpec: QuickSpec {
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         
         InsideBufferedExit.sharedInstance.fire()
-        expect(machine.isInState(WaitingForReEntryAvi.sharedInstance.getState())).to(beTrue())
-        
-        LatestAviAtReEntry.sharedInstance.fire()
         expect(machine.isInState(WaitingForReEntryCid.sharedInstance.getState())).to(beTrue())
         
         LatestCidIsReEntryCid.sharedInstance.fire()
         expect(machine.isInState(AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState())).to(beTrue())
         
         DriverAndVehicleAssociated.sharedInstance.fire()
+        expect(machine.isInState(WaitingForReEntryAvi.sharedInstance.getState())).to(beTrue())
+        
+        LatestAviAtReEntry.sharedInstance.fire()
         expect(machine.isInState(ValidatingTrip.sharedInstance.getState())).to(beTrue())
         
         TripValidated.sharedInstance.fire()
@@ -134,15 +134,15 @@ class TripBackToDomSpec: QuickSpec {
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         
         InsideBufferedExit.sharedInstance.fire()
-        expect(machine.isInState(WaitingForReEntryAvi.sharedInstance.getState())).to(beTrue())
-        
-        LatestAviAtReEntry.sharedInstance.fire()
         expect(machine.isInState(WaitingForReEntryCid.sharedInstance.getState())).to(beTrue())
         
         LatestCidIsReEntryCid.sharedInstance.fire()
         expect(machine.isInState(AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState())).to(beTrue())
         
         DriverAndVehicleAssociated.sharedInstance.fire()
+        expect(machine.isInState(WaitingForReEntryAvi.sharedInstance.getState())).to(beTrue())
+        
+        LatestAviAtReEntry.sharedInstance.fire()
         expect(machine.isInState(ValidatingTrip.sharedInstance.getState())).to(beTrue())
         
         TripValidated.sharedInstance.fire()

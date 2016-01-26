@@ -106,7 +106,7 @@ class TripScenario2Spec: QuickSpec {
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         
         InsideBufferedExit.sharedInstance.fire()
-        expect(machine.isInState(WaitingForReEntryAvi.sharedInstance.getState())).to(beTrue())
+        expect(machine.isInState(WaitingForReEntryCid.sharedInstance.getState())).to(beTrue())
         
         TimeExpired.sharedInstance.fire()
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())

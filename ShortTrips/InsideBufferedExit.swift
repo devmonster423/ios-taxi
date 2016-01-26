@@ -20,7 +20,7 @@ class InsideBufferedExit {
     events = [
       TKEvent(name: eventNames[0],
         transitioningFromStates: [InProgress.sharedInstance.getState()],
-        toState: WaitingForReEntryAvi.sharedInstance.getState())
+        toState: WaitingForReEntryCid.sharedInstance.getState())
     ]
   }
 }

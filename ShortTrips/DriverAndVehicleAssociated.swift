@@ -31,7 +31,7 @@ struct DriverAndVehicleAssociated {
       
       TKEvent(name: eventNames[2],
         transitioningFromStates: [AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState()],
-        toState: ValidatingTrip.sharedInstance.getState())
+        toState: WaitingForReEntryAvi.sharedInstance.getState())
     ]
   }
 }
