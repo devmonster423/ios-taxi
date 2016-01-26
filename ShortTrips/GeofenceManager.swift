@@ -53,14 +53,11 @@ class GeofenceManager {
 
   private func process(geofences: [SfoGeofence]) {
     
-    if geofences.contains(.Sfo) {
-      InsideSfo.sharedInstance.fire()
-      insideSfo = true
-    } else {
-      insideSfo = false
-    }
+    insideSfo = geofences.contains(.Sfo)
     
-    if !geofences.contains(.TaxiExitBuffered) {
+    if geofences.contains(.TaxiExitBuffered) {
+      InsideBufferedExit.sharedInstance.fire()
+    } else {
       OutsideBufferedExit.sharedInstance.fire()
     }
     

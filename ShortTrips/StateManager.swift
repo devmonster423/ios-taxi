@@ -44,7 +44,7 @@ class StateManager {
     events += Failure.sharedInstance.getEvents()
     events += GpsDisabled.sharedInstance.getEvents()
     events += GpsEnabled.sharedInstance.getEvents()
-    events += InsideSfo.sharedInstance.getEvents()
+    events += InsideBufferedExit.sharedInstance.getEvents()
     events += InsideSfoNotExitingTerminals.sharedInstance.getEvents()
     events += InsideTaxiLoopExit.sharedInstance.getEvents()
     events += InsideTaxiWaitingZone.sharedInstance.getEvents()

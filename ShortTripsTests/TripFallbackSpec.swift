@@ -170,13 +170,13 @@ class TripFallbackSpec: QuickSpec {
         TripManager.sharedInstance.start(123)
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         
-        InsideSfo.sharedInstance.fire()
+        InsideBufferedExit.sharedInstance.fire()
         expect(machine.isInState(WaitingForReEntryAvi.sharedInstance.getState())).to(beTrue())
         
         NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         
-        InsideSfo.sharedInstance.fire()
+        InsideBufferedExit.sharedInstance.fire()
         expect(machine.isInState(WaitingForReEntryAvi.sharedInstance.getState())).to(beTrue())
         
         LatestAviAtReEntry.sharedInstance.fire()
@@ -185,7 +185,7 @@ class TripFallbackSpec: QuickSpec {
         NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
         expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
         
-        InsideSfo.sharedInstance.fire()
+        InsideBufferedExit.sharedInstance.fire()
         expect(machine.isInState(WaitingForReEntryAvi.sharedInstance.getState())).to(beTrue())
         
         LatestAviAtReEntry.sharedInstance.fire()
