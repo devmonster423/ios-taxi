@@ -28,12 +28,6 @@ class NotificationView: UIView {
     notificationLabel.numberOfLines = 0
     notificationLabel.textAlignment = .Center
     notificationLabel.textColor = Color.Trip.title
-    notificationLabel.snp_makeConstraints { make in
-      make.leading.equalTo(self).offset(UiConstants.Trip.Notification.offset)
-      make.trailing.equalTo(self).offset(-UiConstants.Trip.Notification.offset)
-      make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
-      make.height.equalTo(self).dividedBy(3)
-    }
     
     notificationImageView.contentMode = .ScaleAspectFit
     notificationImageView.snp_makeConstraints { make in
@@ -51,9 +45,25 @@ class NotificationView: UIView {
     notificationImageView.image = Image.greenCheckmark.image()
     notificationImageView.alpha = 1
     Speaker.sharedInstance.speak(notificationLabel.text! + " " + NSLocalizedString("Go directly to the payment gate to start your next trip.", comment: ""))
+    
+    resetLabelConstraints()
+  }
+  
+  func resetLabelConstraints() {
+    notificationLabel.snp_remakeConstraints { make in
+      make.leading.equalTo(self).offset(UiConstants.Trip.Notification.offset)
+      make.trailing.equalTo(self).offset(-UiConstants.Trip.Notification.offset)
+      make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
+      make.height.equalTo(self).dividedBy(3)
+    }
+    
+    notificationLabel.setNeedsUpdateConstraints()
+    self.layoutIfNeeded()
   }
   
   func notifyFail(validationStep: ValidationStep, delay: NSTimeInterval, duration: NSTimeInterval) {
+    
+    resetLabelConstraints()
     
     notificationLabel.font = Font.OpenSansSemibold.size(18)
     var notificationText = NSLocalizedString("Your trip is now a long", comment: "") + "\n"
