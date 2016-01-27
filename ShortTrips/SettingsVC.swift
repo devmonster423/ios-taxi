@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import MessageUI
 
 enum SettingsSection: Int {
   case Audio = 0
-  case Faq = 1
+  case Feedback = 1
   case Logout = 2
 }
 
@@ -70,7 +71,7 @@ extension SettingsVC: UITableViewDataSource {
     switch SettingsSection(rawValue: section)! {
     case .Audio:
       return 1
-    case .Faq:
+    case .Feedback:
       return 1
     case .Logout:
       return 1
@@ -100,8 +101,8 @@ extension SettingsVC: UITableViewDataSource {
       cell.textLabel?.text = Speaker.sharedInstance.audioEnabled
         ? NSLocalizedString("Audio ON. Tap to turn off.", comment: "")
         : NSLocalizedString("Audio OFF. Tap to turn on.", comment: "")
-    case .Faq:
-      cell.textLabel?.text = NSLocalizedString("Frequently Asked Questions", comment: "")
+    case .Feedback:
+      cell.textLabel?.text = NSLocalizedString("Email Feedback", comment: "")
     case .Logout:
       cell.textLabel?.text = NSLocalizedString("Logout", comment: "")
     }
@@ -117,10 +118,16 @@ extension SettingsVC: UITableViewDelegate {
     case .Audio:
       Speaker.sharedInstance.audioEnabled = !Speaker.sharedInstance.audioEnabled
       tableView.reloadData()
-    case .Faq:
-      UiHelpers.displayComingSoonMessage(self)
+    case .Feedback:
+      self.presentViewController(FeedbackEmailMaker.make(self), animated: true, completion: nil)
     case .Logout:
       showLogoutConfirm()
     }
+  }
+}
+
+extension SettingsVC: MFMailComposeViewControllerDelegate {
+  func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+    dismissViewControllerAnimated(true, completion: nil)
   }
 }
