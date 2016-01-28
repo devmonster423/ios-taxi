@@ -1,11 +1,11 @@
 language: objective-c
-osx_image: xcode7.1
+osx_image: xcode7.2
 before_install:
   - gem install cocoapods
   - gem install xcpretty
   - pod install
 script:
   - open -b com.apple.iphonesimulator
-  - xcodebuild clean build test -workspace ShortTrips.xcworkspace -scheme 'ShortTrips' -sdk iphonesimulator9.1 -destination 'platform=iOS Simulator,name=iPhone 6s Plus' | xcpretty -c  && exit ${PIPESTATUS[0]}
+  - xcodebuild clean build test -workspace ShortTrips.xcworkspace -scheme 'ShortTrips' -sdk iphonesimulator9.2 -destination 'platform=iOS Simulator,name=iPhone 6s Plus' | xcpretty -c  && exit ${PIPESTATUS[0]}
 notifications:
   slack: exygy:JWZH2MeHG9W2POeRboJANASH
