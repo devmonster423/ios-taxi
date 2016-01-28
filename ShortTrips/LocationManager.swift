@@ -20,6 +20,8 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   private var lastKnownLocation: CLLocation?
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
   
+  private var bgId: UIBackgroundTaskIdentifier!
+  
   private override init() {
     super.init()
     
@@ -45,13 +47,17 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   func locationManager(manager: CLLocationManager,
     didUpdateLocations locations: [CLLocation]) {
      
-    if let location = locations.last {
-      self.lastKnownLocation = location
-    
-      if location.horizontalAccuracy < requiredAccuracy {
-        postNotification(SfoNotification.Location.read, value: location)
+      self.bgId = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { _ in
+        UIApplication.sharedApplication().endBackgroundTask(self.bgId)
       }
-    }
+      
+      if let location = locations.last {
+        self.lastKnownLocation = location
+      
+        if location.horizontalAccuracy < requiredAccuracy {
+          postNotification(SfoNotification.Location.read, value: location)
+        }
+      }
   }
 
   func locationManager(manager: CLLocationManager,
