@@ -31,6 +31,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   }
 
   func start() {
+    
+    if #available(iOS 9.0, *) {
+      manager.allowsBackgroundLocationUpdates = true
+    }
+    
     manager.activityType = .AutomotiveNavigation
     manager.delegate = self
     manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
