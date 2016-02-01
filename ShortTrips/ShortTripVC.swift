@@ -27,7 +27,7 @@ class ShortTripVC: UIViewController {
     configureNavBar(title: NSLocalizedString("Trip Status", comment: "").uppercaseString)
     addSettingsButton()
     
-    updateForState(StateManager.sharedInstance.getMachine().currentState)
+    initializeForState(StateManager.sharedInstance.getMachine().currentState)
     
     if let tripTimer = tripTimer {
       tripTimer.invalidate()

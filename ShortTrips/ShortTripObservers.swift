@@ -55,6 +55,29 @@ extension ShortTripVC {
     }
   }
   
+  func initializeForState(state: TKState) {
+    
+    if state == GpsIsOff.sharedInstance.getState()
+      || state == NotReady.sharedInstance.getState()
+      || state == WaitingInHoldingLot.sharedInstance.getState()
+      || state == Ready.sharedInstance.getState()
+      || state == InProgress.sharedInstance.getState() {
+        
+        updateForState(state)
+        
+    } else if state == WaitingForExitAvi.sharedInstance.getState()
+      || state == TripStartPending.sharedInstance.getState() {
+    
+        updateForState(Ready.sharedInstance.getState())
+        
+    } else if tripInProgress(state) {
+      updateForState(InProgress.sharedInstance.getState())
+      
+    } else {
+      updateForState(NotReady.sharedInstance.getState())
+    }
+  }
+  
   func updateForState(state: TKState) {
     
     if state == GpsIsOff.sharedInstance.getState() {
