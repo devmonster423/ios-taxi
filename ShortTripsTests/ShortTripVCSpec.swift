@@ -9,7 +9,6 @@
 @testable import ShortTrips
 import Quick
 import Nimble
-import PivotalCoreKit
 import JSQNotificationObserverKit
 import CoreLocation
 
@@ -22,6 +21,10 @@ class ShortTripVCSpec: QuickSpec {
     describe("the short trip view controller") {
       
       beforeEach {
+        
+        // this is to test that initial text is there in entry cid state
+        InsideTaxiWaitingZone.sharedInstance.fire()
+        
         viewController = ShortTripVC()
         let navigationController = UINavigationController(rootViewController: viewController)
         
@@ -32,6 +35,17 @@ class ShortTripVCSpec: QuickSpec {
       
       it("is instantiated") {
         expect(viewController).toNot(beNil())
+      }
+      
+      it ("has some initial text in waiting for entry cid state") {
+        let machine = StateManager.sharedInstance.getMachine()
+        
+        // can be initialized
+        expect(machine).toNot(beNil())
+        
+        expect(viewController.shortTripView().getPromptText()).toNot(beNil())
+        Failure.sharedInstance.fire()
+        expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
       }
       
       it("can receive notifications and display things") {

@@ -134,4 +134,8 @@ class ShortTripView: UIView {
   func updateCountdown(elapsedTime: NSTimeInterval?) {
     countdown.updateCountdown(elapsedTime)
   }
+  
+  func getPromptText() -> String? {
+    return promptLabel.text
+  }
 }
