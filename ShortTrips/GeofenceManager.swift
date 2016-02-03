@@ -14,9 +14,9 @@ class GeofenceManager {
   
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
   var lastCheckedLocation: CLLocation?
-  private var insideSfo = false
+  private var insideSfoBufferedExit = false
   var checkThreshold: Double {
-    return insideSfo ? 30 : 300
+    return insideSfoBufferedExit ? 30 : 300
   }
   private var lastKnownGeofences: [SfoGeofence]?
   
@@ -53,12 +53,12 @@ class GeofenceManager {
 
   private func process(geofences: [SfoGeofence]) {
     
-    insideSfo = geofences.contains(.Sfo)
-    
     if geofences.contains(.TaxiExitBuffered) {
       InsideBufferedExit.sharedInstance.fire()
+      insideSfoBufferedExit = true
     } else {
       OutsideBufferedExit.sharedInstance.fire()
+      insideSfoBufferedExit = false
     }
     
     if geofences.contains(.SfoTaxiDomesticExit)
@@ -103,7 +103,7 @@ class GeofenceManager {
     }
   }
   
-  func stillInsideSfo() -> Bool {
-    return insideSfo
+  func stillInsideSfoBufferedExit() -> Bool {
+    return insideSfoBufferedExit
   }
 }

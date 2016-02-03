@@ -34,7 +34,7 @@ struct WaitingForReEntryCid {
               } else {
                 postNotification(SfoNotification.Cid.unexpected, value: (expected: self.expectedCid, found: device))
                 
-                if !GeofenceManager.sharedInstance.stillInsideSfo() {
+                if !GeofenceManager.sharedInstance.stillInsideSfoBufferedExit() {
                   NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
                 }
               }

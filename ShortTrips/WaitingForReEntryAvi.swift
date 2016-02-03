@@ -35,7 +35,7 @@ struct WaitingForReEntryAvi {
               } else {
                 postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
                 
-                if !GeofenceManager.sharedInstance.stillInsideSfo() {
+                if !GeofenceManager.sharedInstance.stillInsideSfoBufferedExit() {
                   NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
                 }
               }

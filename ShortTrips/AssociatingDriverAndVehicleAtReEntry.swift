@@ -31,7 +31,7 @@ struct AssociatingDriverAndVehicleAtReEntry {
             if let vehicle = vehicle where vehicle.isValid() {
               DriverManager.sharedInstance.setCurrentVehicle(vehicle)
               
-            } else if !GeofenceManager.sharedInstance.stillInsideSfo() {
+            } else if !GeofenceManager.sharedInstance.stillInsideSfoBufferedExit() {
               NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
             }
           }
