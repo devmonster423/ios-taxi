@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  NotificationView.swift
 //  ShortTrips
 //
 //  Created by Matt Luedke on 1/11/16.
@@ -41,10 +41,10 @@ class NotificationView: UIView {
   func notifySuccess() {
     backgroundColor = Color.Trip.Notification.green
     notificationLabel.font = Font.OpenSansSemibold.size(25)
-    notificationLabel.text = NSLocalizedString("Your trip finished and is a valid short.", comment: "").uppercaseString
+    notificationLabel.text = NSLocalizedString("The trip has ended and was recorded as a valid short trip.", comment: "").uppercaseString
     notificationImageView.image = Image.greenCheckmark.image()
     notificationImageView.alpha = 1
-    Speaker.sharedInstance.speak(notificationLabel.text! + " " + NSLocalizedString("Go directly to the payment gate to start your next trip.", comment: ""))
+    Speaker.sharedInstance.speak(NSLocalizedString("Valid short trip.", comment: ""))
     
     resetLabelConstraints()
   }
@@ -70,25 +70,32 @@ class NotificationView: UIView {
     
     switch validationStep {
     case .Duration:
-      notificationText += NSLocalizedString("Time expired", comment: "")
+      notificationText += NSLocalizedString("The trip has ended and was recorded as a long trip. The duration exceeded two hours.", comment: "")
+      Speaker.sharedInstance.speak(NSLocalizedString("Long trip. Duration exceeded two hours.", comment: ""))
     case .Vehicle:
-      notificationText += NSLocalizedString("Vehicle mismatch", comment: "")
+      notificationText += NSLocalizedString("The trip has ended and was recorded as a long trip. The vehicle at the start was not the same at the end of the trip.", comment: "")
+      Speaker.sharedInstance.speak(NSLocalizedString("Long trip. Vehicle mismatch.", comment: ""))
     case .DriverCardId:
-      notificationText += NSLocalizedString("Card error", comment: "")
+      notificationText += NSLocalizedString("The trip has ended and was recorded as a long trip. The card tapped at the start was not identified at the end of the trip.", comment: "")
+      Speaker.sharedInstance.speak(NSLocalizedString("Long trip. Card error.", comment: ""))
     case .MacAddress:
-      notificationText += NSLocalizedString("Phone error", comment: "")
+      notificationText += NSLocalizedString("The trip has ended and was recorded as a long trip. The phone at the start was not identified at the end of the trip.", comment: "")
+      Speaker.sharedInstance.speak(NSLocalizedString("Long trip. Phone error.", comment: ""))
     case .Geofence:
-      notificationText += NSLocalizedString("Outside short trip geofence", comment: "")
+      notificationText += NSLocalizedString("The trip has ended and was recorded as a long trip. The vehicle was located outside the geofence while trip was in progress.", comment: "")
+      Speaker.sharedInstance.speak(NSLocalizedString("Long trip. Outside geofence.", comment: ""))      
     case .GpsFailure:
-      notificationText += NSLocalizedString("GPS off", comment: "")
-    case .NetworkFailure:
-      notificationText += NSLocalizedString("Network failure", comment: "")
+      notificationText += NSLocalizedString("The trip has ended and was recorded as a long trip. Location-based services were unavailable while the trip was in progress.", comment: "")
+      Speaker.sharedInstance.speak(NSLocalizedString("Long trip. Location services unavailable.", comment: ""))
     case .UserLogout:
-      notificationText += NSLocalizedString("User logged out", comment: "")
+      notificationText += NSLocalizedString("The trip has ended and was recorded as a long trip. Logout occurred while the trip was in progress.", comment: "")
+      Speaker.sharedInstance.speak(NSLocalizedString("Long trip. User logged out.", comment: ""))
     case .AppQuit:
       notificationText += NSLocalizedString("App quit", comment: "")
     case .AppCrash:
       notificationText += NSLocalizedString("App crash", comment: "")
+    case .NetworkFailure:
+      notificationText += NSLocalizedString("Network failure", comment: "")
     default:
       break
     }

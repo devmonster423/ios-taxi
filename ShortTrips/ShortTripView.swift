@@ -73,7 +73,6 @@ class ShortTripView: UIView {
       promptLabel.text = prompt.visualString()
       promptImageView.image = prompt.image()
       Speaker.sharedInstance.speak(prompt.audioString())
-  
       currentPrompt = prompt
     }
   }
