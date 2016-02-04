@@ -13,7 +13,6 @@ import JSQNotificationObserverKit
 struct WaitingForTaxiLoopAvi {
   let stateName = "WaitingForTaxiLoopAvi"
   static let sharedInstance = WaitingForTaxiLoopAvi()
-  private let expectedAvi: GtmsLocation = .DtaRecirculation
   
   private var poller: Poller?
   private var state: TKState
@@ -29,10 +28,11 @@ struct WaitingForTaxiLoopAvi {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
             if let antenna = antenna, let device = antenna.device() {
-              if device == self.expectedAvi {
+              
+              if device == .DtaRecirculation || device == .TaxiMainLot {
                 LatestAviAtTaxiLoop.sharedInstance.fire(antenna)
               } else {
-                postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
+                postNotification(SfoNotification.Avi.unexpected, value: (expected: .DtaRecirculation, found: device))
                 
                 if !GeofenceManager.sharedInstance.stillInsideDomesticExit() {
                   NotInsideTaxiLoopExitAfterFailedPaymentCheck.sharedInstance.fire()
