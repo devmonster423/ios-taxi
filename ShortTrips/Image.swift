@@ -47,12 +47,13 @@ enum Image: String {
   case redRing = "circle_red"
   
   // Trip Prompts
-  case exclamationPoint = "exclamation_point"
+  case map = "map"
   case mapPin = "map_pin"
   case car = "car"
   case greenCheckmark = "green_check"
   
   case gear = "gear"
+  case taxi = "taxi"
   
   func image() -> UIImage {
     return UIImage(named: self.rawValue)!
