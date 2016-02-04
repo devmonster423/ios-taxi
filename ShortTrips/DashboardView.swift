@@ -11,8 +11,6 @@ import SnapKit
 
 class DashboardView: UIView {
 
-  private let fullnessRing = UIImageView()
-  private let percentLabel = UILabel()
   private let spotsLabel = UILabel()
   let timerView = TimerView()
 
@@ -22,69 +20,39 @@ class DashboardView: UIView {
 
   override init(frame: CGRect) {
     super.init(frame: frame)
-
     backgroundColor = UIColor.whiteColor()
-
-    // add subviews
     addSubview(timerView)
 
-    // background
+    let taxi = UIImageView(image: Image.taxi.image())
+    taxi.contentMode = .ScaleAspectFit
+    addSubview(taxi)
+    taxi.snp_makeConstraints { (make) -> Void in
+      make.center.equalTo(self)
+      make.height.equalTo(self.snp_width).dividedBy(2.5)
+      make.width.equalTo(self.snp_width).dividedBy(2.5)
+    }
+    
     let bgView = UIView()
     bgView.backgroundColor = Color.Dashboard.lightBlue
     addSubview(bgView)
     bgView.snp_makeConstraints { make in
-      make.top.equalTo(self.snp_centerY)
+      //make.height.equalTo(80) // TODO: delete, tie height to center image
+      make.top.equalTo(taxi.snp_bottom).offset(10)
       make.left.equalTo(self)
       make.right.equalTo(self)
       make.bottom.equalTo(timerView.snp_top)
     }
     
-    let whiteCircle = UIImageView(image: Image.whiteCircle.image())
-    whiteCircle.contentMode = .ScaleAspectFit
-    addSubview(whiteCircle)
-    whiteCircle.snp_makeConstraints { (make) -> Void in
-      make.center.equalTo(self)
-      make.height.equalTo(self.snp_width).dividedBy(3)
-      make.width.equalTo(self.snp_width).dividedBy(3)
-    }
-    
-    let blackCircle = UIImageView(image: Image.blackCircle.image())
-    blackCircle.contentMode = .ScaleAspectFit
-    addSubview(blackCircle)
-    blackCircle.snp_makeConstraints { (make) -> Void in
-      make.center.equalTo(self)
-      make.height.equalTo(whiteCircle).multipliedBy(0.93)
-      make.width.equalTo(whiteCircle).multipliedBy(0.93)
-    }
-    
-    fullnessRing.contentMode = .ScaleAspectFit
-    addSubview(fullnessRing)
-    fullnessRing.snp_makeConstraints { (make) -> Void in
-      make.center.equalTo(self)
-      make.height.equalTo(whiteCircle).multipliedBy(1.14)
-      make.width.equalTo(whiteCircle).multipliedBy(1.14)
-    }
-    
     let holdingLotLabel = UILabel()
-    holdingLotLabel.font = Font.OpenSansSemibold.size(28)
+    holdingLotLabel.font = Font.OpenSansSemibold.size(30)
     holdingLotLabel.text = NSLocalizedString("Holding Lot", comment: "").uppercaseString
     holdingLotLabel.textAlignment = .Center
     addSubview(holdingLotLabel)
     holdingLotLabel.snp_makeConstraints { (make) -> Void in
       make.centerX.equalTo(self)
       make.height.equalTo(40)
-      make.width.equalTo(200)
+      make.width.equalTo(250)
       make.top.equalTo(self).offset(50)
-    }
-    
-    percentLabel.font = Font.OpenSansSemibold.size(40)
-    percentLabel.textAlignment = .Center
-    percentLabel.textColor = UIColor.whiteColor()
-    addSubview(percentLabel)
-    percentLabel.snp_makeConstraints { (make) -> Void in
-      make.center.equalTo(self)
-      make.height.equalTo(150)
-      make.width.equalTo(150)
     }
     
     let availableLabel = UILabel()
@@ -106,11 +74,10 @@ class DashboardView: UIView {
     spotsLabel.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.top.equalTo(fullnessRing.snp_bottom)
+      make.top.equalTo(taxi.snp_bottom)
       make.bottom.equalTo(availableLabel.snp_top)
     }
     
-    // Progress View and "Last updated 2 minutes ago"
     timerView.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(UiConstants.Dashboard.progressHeight)
       make.bottom.equalTo(self)
@@ -122,20 +89,12 @@ class DashboardView: UIView {
   func updateSpots(length length: Int, capacity: Int) {
     let remaining = capacity - length
     let percent: Int = remaining * 100 / capacity
-    
-    percentLabel.text = "\(percent)%"
     spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["\(remaining)", "\(capacity)"]).uppercaseString
-    
     if percent > 50 {
-      fullnessRing.image = Image.greenRing.image()
       spotsLabel.textColor = Color.StatusColor.green
-      
     } else if percent > 25 {
-      fullnessRing.image = Image.yellowRing.image()
       spotsLabel.textColor = Color.StatusColor.yellow
-      
     } else {
-      fullnessRing.image = Image.redRing.image()
       spotsLabel.textColor = Color.StatusColor.red
     }
   }

@@ -102,7 +102,7 @@ class NotificationView: UIView {
     
     backgroundColor = Color.Trip.Notification.red
     notificationLabel.text = notificationText.uppercaseString
-    notificationImageView.image = Image.exclamationPoint.image()
+    notificationImageView.image = Image.map.image()
     
     Speaker.sharedInstance.speak(notificationLabel.text!)
     
