@@ -36,16 +36,6 @@ class ShortTripView: UIView {
       make.height.equalTo(self).dividedBy(4)
     }
     
-    let horizontalDivider = UIView()
-    horizontalDivider.backgroundColor = Color.Trip.divider
-    addSubview(horizontalDivider)
-    horizontalDivider.snp_makeConstraints { (make) -> Void in
-      make.centerX.equalTo(self)
-      make.height.equalTo(1)
-      make.width.equalTo(self).dividedBy(2)
-      make.top.equalTo(promptLabel.snp_bottom).offset(UiConstants.Trip.dividerMargin)
-    }
-    
     promptLabel.font = Font.OpenSansSemibold.size(25)
     promptLabel.textAlignment = .Center
     promptLabel.numberOfLines = 0
@@ -59,7 +49,7 @@ class ShortTripView: UIView {
     promptImageView.contentMode = .ScaleAspectFit
     promptImageView.snp_makeConstraints { make in
       make.centerX.equalTo(self)
-      make.top.equalTo(horizontalDivider.snp_bottom).offset(UiConstants.Trip.dividerMargin)
+      make.top.equalTo(promptLabel.snp_bottom).offset(UiConstants.Trip.dividerMargin)
       make.bottom.equalTo(countdown.snp_top).offset(-UiConstants.Trip.dividerMargin)
       make.width.equalTo(self).dividedBy(2)
     }
