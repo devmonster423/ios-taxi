@@ -18,24 +18,38 @@
 
 /*Trip Prompts */
 "Allow this app to use your location" = "Allow this app to use your location";
+"Location services must be turned on in order to monitor your trip." = "Location services must be turned on in order to monitor your trip.";
+"Location services required." = "Location services required.";
 "Go to your phone's Settings app. Select Privacy, then Location Services, and allow this app to use your location" = "Go to your phone's Settings app. Select Privacy, then Location Services, and allow this app to use your location";
 "Go to SFO holding lot to start your next trip" = "Go to SFO holding lot to start your next trip";
-"Pay and go to terminal curbside to start your next trip" = "Pay and go to terminal curbside to start your next trip";
-"Your trip will start when you exit the airport" = "Your trip will start when you exit the airport";
-"Your short trip is in progress" = "Your short trip is in progress";
+"Dispatch to the curbside occurs after payment is made." = "Dispatch to the curbside occurs after payment is made.";
+"Payment required for curbside pickup." = "Payment required for curbside pickup.";
+"The trip will start when the vehicle exits SFO." = "The trip will start when the vehicle exits SFO.";
+"Dispatch to the curbside occurs after payment is made." = "Dispatch to the curbside occurs after payment is made.";
+"The trip has started and will be monitored." = "The trip has started and will be monitored.";
+"Trip in progress." = "Trip in progress.";
 "Your trip is now a long" = "Your trip is now a long";
-"Time expired" = "Time expired";
-"Vehicle mismatch" = "Vehicle mismatch";
-"Card error" = "Card error";
-"Phone error" = "Phone error";
-"Outside short trip geofence" = "Outside short trip geofence";
-"GPS off" = "GPS off";
+"The trip has ended and was recorded as a long trip. The duration exceeded two hours." = "The trip has ended and was recorded as a long trip. The duration exceeded two hours.";
+"Long trip. Duration exceeded two hours." = "Long trip. Duration exceeded two hours.";
+"The trip has ended and was recorded as a long trip. The vehicle at the start was not the same at the end of the trip." = "The trip has ended and was recorded as a long trip. The vehicle at the start was not the same at the end of the trip.";
+"Long trip. Vehicle mismatch." = "Long trip. Vehicle mismatch.";
+"The trip has ended and was recorded as a long trip. The card tapped at the start was not identified at the end of the trip." = "The trip has ended and was recorded as a long trip. The card tapped at the start was not identified at the end of the trip.";
+"Long trip. Card error." = "Long trip. Card error.";
+"The trip has ended and was recorded as a long trip. The phone at the start was not identified at the end of the trip." = "The trip has ended and was recorded as a long trip. The phone at the start was not identified at the end of the trip.";
+"Long Trip. Phone Error." = "Long Trip. Phone Error.";
+"The trip has ended and was recorded as a long trip. The vehicle was located outside the geofence while trip was in progress." = "The trip has ended and was recorded as a long trip. The vehicle was located outside the geofence while trip was in progress.";
+"Long trip. Outside geofence." = "Long trip. Outside geofence.";
+"The trip has ended and was recorded as a long trip. Location-based services were unavailable while the trip was in progress." = "The trip has ended and was recorded as a long trip. Location-based services were unavailable while the trip was in progress.";
+"Long trip. Location services unavailable." = "Long trip. Location services unavailable.";
 "Network failure" = "Network failure";
 "User logged out" = "User logged out";
+"The trip has ended and was recorded as a long trip. Logout occurred while the trip was in progress." = "The trip has ended and was recorded as a long trip. Logout occurred while the trip was in progress.";
+"Long trip. User logged out." = "Long trip. User logged out.";
 "App quit" = "App quit";
 "App crash" = "App crash";
-"Your trip finished and is a valid short." = "Your trip finished and is a valid short.";
-"Go directly to the payment gate to start your next trip." = "Go directly to the payment gate to start your next trip.";
+"The trip has ended and was recorded as a valid short trip." = "The trip has ended and was recorded as a valid short trip.";
+"Valid short trip." = "Valid short trip.";
+"SFO garage entry required prior to next trip." = "SFO garage entry required prior to next trip.";
 
 /* Trip Status */
 "Short Trip expires in" = "Short Trip expires in";

@@ -19,15 +19,15 @@ enum StatePrompt {
   func visualString() -> String {
     switch self {
     case .TurnOnGps:
-      return NSLocalizedString("Allow this app to use your location", comment: "").uppercaseString
+      return NSLocalizedString("Location services must be turned on in order to monitor your trip.", comment: "").uppercaseString
     case .GoToSfo:
       return NSLocalizedString("Go to SFO holding lot to start your next trip", comment: "").uppercaseString
     case .Pay:
-      return NSLocalizedString("Pay and go to terminal curbside to start your next trip", comment: "").uppercaseString
+      return NSLocalizedString("Dispatch to the curbside occurs after payment is made.", comment: "").uppercaseString
     case .Ready:
-      return NSLocalizedString("Your trip will start when you exit the airport", comment: "").uppercaseString
+      return NSLocalizedString("The trip will start when the vehicle exits SFO.", comment: "").uppercaseString
     case .InProgress:
-      return NSLocalizedString("Your short trip is in progress", comment: "").uppercaseString
+      return NSLocalizedString("The trip has started and will be monitored.", comment: "").uppercaseString
     }
   }
   
