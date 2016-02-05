@@ -42,11 +42,11 @@ class DebugVCSpec: QuickSpec {
           tripId: 123,
           vehicleId: 123,
           sessionId: 456,
-          medallion: 789)
+          medallion: "789")
         let driver = Driver(sessionId: 123, driverId: 234, cardId: "345", firstName: "", lastName: "", driverLicense: "3F0-3xy6y")
         let vehicle = Vehicle(gtmsTripId: 10590,
           licensePlate: "13702K1",
-          medallion: 1404,
+          medallion: "1404",
           transponderId: 2005887,
           vehicleId: 12999)
         

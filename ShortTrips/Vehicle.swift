@@ -12,11 +12,11 @@ import ObjectMapper
 struct Vehicle: Mappable {
   var gtmsTripId: Int!
   var licensePlate: String!
-  var medallion: Int?
+  var medallion: String?
   var transponderId: Int!
   var vehicleId: Int!
   
-  init(gtmsTripId: Int, licensePlate: String, medallion: Int, transponderId: Int, vehicleId: Int) {
+  init(gtmsTripId: Int, licensePlate: String, medallion: String, transponderId: Int, vehicleId: Int) {
     self.gtmsTripId = gtmsTripId
     self.licensePlate = licensePlate
     self.medallion = medallion
@@ -27,9 +27,22 @@ struct Vehicle: Mappable {
   init?(_ map: Map){}
   
   mutating func mapping(map: Map) {
+    
+    let medallionTransform = TransformOf<String, Any>(fromJSON: { (input) -> String? in
+      if let input = input as? String {
+        return input
+      } else if let input = input as? Int {
+        return "\(input)"
+      } else {
+        return nil
+      }
+      }) { (medallion) -> Any? in
+        return medallion
+    }
+    
     gtmsTripId <- map["response.gtms_trip_id"]
     licensePlate <- map["response.license_plate"]
-    medallion <- map["response.medallion"]
+    medallion <- (map["response.medallion"], medallionTransform)
     transponderId <- map["response.transponder_id"]
     vehicleId <- map["response.vehicle_id"]
   }

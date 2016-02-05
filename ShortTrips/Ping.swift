@@ -35,13 +35,13 @@ struct Ping: Mappable {
   var timestamp: NSDate!
   var tripId: Int!
   var sessionId: Int!
-  var medallion: Int?
+  var medallion: String?
   var vehicleId: Int!
   var geofenceStatus: GeofenceStatus!
   
   init?(_ map: Map){}
   
-  init(location: CLLocation, tripId: Int, vehicleId: Int, sessionId: Int, medallion: Int?) {
+  init(location: CLLocation, tripId: Int, vehicleId: Int, sessionId: Int, medallion: String?) {
     self.latitude = location.coordinate.latitude
     self.longitude = location.coordinate.longitude
     self.timestamp = location.timestamp

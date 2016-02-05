@@ -8,4 +8,6 @@
 
 import Foundation
 
-var MockVehicleString = "{\"response\": {\"vehicle_id\":12999,\"transponder_id\":2005887,\"gtms_trip_id\":10590,\"license_plate\":\"13702K1\",\"medallion\":1404}}"
+var MockVehicleString1 = "{\"response\": {\"vehicle_id\":12999,\"transponder_id\":2005887,\"gtms_trip_id\":10590,\"license_plate\":\"13702K1\",\"medallion\":1404}}"
+
+var MockVehicleString2 = "{\"response\": {\"vehicle_id\":12999,\"transponder_id\":2005887,\"gtms_trip_id\":10590,\"license_plate\":\"13702K1\",\"medallion\":\"0737\"}}"

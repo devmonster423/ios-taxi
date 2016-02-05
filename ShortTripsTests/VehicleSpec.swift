@@ -13,24 +13,33 @@ import Foundation
 import ObjectMapper
 
 class VehicleSpec: QuickSpec {
-  var vehicle: Vehicle!
+  var vehicle1: Vehicle!
+  var vehicle2: Vehicle!
   
   override func spec() {
     describe("the Vehicle") {
       beforeEach {
-        self.vehicle = Mapper<Vehicle>().map(MockVehicleString)
+        self.vehicle1 = Mapper<Vehicle>().map(MockVehicleString1)
+        self.vehicle2 = Mapper<Vehicle>().map(MockVehicleString2)
       }
       
       it("is non-nil") {
-        expect(self.vehicle).toNot(beNil())
+        expect(self.vehicle1).toNot(beNil())
+        expect(self.vehicle2).toNot(beNil())
       }
       
       it("is a valid Vehicle") {
-        expect(self.vehicle.vehicleId).toNot(beNil())
-        expect(self.vehicle.transponderId).toNot(beNil())
-        expect(self.vehicle.gtmsTripId).toNot(beNil())
-        expect(self.vehicle.licensePlate).toNot(beNil())
-        expect(self.vehicle.medallion).toNot(beNil())
+        expect(self.vehicle1.vehicleId).toNot(beNil())
+        expect(self.vehicle1.transponderId).toNot(beNil())
+        expect(self.vehicle1.gtmsTripId).toNot(beNil())
+        expect(self.vehicle1.licensePlate).toNot(beNil())
+        expect(self.vehicle1.medallion).toNot(beNil())
+        
+        expect(self.vehicle2.vehicleId).toNot(beNil())
+        expect(self.vehicle2.transponderId).toNot(beNil())
+        expect(self.vehicle2.gtmsTripId).toNot(beNil())
+        expect(self.vehicle2.licensePlate).toNot(beNil())
+        expect(self.vehicle2.medallion).toNot(beNil())
       }
     }
   }

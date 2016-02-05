@@ -26,7 +26,7 @@ class TripClientSpec: QuickSpec {
           tripId: 123,
           vehicleId: 123,
           sessionId: 456,
-          medallion: 789)
+          medallion: "789")
         
         self.stub(uri(Url.Trip.ping(tripId)), builder: json(TripPingMock))
         
@@ -37,7 +37,7 @@ class TripClientSpec: QuickSpec {
       
       xit("can start") {
         let tripBody = TripBody(sessionId: 123,
-          medallion: 456,
+          medallion: "456",
           vehicleId: 789,
           smartCardId: "1234",
           deviceTimestamp: NSDate()

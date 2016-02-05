@@ -23,7 +23,7 @@ extension DebugVC {
   func associateDriverAndVehicle() {
     let vehicle = Vehicle(gtmsTripId: 10590,
       licensePlate: "13702K1",
-      medallion: 123,
+      medallion: "0737",
       transponderId: 2005887,
       vehicleId: 12999)
     DriverManager.sharedInstance.setCurrentVehicle(vehicle)

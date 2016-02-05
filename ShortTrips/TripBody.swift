@@ -11,13 +11,13 @@ import ObjectMapper
 
 struct TripBody: Mappable {
   var sessionId: Int!
-  var medallion: Int?
+  var medallion: String?
   var vehicleId: Int!
   var smartCardId: String!
   var deviceUuid: String!
   var deviceTimestamp: NSDate!
   
-  init(sessionId: Int, medallion: Int?, vehicleId: Int, smartCardId: String, deviceTimestamp: NSDate) {
+  init(sessionId: Int, medallion: String?, vehicleId: Int, smartCardId: String, deviceTimestamp: NSDate) {
     self.sessionId = sessionId
     self.medallion = medallion
     self.vehicleId = vehicleId

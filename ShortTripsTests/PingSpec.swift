@@ -24,7 +24,7 @@ class PingSpec: QuickSpec {
           tripId: 123,
           vehicleId: 123,
           sessionId: 456,
-          medallion: 789)
+          medallion: "789")
         self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
       }
       
