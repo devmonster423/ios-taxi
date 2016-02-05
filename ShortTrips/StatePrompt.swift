@@ -19,22 +19,28 @@ enum StatePrompt {
   func visualString() -> String {
     switch self {
     case .TurnOnGps:
-      return NSLocalizedString("Location services must be turned on in order to monitor your trip.", comment: "").uppercaseString
+      return NSLocalizedString("Location Services Required", comment: "").uppercaseString
     case .GoToSfo:
-      return NSLocalizedString("Go to SFO holding lot to start your next trip", comment: "").uppercaseString
+      return NSLocalizedString("SFO Garage Entry Required Prior to Next Trip", comment: "").uppercaseString
     case .Pay:
-      return NSLocalizedString("Dispatch to the curbside occurs after payment is made.", comment: "").uppercaseString
+      return NSLocalizedString("Payment Required For Curbside Pickup", comment: "").uppercaseString
     case .Ready:
-      return NSLocalizedString("The trip will start when the vehicle exits SFO.", comment: "").uppercaseString
+      return NSLocalizedString("Trip Pending Until Exit From SFO", comment: "").uppercaseString
     case .InProgress:
-      return NSLocalizedString("The trip has started and will be monitored.", comment: "").uppercaseString
+      return NSLocalizedString("Trip In Progress", comment: "").uppercaseString
     }
   }
   
   func audioString() -> String {
     switch self {
     case .TurnOnGps:
-      return NSLocalizedString("Go to your phone's Settings app. Select Privacy, then Location Services, and allow this app to use your location", comment: "")
+      return NSLocalizedString("Location services must be turned on in order to monitor your trip.", comment: "")
+    case .InProgress:
+      return NSLocalizedString("The trip has started and will be monitored.", comment: "")
+    case .Ready:
+      return NSLocalizedString("The trip will start when the vehicle exits SFO.", comment: "")
+    case .Pay:
+      return NSLocalizedString("Dispatch to the curbside occurs after payment is made.", comment: "")
     default:
       return visualString()
     }
@@ -47,7 +53,7 @@ enum StatePrompt {
     case .GoToSfo:
       return Image.map.image()
     case .Pay:
-      return Image.map.image()
+      return Image.card.image()
     case .Ready:
       return Image.mapPin.image()
     case .InProgress:
