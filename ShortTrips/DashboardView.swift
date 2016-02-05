@@ -74,7 +74,6 @@ class DashboardView: UIView {
     spotsLabel.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      //make.top.equalTo(taxi.snp_bottom)
       make.bottom.equalTo(availableLabel.snp_top).offset(-10)
     }
     

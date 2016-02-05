@@ -51,6 +51,7 @@ enum Image: String {
   case mapPin = "map_pin"
   case car = "car"
   case greenCheckmark = "green_check"
+  case card = "card"
   
   case gear = "gear"
   case taxi = "taxi"
