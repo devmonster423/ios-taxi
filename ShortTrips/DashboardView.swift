@@ -22,22 +22,12 @@ class DashboardView: UIView {
     super.init(frame: frame)
     backgroundColor = UIColor.whiteColor()
     addSubview(timerView)
-
-    let taxi = UIImageView(image: Image.taxi.image())
-    taxi.contentMode = .ScaleAspectFit
-    addSubview(taxi)
-    taxi.snp_makeConstraints { (make) -> Void in
-      make.center.equalTo(self)
-      make.height.equalTo(self.snp_width).dividedBy(2.5)
-      make.width.equalTo(self.snp_width).dividedBy(2.5)
-    }
     
     let bgView = UIView()
     bgView.backgroundColor = Color.Dashboard.lightBlue
     addSubview(bgView)
     bgView.snp_makeConstraints { make in
-      //make.height.equalTo(80) // TODO: delete, tie height to center image
-      make.top.equalTo(taxi.snp_bottom).offset(10)
+      make.height.equalTo(105)
       make.left.equalTo(self)
       make.right.equalTo(self)
       make.bottom.equalTo(timerView.snp_top)
@@ -55,6 +45,16 @@ class DashboardView: UIView {
       make.top.equalTo(self).offset(50)
     }
     
+    let taxi = UIImageView(image: Image.taxi.image())
+    taxi.contentMode = .ScaleAspectFit
+    addSubview(taxi)
+    taxi.snp_makeConstraints { (make) -> Void in
+      make.centerX.equalTo(self)
+      make.centerY.equalTo(self).offset(-30)
+      make.height.equalTo(self.snp_width).dividedBy(2.5)
+      make.width.equalTo(self.snp_width).dividedBy(2.5)
+    }
+    
     let availableLabel = UILabel()
     availableLabel.font = Font.OpenSansBold.size(32)
     availableLabel.text = NSLocalizedString("Are Available", comment: "").uppercaseString
@@ -65,7 +65,7 @@ class DashboardView: UIView {
       make.height.equalTo(30)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.bottom.equalTo(bgView).offset(-5)
+      make.bottom.equalTo(bgView).offset(-15)
     }
     
     spotsLabel.font = Font.OpenSansSemibold.size(28)
@@ -74,8 +74,8 @@ class DashboardView: UIView {
     spotsLabel.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.top.equalTo(taxi.snp_bottom)
-      make.bottom.equalTo(availableLabel.snp_top)
+      //make.top.equalTo(taxi.snp_bottom)
+      make.bottom.equalTo(availableLabel.snp_top).offset(-10)
     }
     
     timerView.snp_makeConstraints { (make) -> Void in
