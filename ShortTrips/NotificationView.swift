@@ -41,10 +41,10 @@ class NotificationView: UIView {
   func notifySuccess() {
     backgroundColor = Color.Trip.Notification.green
     notificationLabel.font = Font.OpenSansSemibold.size(20)
-    notificationLabel.text = NSLocalizedString("The trip has ended and was recorded as a valid short trip.", comment: "").uppercaseString
+    notificationLabel.text = NSLocalizedString("Valid short trip.", comment: "").uppercaseString
     notificationImageView.image = Image.greenCheckmark.image()
     notificationImageView.alpha = 1
-    Speaker.sharedInstance.speak(NSLocalizedString("Valid short trip.", comment: ""))
+    Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a valid short trip.", comment: ""))
     
     resetLabelConstraints()
   }
