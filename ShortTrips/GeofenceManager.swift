@@ -13,7 +13,7 @@ import JSQNotificationObserverKit
 class GeofenceManager {
   
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
-  var lastCheckedLocation: CLLocation?
+  private var lastCheckedLocation: CLLocation?
   private var insideSfoBufferedExit = false
   var checkThreshold: Double {
     return insideSfoBufferedExit ? 30 : 300
