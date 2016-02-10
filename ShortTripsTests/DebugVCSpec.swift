@@ -88,8 +88,6 @@ class DebugVCSpec: QuickSpec {
         
         viewController.triggerOutsideDomesticTerminalExit()
         
-        viewController.triggerOutsideSfo()
-        
         viewController.triggerOutsideTaxiWaitingZone()
         
         viewController.fakeCidPayment()

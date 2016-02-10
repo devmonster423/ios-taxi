@@ -65,10 +65,8 @@ extension ShortTripVC {
         
         updateForState(state)
         
-    } else if state == WaitingForExitAvi.sharedInstance.getState()
-      || state == TripStartPending.sharedInstance.getState() {
-    
-        updateForState(Ready.sharedInstance.getState())
+    } else if state == WaitingForExitAvi.sharedInstance.getState() {
+      updateForState(Ready.sharedInstance.getState())
         
     } else if tripInProgress(state) {
       updateForState(InProgress.sharedInstance.getState())

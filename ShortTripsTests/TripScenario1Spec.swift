@@ -49,13 +49,10 @@ class TripScenario1Spec: QuickSpec {
         LatestAviAtTaxiLoop.sharedInstance.fire()
         expect(machine.isInState(Ready.sharedInstance.getState())).to(beTrue())
         
-        ExitingTerminals.sharedInstance.fire()
+        OutsideBufferedExit.sharedInstance.fire()
         expect(machine.isInState(WaitingForExitAvi.sharedInstance.getState())).to(beTrue())
         
-        LatestAviAtExit.sharedInstance.fire()
-        expect(machine.isInState(TripStartPending.sharedInstance.getState())).to(beTrue())
-        
-        OutsideBufferedExit.sharedInstance.fire()
+        ExitAviCheckComplete.sharedInstance.fire()
         expect(machine.isInState(StartingTrip.sharedInstance.getState())).to(beTrue())
         
         TripManager.sharedInstance.start(123)

@@ -121,13 +121,12 @@ class TripFallbackSpec: QuickSpec {
         expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
       }
       
-      it("can fallback from exit avi check") {
+      it("can fallback from re-entry") {
         let machine = StateManager.sharedInstance.getMachine()
         
         // can be initialized
         expect(machine).toNot(beNil())
         
-        // has initial state in holding lot from previous test
         expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
         
         InsideTaxiLoopExit.sharedInstance.fire()
@@ -142,29 +141,10 @@ class TripFallbackSpec: QuickSpec {
         LatestAviAtTaxiLoop.sharedInstance.fire()
         expect(machine.isInState(Ready.sharedInstance.getState())).to(beTrue())
         
-        ExitingTerminals.sharedInstance.fire()
-        expect(machine.isInState(WaitingForExitAvi.sharedInstance.getState())).to(beTrue())
-
-        InsideSfoNotExitingTerminals.sharedInstance.fire()
-        expect(machine.isInState(Ready.sharedInstance.getState())).to(beTrue())
-      }
-      
-      it("can fallback from re-entry") {
-        let machine = StateManager.sharedInstance.getMachine()
-        
-        // can be initialized
-        expect(machine).toNot(beNil())
-        
-        // has initial state of ready from previous test
-        expect(machine.isInState(Ready.sharedInstance.getState())).to(beTrue())
-        
-        ExitingTerminals.sharedInstance.fire()
-        expect(machine.isInState(WaitingForExitAvi.sharedInstance.getState())).to(beTrue())
-        
-        LatestAviAtExit.sharedInstance.fire()
-        expect(machine.isInState(TripStartPending.sharedInstance.getState())).to(beTrue())
-        
         OutsideBufferedExit.sharedInstance.fire()
+        expect(machine.isInState(WaitingForExitAvi.sharedInstance.getState())).to(beTrue())
+        
+        ExitAviCheckComplete.sharedInstance.fire()
         expect(machine.isInState(StartingTrip.sharedInstance.getState())).to(beTrue())
         
         TripManager.sharedInstance.start(123)

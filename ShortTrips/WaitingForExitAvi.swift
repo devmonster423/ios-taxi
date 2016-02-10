@@ -14,7 +14,6 @@ struct WaitingForExitAvi {
   let stateName = "WaitingForExitAvi"
   static let sharedInstance = WaitingForExitAvi()
   
-  private var poller: Poller?
   private var state: TKState
   
   private init() {
@@ -24,27 +23,24 @@ struct WaitingForExitAvi {
       
       postNotification(SfoNotification.State.update, value: self.getState())
       
-      self.poller = Poller.init() {
-        if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
-          ApiClient.requestAntenna(vehicle.transponderId) { antenna in
-
-            if let antenna = antenna, let device = antenna.device() {
-              
-              if device == .DomExit || device == .IntlArrivalExit {
-                LatestAviAtExit.sharedInstance.fire(antenna)
-              } else {
-                postNotification(SfoNotification.Avi.unexpected, value: (expected: .DomExit, found: device))
-              }
+      if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
+        ApiClient.requestAntenna(vehicle.transponderId) { antenna in
+          
+          if let antenna = antenna, let device = antenna.device() {
+            
+            if device == .DomExit || device == .IntlArrivalExit {
+              ExitAviCheckComplete.sharedInstance.fire(antenna)
+            } else {
+              ExitAviCheckComplete.sharedInstance.fire()
+              postNotification(SfoNotification.Avi.unexpected, value: (expected: .DomExit, found: device))
             }
+          } else {
+            ExitAviCheckComplete.sharedInstance.fire()
           }
-        } else {
-          Failure.sharedInstance.fire()
         }
+      } else {
+        ExitAviCheckComplete.sharedInstance.fire()
       }
-    }
-    
-    state.setDidExitStateBlock { _, _ in
-      self.poller?.stop()
     }
   }
   

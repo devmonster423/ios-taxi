@@ -20,11 +20,9 @@ class OutsideBufferedExit {
     events = [
       TKEvent(name: eventNames[0],
         transitioningFromStates: [
-          Ready.sharedInstance.getState(),
-          WaitingForExitAvi.sharedInstance.getState(),
-          TripStartPending.sharedInstance.getState()
+          Ready.sharedInstance.getState()
         ],
-        toState: StartingTrip.sharedInstance.getState())
+        toState: WaitingForExitAvi.sharedInstance.getState())
     ]
   }
 }

@@ -25,7 +25,6 @@ class StateManager {
     NotReady.sharedInstance.getState(),
     Ready.sharedInstance.getState(),
     StartingTrip.sharedInstance.getState(),
-    TripStartPending.sharedInstance.getState(),
     ValidatingTrip.sharedInstance.getState(),
     WaitingForEntryAvi.sharedInstance.getState(),
     WaitingForEntryCid.sharedInstance.getState(),
@@ -40,16 +39,14 @@ class StateManager {
   static func allEvents() -> [TKEvent] {
     var events = AppQuit.sharedInstance.getEvents()
     events += DriverAndVehicleAssociated.sharedInstance.getEvents()
-    events += ExitingTerminals.sharedInstance.getEvents()
+    events += ExitAviCheckComplete.sharedInstance.getEvents()
     events += Failure.sharedInstance.getEvents()
     events += GpsDisabled.sharedInstance.getEvents()
     events += GpsEnabled.sharedInstance.getEvents()
     events += InsideBufferedExit.sharedInstance.getEvents()
-    events += InsideSfoNotExitingTerminals.sharedInstance.getEvents()
     events += InsideTaxiLoopExit.sharedInstance.getEvents()
     events += InsideTaxiWaitingZone.sharedInstance.getEvents()
     events += LatestAviAtEntry.sharedInstance.getEvents()
-    events += LatestAviAtExit.sharedInstance.getEvents()
     events += LatestAviAtReEntry.sharedInstance.getEvents()
     events += LatestAviAtTaxiLoop.sharedInstance.getEvents()
     events += LatestCidIsEntryCid.sharedInstance.getEvents()

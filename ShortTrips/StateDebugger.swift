@@ -48,7 +48,7 @@ extension DebugVC {
     } else if state == Ready.sharedInstance.getState() {
       debugView().printDebugLine("Entered Ready State")
       debugView().updateState("Ready")
-      updateFakeButtons((title: "Fake Exiting Terminals", action: "fakeExitingTerminals"), second: (title: "Outside SFO", action: "triggerOutsideSfo"))
+      updateFakeButtons((title: "outOfBufferedExit", action: "outOfBufferedExit"))
       
     } else if state == InProgress.sharedInstance.getState() {
       debugView().printDebugLine("Entered InProgress State")
@@ -57,18 +57,11 @@ extension DebugVC {
         second: (title: "Outside Geofences", action: "fakeOutsideGeofences"),
         third: (title: "Timeout", action: "fakeTimeExpired"))
       
-    } else if state == TripStartPending.sharedInstance.getState() {
-      debugView().printDebugLine("trip start pending")
-      debugView().updateState("trip start pending")
-      updateFakeButtons((title: "inDomExit", action: "inDomExit"),
-        second: (title: "inIntlExit", action: "inIntlExit"),
-        third: (title: "outOfBufferedExit", action: "outOfBufferedExit"))
-      
     } else if state == WaitingInHoldingLot.sharedInstance.getState() {
       debugView().printDebugLine("starting to wait in holding lot")
       debugView().updateState("Waiting In Holding Lot")
-      updateFakeButtons((title: "Fake At Terminal Exit", action: "triggerAtTerminalExit"), second: (title: "Outside SFO", action:
-      "triggerOutsideSfo"))
+      updateFakeButtons((title: "Fake At Terminal Exit", action: "triggerAtTerminalExit"), second: (title: "outOfBufferedExit", action:
+      "outOfBufferedExit"))
       
     } else if state == ValidatingTrip.sharedInstance.getState() {
       debugView().updateState("Validating Trip")
@@ -92,7 +85,7 @@ extension DebugVC {
     } else if state == WaitingForReEntryAvi.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting for ReEntry Gate Avi")
       debugView().updateState("Waiting for ReEntry Gate Avi")
-      updateFakeButtons((title: "Confirm ReEntry Gate Avi Read", action: "confirmReEntryGateAviRead"), second: (title: "Outside SFO", action: "triggerOutsideSfo"))
+      updateFakeButtons((title: "Confirm ReEntry Gate Avi Read", action: "confirmReEntryGateAviRead"), second: (title: "outOfBufferedExit", action: "outOfBufferedExit"))
       
     } else if state == WaitingForPaymentCid.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting for Payment Cid")
@@ -102,9 +95,7 @@ extension DebugVC {
     } else if state == WaitingForExitAvi.sharedInstance.getState() {
       self.debugView().printDebugLine("Entered Waiting for Exit Avi")
       self.debugView().updateState("Waiting for Exit Avi")
-      self.updateFakeButtons((title: "Fake Dom Exit AVI Read", action: "latestDomExitAviRead"),
-        second: (title: "Out of SFO Exit", action: "triggerOutsideSfo"),
-        third: (title: "At Intl Term", action: "triggerAtIntlTerminal"))
+      self.updateFakeButtons((title: "Fake Dom Exit AVI Read", action: "latestDomExitAviRead"))
       
       sfoObservers.notInTerminalExitObserver = NotificationObserver(notification: SfoNotification.Geofence.notInTerminalExit) { _, _ in
         self.debugView().printDebugLine("not exiting terminals")
