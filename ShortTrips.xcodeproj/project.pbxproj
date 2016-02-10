@@ -136,7 +136,6 @@
 		C28ECB261BCECE5F00887763 /* Ping.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB251BCECE5F00887763 /* Ping.swift */; };
 		C28ECB281BCEE3C100887763 /* GeofenceListWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB271BCEE3C100887763 /* GeofenceListWrapper.swift */; };
 		C28ECB2C1BCF01F200887763 /* WaitingForEntryCid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB2B1BCF01F200887763 /* WaitingForEntryCid.swift */; };
-		C28ECB351BCF151800887763 /* Debuggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB341BCF151800887763 /* Debuggable.swift */; };
 		C28ECB3D1BCF193300887763 /* PingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB3C1BCF193300887763 /* PingManager.swift */; };
 		C28ECB421BCF21DE00887763 /* GeofenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28ECB411BCF21DE00887763 /* GeofenceManager.swift */; };
 		C29341CC1BD1C56200A7CB9E /* DriverManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29341CB1BD1C56200A7CB9E /* DriverManagerSpec.swift */; };
@@ -416,7 +415,6 @@
 		C28ECB251BCECE5F00887763 /* Ping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ping.swift; sourceTree = "<group>"; };
 		C28ECB271BCEE3C100887763 /* GeofenceListWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceListWrapper.swift; sourceTree = "<group>"; };
 		C28ECB2B1BCF01F200887763 /* WaitingForEntryCid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingForEntryCid.swift; sourceTree = "<group>"; };
-		C28ECB341BCF151800887763 /* Debuggable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debuggable.swift; sourceTree = "<group>"; };
 		C28ECB3C1BCF193300887763 /* PingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = PingManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C28ECB411BCF21DE00887763 /* GeofenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = GeofenceManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C29341CB1BD1C56200A7CB9E /* DriverManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverManagerSpec.swift; sourceTree = "<group>"; };
@@ -705,11 +703,10 @@
 				C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift */,
 				C2F3E9061BF3F9AB00B852EF /* AssociatingDriverAndVehicleAtHoldingLotExit.swift */,
 				C285F1D21C18F1C800AA3363 /* AssociatingDriverAndVehicleAtReEntry.swift */,
-				C28ECB341BCF151800887763 /* Debuggable.swift */,
 				C2D593671C52CF4600FE2E3F /* GpsIsOff.swift */,
+				E18228FA1BC48F2300614256 /* InProgress.swift */,
 				C220E06C1BC33C1D00AC7C85 /* NotReady.swift */,
 				C220E0721BC3446600AC7C85 /* Ready.swift */,
-				E18228FA1BC48F2300614256 /* InProgress.swift */,
 				C20A988B1BE1A066009E29E7 /* StartingTrip.swift */,
 				E18228FE1BC4932400614256 /* ValidatingTrip.swift */,
 				8EEFB79F1BE0324600B8A962 /* WaitingForEntryAvi.swift */,
@@ -1722,7 +1719,6 @@
 				C28ECB281BCEE3C100887763 /* GeofenceListWrapper.swift in Sources */,
 				FAD0418C1C0E66E900D9F8A1 /* LocalGeofence.swift in Sources */,
 				E18FF6951BA8783600FE93B9 /* MobileState.swift in Sources */,
-				C28ECB351BCF151800887763 /* Debuggable.swift in Sources */,
 				E187B2751BE036F10031F07C /* WaitingInHoldingLot.swift in Sources */,
 				C26530B61BE3FB66002C0A97 /* TripValidation.swift in Sources */,
 				C215CE031BD1B87000991D9D /* Vehicle.swift in Sources */,
