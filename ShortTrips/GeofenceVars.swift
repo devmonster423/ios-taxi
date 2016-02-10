@@ -11,14 +11,12 @@ import ObjectMapper
 
 let allGeofences = [
   domesticPickupGeofence,
-  entryGateGeofence,
   taxiMergedGeofence,
   taxiWaitingZone,
   terminalExitBufferedGeofence
 ]
 
 let domesticPickupGeofence = LocalGeofence(jsonFileName: "Domestic_Pax_Pickup", sfoGeofence: .SfoTaxiDomesticExit)
-let entryGateGeofence = LocalGeofence(jsonFileName: "Entry_Gate", sfoGeofence: .SfoTaxiEntryGate)
 let taxiMergedGeofence = LocalGeofence(jsonFileName: "taxi_sfo_merged", sfoGeofence: .TaxiSfoMerged)
 let taxiWaitingZone = LocalGeofence(jsonFileName: "Taxi_Waiting_Zone", sfoGeofence: .TaxiWaitingZone)
 let terminalExitBufferedGeofence = LocalGeofence(jsonFileName: "Terminal_exit_buffered", sfoGeofence: .TaxiExitBuffered)
