@@ -12,8 +12,7 @@ import JSQNotificationObserverKit
 
 class PingManager: NSObject {
 
-  var lastSuccessfulPingDate: NSDate?
-  let updateFrequency = NSTimeInterval(30)
+  private let updateFrequency = NSTimeInterval(30)
   private var invalidPings: Int = 0
   private let maxInvalidPings: Int = 3
   private var missedPings = [Ping]()
@@ -37,8 +36,6 @@ class PingManager: NSObject {
     if pingObserver == nil {
       self.pingObserver = NotificationObserver(notification: SfoNotification.Ping.created) { ping, _ in
       
-        self.lastSuccessfulPingDate = NSDate()
-        
         if ping.geofenceStatus.toBool() {
           postNotification(SfoNotification.Ping.valid, value: ping)
           self.invalidPings = 0 // must be consecutive
