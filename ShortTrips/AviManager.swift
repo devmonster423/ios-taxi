@@ -11,7 +11,11 @@ import Foundation
 class AviManager {
   static let sharedInstance = AviManager()
   
-  var latestAviLocation: GtmsLocation?
+  private var latestAviLocation: GtmsLocation?
+  
+  func setLatestAviLocation(latestAviLocation: GtmsLocation) {
+    self.latestAviLocation = latestAviLocation
+  }
   
   func latestAviInTaxiEntryOrStatus() -> Bool {
     if let latestAviLocation = latestAviLocation {

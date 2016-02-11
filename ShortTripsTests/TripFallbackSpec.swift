@@ -88,11 +88,11 @@ class TripFallbackSpec: QuickSpec {
         DriverAndVehicleAssociated.sharedInstance.fire()
         expect(machine.isInState(WaitingForEntryAvi.sharedInstance.getState())).to(beTrue())
         
-        AviManager.sharedInstance.latestAviLocation = .TaxiEntry
+        AviManager.sharedInstance.setLatestAviLocation(.TaxiEntry)
         LatestAviAtEntry.sharedInstance.fire()
         expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
         
-        AviManager.sharedInstance.latestAviLocation = .TaxiStatus
+        AviManager.sharedInstance.setLatestAviLocation(.TaxiStatus)
         InsideTaxiLoopExit.sharedInstance.fire()
         expect(machine.isInState(WaitingForPaymentCid.sharedInstance.getState())).to(beTrue())
         

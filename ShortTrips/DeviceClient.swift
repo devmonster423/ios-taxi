@@ -45,7 +45,7 @@ extension ApiClient {
         }
         
         if let device = antenna?.device() {
-          AviManager.sharedInstance.latestAviLocation = device
+          AviManager.sharedInstance.setLatestAviLocation(device)
         }
         
         response(antenna)
