@@ -25,7 +25,7 @@ class DashboardVC: UIViewController {
     super.viewDidLoad()
     navigationItem.title = "";
     requestLotStatus()
-    configureNavBar(title: NSLocalizedString("Dashboard", comment: "").uppercaseString)
+    configureNavBar(title: NSLocalizedString("Holding Lot", comment: "").uppercaseString)
     addSettingsButton()
   }
     

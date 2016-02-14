@@ -33,6 +33,7 @@ class LoginVC: UIViewController {
         action: "login",
         forControlEvents: .TouchUpInside)
       view = loginView
+      loginView.usernameTextField.becomeFirstResponder()
     }
   }
   

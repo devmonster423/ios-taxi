@@ -30,17 +30,17 @@
 "Trip in progress." = "Trip in progress.";
 "Your trip is now a long" = "Your trip is now a long";
 "The trip has ended and was recorded as a long trip. The duration exceeded two hours." = "The trip has ended and was recorded as a long trip. The duration exceeded two hours.";
-"Long trip. Duration exceeded two hours." = "Long trip. Duration exceeded two hours.";
+"Long trip.\nDuration exceeded two hours." = "Long trip.\nDuration exceeded two hours.";
 "The trip has ended and was recorded as a long trip. The vehicle at the start was not the same at the end of the trip." = "The trip has ended and was recorded as a long trip. The vehicle at the start was not the same at the end of the trip.";
-"Long trip. Vehicle mismatch." = "Long trip. Vehicle mismatch.";
+"Long trip.\nVehicle mismatch." = "Long trip.\nVehicle mismatch.";
 "The trip has ended and was recorded as a long trip. The card tapped at the start was not identified at the end of the trip." = "The trip has ended and was recorded as a long trip. The card tapped at the start was not identified at the end of the trip.";
-"Long trip. Card error." = "Long trip. Card error.";
+"Long trip.\nCard error." = "Long trip.\nCard error.";
 "The trip has ended and was recorded as a long trip. The phone at the start was not identified at the end of the trip." = "The trip has ended and was recorded as a long trip. The phone at the start was not identified at the end of the trip.";
-"Long Trip. Phone Error." = "Long Trip. Phone Error.";
+"Long Trip.\nPhone Error." = "Long Trip.\nPhone Error.";
 "The trip has ended and was recorded as a long trip. The vehicle was located outside the geofence while trip was in progress." = "The trip has ended and was recorded as a long trip. The vehicle was located outside the geofence while trip was in progress.";
-"Long trip. Outside geofence." = "Long trip. Outside geofence.";
+"Long trip.\nOutside geofence." = "Long trip.\nOutside geofence.";
 "The trip has ended and was recorded as a long trip. Location-based services were unavailable while the trip was in progress." = "The trip has ended and was recorded as a long trip. Location-based services were unavailable while the trip was in progress.";
-"Long trip. Location services unavailable." = "Long trip. Location services unavailable.";
+"Long trip.\nLocation services unavailable." = "Long trip.\nLocation services unavailable.";
 "Network failure" = "Network failure";
 "User logged out" = "User logged out";
 "The trip has ended and was recorded as a long trip. Logout occurred while the trip was in progress." = "The trip has ended and was recorded as a long trip. Logout occurred while the trip was in progress.";
@@ -48,7 +48,7 @@
 "App quit" = "App quit";
 "App crash" = "App crash";
 "The trip has ended and was recorded as a valid short trip." = "The trip has ended and was recorded as a valid short trip.";
-"Valid short trip." = "Valid short trip.";
+"Valid short trip" = "Valid short trip";
 "SFO garage entry required prior to next trip." = "SFO garage entry required prior to next trip.";
 
 /* Trip Status */
@@ -96,7 +96,6 @@
 "Lot Status" = "Lot Status";
 "Flight Status" = "Flight Status";
 "Requesting Lot Status..." = "Requesting Lot Status...";
-"Dashboard" = "Dashboard";
 "Holding Lot" = "Holding Lot";
 "Are Available" = "Are Available";
 "%@ out of %@ spots" = "%@ out of %@ spots";

@@ -11,7 +11,7 @@ import SnapKit
 
 class LoginView: UIView {
   
-  private let usernameTextField = UITextField()
+  let usernameTextField = UITextField()
   private let passwordTextField = UITextField()
   let loginButton = UIButton()
   

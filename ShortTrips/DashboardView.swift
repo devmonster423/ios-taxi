@@ -12,6 +12,7 @@ import SnapKit
 class DashboardView: UIView {
 
   private let spotsLabel = UILabel()
+  private let numberLabel = UILabel()
   let timerView = TimerView()
 
   required init(coder aDecoder: NSCoder) {
@@ -33,26 +34,15 @@ class DashboardView: UIView {
       make.bottom.equalTo(timerView.snp_top)
     }
     
-    let holdingLotLabel = UILabel()
-    holdingLotLabel.font = Font.OpenSansSemibold.size(30)
-    holdingLotLabel.text = NSLocalizedString("Holding Lot", comment: "").uppercaseString
-    holdingLotLabel.textAlignment = .Center
-    addSubview(holdingLotLabel)
-    holdingLotLabel.snp_makeConstraints { (make) -> Void in
-      make.centerX.equalTo(self)
-      make.height.equalTo(40)
-      make.width.equalTo(250)
-      make.top.equalTo(self).offset(50)
-    }
-    
-    let taxi = UIImageView(image: Image.taxi.image())
-    taxi.contentMode = .ScaleAspectFit
-    addSubview(taxi)
-    taxi.snp_makeConstraints { (make) -> Void in
+    numberLabel.font = Font.OpenSansBold.size(60)
+    numberLabel.textAlignment = .Center
+    numberLabel.textColor = Color.Dashboard.black
+    addSubview(numberLabel)
+    numberLabel.snp_makeConstraints { (make) -> Void in
       make.centerX.equalTo(self)
       make.centerY.equalTo(self).offset(-30)
-      make.height.equalTo(self.snp_width).dividedBy(2.5)
-      make.width.equalTo(self.snp_width).dividedBy(2.5)
+      make.height.equalTo(120)
+      make.width.equalTo(120)
     }
     
     let availableLabel = UILabel()
@@ -88,7 +78,8 @@ class DashboardView: UIView {
   func updateSpots(length length: Int, capacity: Int) {
     let remaining = capacity - length
     let percent: Int = remaining * 100 / capacity
-    spotsLabel.text = String(format: NSLocalizedString("%@ out of %@ spots", comment: ""), arguments: ["\(remaining)", "\(capacity)"]).uppercaseString
+    numberLabel.text = "\(remaining)"
+    spotsLabel.text = String(format: NSLocalizedString("out of %@ spots", comment: ""), arguments: ["\(capacity)"]).uppercaseString
     if percent > 50 {
       spotsLabel.textColor = Color.StatusColor.green
     } else if percent > 25 {
