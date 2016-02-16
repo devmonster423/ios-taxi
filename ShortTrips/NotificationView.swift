@@ -40,8 +40,8 @@ class NotificationView: UIView {
   
   func notifySuccess() {
     backgroundColor = Color.Trip.Notification.green
-    notificationLabel.font = Font.OpenSansSemibold.size(20)
-    notificationLabel.text = NSLocalizedString("Valid short trip.", comment: "").uppercaseString
+    notificationLabel.font = Font.OpenSansSemibold.size(30)
+    notificationLabel.text = NSLocalizedString("Valid short trip", comment: "").uppercaseString
     notificationImageView.image = Image.greenCheckmark.image()
     notificationImageView.alpha = 1
     Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a valid short trip.", comment: ""))
@@ -67,25 +67,25 @@ class NotificationView: UIView {
     var notificationText = ""
     switch validationStep {
     case .Duration:
-      notificationText += NSLocalizedString("Long trip. Duration exceeded two hours.", comment: "")
+      notificationText += NSLocalizedString("Long trip.\nDuration exceeded two hours.", comment: "")
       Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. The duration exceeded two hours.", comment: ""))
     case .Vehicle:
-      notificationText += NSLocalizedString("Long trip. Vehicle mismatch.", comment: "")
+      notificationText += NSLocalizedString("Long trip.\nVehicle mismatch.", comment: "")
       Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. The vehicle at the start was not the same at the end of the trip.", comment: ""))
     case .DriverCardId:
-      notificationText += NSLocalizedString("Long trip. Card error.", comment: "")
+      notificationText += NSLocalizedString("Long trip.\nCard error.", comment: "")
       Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. The card tapped at the start was not identified at the end of the trip.", comment: ""))
     case .MacAddress:
-      notificationText += NSLocalizedString("Long trip. Phone error.", comment: "")
+      notificationText += NSLocalizedString("Long trip.\nPhone error.", comment: "")
       Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. The phone at the start was not identified at the end of the trip.", comment: ""))
     case .Geofence:
-      notificationText += NSLocalizedString("Long trip. Outside geofence.", comment: "")
+      notificationText += NSLocalizedString("Long trip.\nOutside geofence.", comment: "")
       Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. The vehicle was located outside the geofence while trip was in progress.", comment: ""))
     case .GpsFailure:
-      notificationText += NSLocalizedString("Long trip. Location services unavailable.", comment: "")
+      notificationText += NSLocalizedString("Long trip.\nLocation services unavailable.", comment: "")
       Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. Location-based services were unavailable while the trip was in progress.", comment: ""))
     case .UserLogout:
-      notificationText += NSLocalizedString("Long trip. User logged out.", comment: "")
+      notificationText += NSLocalizedString("Long trip.\nUser logged out.", comment: "")
       Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. Logout occurred while the trip was in progress.", comment: ""))
     case .AppQuit:
       notificationText += NSLocalizedString("App quit", comment: "")

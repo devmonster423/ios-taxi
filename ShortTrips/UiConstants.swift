@@ -57,6 +57,10 @@ struct UiConstants {
     static let fontSmall = Font.OpenSansBold.size(20)
   }
   
+  struct TabBarController {
+    static let height = CGFloat(60.0)
+  }
+  
   struct FlightCell {
     static let fontNormal = Font.OpenSansSemibold.size(14)
     static let fontSmallish = Font.OpenSansSemibold.size(11)

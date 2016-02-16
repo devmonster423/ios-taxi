@@ -16,7 +16,7 @@ enum MainTabs: Int {
 
 var MainTabBarController: UITabBarController {
 
-  let mainTabBarController = UITabBarController()
+  let mainTabBarController = TallTabBarController()
   
   let flightStatusNavVC = UINavigationController(rootViewController: TerminalSummaryVC())
   flightStatusNavVC.tabBarItem = UITabBarItem(title: NSLocalizedString("Flights", comment: "").uppercaseString, image: Image.flightsIcon.image(), selectedImage: nil)
@@ -40,3 +40,5 @@ var MainTabBarController: UITabBarController {
 
   return mainTabBarController
 }
+
+

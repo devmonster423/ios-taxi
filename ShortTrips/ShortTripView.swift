@@ -32,10 +32,11 @@ class ShortTripView: UIView {
     countdown.snp_makeConstraints { make in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.bottom.equalTo(self)
-      make.height.equalTo(self).dividedBy(4)
+      make.bottom.equalTo(self).offset(-20)
+      make.height.equalTo(self).dividedBy(7)
     }
-    
+    countdown.hidden = false
+        
     promptLabel.font = Font.OpenSansSemibold.size(25)
     promptLabel.textAlignment = .Center
     promptLabel.numberOfLines = 0
@@ -49,9 +50,9 @@ class ShortTripView: UIView {
     promptImageView.contentMode = .ScaleAspectFit
     promptImageView.snp_makeConstraints { make in
       make.centerX.equalTo(self)
-      make.top.equalTo(promptLabel.snp_bottom).offset(UiConstants.Trip.dividerMargin)
-      make.bottom.equalTo(countdown.snp_top).offset(-UiConstants.Trip.dividerMargin)
-      make.width.equalTo(self).dividedBy(2)
+      make.top.equalTo(promptLabel.snp_bottom)
+      make.height.equalTo(150)
+      make.width.equalTo(150)
     }
     
     addSubview(notificationView)
