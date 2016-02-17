@@ -51,7 +51,8 @@ class ShortTripView: UIView {
     promptImageView.snp_makeConstraints { make in
       make.centerX.equalTo(self)
       make.top.equalTo(promptLabel.snp_bottom)
-      make.height.equalTo(150)
+      make.bottom.equalTo(countdown.snp_top)
+      make.height.greaterThanOrEqualTo(200).priorityLow()
       make.width.equalTo(150)
     }
     
