@@ -13,6 +13,7 @@ class DashboardView: UIView {
 
   private let spotsLabel = UILabel()
   private let numberLabel = UILabel()
+  private let circlesImage = UIImageView()
   let timerView = TimerView()
 
   required init(coder aDecoder: NSCoder) {
@@ -34,15 +35,23 @@ class DashboardView: UIView {
       make.bottom.equalTo(timerView.snp_top)
     }
     
-    numberLabel.font = Font.OpenSansBold.size(60)
+    circlesImage.image = Image.bgCircles.image()
+    circlesImage.contentMode = .ScaleAspectFit
+    addSubview(circlesImage)
+    circlesImage.snp_makeConstraints { (make) -> Void in
+      make.top.equalTo(self)
+      make.bottom.equalTo(bgView.snp_top)
+      make.leading.equalTo(self).offset(50)
+      make.trailing.equalTo(self).offset(-50)
+    }
+
+    numberLabel.font = Font.OpenSansBold.size(180)
     numberLabel.textAlignment = .Center
-    numberLabel.textColor = Color.Dashboard.black
+    numberLabel.textColor = Color.Dashboard.darkBlue
     addSubview(numberLabel)
     numberLabel.snp_makeConstraints { (make) -> Void in
-      make.centerX.equalTo(self)
-      make.centerY.equalTo(self).offset(-30)
-      make.height.equalTo(120)
-      make.width.equalTo(120)
+      make.centerX.equalTo(circlesImage.snp_centerX)
+      make.centerY.equalTo(circlesImage.snp_centerY)
     }
     
     let availableLabel = UILabel()

@@ -55,6 +55,7 @@ enum Image: String {
   
   case gear = "gear"
   case taxi = "taxi"
+  case bgCircles = "bg_circles"
   
   func image() -> UIImage {
     return UIImage(named: self.rawValue)!
