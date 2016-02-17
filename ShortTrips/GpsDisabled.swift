@@ -21,10 +21,6 @@ struct GpsDisabled {
       transitioningFromStates: StateManager.allStates,
       toState: GpsIsOff.sharedInstance.getState())
     
-    event.setShouldFireEventBlock { _, _ -> Bool in
-      return !Util.allowGpsToBeOffForDebugging()
-    }
-    
     events = [event]
   }
 }
