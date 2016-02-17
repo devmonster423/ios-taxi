@@ -30,18 +30,18 @@ class CountdownView: UIView {
     
     backgroundColor = Color.Trip.Time.background
     
-    countdownLabel.font = Font.OpenSansBold.size(40)
+    countdownLabel.font = Font.OpenSansBold.size(36)
     countdownLabel.textAlignment = .Center
     countdownLabel.textColor = Color.Trip.Time.title
     countdownLabel.snp_makeConstraints { make in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.centerY.equalTo(self).offset(20)
-      make.height.equalTo(80)
+      make.height.equalTo(self).dividedBy(2.5)
+      make.bottom.equalTo(self).offset(-5)
     }
     
     let countdownSubtitleLabel = UILabel()
-    countdownSubtitleLabel.font = Font.OpenSansSemibold.size(20)
+    countdownSubtitleLabel.font = Font.OpenSansSemibold.size(18)
     countdownSubtitleLabel.text = NSLocalizedString("Short Trip expires in", comment: "").uppercaseString
     countdownSubtitleLabel.textAlignment = .Center
     countdownSubtitleLabel.textColor = Color.Trip.Time.subtitle
@@ -49,8 +49,8 @@ class CountdownView: UIView {
     countdownSubtitleLabel.snp_makeConstraints { make in
       make.leading.equalTo(countdownLabel)
       make.trailing.equalTo(countdownLabel)
-      make.centerY.equalTo(self).offset(-20)
-      make.height.equalTo(40)
+      make.height.equalTo(self).dividedBy(2.5)
+      make.top.equalTo(self).offset(5)
     }
   }
   
