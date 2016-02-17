@@ -23,9 +23,5 @@ struct Util {
     } else {
       return false
     }
-  }
-  
-  static func allowGpsToBeOffForDebugging() -> Bool {
-    return debug && testingGps && !testing()
-  }
+  }  
 }
