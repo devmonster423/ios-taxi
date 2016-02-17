@@ -63,3 +63,14 @@ struct TerminalSummary: Mappable {
     return results
   }
 }
+
+extension SequenceType where Generator.Element == TerminalSummary {
+  func find(terminalId: TerminalId) -> TerminalSummary? {
+    for summary in self {
+      if summary.terminalId == terminalId {
+        return summary
+      }
+    }
+    return nil
+  }
+}

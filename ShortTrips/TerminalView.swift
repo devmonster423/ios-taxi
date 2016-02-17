@@ -158,8 +158,10 @@ class TerminalView: UIButton {
     terminalTitleLabel.text = NSLocalizedString("Totals", comment: "").uppercaseString
   }
 
-  func configureForTerminalSummary(summary: TerminalSummary) {
+  func configureForTerminalSummary(summary: TerminalSummary?) {
 
+    guard let summary = summary else { return }
+    
     hidden = false
     userInteractionEnabled = true
     
