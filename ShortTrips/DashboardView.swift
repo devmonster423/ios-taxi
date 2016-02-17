@@ -39,8 +39,8 @@ class DashboardView: UIView {
     circlesImage.contentMode = .ScaleAspectFit
     addSubview(circlesImage)
     circlesImage.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(self)
-      make.bottom.equalTo(bgView.snp_top)
+      make.top.equalTo(self).offset(20)
+      make.bottom.equalTo(bgView.snp_top).offset(-20)
       make.leading.equalTo(self).offset(50)
       make.trailing.equalTo(self).offset(-50)
     }
