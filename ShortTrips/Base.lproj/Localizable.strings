@@ -39,7 +39,7 @@
 "Long Trip.\nPhone Error." = "Long Trip.\nPhone Error.";
 "The trip has ended and was recorded as a long trip. The vehicle was located outside the geofence while trip was in progress." = "The trip has ended and was recorded as a long trip. The vehicle was located outside the geofence while trip was in progress.";
 "Long trip.\nOutside geofence." = "Long trip.\nOutside geofence.";
-"The trip has ended and was recorded as a long trip. Location-based services were unavailable while the trip was in progress." = "The trip has ended and was recorded as a long trip. Location-based services were unavailable while the trip was in progress.";
+"The trip has ended and was recorded as a long trip. Location based services were unavailable while the trip was in progress." = "The trip has ended and was recorded as a long trip. Location based services were unavailable while the trip was in progress.";
 "Long trip.\nLocation services unavailable." = "Long trip.\nLocation services unavailable.";
 "Network failure" = "Network failure";
 "User logged out" = "User logged out";

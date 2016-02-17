@@ -83,7 +83,7 @@ class NotificationView: UIView {
       Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. The vehicle was located outside the geofence while trip was in progress.", comment: ""))
     case .GpsFailure:
       notificationText += NSLocalizedString("Long trip.\nLocation services unavailable.", comment: "")
-      Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. Location-based services were unavailable while the trip was in progress.", comment: ""))
+      Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. Location based services were unavailable while the trip was in progress.", comment: ""))
     case .UserLogout:
       notificationText += NSLocalizedString("Long trip.\nUser logged out.", comment: "")
       Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. Logout occurred while the trip was in progress.", comment: ""))
