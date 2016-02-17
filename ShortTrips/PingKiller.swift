@@ -21,7 +21,7 @@ class PingKiller: NSObject {
       target: self,
       selector: "turnPingsBackOn",
       userInfo: nil,
-      repeats: true)
+      repeats: false)
   }
   
   func turnPingsBackOn() {
