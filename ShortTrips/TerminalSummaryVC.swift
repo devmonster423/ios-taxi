@@ -12,6 +12,8 @@ import MBProgressHUD
 
 class TerminalSummaryVC: UIViewController {
 
+  var errorShown = false
+  
   override func loadView() {
     let terminalSummaryView = TerminalSummaryView(frame: UIScreen.mainScreen().bounds)
     terminalSummaryView.decreaseButton.addTarget(self,
@@ -71,7 +73,7 @@ class TerminalSummaryVC: UIViewController {
         if let terminals = terminals {
           self.terminalSummaryView().reloadTerminalViews(terminals)
           
-        } else {
+        } else if !self.errorShown {
           
           var message = NSLocalizedString("An error occurred while fetching flight data.", comment: "")
           
@@ -84,6 +86,7 @@ class TerminalSummaryVC: UIViewController {
           }
           
           UiHelpers.displayErrorMessage(self, message: message)
+          self.errorShown = true
         }
       }
     }

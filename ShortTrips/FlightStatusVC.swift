@@ -15,6 +15,7 @@ class FlightStatusVC: UIViewController {
   var currentHour: Int!
   var flights: [Flight]?
   var flightType: FlightType!
+  var errorShown = false
   
   override func loadView() {
     let flightStatusView = FlightStatusView(frame: UIScreen.mainScreen().bounds)
@@ -53,7 +54,7 @@ class FlightStatusVC: UIViewController {
         self.flights = flights
         self.flightStatusView().flightTable.reloadData()
         
-      } else {
+      } else if !self.errorShown {
         var message = NSLocalizedString("An error occurred while fetching flight data.", comment: "")
         
         if Util.debug {
@@ -65,6 +66,7 @@ class FlightStatusVC: UIViewController {
         }
         
         UiHelpers.displayErrorMessage(self, message: message)
+        self.errorShown = true
       }
     }
   }

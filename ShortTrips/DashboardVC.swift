@@ -11,6 +11,8 @@ import MBProgressHUD
 
 class DashboardVC: UIViewController {
   
+  var errorShown = false
+  
   override func loadView() {
     let dashboardView = DashboardView(frame: UIScreen.mainScreen().bounds)
     dashboardView.timerView.start(requestLotStatus, updateInterval: 60)
@@ -44,9 +46,12 @@ class DashboardVC: UIViewController {
       if let info = info {
         self.dashboardView().updateSpots(info)
         
-      } else if self.tabBarController?.selectedIndex == MainTabs.Lot.rawValue
+      } else if !self.errorShown
+        && self.tabBarController?.selectedIndex == MainTabs.Lot.rawValue
         && self.navigationController?.visibleViewController == self {
+          
           UiHelpers.displayErrorMessage(self, message: NSLocalizedString("An error occurred while fetching parking-lot data.", comment: ""))
+          self.errorShown = true
       }
     }
   }
