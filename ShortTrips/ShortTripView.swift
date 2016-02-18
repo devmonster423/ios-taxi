@@ -33,11 +33,10 @@ class ShortTripView: UIView {
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.bottom.equalTo(self).offset(-20)
-      make.height.equalTo(self).dividedBy(7)
+      make.height.equalTo(0)
     }
-    countdown.hidden = false
         
-    promptLabel.font = Font.OpenSansSemibold.size(25)
+    promptLabel.font = Font.OpenSansSemibold.size(30)
     promptLabel.textAlignment = .Center
     promptLabel.numberOfLines = 0
     promptLabel.textColor = Color.Trip.title
@@ -49,11 +48,11 @@ class ShortTripView: UIView {
     
     promptImageView.contentMode = .ScaleAspectFit
     promptImageView.snp_makeConstraints { make in
-      make.centerX.equalTo(self)
+      make.leading.equalTo(self).offset(50)
       make.top.equalTo(promptLabel.snp_bottom)
       make.bottom.equalTo(countdown.snp_top)
       make.height.greaterThanOrEqualTo(200).priorityLow()
-      make.width.equalTo(150)
+      make.trailing.equalTo(self).offset(-50)
     }
     
     addSubview(notificationView)
@@ -128,5 +127,19 @@ class ShortTripView: UIView {
   
   func getPromptText() -> String? {
     return promptLabel.text
+  }
+  
+  func toggleCountdown(visible: Bool) {
+    if visible {
+      countdown.snp_updateConstraints { make in
+        make.height.equalTo(self).dividedBy(7)
+      }
+    } else {
+      countdown.snp_updateConstraints { make in
+        make.height.equalTo(0)
+      }
+    }
+    countdown.setNeedsUpdateConstraints()
+    layoutIfNeeded()
   }
 }
