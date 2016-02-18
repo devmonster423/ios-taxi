@@ -52,7 +52,7 @@ enum Image: String {
   case car = "car"
   case checkmark = "check"
   case card = "card"
-  
+  case exclamation = "exclamation"
   case gear = "gear"
   case taxi = "taxi"
   case bgCircles = "bg_circles"

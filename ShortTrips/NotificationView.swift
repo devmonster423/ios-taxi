@@ -34,8 +34,8 @@ class NotificationView: UIView {
       make.leading.equalTo(self).offset(50)
       make.trailing.equalTo(self).offset(-50)
       make.top.equalTo(notificationLabel.snp_bottom)
-      make.bottom.equalTo(self)
-      make.height.greaterThanOrEqualTo(300).priorityLow()
+      make.bottom.equalTo(self).offset(-50)
+      make.height.equalTo(self).dividedBy(Util.isIphone4() ? 3 : 2).priorityLow()
     }
   }
   
@@ -55,7 +55,6 @@ class NotificationView: UIView {
       make.leading.equalTo(self).offset(25)
       make.trailing.equalTo(self).offset(-25)
       make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
-      make.height.greaterThanOrEqualTo(100).priorityMedium()
     }
     
     notificationLabel.setNeedsUpdateConstraints()
@@ -63,8 +62,8 @@ class NotificationView: UIView {
   }
   
   func notifyFail(validationStep: ValidationStep, delay: NSTimeInterval, duration: NSTimeInterval) {
+    notificationLabel.font = Font.OpenSansSemibold.size(30)
     resetLabelConstraints()
-    notificationLabel.font = Font.OpenSansSemibold.size(15)
     var notificationText = ""
     switch validationStep {
     case .Duration:
@@ -99,7 +98,7 @@ class NotificationView: UIView {
     }
     backgroundColor = Color.Trip.Notification.red
     notificationLabel.text = notificationText.uppercaseString
-    notificationImageView.image = Image.map.image()
+    notificationImageView.image = Image.exclamation.image()
     Speaker.sharedInstance.speak(notificationLabel.text!)
     notificationLabel.snp_remakeConstraints { make in
       make.leading.equalTo(self).offset(UiConstants.Trip.Notification.offset)
@@ -114,8 +113,17 @@ class NotificationView: UIView {
       options: UIViewAnimationOptions.CurveEaseInOut,
       animations: {
         self.layoutIfNeeded()
+        self.notificationLabel.alpha = 0
         self.notificationImageView.alpha = 0
       },
-      completion: nil)
+      completion: { completed in
+        self.notificationLabel.font = Font.OpenSansSemibold.size(15)
+        
+        UIView.animateWithDuration(duration,
+          animations: {
+            self.notificationLabel.alpha = 1
+          },
+          completion: nil)
+    })
   }
 }
