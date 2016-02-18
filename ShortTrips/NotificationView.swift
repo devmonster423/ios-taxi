@@ -42,7 +42,7 @@ class NotificationView: UIView {
     backgroundColor = Color.Trip.Notification.green
     notificationLabel.font = Font.OpenSansSemibold.size(30)
     notificationLabel.text = NSLocalizedString("Valid short trip", comment: "").uppercaseString
-    notificationImageView.image = Image.greenCheckmark.image()
+    notificationImageView.image = Image.checkmark.image()
     notificationImageView.alpha = 1
     Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a valid short trip.", comment: ""))
     

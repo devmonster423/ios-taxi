@@ -48,9 +48,9 @@ enum Image: String {
   
   // Trip Prompts
   case map = "map"
-  case mapPin = "map_pin"
+  case mapPin = "pin"
   case car = "car"
-  case greenCheckmark = "green_check"
+  case checkmark = "check"
   case card = "card"
   
   case gear = "gear"
