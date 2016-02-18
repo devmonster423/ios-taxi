@@ -44,7 +44,7 @@ class LoginView: UIView {
     }
     
     let usernameLabel = UILabel()
-    usernameLabel.font = Font.OpenSans.size(18)
+    usernameLabel.font = Font.OpenSans.size(14)
     usernameLabel.text = NSLocalizedString("Username", comment: "") + ":"
     usernameLabel.textColor = Color.Auth.offWhite
     addSubview(usernameLabel)
@@ -77,7 +77,7 @@ class LoginView: UIView {
     }
     
     let passwordLabel = UILabel()
-    passwordLabel.font = Font.OpenSans.size(18)
+    passwordLabel.font = Font.OpenSans.size(14)
     passwordLabel.text = NSLocalizedString("Password", comment: "") + ":"
     passwordLabel.textColor = Color.Auth.offWhite
     addSubview(passwordLabel)

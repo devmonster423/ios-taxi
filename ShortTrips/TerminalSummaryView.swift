@@ -124,7 +124,7 @@ class TerminalSummaryView: UIView {
     pickerTitle.textColor = UIColor.whiteColor()
     pickerShower.addSubview(pickerTitle)
     pickerTitle.snp_makeConstraints { (make) -> Void in
-      make.width.equalTo(100)
+      make.width.equalTo(150)
       make.height.equalTo(30)
       make.center.equalTo(pickerShower)
     }
