@@ -55,6 +55,7 @@ class NotificationView: UIView {
       make.leading.equalTo(self).offset(25)
       make.trailing.equalTo(self).offset(-25)
       make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
+      make.height.greaterThanOrEqualTo(100).priorityMedium()
     }
     
     notificationLabel.setNeedsUpdateConstraints()
