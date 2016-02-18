@@ -35,7 +35,7 @@ class ShortTripView: UIView {
       make.bottom.equalTo(self).offset(-20)
       make.height.equalTo(0)
     }
-        
+    
     promptLabel.font = Font.OpenSansSemibold.size(30)
     promptLabel.textAlignment = .Center
     promptLabel.numberOfLines = 0
@@ -51,7 +51,7 @@ class ShortTripView: UIView {
       make.leading.equalTo(self).offset(50)
       make.top.equalTo(promptLabel.snp_bottom)
       make.bottom.equalTo(countdown.snp_top)
-      make.height.greaterThanOrEqualTo(200).priorityLow()
+      make.height.equalTo(self).dividedBy(Util.isIphone4() ? 2.5 : 1.5).priorityLow()
       make.trailing.equalTo(self).offset(-50)
     }
     
@@ -131,15 +131,21 @@ class ShortTripView: UIView {
   
   func toggleCountdown(visible: Bool) {
     if visible {
-      countdown.snp_updateConstraints { make in
+      countdown.snp_remakeConstraints { make in
+        make.leading.equalTo(self)
+        make.trailing.equalTo(self)
+        make.bottom.equalTo(self).offset(-20)
         make.height.equalTo(self).dividedBy(7)
       }
     } else {
-      countdown.snp_updateConstraints { make in
+      countdown.snp_remakeConstraints { make in
+        make.leading.equalTo(self)
+        make.trailing.equalTo(self)
+        make.bottom.equalTo(self).offset(-20)
         make.height.equalTo(0)
       }
     }
     countdown.setNeedsUpdateConstraints()
-    layoutIfNeeded()
+    self.layoutIfNeeded()
   }
 }

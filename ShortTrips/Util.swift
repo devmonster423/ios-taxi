@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Util {
   static let debug = true
@@ -23,5 +24,9 @@ struct Util {
     } else {
       return false
     }
-  }  
+  }
+  
+  static func isIphone4() -> Bool {
+    return UIScreen.mainScreen().bounds.size.height < 568
+  }
 }
