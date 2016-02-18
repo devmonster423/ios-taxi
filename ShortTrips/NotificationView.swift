@@ -35,7 +35,7 @@ class NotificationView: UIView {
       make.trailing.equalTo(self).offset(-50)
       make.top.equalTo(notificationLabel.snp_bottom)
       make.bottom.equalTo(self)
-      make.height.greaterThanOrEqualTo(200).priorityLow()
+      make.height.greaterThanOrEqualTo(300).priorityLow()
     }
   }
   
