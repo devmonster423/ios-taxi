@@ -17,7 +17,6 @@ class TripManager: NSObject {
   private var tripTimer: NSTimer?
   private static let timerInterval: NSTimeInterval = 5.0
   private static let tripLengthLimit: NSTimeInterval = 2 * 60 * 60 // 2 hours
-  private var mostRecentTripValid: Bool?
   
   func getTripId() -> Int? {
     return tripId
@@ -72,18 +71,5 @@ class TripManager: NSObject {
       repeats: true)
     
     TripStarted.sharedInstance.fire(tripId)
-  }
-  
-  func stop(valid valid: Bool = false) {
-    mostRecentTripValid = valid
-    reset()
-  }
-  
-  func mostRecentTripWasValid() -> Bool {
-    if let mostRecentTripValid = mostRecentTripValid {
-      return mostRecentTripValid
-    } else {
-      return false
-    }
   }
 }

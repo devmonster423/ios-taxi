@@ -35,7 +35,7 @@ extension GpsDisabled: Observable {
   func eventIsFiring(info: Any?) {
     if let tripId = TripManager.sharedInstance.getTripId() {
       ApiClient.invalidate(tripId, invalidation: .GpsFailure)
-      TripManager.sharedInstance.stop()
+      TripManager.sharedInstance.reset()
     }
   }
 }

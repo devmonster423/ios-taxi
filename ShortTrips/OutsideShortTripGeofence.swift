@@ -35,7 +35,7 @@ extension OutsideShortTripGeofence: Observable {
 
     if let tripId = TripManager.sharedInstance.getTripId() {
       ApiClient.invalidate(tripId, invalidation: .Geofence)
-      TripManager.sharedInstance.stop()
+      TripManager.sharedInstance.reset()
     }
   }
 }
