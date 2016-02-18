@@ -31,10 +31,11 @@ class NotificationView: UIView {
     
     notificationImageView.contentMode = .ScaleAspectFit
     notificationImageView.snp_makeConstraints { make in
-      make.centerX.equalTo(self)
-      make.width.equalTo(self).dividedBy(3)
-      make.height.equalTo(self.snp_width).dividedBy(3)
-      make.top.equalTo(notificationLabel.snp_bottom).offset(UiConstants.Trip.dividerMargin)
+      make.leading.equalTo(self).offset(50)
+      make.trailing.equalTo(self).offset(-50)
+      make.top.equalTo(notificationLabel.snp_bottom)
+      make.bottom.equalTo(self)
+      make.height.greaterThanOrEqualTo(200).priorityLow()
     }
   }
   
@@ -51,10 +52,9 @@ class NotificationView: UIView {
   
   func resetLabelConstraints() {
     notificationLabel.snp_remakeConstraints { make in
-      make.leading.equalTo(self).offset(UiConstants.Trip.Notification.offset)
-      make.trailing.equalTo(self).offset(-UiConstants.Trip.Notification.offset)
+      make.leading.equalTo(self).offset(25)
+      make.trailing.equalTo(self).offset(-25)
       make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
-      make.height.equalTo(self).dividedBy(3)
     }
     
     notificationLabel.setNeedsUpdateConstraints()
