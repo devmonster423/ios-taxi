@@ -26,7 +26,7 @@ struct Util {
     }
   }
   
-  static func isIphone4() -> Bool {
-    return UIScreen.mainScreen().bounds.size.height < 568
+  static func isIphone4Or5() -> Bool {
+    return UIScreen.mainScreen().bounds.size.height <= 568
   }
 }

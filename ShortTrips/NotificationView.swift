@@ -30,13 +30,6 @@ class NotificationView: UIView {
     notificationLabel.textColor = Color.Trip.title
     
     notificationImageView.contentMode = .ScaleAspectFit
-    notificationImageView.snp_makeConstraints { make in
-      make.leading.equalTo(self).offset(50)
-      make.trailing.equalTo(self).offset(-50)
-      make.top.equalTo(notificationLabel.snp_bottom)
-      make.bottom.equalTo(self).offset(-50)
-      make.height.equalTo(self).dividedBy(Util.isIphone4() ? 3 : 2).priorityLow()
-    }
   }
   
   func notifySuccess() {
@@ -53,25 +46,39 @@ class NotificationView: UIView {
       make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
       make.height.equalTo(50)
     }
-
-    notificationLabel.setNeedsUpdateConstraints()
-    self.layoutIfNeeded()
-  }
-  
-  func resetLabelConstraints() {
-    notificationLabel.snp_remakeConstraints { make in
-      make.leading.equalTo(self).offset(25)
-      make.trailing.equalTo(self).offset(-25)
-      make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
-    }
     
+    notificationImageView.snp_remakeConstraints { make in
+      make.leading.equalTo(self).offset(50)
+      make.trailing.equalTo(self).offset(-50)
+      make.top.equalTo(notificationLabel.snp_bottom)
+      make.bottom.equalTo(self).offset(-50)
+    }
+
     notificationLabel.setNeedsUpdateConstraints()
     self.layoutIfNeeded()
   }
   
   func notifyFail(validationStep: ValidationStep, delay: NSTimeInterval, duration: NSTimeInterval) {
     notificationLabel.font = Font.OpenSansSemibold.size(30)
-    resetLabelConstraints()
+    
+    notificationLabel.snp_remakeConstraints { make in
+      make.leading.equalTo(self).offset(25)
+      make.trailing.equalTo(self).offset(-25)
+      make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
+      make.height.equalTo(self).dividedBy(3)
+    }
+    
+    notificationImageView.snp_remakeConstraints { make in
+      make.leading.equalTo(self).offset(50)
+      make.trailing.equalTo(self).offset(-50)
+      make.bottom.equalTo(self).offset(-50)
+      make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 3 : 2)
+    }
+    
+    notificationImageView.setNeedsUpdateConstraints()
+    notificationLabel.setNeedsUpdateConstraints()
+    self.layoutIfNeeded()
+    
     var notificationText = ""
     switch validationStep {
     case .Duration:

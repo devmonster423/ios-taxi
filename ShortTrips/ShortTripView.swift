@@ -46,17 +46,19 @@ class ShortTripView: UIView {
       make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
     }
     
+    addSubview(notificationView)
+    notificationView.hidden = true
+    
     promptImageView.contentMode = .ScaleAspectFit
     promptImageView.snp_makeConstraints { make in
       make.leading.equalTo(self).offset(50)
       make.top.equalTo(promptLabel.snp_bottom)
       make.bottom.equalTo(countdown.snp_top)
-      make.height.equalTo(self).dividedBy(Util.isIphone4() ? 2.5 : 1.5).priorityLow()
+      make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
       make.trailing.equalTo(self).offset(-50)
     }
     
-    addSubview(notificationView)
-    notificationView.hidden = true
+    bringSubviewToFront(notificationView)
   }
   
   func updatePrompt(prompt: StatePrompt) {
@@ -91,7 +93,17 @@ class ShortTripView: UIView {
       make.trailing.equalTo(self)
       make.bottom.equalTo(self)
     }
+    
+    promptImageView.snp_remakeConstraints { make in
+      make.leading.equalTo(self).offset(50)
+      make.top.equalTo(promptLabel.snp_bottom)
+      make.bottom.equalTo(countdown.snp_top)
+      make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
+      make.trailing.equalTo(self).offset(-50)
+    }
+    
     notificationView.setNeedsUpdateConstraints()
+    promptImageView.setNeedsUpdateConstraints()
     layoutIfNeeded()
     self.notificationView.hidden = false
     
@@ -109,7 +121,16 @@ class ShortTripView: UIView {
         make.bottom.equalTo(self)
       }
       
+      self.promptImageView.snp_remakeConstraints { make in
+        make.leading.equalTo(self).offset(50)
+        make.top.equalTo(self.promptLabel.snp_bottom).offset(20)
+        make.bottom.equalTo(self.notificationView.snp_top).offset(-20)
+        make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
+        make.trailing.equalTo(self).offset(-50)
+      }
+      
       self.notificationView.setNeedsUpdateConstraints()
+      self.promptImageView.setNeedsUpdateConstraints()
       UIView.animateWithDuration(duration,
         delay: 0,
         options: UIViewAnimationOptions.CurveEaseInOut,
@@ -121,6 +142,15 @@ class ShortTripView: UIView {
   }
   
   func hideNotification() {
+    promptImageView.snp_remakeConstraints { make in
+      make.leading.equalTo(self).offset(50)
+      make.top.equalTo(promptLabel.snp_bottom)
+      make.bottom.equalTo(countdown.snp_top)
+      make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
+      make.trailing.equalTo(self).offset(-50)
+    }
+    promptImageView.setNeedsUpdateConstraints()
+    self.layoutIfNeeded()
     notificationView.hidden = true
   }
   
