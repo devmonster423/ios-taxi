@@ -42,6 +42,12 @@ class ShortTripVC: UIViewController {
     checkTime()
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    shortTripView().skipAnyPendingNotifications()
+  }
+  
   func shortTripView() -> ShortTripView {
     return self.view as! ShortTripView
   }

@@ -10,6 +10,9 @@ import UIKit
 import SnapKit
 
 class ShortTripView: UIView {
+  
+  private var animatingFail = false
+  
   let countdown = CountdownView()
   private let promptLabel = UILabel()
   private let promptImageView = UIImageView()
@@ -85,7 +88,34 @@ class ShortTripView: UIView {
     notificationView.hidden = false
   }
   
+  func skipAnyPendingNotifications() {
+    if animatingFail {
+      self.notificationView.snp_remakeConstraints { make in
+        make.height.equalTo(self).dividedBy(9)
+        make.leading.equalTo(self)
+        make.trailing.equalTo(self)
+        make.bottom.equalTo(self)
+      }
+      
+      self.promptImageView.snp_remakeConstraints { make in
+        make.leading.equalTo(self).offset(50)
+        make.top.equalTo(self.promptLabel.snp_bottom).offset(20)
+        make.bottom.equalTo(self.notificationView.snp_top).offset(-20)
+        make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
+        make.trailing.equalTo(self).offset(-50)
+      }
+      
+      self.notificationView.setNeedsUpdateConstraints()
+      self.promptImageView.setNeedsUpdateConstraints()
+      self.layoutIfNeeded()
+      
+      animatingFail = false
+    }
+  }
+  
   func notifyFail(validationStep: ValidationStep) {
+    
+    animatingFail = true
     
     notificationView.snp_remakeConstraints { make in
       make.height.equalTo(self)
@@ -114,30 +144,35 @@ class ShortTripView: UIView {
     
     let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
     dispatch_after(delayTime, dispatch_get_main_queue()) {
-      self.notificationView.snp_remakeConstraints { make in
-        make.height.equalTo(self).dividedBy(9)
-        make.leading.equalTo(self)
-        make.trailing.equalTo(self)
-        make.bottom.equalTo(self)
-      }
       
-      self.promptImageView.snp_remakeConstraints { make in
-        make.leading.equalTo(self).offset(50)
-        make.top.equalTo(self.promptLabel.snp_bottom).offset(20)
-        make.bottom.equalTo(self.notificationView.snp_top).offset(-20)
-        make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
-        make.trailing.equalTo(self).offset(-50)
+      if self.animatingFail {
+        self.notificationView.snp_remakeConstraints { make in
+          make.height.equalTo(self).dividedBy(9)
+          make.leading.equalTo(self)
+          make.trailing.equalTo(self)
+          make.bottom.equalTo(self)
+        }
+        
+        self.promptImageView.snp_remakeConstraints { make in
+          make.leading.equalTo(self).offset(50)
+          make.top.equalTo(self.promptLabel.snp_bottom).offset(20)
+          make.bottom.equalTo(self.notificationView.snp_top).offset(-20)
+          make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
+          make.trailing.equalTo(self).offset(-50)
+        }
+        
+        self.notificationView.setNeedsUpdateConstraints()
+        self.promptImageView.setNeedsUpdateConstraints()
+        UIView.animateWithDuration(duration,
+          delay: 0,
+          options: UIViewAnimationOptions.CurveEaseInOut,
+          animations: {
+            self.layoutIfNeeded()
+          },
+          completion: { completed in
+            self.animatingFail = false
+          })
       }
-      
-      self.notificationView.setNeedsUpdateConstraints()
-      self.promptImageView.setNeedsUpdateConstraints()
-      UIView.animateWithDuration(duration,
-        delay: 0,
-        options: UIViewAnimationOptions.CurveEaseInOut,
-        animations: {
-          self.layoutIfNeeded()
-        },
-        completion: nil)
     }
   }
   
