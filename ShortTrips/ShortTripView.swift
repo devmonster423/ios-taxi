@@ -86,35 +86,38 @@ class ShortTripView: UIView {
   func notifyFail(validationStep: ValidationStep) {
     
     notificationView.snp_remakeConstraints { make in
-      make.height.equalTo(self).multipliedBy(0.75)
+      make.height.equalTo(self)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.bottom.equalTo(self)
     }
     notificationView.setNeedsUpdateConstraints()
     layoutIfNeeded()
+    self.notificationView.hidden = false
     
     let duration: NSTimeInterval = 0.5
     let delay: NSTimeInterval = 5
     
     notificationView.notifyFail(validationStep, delay: delay, duration: duration)
     
-    notificationView.snp_remakeConstraints { make in
-      make.height.equalTo(self).dividedBy(4)
-      make.leading.equalTo(self)
-      make.trailing.equalTo(self)
-      make.bottom.equalTo(self)
+    let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
+    dispatch_after(delayTime, dispatch_get_main_queue()) {
+      self.notificationView.snp_remakeConstraints { make in
+        make.height.equalTo(self).dividedBy(9)
+        make.leading.equalTo(self)
+        make.trailing.equalTo(self)
+        make.bottom.equalTo(self)
+      }
+      
+      self.notificationView.setNeedsUpdateConstraints()
+      UIView.animateWithDuration(duration,
+        delay: 0,
+        options: UIViewAnimationOptions.CurveEaseInOut,
+        animations: {
+          self.layoutIfNeeded()
+        },
+        completion: nil)
     }
-    
-    notificationView.setNeedsUpdateConstraints()
-    notificationView.hidden = false
-    UIView.animateWithDuration(duration,
-      delay: delay,
-      options: UIViewAnimationOptions.CurveEaseInOut,
-      animations: {
-        self.layoutIfNeeded()
-      },
-      completion: nil)
   }
   
   func hideNotification() {
