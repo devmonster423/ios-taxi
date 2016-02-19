@@ -47,7 +47,15 @@ class NotificationView: UIView {
     notificationImageView.alpha = 1
     Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a valid short trip.", comment: ""))
     
-    resetLabelConstraints()
+    notificationLabel.snp_remakeConstraints { make in
+      make.leading.equalTo(self).offset(25)
+      make.trailing.equalTo(self).offset(-25)
+      make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
+      make.height.equalTo(50)
+    }
+
+    notificationLabel.setNeedsUpdateConstraints()
+    self.layoutIfNeeded()
   }
   
   func resetLabelConstraints() {
