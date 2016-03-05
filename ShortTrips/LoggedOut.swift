@@ -41,7 +41,8 @@ extension LoggedOut: Observable {
       if let location = LocationManager.sharedInstance.getLastKnownLocation(), sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
         ApiClient.updateMobileState(.LoggedOut, mobileStateInfo: MobileStateInfo(longitude: location.coordinate.longitude,
           latitude: location.coordinate.latitude,
-          sessionId: sessionId))
+          sessionId: sessionId,
+          tripId: tripId))
       }
     }
   }
