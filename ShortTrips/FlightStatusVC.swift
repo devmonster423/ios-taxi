@@ -11,6 +11,12 @@ import UIKit
 import MBProgressHUD
 
 class FlightStatusVC: UIViewController {
+  
+  private let minimumSpinnerDuration = NSTimeInterval(2) // seconds
+  private var earliestTimeToDismiss: NSDate?
+  private var timer: NSTimer?
+  private var hud: MBProgressHUD?
+  
   var selectedTerminalId: TerminalId!
   var currentHour: Int!
   var flights: [Flight]?
@@ -42,13 +48,25 @@ class FlightStatusVC: UIViewController {
     return view as! FlightStatusView
   }
   
+  func attemptToHideSpinner() {
+    if earliestTimeToDismiss?.timeIntervalSinceNow < 0 {
+      hud?.hide(true)
+      timer?.invalidate()
+    }
+  }
+  
   func updateFlightTable() {
-    let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
-    hud.labelText = NSLocalizedString("Requesting Flights...", comment: "")
+    hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+    hud?.labelText = NSLocalizedString("Requesting Flights...", comment: "")
+    earliestTimeToDismiss = NSDate().dateByAddingTimeInterval(minimumSpinnerDuration)
     
     ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour, flightType: flightType) { flights, statusCode in
 
-      hud.hide(true)
+      self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1,
+        target: self,
+        selector: "attemptToHideSpinner",
+        userInfo: nil,
+        repeats: true)
       
       if let flights = flights where Flight.isValid(flights) {
         self.flights = flights
