@@ -10,8 +10,10 @@ import Foundation
 import ObjectMapper
 import AlamofireObjectMapper
 
+typealias DoubleResponse = Double? -> Void
 typealias IntResponse = Int? -> Void
 typealias ReferenceConfigClosure = (ReferenceConfig?, ErrorType?) -> Void
+typealias StringClosure = String? -> Void
 
 extension ApiClient {
   static func requestReferenceConfig(response: ReferenceConfigClosure) {
@@ -29,6 +31,24 @@ extension ApiClient {
         } else {
           response(nil)
         }
+    }
+  }
+  
+  static func requestVersion(response: DoubleResponse) {
+    authedRequest(.GET, Url.Reference.clientVersion)
+      .responseString { _, _, resultString in
+        if let string = resultString.value {
+          response(Double(string))
+        } else {
+          response(nil)
+        }
+    }
+  }
+  
+  static func requestTermsAndConditions(response: StringClosure) {
+    authedRequest(.GET, Url.Reference.terms)
+      .responseString { _, _, resultString in
+        response(resultString.value)
     }
   }
 }

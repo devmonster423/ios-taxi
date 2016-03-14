@@ -93,8 +93,10 @@ struct Url {
   struct Reference {
     private static let reference = base + "reference/"
     
+    static let clientVersion = reference + "client_version"
     static let config = reference + "config"
     static let lotCapacity = reference + "lot_capacity"
+    static let terms = reference + "terms"
   }
   
   struct Trip {

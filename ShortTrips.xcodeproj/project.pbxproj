@@ -267,6 +267,7 @@
 		FAEA59AA1C29A573009BF1F4 /* DomesticPickupGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA59A91C29A573009BF1F4 /* DomesticPickupGeofenceSpec.swift */; };
 		FAF152131C57E35A0053B360 /* InsideBufferedExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF152121C57E35A0053B360 /* InsideBufferedExit.swift */; };
 		FAF1FBE61C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1FBE51C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift */; };
+		FAF34DA81C976EAB00061A2D /* Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF34DA71C976EAB00061A2D /* Terms.swift */; };
 		FAF6F5D01C2AF2C2004B93ED /* LoginVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6F5CF1C2AF2C2004B93ED /* LoginVCSpec.swift */; };
 		FAF6F5D21C2AF55D004B93ED /* ValidationStepSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6F5D11C2AF55D004B93ED /* ValidationStepSpec.swift */; };
 /* End PBXBuildFile section */
@@ -552,6 +553,7 @@
 		FAEA59A91C29A573009BF1F4 /* DomesticPickupGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomesticPickupGeofenceSpec.swift; sourceTree = "<group>"; };
 		FAF152121C57E35A0053B360 /* InsideBufferedExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideBufferedExit.swift; sourceTree = "<group>"; };
 		FAF1FBE51C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxiMergedGeofenceSpec.swift; sourceTree = "<group>"; };
+		FAF34DA71C976EAB00061A2D /* Terms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Terms.swift; sourceTree = "<group>"; };
 		FAF6F5CF1C2AF2C2004B93ED /* LoginVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVCSpec.swift; sourceTree = "<group>"; };
 		FAF6F5D11C2AF55D004B93ED /* ValidationStepSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationStepSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1250,6 +1252,7 @@
 			isa = PBXGroup;
 			children = (
 				E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */,
+				FAF34DA71C976EAB00061A2D /* Terms.swift */,
 			);
 			name = ReferenceConfig;
 			sourceTree = "<group>";
@@ -1645,6 +1648,7 @@
 				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
 				FA27A5391C507C3800278CC6 /* AviManager.swift in Sources */,
 				C285F1D31C18F1C800AA3363 /* AssociatingDriverAndVehicleAtReEntry.swift in Sources */,
+				FAF34DA81C976EAB00061A2D /* Terms.swift in Sources */,
 				E18FF68F1BA869A300FE93B9 /* Antenna.swift in Sources */,
 				E17352851B8CEC9B0031950B /* UiHelpers.swift in Sources */,
 				C24388431C447B4E00984CB8 /* NotificationView.swift in Sources */,
