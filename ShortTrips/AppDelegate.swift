@@ -15,12 +15,15 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
   let stateManager = StateManager.sharedInstance // needed, to start the state machine
+  var appCheckDelegate: AppChecker?
   var window: UIWindow?
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
     window = UIWindow(frame: UIScreen.mainScreen().bounds)
-    window?.rootViewController = LoginVC(startup: true)
+    let loginVC = LoginVC(startup: true)
+    appCheckDelegate = loginVC
+    window?.rootViewController = loginVC
     window?.makeKeyAndVisible()
     Fabric.with([Crashlytics.self()])
     IQKeyboardManager.sharedManager().enable = true
@@ -45,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func applicationDidBecomeActive(application: UIApplication) {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    appCheckDelegate?.appDidBecomeActive()
   }
 
   func applicationWillTerminate(application: UIApplication) {

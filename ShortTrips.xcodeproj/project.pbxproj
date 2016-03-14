@@ -268,6 +268,7 @@
 		FAF152131C57E35A0053B360 /* InsideBufferedExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF152121C57E35A0053B360 /* InsideBufferedExit.swift */; };
 		FAF1FBE61C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1FBE51C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift */; };
 		FAF34DA81C976EAB00061A2D /* Terms.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF34DA71C976EAB00061A2D /* Terms.swift */; };
+		FAF34DAA1C97847000061A2D /* AppChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF34DA91C97847000061A2D /* AppChecker.swift */; };
 		FAF6F5D01C2AF2C2004B93ED /* LoginVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6F5CF1C2AF2C2004B93ED /* LoginVCSpec.swift */; };
 		FAF6F5D21C2AF55D004B93ED /* ValidationStepSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF6F5D11C2AF55D004B93ED /* ValidationStepSpec.swift */; };
 /* End PBXBuildFile section */
@@ -554,6 +555,7 @@
 		FAF152121C57E35A0053B360 /* InsideBufferedExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideBufferedExit.swift; sourceTree = "<group>"; };
 		FAF1FBE51C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxiMergedGeofenceSpec.swift; sourceTree = "<group>"; };
 		FAF34DA71C976EAB00061A2D /* Terms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Terms.swift; sourceTree = "<group>"; };
+		FAF34DA91C97847000061A2D /* AppChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppChecker.swift; sourceTree = "<group>"; };
 		FAF6F5CF1C2AF2C2004B93ED /* LoginVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVCSpec.swift; sourceTree = "<group>"; };
 		FAF6F5D11C2AF55D004B93ED /* ValidationStepSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationStepSpec.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1333,6 +1335,7 @@
 		FA0E1FD01BAF1D9500B8F921 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				FAF34DA91C97847000061A2D /* AppChecker.swift */,
 				C21775F81BB08CAC008B24EA /* Color.swift */,
 				FA650FF71BB20CDB003D1939 /* DateTransform.swift */,
 				FA93FFF51C5889D6008A2F22 /* DeviceUtil.swift */,
@@ -1662,6 +1665,7 @@
 				C2AB513E1BD052F7003ACB4C /* SfoNotification.swift in Sources */,
 				C283AB451BE96D1C0004E8CD /* ValidationStep.swift in Sources */,
 				FA93FFF61C5889D6008A2F22 /* DeviceUtil.swift in Sources */,
+				FAF34DAA1C97847000061A2D /* AppChecker.swift in Sources */,
 				FA93FFF41C588298008A2F22 /* FeedbackEmailMaker.swift in Sources */,
 				C207D6FC1BAB86D800273374 /* FlightStatusView.swift in Sources */,
 				C2E6B9671C4072BD00100C83 /* PingKiller.swift in Sources */,
