@@ -29,8 +29,11 @@ struct WaitingForTaxiLoopAvi {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
             if let antenna = antenna, let device = antenna.device() {
               
-              if device == .DtaRecirculation || device == .TaxiMainLot {
+              if (device == .DtaRecirculation || device == .TaxiMainLot)
+                && antenna.aviDate.timeIntervalSinceNow > -(60*60) {
+                  
                 LatestAviAtTaxiLoop.sharedInstance.fire(antenna)
+                  
               } else {
                 postNotification(SfoNotification.Avi.unexpected, value: (expected: .DtaRecirculation, found: device))
                 
