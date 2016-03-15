@@ -16,7 +16,9 @@ protocol AppChecker {
 
 extension AppChecker where Self: UIViewController {
   func appDidBecomeActive() {
-    checkVersion()
+    if self.isViewLoaded() && self.view.window != nil {
+      checkVersion()
+    }
   }
   
   func checkVersion() {
