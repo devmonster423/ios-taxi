@@ -11,7 +11,6 @@ import ObjectMapper
 struct DriverCredential: Mappable {
   var username: String!
   var password: String!
-  var macAddress: String!
   var osVersion: String!
   var deviceOs: String!
   var longitude: String?
@@ -25,9 +24,10 @@ struct DriverCredential: Mappable {
     self.deviceOs = "ios"
     self.osVersion = UIDevice.currentDevice().systemVersion
     self.deviceUuid = UIDevice.currentDevice().identifierForVendor!.UUIDString
-    let location = LocationManager.sharedInstance.getLastKnownLocation()
-    self.latitude = "\(location?.coordinate.latitude)"
-    self.longitude = "\(location?.coordinate.longitude)"
+    if let location = LocationManager.sharedInstance.getLastKnownLocation() {
+      self.latitude = "\(location.coordinate.latitude)"
+      self.longitude = "\(location.coordinate.longitude)"
+    }
   }
   
   init() {}
@@ -37,9 +37,8 @@ struct DriverCredential: Mappable {
   mutating func mapping(map: Map) {
     username <- map["username"]
     password <- map["password"]
-    macAddress <- map["mac_address"]
     osVersion <- map["os_version"]
-    deviceOs <- map["driver_device_os"]
+    deviceOs <- map["device_os"]
     longitude <- map["longitude"]
     latitude <- map["latitude"]
     deviceUuid <- map["device_uuid"]
@@ -67,11 +66,10 @@ struct DriverCredential: Mappable {
   static func load() -> DriverCredential? {
     let credentials = NSURLCredentialStorage.sharedCredentialStorage()
       .credentialsForProtectionSpace(DriverCredential.credentialProtectionSpace())
-    if let credential = credentials?.first?.1 {
-      var driverCredential = DriverCredential()
-      driverCredential.username = credential.user
-      driverCredential.password = credential.password
-      return driverCredential
+    if let credential = credentials?.first?.1,
+      let username = credential.user,
+      let password = credential.password {
+      return DriverCredential(username: username, password: password)
     } else {
       return nil
     }

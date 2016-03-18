@@ -108,10 +108,12 @@ class LoginView: UIView {
     }
   }
   
-  func getLoginCredential() -> DriverCredential {
-    var credential = DriverCredential()
-    credential.username = usernameTextField.text
-    credential.password = passwordTextField.text
-    return credential
+  func getLoginCredential() -> DriverCredential? {
+    if let username = usernameTextField.text,
+      let password = passwordTextField.text {
+    return DriverCredential(username: username, password: password)
+    } else {
+      return nil
+    }
   }
 }

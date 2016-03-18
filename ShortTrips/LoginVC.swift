@@ -49,16 +49,18 @@ class LoginVC: UIViewController {
 
   func login() {
     
-    let credential = self.credential ?? loginView().getLoginCredential()
+    let optionalCredential = self.credential ?? loginView().getLoginCredential()
+    
+    guard let fullCredential = optionalCredential else { return }
     
     let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
     hud.labelText = NSLocalizedString("Logging In...", comment: "")
-    ApiClient.authenticateDriver(credential) { driver in
+    ApiClient.authenticateDriver(fullCredential) { driver in
       
       hud.hide(true)
       
       if let driver = driver {
-        credential.save()
+        fullCredential.save()
         DriverManager.sharedInstance.setCurrentDriver(driver)
         
         if self.startup {
