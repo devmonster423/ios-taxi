@@ -16,10 +16,12 @@ class DashboardVC: UIViewController {
   override func loadView() {
     let dashboardView = DashboardView(frame: UIScreen.mainScreen().bounds)
     dashboardView.timerView.start(requestLotStatus, updateInterval: 60)
-    let secretSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: "openDebugMode")
-    secretSwipeRecognizer.numberOfTouchesRequired = 2
-    secretSwipeRecognizer.direction = .Down
-    dashboardView.addGestureRecognizer(secretSwipeRecognizer)
+//#if DEBUG
+//    let secretSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: "openDebugMode")
+//    secretSwipeRecognizer.numberOfTouchesRequired = 2
+//    secretSwipeRecognizer.direction = .Down
+//    dashboardView.addGestureRecognizer(secretSwipeRecognizer)
+//#endif
     view = dashboardView
   }
 
