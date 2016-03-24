@@ -14,7 +14,7 @@ class Speaker {
   static let sharedInstance = Speaker()
   private init() { }
   
-  var audioEnabled = true
+  private let audioEnabledKey = "audioEnabled"
   
   func speak(var input: String) {
     input = input.lowercaseString
@@ -24,7 +24,7 @@ class Speaker {
     input = input.stringByReplacingOccurrencesOfString("geofence", withString: "G oh fence")
     input = input.stringByReplacingOccurrencesOfString("unavailable", withString: "un available")
     
-    if audioEnabled {
+    if getAudioEnabled() {
       AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: input))
     }
   }
@@ -36,6 +36,18 @@ class Speaker {
     }
     catch let error as NSError {
       fatalError(error.localizedDescription)
+    }
+  }
+  
+  func setAudioEnabled(on: Bool) {
+    NSUserDefaults.standardUserDefaults().setBool(on, forKey: audioEnabledKey)
+  }
+  
+  func getAudioEnabled() -> Bool {
+    if let enabled = NSUserDefaults.standardUserDefaults().objectForKey(audioEnabledKey) as? Bool {
+      return enabled
+    } else {
+      return true // default
     }
   }
 }

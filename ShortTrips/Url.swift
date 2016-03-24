@@ -9,9 +9,9 @@
 struct Url {
   
 //#if DEBUG
-//  static let base = "https://216.9.96.29:9000/taxiws/services/taxi/"
+  static let base = "https://216.9.96.29:9000/taxiws/services/taxi/"
 //#else
-  static let base = "https://216.9.96.29:9999/taxiws/services/taxi/"
+//  static let base = "https://216.9.96.29:9999/taxiws/services/taxi/"
 //#endif
   
   static let queueStatus = base + "status/queue"

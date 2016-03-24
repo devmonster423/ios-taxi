@@ -98,7 +98,7 @@ extension SettingsVC: UITableViewDataSource {
     
     switch SettingsSection(rawValue: indexPath.section)! {
     case .Audio:
-      cell.textLabel?.text = Speaker.sharedInstance.audioEnabled
+      cell.textLabel?.text = Speaker.sharedInstance.getAudioEnabled()
         ? NSLocalizedString("Audio ON. Tap to turn off.", comment: "")
         : NSLocalizedString("Audio OFF. Tap to turn on.", comment: "")
     case .Feedback:
@@ -116,7 +116,7 @@ extension SettingsVC: UITableViewDelegate {
     
     switch SettingsSection(rawValue: indexPath.section)! {
     case .Audio:
-      Speaker.sharedInstance.audioEnabled = !Speaker.sharedInstance.audioEnabled
+      Speaker.sharedInstance.setAudioEnabled(!Speaker.sharedInstance.getAudioEnabled())
       tableView.reloadData()
     case .Feedback:
       self.presentViewController(FeedbackEmailMaker.make(self), animated: true, completion: nil)
