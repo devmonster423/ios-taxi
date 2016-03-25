@@ -35,7 +35,7 @@ extension ApiClient {
   }
   
   static func requestVersion(response: DoubleResponse) {
-    authedRequest(.GET, Url.Reference.clientVersion)
+    authedRequest(.GET, Url.Reference.clientVersion, parameters: ["platform":"ios"])
       .responseString { _, _, resultString in
         if let string = resultString.value {
           response(Double(string))
