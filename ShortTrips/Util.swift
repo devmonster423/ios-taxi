@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 struct Util {
-  static let debug = true
+  static let debug = false
   static var testingGps = false
   
   enum HttpStatusCodes: Int {
