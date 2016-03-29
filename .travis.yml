@@ -6,6 +6,6 @@ before_install:
   - pod install
 script:
   - open -b com.apple.iphonesimulator
-  - xcodebuild clean build test -workspace ShortTrips.xcworkspace -scheme 'ShortTrips' -sdk iphonesimulator9.2 -destination 'platform=iOS Simulator,name=iPhone 6s Plus' | xcpretty -c  && exit ${PIPESTATUS[0]}
+  - xcodebuild clean build test -workspace ShortTrips.xcworkspace -scheme 'ShortTrips' -sdk iphonesimulator9.3 -destination 'platform=iOS Simulator,name=iPhone 6s Plus' | xcpretty -c  && exit ${PIPESTATUS[0]}
 notifications:
   slack: exygy:JWZH2MeHG9W2POeRboJANASH
