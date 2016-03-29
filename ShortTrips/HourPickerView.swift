@@ -92,7 +92,9 @@ class HourPickerView: UIView {
     return currentHour
   }
   
-  func incrementHour(var hourChange: Int) {
+  func incrementHour(hourChange: Int) {
+    var hourChange = hourChange
+    
     if (hourChange == 1 && currentHour == -1) || (hourChange == -1 && currentHour == 1) {
       hourChange *= 2
     }

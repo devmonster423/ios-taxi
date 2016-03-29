@@ -81,13 +81,13 @@ class TimerView: UIView {
     weak var weakSelf = self
     timer = NSTimer.scheduledTimerWithTimeInterval(UiConstants.Timer.updateInterval,
       target: weakSelf!,
-      selector: "eachSecond",
+      selector: #selector(TimerView.eachSecond),
       userInfo: nil,
       repeats: true)
   }
   
   func eachSecond() {
-    elapsedSeconds++
+    elapsedSeconds += 1
     updateForTime(elapsedSeconds)
     if elapsedSeconds >= updateInterval {
       resetProgress()

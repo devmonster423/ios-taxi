@@ -66,7 +66,7 @@ class TripManager: NSObject {
     
     tripTimer = NSTimer.scheduledTimerWithTimeInterval(TripManager.timerInterval,
       target: self,
-      selector: "checkLength",
+      selector: #selector(TripManager.checkLength),
       userInfo: nil,
       repeats: true)
     

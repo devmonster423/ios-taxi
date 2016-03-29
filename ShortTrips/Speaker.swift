@@ -16,7 +16,9 @@ class Speaker {
   
   private let audioEnabledKey = "audioEnabled"
   
-  func speak(var input: String) {
+  func speak(input: String) {
+    var input = input
+    
     input = input.lowercaseString
     
     input = input.stringByReplacingOccurrencesOfString(". ", withString: "... ")

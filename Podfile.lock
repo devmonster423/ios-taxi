@@ -22,7 +22,7 @@ PODS:
     - Mockingjay/Core
   - Mockingjay/XCTest (1.1.0):
     - Mockingjay/Core
-  - Nimble (3.1.0)
+  - Nimble (3.2.0)
   - ObjectMapper (0.17)
   - PivotalCoreKit (0.3.0):
     - PivotalCoreKit/Core (= 0.3.0)
@@ -36,7 +36,7 @@ PODS:
   - PivotalCoreKit/UIKit/SpecHelper/Extensions (0.3.0):
     - PivotalCoreKit/UIKit/SpecHelper/Support
   - PivotalCoreKit/UIKit/SpecHelper/Support (0.3.0)
-  - Quick (0.8.0)
+  - Quick (0.9.0)
   - SnapKit (0.15.0)
   - TransitionKit (2.2.1)
   - URITemplate (1.3.0)
@@ -51,10 +51,10 @@ DEPENDENCIES:
   - JSQNotificationObserverKit (= 2.0.0)
   - MBProgressHUD (= 0.9.1)
   - Mockingjay (= 1.1.0)
-  - Nimble (= 3.1.0)
+  - Nimble (= 3.2.0)
   - PivotalCoreKit (= 0.3.0)
   - PivotalCoreKit/UIKit/SpecHelper/Extensions
-  - Quick (= 0.8.0)
+  - Quick (= 0.9.0)
   - SnapKit (= 0.15.0)
   - TransitionKit (= 2.2.1)
 
@@ -68,10 +68,10 @@ SPEC CHECKSUMS:
   JSQNotificationObserverKit: 01d1411456cfab1418093cd54401e612744736e9
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   Mockingjay: 5782cb22c9e99dece7aad5bdf738bfa187cfcdcc
-  Nimble: 79d40f4d69d47314229bbabacaa02b8838c779b9
+  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
   ObjectMapper: fa286b7cb5a398f1b0d8d64d0dd33fd1b307022c
   PivotalCoreKit: 3dab7cf9bff77eb49ce7ffc7a84e57fa8591f033
-  Quick: 563d0f6ec5f72e394645adb377708639b7dd38ab
+  Quick: 332eb1da73125a2106dd637424c803f2ae97e4a9
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   TransitionKit: 9ceccda4cd0cdc0a05ef85eb235e5a3292c3c250
   URITemplate: 0ebbec80d1eb59a89e29db9b14c99d5908d3e574

@@ -30,7 +30,7 @@ class LoginVC: UIViewController {
     } else {
       let loginView = LoginView(frame: UIScreen.mainScreen().bounds)
       loginView.loginButton.addTarget(self,
-        action: "login",
+        action: #selector(LoginVC.login),
         forControlEvents: .TouchUpInside)
       view = loginView
       loginView.usernameTextField.becomeFirstResponder()

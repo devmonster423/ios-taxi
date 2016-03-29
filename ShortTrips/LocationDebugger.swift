@@ -44,9 +44,9 @@ extension DebugVC {
   func dropPassenger() {
     Util.testingGps = true
     postNotification(SfoNotification.Location.read, value: CLLocation(latitude: 37.622254, longitude: -122.409925))
-    self.updateFakeButtons((title: "Back To SFO", action: "backToSFO"),
-      second: (title: "Turn Off Pings", action: "turnOffPings"),
-      third: (title: "Crash App", action: "crash"))
+    self.updateFakeButtons((title: "Back To SFO", action: #selector(DebugVC.backToSFO)),
+      second: (title: "Turn Off Pings", action: #selector(DebugVC.turnOffPings)),
+      third: (title: "Crash App", action: #selector(DebugVC.crash)))
   }
   
   func fakeExitingTerminals() {

@@ -72,7 +72,8 @@ struct Flight: Mappable {
   }
   
   private static func iataCodeForFlightNumber(flightNumber: String) -> String {
-     return flightNumber.substringWithRange(Range<String.Index>(start: flightNumber.startIndex, end: flightNumber.startIndex.advancedBy(2)))
+     return flightNumber.substringWithRange(Range<String.Index>(
+      flightNumber.startIndex ..< flightNumber.startIndex.advancedBy(2)))
   }
 
   static func mungeStatus(scheduled: NSDate, estimated: NSDate) -> FlightStatus {

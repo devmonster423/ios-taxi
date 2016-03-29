@@ -46,7 +46,7 @@ class DashboardVC: UIViewController {
       hud.hide(true)
       
       if let info = info {
-        self.dashboardView().updateSpots(info)
+        self.dashboardView().updateSpots(length: info.length, capacity: info.capacity)
         
       } else if !self.errorShown
         && self.tabBarController?.selectedIndex == MainTabs.Lot.rawValue

@@ -14,7 +14,7 @@ extension UIViewController {
     navigationController?.navigationBar.setBackgroundImage(Image.from(Color.NavBar.backgroundBlue).stretchableImageWithLeftCapWidth(0, topCapHeight: 0), forBarMetrics: .Default)
     
     if back {
-      navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.backButton.image(), style: .Plain, target: self, action: "goBack")
+      navigationItem.leftBarButtonItem = UIBarButtonItem(image: Image.backButton.image(), style: .Plain, target: self, action: #selector(UIViewController.goBack))
       navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
     } else {
       let titleImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: UiConstants.Dashboard.titleWidth, height: UiConstants.Dashboard.titleHeight-5))

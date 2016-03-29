@@ -24,7 +24,7 @@ class Poller: NSObject {
 
     timer = NSTimer.scheduledTimerWithTimeInterval(interval,
       target: self,
-      selector: "check",
+      selector: #selector(Poller.check),
       userInfo: nil,
       repeats: true)
     

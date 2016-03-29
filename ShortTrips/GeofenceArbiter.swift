@@ -61,7 +61,7 @@ struct GeofenceArbiter {
     
     let polygonPoints = region.points()
     
-    for var index = 0; index < region.pointCount; index++ {
+    for index in 0 ..< region.pointCount {
       
       let mapPoint = polygonPoints[index]
       

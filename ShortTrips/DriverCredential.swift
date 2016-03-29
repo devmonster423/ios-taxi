@@ -89,7 +89,7 @@ struct DriverCredential: Mappable {
     let url = NSURL(string: Url.base)!
     return NSURLProtectionSpace(host: url.host!,
       port: (url.port?.integerValue)!,
-      `protocol`: url.scheme,
+      protocol: url.scheme,
       realm: nil,
       authenticationMethod: NSURLAuthenticationMethodHTTPDigest)
   }

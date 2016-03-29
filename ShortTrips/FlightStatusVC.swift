@@ -64,7 +64,7 @@ class FlightStatusVC: UIViewController {
 
       self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1,
         target: self,
-        selector: "attemptToHideSpinner",
+        selector: #selector(FlightStatusVC.attemptToHideSpinner),
         userInfo: nil,
         repeats: true)
       

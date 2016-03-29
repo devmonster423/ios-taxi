@@ -23,7 +23,7 @@ extension DebugVC {
     if state == AssociatingDriverAndVehicleAtEntry.sharedInstance.getState() {
       debugView().printDebugLine("Associating Driver And Vehicle")
       debugView().updateState("Associating Driver And Vehicle")
-      updateFakeButtons((title: "Associate Driver And Vehicle", action: "associateDriverAndVehicle"), second: (title: "Inside Taxi Loop Exit", action: "triggerAtTerminalExit"))
+      updateFakeButtons((title: "Associate Driver And Vehicle", action: Selector("associateDriverAndVehicle")), second: (title: "Inside Taxi Loop Exit", action: Selector("triggerAtTerminalExit")))
 
     } else if state == AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState() {
       debugView().printDebugLine("Associating Driver And Vehicle")

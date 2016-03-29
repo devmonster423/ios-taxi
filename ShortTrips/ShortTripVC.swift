@@ -35,7 +35,7 @@ class ShortTripVC: UIViewController {
     
     tripTimer = NSTimer.scheduledTimerWithTimeInterval(1,
       target: self,
-      selector: "checkTime",
+      selector: #selector(ShortTripVC.checkTime),
       userInfo: nil,
       repeats: true)
     

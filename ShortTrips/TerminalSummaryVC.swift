@@ -17,35 +17,35 @@ class TerminalSummaryVC: UIViewController {
   override func loadView() {
     let terminalSummaryView = TerminalSummaryView(frame: UIScreen.mainScreen().bounds)
     terminalSummaryView.decreaseButton.addTarget(self,
-      action: "decreaseHour",
+      action: #selector(TerminalSummaryVC.decreaseHour),
       forControlEvents: .TouchUpInside)
     terminalSummaryView.increaseButton.addTarget(self,
-      action: "increaseHour",
+      action: #selector(TerminalSummaryVC.increaseHour),
       forControlEvents: .TouchUpInside)
     terminalSummaryView.pickerShower.addTarget(self,
-      action: "showPicker",
+      action: #selector(TerminalSummaryVC.showPicker),
       forControlEvents: .TouchUpInside)
     terminalSummaryView.pickerDismissToolbar.setItems([
       UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
       UIBarButtonItem(title: NSLocalizedString("Done", comment: ""),
         style: .Done,
         target: self,
-        action: "hidePicker:")],
+        action: #selector(TerminalSummaryVC.hidePicker(_:)))],
       animated: true)
     terminalSummaryView.terminalView1.addTarget(self,
-      action: "terminalSelected:",
+      action: #selector(TerminalSummaryVC.terminalSelected(_:)),
       forControlEvents: .TouchUpInside)
     terminalSummaryView.terminalView2.addTarget(self,
-      action: "terminalSelected:",
+      action: #selector(TerminalSummaryVC.terminalSelected(_:)),
       forControlEvents: .TouchUpInside)
     terminalSummaryView.terminalView3.addTarget(self,
-      action: "terminalSelected:",
+      action: #selector(TerminalSummaryVC.terminalSelected(_:)),
       forControlEvents: .TouchUpInside)
     terminalSummaryView.internationalTerminalView.addTarget(self,
-      action: "terminalSelected:",
+      action: #selector(TerminalSummaryVC.terminalSelected(_:)),
       forControlEvents: .TouchUpInside)
     terminalSummaryView.grayView.addGestureRecognizer(UITapGestureRecognizer(target: self,
-      action: "hidePicker:"))
+      action: #selector(TerminalSummaryVC.hidePicker(_:))))
     
     terminalSummaryView.timerView.start(updateTerminalTable, updateInterval: 60 * 5)
     view = terminalSummaryView

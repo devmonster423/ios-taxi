@@ -28,7 +28,7 @@ class PingManager: NSObject {
     if timer == nil {
       timer = NSTimer.scheduledTimerWithTimeInterval(updateFrequency,
         target: self,
-        selector: "sendPings",
+        selector: #selector(PingManager.sendPings),
         userInfo: nil,
         repeats: true)
     }
@@ -42,7 +42,7 @@ class PingManager: NSObject {
           
         } else {
           postNotification(SfoNotification.Ping.invalid, value: ping)
-          self.invalidPings++
+          self.invalidPings += 1
           if self.invalidPings >= self.maxInvalidPings {
             OutsideShortTripGeofence.sharedInstance.fire()
             self.invalidPings = 0 // reset invalid pings
@@ -106,7 +106,9 @@ class PingManager: NSObject {
     }
   }
   
-  func appendStrip(var ping: Ping) {
+  func appendStrip(ping: Ping) {
+    var ping = ping
+    
     ping.medallion = nil
     ping.sessionId = nil
     ping.tripId = nil

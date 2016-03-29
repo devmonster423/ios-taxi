@@ -19,7 +19,7 @@ class PingKiller: NSObject {
     
     timer = NSTimer.scheduledTimerWithTimeInterval(2 * 60,
       target: self,
-      selector: "turnPingsBackOn",
+      selector: #selector(PingKiller.turnPingsBackOn),
       userInfo: nil,
       repeats: false)
   }

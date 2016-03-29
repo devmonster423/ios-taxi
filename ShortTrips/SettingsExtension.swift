@@ -16,7 +16,7 @@ extension UIViewController {
     settingsBtn.setImage(Image.gear.image(), forState: .Normal)
     settingsBtn.imageEdgeInsets = UIEdgeInsetsMake(5, 10, 5, 0)
     settingsBtn.addTarget(self,
-      action: "settings",
+      action: #selector(UIViewController.settings),
       forControlEvents: .TouchUpInside)
     navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsBtn)
   }
