@@ -36,7 +36,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
       manager.allowsBackgroundLocationUpdates = true
     }
     
-    manager.activityType = .AutomotiveNavigation
+    // this might solve the "lunch issue"
+//    manager.activityType = .AutomotiveNavigation
+    manager.pausesLocationUpdatesAutomatically = false
     manager.delegate = self
     manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
     manager.distanceFilter = kCLDistanceFilterNone
