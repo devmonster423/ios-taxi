@@ -49,7 +49,6 @@
 		C20A988C1BE1A066009E29E7 /* StartingTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A988B1BE1A066009E29E7 /* StartingTrip.swift */; };
 		C20A988E1BE1A1BC009E29E7 /* TripStarted.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A988D1BE1A1BC009E29E7 /* TripStarted.swift */; };
 		C20FEAC51C3DD48F00072E2D /* TerminalSummaryVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20FEAC41C3DD48F00072E2D /* TerminalSummaryVCSpec.swift */; };
-		C21421061C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json in Resources */ = {isa = PBXBuildFile; fileRef = C21421001C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json */; };
 		C214210D1C1B7FF00066DCA5 /* TaxiWaitZoneGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C214210C1C1B7FF00066DCA5 /* TaxiWaitZoneGeofenceSpec.swift */; };
 		C21528C21BC839990073502F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C11BC839990073502F /* LoginVC.swift */; };
 		C21528C51BC83A820073502F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21528C41BC83A820073502F /* LoginView.swift */; };
@@ -66,6 +65,8 @@
 		C21775F91BB08CAC008B24EA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21775F81BB08CAC008B24EA /* Color.swift */; };
 		C21905681BB0B74E00A3E779 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905671BB0B74E00A3E779 /* Url.swift */; };
 		C219056A1BB0C87200A3E779 /* DeviceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905691BB0C87200A3E779 /* DeviceClient.swift */; };
+		C2196B6A1CAB1564008E0D93 /* Domestic_Pax_Pickup.json in Resources */ = {isa = PBXBuildFile; fileRef = C2196B691CAB1564008E0D93 /* Domestic_Pax_Pickup.json */; };
+		C2196B6C1CAB1573008E0D93 /* Taxi_Waiting_Zone.json in Resources */ = {isa = PBXBuildFile; fileRef = C2196B6B1CAB1573008E0D93 /* Taxi_Waiting_Zone.json */; };
 		C220E0621BC3322F00AC7C85 /* ErrorLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E0611BC3322F00AC7C85 /* ErrorLogger.swift */; };
 		C220E0691BC33A0600AC7C85 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E0681BC33A0600AC7C85 /* StateManager.swift */; };
 		C220E06D1BC33C1D00AC7C85 /* NotReady.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E06C1BC33C1D00AC7C85 /* NotReady.swift */; };
@@ -263,7 +264,6 @@
 		FA93FFF61C5889D6008A2F22 /* DeviceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FFF51C5889D6008A2F22 /* DeviceUtil.swift */; };
 		FAB97C721C23867F008F5421 /* GeofenceVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB97C711C23867F008F5421 /* GeofenceVars.swift */; };
 		FAD0418C1C0E66E900D9F8A1 /* LocalGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */; };
-		FAEA59A71C29A1EB009BF1F4 /* Taxi_Waiting_Zone.json in Resources */ = {isa = PBXBuildFile; fileRef = FAEA59A61C29A1EB009BF1F4 /* Taxi_Waiting_Zone.json */; };
 		FAEA59AA1C29A573009BF1F4 /* DomesticPickupGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA59A91C29A573009BF1F4 /* DomesticPickupGeofenceSpec.swift */; };
 		FAF152131C57E35A0053B360 /* InsideBufferedExit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF152121C57E35A0053B360 /* InsideBufferedExit.swift */; };
 		FAF1FBE61C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF1FBE51C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift */; };
@@ -329,7 +329,6 @@
 		C20A988B1BE1A066009E29E7 /* StartingTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = StartingTrip.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C20A988D1BE1A1BC009E29E7 /* TripStarted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripStarted.swift; sourceTree = "<group>"; };
 		C20FEAC41C3DD48F00072E2D /* TerminalSummaryVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryVCSpec.swift; sourceTree = "<group>"; };
-		C21421001C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Domestic_Pax_Pickup.json; sourceTree = "<group>"; };
 		C214210C1C1B7FF00066DCA5 /* TaxiWaitZoneGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxiWaitZoneGeofenceSpec.swift; sourceTree = "<group>"; };
 		C21528C11BC839990073502F /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		C21528C41BC83A820073502F /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -346,6 +345,8 @@
 		C21775F81BB08CAC008B24EA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C21905671BB0B74E00A3E779 /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		C21905691BB0C87200A3E779 /* DeviceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceClient.swift; sourceTree = "<group>"; };
+		C2196B691CAB1564008E0D93 /* Domestic_Pax_Pickup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Domestic_Pax_Pickup.json; sourceTree = "<group>"; };
+		C2196B6B1CAB1573008E0D93 /* Taxi_Waiting_Zone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Taxi_Waiting_Zone.json; sourceTree = "<group>"; };
 		C220E0611BC3322F00AC7C85 /* ErrorLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorLogger.swift; sourceTree = "<group>"; };
 		C220E0681BC33A0600AC7C85 /* StateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = StateManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C220E06C1BC33C1D00AC7C85 /* NotReady.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotReady.swift; sourceTree = "<group>"; };
@@ -550,7 +551,6 @@
 		FA93FFF51C5889D6008A2F22 /* DeviceUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceUtil.swift; sourceTree = "<group>"; };
 		FAB97C711C23867F008F5421 /* GeofenceVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceVars.swift; sourceTree = "<group>"; };
 		FAD0418B1C0E66E900D9F8A1 /* LocalGeofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofence.swift; sourceTree = "<group>"; };
-		FAEA59A61C29A1EB009BF1F4 /* Taxi_Waiting_Zone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Taxi_Waiting_Zone.json; sourceTree = "<group>"; };
 		FAEA59A91C29A573009BF1F4 /* DomesticPickupGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomesticPickupGeofenceSpec.swift; sourceTree = "<group>"; };
 		FAF152121C57E35A0053B360 /* InsideBufferedExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsideBufferedExit.swift; sourceTree = "<group>"; };
 		FAF1FBE51C2A07BC008D333F /* TaxiMergedGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaxiMergedGeofenceSpec.swift; sourceTree = "<group>"; };
@@ -1384,10 +1384,10 @@
 		FAB97C6F1C238644008F5421 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				C21421001C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json */,
+				C2196B691CAB1564008E0D93 /* Domestic_Pax_Pickup.json */,
 				C24C8C5C1C77EB09000835F6 /* taxi_sfo_merged.json */,
-				FAEA59A61C29A1EB009BF1F4 /* Taxi_Waiting_Zone.json */,
 				FA0CD4BC1C4972A300C071AC /* Terminal_exit_buffered.json */,
+				C2196B6B1CAB1573008E0D93 /* Taxi_Waiting_Zone.json */,
 			);
 			name = JSON;
 			sourceTree = "<group>";
@@ -1504,7 +1504,9 @@
 				C26ABD271C45ADAF00EF4684 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				FA32EC0E1B883B44001428B5 /* terminal_bg.jpg in Resources */,
 				C26ABD1F1C45ADAF00EF4684 /* OpenSans-BoldItalic.ttf in Resources */,
+				C2196B6A1CAB1564008E0D93 /* Domestic_Pax_Pickup.json in Resources */,
 				C26ABD231C45ADAF00EF4684 /* OpenSans-Light.ttf in Resources */,
+				C2196B6C1CAB1573008E0D93 /* Taxi_Waiting_Zone.json in Resources */,
 				FA32EC0A1B8836B7001428B5 /* yellow_bg.jpg in Resources */,
 				FA32EC091B8836B7001428B5 /* red_bg.jpg in Resources */,
 				C26ABD261C45ADAF00EF4684 /* OpenSans-Semibold.ttf in Resources */,
@@ -1515,9 +1517,7 @@
 				C26ABD221C45ADAF00EF4684 /* OpenSans-Italic.ttf in Resources */,
 				C26ABD241C45ADAF00EF4684 /* OpenSans-LightItalic.ttf in Resources */,
 				E122649E1B795A65002B36CA /* Localizable.strings in Resources */,
-				C21421061C1B7F6D0066DCA5 /* Domestic_Pax_Pickup.json in Resources */,
 				C2DFE5CF1B56D2CB0090B55F /* Images.xcassets in Resources */,
-				FAEA59A71C29A1EB009BF1F4 /* Taxi_Waiting_Zone.json in Resources */,
 				C26ABD251C45ADAF00EF4684 /* OpenSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
