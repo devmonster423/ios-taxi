@@ -13,7 +13,7 @@ Authors
 
 Language
 --------
-* Swift 2.1
+* Swift 2.2
 * iOS 8+
 
 Style
