@@ -59,41 +59,40 @@ class PingManager: NSObject {
   }
 
   func sendPings() {
-    sendNewPing()
-    sendOldPings()
+    makeAndSendNewPing()
+    sendOldPings(TripManager.sharedInstance.getTripId())
   }
   
-  func sendNewPing() {
+  func makeAndSendNewPing() {
 
-    if let location = LocationManager.sharedInstance.getLastKnownLocation(),
+    guard let location = LocationManager.sharedInstance.getLastKnownLocation(),
       let tripId = TripManager.sharedInstance.getTripId(),
       let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId,
-      let vehicleId = DriverManager.sharedInstance.getCurrentVehicle()?.vehicleId
-      {
+      let vehicleId = DriverManager.sharedInstance.getCurrentVehicle()?.vehicleId else
+    {
+      fatalError("invalid ping info")
+    }
     
-        let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion
+    let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion
+
+    let ping = Ping(location: location,
+      tripId: tripId,
+      vehicleId: vehicleId,
+      sessionId: sessionId,
+      medallion: medallion)
     
-        let ping = Ping(location: location,
-          tripId: tripId,
-          vehicleId: vehicleId,
-          sessionId: sessionId,
-          medallion: medallion)
-        
-        postNotification(SfoNotification.Ping.attempting, value: ping)
-        ApiClient.ping(tripId, ping: ping) { success in
-          
-          if success {
-            postNotification(SfoNotification.Ping.created, value: ping)
-          } else {
-            self.appendStrip(ping)
-          }
-        }
+    postNotification(SfoNotification.Ping.created, value: ping)
+    ApiClient.ping(tripId, ping: ping) { success in
+      
+      if !success {
+        self.appendStrip(ping)
+      }
     }
   }
   
-  func sendOldPings() {
+  func sendOldPings(tripId: Int?) {
     if let pingBatch = getPingBatch(),
-      let tripId = TripManager.sharedInstance.getTripId() {
+      let tripId = tripId {
         
         let sentPings = pingBatch.pings
         self.missedPings.removeAll()

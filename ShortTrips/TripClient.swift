@@ -87,6 +87,9 @@ extension ApiClient {
   }
   
   static func invalidate(tripId: Int, invalidation: ValidationStep) {
+    
+    PingManager.sharedInstance.sendOldPings(tripId)
+    
     authedRequest(.POST, Url.Trip.invalidate(tripId), parameters: Mapper().toJSON(TripInvalidation(validationStep: invalidation)))
     .response { _, raw, _, _ in
       
@@ -97,7 +100,6 @@ extension ApiClient {
         }
       } else {
         invalidate(tripId, invalidation: invalidation)
-
       }
     }
   }

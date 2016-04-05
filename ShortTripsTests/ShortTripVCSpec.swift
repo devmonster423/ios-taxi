@@ -64,8 +64,6 @@ class ShortTripVCSpec: QuickSpec {
           transponderId: 2005887,
           vehicleId: 12999)
         
-        postNotification(SfoNotification.Ping.attempting, value: ping)
-        
         postNotification(SfoNotification.Geofence.foundInside, value: [SfoGeofence]())
         
         postNotification(SfoNotification.Location.managerStarted, value: nil)
@@ -73,8 +71,6 @@ class ShortTripVCSpec: QuickSpec {
         postNotification(SfoNotification.Location.read, value: location)
         
         postNotification(SfoNotification.Request.response, value: NSHTTPURLResponse(URL: NSURL(string: Url.Flight.Departure.summary)!, statusCode: 200, HTTPVersion: "HTTP/1.1", headerFields: nil)!)
-        
-        postNotification(SfoNotification.Ping.attempting, value: ping)
         
         postNotification(SfoNotification.Avi.entryGate, value: antenna)
         

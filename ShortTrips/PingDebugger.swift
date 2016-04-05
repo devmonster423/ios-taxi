@@ -12,11 +12,6 @@ import JSQNotificationObserverKit
 extension DebugVC {
   
   func setupPingObservers() {
-    sfoObservers.attemptingPingObserver = NotificationObserver(notification: SfoNotification.Ping.attempting) { ping, _ in
-      
-      self.debugView().printDebugLine("attempting ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
-    }
-    
     sfoObservers.validPingObserver = NotificationObserver(notification: SfoNotification.Ping.valid, handler: { ping, _ in
       self.debugView().printDebugLine("valid ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
     })

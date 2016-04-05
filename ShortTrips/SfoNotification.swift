@@ -46,7 +46,6 @@ struct SfoNotification {
   }
   
   struct Ping {
-    static let attempting = Notification<ShortTrips.Ping, AnyObject>(name: "AttemptingPing")
     static let created = Notification<ShortTrips.Ping, AnyObject>(name: "CreatedPing")
     static let valid = Notification<ShortTrips.Ping, AnyObject>(name: "validPing")
     static let invalid = Notification<ShortTrips.Ping, AnyObject>(name: "invalidPing")
