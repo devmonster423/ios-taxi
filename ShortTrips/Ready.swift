@@ -24,10 +24,17 @@ struct Ready {
       
       postNotification(SfoNotification.State.update, value: self.getState())
       
-      if let location = LocationManager.sharedInstance.getLastKnownLocation(), sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
-          ApiClient.updateMobileState(.Ready, mobileStateInfo: MobileStateInfo(longitude: location.coordinate.longitude,
-            latitude: location.coordinate.latitude,
-            sessionId: sessionId))
+      DriverManager.sharedInstance.callWithValidSession {
+        
+        guard let location = LocationManager.sharedInstance.getLastKnownLocation(),
+          sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId else {
+            
+            fatalError("can't update mobile state")
+        }
+        
+        ApiClient.updateMobileState(.Ready, mobileStateInfo: MobileStateInfo(longitude: location.coordinate.longitude,
+          latitude: location.coordinate.latitude,
+          sessionId: sessionId))
       }
     }
   }

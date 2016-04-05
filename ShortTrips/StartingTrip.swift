@@ -23,11 +23,16 @@ struct StartingTrip {
       
       postNotification(SfoNotification.State.update, value: self.getState())
       
-      if let driver = DriverManager.sharedInstance.getCurrentDriver(),
-      sessionId = driver.sessionId,
-      cardId = driver.cardId,
-      vehicleId = DriverManager.sharedInstance.getCurrentVehicle()?.vehicleId {
-      
+      DriverManager.sharedInstance.callWithValidSession {
+        
+        guard let driver = DriverManager.sharedInstance.getCurrentDriver(),
+          sessionId = driver.sessionId,
+          cardId = driver.cardId,
+          vehicleId = DriverManager.sharedInstance.getCurrentVehicle()?.vehicleId else {
+          
+            fatalError("invalid info when starting trip")
+        }
+          
         let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion
         
         let tripBody = TripBody(sessionId: sessionId,
@@ -38,13 +43,7 @@ struct StartingTrip {
         )
         
         ApiClient.start(tripBody) { tripId in
-          
-          if let tripId = tripId {
-            TripManager.sharedInstance.start(tripId)
-            
-          } else {
-            Failure.sharedInstance.fire()
-          }
+          TripManager.sharedInstance.start(tripId)
         }
       }
     }

@@ -23,34 +23,31 @@ struct ValidatingTrip {
       
       postNotification(SfoNotification.State.update, value: self.getState())
       
-      if let tripId = TripManager.sharedInstance.getTripId(),
-        driver = DriverManager.sharedInstance.getCurrentDriver(),
-        sessionId = driver.sessionId,
-        cardId = driver.cardId,
-        vehicleId = DriverManager.sharedInstance.getCurrentVehicle()?.vehicleId
-         {
-
-          let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion
-          
-          let tripBody = TripBody(sessionId: sessionId,
-            medallion: medallion,
-            vehicleId: vehicleId,
-            smartCardId: cardId,
-            deviceTimestamp: NSDate()
-          )
+      guard let tripId = TripManager.sharedInstance.getTripId(),
+      driver = DriverManager.sharedInstance.getCurrentDriver(),
+      sessionId = driver.sessionId,
+      cardId = driver.cardId,
+      vehicleId = DriverManager.sharedInstance.getCurrentVehicle()?.vehicleId else {
       
-          ApiClient.end(tripId, tripBody: tripBody) { validation in
-            
-            if let validation = validation {
-              if validation.valid! {
-                TripValidated.sharedInstance.fire()
-              } else {
-                TripInvalidated.sharedInstance.fire(validation.validationSteps)
-              }
-            } else {
-              TripInvalidated.sharedInstance.fire()
-            }
-          }
+        fatalError("invalid parameters for end trip")
+      }
+
+      let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion
+      
+      let tripBody = TripBody(sessionId: sessionId,
+        medallion: medallion,
+        vehicleId: vehicleId,
+        smartCardId: cardId,
+        deviceTimestamp: NSDate()
+      )
+  
+      ApiClient.end(tripId, tripBody: tripBody) { validation in
+        
+        if validation.valid! {
+          TripValidated.sharedInstance.fire()
+        } else {
+          TripInvalidated.sharedInstance.fire(validation.validationSteps)
+        }
       }
     }
   }

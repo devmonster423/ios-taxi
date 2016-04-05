@@ -12,8 +12,8 @@ import JSQNotificationObserverKit
 import ObjectMapper
 
 typealias SuccessClosure = Bool -> Void
-typealias TripIdClosure = Int? -> Void
-typealias ValidationClosure = TripValidation? -> Void
+typealias TripIdClosure = Int -> Void
+typealias ValidationClosure = TripValidation -> Void
 
 extension ApiClient {
   static func ping(tripId: Int, ping: Ping, response: SuccessClosure) {
@@ -61,7 +61,12 @@ extension ApiClient {
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
-        response(tripId?.tripId)
+        
+        if let tripId = tripId?.tripId {
+          response(tripId)
+        } else {
+          start(tripBody, response: response)
+        }
     }
   }
   
@@ -73,7 +78,11 @@ extension ApiClient {
           postNotification(SfoNotification.Request.response, value: raw)
         }
         
-        response(validation)
+        if let validation = validation {
+          response(validation)
+        } else {
+          end(tripId, tripBody: tripBody, response: response)
+        }
     }
   }
   
@@ -83,6 +92,12 @@ extension ApiClient {
       
       if let raw = raw {
         postNotification(SfoNotification.Request.response, value: raw)
+        if !StatusCode.isSuccessful(raw.statusCode) {
+          invalidate(tripId, invalidation: invalidation)
+        }
+      } else {
+        invalidate(tripId, invalidation: invalidation)
+
       }
     }
   }

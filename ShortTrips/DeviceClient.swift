@@ -22,6 +22,8 @@ extension ApiClient {
 
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
+        } else {
+          updateMobileState(mobileState, mobileStateInfo: mobileStateInfo)
         }
     }
   }
