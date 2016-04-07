@@ -65,7 +65,9 @@ extension ApiClient {
         if let tripId = tripId?.tripId {
           response(tripId)
         } else {
-          start(tripBody, response: response)
+          dispatch_after(retryInterval, dispatch_get_main_queue()) {
+            start(tripBody, response: response)
+          }
         }
     }
   }
@@ -81,7 +83,9 @@ extension ApiClient {
         if let validation = validation {
           response(validation)
         } else {
-          end(tripId, tripBody: tripBody, response: response)
+          dispatch_after(retryInterval, dispatch_get_main_queue()) {
+            end(tripId, tripBody: tripBody, response: response)
+          }
         }
     }
   }
@@ -96,10 +100,14 @@ extension ApiClient {
       if let raw = raw {
         postNotification(SfoNotification.Request.response, value: raw)
         if !StatusCode.isSuccessful(raw.statusCode) {
-          invalidate(tripId, invalidation: invalidation)
+          dispatch_after(retryInterval, dispatch_get_main_queue()) {
+            invalidate(tripId, invalidation: invalidation)
+          }
         }
       } else {
-        invalidate(tripId, invalidation: invalidation)
+        dispatch_after(retryInterval, dispatch_get_main_queue()) {
+          invalidate(tripId, invalidation: invalidation)
+        }
       }
     }
   }

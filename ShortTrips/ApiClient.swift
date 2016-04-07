@@ -11,6 +11,8 @@ import Alamofire
 
 struct ApiClient {
   
+  static let retryInterval = dispatch_time(DISPATCH_TIME_NOW, Int64(5.0 * Double(NSEC_PER_SEC)))
+  
   private static let sfoUsername = "taxi_short@sfo"
   private static let sfoPassword = "mvUh6tYEwU9nYDrQ"
   
