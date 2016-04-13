@@ -36,6 +36,7 @@ extension ShortTripVC {
     
     sfoObservers.logoutObserver = NotificationObserver(notification: SfoNotification.Driver.logout) { _, _ in
       self.notifyFail(.UserLogout)
+      self.shortTripView().hideNotification()
     }
     
     sfoObservers.stateUpdateObserver = NotificationObserver(notification: SfoNotification.State.update) { state, _ in
