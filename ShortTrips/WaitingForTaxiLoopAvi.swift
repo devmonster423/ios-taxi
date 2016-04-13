@@ -37,8 +37,8 @@ struct WaitingForTaxiLoopAvi {
               } else {
                 postNotification(SfoNotification.Avi.unexpected, value: (expected: .DtaRecirculation, found: device))
                 
-                if !GeofenceManager.sharedInstance.stillInsideDomesticExit() {
-                  NotInsideTaxiLoopExitAfterFailedPaymentCheck.sharedInstance.fire()
+                if !GeofenceManager.sharedInstance.stillInDomesticExitNotInHoldingLot() {
+                  NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.sharedInstance.fire()
                 }
               }
             }

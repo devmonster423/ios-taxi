@@ -143,7 +143,7 @@
 		C29341CE1BD1C6F100A7CB9E /* PingManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29341CD1BD1C6F100A7CB9E /* PingManagerSpec.swift */; };
 		C29341D01BD1C9B300A7CB9E /* GeofenceManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29341CF1BD1C9B300A7CB9E /* GeofenceManagerSpec.swift */; };
 		C29F59EE1C220B2F007EFA1D /* NotInsideTaxiWaitZoneAfterFailedEntryCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F59ED1C220B2F007EFA1D /* NotInsideTaxiWaitZoneAfterFailedEntryCheck.swift */; };
-		C29F59F01C220EB9007EFA1D /* NotInsideTaxiLoopExitAfterFailedPaymentCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F59EF1C220EB9007EFA1D /* NotInsideTaxiLoopExitAfterFailedPaymentCheck.swift */; };
+		C29F59F01C220EB9007EFA1D /* NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F59EF1C220EB9007EFA1D /* NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.swift */; };
 		C29F59F21C221148007EFA1D /* NotInsideSfoAfterFailedReEntryCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F59F11C221148007EFA1D /* NotInsideSfoAfterFailedReEntryCheck.swift */; };
 		C2AB513A1BD02CC0003ACB4C /* LatestCidIsEntryCid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB51391BD02CC0003ACB4C /* LatestCidIsEntryCid.swift */; };
 		C2AB513C1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift */; };
@@ -423,7 +423,7 @@
 		C29341CD1BD1C6F100A7CB9E /* PingManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingManagerSpec.swift; sourceTree = "<group>"; };
 		C29341CF1BD1C9B300A7CB9E /* GeofenceManagerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceManagerSpec.swift; sourceTree = "<group>"; };
 		C29F59ED1C220B2F007EFA1D /* NotInsideTaxiWaitZoneAfterFailedEntryCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotInsideTaxiWaitZoneAfterFailedEntryCheck.swift; sourceTree = "<group>"; };
-		C29F59EF1C220EB9007EFA1D /* NotInsideTaxiLoopExitAfterFailedPaymentCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotInsideTaxiLoopExitAfterFailedPaymentCheck.swift; sourceTree = "<group>"; };
+		C29F59EF1C220EB9007EFA1D /* NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.swift; sourceTree = "<group>"; };
 		C29F59F11C221148007EFA1D /* NotInsideSfoAfterFailedReEntryCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotInsideSfoAfterFailedReEntryCheck.swift; sourceTree = "<group>"; };
 		C2AB51391BD02CC0003ACB4C /* LatestCidIsEntryCid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestCidIsEntryCid.swift; sourceTree = "<group>"; };
 		C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatingDriverAndVehicleAtEntry.swift; sourceTree = "<group>"; };
@@ -744,7 +744,7 @@
 				C285F1DA1C18F56600AA3363 /* LatestCidIsReEntryCid.swift */,
 				E14A39291BE957B80053F741 /* LoggedOut.swift */,
 				C29F59F11C221148007EFA1D /* NotInsideSfoAfterFailedReEntryCheck.swift */,
-				C29F59EF1C220EB9007EFA1D /* NotInsideTaxiLoopExitAfterFailedPaymentCheck.swift */,
+				C29F59EF1C220EB9007EFA1D /* NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.swift */,
 				C29F59ED1C220B2F007EFA1D /* NotInsideTaxiWaitZoneAfterFailedEntryCheck.swift */,
 				C20A98891BE17AEC009E29E7 /* Observable.swift */,
 				FA0CD4B81C4968FB00C071AC /* OutsideBufferedExit.swift */,
@@ -1776,7 +1776,7 @@
 				C2635E2C1BB0CCE4003C22B1 /* DriverClient.swift in Sources */,
 				E107DDA31C6C3C3C00280F01 /* TallTabBarController.swift in Sources */,
 				E1AE8CE31BB5A2E3004E243E /* FlightCell.swift in Sources */,
-				C29F59F01C220EB9007EFA1D /* NotInsideTaxiLoopExitAfterFailedPaymentCheck.swift in Sources */,
+				C29F59F01C220EB9007EFA1D /* NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.swift in Sources */,
 				FAF152131C57E35A0053B360 /* InsideBufferedExit.swift in Sources */,
 				8EEFB7A01BE0324600B8A962 /* WaitingForEntryAvi.swift in Sources */,
 				E15A3CD31BAC86C6002EDE40 /* DriverCredential.swift in Sources */,

@@ -66,7 +66,7 @@ class TripFallbackSpec: QuickSpec {
         InsideTaxiLoopExit.sharedInstance.fire()
         expect(machine.isInState(WaitingForPaymentCid.sharedInstance.getState())).to(beTrue())
         
-        NotInsideTaxiLoopExitAfterFailedPaymentCheck.sharedInstance.fire()
+        NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.sharedInstance.fire()
         expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
       }
       
@@ -96,7 +96,7 @@ class TripFallbackSpec: QuickSpec {
         InsideTaxiLoopExit.sharedInstance.fire()
         expect(machine.isInState(WaitingForPaymentCid.sharedInstance.getState())).to(beTrue())
         
-        NotInsideTaxiLoopExitAfterFailedPaymentCheck.sharedInstance.fire()
+        NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.sharedInstance.fire()
         expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
         
         InsideTaxiLoopExit.sharedInstance.fire()
@@ -105,7 +105,7 @@ class TripFallbackSpec: QuickSpec {
         LatestCidIsPaymentCid.sharedInstance.fire()
         expect(machine.isInState(AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState())).to(beTrue())
         
-        NotInsideTaxiLoopExitAfterFailedPaymentCheck.sharedInstance.fire()
+        NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.sharedInstance.fire()
         expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
         
         InsideTaxiLoopExit.sharedInstance.fire()
@@ -117,7 +117,7 @@ class TripFallbackSpec: QuickSpec {
         DriverAndVehicleAssociated.sharedInstance.fire()
         expect(machine.isInState(WaitingForTaxiLoopAvi.sharedInstance.getState())).to(beTrue())
         
-        NotInsideTaxiLoopExitAfterFailedPaymentCheck.sharedInstance.fire()
+        NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.sharedInstance.fire()
         expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
       }
       

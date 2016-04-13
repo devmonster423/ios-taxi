@@ -35,8 +35,8 @@ struct WaitingForPaymentCid {
               } else {
                 postNotification(SfoNotification.Cid.unexpected, value: (expected: self.expectedCid, found: device))
                 
-                if !GeofenceManager.sharedInstance.stillInsideDomesticExit() {
-                  NotInsideTaxiLoopExitAfterFailedPaymentCheck.sharedInstance.fire()
+                if !GeofenceManager.sharedInstance.stillInDomesticExitNotInHoldingLot() {
+                  NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.sharedInstance.fire()
                 }
               }
             }

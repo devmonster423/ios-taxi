@@ -31,8 +31,8 @@ struct AssociatingDriverAndVehicleAtHoldingLotExit {
             if let vehicle = vehicle where vehicle.isValid() {
               DriverManager.sharedInstance.setCurrentVehicle(vehicle)
               
-            } else if !GeofenceManager.sharedInstance.stillInsideDomesticExit() {
-              NotInsideTaxiLoopExitAfterFailedPaymentCheck.sharedInstance.fire()
+            } else if !GeofenceManager.sharedInstance.stillInDomesticExitNotInHoldingLot() {
+              NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.sharedInstance.fire()
             }
           }
         }

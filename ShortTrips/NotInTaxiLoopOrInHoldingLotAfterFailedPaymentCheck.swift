@@ -10,9 +10,9 @@ import Foundation
 import TransitionKit
 import JSQNotificationObserverKit
 
-struct NotInsideTaxiLoopExitAfterFailedPaymentCheck {
+struct NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck {
   let eventNames = ["NotInsideTaxiLoopExitAfterFailedPaymentCheckHoldingLot", "NotInsideTaxiLoopExitAfterFailedPaymentCheckNotReady"]
-  static let sharedInstance = NotInsideTaxiLoopExitAfterFailedPaymentCheck()
+  static let sharedInstance = NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck()
   
   private var events: [TKEvent]
   
@@ -37,7 +37,7 @@ struct NotInsideTaxiLoopExitAfterFailedPaymentCheck {
   }
 }
 
-extension NotInsideTaxiLoopExitAfterFailedPaymentCheck: Event {
+extension NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck: Event {
   func getEvents() -> [TKEvent] {
     return events
   }

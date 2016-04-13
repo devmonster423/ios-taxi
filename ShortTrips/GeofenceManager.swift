@@ -83,9 +83,9 @@ class GeofenceManager {
     }
   }
   
-  func stillInsideDomesticExit() -> Bool {
+  func stillInDomesticExitNotInHoldingLot() -> Bool {
     if let lastKnownGeofences = lastKnownGeofences {
-      return lastKnownGeofences.contains(.SfoTaxiDomesticExit)
+      return lastKnownGeofences.contains(.SfoTaxiDomesticExit) && !lastKnownGeofences.contains(.TaxiWaitingZone)
     } else {
       return false
     }

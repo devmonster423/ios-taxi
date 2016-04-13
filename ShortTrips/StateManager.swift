@@ -54,7 +54,7 @@ class StateManager {
     events += LatestCidIsReEntryCid.sharedInstance.getEvents()
     events += LoggedOut.sharedInstance.getEvents()
     events += NotInsideSfoAfterFailedReEntryCheck.sharedInstance.getEvents()
-    events += NotInsideTaxiLoopExitAfterFailedPaymentCheck.sharedInstance.getEvents()
+    events += NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.sharedInstance.getEvents()
     events += NotInsideTaxiWaitZoneAfterFailedEntryCheck.sharedInstance.getEvents()
     events += OutsideBufferedExit.sharedInstance.getEvents()
     events += OutsideShortTripGeofence.sharedInstance.getEvents()
