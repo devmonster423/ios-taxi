@@ -57,6 +57,8 @@ class SettingsVC: UIViewController {
   func logout() {
     LoggedOut.sharedInstance.fire()
     DriverCredential.clear()
+    DriverManager.sharedInstance.setCurrentDriver(nil)
+    DriverManager.sharedInstance.setCurrentVehicle(nil)
     self.presentViewController(LoginVC(), animated: true, completion: nil)
   }
 }

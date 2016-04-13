@@ -19,9 +19,9 @@ class DriverManager {
   
   private init() { }
   
-  func setCurrentDriver(driver: Driver) {
+  func setCurrentDriver(driver: Driver?) {
     currentDriver = driver
-    sessionCreationDate = NSDate()
+    sessionCreationDate = driver != nil ? NSDate() : nil
   }
   
   func getCurrentDriver() -> Driver? {
