@@ -28,10 +28,10 @@ class DriverManager {
     return currentDriver
   }
   
-  func setCurrentVehicle(vehicle: Vehicle) {
+  func setCurrentVehicle(vehicle: Vehicle?) {
     currentVehicle = vehicle
     
-    if let driver = getCurrentDriver() {
+    if let driver = getCurrentDriver(), let vehicle = vehicle {
       let driverAndVehicle = (driver: driver, vehicle: vehicle)
       DriverAndVehicleAssociated.sharedInstance.fire(driverAndVehicle)
     }
