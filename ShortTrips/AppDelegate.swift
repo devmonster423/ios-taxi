@@ -52,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationWillTerminate(application: UIApplication) {
+    PendingAppQuit.set(true)
     AppQuit.sharedInstance.fire()
   }
 }

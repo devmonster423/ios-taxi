@@ -48,6 +48,14 @@ class ShortTripVC: UIViewController {
     shortTripView().skipAnyPendingNotifications()
   }
   
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    if PendingAppQuit.get() {
+      AppQuit.sharedInstance.fire()
+    }
+  }
+  
   func shortTripView() -> ShortTripView {
     return self.view as! ShortTripView
   }

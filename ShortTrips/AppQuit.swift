@@ -34,5 +34,6 @@ extension AppQuit: Observable {
       ApiClient.invalidate(tripId, invalidation: .AppQuit)
       TripManager.sharedInstance.reset()
     }
+    PendingAppQuit.set(false)
   }
 }

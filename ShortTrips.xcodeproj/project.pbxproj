@@ -253,6 +253,7 @@
 		FA0CD4C31C49876E00C071AC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CD4C21C49876E00C071AC /* SettingsView.swift */; };
 		FA0CD4C61C4991BD00C071AC /* SettingsVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CD4C51C4991BD00C071AC /* SettingsVCSpec.swift */; };
 		FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0E1FD11BAF1DD500B8F921 /* Font.swift */; };
+		FA22DCCD1CC69AAC004B4104 /* PendingAppQuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA22DCCC1CC69AAC004B4104 /* PendingAppQuit.swift */; };
 		FA27A5391C507C3800278CC6 /* AviManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA27A5381C507C3800278CC6 /* AviManager.swift */; };
 		FA32EC081B8836B7001428B5 /* green_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC051B8836B7001428B5 /* green_bg.jpg */; };
 		FA32EC091B8836B7001428B5 /* red_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC061B8836B7001428B5 /* red_bg.jpg */; };
@@ -539,6 +540,7 @@
 		FA0CD4C21C49876E00C071AC /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FA0CD4C51C4991BD00C071AC /* SettingsVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVCSpec.swift; sourceTree = "<group>"; };
 		FA0E1FD11BAF1DD500B8F921 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		FA22DCCC1CC69AAC004B4104 /* PendingAppQuit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingAppQuit.swift; sourceTree = "<group>"; };
 		FA27A5381C507C3800278CC6 /* AviManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AviManager.swift; sourceTree = "<group>"; };
 		FA32EC051B8836B7001428B5 /* green_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = green_bg.jpg; sourceTree = "<group>"; };
 		FA32EC061B8836B7001428B5 /* red_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red_bg.jpg; sourceTree = "<group>"; };
@@ -1342,6 +1344,7 @@
 				C220E0611BC3322F00AC7C85 /* ErrorLogger.swift */,
 				FA0E1FD11BAF1DD500B8F921 /* Font.swift */,
 				C2B15ADE1BBB16010049B97C /* Image.swift */,
+				FA22DCCC1CC69AAC004B4104 /* PendingAppQuit.swift */,
 				C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */,
 				C26ABD121C45936100EF4684 /* Speaker.swift */,
 				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
@@ -1648,6 +1651,7 @@
 				8E0F5BC51BEBEC83001DE4C2 /* TimerDebugger.swift in Sources */,
 				C2D593681C52CF4600FE2E3F /* GpsIsOff.swift in Sources */,
 				C28ECB221BCECA9700887763 /* TripClient.swift in Sources */,
+				FA22DCCD1CC69AAC004B4104 /* PendingAppQuit.swift in Sources */,
 				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
 				FA27A5391C507C3800278CC6 /* AviManager.swift in Sources */,
 				C285F1D31C18F1C800AA3363 /* AssociatingDriverAndVehicleAtReEntry.swift in Sources */,
