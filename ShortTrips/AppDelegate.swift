@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func applicationWillTerminate(application: UIApplication) {
-    PendingAppQuit.set(true)
+    PendingAppQuit.set(TripManager.sharedInstance.getTripId())
     AppQuit.sharedInstance.fire()
   }
 }

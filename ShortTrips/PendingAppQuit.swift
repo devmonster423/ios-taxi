@@ -12,11 +12,13 @@ struct PendingAppQuit {
   
   private static let appQuitKey = "app_quit"
   
-  static func get() -> Bool {
-    return NSUserDefaults.standardUserDefaults().boolForKey(appQuitKey)
+  static func get() -> Int? {
+    let tripId = NSUserDefaults.standardUserDefaults().integerForKey(appQuitKey)
+    return tripId != 0 ? tripId : nil
   }
   
-  static func set(pendingAppQuit: Bool) {
-    NSUserDefaults.standardUserDefaults().setBool(pendingAppQuit, forKey: appQuitKey)
+  static func set(pendingAppQuit: Int?) {
+    NSUserDefaults.standardUserDefaults()
+      .setInteger(pendingAppQuit ?? 0, forKey: appQuitKey)
   }
 }

@@ -33,7 +33,10 @@ extension AppQuit: Observable {
     if let tripId = TripManager.sharedInstance.getTripId() {
       ApiClient.invalidate(tripId, invalidation: .AppQuit)
       TripManager.sharedInstance.reset()
+      
+    } else if let tripId = info as? Int {
+      ApiClient.invalidate(tripId, invalidation: .AppQuit)
     }
-    PendingAppQuit.set(false)
+    PendingAppQuit.set(nil)
   }
 }
