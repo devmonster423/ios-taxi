@@ -55,11 +55,18 @@ class SettingsVC: UIViewController {
   }
   
   func logout() {
+    let originalSetting = Speaker.sharedInstance.getAudioEnabled()
+    if TripManager.sharedInstance.getTripId() == nil {
+      Speaker.sharedInstance.setAudioEnabled(false)
+    }
+    
     LoggedOut.sharedInstance.fire()
     DriverCredential.clear()
     DriverManager.sharedInstance.setCurrentDriver(nil)
     DriverManager.sharedInstance.setCurrentVehicle(nil)
     self.presentViewController(LoginVC(), animated: true, completion: nil)
+    
+    Speaker.sharedInstance.setAudioEnabled(originalSetting)
   }
 }
 
