@@ -99,7 +99,9 @@ extension ApiClient {
       
       if let raw = raw {
         postNotification(SfoNotification.Request.response, value: raw)
-        if !StatusCode.isSuccessful(raw.statusCode) {
+        if StatusCode.isSuccessful(raw.statusCode) {
+          PendingAppQuit.set(nil)
+        } else {
           dispatch_after(retryInterval, dispatch_get_main_queue()) {
             invalidate(tripId, invalidation: invalidation)
           }

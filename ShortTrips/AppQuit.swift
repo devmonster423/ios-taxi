@@ -37,6 +37,5 @@ extension AppQuit: Observable {
     } else if let tripId = info as? Int {
       ApiClient.invalidate(tripId, invalidation: .AppQuit)
     }
-    PendingAppQuit.set(nil)
   }
 }
