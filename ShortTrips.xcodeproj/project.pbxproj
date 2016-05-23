@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A5C5CCDA2265B353D0DA78E /* Pods_ShortTripsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B2E1471FC1E7980E1937F4B /* Pods_ShortTripsTests.framework */; };
-		46CAAAED448BF790152578F1 /* Pods_ShortTrips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B1E19FBA54D056FC1638C0 /* Pods_ShortTrips.framework */; };
+		7AE3FEB8504BF681D1E5CF41 /* Pods_ShortTripsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D0D6B3C64F34F0EC817BB2 /* Pods_ShortTripsTests.framework */; };
 		8E0F5BC51BEBEC83001DE4C2 /* TimerDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0F5BC41BEBEC83001DE4C2 /* TimerDebugger.swift */; };
 		8E27540E1BF17C2A00F36047 /* GpsDisabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E27540D1BF17C2A00F36047 /* GpsDisabled.swift */; };
 		8EEFB79C1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB79B1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift */; };
@@ -181,6 +180,7 @@
 		C2FE05E81C1B5BE8005D6705 /* TripFallbackSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE05E71C1B5BE8005D6705 /* TripFallbackSpec.swift */; };
 		C2FE05EB1C1B7308005D6705 /* ShortTripVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE05EA1C1B7308005D6705 /* ShortTripVCSpec.swift */; };
 		C2FE05EE1C1B74B1005D6705 /* GtmsLocationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FE05ED1C1B74B1005D6705 /* GtmsLocationSpec.swift */; };
+		C7E0793E5656535F46D13A6A /* Pods_ShortTrips.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7EB32C7BD6117654D80E8F0 /* Pods_ShortTrips.framework */; };
 		E107DDA31C6C3C3C00280F01 /* TallTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E107DDA21C6C3C3C00280F01 /* TallTabBarController.swift */; };
 		E108B1751BA7C1DE00481AF1 /* ReferenceConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */; };
 		E10CE6801BED1DD600322077 /* MockDriverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */; };
@@ -285,10 +285,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		30B1E19FBA54D056FC1638C0 /* Pods_ShortTrips.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTrips.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B5D168C257081EECC4622DB /* Pods-ShortTrips.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.release.xcconfig"; sourceTree = "<group>"; };
-		43660ADF99F3C4FFA42677ED /* Pods-ShortTripsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTripsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests.release.xcconfig"; sourceTree = "<group>"; };
-		7B2E1471FC1E7980E1937F4B /* Pods_ShortTripsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTripsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		01466A94906E687052C64C6D /* Pods-ShortTripsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTripsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		062B5E93B766904C17AAE8C4 /* Pods-ShortTripsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTripsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests.release.xcconfig"; sourceTree = "<group>"; };
+		0AAD3471E4865E0C89C4F4D8 /* Pods-ShortTrips.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.release.xcconfig"; sourceTree = "<group>"; };
+		4F9B7F376ADA1DEE447C0E56 /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
 		8E0F5BC41BEBEC83001DE4C2 /* TimerDebugger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerDebugger.swift; sourceTree = "<group>"; };
 		8E27540D1BF17C2A00F36047 /* GpsDisabled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GpsDisabled.swift; sourceTree = "<group>"; };
 		8EEFB79B1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverAndVehicleAssociated.swift; sourceTree = "<group>"; };
@@ -319,7 +319,8 @@
 		8EEFB7EB1BE2C74D00B8A962 /* PingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingSpec.swift; sourceTree = "<group>"; };
 		8EEFB7ED1BE2C89700B8A962 /* MobileStateChangeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileStateChangeSpec.swift; sourceTree = "<group>"; };
 		8EEFB7EF1BE2CA0500B8A962 /* GeofenceStatusSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceStatusSpec.swift; sourceTree = "<group>"; };
-		A2841470404AFC9081FC84D9 /* Pods-ShortTripsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTripsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A2D0D6B3C64F34F0EC817BB2 /* Pods_ShortTripsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTripsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7EB32C7BD6117654D80E8F0 /* Pods_ShortTrips.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTrips.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C200BE201BA8C21600B7F56F /* TerminalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalView.swift; sourceTree = "<group>"; };
 		C200BE221BA8D05D00B7F56F /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		C200BE261BA8D3A300B7F56F /* HourPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourPickerView.swift; sourceTree = "<group>"; };
@@ -466,7 +467,6 @@
 		C2FE05E71C1B5BE8005D6705 /* TripFallbackSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripFallbackSpec.swift; sourceTree = "<group>"; };
 		C2FE05EA1C1B7308005D6705 /* ShortTripVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortTripVCSpec.swift; sourceTree = "<group>"; };
 		C2FE05ED1C1B74B1005D6705 /* GtmsLocationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GtmsLocationSpec.swift; sourceTree = "<group>"; };
-		D26DC8490578056CC2F124CA /* Pods-ShortTrips.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.debug.xcconfig"; sourceTree = "<group>"; };
 		E107DDA21C6C3C3C00280F01 /* TallTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TallTabBarController.swift; sourceTree = "<group>"; };
 		E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConfig.swift; sourceTree = "<group>"; };
 		E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDriverResponse.swift; sourceTree = "<group>"; };
@@ -567,7 +567,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46CAAAED448BF790152578F1 /* Pods_ShortTrips.framework in Frameworks */,
+				C7E0793E5656535F46D13A6A /* Pods_ShortTrips.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,22 +575,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A5C5CCDA2265B353D0DA78E /* Pods_ShortTripsTests.framework in Frameworks */,
+				7AE3FEB8504BF681D1E5CF41 /* Pods_ShortTripsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8E2A970A9C8DBCF96BAE1FFC /* Pods */ = {
+		8B74D5807C85FD6FDFD99880 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D26DC8490578056CC2F124CA /* Pods-ShortTrips.debug.xcconfig */,
-				3B5D168C257081EECC4622DB /* Pods-ShortTrips.release.xcconfig */,
-				A2841470404AFC9081FC84D9 /* Pods-ShortTripsTests.debug.xcconfig */,
-				43660ADF99F3C4FFA42677ED /* Pods-ShortTripsTests.release.xcconfig */,
+				A7EB32C7BD6117654D80E8F0 /* Pods_ShortTrips.framework */,
+				A2D0D6B3C64F34F0EC817BB2 /* Pods_ShortTripsTests.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8EEFB7CE1BE29CE700B8A962 /* Airline */ = {
@@ -618,15 +616,6 @@
 				FAF6F5D11C2AF55D004B93ED /* ValidationStepSpec.swift */,
 			);
 			name = Trip;
-			sourceTree = "<group>";
-		};
-		8FFA6468425EEFB8C649A389 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				30B1E19FBA54D056FC1638C0 /* Pods_ShortTrips.framework */,
-				7B2E1471FC1E7980E1937F4B /* Pods_ShortTripsTests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C21528BF1BC839050073502F /* Dashboard */ = {
@@ -944,8 +933,8 @@
 				C2DFE5C41B56D2CB0090B55F /* ShortTrips */,
 				C2DFE5DA1B56D2CB0090B55F /* ShortTripsTests */,
 				C2DFE5C31B56D2CB0090B55F /* Products */,
-				8E2A970A9C8DBCF96BAE1FFC /* Pods */,
-				8FFA6468425EEFB8C649A389 /* Frameworks */,
+				ECFDA60F3DFC3A096794C82A /* Pods */,
+				8B74D5807C85FD6FDFD99880 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1309,6 +1298,17 @@
 			name = Driver;
 			sourceTree = "<group>";
 		};
+		ECFDA60F3DFC3A096794C82A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4F9B7F376ADA1DEE447C0E56 /* Pods-ShortTrips.debug.xcconfig */,
+				0AAD3471E4865E0C89C4F4D8 /* Pods-ShortTrips.release.xcconfig */,
+				01466A94906E687052C64C6D /* Pods-ShortTripsTests.debug.xcconfig */,
+				062B5E93B766904C17AAE8C4 /* Pods-ShortTripsTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FA0CD4BE1C49866500C071AC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1413,13 +1413,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2DFE5E11B56D2CB0090B55F /* Build configuration list for PBXNativeTarget "ShortTrips" */;
 			buildPhases = (
-				77B9865E6F0102E402E893AB /* Check Pods Manifest.lock */,
+				E78CC5AE8DDC0F9970FA110F /* 📦 Check Pods Manifest.lock */,
 				C2DFE5BE1B56D2CB0090B55F /* Sources */,
 				C2DFE5BF1B56D2CB0090B55F /* Frameworks */,
 				C2DFE5C01B56D2CB0090B55F /* Resources */,
 				E179C6741BC08BA00093CAA3 /* ShellScript */,
-				93E91376844289B21A197543 /* Embed Pods Frameworks */,
-				A53E088E1C4B3C60F1ACA1BB /* Copy Pods Resources */,
+				6DF1183E24401E20915F9DAA /* 📦 Embed Pods Frameworks */,
+				08357352695D96A677EBDACC /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1434,12 +1434,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2DFE5E41B56D2CB0090B55F /* Build configuration list for PBXNativeTarget "ShortTripsTests" */;
 			buildPhases = (
-				75A521B446DD29C0CA25C98B /* Check Pods Manifest.lock */,
+				89558432B3FCB7C1259DAC8A /* 📦 Check Pods Manifest.lock */,
 				C2DFE5D31B56D2CB0090B55F /* Sources */,
 				C2DFE5D41B56D2CB0090B55F /* Frameworks */,
 				C2DFE5D51B56D2CB0090B55F /* Resources */,
-				FA5229A0F720CEA7C783BC97 /* Embed Pods Frameworks */,
-				4B306ACBF161217EB556D976 /* Copy Pods Resources */,
+				593DC30FCC6D59EDCBB61A12 /* 📦 Embed Pods Frameworks */,
+				8C1E2F328F6E572E9D6E5C8C /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1535,59 +1535,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4B306ACBF161217EB556D976 /* Copy Pods Resources */ = {
+		08357352695D96A677EBDACC /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		75A521B446DD29C0CA25C98B /* Check Pods Manifest.lock */ = {
+		593DC30FCC6D59EDCBB61A12 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		77B9865E6F0102E402E893AB /* Check Pods Manifest.lock */ = {
+		6DF1183E24401E20915F9DAA /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		93E91376844289B21A197543 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1595,19 +1580,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A53E088E1C4B3C60F1ACA1BB /* Copy Pods Resources */ = {
+		89558432B3FCB7C1259DAC8A /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8C1E2F328F6E572E9D6E5C8C /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E179C6741BC08BA00093CAA3 /* ShellScript */ = {
@@ -1623,19 +1623,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" 70883f6b3a82956cddde2edee94634fd28752993 a4f893d80708afc610abe30ca3ef85271393ea93fd3124ee1ee7efdabe39cf03";
 		};
-		FA5229A0F720CEA7C783BC97 /* Embed Pods Frameworks */ = {
+		E78CC5AE8DDC0F9970FA110F /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2014,17 +2014,16 @@
 		};
 		C2DFE5E21B56D2CB0090B55F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D26DC8490578056CC2F124CA /* Pods-ShortTrips.debug.xcconfig */;
+			baseConfigurationReference = 4F9B7F376ADA1DEE447C0E56 /* Pods-ShortTrips.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ShortTrips/ShortTrips.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = ShortTrips/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flysfo.taxiops;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flysfo.short-trips";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2032,25 +2031,24 @@
 		};
 		C2DFE5E31B56D2CB0090B55F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B5D168C257081EECC4622DB /* Pods-ShortTrips.release.xcconfig */;
+			baseConfigurationReference = 0AAD3471E4865E0C89C4F4D8 /* Pods-ShortTrips.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ShortTrips/ShortTrips.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Davis & Associates Communications, Inc. (68966928SB)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Davis & Associates Communications, Inc. (68966928SB)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Exygy (HLT4EP89K7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Exygy (HLT4EP89K7)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = ShortTrips/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.flysfo.taxiops;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flysfo.short-trips";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ccb57de9-3199-4c6f-900b-9ea8437e1f35";
+				PROVISIONING_PROFILE = "f17ba6bd-e2f6-4b10-a7d3-62fe1b3d31ec";
 			};
 			name = Release;
 		};
 		C2DFE5E51B56D2CB0090B55F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2841470404AFC9081FC84D9 /* Pods-ShortTripsTests.debug.xcconfig */;
+			baseConfigurationReference = 01466A94906E687052C64C6D /* Pods-ShortTripsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2072,7 +2070,7 @@
 		};
 		C2DFE5E61B56D2CB0090B55F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43660ADF99F3C4FFA42677ED /* Pods-ShortTripsTests.release.xcconfig */;
+			baseConfigurationReference = 062B5E93B766904C17AAE8C4 /* Pods-ShortTripsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
