@@ -2023,7 +2023,7 @@
 				INFOPLIST_FILE = ShortTrips/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.flysfo.short-trips";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flysfo.taxiops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -2034,15 +2034,15 @@
 			baseConfigurationReference = 0AAD3471E4865E0C89C4F4D8 /* Pods-ShortTrips.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Exygy (HLT4EP89K7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Exygy (HLT4EP89K7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Davis & Associates Communications, Inc. (68966928SB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Davis & Associates Communications, Inc. (68966928SB)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = ShortTrips/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.flysfo.short-trips";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flysfo.taxiops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f17ba6bd-e2f6-4b10-a7d3-62fe1b3d31ec";
+				PROVISIONING_PROFILE = "ccb57de9-3199-4c6f-900b-9ea8437e1f35";
 			};
 			name = Release;
 		};
