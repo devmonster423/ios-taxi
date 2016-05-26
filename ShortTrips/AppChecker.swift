@@ -39,7 +39,7 @@ extension AppChecker where Self: UIViewController {
             style: .Default) { _ in
               
               // go to app store
-              UIApplication.sharedApplication().openURL(NSURL(string: "https://sfoconnect.com/")!)
+              UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/us/app/sfo-taxiq/id1096206222?mt=8")!)
           }
           alertController.addAction(OKAction)
           self.presentViewController(alertController, animated: true, completion: nil)
