@@ -28,7 +28,7 @@ extension AppChecker where Self: UIViewController {
     ApiClient.requestVersion { version in
       
       if let version = version {
-        if version <= Double(versionString) {
+        if version <= Double(versionString)! {
           // version is fine, proceed with getting terms
           self.checkTerms()
           
