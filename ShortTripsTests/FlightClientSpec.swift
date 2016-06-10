@@ -16,6 +16,13 @@ class FlightClientSpec: QuickSpec {
   override func spec() {
     
     describe("the flight client") {
+      
+      beforeEach {
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+      }
+      
       xit("can request flight details") {
         self.stub(uri(Url.Flight.Arrival.details), builder: json(FlightArrivalMock))
         ApiClient.requestFlightsForTerminal(1, hour: 1, flightType: .Arrivals) { flights, statusCode in

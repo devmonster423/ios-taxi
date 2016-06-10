@@ -16,6 +16,12 @@ class PollerSpec: QuickSpec {
     
     describe("the poller") {
       
+      beforeEach {
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+      }
+      
       let poller = Poller.init(action: { })
       
       it("can be created") {

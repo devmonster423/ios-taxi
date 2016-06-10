@@ -20,6 +20,11 @@ class TerminalSummaryVCSpec: QuickSpec {
     describe("the dashboard view controller") {
       
       beforeEach {
+        
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+        
         viewController = TerminalSummaryVC()
         let navigationController = UINavigationController(rootViewController: viewController)
         

@@ -17,6 +17,12 @@ class StatusCodeSpec: QuickSpec {
     
     describe("the status code") {
       
+      beforeEach {
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+      }
+      
       xit("can tell if successful") {
         expect(StatusCode.isSuccessful(200)).to(beTruthy())
       }

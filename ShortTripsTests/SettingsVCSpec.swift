@@ -20,6 +20,11 @@ class SettingsVCSpec: QuickSpec {
     describe("the settings view controller") {
       
       beforeEach {
+        
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+        
         viewController = SettingsVC()
         let navigationController = UINavigationController(rootViewController: viewController)
         

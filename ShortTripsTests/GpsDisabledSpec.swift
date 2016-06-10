@@ -17,6 +17,10 @@ class GpsDisabledSpec: QuickSpec {
     describe("the trip manager") {
       
       beforeEach {
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+        
         Util.testingGps = false
       }
       

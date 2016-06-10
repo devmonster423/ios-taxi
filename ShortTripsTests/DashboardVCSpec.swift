@@ -20,6 +20,11 @@ class DashboardVCSpec: QuickSpec {
     describe("the dashboard view controller") {
       
       beforeEach {
+        
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+        
         viewController = DashboardVC()
         let navigationController = UINavigationController(rootViewController: viewController)
         

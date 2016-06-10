@@ -16,6 +16,12 @@ class DriverManagerSpec: QuickSpec {
     
     describe("the driver manager") {
       
+      beforeEach {
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+      }
+      
       it("can save and load a driver") {
         
         let driver = Driver(sessionId: 1,

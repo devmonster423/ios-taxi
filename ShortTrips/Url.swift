@@ -15,6 +15,10 @@ struct Url {
 //#endif
   
   static let queueStatus = base + "status/queue"
+
+  static func isDevUrl() -> Bool {
+    return base == "https://216.9.96.29:9000/taxiws/services/taxi/"
+  }
   
   struct Airline {
     private static let airline = base + "airline/"

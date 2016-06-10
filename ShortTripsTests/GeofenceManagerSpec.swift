@@ -21,6 +21,12 @@ class GeofenceManagerSpec: QuickSpec {
     
     describe("the geofence manager") {
       
+      beforeEach {
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+      }
+      
       let geofenceManager = GeofenceManager.sharedInstance
       
       it("can be created") {

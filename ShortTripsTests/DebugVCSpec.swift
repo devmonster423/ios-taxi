@@ -22,6 +22,11 @@ class DebugVCSpec: QuickSpec {
     describe("the dashboard view controller") {
       
       beforeEach {
+        
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+        
         viewController = DebugVC()
         let navigationController = UINavigationController(rootViewController: viewController)
         

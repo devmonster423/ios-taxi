@@ -19,7 +19,12 @@ class AutoLoginVCSpec: QuickSpec {
     
     describe("the dashboard view controller") {
       
+      
       beforeEach {
+        
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
         
         let driverCredential = DriverCredential(username: "testdriver6", password: "testdriver6@")
         driverCredential.save()

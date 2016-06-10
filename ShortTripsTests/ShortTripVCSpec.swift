@@ -22,6 +22,10 @@ class ShortTripVCSpec: QuickSpec {
       
       beforeEach {
         
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+        
         // this is to test that initial text is there in entry cid state
         InsideTaxiWaitingZone.sharedInstance.fire()
         

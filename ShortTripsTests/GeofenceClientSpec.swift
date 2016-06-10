@@ -14,6 +14,13 @@ import Mockingjay
 class GeofenceClientSpec: QuickSpec {
     override func spec() {
     describe("the geofence client") {
+      
+      beforeEach {
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+      }
+      
       xit("can request geofences for a given location that should be in SFO geofence") {
         self.stub(uri(Url.Geofence.locations), builder: json(MultipleGeofenceMock))
         ApiClient.requestGeofencesForLocation(37.621313,

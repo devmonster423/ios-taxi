@@ -17,6 +17,12 @@ class MainTabBarSpec: QuickSpec {
     
     describe("the tab bar controller") {
       
+      beforeEach {
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+      }
+      
       it("can instantiate") {
         expect(MainTabBarController).toNot(beNil())
       }

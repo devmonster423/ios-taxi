@@ -18,6 +18,12 @@ class TripClientSpec: QuickSpec {
     
     describe("the trip client") {
       
+      beforeEach {
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+      }
+      
       xit("can ping") {
         
         let tripId = 1;
@@ -44,6 +50,7 @@ class TripClientSpec: QuickSpec {
         )
         
         self.stub(uri(Url.Trip.start), builder: json(TripStartMock))
+        
         ApiClient.start(tripBody) { geofences in
           expect(geofences).toNot(beNil())
         }

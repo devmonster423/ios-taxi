@@ -16,10 +16,16 @@ class AirlineClientSpec: QuickSpec {
   override func spec() {
     
     describe("the airline client") {
+      
+      beforeEach {
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+      }
+      
       xit("can request codes") {
         
-        self.stub(uri(Url.Airline.codes), builder: json(IataCodeMock))
-        
+        self.stub(uri(Url.Airline.codes), builder: json(IataCodeMock))        
         ApiClient.codes { airlines, error in
           expect(airlines).toNot(beNil())
         }

@@ -17,6 +17,12 @@ class DriverClientSpec: QuickSpec {
     
     describe("the driver client") {
       
+      beforeEach {
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+      }
+      
       xit("can login") {
         self.stub(uri(Url.Driver.login), builder: json(DriverLoginMock))
 

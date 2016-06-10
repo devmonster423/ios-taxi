@@ -15,6 +15,13 @@ class TripScenario8Spec: QuickSpec {
   override func spec() {
     
     describe("the trip manager") {
+      
+      beforeEach {
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+      }
+      
       it("can handle scenario 8") {
         let machine = StateManager.sharedInstance.getMachine()
         

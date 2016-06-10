@@ -18,6 +18,12 @@ class PingManagerSpec: QuickSpec {
     
     describe("the ping manager") {
       
+      beforeEach {
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+      }
+      
       let pingManager = PingManager.sharedInstance
       
       it("can be created") {

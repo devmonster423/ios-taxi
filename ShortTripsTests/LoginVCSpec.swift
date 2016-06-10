@@ -21,6 +21,10 @@ class LoginVCSpec: QuickSpec {
       
       beforeEach {
         
+        if !Url.isDevUrl() {
+          fatalError("can't call this when not logged in")
+        }
+        
         DriverCredential.clear()
         
         viewController = LoginVC(startup: false)
