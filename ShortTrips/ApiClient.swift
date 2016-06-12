@@ -24,11 +24,13 @@ struct ApiClient {
     -> Request
   {
     let request = Alamofire.request(method, URLString, parameters: parameters, encoding: encoding, headers: headers())
-    return request.authenticate(user: sfoUsername, password: sfoPassword, persistence: .Permanent)
+    return request // request.authenticate(user: sfoUsername, password: sfoPassword, persistence: .Permanent)
   }
   
   static func headers() -> [String: String]? {
     var headers = [String: String]()
+    
+    headers["Authorization"] = "Basic dGF4aV9zaG9ydEBzZm86bXZVaDZ0WUV3VTluWURyUQ=="
     
     if let driverId = DriverManager.sharedInstance.getCurrentDriver()?.driverId {
       headers["driver"] = "\(driverId)"
