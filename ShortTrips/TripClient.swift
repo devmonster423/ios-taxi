@@ -16,6 +16,9 @@ typealias TripIdClosure = Int -> Void
 typealias ValidationClosure = TripValidation -> Void
 
 extension ApiClient {
+  
+  static let maxTripRestarts = 10
+  
   static func ping(tripId: Int, ping: Ping, response: SuccessClosure) {
     
     if PingKiller.sharedInstance.shouldKillPings() && Util.debug {
@@ -54,7 +57,7 @@ extension ApiClient {
     }
   }
   
-  static func start(tripBody: TripBody, response: TripIdClosure) {
+  static func start(tripBody: TripBody, retryCount: Int = 0, response: TripIdClosure) {
     authedRequest(.POST, Url.Trip.start, parameters: Mapper().toJSON(tripBody))
       .responseObject { (_, raw, tripId: TripId?, _, _) in
         
@@ -64,10 +67,12 @@ extension ApiClient {
         
         if let tripId = tripId?.tripId {
           response(tripId)
-        } else {
+        } else if retryCount < maxTripRestarts {
           dispatch_after(retryInterval, dispatch_get_main_queue()) {
-            start(tripBody, response: response)
+            start(tripBody, retryCount: retryCount + 1, response: response)
           }
+        } else {
+          Failure.sharedInstance.fire()
         }
     }
   }
