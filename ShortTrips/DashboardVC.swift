@@ -15,7 +15,6 @@ class DashboardVC: UIViewController {
   
   override func loadView() {
     let dashboardView = DashboardView(frame: UIScreen.mainScreen().bounds)
-    dashboardView.timerView.start(requestLotStatus, updateInterval: 60)
 //#if DEBUG
 //    let secretSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(DashboardVC.openDebugMode))
 //    secretSwipeRecognizer.numberOfTouchesRequired = 2
@@ -31,6 +30,16 @@ class DashboardVC: UIViewController {
     requestLotStatus()
     configureNavBar(title: NSLocalizedString("Holding Lot", comment: "").uppercaseString)
     addSettingsButton()
+  }
+
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    dashboardView().timerView.start(requestLotStatus, updateInterval: 60)
+  }
+
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    dashboardView().timerView.stop()
   }
     
   func dashboardView() -> DashboardView {

@@ -47,7 +47,6 @@ class TerminalSummaryVC: UIViewController {
     terminalSummaryView.grayView.addGestureRecognizer(UITapGestureRecognizer(target: self,
       action: #selector(TerminalSummaryVC.hidePicker(_:))))
     
-    terminalSummaryView.timerView.start(updateTerminalTable, updateInterval: 60 * 5)
     view = terminalSummaryView
   }
   
@@ -58,6 +57,16 @@ class TerminalSummaryVC: UIViewController {
     updateTerminalTable()
     terminalSummaryView().picker.delegate = self
     terminalSummaryView().picker.dataSource = self
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    terminalSummaryView().timerView.start(updateTerminalTable, updateInterval: 60 * 5)
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    terminalSummaryView().timerView.stop()
   }
   
   func terminalSummaryView() -> TerminalSummaryView {

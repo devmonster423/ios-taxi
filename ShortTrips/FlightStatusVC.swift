@@ -28,7 +28,6 @@ class FlightStatusVC: UIViewController {
     flightStatusView.flightTable.dataSource = self
     flightStatusView.flightTable.delegate = self
     flightStatusView.flightTable.registerClass(FlightCell.self, forCellReuseIdentifier: FlightCell.identifier)
-    flightStatusView.timerView.start(updateFlightTable, updateInterval: 60 * 5)
     view = flightStatusView
   }
   
@@ -42,6 +41,12 @@ class FlightStatusVC: UIViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     flightStatusView().tableHeader.text = selectedTerminalId.asLocalizedString() + " " + flightType.asLocalizedString()
+    flightStatusView().timerView.start(updateFlightTable, updateInterval: 60 * 5)
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    flightStatusView().timerView.stop()
   }
   
   func flightStatusView() -> FlightStatusView {
