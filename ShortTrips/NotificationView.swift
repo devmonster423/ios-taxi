@@ -11,17 +11,25 @@ import UIKit
 import SnapKit
 
 class NotificationView: UIView {
-
+  
   private let notificationLabel = UILabel()
   private let notificationImageView = UIImageView()
-
+  
+  private var timer: NSTimer!
+  
+  static var formatter: NSDateFormatter {
+    let formatter = NSDateFormatter()
+    formatter.dateFormat = "MM/dd/yyyy - hh:mm:ss a"
+    return formatter
+  }
+  
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
   }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-  
+    
     addSubview(notificationLabel)
     addSubview(notificationImageView)
     
@@ -32,19 +40,33 @@ class NotificationView: UIView {
     notificationImageView.contentMode = .ScaleAspectFit
   }
   
+  func updateNotificationLabelSuccessText() {
+    notificationLabel.text = NSLocalizedString("Valid short trip", comment: "").uppercaseString
+      + "\n"
+      + NotificationView.formatter.stringFromDate(NSDate())
+  }
+  
   func notifySuccess() {
     backgroundColor = Color.Trip.Notification.green
-    notificationLabel.font = Font.OpenSansSemibold.size(30)
-    notificationLabel.text = NSLocalizedString("Valid short trip", comment: "").uppercaseString
+    notificationLabel.font = Font.OpenSansSemibold.size(20)
+    updateNotificationLabelSuccessText()
     notificationImageView.image = Image.checkmark.image()
     notificationImageView.alpha = 1
     Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a valid short trip.", comment: ""))
+    
+    timer = NSTimer.scheduledTimerWithTimeInterval(
+      1,
+      target: self,
+      selector: #selector(updateNotificationLabelSuccessText),
+      userInfo: nil,
+      repeats: true
+    )
     
     notificationLabel.snp_remakeConstraints { make in
       make.leading.equalTo(self).offset(25)
       make.trailing.equalTo(self).offset(-25)
       make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
-      make.height.equalTo(50)
+      make.height.equalTo(100)
     }
     
     notificationImageView.snp_remakeConstraints { make in
@@ -53,7 +75,7 @@ class NotificationView: UIView {
       make.top.equalTo(notificationLabel.snp_bottom)
       make.bottom.equalTo(self).offset(-50)
     }
-
+    
     notificationLabel.setNeedsUpdateConstraints()
     self.layoutIfNeeded()
   }
@@ -123,7 +145,8 @@ class NotificationView: UIView {
     }
     notificationImageView.alpha = 1
     notificationLabel.setNeedsUpdateConstraints()
-    UIView.animateWithDuration(duration,
+    UIView.animateWithDuration(
+      duration,
       delay: delay,
       options: UIViewAnimationOptions.CurveEaseInOut,
       animations: {
