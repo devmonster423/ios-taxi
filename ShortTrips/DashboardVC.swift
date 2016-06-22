@@ -26,20 +26,39 @@ class DashboardVC: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    navigationItem.title = "";
-    requestLotStatus()
+    navigationItem.title = ""
     configureNavBar(title: NSLocalizedString("Holding Lot", comment: "").uppercaseString)
     addSettingsButton()
+    
+    NSNotificationCenter.defaultCenter().addObserver(
+      self,
+      selector: #selector(stopTimer),
+      name: UIApplicationDidEnterBackgroundNotification,
+      object: nil)
+    
+    NSNotificationCenter.defaultCenter().addObserver(
+      self,
+      selector: #selector(startTimer),
+      name: UIApplicationWillEnterForegroundNotification,
+      object: nil)
   }
-
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
+  
+  func startTimer() {
     dashboardView().timerView.start(requestLotStatus, updateInterval: 60)
   }
-
+  
+  func stopTimer() {
+    dashboardView().timerView.stop()
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    startTimer()
+  }
+  
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
-    dashboardView().timerView.stop()
+    stopTimer()
   }
     
   func dashboardView() -> DashboardView {

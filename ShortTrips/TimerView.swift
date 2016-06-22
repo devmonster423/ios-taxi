@@ -13,8 +13,8 @@ typealias TimerCallback = () -> Void
 class TimerView: UIView {
 
   // behavior properties
-  private var callback: TimerCallback?
-  private var elapsedSeconds: NSTimeInterval = 0
+  private var callback: TimerCallback!
+  private var lastUpdateDate: NSDate?
   private var timer: NSTimer?
   private var updateInterval: NSTimeInterval!
   
@@ -53,12 +53,6 @@ class TimerView: UIView {
     }
   }
 
-  func resetProgress() {
-    updateLabel.text = NSLocalizedString("LAST UPDATED LESS THAN A MINUTE AGO", comment: "")
-    progressView.progress = 0.0
-    elapsedSeconds = 0
-  }
-
   func updateForTime(elapsedSeconds: NSTimeInterval) {
     if elapsedSeconds < 60 {
       updateLabel.text = NSLocalizedString("LAST UPDATED LESS THAN A MINUTE AGO", comment: "")
@@ -72,26 +66,39 @@ class TimerView: UIView {
     progressView.progress = Float(elapsedSeconds) / Float(updateInterval)
   }
   
-  // behavior
-  
-  func start(callback: TimerCallback?, updateInterval: NSTimeInterval) {
+  func start(callback: TimerCallback, updateInterval: NSTimeInterval) {
     self.callback = callback
     self.updateInterval = updateInterval
     timer?.invalidate()
     weak var weakSelf = self
     timer = NSTimer.scheduledTimerWithTimeInterval(UiConstants.Timer.updateInterval,
       target: weakSelf!,
-      selector: #selector(TimerView.eachSecond),
+      selector: #selector(eachSecond),
       userInfo: nil,
       repeats: true)
+    eachSecond()
+  }
+  
+  func resetProgress() {
+    updateLabel.text = NSLocalizedString("LAST UPDATED LESS THAN A MINUTE AGO", comment: "")
+    progressView.progress = 0.0
+    lastUpdateDate = NSDate()
+  }
+  
+  func updateAndRefresh() {
+    resetProgress()
+    callback()
   }
   
   func eachSecond() {
-    elapsedSeconds += 1
-    updateForTime(elapsedSeconds)
-    if elapsedSeconds >= updateInterval {
-      resetProgress()
-      callback?()
+    if let lastUpdateDate = lastUpdateDate {
+      let elapsedSeconds = -lastUpdateDate.timeIntervalSinceNow
+      updateForTime(elapsedSeconds)
+      if elapsedSeconds >= updateInterval {
+        updateAndRefresh()
+      }
+    } else {
+      updateAndRefresh()
     }
   }
   

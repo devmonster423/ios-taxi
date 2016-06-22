@@ -34,19 +34,38 @@ class FlightStatusVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureNavBar(back: true, title: NSLocalizedString("Flight Status", comment: "").uppercaseString)
-    updateFlightTable()
     addSettingsButton()
+    
+    NSNotificationCenter.defaultCenter().addObserver(
+      self,
+      selector: #selector(stopTimer),
+      name: UIApplicationDidEnterBackgroundNotification,
+      object: nil)
+    
+    NSNotificationCenter.defaultCenter().addObserver(
+      self,
+      selector: #selector(startTimer),
+      name: UIApplicationWillEnterForegroundNotification,
+      object: nil)
+  }
+  
+  func startTimer() {
+    flightStatusView().timerView.start(updateFlightTable, updateInterval: 60 * 5)
+  }
+  
+  func stopTimer() {
+    flightStatusView().timerView.stop()
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     flightStatusView().tableHeader.text = selectedTerminalId.asLocalizedString() + " " + flightType.asLocalizedString()
-    flightStatusView().timerView.start(updateFlightTable, updateInterval: 60 * 5)
+    startTimer()
   }
   
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
-    flightStatusView().timerView.stop()
+    stopTimer()
   }
   
   func flightStatusView() -> FlightStatusView {

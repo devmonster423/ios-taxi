@@ -54,23 +54,42 @@ class TerminalSummaryVC: UIViewController {
     super.viewDidLoad()
     configureNavBar(title: NSLocalizedString("Flight Status", comment: "").uppercaseString)
     addSettingsButton()
-    updateTerminalTable()
     terminalSummaryView().picker.delegate = self
     terminalSummaryView().picker.dataSource = self
+    
+    NSNotificationCenter.defaultCenter().addObserver(
+      self,
+      selector: #selector(stopTimer),
+      name: UIApplicationDidEnterBackgroundNotification,
+      object: nil)
+    
+    NSNotificationCenter.defaultCenter().addObserver(
+      self,
+      selector: #selector(startTimer),
+      name: UIApplicationWillEnterForegroundNotification,
+      object: nil)
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    terminalSummaryView().timerView.start(updateTerminalTable, updateInterval: 60 * 5)
+    startTimer()
   }
   
   override func viewWillDisappear(animated: Bool) {
     super.viewWillDisappear(animated)
-    terminalSummaryView().timerView.stop()
+    stopTimer()
   }
   
   func terminalSummaryView() -> TerminalSummaryView {
     return view as! TerminalSummaryView
+  }
+  
+  func startTimer() {
+    terminalSummaryView().timerView.start(updateTerminalTable, updateInterval: 60 * 5)
+  }
+  
+  func stopTimer() {
+    terminalSummaryView().timerView.stop()
   }
   
   private func updateTerminalTable() {
