@@ -68,7 +68,7 @@ extension ApiClient {
         if let tripId = tripId?.tripId {
           response(tripId)
         } else if retryCount < maxTripRestarts {
-          dispatch_after(retryInterval, dispatch_get_main_queue()) {
+          dispatch_after(retryInterval(), dispatch_get_main_queue()) {
             start(tripBody, retryCount: retryCount + 1, response: response)
           }
         } else {
@@ -88,7 +88,7 @@ extension ApiClient {
         if let validation = validation {
           response(validation)
         } else {
-          dispatch_after(retryInterval, dispatch_get_main_queue()) {
+          dispatch_after(retryInterval(), dispatch_get_main_queue()) {
             end(tripId, tripBody: tripBody, response: response)
           }
         }
@@ -107,12 +107,12 @@ extension ApiClient {
         if StatusCode.isSuccessful(raw.statusCode) {
           PendingAppQuit.set(nil)
         } else {
-          dispatch_after(retryInterval, dispatch_get_main_queue()) {
+          dispatch_after(retryInterval(), dispatch_get_main_queue()) {
             invalidate(tripId, invalidation: invalidation)
           }
         }
       } else {
-        dispatch_after(retryInterval, dispatch_get_main_queue()) {
+        dispatch_after(retryInterval(), dispatch_get_main_queue()) {
           invalidate(tripId, invalidation: invalidation)
         }
       }

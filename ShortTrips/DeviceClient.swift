@@ -23,7 +23,7 @@ extension ApiClient {
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         } else {
-          dispatch_after(retryInterval, dispatch_get_main_queue()) {
+          dispatch_after(retryInterval(), dispatch_get_main_queue()) {
             updateMobileState(mobileState, mobileStateInfo: mobileStateInfo)
           }
         }
