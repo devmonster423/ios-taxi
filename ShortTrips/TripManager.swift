@@ -23,10 +23,6 @@ class TripManager: NSObject {
     return tripId
   }
   
-  func setRightAfterValidShort(rightAfterValidShort: Bool) {
-    self.rightAfterValidShort = rightAfterValidShort
-  }
-  
   func getRightAfterValidShort() -> Bool {
     return rightAfterValidShort
   }
