@@ -15,6 +15,7 @@ class TripManager: NSObject {
   private var startTime: NSDate?
   private var tripId: Int?
   private var tripTimer: NSTimer?
+  private var rightAfterValidShort = false
   private static let timerInterval: NSTimeInterval = 5.0
   private static let tripLengthLimit: NSTimeInterval = 2 * 60 * 60 // 2 hours
   
@@ -22,11 +23,20 @@ class TripManager: NSObject {
     return tripId
   }
   
-  func reset() {
+  func setRightAfterValidShort(rightAfterValidShort: Bool) {
+    self.rightAfterValidShort = rightAfterValidShort
+  }
+  
+  func getRightAfterValidShort() -> Bool {
+    return rightAfterValidShort
+  }
+  
+  func reset(validShort: Bool) {
     PingManager.sharedInstance.stop()
     tripTimer?.invalidate()
     tripId = nil
     startTime = nil
+    rightAfterValidShort = validShort
   }
 
   func setStartTime(time: NSDate) {

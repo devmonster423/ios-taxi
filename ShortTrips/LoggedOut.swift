@@ -36,7 +36,7 @@ extension LoggedOut: Observable {
     
     if let tripId = TripManager.sharedInstance.getTripId() {
       ApiClient.invalidate(tripId, invalidation: .UserLogout)
-      TripManager.sharedInstance.reset()
+      TripManager.sharedInstance.reset(false)
       
       if let location = LocationManager.sharedInstance.getLastKnownLocation(), sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
         ApiClient.updateMobileState(.LoggedOut, mobileStateInfo: MobileStateInfo(longitude: location.coordinate.longitude,

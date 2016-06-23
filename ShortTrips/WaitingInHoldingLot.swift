@@ -22,7 +22,7 @@ struct WaitingInHoldingLot {
     state.setDidEnterStateBlock { _, transition  in
       postNotification(SfoNotification.State.update, value: self.getState())
       
-      let intervalSec: Double = TripValidated.sharedInstance.getEvents().contains(transition.event)
+      let intervalSec: Double = TripManager.sharedInstance.getRightAfterValidShort()
         ? 60
         : 60 * 10
       

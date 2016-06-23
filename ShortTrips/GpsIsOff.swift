@@ -20,7 +20,7 @@ struct GpsIsOff {
     state = TKState(name: stateName)
     
     state.setDidEnterStateBlock { _, _ in
-      TripManager.sharedInstance.reset()
+      TripManager.sharedInstance.reset(false)
       postNotification(SfoNotification.State.update, value: self.getState())
     }
   }
