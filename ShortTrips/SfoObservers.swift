@@ -54,6 +54,6 @@ struct SfoObservers {
   var invalidatedObserver: NotificationObserver<[ValidationStepWrapper]?, AnyObject>?
   var timeExpiredObserver: NotificationObserver<Any?, AnyObject>?
   var tripStartedObserver: NotificationObserver<Int, AnyObject>?
-  var validatedObserver: NotificationObserver<Any?, AnyObject>?
+  var validatedObserver: NotificationObserver<NSDate, AnyObject>?
   var warningObserver: NotificationObserver<TripWarning, AnyObject>?
 }

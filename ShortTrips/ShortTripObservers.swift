@@ -51,8 +51,8 @@ extension ShortTripVC {
       self.notifyFail(.Duration)
     }
     
-    sfoObservers.validatedObserver = NotificationObserver(notification: SfoNotification.Trip.validated) { _, _ in
-      self.shortTripView().notifySuccess()
+    sfoObservers.validatedObserver = NotificationObserver(notification: SfoNotification.Trip.validated) { date, _ in
+      self.shortTripView().notifySuccess(date)
     }
   }
   

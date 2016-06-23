@@ -15,11 +15,9 @@ class NotificationView: UIView {
   private let notificationLabel = UILabel()
   private let notificationImageView = UIImageView()
   
-  private var timer: NSTimer!
-  
   static var formatter: NSDateFormatter {
     let formatter = NSDateFormatter()
-    formatter.dateFormat = "MM/dd/yyyy - hh:mm:ss a"
+    formatter.dateFormat = "MM/dd/yyyy - hh:mm a"
     return formatter
   }
   
@@ -40,27 +38,16 @@ class NotificationView: UIView {
     notificationImageView.contentMode = .ScaleAspectFit
   }
   
-  func updateNotificationLabelSuccessText() {
-    notificationLabel.text = NSLocalizedString("Valid short trip", comment: "").uppercaseString
-      + "\n"
-      + NotificationView.formatter.stringFromDate(NSDate())
-  }
-  
-  func notifySuccess() {
+  func notifySuccess(date: NSDate) {
+    
     backgroundColor = Color.Trip.Notification.green
     notificationLabel.font = Font.OpenSansSemibold.size(20)
-    updateNotificationLabelSuccessText()
+    notificationLabel.text = NSLocalizedString("Valid short trip", comment: "").uppercaseString
+      + "\n"
+      + NotificationView.formatter.stringFromDate(date)
     notificationImageView.image = Image.checkmark.image()
     notificationImageView.alpha = 1
     Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a valid short trip.", comment: ""))
-    
-    timer = NSTimer.scheduledTimerWithTimeInterval(
-      1,
-      target: self,
-      selector: #selector(updateNotificationLabelSuccessText),
-      userInfo: nil,
-      repeats: true
-    )
     
     notificationLabel.snp_remakeConstraints { make in
       make.leading.equalTo(self).offset(25)

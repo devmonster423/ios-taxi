@@ -73,7 +73,7 @@ class ShortTripView: UIView {
     }
   }
   
-  func notifySuccess() {
+  func notifySuccess(date: NSDate) {
     
     notificationView.snp_remakeConstraints { make in
       make.height.equalTo(self)
@@ -84,7 +84,7 @@ class ShortTripView: UIView {
     notificationView.setNeedsUpdateConstraints()
     layoutIfNeeded()
     
-    notificationView.notifySuccess()
+    notificationView.notifySuccess(date)
     notificationView.hidden = false
   }
   
