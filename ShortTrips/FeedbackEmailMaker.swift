@@ -11,25 +11,30 @@ import MessageUI
 import CoreTelephony
 
 struct FeedbackEmailMaker {
-  static func make(delegate: MFMailComposeViewControllerDelegate) -> MFMailComposeViewController {
+  static func make(delegate: MFMailComposeViewControllerDelegate) -> MFMailComposeViewController? {
     
-    var messageBody = "\n\n\n\n\n"
-      + UIDevice.currentDevice().modelName
-      + "\n"
-      + UIDevice.currentDevice().systemName
-      + " "
-      + UIDevice.currentDevice().systemVersion
+    if !MFMailComposeViewController.canSendMail() {
+      return nil
+    } else {
     
-    if let carrier = CTTelephonyNetworkInfo().subscriberCellularProvider?.carrierName {
-      messageBody += "\n" + carrier
+      var messageBody = "\n\n\n\n\n"
+        + UIDevice.currentDevice().modelName
+        + "\n"
+        + UIDevice.currentDevice().systemName
+        + " "
+        + UIDevice.currentDevice().systemVersion
+      
+      if let carrier = CTTelephonyNetworkInfo().subscriberCellularProvider?.carrierName {
+        messageBody += "\n" + carrier
+      }
+      
+      let mc: MFMailComposeViewController = MFMailComposeViewController()
+      mc.setSubject("App Feedback")
+      mc.setMessageBody(messageBody, isHTML: false)
+      mc.setToRecipients(["taxiops@flysfo.com"])
+      mc.mailComposeDelegate = delegate
+      
+      return mc
     }
-    
-    let mc: MFMailComposeViewController = MFMailComposeViewController()
-    mc.setSubject("App Feedback")
-    mc.setMessageBody(messageBody, isHTML: false)
-    mc.setToRecipients(["taxiops@flysfo.com"])
-    mc.mailComposeDelegate = delegate
-    
-    return mc
   }
 }

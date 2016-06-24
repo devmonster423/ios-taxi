@@ -24,6 +24,7 @@
 "Logout" = "Logout";
 "Are you sure?" = "Are you sure?";
 "Cancel" = "Cancel";
+"Unable to send email" = "Unable to send email";
 
 /*Trip Prompts */
 "Allow this app to use your location" = "Allow this app to use your location";

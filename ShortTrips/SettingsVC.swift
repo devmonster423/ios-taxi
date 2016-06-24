@@ -38,6 +38,17 @@ class SettingsVC: UIViewController {
     settingsView.tableView.reloadData()
   }
   
+  func showUnableToSendMail() {
+    let alertController = UIAlertController(title: NSLocalizedString("Unable to send email", comment: ""),
+                                            message: "",
+                                            preferredStyle: .Alert)
+    
+    let cancelAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Default, handler: nil)
+    alertController.addAction(cancelAction)
+    
+    presentViewController(alertController, animated: true, completion: nil)
+  }
+  
   func showLogoutConfirm() {
     let alertController = UIAlertController(title: NSLocalizedString("Are you sure?", comment: ""),
       message: "",
@@ -128,7 +139,11 @@ extension SettingsVC: UITableViewDelegate {
       Speaker.sharedInstance.setAudioEnabled(!Speaker.sharedInstance.getAudioEnabled())
       tableView.reloadData()
     case .Feedback:
-      self.presentViewController(FeedbackEmailMaker.make(self), animated: true, completion: nil)
+      if let emailMaker = FeedbackEmailMaker.make(self) {
+        self.presentViewController(emailMaker, animated: true, completion: nil)
+      } else {
+        showUnableToSendMail()
+      }
     case .Logout:
       showLogoutConfirm()
     }
