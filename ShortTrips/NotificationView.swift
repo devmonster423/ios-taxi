@@ -41,7 +41,7 @@ class NotificationView: UIView {
   func notifySuccess(date: NSDate) {
     
     backgroundColor = Color.Trip.Notification.green
-    notificationLabel.font = Font.OpenSansSemibold.size(20)
+    notificationLabel.font = Font.OpenSansSemibold.size(30)
     notificationLabel.text = NSLocalizedString("Valid short trip", comment: "").uppercaseString
       + "\n"
       + NotificationView.formatter.stringFromDate(date)
