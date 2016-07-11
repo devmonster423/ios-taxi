@@ -30,7 +30,7 @@ struct WaitingForTaxiLoopAvi {
             if let antenna = antenna, let device = antenna.device() {
               
               if (device == .DtaRecirculation || device == .TaxiMainLot)
-                && antenna.aviDate.timeIntervalSinceNow > -(60*60) {
+                && antenna.aviDate.timeIntervalSinceNow > -(15*60) {
                   
                 LatestAviAtTaxiLoop.sharedInstance.fire(antenna)
                   
