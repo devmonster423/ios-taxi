@@ -9,7 +9,7 @@
 /* Startup Checks */
 "App version out of date." = "App version out of date.";
 "You will be redirected to the App Store." = "You will be redirected to the App Store.";
-"Required version check failed." = "Required version check failed.";
+"Required version check failed." = "Please check your Internet connection.";
 "Required terms and conditions check failed." = "Required terms and conditions check failed.";
 "Terms and Conditions" = "Terms and Conditions";
 "By tapping 'I agree' below, you are agreeing to these terms:\n\n" = "By tapping 'I agree' below, you are agreeing to these terms:\n\n";
