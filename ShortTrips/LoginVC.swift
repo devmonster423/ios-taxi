@@ -71,7 +71,7 @@ class LoginVC: UIViewController {
         }
         
       } else {
-        let alertController = UIAlertController(title: NSLocalizedString("Error", comment: ""),
+        let alertController = UIAlertController(title: "",
           message: NSLocalizedString("An error occurred while logging in.", comment: ""),
           preferredStyle: .Alert)
         let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
