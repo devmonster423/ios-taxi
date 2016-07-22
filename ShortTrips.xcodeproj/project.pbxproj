@@ -64,7 +64,6 @@
 		C21775F91BB08CAC008B24EA /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21775F81BB08CAC008B24EA /* Color.swift */; };
 		C21905681BB0B74E00A3E779 /* Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905671BB0B74E00A3E779 /* Url.swift */; };
 		C219056A1BB0C87200A3E779 /* DeviceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21905691BB0C87200A3E779 /* DeviceClient.swift */; };
-		C2196B6A1CAB1564008E0D93 /* Domestic_Pax_Pickup.json in Resources */ = {isa = PBXBuildFile; fileRef = C2196B691CAB1564008E0D93 /* Domestic_Pax_Pickup.json */; };
 		C2196B6C1CAB1573008E0D93 /* Taxi_Waiting_Zone.json in Resources */ = {isa = PBXBuildFile; fileRef = C2196B6B1CAB1573008E0D93 /* Taxi_Waiting_Zone.json */; };
 		C220E0621BC3322F00AC7C85 /* ErrorLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E0611BC3322F00AC7C85 /* ErrorLogger.swift */; };
 		C220E0691BC33A0600AC7C85 /* StateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C220E0681BC33A0600AC7C85 /* StateManager.swift */; };
@@ -86,6 +85,7 @@
 		C221EDE51BE2CB1700BDB4CD /* TripWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDE41BE2CB1700BDB4CD /* TripWarning.swift */; };
 		C221EDE71BE2CD3200BDB4CD /* ExitAviCheckComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDE61BE2CD3200BDB4CD /* ExitAviCheckComplete.swift */; };
 		C221EDEB1BE2E12E00BDB4CD /* MockAntennaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDEA1BE2E12E00BDB4CD /* MockAntennaResponse.swift */; };
+		C22A7F671D4148060091607E /* Domestic_Pax_Pickup.json in Resources */ = {isa = PBXBuildFile; fileRef = C22A7F661D4148060091607E /* Domestic_Pax_Pickup.json */; };
 		C23315851BB472490079B916 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23315841BB472490079B916 /* Airline.swift */; };
 		C24388431C447B4E00984CB8 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24388421C447B4E00984CB8 /* NotificationView.swift */; };
 		C24C8C5D1C77EB09000835F6 /* taxi_sfo_merged.json in Resources */ = {isa = PBXBuildFile; fileRef = C24C8C5C1C77EB09000835F6 /* taxi_sfo_merged.json */; };
@@ -347,7 +347,6 @@
 		C21775F81BB08CAC008B24EA /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C21905671BB0B74E00A3E779 /* Url.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Url.swift; sourceTree = "<group>"; };
 		C21905691BB0C87200A3E779 /* DeviceClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceClient.swift; sourceTree = "<group>"; };
-		C2196B691CAB1564008E0D93 /* Domestic_Pax_Pickup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Domestic_Pax_Pickup.json; sourceTree = "<group>"; };
 		C2196B6B1CAB1573008E0D93 /* Taxi_Waiting_Zone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Taxi_Waiting_Zone.json; sourceTree = "<group>"; };
 		C220E0611BC3322F00AC7C85 /* ErrorLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorLogger.swift; sourceTree = "<group>"; };
 		C220E0681BC33A0600AC7C85 /* StateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = StateManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -369,6 +368,7 @@
 		C221EDE41BE2CB1700BDB4CD /* TripWarning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripWarning.swift; sourceTree = "<group>"; };
 		C221EDE61BE2CD3200BDB4CD /* ExitAviCheckComplete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExitAviCheckComplete.swift; sourceTree = "<group>"; };
 		C221EDEA1BE2E12E00BDB4CD /* MockAntennaResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAntennaResponse.swift; sourceTree = "<group>"; };
+		C22A7F661D4148060091607E /* Domestic_Pax_Pickup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Domestic_Pax_Pickup.json; sourceTree = "<group>"; };
 		C23315841BB472490079B916 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		C24388421C447B4E00984CB8 /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		C24C8C5C1C77EB09000835F6 /* taxi_sfo_merged.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taxi_sfo_merged.json; sourceTree = "<group>"; };
@@ -1387,7 +1387,7 @@
 		FAB97C6F1C238644008F5421 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				C2196B691CAB1564008E0D93 /* Domestic_Pax_Pickup.json */,
+				C22A7F661D4148060091607E /* Domestic_Pax_Pickup.json */,
 				C24C8C5C1C77EB09000835F6 /* taxi_sfo_merged.json */,
 				FA0CD4BC1C4972A300C071AC /* Terminal_exit_buffered.json */,
 				C2196B6B1CAB1573008E0D93 /* Taxi_Waiting_Zone.json */,
@@ -1507,7 +1507,7 @@
 				C26ABD271C45ADAF00EF4684 /* OpenSans-SemiboldItalic.ttf in Resources */,
 				FA32EC0E1B883B44001428B5 /* terminal_bg.jpg in Resources */,
 				C26ABD1F1C45ADAF00EF4684 /* OpenSans-BoldItalic.ttf in Resources */,
-				C2196B6A1CAB1564008E0D93 /* Domestic_Pax_Pickup.json in Resources */,
+				C22A7F671D4148060091607E /* Domestic_Pax_Pickup.json in Resources */,
 				C26ABD231C45ADAF00EF4684 /* OpenSans-Light.ttf in Resources */,
 				C2196B6C1CAB1573008E0D93 /* Taxi_Waiting_Zone.json in Resources */,
 				FA32EC0A1B8836B7001428B5 /* yellow_bg.jpg in Resources */,
