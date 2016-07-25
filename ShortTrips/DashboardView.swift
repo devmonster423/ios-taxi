@@ -85,7 +85,8 @@ class DashboardView: UIView {
   }
   
   func updateSpots(length length: Int, capacity: Int) {
-    let remaining = capacity - length
+    let rawRemaining = capacity - length
+    let remaining = rawRemaining > 0 ? rawRemaining : 0
     let percent: Int = remaining * 100 / capacity
     numberLabel.text = "\(remaining)"
     spotsLabel.text = String(format: NSLocalizedString("out of %@ spots", comment: ""), arguments: ["\(capacity)"]).uppercaseString
