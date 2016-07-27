@@ -11,9 +11,7 @@ import SnapKit
 
 class DashboardView: UIView {
 
-  private let spotsLabel = UILabel()
   private let numberLabel = UILabel()
-  private let circlesImage = UIImageView()
   let timerView = TimerView()
 
   required init(coder aDecoder: NSCoder) {
@@ -25,22 +23,27 @@ class DashboardView: UIView {
     backgroundColor = UIColor.whiteColor()
     addSubview(timerView)
     
-    let bgView = UIView()
-    bgView.backgroundColor = Color.Dashboard.lightBlue
-    addSubview(bgView)
-    bgView.snp_makeConstraints { make in
+    let taxisCaptionLabel = UILabel()
+    taxisCaptionLabel.backgroundColor = Color.Dashboard.lightBlue
+    taxisCaptionLabel.font = Font.OpenSansBold.size(32)
+    taxisCaptionLabel.text = NSLocalizedString("Taxis in lot", comment: "").uppercaseString
+    taxisCaptionLabel.textAlignment = .Center
+    taxisCaptionLabel.textColor = Color.Dashboard.darkBlue
+    addSubview(taxisCaptionLabel)
+    taxisCaptionLabel.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(105)
-      make.left.equalTo(self)
-      make.right.equalTo(self)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
       make.bottom.equalTo(timerView.snp_top)
     }
-    
+
+    let circlesImage = UIImageView()
     circlesImage.image = Image.bgCircles.image()
     circlesImage.contentMode = .ScaleAspectFit
     addSubview(circlesImage)
     circlesImage.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(self).offset(20)
-      make.bottom.equalTo(bgView.snp_top).offset(-20)
+      make.bottom.equalTo(taxisCaptionLabel.snp_top).offset(-20)
       make.leading.equalTo(self).offset(50)
       make.trailing.equalTo(self).offset(-50)
     }
@@ -54,28 +57,6 @@ class DashboardView: UIView {
       make.centerY.equalTo(circlesImage.snp_centerY)
     }
     
-    let availableLabel = UILabel()
-    availableLabel.font = Font.OpenSansBold.size(32)
-    availableLabel.text = NSLocalizedString("Are Available", comment: "").uppercaseString
-    availableLabel.textAlignment = .Center
-    availableLabel.textColor = Color.Dashboard.darkBlue
-    addSubview(availableLabel)
-    availableLabel.snp_makeConstraints { (make) -> Void in
-      make.height.equalTo(30)
-      make.leading.equalTo(self)
-      make.trailing.equalTo(self)
-      make.bottom.equalTo(bgView).offset(-15)
-    }
-    
-    spotsLabel.font = Font.OpenSansSemibold.size(28)
-    spotsLabel.textAlignment = .Center
-    addSubview(spotsLabel)
-    spotsLabel.snp_makeConstraints { (make) -> Void in
-      make.leading.equalTo(self)
-      make.trailing.equalTo(self)
-      make.bottom.equalTo(availableLabel.snp_top).offset(-10)
-    }
-    
     timerView.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(UiConstants.Dashboard.progressHeight)
       make.bottom.equalTo(self)
@@ -84,18 +65,7 @@ class DashboardView: UIView {
     }
   }
   
-  func updateSpots(length length: Int, capacity: Int) {
-    let rawRemaining = capacity - length
-    let remaining = rawRemaining > 0 ? rawRemaining : 0
-    let percent: Int = remaining * 100 / capacity
-    numberLabel.text = "\(remaining)"
-    spotsLabel.text = String(format: NSLocalizedString("out of %@ spots", comment: ""), arguments: ["\(capacity)"]).uppercaseString
-    if percent > 50 {
-      spotsLabel.textColor = Color.StatusColor.green
-    } else if percent > 25 {
-      spotsLabel.textColor = Color.StatusColor.yellow
-    } else {
-      spotsLabel.textColor = Color.StatusColor.red
-    }
+  func updateSpots(length: Int) {
+    numberLabel.text = "\(length)"
   }
 }

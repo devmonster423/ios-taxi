@@ -105,8 +105,7 @@
 "Flight Status" = "Flight Status";
 "Requesting Lot Status..." = "Requesting Lot Status...";
 "Holding Lot" = "Holding Lot";
-"Are Available" = "Are Available";
-"%@ out of %@ spots" = "%@ out of %@ spots";
+"Taxis in lot" = "Taxis in lot";
 
 /* Flight Status */
 "Terminals" = "Terminals";

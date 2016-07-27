@@ -69,12 +69,12 @@ class DashboardVC: UIViewController {
     let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
     hud.labelText = NSLocalizedString("Requesting Lot Status", comment: "")
     
-    ApiClient.requestQueueLengthAndCapacity { info in
+    ApiClient.requestQueueLength { length in
       
       hud.hide(true)
       
-      if let info = info {
-        self.dashboardView().updateSpots(length: info.length, capacity: info.capacity)
+      if let length = length {
+        self.dashboardView().updateSpots(length.longQueueLength)
         
       } else if !self.errorShown
         && self.tabBarController?.selectedIndex == MainTabs.Lot.rawValue
