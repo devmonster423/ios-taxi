@@ -32,10 +32,8 @@
 "Location services required." = "Location services required.";
 "Go to your phone's Settings app. Select Privacy, then Location Services, and allow this app to use your location" = "Go to your phone's Settings app. Select Privacy, then Location Services, and allow this app to use your location";
 "Go to SFO holding lot to start your next trip" = "Go to SFO holding lot to start your next trip";
-"Dispatch to the curbside occurs after payment is made." = "Dispatch to the curbside occurs after payment is made.";
-"Payment required for curbside pickup." = "Payment required for curbside pickup.";
+"Waiting for dispatch" = "Waiting for dispatch";
 "The trip will start when the vehicle exits SFO." = "The trip will start when the vehicle exits SFO.";
-"Dispatch to the curbside occurs after payment is made." = "Dispatch to the curbside occurs after payment is made.";
 "The trip has started and will be monitored." = "The trip has started and will be monitored.";
 "Trip in progress." = "Trip in progress.";
 "Your trip is now a long" = "Your trip is now a long";

@@ -23,7 +23,7 @@ enum StatePrompt {
     case .GoToSfo:
       return NSLocalizedString("SFO Garage Entry Required Prior to Next Trip", comment: "").uppercaseString
     case .Pay:
-      return NSLocalizedString("Payment Required For Curbside Pickup", comment: "").uppercaseString
+      return NSLocalizedString("Waiting for dispatch", comment: "").uppercaseString
     case .Ready:
       return NSLocalizedString("Trip Pending Until Exit From SFO", comment: "").uppercaseString
     case .InProgress:
@@ -40,7 +40,7 @@ enum StatePrompt {
     case .Ready:
       return NSLocalizedString("The trip will start when the vehicle exits SFO.", comment: "")
     case .Pay:
-      return NSLocalizedString("Dispatch to the curbside occurs after payment is made.", comment: "")
+      return NSLocalizedString("Waiting for dispatch", comment: "")
     default:
       return visualString()
     }
@@ -53,7 +53,7 @@ enum StatePrompt {
     case .GoToSfo:
       return Image.map.image()
     case .Pay:
-      return Image.card.image()
+      return Image.hourglass.image()
     case .Ready:
       return Image.mapPin.image()
     case .InProgress:
