@@ -24,7 +24,7 @@ class DomesticPickupGeofenceSpec: QuickSpec {
       
       it("denotes a bad point as being outside the geofence") {
         
-        let badPoint = CLLocationCoordinate2D(latitude: 37.615091, longitude: -122.390150)
+        let badPoint = CLLocationCoordinate2D(latitude: 37.617515, longitude: -122.398274)
         
         expect(GeofenceArbiter.checkLocation(badPoint, againstFeatures: domesticPickupGeofence.features)).to(beFalse())
       }
