@@ -16,7 +16,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   let manager = CLLocationManager()
   
   static let sharedInstance = LocationManager()
-
+  
   private var lastKnownLocation: CLLocation?
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
   
@@ -29,7 +29,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
       self.lastKnownLocation = location
     }
   }
-
+  
   func start() {
     
     if #available(iOS 9.0, *) {
@@ -37,7 +37,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     // this might solve the "lunch issue"
-//    manager.activityType = .AutomotiveNavigation
+    // manager.activityType = .AutomotiveNavigation
     manager.pausesLocationUpdatesAutomatically = false
     manager.delegate = self
     manager.desiredAccuracy = kCLLocationAccuracyBestForNavigation
@@ -46,13 +46,13 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     manager.startUpdatingLocation()
     postNotification(SfoNotification.Location.managerStarted, value: nil)
   }
-
+  
   func stop() {
     manager.stopUpdatingLocation()
   }
   
   func locationManager(manager: CLLocationManager,
-    didUpdateLocations locations: [CLLocation]) {
+                       didUpdateLocations locations: [CLLocation]) {
     
     if self.bgId == nil {
       self.bgId = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { _ in
@@ -62,27 +62,27 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
       }
     }
+    
+    if let location = locations.last {
+      self.lastKnownLocation = location
       
-      if let location = locations.last {
-        self.lastKnownLocation = location
-      
-        if location.horizontalAccuracy < requiredAccuracy {
-          postNotification(SfoNotification.Location.read, value: location)
-        }
+      if location.horizontalAccuracy < requiredAccuracy {
+        postNotification(SfoNotification.Location.read, value: location)
       }
+    }
   }
-
+  
   func locationManager(manager: CLLocationManager,
-    didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-      
-      postNotification(SfoNotification.Location.statusUpdated, value: status)
-      if status == .AuthorizedAlways {
-        GpsEnabled.sharedInstance.fire()
-      } else {
-        GpsDisabled.sharedInstance.fire()
-      }
+                       didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    
+    postNotification(SfoNotification.Location.statusUpdated, value: status)
+    if status == .AuthorizedAlways {
+      GpsEnabled.sharedInstance.fire()
+    } else {
+      GpsDisabled.sharedInstance.fire()
+    }
   }
-
+  
   func getLastKnownLocation() -> CLLocation? {
     return lastKnownLocation
   }
