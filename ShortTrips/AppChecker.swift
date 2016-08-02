@@ -23,12 +23,10 @@ extension AppChecker where Self: UIViewController {
   
   func checkVersion() {
     
-    let versionString = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
-    
     ApiClient.requestVersion { version in
       
       if let version = version {
-        if version <= Double(versionString)! {
+        if version <= Double(Util.versionString())! {
           // version is fine, proceed with getting terms
           self.checkTerms()
           

@@ -26,6 +26,10 @@ struct Util {
     }
   }
   
+  static func versionString() -> String {
+    return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+  }
+  
   static func isIphone4Or5() -> Bool {
     return UIScreen.mainScreen().bounds.size.height <= 568
   }

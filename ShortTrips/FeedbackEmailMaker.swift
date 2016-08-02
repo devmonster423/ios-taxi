@@ -23,6 +23,9 @@ struct FeedbackEmailMaker {
         + UIDevice.currentDevice().systemName
         + " "
         + UIDevice.currentDevice().systemVersion
+        + "\n"
+        + "Version: "
+        + Util.versionString()
       
       if let carrier = CTTelephonyNetworkInfo().subscriberCellularProvider?.carrierName {
         messageBody += "\n" + carrier

@@ -102,7 +102,7 @@ extension SettingsVC: UITableViewDataSource {
     switch SettingsSection(rawValue: section)! {
     case .Logout:
       if let name = DriverManager.sharedInstance.getCurrentDriver()?.fullName() {
-        return NSLocalizedString("Logged in as: ", comment: "") + name
+        return NSLocalizedString("Logged in as: ", comment: "") + name + ". " + NSLocalizedString("Version: ", comment: "") + Util.versionString()
       } else {
         return nil
       }
