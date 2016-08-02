@@ -17,7 +17,7 @@ typealias ValidationClosure = TripValidation -> Void
 
 extension ApiClient {
   
-  static let maxTripRestarts = 10
+  static let maxTripRestarts = 50
   
   static func ping(tripId: Int, ping: Ping, response: SuccessClosure) {
     
