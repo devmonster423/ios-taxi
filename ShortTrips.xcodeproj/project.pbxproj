@@ -472,7 +472,6 @@
 		E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDriverResponse.swift; sourceTree = "<group>"; };
 		E112C3021BB2FD2500B1DF48 /* GeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceSpec.swift; sourceTree = "<group>"; };
 		E11D60961BA7A40100FD4276 /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geofence.swift; sourceTree = "<group>"; };
-		E122649F1B795A65002B36CA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E12264A11B795A6F002B36CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E1259FD11BF167B200EA0628 /* MockTripIdResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTripIdResponse.swift; sourceTree = "<group>"; };
 		E12A62461BF1157700440B57 /* MockReferenceConfigResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockReferenceConfigResponse.swift; sourceTree = "<group>"; };
@@ -1919,7 +1918,6 @@
 		E12264A01B795A65002B36CA /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E122649F1B795A65002B36CA /* fr */,
 				E12264A11B795A6F002B36CA /* Base */,
 			);
 			name = Localizable.strings;
