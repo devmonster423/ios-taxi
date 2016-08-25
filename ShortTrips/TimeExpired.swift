@@ -33,8 +33,10 @@ extension TimeExpired: Observable {
   func eventIsFiring(info: Any?) {
     postNotification(SfoNotification.Trip.timeExpired, value: nil)
 
-    if let tripId = TripManager.sharedInstance.getTripId() {
-      ApiClient.invalidate(tripId, invalidation: .Duration)
+    if let tripId = TripManager.sharedInstance.getTripId(),
+      let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
+
+      ApiClient.invalidate(tripId, invalidation: .Duration, sessionId: sessionId)
       TripManager.sharedInstance.reset(false)
     }
   }

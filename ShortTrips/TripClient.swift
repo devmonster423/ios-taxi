@@ -95,11 +95,11 @@ extension ApiClient {
     }
   }
   
-  static func invalidate(tripId: Int, invalidation: ValidationStep) {
+  static func invalidate(tripId: Int, invalidation: ValidationStep, sessionId: Int) {
     
     PingManager.sharedInstance.sendOldPings(tripId)
     
-    authedRequest(.POST, Url.Trip.invalidate(tripId), parameters: Mapper().toJSON(TripInvalidation(validationStep: invalidation)))
+    authedRequest(.POST, Url.Trip.invalidate(tripId), parameters: Mapper().toJSON(TripInvalidation(validationStep: invalidation, sessionId: sessionId)))
     .response { _, raw, _, _ in
       
       if let raw = raw {
@@ -108,12 +108,12 @@ extension ApiClient {
           PendingAppQuit.set(nil)
         } else {
           dispatch_after(retryInterval(), dispatch_get_main_queue()) {
-            invalidate(tripId, invalidation: invalidation)
+            invalidate(tripId, invalidation: invalidation, sessionId: sessionId)
           }
         }
       } else {
         dispatch_after(retryInterval(), dispatch_get_main_queue()) {
-          invalidate(tripId, invalidation: invalidation)
+          invalidate(tripId, invalidation: invalidation, sessionId: sessionId)
         }
       }
     }

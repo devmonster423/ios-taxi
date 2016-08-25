@@ -33,8 +33,10 @@ extension GpsDisabled: Event {
 
 extension GpsDisabled: Observable {
   func eventIsFiring(info: Any?) {
-    if let tripId = TripManager.sharedInstance.getTripId() {
-      ApiClient.invalidate(tripId, invalidation: .GpsFailure)
+    if let tripId = TripManager.sharedInstance.getTripId(),
+      let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
+
+      ApiClient.invalidate(tripId, invalidation: .GpsFailure, sessionId: sessionId)
       TripManager.sharedInstance.reset(false)
     }
   }

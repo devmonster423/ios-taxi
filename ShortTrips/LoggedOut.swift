@@ -34,8 +34,10 @@ extension LoggedOut: Observable {
     
     postNotification(SfoNotification.Driver.logout, value: nil)
     
-    if let tripId = TripManager.sharedInstance.getTripId() {
-      ApiClient.invalidate(tripId, invalidation: .UserLogout)
+    if let tripId = TripManager.sharedInstance.getTripId(),
+      let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
+
+      ApiClient.invalidate(tripId, invalidation: .UserLogout, sessionId: sessionId)
       TripManager.sharedInstance.reset(false)
       
       if let location = LocationManager.sharedInstance.getLastKnownLocation(), sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {

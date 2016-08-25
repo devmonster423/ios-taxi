@@ -30,12 +30,15 @@ extension AppQuit: Event {
 
 extension AppQuit: Observable {
   func eventIsFiring(info: Any?) {
-    if let tripId = TripManager.sharedInstance.getTripId() {
-      ApiClient.invalidate(tripId, invalidation: .AppQuit)
-      TripManager.sharedInstance.reset(false)
-      
-    } else if let tripId = info as? Int {
-      ApiClient.invalidate(tripId, invalidation: .AppQuit)
+    if let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
+      if let tripId = TripManager.sharedInstance.getTripId() {
+
+        ApiClient.invalidate(tripId, invalidation: .AppQuit, sessionId: sessionId)
+        TripManager.sharedInstance.reset(false)
+
+      } else if let tripId = info as? Int {
+        ApiClient.invalidate(tripId, invalidation: .AppQuit, sessionId: sessionId)
+      }
     }
   }
 }

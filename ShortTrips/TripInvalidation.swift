@@ -11,10 +11,12 @@ import ObjectMapper
 
 struct TripInvalidation: Mappable {
   var deviceTimestamp: NSDate!
+  var sessionId: Int!
   var validationStep: Int!
   
-  init(validationStep: ValidationStep) {
+  init(validationStep: ValidationStep, sessionId: Int) {
     self.validationStep = validationStep.rawValue
+    self.sessionId = sessionId
     self.deviceTimestamp = NSDate()
   }
   
@@ -22,6 +24,7 @@ struct TripInvalidation: Mappable {
   
   mutating func mapping(map: Map) {
     deviceTimestamp <- (map["device_timestamp"], TripDateTransform)
+    sessionId <- map["session_id"]
     validationStep <- map["step"]
   }
 }
