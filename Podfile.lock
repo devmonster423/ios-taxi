@@ -37,6 +37,7 @@ PODS:
     - PivotalCoreKit/UIKit/SpecHelper/Support
   - PivotalCoreKit/UIKit/SpecHelper/Support (0.3.0)
   - Quick (0.9.0)
+  - ReachabilitySwift (2.3.3)
   - SnapKit (0.15.0)
   - TransitionKit (2.2.1)
   - URITemplate (1.3.0)
@@ -55,6 +56,7 @@ DEPENDENCIES:
   - PivotalCoreKit (= 0.3.0)
   - PivotalCoreKit/UIKit/SpecHelper/Extensions
   - Quick (= 0.9.0)
+  - ReachabilitySwift (= 2.3.3)
   - SnapKit (= 0.15.0)
   - TransitionKit (= 2.2.1)
 
@@ -72,10 +74,11 @@ SPEC CHECKSUMS:
   ObjectMapper: fa286b7cb5a398f1b0d8d64d0dd33fd1b307022c
   PivotalCoreKit: 3dab7cf9bff77eb49ce7ffc7a84e57fa8591f033
   Quick: 332eb1da73125a2106dd637424c803f2ae97e4a9
+  ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   TransitionKit: 9ceccda4cd0cdc0a05ef85eb235e5a3292c3c250
   URITemplate: 0ebbec80d1eb59a89e29db9b14c99d5908d3e574
 
-PODFILE CHECKSUM: 6712dd7ef6ba476d96efec510a71ba7ce9abc63c
+PODFILE CHECKSUM: 8fa6de54bc5e501802a72faa94b3ebe4582c49ac
 
 COCOAPODS: 1.0.0

@@ -88,6 +88,7 @@
 		C22A7F671D4148060091607E /* Domestic_Pax_Pickup.json in Resources */ = {isa = PBXBuildFile; fileRef = C22A7F661D4148060091607E /* Domestic_Pax_Pickup.json */; };
 		C23315851BB472490079B916 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23315841BB472490079B916 /* Airline.swift */; };
 		C24388431C447B4E00984CB8 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24388421C447B4E00984CB8 /* NotificationView.swift */; };
+		C24AA69F1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AA69E1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift */; };
 		C24C8C5D1C77EB09000835F6 /* taxi_sfo_merged.json in Resources */ = {isa = PBXBuildFile; fileRef = C24C8C5C1C77EB09000835F6 /* taxi_sfo_merged.json */; };
 		C257FB3D1BC44E4200468CF1 /* GeofenceArbiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C257FB3C1BC44E4200468CF1 /* GeofenceArbiter.swift */; };
 		C25C9D2B1BEC057A0028FA81 /* TripScenario7Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25C9D2A1BEC057A0028FA81 /* TripScenario7Spec.swift */; };
@@ -154,6 +155,7 @@
 		C2BC85101C24832B005FC6F8 /* AutoLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC850F1C24832B005FC6F8 /* AutoLoginView.swift */; };
 		C2BC85141C24912F005FC6F8 /* SettingsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85131C24912F005FC6F8 /* SettingsExtension.swift */; };
 		C2BC85171C249CA0005FC6F8 /* NavBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */; };
+		C2C04A651D70E48900037E4E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C04A641D70E48900037E4E /* Reachability.swift */; };
 		C2CE0B141C1219AB00496607 /* LocalGeofenceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */; };
 		C2D2899B1C3B094300A636AA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D2899A1C3B094300A636AA /* MainTabBarController.swift */; };
 		C2D593661C52CEA600FE2E3F /* GpsEnabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D593651C52CEA600FE2E3F /* GpsEnabled.swift */; };
@@ -371,6 +373,7 @@
 		C22A7F661D4148060091607E /* Domestic_Pax_Pickup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Domestic_Pax_Pickup.json; sourceTree = "<group>"; };
 		C23315841BB472490079B916 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
 		C24388421C447B4E00984CB8 /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		C24AA69E1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingAppQuitSpec.swift; sourceTree = "<group>"; };
 		C24C8C5C1C77EB09000835F6 /* taxi_sfo_merged.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taxi_sfo_merged.json; sourceTree = "<group>"; };
 		C257FB3C1BC44E4200468CF1 /* GeofenceArbiter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceArbiter.swift; sourceTree = "<group>"; };
 		C25C9D2A1BEC057A0028FA81 /* TripScenario7Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TripScenario7Spec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -437,6 +440,7 @@
 		C2BC850F1C24832B005FC6F8 /* AutoLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLoginView.swift; sourceTree = "<group>"; };
 		C2BC85131C24912F005FC6F8 /* SettingsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsExtension.swift; sourceTree = "<group>"; };
 		C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarExtension.swift; sourceTree = "<group>"; };
+		C2C04A641D70E48900037E4E /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofenceFeature.swift; sourceTree = "<group>"; };
 		C2D2899A1C3B094300A636AA /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C2D593651C52CEA600FE2E3F /* GpsEnabled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GpsEnabled.swift; sourceTree = "<group>"; };
@@ -670,6 +674,7 @@
 				C2635E291BB0CC86003C22B1 /* FlightClient.swift */,
 				C2635E2F1BB0CE1C003C22B1 /* GeofenceClient.swift */,
 				C27E3A8F1C472A8000F1A163 /* QueueClient.swift */,
+				C2C04A641D70E48900037E4E /* Reachability.swift */,
 				C2635E2D1BB0CD9A003C22B1 /* ReferenceClient.swift */,
 				C215CDF91BD18F7200991D9D /* StatusCode.swift */,
 				C28ECB211BCECA9700887763 /* TripClient.swift */,
@@ -926,6 +931,15 @@
 			name = ViewControllerExtensions;
 			sourceTree = "<group>";
 		};
+		C2C04A631D70E42900037E4E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C2D2899A1C3B094300A636AA /* MainTabBarController.swift */,
+				E107DDA21C6C3C3C00280F01 /* TallTabBarController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
 		C2DFE5B91B56D2CB0090B55F = {
 			isa = PBXGroup;
 			children = (
@@ -992,6 +1006,7 @@
 			isa = PBXGroup;
 			children = (
 				C2EAD0B21C03E74900EAEBBF /* ErrorLoggerSpec.swift */,
+				C24AA69E1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1155,6 +1170,7 @@
 		E1A2EBA31B6C2AA400C27EB2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C2C04A631D70E42900037E4E /* Main */,
 				C2BC85151C249C86005FC6F8 /* ViewControllerExtensions */,
 				C28ECB3E1BCF208400887763 /* Auth */,
 				C21528C01BC8390F0073502F /* Debug */,
@@ -1165,8 +1181,6 @@
 				FA0CD4BE1C49866500C071AC /* Settings */,
 				E1472CF21C0E7A4300D27D60 /* ShortTrip */,
 				C220E0671BC339E200AC7C85 /* StateManagement */,
-				C2D2899A1C3B094300A636AA /* MainTabBarController.swift */,
-				E107DDA21C6C3C3C00280F01 /* TallTabBarController.swift */,
 				E1472D071C0E7BC900D27D60 /* SfoObservers.swift */,
 			);
 			name = Controllers;
@@ -1757,6 +1771,7 @@
 				C20A98851BE153BA009E29E7 /* TripId.swift in Sources */,
 				C2DAD68B1BE7F06200CB142C /* TripManager.swift in Sources */,
 				C283AB431BE93C610004E8CD /* DriverDebugger.swift in Sources */,
+				C2C04A651D70E48900037E4E /* Reachability.swift in Sources */,
 				C21905681BB0B74E00A3E779 /* Url.swift in Sources */,
 				E1472D041C0E7B6900D27D60 /* ShortTripObservers.swift in Sources */,
 				E15FF4981BD5F0C700ECDF27 /* Util.swift in Sources */,
@@ -1853,6 +1868,7 @@
 				8EEFB7C31BE1B03500B8A962 /* ReferenceClientSpec.swift in Sources */,
 				E1BDE28D1BB1EB21006C0A42 /* CidSpec.swift in Sources */,
 				E1BDE2881BB1E6AE006C0A42 /* AutomaticVehicleIdSpec.swift in Sources */,
+				C24AA69F1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift in Sources */,
 				E1E07F1F1BE8150400D6D07D /* TripScenario3Spec.swift in Sources */,
 				C25C9D2B1BEC057A0028FA81 /* TripScenario7Spec.swift in Sources */,
 				C215CE071BD1C31700991D9D /* PollerSpec.swift in Sources */,

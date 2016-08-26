@@ -90,3 +90,9 @@ class DashboardVC: UIViewController {
     navigationController?.pushViewController(DebugVC(), animated: true)
   }
 }
+
+extension DashboardVC: ReachabilityNotifiable {
+  func notify(reachability: ReachabilityType) {
+    self.dashboardView().notify(reachability)
+  }
+}

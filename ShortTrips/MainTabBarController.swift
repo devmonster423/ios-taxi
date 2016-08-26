@@ -40,5 +40,3 @@ var MainTabBarController: UITabBarController {
 
   return mainTabBarController
 }
-
-

@@ -13,6 +13,7 @@ class DashboardView: UIView {
 
   private let numberLabel = UILabel()
   let timerView = TimerView()
+  private let reachabilityNotice = UILabel()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -30,7 +31,7 @@ class DashboardView: UIView {
     taxisCaptionLabel.textAlignment = .Center
     taxisCaptionLabel.textColor = Color.Dashboard.darkBlue
     addSubview(taxisCaptionLabel)
-    taxisCaptionLabel.snp_makeConstraints { (make) -> Void in
+    taxisCaptionLabel.snp_makeConstraints { make in
       make.height.equalTo(105)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
@@ -41,7 +42,7 @@ class DashboardView: UIView {
     circlesImage.image = Image.bgCircles.image()
     circlesImage.contentMode = .ScaleAspectFit
     addSubview(circlesImage)
-    circlesImage.snp_makeConstraints { (make) -> Void in
+    circlesImage.snp_makeConstraints { make in
       make.top.equalTo(self).offset(20)
       make.bottom.equalTo(taxisCaptionLabel.snp_top).offset(-20)
       make.leading.equalTo(self).offset(50)
@@ -57,9 +58,22 @@ class DashboardView: UIView {
       make.centerY.equalTo(circlesImage.snp_centerY)
     }
     
-    timerView.snp_makeConstraints { (make) -> Void in
+    timerView.snp_makeConstraints { make in
       make.height.equalTo(UiConstants.Dashboard.progressHeight)
       make.bottom.equalTo(self)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+    }
+    
+    reachabilityNotice.backgroundColor = UIColor.redColor()
+    reachabilityNotice.textAlignment = .Center
+    reachabilityNotice.textColor = UIColor.whiteColor()
+    reachabilityNotice.text = "network unreachable"
+    reachabilityNotice.hidden = true
+    addSubview(reachabilityNotice)
+    reachabilityNotice.snp_makeConstraints { make in
+      make.height.equalTo(20)
+      make.top.equalTo(self)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
     }
@@ -67,5 +81,11 @@ class DashboardView: UIView {
   
   func updateSpots(length: Int) {
     numberLabel.text = "\(length)"
+  }
+}
+
+extension DashboardView: ReachabilityNotifiable {
+  func notify(reachability: ReachabilityType) {
+    reachabilityNotice.hidden = reachability != .None
   }
 }
