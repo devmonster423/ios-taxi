@@ -97,6 +97,10 @@ class DebugVCSpec: QuickSpec {
         
         viewController.triggerReEntryCid()
         
+        PingKiller.sharedInstance.turnOffPingsForAWhile()
+        PingKiller.sharedInstance.turnPingsBackOn()
+        PingKiller.sharedInstance.shouldKillPings()
+        
         expect(viewController).toNot(beNil())
       }
     }
