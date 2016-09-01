@@ -86,8 +86,10 @@ class TimerView: UIView {
   }
   
   func updateAndRefresh() {
-    resetProgress()
-    callback()
+    if ReachabilityManager.sharedInstance.isReachable() {
+      resetProgress()
+      callback()
+    }
   }
   
   func eachSecond() {
