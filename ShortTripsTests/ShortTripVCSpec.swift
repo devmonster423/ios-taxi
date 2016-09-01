@@ -41,6 +41,14 @@ class ShortTripVCSpec: QuickSpec {
         expect(viewController).toNot(beNil())
       }
       
+      it("can call Util things") {
+        UiHelpers.disableWidgetWithAnimation(viewController.view)
+        UiHelpers.enableWidgetWithAnimation(viewController.view)
+        UiHelpers.displayComingSoonMessage(viewController)
+        UiHelpers.displayErrorMessage(viewController, message: "error")
+        UiHelpers.displayMessage(viewController, title: "fake title", message: "fake message")
+      }
+      
       it ("has some initial text in waiting for entry cid state") {
         let machine = StateManager.sharedInstance.getMachine()
         
