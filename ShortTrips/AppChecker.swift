@@ -21,7 +21,34 @@ extension AppChecker where Self: UIViewController {
     }
   }
   
+  func showNetworkUnreachableRetry() {
+    let alertController = UIAlertController(title: NSLocalizedString("Please check your Internet connection.", comment: ""), message: nil, preferredStyle: .Alert)
+    let OKAction = UIAlertAction(
+      title: NSLocalizedString("Retry", comment: ""),
+      style: .Default) { _ in
+        self.checkVersion()
+    }
+    alertController.addAction(OKAction)
+    self.presentViewController(alertController, animated: true, completion: nil)
+  }
+  
+  func showErrorRetry() {
+    let alertController = UIAlertController(title: NSLocalizedString("Error. Please contact support at taxiops@flysfo.com.", comment: ""), message: nil, preferredStyle: .Alert)
+    let OKAction = UIAlertAction(
+      title: NSLocalizedString("Retry", comment: ""),
+      style: .Default) { _ in
+        self.checkVersion()
+    }
+    alertController.addAction(OKAction)
+    self.presentViewController(alertController, animated: true, completion: nil)
+  }
+  
   func checkVersion() {
+    
+    if !ReachabilityManager.sharedInstance.isReachable() {
+      showNetworkUnreachableRetry()
+      return
+    }
     
     ApiClient.requestVersion { version in
       
@@ -43,14 +70,7 @@ extension AppChecker where Self: UIViewController {
           self.presentViewController(alertController, animated: true, completion: nil)
         }
       } else {
-        // request failed, offer to retry
-        let alertController = UIAlertController(title: NSLocalizedString("Required version check failed.", comment: ""), message: nil, preferredStyle: .Alert)
-        let OKAction = UIAlertAction(title: NSLocalizedString("Retry", comment: ""),
-          style: .Default) { _ in
-            self.checkVersion()
-        }
-        alertController.addAction(OKAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.showErrorRetry()
       }
     }
   }
