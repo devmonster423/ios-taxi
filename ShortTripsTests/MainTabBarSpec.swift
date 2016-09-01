@@ -19,12 +19,14 @@ class MainTabBarSpec: QuickSpec {
       
       beforeEach {
         if !Url.isDevUrl() {
-          fatalError("can't call this when not logged in")
+          fatalError("can't call this on prod url")
         }
       }
       
-      it("can instantiate") {
-        expect(MainTabBarController).toNot(beNil())
+      it("can instantiate and have frame set") {
+        let mainTabBarController = MainTabBarController
+        mainTabBarController.viewWillLayoutSubviews()
+        expect(mainTabBarController).toNot(beNil())
       }
     }
   }
