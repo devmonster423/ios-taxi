@@ -37,6 +37,10 @@ class SettingsVCSpec: QuickSpec {
       it("is instantiated") {
         expect(viewController).toNot(beNil())
       }
+      
+      it("can get the phone model name") {
+        expect(UIDevice.currentDevice().modelName).toNot(beNil())
+      }
     }
   }
 }
