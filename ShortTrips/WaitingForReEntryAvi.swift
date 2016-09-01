@@ -30,7 +30,7 @@ struct WaitingForReEntryAvi {
           ApiClient.requestAntenna(vehicle.transponderId) { antenna in
             
             if let antenna = antenna, let device = antenna.device() {
-              if device == .TaxiEntry {
+              if device == .TaxiEntry || device == .TaxiStatus {
                 LatestAviAtReEntry.sharedInstance.fire(antenna)
               } else {
                 postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
