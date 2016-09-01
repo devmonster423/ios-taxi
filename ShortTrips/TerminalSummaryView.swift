@@ -11,22 +11,21 @@ import SnapKit
 
 class TerminalSummaryView: UIView {
   
-  var decreaseButton: UIButton!
-  let grayView = UIView()
-  let hourPickerView = HourPickerView()
-  var increaseButton: UIButton!
-  let internationalTerminalView = TerminalView()
-  let terminalView1 = TerminalView()
-  let terminalView2 = TerminalView()
-  let terminalView3 = TerminalView()
-  var terminalViews: [TerminalView] = []
-  let timerView = TimerView()
-  let titleTerminalView = TerminalView()
-  let totalTerminalView = TerminalView()
-  let picker = UIPickerView()
-  let pickerShower = UIButton()
+  private let grayView = UIView()
+  private let hourPickerView = HourPickerView()
+  private let internationalTerminalView = TerminalView()
+  private let terminalView1 = TerminalView()
+  private let terminalView2 = TerminalView()
+  private let terminalView3 = TerminalView()
+  private var terminalViews: [TerminalView] = []
+  private let timerView = TimerView()
+  private let titleTerminalView = TerminalView()
+  private let totalTerminalView = TerminalView()
+  private let picker = UIPickerView()
+  private let pickerShower = UIButton()
   private let pickerTitle = UILabel()
-  let pickerDismissToolbar = UIToolbar()
+  private let pickerDismissToolbar = UIToolbar()
+  private let reachabilityNotice = ReachabilityNotice()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -140,10 +139,8 @@ class TerminalSummaryView: UIView {
       make.leading.equalTo(pickerTitle.snp_trailing).offset(10)
     }
     
-    decreaseButton = hourPickerView.decreaseButton
-    increaseButton = hourPickerView.increaseButton
-    hourPickerView.maxHour = 12
-    hourPickerView.minHour = -2
+
+    hourPickerView.setMinMaxHours(minHour: -2, maxHour: 12)
     hourPickerView.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
       make.top.equalTo(totalTerminalView.snp_bottom)
@@ -183,6 +180,15 @@ class TerminalSummaryView: UIView {
       make.bottom.equalTo(picker.snp_top)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
+    }
+    
+    reachabilityNotice.hidden = ReachabilityManager.sharedInstance.isReachable()
+    addSubview(reachabilityNotice)
+    reachabilityNotice.snp_makeConstraints { make in
+      make.top.equalTo(self)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.height.equalTo(UiConstants.ReachabilityNotice.height)
     }
   }
   
@@ -238,5 +244,49 @@ class TerminalSummaryView: UIView {
       terminalView.clearTotals()
     }
     totalTerminalView.clearTotals()
+  }
+  
+  func setReachabilityNoticeHidden(hidden: Bool) {
+    reachabilityNotice.hidden = hidden
+  }
+  
+  func setButtonSelectors(target: AnyObject, decreaseAction: Selector, increaseAction: Selector) {
+    hourPickerView.setButtonSelectors(target, decreaseAction: decreaseAction, increaseAction: increaseAction)
+  }
+  
+  func startTimerView(updateInterval: NSTimeInterval, callback: TimerCallback) {
+    timerView.start(updateInterval, callback: callback)
+  }
+  
+  func stopTimerView() {
+    timerView.stop()
+  }
+  
+  func resetTimerProgess() {
+    timerView.resetProgress()
+  }
+  
+  func setTerminalViewSelector(target: AnyObject, action: Selector) {
+    terminalView1.addTarget(target, action: action, forControlEvents: .TouchUpInside)
+    terminalView2.addTarget(target, action: action, forControlEvents: .TouchUpInside)
+    terminalView3.addTarget(target, action: action, forControlEvents: .TouchUpInside)
+    internationalTerminalView.addTarget(target, action: action, forControlEvents: .TouchUpInside)
+  }
+  
+  func setPickerShowerTarget(target: AnyObject, action: Selector) {
+    pickerShower.addTarget(target, action: action, forControlEvents: .TouchUpInside)
+  }
+  
+  func setPickerDismisserItems(items: [UIBarButtonItem]) {
+    pickerDismissToolbar.setItems(items, animated: true)
+  }
+  
+  func setGrayAreaSelector(target: AnyObject, action: Selector) {
+    grayView.addGestureRecognizer(UITapGestureRecognizer(target: target, action: action))
+  }
+  
+  func setPickerDataSourceAndDelegate(dataSource dataSource: UIPickerViewDataSource, delegate: UIPickerViewDelegate) {
+    picker.dataSource = dataSource
+    picker.delegate = delegate
   }
 }

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MBProgressHUD
+import JSQNotificationObserverKit
 
 class FlightStatusVC: UIViewController {
   
@@ -16,6 +17,7 @@ class FlightStatusVC: UIViewController {
   private var earliestTimeToDismiss: NSDate?
   private var timer: NSTimer?
   private var hud: MBProgressHUD?
+  var reachabilityObserver: ReachabilityObserver?
   
   var selectedTerminalId: TerminalId!
   var currentHour: Int!
@@ -25,9 +27,8 @@ class FlightStatusVC: UIViewController {
   
   override func loadView() {
     let flightStatusView = FlightStatusView(frame: UIScreen.mainScreen().bounds)
-    flightStatusView.flightTable.dataSource = self
-    flightStatusView.flightTable.delegate = self
-    flightStatusView.flightTable.registerClass(FlightCell.self, forCellReuseIdentifier: FlightCell.identifier)
+    flightStatusView.setReachabilityNoticeHidden(ReachabilityManager.sharedInstance.isReachable())
+    flightStatusView.setupTableView(dataSource: self, delegate: self, cellClasses: [(FlightCell.self, FlightCell.identifier)])
     view = flightStatusView
   }
   
@@ -47,19 +48,23 @@ class FlightStatusVC: UIViewController {
       selector: #selector(startTimer),
       name: UIApplicationWillEnterForegroundNotification,
       object: nil)
+    
+    reachabilityObserver = NotificationObserver(notification: SfoNotification.Reachability.reachabilityChanged) { reachable, _ in
+      self.flightStatusView().setReachabilityNoticeHidden(reachable)
+    }
   }
   
   func startTimer() {
-    flightStatusView().timerView.start(updateFlightTable, updateInterval: 60 * 5)
+    flightStatusView().startTimerView(60 * 5, callback: updateFlightTable)
   }
   
   func stopTimer() {
-    flightStatusView().timerView.stop()
+    flightStatusView().stopTimerView()
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    flightStatusView().tableHeader.text = selectedTerminalId.asLocalizedString() + " " + flightType.asLocalizedString()
+    flightStatusView().setHeaderText(selectedTerminalId.asLocalizedString() + " " + flightType.asLocalizedString())
     startTimer()
   }
   
@@ -94,7 +99,7 @@ class FlightStatusVC: UIViewController {
       
       if let flights = flights where Flight.isValid(flights) {
         self.flights = flights
-        self.flightStatusView().flightTable.reloadData()
+        self.flightStatusView().reloadTableData()
         
       } else if !self.errorShown {
         var message = NSLocalizedString("An error occurred while fetching flight data.", comment: "")

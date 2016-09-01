@@ -38,6 +38,7 @@ class DebugView: UIView {
   private let gtmsLabel = UILabel()
   private let cidLabel = UILabel()
   private let aviLabel = UILabel()
+  private let reachabilityNotice = ReachabilityNotice()
   private var gtmsCount: Int = 0
   
   let fakeButton = UIButton()
@@ -167,6 +168,14 @@ class DebugView: UIView {
       make.width.equalTo(self).dividedBy(2)
       make.bottom.equalTo(self)
     }
+    
+    addSubview(reachabilityNotice)
+    reachabilityNotice.snp_makeConstraints { make in
+      make.height.equalTo(UiConstants.ReachabilityNotice.height)
+      make.top.equalTo(self)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+    }
   }
   
   func incrementGtms() {
@@ -230,5 +239,9 @@ class DebugView: UIView {
       
       print(text)
     }
+  }
+  
+  func setReachabilityNoticeHidden(hidden: Bool) {
+    reachabilityNotice.hidden = hidden
   }
 }

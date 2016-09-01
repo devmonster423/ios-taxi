@@ -155,7 +155,8 @@
 		C2BC85101C24832B005FC6F8 /* AutoLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC850F1C24832B005FC6F8 /* AutoLoginView.swift */; };
 		C2BC85141C24912F005FC6F8 /* SettingsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85131C24912F005FC6F8 /* SettingsExtension.swift */; };
 		C2BC85171C249CA0005FC6F8 /* NavBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */; };
-		C2C04A651D70E48900037E4E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C04A641D70E48900037E4E /* Reachability.swift */; };
+		C2C04A671D70EE6800037E4E /* ReachabilityNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C04A661D70EE6800037E4E /* ReachabilityNotice.swift */; };
+		C2C04A691D70F97900037E4E /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C04A681D70F97900037E4E /* ReachabilityManager.swift */; };
 		C2CE0B141C1219AB00496607 /* LocalGeofenceFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */; };
 		C2D2899B1C3B094300A636AA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D2899A1C3B094300A636AA /* MainTabBarController.swift */; };
 		C2D593661C52CEA600FE2E3F /* GpsEnabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D593651C52CEA600FE2E3F /* GpsEnabled.swift */; };
@@ -440,7 +441,8 @@
 		C2BC850F1C24832B005FC6F8 /* AutoLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLoginView.swift; sourceTree = "<group>"; };
 		C2BC85131C24912F005FC6F8 /* SettingsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsExtension.swift; sourceTree = "<group>"; };
 		C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarExtension.swift; sourceTree = "<group>"; };
-		C2C04A641D70E48900037E4E /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		C2C04A661D70EE6800037E4E /* ReachabilityNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityNotice.swift; sourceTree = "<group>"; };
+		C2C04A681D70F97900037E4E /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
 		C2CE0B131C1219AB00496607 /* LocalGeofenceFeature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalGeofenceFeature.swift; sourceTree = "<group>"; };
 		C2D2899A1C3B094300A636AA /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C2D593651C52CEA600FE2E3F /* GpsEnabled.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GpsEnabled.swift; sourceTree = "<group>"; };
@@ -667,6 +669,7 @@
 		C21905661BB0B73E00A3E779 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				C2C04A6A1D70FD6E00037E4E /* Reachability */,
 				C20A53011BB36D04001D1F90 /* AirlineClient.swift */,
 				E1B8271B1B7CEF4200CC32EF /* ApiClient.swift */,
 				C21905691BB0C87200A3E779 /* DeviceClient.swift */,
@@ -674,7 +677,6 @@
 				C2635E291BB0CC86003C22B1 /* FlightClient.swift */,
 				C2635E2F1BB0CE1C003C22B1 /* GeofenceClient.swift */,
 				C27E3A8F1C472A8000F1A163 /* QueueClient.swift */,
-				C2C04A641D70E48900037E4E /* Reachability.swift */,
 				C2635E2D1BB0CD9A003C22B1 /* ReferenceClient.swift */,
 				C215CDF91BD18F7200991D9D /* StatusCode.swift */,
 				C28ECB211BCECA9700887763 /* TripClient.swift */,
@@ -938,6 +940,14 @@
 				E107DDA21C6C3C3C00280F01 /* TallTabBarController.swift */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		C2C04A6A1D70FD6E00037E4E /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				C2C04A681D70F97900037E4E /* ReachabilityManager.swift */,
+			);
+			name = Reachability;
 			sourceTree = "<group>";
 		};
 		C2DFE5B91B56D2CB0090B55F = {
@@ -1214,6 +1224,7 @@
 				FA0CD4C11C49875F00C071AC /* Settings */,
 				E1472D091C0E7C0600D27D60 /* ShortTrip */,
 				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
+				C2C04A661D70EE6800037E4E /* ReachabilityNotice.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1664,6 +1675,7 @@
 				8E0F5BC51BEBEC83001DE4C2 /* TimerDebugger.swift in Sources */,
 				C2D593681C52CF4600FE2E3F /* GpsIsOff.swift in Sources */,
 				C28ECB221BCECA9700887763 /* TripClient.swift in Sources */,
+				C2C04A671D70EE6800037E4E /* ReachabilityNotice.swift in Sources */,
 				FA22DCCD1CC69AAC004B4104 /* PendingAppQuit.swift in Sources */,
 				E1CDE70F1B66D79800AB27D2 /* UiConstants.swift in Sources */,
 				FA27A5391C507C3800278CC6 /* AviManager.swift in Sources */,
@@ -1679,6 +1691,7 @@
 				E1A2EBAF1B6E920500C27EB2 /* TerminalSummary.swift in Sources */,
 				C20A988C1BE1A066009E29E7 /* StartingTrip.swift in Sources */,
 				C220E07E1BC3511200AC7C85 /* Event.swift in Sources */,
+				C2C04A691D70F97900037E4E /* ReachabilityManager.swift in Sources */,
 				C2AB513E1BD052F7003ACB4C /* SfoNotification.swift in Sources */,
 				C283AB451BE96D1C0004E8CD /* ValidationStep.swift in Sources */,
 				FA93FFF61C5889D6008A2F22 /* DeviceUtil.swift in Sources */,
@@ -1771,7 +1784,6 @@
 				C20A98851BE153BA009E29E7 /* TripId.swift in Sources */,
 				C2DAD68B1BE7F06200CB142C /* TripManager.swift in Sources */,
 				C283AB431BE93C610004E8CD /* DriverDebugger.swift in Sources */,
-				C2C04A651D70E48900037E4E /* Reachability.swift in Sources */,
 				C21905681BB0B74E00A3E779 /* Url.swift in Sources */,
 				E1472D041C0E7B6900D27D60 /* ShortTripObservers.swift in Sources */,
 				E15FF4981BD5F0C700ECDF27 /* Util.swift in Sources */,

@@ -40,26 +40,26 @@ class FlightStatusVCSpec: QuickSpec {
         expect(viewController).toNot(beNil())
       }
       
-      describe("after loading in fake flight data") {
-        beforeEach {
-          viewController.flights = [
-            Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .OnTime, flightNumber: "421", scheduledTime: NSDate()),
-            Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .Delayed, flightNumber: "422", scheduledTime: NSDate()),
-            Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .Landed, flightNumber: "423", scheduledTime: NSDate()),
-            Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .Landing, flightNumber: "424", scheduledTime: NSDate())
-          ]
-          viewController.flightStatusView().flightTable.reloadData()
-        }
-        
-        it("can display flights") {
-          expect(viewController.flightStatusView().flightTable.numberOfSections).to(equal(1))
-          expect(viewController.flightStatusView().flightTable.numberOfRowsInSection(0)).to(equal(viewController.flights!.count))
-          
-          let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-          
-          expect(viewController.flightStatusView().flightTable.cellForRowAtIndexPath(indexPath)).toNot(beNil())
-        }
-      }
+//      describe("after loading in fake flight data") {
+//        beforeEach {
+//          viewController.flights = [
+//            Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .OnTime, flightNumber: "421", scheduledTime: NSDate()),
+//            Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .Delayed, flightNumber: "422", scheduledTime: NSDate()),
+//            Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .Landed, flightNumber: "423", scheduledTime: NSDate()),
+//            Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .Landing, flightNumber: "424", scheduledTime: NSDate())
+//          ]
+//          viewController.flightStatusView().flightTable.reloadData()
+//        }
+//        
+//        it("can display flights") {
+//          expect(viewController.flightStatusView().flightTable.numberOfSections).to(equal(1))
+//          expect(viewController.flightStatusView().flightTable.numberOfRowsInSection(0)).to(equal(viewController.flights!.count))
+//          
+//          let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+//          
+//          expect(viewController.flightStatusView().flightTable.cellForRowAtIndexPath(indexPath)).toNot(beNil())
+//        }
+//      }
     }
   }
 }

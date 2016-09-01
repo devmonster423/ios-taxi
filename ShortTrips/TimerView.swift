@@ -66,7 +66,7 @@ class TimerView: UIView {
     progressView.progress = Float(elapsedSeconds) / Float(updateInterval)
   }
   
-  func start(callback: TimerCallback, updateInterval: NSTimeInterval) {
+  func start(updateInterval: NSTimeInterval, callback: TimerCallback) {
     self.callback = callback
     self.updateInterval = updateInterval
     timer?.invalidate()

@@ -11,6 +11,8 @@ import CoreLocation
 import JSQNotificationObserverKit
 import TransitionKit
 
+typealias ReachabilityObserver = NotificationObserver<Bool, AnyObject>?
+
 struct SfoNotification {
   struct Avi {
     static let domesticReEntry = Notification<Antenna, AnyObject>(name: "DomesticReEntryGateAvi")
@@ -49,6 +51,10 @@ struct SfoNotification {
     static let created = Notification<ShortTrips.Ping, AnyObject>(name: "CreatedPing")
     static let valid = Notification<ShortTrips.Ping, AnyObject>(name: "validPing")
     static let invalid = Notification<ShortTrips.Ping, AnyObject>(name: "invalidPing")
+  }
+  
+  struct Reachability {
+    static let reachabilityChanged = Notification<Bool, AnyObject>(name: "ReachabilityChanged")
   }
   
   struct Request {

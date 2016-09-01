@@ -9,44 +9,31 @@
 import Foundation
 import UIKit
 import MBProgressHUD
+import JSQNotificationObserverKit
 
 class TerminalSummaryVC: UIViewController {
 
+  var reachabilityObserver: ReachabilityObserver?
+  
   var errorShown = false
   
   override func loadView() {
     let terminalSummaryView = TerminalSummaryView(frame: UIScreen.mainScreen().bounds)
-    terminalSummaryView.decreaseButton.addTarget(self,
-      action: #selector(TerminalSummaryVC.decreaseHour),
-      forControlEvents: .TouchUpInside)
-    terminalSummaryView.increaseButton.addTarget(self,
-      action: #selector(TerminalSummaryVC.increaseHour),
-      forControlEvents: .TouchUpInside)
-    terminalSummaryView.pickerShower.addTarget(self,
-      action: #selector(TerminalSummaryVC.showPicker),
-      forControlEvents: .TouchUpInside)
-    terminalSummaryView.pickerDismissToolbar.setItems([
+    terminalSummaryView.setReachabilityNoticeHidden(ReachabilityManager.sharedInstance.isReachable())
+    terminalSummaryView.setButtonSelectors(
+      self,
+      decreaseAction: #selector(TerminalSummaryVC.decreaseHour),
+      increaseAction: #selector(TerminalSummaryVC.increaseHour)
+    )
+    terminalSummaryView.setTerminalViewSelector(self, action: #selector(TerminalSummaryVC.terminalSelected(_:)))
+    terminalSummaryView.setPickerShowerTarget(self, action: #selector(TerminalSummaryVC.showPicker))
+    terminalSummaryView.setPickerDismisserItems([
       UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
       UIBarButtonItem(title: NSLocalizedString("Done", comment: ""),
         style: .Done,
         target: self,
-        action: #selector(TerminalSummaryVC.hidePicker(_:)))],
-      animated: true)
-    terminalSummaryView.terminalView1.addTarget(self,
-      action: #selector(TerminalSummaryVC.terminalSelected(_:)),
-      forControlEvents: .TouchUpInside)
-    terminalSummaryView.terminalView2.addTarget(self,
-      action: #selector(TerminalSummaryVC.terminalSelected(_:)),
-      forControlEvents: .TouchUpInside)
-    terminalSummaryView.terminalView3.addTarget(self,
-      action: #selector(TerminalSummaryVC.terminalSelected(_:)),
-      forControlEvents: .TouchUpInside)
-    terminalSummaryView.internationalTerminalView.addTarget(self,
-      action: #selector(TerminalSummaryVC.terminalSelected(_:)),
-      forControlEvents: .TouchUpInside)
-    terminalSummaryView.grayView.addGestureRecognizer(UITapGestureRecognizer(target: self,
-      action: #selector(TerminalSummaryVC.hidePicker(_:))))
-    
+        action: #selector(TerminalSummaryVC.hidePicker(_:)))])
+    terminalSummaryView.setGrayAreaSelector(self, action: #selector(TerminalSummaryVC.hidePicker(_:)))
     view = terminalSummaryView
   }
   
@@ -54,9 +41,8 @@ class TerminalSummaryVC: UIViewController {
     super.viewDidLoad()
     configureNavBar(title: NSLocalizedString("Flight Status", comment: "").uppercaseString)
     addSettingsButton()
-    terminalSummaryView().picker.delegate = self
-    terminalSummaryView().picker.dataSource = self
-    
+    terminalSummaryView().setPickerDataSourceAndDelegate(dataSource:self, delegate: self) // TODO: move to loadView?
+
     NSNotificationCenter.defaultCenter().addObserver(
       self,
       selector: #selector(stopTimer),
@@ -68,6 +54,10 @@ class TerminalSummaryVC: UIViewController {
       selector: #selector(startTimer),
       name: UIApplicationWillEnterForegroundNotification,
       object: nil)
+    
+    reachabilityObserver = NotificationObserver(notification: SfoNotification.Reachability.reachabilityChanged) { reachable, _ in
+      self.terminalSummaryView().setReachabilityNoticeHidden(reachable)
+    }
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -85,16 +75,16 @@ class TerminalSummaryVC: UIViewController {
   }
   
   func startTimer() {
-    terminalSummaryView().timerView.start(updateTerminalTable, updateInterval: 60 * 5)
+    terminalSummaryView().startTimerView(60 * 5, callback: updateTerminalTable)
   }
   
   func stopTimer() {
-    terminalSummaryView().timerView.stop()
+    terminalSummaryView().stopTimerView()
   }
   
   private func updateTerminalTable() {
     terminalSummaryView().clearTerminalTable()
-    terminalSummaryView().timerView.resetProgress()
+    terminalSummaryView().resetTimerProgess() // TODO: is this line necessary?
     ApiClient.requestTerminalSummaries(terminalSummaryView().getCurrentHour(), flightType: terminalSummaryView().getCurrentFlightType()) { terminals, hour, statusCode in
       
       if let hour = hour where hour == self.terminalSummaryView().getCurrentHour() {

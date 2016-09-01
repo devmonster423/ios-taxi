@@ -12,10 +12,12 @@ import JSQNotificationObserverKit
 
 class ShortTripVC: UIViewController {
   var sfoObservers = SfoObservers()
+  var reachabilityObserver: ReachabilityObserver?
   private var tripTimer: NSTimer?
   
   override func loadView() {
     let shortTripView = ShortTripView(frame: UIScreen.mainScreen().bounds)
+    shortTripView.setReachabilityNoticeHidden(ReachabilityManager.sharedInstance.isReachable())
     view = shortTripView
   }
   
@@ -40,6 +42,10 @@ class ShortTripVC: UIViewController {
       repeats: true)
     
     checkTime()
+    
+    reachabilityObserver = NotificationObserver(notification: SfoNotification.Reachability.reachabilityChanged) { reachable, _ in
+      self.shortTripView().setReachabilityNoticeHidden(reachable)
+    }
   }
   
   override func viewWillAppear(animated: Bool) {

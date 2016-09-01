@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import JSQNotificationObserverKit
 import MBProgressHUD
 
 class DashboardVC: UIViewController {
   
-  var errorShown = false
+  private var errorShown = false
+  private var reachabilityObserver: ReachabilityObserver?
   
   override func loadView() {
     let dashboardView = DashboardView(frame: UIScreen.mainScreen().bounds)
+    dashboardView.setReachabilityNoticeHidden(ReachabilityManager.sharedInstance.isReachable())
 //#if DEBUG
 //    let secretSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(DashboardVC.openDebugMode))
 //    secretSwipeRecognizer.numberOfTouchesRequired = 2
@@ -41,14 +44,18 @@ class DashboardVC: UIViewController {
       selector: #selector(startTimer),
       name: UIApplicationWillEnterForegroundNotification,
       object: nil)
+
+    reachabilityObserver = NotificationObserver(notification: SfoNotification.Reachability.reachabilityChanged) { reachable, _ in
+      self.dashboardView().setReachabilityNoticeHidden(reachable)
+    }
   }
   
   func startTimer() {
-    dashboardView().timerView.start(requestLotStatus, updateInterval: 60)
+    dashboardView().startTimerView(60, callback: requestLotStatus)
   }
   
   func stopTimer() {
-    dashboardView().timerView.stop()
+    dashboardView().stopTimerView()
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -88,11 +95,5 @@ class DashboardVC: UIViewController {
   
   func openDebugMode() {
     navigationController?.pushViewController(DebugVC(), animated: true)
-  }
-}
-
-extension DashboardVC: ReachabilityNotifiable {
-  func notify(reachability: ReachabilityType) {
-    self.dashboardView().notify(reachability)
   }
 }

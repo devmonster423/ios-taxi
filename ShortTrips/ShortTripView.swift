@@ -13,10 +13,11 @@ class ShortTripView: UIView {
   
   private var animatingFail = false
   
-  let countdown = CountdownView()
+  private let countdown = CountdownView()
   private let promptLabel = UILabel()
   private let promptImageView = UIImageView()
   private let notificationView = NotificationView()
+  private let reachabilityNotice = ReachabilityNotice()
   private var currentPrompt: StatePrompt?
   
   required init(coder aDecoder: NSCoder) {
@@ -62,6 +63,15 @@ class ShortTripView: UIView {
     }
     
     bringSubviewToFront(notificationView)
+    
+    reachabilityNotice.hidden = ReachabilityManager.sharedInstance.isReachable()
+    addSubview(reachabilityNotice)
+    reachabilityNotice.snp_makeConstraints { make in
+      make.top.equalTo(self)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.height.equalTo(UiConstants.ReachabilityNotice.height)
+    }
   }
   
   func updatePrompt(prompt: StatePrompt) {
@@ -215,5 +225,9 @@ class ShortTripView: UIView {
     }
     countdown.setNeedsUpdateConstraints()
     self.layoutIfNeeded()
+  }
+  
+  func setReachabilityNoticeHidden(hidden: Bool) {
+    reachabilityNotice.hidden = hidden
   }
 }

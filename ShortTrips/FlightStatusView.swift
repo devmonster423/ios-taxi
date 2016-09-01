@@ -10,9 +10,10 @@ import UIKit
 import SnapKit
 
 class FlightStatusView: UIView {
-  let tableHeader = UILabel()
-  let flightTable = UITableView()
-  let timerView = TimerView()
+  private let tableHeader = UILabel()
+  private let flightTable = UITableView()
+  private let timerView = TimerView()
+  private let reachabilityNotice = ReachabilityNotice()
   
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -64,5 +65,42 @@ class FlightStatusView: UIView {
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
     }
+
+    reachabilityNotice.hidden = ReachabilityManager.sharedInstance.isReachable()
+    addSubview(reachabilityNotice)
+    reachabilityNotice.snp_makeConstraints { make in
+      make.top.equalTo(self)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.height.equalTo(UiConstants.ReachabilityNotice.height)
+    }
+  }
+
+  func setReachabilityNoticeHidden(hidden: Bool) {
+    reachabilityNotice.hidden = hidden
+  }
+
+  func setupTableView(dataSource dataSource: UITableViewDataSource?, delegate: UITableViewDelegate?, cellClasses:[(AnyClass, String)]) {
+    flightTable.dataSource = dataSource
+    flightTable.delegate = delegate
+    for cellClass in cellClasses {
+      flightTable.registerClass(cellClass.0, forCellReuseIdentifier: cellClass.1)
+    }
+  }
+
+  func startTimerView(updateInterval: NSTimeInterval, callback: TimerCallback) {
+    timerView.start(updateInterval, callback: callback)
+  }
+
+  func stopTimerView() {
+    timerView.stop()
+  }
+
+  func setHeaderText(text: String?) {
+    tableHeader.text = text
+  }
+
+  func reloadTableData() {
+    flightTable.reloadData()
   }
 }

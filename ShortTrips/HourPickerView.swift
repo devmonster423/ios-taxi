@@ -13,11 +13,11 @@ class HourPickerView: UIView {
   
   private var currentHour = 1
   
-  var maxHour: Int!
-  var minHour: Int!
+  private var maxHour: Int!
+  private var minHour: Int!
   
-  let decreaseButton = UIButton()
-  let increaseButton = UIButton()
+  private let decreaseButton = UIButton()
+  private let increaseButton = UIButton()
   
   private let bottomLabel = UILabel()
   private let mainLabel = UILabel()
@@ -128,5 +128,15 @@ class HourPickerView: UIView {
     } else {
       UiHelpers.enableWidgetWithAnimation(increaseButton)
     }
+  }
+  
+  func setMinMaxHours(minHour minHour: Int, maxHour: Int) {
+    self.minHour = minHour
+    self.maxHour = maxHour
+  }
+  
+  func setButtonSelectors(target: AnyObject, decreaseAction: Selector, increaseAction: Selector) {
+    decreaseButton.addTarget(target, action: decreaseAction, forControlEvents: .TouchUpInside)
+    increaseButton.addTarget(target, action: increaseAction, forControlEvents: .TouchUpInside)
   }
 }

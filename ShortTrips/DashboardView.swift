@@ -12,8 +12,8 @@ import SnapKit
 class DashboardView: UIView {
 
   private let numberLabel = UILabel()
-  let timerView = TimerView()
-  private let reachabilityNotice = UILabel()
+  private let timerView = TimerView()
+  private let reachabilityNotice = ReachabilityNotice()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -65,14 +65,9 @@ class DashboardView: UIView {
       make.trailing.equalTo(self)
     }
     
-    reachabilityNotice.backgroundColor = UIColor.redColor()
-    reachabilityNotice.textAlignment = .Center
-    reachabilityNotice.textColor = UIColor.whiteColor()
-    reachabilityNotice.text = "network unreachable"
-    reachabilityNotice.hidden = true
     addSubview(reachabilityNotice)
     reachabilityNotice.snp_makeConstraints { make in
-      make.height.equalTo(20)
+      make.height.equalTo(UiConstants.ReachabilityNotice.height)
       make.top.equalTo(self)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
@@ -82,10 +77,16 @@ class DashboardView: UIView {
   func updateSpots(length: Int) {
     numberLabel.text = "\(length)"
   }
-}
 
-extension DashboardView: ReachabilityNotifiable {
-  func notify(reachability: ReachabilityType) {
-    reachabilityNotice.hidden = reachability != .None
+  func setReachabilityNoticeHidden(hidden: Bool) {
+    reachabilityNotice.hidden = hidden
+  }
+
+  func startTimerView(updateInterval: NSTimeInterval, callback: TimerCallback) {
+    timerView.start(updateInterval, callback: callback)
+  }
+
+  func stopTimerView() {
+    timerView.stop()
   }
 }

@@ -61,6 +61,10 @@ struct UiConstants {
     static let height = CGFloat(60.0)
   }
   
+  struct ReachabilityNotice {
+    static let height: CGFloat = 25
+  }
+  
   struct FlightCell {
     static let fontNormal = Font.OpenSansSemibold.size(14)
     static let fontSmallish = Font.OpenSansSemibold.size(11)
