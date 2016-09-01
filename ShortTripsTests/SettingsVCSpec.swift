@@ -41,6 +41,10 @@ class SettingsVCSpec: QuickSpec {
       it("can get the phone model name") {
         expect(UIDevice.currentDevice().modelName).toNot(beNil())
       }
+      
+      it("can make an email") {
+        expect(FeedbackEmailMaker.make(viewController)).toNot(beNil())
+      }
     }
   }
 }
