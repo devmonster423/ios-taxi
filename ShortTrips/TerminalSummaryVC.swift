@@ -34,6 +34,7 @@ class TerminalSummaryVC: UIViewController {
         target: self,
         action: #selector(TerminalSummaryVC.hidePicker(_:)))])
     terminalSummaryView.setGrayAreaSelector(self, action: #selector(TerminalSummaryVC.hidePicker(_:)))
+    terminalSummaryView.setPickerDataSourceAndDelegate(dataSource:self, delegate: self)
     view = terminalSummaryView
   }
   
@@ -41,7 +42,6 @@ class TerminalSummaryVC: UIViewController {
     super.viewDidLoad()
     configureNavBar(title: NSLocalizedString("Flight Status", comment: "").uppercaseString)
     addSettingsButton()
-    terminalSummaryView().setPickerDataSourceAndDelegate(dataSource:self, delegate: self) // TODO: move to loadView?
 
     NSNotificationCenter.defaultCenter().addObserver(
       self,
