@@ -25,6 +25,7 @@ class Speaker {
     input = input.stringByReplacingOccurrencesOfString("\n", withString: "... ")
     input = input.stringByReplacingOccurrencesOfString("geofence", withString: "G oh fence")
     input = input.stringByReplacingOccurrencesOfString("unavailable", withString: "un available")
+    input = input.stringByReplacingOccurrencesOfString("reestablished", withString: "ree established")
     
     if getAudioEnabled() {
       AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: input))

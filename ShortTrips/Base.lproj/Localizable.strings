@@ -27,9 +27,13 @@
 "Are you sure?" = "Are you sure?";
 "Cancel" = "Cancel";
 "Unable to send email" = "Unable to send email";
-"Network Unreachable" = "Network Unreachable";
 
-/*Trip Prompts */
+/* Reachability */
+"Network Unreachable" = "Network Unreachable";
+"Internet Connection Lost" = "Internet Connection Lost";
+"Internet Connection Reestablished" = "Internet Connection Reestablished";
+
+/* Trip Prompts */
 "Allow this app to use your location" = "Allow this app to use your location";
 "Location services must be turned on in order to monitor your trip." = "Location services must be turned on in order to monitor your trip.";
 "Location services required." = "Location services required.";

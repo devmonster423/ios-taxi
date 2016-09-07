@@ -65,7 +65,7 @@ class FlightStatusView: UIView {
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
     }
-
+    
     reachabilityNotice.hidden = ReachabilityManager.sharedInstance.isReachable()
     addSubview(reachabilityNotice)
     reachabilityNotice.snp_makeConstraints { make in
@@ -75,11 +75,11 @@ class FlightStatusView: UIView {
       make.height.equalTo(UiConstants.ReachabilityNotice.height)
     }
   }
-
+  
   func setReachabilityNoticeHidden(hidden: Bool) {
     reachabilityNotice.hidden = hidden
   }
-
+  
   func setupTableView(dataSource dataSource: UITableViewDataSource?, delegate: UITableViewDelegate?, cellClasses:[(AnyClass, String)]) {
     flightTable.dataSource = dataSource
     flightTable.delegate = delegate
@@ -87,19 +87,19 @@ class FlightStatusView: UIView {
       flightTable.registerClass(cellClass.0, forCellReuseIdentifier: cellClass.1)
     }
   }
-
+  
   func startTimerView(updateInterval: NSTimeInterval, callback: TimerCallback) {
     timerView.start(updateInterval, callback: callback)
   }
-
+  
   func stopTimerView() {
     timerView.stop()
   }
-
+  
   func setHeaderText(text: String?) {
     tableHeader.text = text
   }
-
+  
   func reloadTableData() {
     flightTable.reloadData()
   }

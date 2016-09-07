@@ -77,15 +77,15 @@ class DashboardView: UIView {
   func updateSpots(length: Int) {
     numberLabel.text = "\(length)"
   }
-
+  
   func setReachabilityNoticeHidden(hidden: Bool) {
     reachabilityNotice.hidden = hidden
   }
-
+  
   func startTimerView(updateInterval: NSTimeInterval, callback: TimerCallback) {
     timerView.start(updateInterval, callback: callback)
   }
-
+  
   func stopTimerView() {
     timerView.stop()
   }

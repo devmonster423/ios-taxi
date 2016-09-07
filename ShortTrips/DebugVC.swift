@@ -16,9 +16,10 @@ typealias ButtonUpdateInfo = (title: String, action: Selector)
 class DebugVC: UIViewController {
   var sfoObservers = SfoObservers()
   var reachabilityObserver: ReachabilityObserver?
-
+  
   override func loadView() {
     let debugView = DebugView(frame: UIScreen.mainScreen().bounds)
+    debugView.setReachabilityNoticeHidden(ReachabilityManager.sharedInstance.isReachable())
     view = debugView
   }
   
@@ -43,7 +44,7 @@ class DebugVC: UIViewController {
         self.debugView().printDebugLine("network unreachable", type: .Negative)
       }
     }
-
+    
     configureNavBar(back: true, title: "Debug")
     addSettingsButton()
     
