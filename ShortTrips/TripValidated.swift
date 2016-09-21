@@ -8,7 +8,6 @@
 
 import Foundation
 import TransitionKit
-import JSQNotificationObserverKit
 
 struct TripValidated {
   let eventNames = ["tripValidated"]

@@ -9,7 +9,6 @@
 import Foundation
 import CoreLocation
 import TransitionKit
-import JSQNotificationObserverKit
 
 struct Ready {
   let stateName = "ready"

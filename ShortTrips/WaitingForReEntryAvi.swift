@@ -8,7 +8,6 @@
 
 import Foundation
 import TransitionKit
-import JSQNotificationObserverKit
 
 struct WaitingForReEntryAvi {
   let stateName = "WaitingForReEntryAvi"

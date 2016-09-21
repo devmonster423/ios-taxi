@@ -8,7 +8,6 @@
 
 import Foundation
 import TransitionKit
-import JSQNotificationObserverKit
 
 struct WaitingForPaymentCid {
   let stateName = "waitingForPaymentCid"

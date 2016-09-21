@@ -8,7 +8,6 @@
 
 import Foundation
 import AlamofireObjectMapper
-import JSQNotificationObserverKit
 import ObjectMapper
 
 typealias SuccessClosure = (Bool) -> Void

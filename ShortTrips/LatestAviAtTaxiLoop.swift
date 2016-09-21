@@ -8,7 +8,6 @@
 
 import Foundation
 import TransitionKit
-import JSQNotificationObserverKit
 
 class LatestAviAtTaxiLoop {
   let eventNames = ["LatestAviAtTaxiLoop"]

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import JSQNotificationObserverKit
 import MBProgressHUD
 
 class DashboardVC: UIViewController {

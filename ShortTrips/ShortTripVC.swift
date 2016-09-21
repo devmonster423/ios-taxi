@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import JSQNotificationObserverKit
 
 class ShortTripVC: UIViewController {
   var sfoObservers = SfoObservers()

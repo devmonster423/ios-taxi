@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreLocation
-import JSQNotificationObserverKit
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
   

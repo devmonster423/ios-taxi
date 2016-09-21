@@ -9,7 +9,6 @@
 import Foundation
 import ObjectMapper
 import AlamofireObjectMapper
-import JSQNotificationObserverKit
 
 typealias MultipleGeofencesClosure = ([SfoGeofence]?) -> Void
 typealias GeofenceClosure = (Geofence?, Error?) -> Void

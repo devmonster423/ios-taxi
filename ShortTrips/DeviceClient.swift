@@ -9,7 +9,6 @@
 import Foundation
 import ObjectMapper
 import AlamofireObjectMapper
-import JSQNotificationObserverKit
 
 typealias AviClosure = ([AutomaticVehicleId]?, Error?) -> Void
 typealias AntennaClosure = (Antenna?) -> Void

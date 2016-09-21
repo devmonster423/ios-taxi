@@ -8,7 +8,6 @@
 
 import Foundation
 import TransitionKit
-import JSQNotificationObserverKit
 
 class InsideBufferedExit {
   let eventNames = ["InsideBufferedExit"]

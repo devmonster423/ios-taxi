@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import JSQNotificationObserverKit
 import TransitionKit
 
 struct LoggedOut {

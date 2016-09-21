@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import MBProgressHUD
-import JSQNotificationObserverKit
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -20,7 +20,6 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     return false
   }
 }
-
 
 class FlightStatusVC: UIViewController {
   

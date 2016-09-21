@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreLocation
-import JSQNotificationObserverKit
 import TransitionKit
 
 typealias ReachabilityObserver = NotificationObserver<Bool, AnyObject>?

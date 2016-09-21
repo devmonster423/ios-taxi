@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreLocation
-import JSQNotificationObserverKit
 import TransitionKit
 
 typealias ButtonUpdateInfo = (title: String, action: Selector)
