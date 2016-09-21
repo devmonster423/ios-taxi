@@ -12,7 +12,7 @@ import TransitionKit
 
 extension ShortTripVC {
   
-  func notifyFail(validationStep: ValidationStep) {
+  func notifyFail(_ validationStep: ValidationStep) {
     if let _ = TripManager.sharedInstance.getTripId() {
       self.shortTripView().notifyFail(validationStep)
     }
@@ -21,7 +21,7 @@ extension ShortTripVC {
   func setupObservers() {
     
     sfoObservers.invalidatedObserver = NotificationObserver(notification: SfoNotification.Trip.invalidated) { validationSteps, _ in
-      if let validationSteps = validationSteps where validationSteps.count > 0 {
+      if let validationSteps = validationSteps , validationSteps.count > 0 {
         self.notifyFail(validationSteps.first!.validationStep)
       } else {
         self.notifyFail(.Unspecified)
@@ -56,7 +56,7 @@ extension ShortTripVC {
     }
   }
   
-  func initializeForState(state: TKState) {
+  func initializeForState(_ state: TKState) {
     
     if state == GpsIsOff.sharedInstance.getState()
       || state == NotReady.sharedInstance.getState()
@@ -77,33 +77,33 @@ extension ShortTripVC {
     }
   }
   
-  func updateForState(state: TKState) {
+  func updateForState(_ state: TKState) {
     
     if state == GpsIsOff.sharedInstance.getState() {
       
-      self.shortTripView().updatePrompt(.TurnOnGps)
+      self.shortTripView().updatePrompt(.turnOnGps)
       
     } else if state == NotReady.sharedInstance.getState() {
         
-      self.shortTripView().updatePrompt(.GoToSfo)
+      self.shortTripView().updatePrompt(.goToSfo)
       
     } else if state == WaitingInHoldingLot.sharedInstance.getState() {
         
-      self.shortTripView().updatePrompt(.Pay)
+      self.shortTripView().updatePrompt(.pay)
       
     } else if state == Ready.sharedInstance.getState() {
 
-      self.shortTripView().updatePrompt(.Ready)
+      self.shortTripView().updatePrompt(.ready)
       self.shortTripView().hideNotification()
       
     } else if state == InProgress.sharedInstance.getState() {
-      self.shortTripView().updatePrompt(.InProgress)
+      self.shortTripView().updatePrompt(.inProgress)
     }
     
     shortTripView().toggleCountdown(tripInProgress(state))
   }
 
-  func tripInProgress(state: TKState) -> Bool {
+  func tripInProgress(_ state: TKState) -> Bool {
     return state == InProgress.sharedInstance.getState()
       || state == WaitingForReEntryAvi.sharedInstance.getState()
       || state == AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState()

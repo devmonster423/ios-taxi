@@ -13,8 +13,8 @@ class StateManager {
   
   static let sharedInstance = StateManager()
   
-  private var machine: TKStateMachine
-  private var warnings = [TripWarning]()
+  fileprivate var machine: TKStateMachine
+  fileprivate var warnings = [TripWarning]()
   
   static let allStates = [
     AssociatingDriverAndVehicleAtEntry.sharedInstance.getState(),
@@ -66,7 +66,7 @@ class StateManager {
     return events
   }
   
-  private init() {
+  fileprivate init() {
     machine = TKStateMachine()
     machine.addStates(StateManager.allStates)
     machine.initialState = NotReady.sharedInstance.getState()
@@ -80,7 +80,7 @@ class StateManager {
     return machine
   }
   
-  func addWarning(warning: TripWarning) {
+  func addWarning(_ warning: TripWarning) {
     warnings.append(warning)
   }
   

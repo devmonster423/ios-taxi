@@ -12,42 +12,42 @@ import AVFoundation
 class Speaker {
   
   static let sharedInstance = Speaker()
-  private init() { }
+  fileprivate init() { }
   
-  private let audioEnabledKey = "audioEnabled"
+  fileprivate let audioEnabledKey = "audioEnabled"
   
-  func speak(input: String) {
+  func speak(_ input: String) {
     var input = input
     
-    input = input.lowercaseString
+    input = input.lowercased()
     
-    input = input.stringByReplacingOccurrencesOfString(". ", withString: "... ")
-    input = input.stringByReplacingOccurrencesOfString("\n", withString: "... ")
-    input = input.stringByReplacingOccurrencesOfString("geofence", withString: "G oh fence")
-    input = input.stringByReplacingOccurrencesOfString("unavailable", withString: "un available")
-    input = input.stringByReplacingOccurrencesOfString("reestablished", withString: "ree established")
+    input = input.replacingOccurrences(of: ". ", with: "... ")
+    input = input.replacingOccurrences(of: "\n", with: "... ")
+    input = input.replacingOccurrences(of: "geofence", with: "G oh fence")
+    input = input.replacingOccurrences(of: "unavailable", with: "un available")
+    input = input.replacingOccurrences(of: "reestablished", with: "ree established")
     
     if getAudioEnabled() {
-      AVSpeechSynthesizer().speakUtterance(AVSpeechUtterance(string: input))
+      AVSpeechSynthesizer().speak(AVSpeechUtterance(string: input))
     }
   }
   
   func enableBackgroundAudio() {
     let session = AVAudioSession.sharedInstance()
     do {
-      try session.setCategory(AVAudioSessionCategoryPlayback, withOptions: AVAudioSessionCategoryOptions.MixWithOthers)
+      try session.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions.mixWithOthers)
     }
     catch let error as NSError {
       fatalError(error.localizedDescription)
     }
   }
   
-  func setAudioEnabled(on: Bool) {
-    NSUserDefaults.standardUserDefaults().setBool(on, forKey: audioEnabledKey)
+  func setAudioEnabled(_ on: Bool) {
+    UserDefaults.standard.set(on, forKey: audioEnabledKey)
   }
   
   func getAudioEnabled() -> Bool {
-    if let enabled = NSUserDefaults.standardUserDefaults().objectForKey(audioEnabledKey) as? Bool {
+    if let enabled = UserDefaults.standard.object(forKey: audioEnabledKey) as? Bool {
       return enabled
     } else {
       return true // default

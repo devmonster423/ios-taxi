@@ -11,11 +11,11 @@ import AlamofireObjectMapper
 import JSQNotificationObserverKit
 import ObjectMapper
 
-typealias DriverClosure = Driver? -> Void
-typealias VehicleClosure = Vehicle? -> Void
+typealias DriverClosure = (Driver?) -> Void
+typealias VehicleClosure = (Vehicle?) -> Void
 
 extension ApiClient {
-  static func authenticateDriver(credential: DriverCredential, completion: DriverClosure) {
+  static func authenticateDriver(_ credential: DriverCredential, completion: @escaping DriverClosure) {
     authedRequest(.POST, Url.Driver.login, parameters: Mapper().toJSON(credential))
       .responseObject { (_, raw, driver: Driver?, _, _) in
         if let raw = raw {
@@ -25,7 +25,7 @@ extension ApiClient {
     }
   }
   
-  static func getVehicle(smartCard: String, completion: VehicleClosure) {
+  static func getVehicle(_ smartCard: String, completion: @escaping VehicleClosure) {
     authedRequest(.GET, Url.Driver.vehicle(smartCard))
       .responseObject { (_, raw, vehicle: Vehicle?, _, _) in
         

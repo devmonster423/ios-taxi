@@ -10,25 +10,25 @@ import Foundation
 
 class DriverManager {
   
-  private var currentDriver: Driver?
-  private var currentVehicle: Vehicle?
-  private var sessionCreationDate: NSDate?
-  private let validSessionAge: NSTimeInterval = 24 * 60 * 60 * 1000
+  fileprivate var currentDriver: Driver?
+  fileprivate var currentVehicle: Vehicle?
+  fileprivate var sessionCreationDate: Date?
+  fileprivate let validSessionAge: TimeInterval = 24 * 60 * 60 * 1000
   
   static let sharedInstance = DriverManager()
   
-  private init() { }
+  fileprivate init() { }
   
-  func setCurrentDriver(driver: Driver?) {
+  func setCurrentDriver(_ driver: Driver?) {
     currentDriver = driver
-    sessionCreationDate = driver != nil ? NSDate() : nil
+    sessionCreationDate = driver != nil ? Date() : nil
   }
   
   func getCurrentDriver() -> Driver? {
     return currentDriver
   }
   
-  func setCurrentVehicle(vehicle: Vehicle?) {
+  func setCurrentVehicle(_ vehicle: Vehicle?) {
     currentVehicle = vehicle
     
     if let driver = getCurrentDriver(), let vehicle = vehicle {
@@ -41,7 +41,7 @@ class DriverManager {
     return currentVehicle
   }
   
-  private func hasValidSession() -> Bool {
+  fileprivate func hasValidSession() -> Bool {
     if let sessionCreationDate = sessionCreationDate {
       return sessionCreationDate.timeIntervalSinceNow > -validSessionAge
     } else {
@@ -49,7 +49,7 @@ class DriverManager {
     }
   }
   
-  func callWithValidSession(callback: () -> ()) {
+  func callWithValidSession(_ callback: @escaping () -> ()) {
     if hasValidSession() {
       callback()
       

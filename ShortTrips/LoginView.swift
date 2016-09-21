@@ -12,7 +12,7 @@ import SnapKit
 class LoginView: UIView {
   
   let usernameTextField = UITextField()
-  private let passwordTextField = UITextField()
+  fileprivate let passwordTextField = UITextField()
   let loginButton = UIButton()
   
   required init(coder aDecoder: NSCoder) {
@@ -34,7 +34,7 @@ class LoginView: UIView {
     addSubview(loginButton)
     
     let logoImage = UIImageView(image: Image.sfoLogoAndName.image())
-    logoImage.contentMode = .ScaleAspectFit
+    logoImage.contentMode = .scaleAspectFit
     addSubview(logoImage)
     logoImage.snp_makeConstraints { (make) -> Void in
       make.centerX.equalTo(self)
@@ -55,10 +55,10 @@ class LoginView: UIView {
       make.width.equalTo(100)
     }
     
-    usernameTextField.autocapitalizationType = .None
-    usernameTextField.autocorrectionType = .No
-    usernameTextField.spellCheckingType = .No
-    usernameTextField.textColor = UIColor.whiteColor()
+    usernameTextField.autocapitalizationType = .none
+    usernameTextField.autocorrectionType = .no
+    usernameTextField.spellCheckingType = .no
+    usernameTextField.textColor = UIColor.white
     usernameTextField.snp_makeConstraints { make in
       make.leading.equalTo(usernameLabel.snp_trailing).offset(10)
       make.top.equalTo(usernameLabel)
@@ -88,8 +88,8 @@ class LoginView: UIView {
       make.top.equalTo(divider.snp_bottom).offset(10)
     }
     
-    passwordTextField.secureTextEntry = true
-    passwordTextField.textColor = UIColor.whiteColor()
+    passwordTextField.isSecureTextEntry = true
+    passwordTextField.textColor = UIColor.white
     passwordTextField.snp_makeConstraints { make in
       make.leading.equalTo(usernameTextField)
       make.top.equalTo(passwordLabel)
@@ -97,7 +97,7 @@ class LoginView: UIView {
       make.height.equalTo(usernameTextField)
     }
     
-    loginButton.setTitle(NSLocalizedString("Login", comment: "").uppercaseString, forState: .Normal)
+    loginButton.setTitle(NSLocalizedString("Login", comment: "").uppercased(), for: UIControlState())
     loginButton.titleLabel?.font = Font.OpenSans.size(24)
     loginButton.backgroundColor = Color.Auth.fadedWhite
     loginButton.snp_makeConstraints { make in

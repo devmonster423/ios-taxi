@@ -28,7 +28,7 @@ struct Driver: Mappable {
 
   init?(_ map: Map){}
 
-  mutating func mapping(map: Map) {
+  mutating func mapping(_ map: Map) {
     sessionId <- map["response.session_id"]
     driverId <- map["response.driver_id"]
     cardId <- map["response.card_id"]

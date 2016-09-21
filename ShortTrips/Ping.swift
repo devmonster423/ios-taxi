@@ -11,28 +11,28 @@ import CoreLocation
 import ObjectMapper
 
 enum GeofenceStatus: Int {
-  case NotVerified = -1
-  case Invalid = 0
-  case Valid = 1
+  case notVerified = -1
+  case invalid = 0
+  case valid = 1
   
   func toBool() -> Bool {
     switch self {
-    case .Valid:
+    case .valid:
       return true
     default:
       return false
     }
   }
   
-  static func fromBool(bool: Bool) -> GeofenceStatus {
-    return bool ? .Valid : .Invalid
+  static func fromBool(_ bool: Bool) -> GeofenceStatus {
+    return bool ? .valid : .invalid
   }
 }
 
 struct Ping: Mappable {
   var latitude: Double!
   var longitude: Double!
-  var timestamp: NSDate!
+  var timestamp: Date!
   var tripId: Int!
   var sessionId: Int!
   var medallion: String?
@@ -52,7 +52,7 @@ struct Ping: Mappable {
     self.geofenceStatus = GeofenceStatus.fromBool(GeofenceArbiter.checkLocation(location.coordinate))
   }
   
-  mutating func mapping(map: Map) {
+  mutating func mapping(_ map: Map) {
     tripId <- map["trip_id"]
     sessionId <- map["session_id"]
     medallion <- map["medallion"]

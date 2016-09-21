@@ -11,15 +11,15 @@ import Alamofire
 
 struct ApiClient {
   
-  static func retryInterval() -> dispatch_time_t {
-    return dispatch_time(DISPATCH_TIME_NOW, Int64(5.0 * Double(NSEC_PER_SEC)))
+  static func retryInterval() -> DispatchTime {
+    return DispatchTime.now() + Double(Int64(5.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
   }
   
-  private static let sfoUsername = "taxi_short@sfo"
-  private static let sfoPassword = "mvUh6tYEwU9nYDrQ"
+  fileprivate static let sfoUsername = "taxi_short@sfo"
+  fileprivate static let sfoPassword = "mvUh6tYEwU9nYDrQ"
   
   static func authedRequest(
-    method: Alamofire.Method,
+    _ method: Alamofire.Method,
     _ URLString: URLStringConvertible,
     parameters: [String: AnyObject]? = nil,
     encoding: ParameterEncoding = .URL)

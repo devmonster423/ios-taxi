@@ -13,15 +13,15 @@ struct GpsDisabled {
   let eventNames = ["gpsDisabled"]
   static let sharedInstance = GpsDisabled()
 
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
 
-  private init() {
+  fileprivate init() {
     
     let event = TKEvent(name: eventNames[0],
       transitioningFromStates: StateManager.allStates,
-      toState: GpsIsOff.sharedInstance.getState())
+      to: GpsIsOff.sharedInstance.getState())
     
-    events = [event]
+    events = [event!]
   }
 }
 
@@ -32,11 +32,11 @@ extension GpsDisabled: Event {
 }
 
 extension GpsDisabled: Observable {
-  func eventIsFiring(info: Any?) {
+  func eventIsFiring(_ info: Any?) {
     if let tripId = TripManager.sharedInstance.getTripId(),
       let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
 
-      ApiClient.invalidate(tripId, invalidation: .GpsFailure, sessionId: sessionId)
+      ApiClient.invalidate(tripId, invalidation: .gpsFailure, sessionId: sessionId)
       TripManager.sharedInstance.reset(false)
     }
   }

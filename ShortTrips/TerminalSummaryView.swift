@@ -11,21 +11,21 @@ import SnapKit
 
 class TerminalSummaryView: UIView {
   
-  private let grayView = UIView()
-  private let hourPickerView = HourPickerView()
-  private let internationalTerminalView = TerminalView()
-  private let terminalView1 = TerminalView()
-  private let terminalView2 = TerminalView()
-  private let terminalView3 = TerminalView()
-  private var terminalViews: [TerminalView] = []
-  private let timerView = TimerView()
-  private let titleTerminalView = TerminalView()
-  private let totalTerminalView = TerminalView()
-  private let picker = UIPickerView()
-  private let pickerShower = UIButton()
-  private let pickerTitle = UILabel()
-  private let pickerDismissToolbar = UIToolbar()
-  private let reachabilityNotice = ReachabilityNotice()
+  fileprivate let grayView = UIView()
+  fileprivate let hourPickerView = HourPickerView()
+  fileprivate let internationalTerminalView = TerminalView()
+  fileprivate let terminalView1 = TerminalView()
+  fileprivate let terminalView2 = TerminalView()
+  fileprivate let terminalView3 = TerminalView()
+  fileprivate var terminalViews: [TerminalView] = []
+  fileprivate let timerView = TimerView()
+  fileprivate let titleTerminalView = TerminalView()
+  fileprivate let totalTerminalView = TerminalView()
+  fileprivate let picker = UIPickerView()
+  fileprivate let pickerShower = UIButton()
+  fileprivate let pickerTitle = UILabel()
+  fileprivate let pickerDismissToolbar = UIToolbar()
+  fileprivate let reachabilityNotice = ReachabilityNotice()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -34,7 +34,7 @@ class TerminalSummaryView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    backgroundColor = UIColor.whiteColor()
+    backgroundColor = UIColor.white
     
     terminalViews.append(terminalView1)
     terminalViews.append(terminalView2)
@@ -108,8 +108,8 @@ class TerminalSummaryView: UIView {
       make.height.equalTo(terminalView3)
     }
     
-    pickerShower.setBackgroundImage(Image.from(Color.NavBar.subtitleBlue), forState: .Normal)
-    pickerShower.setBackgroundImage(Image.from(Color.NavBar.subtitleBluePressed), forState: .Highlighted)
+    pickerShower.setBackgroundImage(Image.from(Color.NavBar.subtitleBlue), for: UIControlState())
+    pickerShower.setBackgroundImage(Image.from(Color.NavBar.subtitleBluePressed), for: .highlighted)
     pickerShower.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(divider.snp_bottom)
       make.height.equalTo(44)
@@ -119,8 +119,8 @@ class TerminalSummaryView: UIView {
     
     pickerTitle.font = UiConstants.TerminalSummary.toggleFont
     pickerTitle.text = FlightType.Arrivals.asLocalizedString()
-    pickerTitle.textAlignment = .Center
-    pickerTitle.textColor = UIColor.whiteColor()
+    pickerTitle.textAlignment = .center
+    pickerTitle.textColor = UIColor.white
     pickerShower.addSubview(pickerTitle)
     pickerTitle.snp_makeConstraints { (make) -> Void in
       make.width.equalTo(150)
@@ -130,7 +130,7 @@ class TerminalSummaryView: UIView {
     
     let downArrowImageView = UIImageView()
     downArrowImageView.image = Image.downArrow.image()
-    downArrowImageView.contentMode = .ScaleAspectFit
+    downArrowImageView.contentMode = .scaleAspectFit
     pickerShower.addSubview(downArrowImageView)
     downArrowImageView.snp_makeConstraints { (make) -> Void in
       make.width.equalTo(15)
@@ -156,8 +156,8 @@ class TerminalSummaryView: UIView {
     }
     
     picker.alpha = 0.0
-    picker.backgroundColor = UIColor.whiteColor()
-    picker.hidden = true
+    picker.backgroundColor = UIColor.white
+    picker.isHidden = true
     picker.snp_makeConstraints { (make) -> Void in
       make.bottom.equalTo(self)
       make.leading.equalTo(self)
@@ -165,7 +165,7 @@ class TerminalSummaryView: UIView {
     }
     
     pickerDismissToolbar.alpha = 0.0
-    pickerDismissToolbar.hidden = true
+    pickerDismissToolbar.isHidden = true
     pickerDismissToolbar.snp_makeConstraints { (make) -> Void in
       make.width.equalTo(self)
       make.bottom.equalTo(picker.snp_top)
@@ -173,8 +173,8 @@ class TerminalSummaryView: UIView {
     }
     
     grayView.alpha = UiConstants.TerminalSummary.grayViewAlpha
-    grayView.backgroundColor = UIColor.blackColor()
-    grayView.hidden = true
+    grayView.backgroundColor = UIColor.black
+    grayView.isHidden = true
     grayView.snp_makeConstraints { (make) -> Void in
       make.top.equalTo(self)
       make.bottom.equalTo(picker.snp_top)
@@ -182,7 +182,7 @@ class TerminalSummaryView: UIView {
       make.trailing.equalTo(self)
     }
     
-    reachabilityNotice.hidden = ReachabilityManager.sharedInstance.isReachable()
+    reachabilityNotice.isHidden = ReachabilityManager.sharedInstance.isReachable()
     addSubview(reachabilityNotice)
     reachabilityNotice.snp_makeConstraints { make in
       make.top.equalTo(self)
@@ -193,22 +193,22 @@ class TerminalSummaryView: UIView {
   }
   
   func getCurrentFlightType() -> FlightType {
-    return FlightType.all()[picker.selectedRowInComponent(0)]
+    return FlightType.all()[picker.selectedRow(inComponent: 0)]
   }
   
   func getCurrentHour() -> Int {
     return hourPickerView.getCurrentHour()
   }
   
-  func incrementHour(hourChange: Int) {
+  func incrementHour(_ hourChange: Int) {
     hourPickerView.incrementHour(hourChange)
   }
   
-  func reloadTerminalViews(summaries: [TerminalSummary]) {
-    terminalView1.configureForTerminalSummary(summaries.find(.One))
-    terminalView2.configureForTerminalSummary(summaries.find(.Two))
-    terminalView3.configureForTerminalSummary(summaries.find(.Three))
-    internationalTerminalView.configureForTerminalSummary(summaries.find(.International))
+  func reloadTerminalViews(_ summaries: [TerminalSummary]) {
+    terminalView1.configureForTerminalSummary(summaries.find(.one))
+    terminalView2.configureForTerminalSummary(summaries.find(.two))
+    terminalView3.configureForTerminalSummary(summaries.find(.three))
+    internationalTerminalView.configureForTerminalSummary(summaries.find(.international))
     totalTerminalView.configureTotals(TerminalSummary.getTotals(summaries))
   }
   
@@ -217,22 +217,22 @@ class TerminalSummaryView: UIView {
   }
   
   func hidePicker() {
-    UIView.animateWithDuration(UiConstants.TerminalSummary.fadeDuration, animations: {
+    UIView.animate(withDuration: UiConstants.TerminalSummary.fadeDuration, animations: {
       self.picker.alpha = 0.0
       self.pickerDismissToolbar.alpha = 0.0
       self.grayView.alpha = 0.0
     }, completion: { finished in
-      self.picker.hidden = true
-      self.pickerDismissToolbar.hidden = true
-      self.grayView.hidden = true
+      self.picker.isHidden = true
+      self.pickerDismissToolbar.isHidden = true
+      self.grayView.isHidden = true
     })
   }
   
   func showPicker() {
-    picker.hidden = false
-    pickerDismissToolbar.hidden = false
-    grayView.hidden = false
-    UIView.animateWithDuration(UiConstants.TerminalSummary.fadeDuration, animations: { () -> Void in
+    picker.isHidden = false
+    pickerDismissToolbar.isHidden = false
+    grayView.isHidden = false
+    UIView.animate(withDuration: UiConstants.TerminalSummary.fadeDuration, animations: { () -> Void in
       self.picker.alpha = 1.0
       self.pickerDismissToolbar.alpha = 1.0
       self.grayView.alpha = UiConstants.TerminalSummary.grayViewAlpha
@@ -246,15 +246,15 @@ class TerminalSummaryView: UIView {
     totalTerminalView.clearTotals()
   }
   
-  func setReachabilityNoticeHidden(hidden: Bool) {
-    reachabilityNotice.hidden = hidden
+  func setReachabilityNoticeHidden(_ hidden: Bool) {
+    reachabilityNotice.isHidden = hidden
   }
   
-  func setButtonSelectors(target: AnyObject, decreaseAction: Selector, increaseAction: Selector) {
+  func setButtonSelectors(_ target: AnyObject, decreaseAction: Selector, increaseAction: Selector) {
     hourPickerView.setButtonSelectors(target, decreaseAction: decreaseAction, increaseAction: increaseAction)
   }
   
-  func startTimerView(updateInterval: NSTimeInterval, callback: TimerCallback) {
+  func startTimerView(_ updateInterval: TimeInterval, callback: TimerCallback) {
     timerView.start(updateInterval, callback: callback)
   }
   
@@ -266,26 +266,26 @@ class TerminalSummaryView: UIView {
     timerView.resetProgress()
   }
   
-  func setTerminalViewSelector(target: AnyObject, action: Selector) {
-    terminalView1.addTarget(target, action: action, forControlEvents: .TouchUpInside)
-    terminalView2.addTarget(target, action: action, forControlEvents: .TouchUpInside)
-    terminalView3.addTarget(target, action: action, forControlEvents: .TouchUpInside)
-    internationalTerminalView.addTarget(target, action: action, forControlEvents: .TouchUpInside)
+  func setTerminalViewSelector(_ target: AnyObject, action: Selector) {
+    terminalView1.addTarget(target, action: action, for: .touchUpInside)
+    terminalView2.addTarget(target, action: action, for: .touchUpInside)
+    terminalView3.addTarget(target, action: action, for: .touchUpInside)
+    internationalTerminalView.addTarget(target, action: action, for: .touchUpInside)
   }
   
-  func setPickerShowerTarget(target: AnyObject, action: Selector) {
-    pickerShower.addTarget(target, action: action, forControlEvents: .TouchUpInside)
+  func setPickerShowerTarget(_ target: AnyObject, action: Selector) {
+    pickerShower.addTarget(target, action: action, for: .touchUpInside)
   }
   
-  func setPickerDismisserItems(items: [UIBarButtonItem]) {
+  func setPickerDismisserItems(_ items: [UIBarButtonItem]) {
     pickerDismissToolbar.setItems(items, animated: true)
   }
   
-  func setGrayAreaSelector(target: AnyObject, action: Selector) {
+  func setGrayAreaSelector(_ target: AnyObject, action: Selector) {
     grayView.addGestureRecognizer(UITapGestureRecognizer(target: target, action: action))
   }
   
-  func setPickerDataSourceAndDelegate(dataSource dataSource: UIPickerViewDataSource, delegate: UIPickerViewDelegate) {
+  func setPickerDataSourceAndDelegate(dataSource: UIPickerViewDataSource, delegate: UIPickerViewDelegate) {
     picker.dataSource = dataSource
     picker.delegate = delegate
   }

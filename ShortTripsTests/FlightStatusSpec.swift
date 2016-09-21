@@ -12,10 +12,10 @@ import Nimble
 import Foundation
 
 class FlightStatusSpec: QuickSpec {
-  private var onTime: FlightStatus = .OnTime
-  private var landing: FlightStatus = .Landing
-  private var delayed: FlightStatus = .Delayed
-  private var landed: FlightStatus = .Landed
+  fileprivate var onTime: FlightStatus = .OnTime
+  fileprivate var landing: FlightStatus = .Landing
+  fileprivate var delayed: FlightStatus = .Delayed
+  fileprivate var landed: FlightStatus = .Landed
   
   override func spec() {
     

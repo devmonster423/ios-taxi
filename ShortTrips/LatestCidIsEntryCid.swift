@@ -14,12 +14,12 @@ struct LatestCidIsEntryCid {
   let eventNames = ["lastestCidIsEntryCid"]
   static let sharedInstance = LatestCidIsEntryCid()
 
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
 
-  private init() {
+  fileprivate init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [WaitingForEntryCid.sharedInstance.getState()],
-      toState: AssociatingDriverAndVehicleAtEntry.sharedInstance.getState())]
+      to: AssociatingDriverAndVehicleAtEntry.sharedInstance.getState())]
   }
 }
 
@@ -30,7 +30,7 @@ extension LatestCidIsEntryCid: Event {
 }
 
 extension LatestCidIsEntryCid: Observable {
-  func eventIsFiring(info: Any?) {
+  func eventIsFiring(_ info: Any?) {
     if let cid = info as? Cid {
       postNotification(SfoNotification.Cid.entry, value: cid)
     }

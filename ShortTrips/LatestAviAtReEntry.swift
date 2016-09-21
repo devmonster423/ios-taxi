@@ -14,13 +14,13 @@ struct LatestAviAtReEntry {
   let eventNames = ["LatestAviAtReEntry"]
   static let sharedInstance = LatestAviAtReEntry()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     events = [
       TKEvent(name: eventNames[0],
         transitioningFromStates: [WaitingForReEntryAvi.sharedInstance.getState()],
-        toState: ValidatingTrip.sharedInstance.getState())
+        to: ValidatingTrip.sharedInstance.getState())
     ]
   }
 }
@@ -32,7 +32,7 @@ extension LatestAviAtReEntry: Event {
 }
 
 extension LatestAviAtReEntry: Observable {
-  func eventIsFiring(info: Any?) {
+  func eventIsFiring(_ info: Any?) {
     if let antenna = info as? Antenna {
       postNotification(SfoNotification.Avi.entryGate, value: antenna)
     }

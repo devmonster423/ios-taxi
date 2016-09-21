@@ -11,15 +11,15 @@ import AlamofireObjectMapper
 import JSQNotificationObserverKit
 import ObjectMapper
 
-typealias SuccessClosure = Bool -> Void
-typealias TripIdClosure = Int -> Void
-typealias ValidationClosure = TripValidation -> Void
+typealias SuccessClosure = (Bool) -> Void
+typealias TripIdClosure = (Int) -> Void
+typealias ValidationClosure = (TripValidation) -> Void
 
 extension ApiClient {
   
   static let maxTripRestarts = 50
   
-  static func ping(tripId: Int, ping: Ping, response: SuccessClosure) {
+  static func ping(_ tripId: Int, ping: Ping, response: @escaping SuccessClosure) {
     
     if PingKiller.sharedInstance.shouldKillPings() && Util.debug {
       response(false)
@@ -38,7 +38,7 @@ extension ApiClient {
     }
   }
   
-  static func pings(tripId: Int, pings: PingBatch, response: SuccessClosure) {
+  static func pings(_ tripId: Int, pings: PingBatch, response: @escaping SuccessClosure) {
     
     if PingKiller.sharedInstance.shouldKillPings() && Util.debug {
       response(false)
@@ -57,7 +57,7 @@ extension ApiClient {
     }
   }
   
-  static func start(tripBody: TripBody, retryCount: Int = 0, response: TripIdClosure) {
+  static func start(_ tripBody: TripBody, retryCount: Int = 0, response: @escaping TripIdClosure) {
     authedRequest(.POST, Url.Trip.start, parameters: Mapper().toJSON(tripBody))
       .responseObject { (_, raw, tripId: TripId?, _, _) in
         
@@ -77,7 +77,7 @@ extension ApiClient {
     }
   }
   
-  static func end(tripId: Int, tripBody: TripBody, response: ValidationClosure) {
+  static func end(_ tripId: Int, tripBody: TripBody, response: @escaping ValidationClosure) {
     authedRequest(.POST, Url.Trip.end(tripId), parameters: Mapper().toJSON(tripBody))
       .responseObject { (_, raw, validation: TripValidation?, _, _) in
         
@@ -95,7 +95,7 @@ extension ApiClient {
     }
   }
   
-  static func invalidate(tripId: Int, invalidation: ValidationStep, sessionId: Int) {
+  static func invalidate(_ tripId: Int, invalidation: ValidationStep, sessionId: Int) {
     
     PingManager.sharedInstance.sendOldPings(tripId)
     

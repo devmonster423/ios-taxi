@@ -10,13 +10,24 @@ import Foundation
 import UIKit
 import MBProgressHUD
 import JSQNotificationObserverKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 class FlightStatusVC: UIViewController {
   
-  private let minimumSpinnerDuration = NSTimeInterval(2) // seconds
-  private var earliestTimeToDismiss: NSDate?
-  private var timer: NSTimer?
-  private var hud: MBProgressHUD?
+  fileprivate let minimumSpinnerDuration = TimeInterval(2) // seconds
+  fileprivate var earliestTimeToDismiss: Date?
+  fileprivate var timer: Timer?
+  fileprivate var hud: MBProgressHUD?
   var reachabilityObserver: ReachabilityObserver?
   
   var selectedTerminalId: TerminalId!
@@ -26,7 +37,7 @@ class FlightStatusVC: UIViewController {
   var errorShown = false
   
   override func loadView() {
-    let flightStatusView = FlightStatusView(frame: UIScreen.mainScreen().bounds)
+    let flightStatusView = FlightStatusView(frame: UIScreen.main.bounds)
     flightStatusView.setReachabilityNoticeHidden(ReachabilityManager.sharedInstance.isReachable())
     flightStatusView.setupTableView(dataSource: self, delegate: self, cellClasses: [(FlightCell.self, FlightCell.identifier)])
     view = flightStatusView
@@ -34,19 +45,19 @@ class FlightStatusVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    configureNavBar(back: true, title: NSLocalizedString("Flight Status", comment: "").uppercaseString)
+    configureNavBar(back: true, title: NSLocalizedString("Flight Status", comment: "").uppercased())
     addSettingsButton()
     
-    NSNotificationCenter.defaultCenter().addObserver(
+    NotificationCenter.default.addObserver(
       self,
       selector: #selector(stopTimer),
-      name: UIApplicationDidEnterBackgroundNotification,
+      name: NSNotification.Name.UIApplicationDidEnterBackground,
       object: nil)
     
-    NSNotificationCenter.defaultCenter().addObserver(
+    NotificationCenter.default.addObserver(
       self,
       selector: #selector(startTimer),
-      name: UIApplicationWillEnterForegroundNotification,
+      name: NSNotification.Name.UIApplicationWillEnterForeground,
       object: nil)
     
     reachabilityObserver = NotificationObserver(notification: SfoNotification.Reachability.reachabilityChanged) { reachable, _ in
@@ -62,13 +73,13 @@ class FlightStatusVC: UIViewController {
     flightStatusView().stopTimerView()
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     flightStatusView().setHeaderText(selectedTerminalId.asLocalizedString() + " " + flightType.asLocalizedString())
     startTimer()
   }
   
-  override func viewWillDisappear(animated: Bool) {
+  override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     stopTimer()
   }
@@ -85,19 +96,19 @@ class FlightStatusVC: UIViewController {
   }
   
   func updateFlightTable() {
-    hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+    hud = MBProgressHUD.showAdded(to: view, animated: true)
     hud?.labelText = NSLocalizedString("Requesting Flights...", comment: "")
-    earliestTimeToDismiss = NSDate().dateByAddingTimeInterval(minimumSpinnerDuration)
+    earliestTimeToDismiss = Date().addingTimeInterval(minimumSpinnerDuration)
     
     ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour, flightType: flightType) { flights, statusCode in
 
-      self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1,
+      self.timer = Timer.scheduledTimer(timeInterval: 0.1,
         target: self,
         selector: #selector(FlightStatusVC.attemptToHideSpinner),
         userInfo: nil,
         repeats: true)
       
-      if let flights = flights where Flight.isValid(flights) {
+      if let flights = flights , Flight.isValid(flights) {
         self.flights = flights
         self.flightStatusView().reloadTableData()
         
@@ -105,7 +116,7 @@ class FlightStatusVC: UIViewController {
         var message = NSLocalizedString("An error occurred while fetching flight data.", comment: "")
         
         if Util.debug {
-          if let statusCode = statusCode where statusCode != Util.HttpStatusCodes.Ok.rawValue {
+          if let statusCode = statusCode , statusCode != Util.HttpStatusCodes.ok.rawValue {
             message += " " + NSLocalizedString("Status code: ", comment: "") + String(statusCode)
           } else {
             message += " " + NSLocalizedString("The flights object was nil.", comment:"")
@@ -120,7 +131,7 @@ class FlightStatusVC: UIViewController {
 }
 
 extension FlightStatusVC: UITableViewDataSource {
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let flights = flights {
       return flights.count
     } else {
@@ -128,17 +139,17 @@ extension FlightStatusVC: UITableViewDataSource {
     }
   }
   
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier(FlightCell.identifier, forIndexPath: indexPath) as! FlightCell
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: FlightCell.identifier, for: indexPath) as! FlightCell
     if let flights = flights {
-      cell.displayFlight(flights[indexPath.row], darkBackground: indexPath.row % 2 != 0)
+      cell.displayFlight(flights[(indexPath as NSIndexPath).row], darkBackground: (indexPath as NSIndexPath).row % 2 != 0)
     }
     return cell
   }
 }
 
 extension FlightStatusVC: UITableViewDelegate {
-  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return UiConstants.FlightCell.rowHeight
   }
 }

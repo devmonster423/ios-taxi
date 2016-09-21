@@ -42,7 +42,7 @@ struct Flight: Mappable {
   
   init?(_ map: Map){}
   
-  mutating func mapping(map: Map) {
+  mutating func mapping(_ map: Map) {
     airline <- map["airline_name"]
     bags <- map["bags"]
     estimatedTime <- (map["estimated_time"], Flight.transform)
@@ -51,7 +51,7 @@ struct Flight: Mappable {
     scheduledTime <- (map["scheduled_time"], Flight.transform)
   }
   
-  static func isValid(flights: [Flight]) -> Bool {
+  static func isValid(_ flights: [Flight]) -> Bool {
     
     for flight in flights {
       if flight.airline == nil
@@ -67,16 +67,16 @@ struct Flight: Mappable {
     return true
   }
   
-  static func airlineImageForFlight(flightNumber: String, width: Int, height: Int, completion: ImageClosure) {
+  static func airlineImageForFlight(_ flightNumber: String, width: Int, height: Int, completion: ImageClosure) {
     ApiClient.imageForIataCode(iataCodeForFlightNumber(flightNumber), width: width, height: height, completion: completion)
   }
   
-  private static func iataCodeForFlightNumber(flightNumber: String) -> String {
-     return flightNumber.substringWithRange(Range<String.Index>(
-      flightNumber.startIndex ..< flightNumber.startIndex.advancedBy(2)))
+  fileprivate static func iataCodeForFlightNumber(_ flightNumber: String) -> String {
+     return flightNumber.substring(with: Range<String.Index>(
+      flightNumber.startIndex ..< flightNumber.characters.index(flightNumber.startIndex, offsetBy: 2)))
   }
 
-  static func mungeStatus(scheduled: NSDate, estimated: NSDate) -> FlightStatus {
+  static func mungeStatus(_ scheduled: NSDate, estimated: NSDate) -> FlightStatus {
     return scheduled.dateByAddingTimeInterval(timeCushion).compare(estimated) == .OrderedAscending ? .Delayed : .OnTime
   }
 }

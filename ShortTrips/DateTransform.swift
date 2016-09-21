@@ -17,22 +17,22 @@ public struct DateTransform: TransformType {
     self.dateFormat = dateFormat
   }
 
-  public func transformFromJSON(value: AnyObject?) -> NSDate? {
+  public func transformFromJSON(_ value: AnyObject?) -> Date? {
     if let stringValue = value as? String {
-      let dateFormatter = NSDateFormatter()
-      dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+      let dateFormatter = DateFormatter()
+      dateFormatter.locale = Locale(identifier: "en_US_POSIX")
       dateFormatter.dateFormat = dateFormat
-      return dateFormatter.dateFromString(stringValue)
+      return dateFormatter.date(from: stringValue)
     }
     return nil
   }
 
-  public func transformToJSON(value: NSDate?) -> String? {
+  public func transformToJSON(_ value: Date?) -> String? {
     if let date = value {
-      let dateFormatter = NSDateFormatter()
-      dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+      let dateFormatter = DateFormatter()
+      dateFormatter.locale = Locale(identifier: "en_US_POSIX")
       dateFormatter.dateFormat = dateFormat
-      return dateFormatter.stringFromDate(date)
+      return dateFormatter.string(from: date)
     }
     return nil
   }

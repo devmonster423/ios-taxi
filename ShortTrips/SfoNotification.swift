@@ -15,61 +15,61 @@ typealias ReachabilityObserver = NotificationObserver<Bool, AnyObject>?
 
 struct SfoNotification {
   struct Avi {
-    static let domesticReEntry = Notification<Antenna, AnyObject>(name: "DomesticReEntryGateAvi")
-    static let entryGate = Notification<Antenna, AnyObject>(name: "EntryGateAvi")
-    static let domExit = Notification<Antenna, AnyObject>(name: "DomExitAvi")
-    static let intlArrivalExit = Notification<Antenna, AnyObject>(name: "IntlArrivalExitAvi")
-    static let taxiLoop = Notification<Antenna, AnyObject>(name: "TaxiLoopAviRead")
-    static let unexpected = Notification<(expected: GtmsLocation, found: GtmsLocation), AnyObject>(name: "UnexpectedAvi")
+    static let domesticReEntry = Notification(name: Notification.Name(rawValue: "DomesticReEntryGateAvi"))
+    static let entryGate = Notification(name: Notification.Name(rawValue: "EntryGateAvi"))
+    static let domExit = Notification(name: Notification.Name(rawValue: "DomExitAvi"))
+    static let intlArrivalExit = Notification(name: Notification.Name(rawValue: "IntlArrivalExitAvi"))
+    static let taxiLoop = Notification(name: Notification.Name(rawValue: "TaxiLoopAviRead"))
+    static let unexpected = Notification(name: Notification.Name(rawValue: "UnexpectedAvi"))
   }
 
   struct Cid {
-    static let entry = Notification<ShortTrips.Cid, AnyObject>(name: "EntryCidRead")
-    static let payment = Notification<ShortTrips.Cid, AnyObject>(name: "PaymentCidRead")
-    static let unexpected = Notification<(expected: GtmsLocation, found: GtmsLocation), AnyObject>(name: "UnexpectedCid")
+    static let entry = Notification(name: Notification.Name(rawValue: "EntryCidRead"))
+    static let payment = Notification(name: Notification.Name(rawValue: "PaymentCidRead"))
+    static let unexpected = Notification(name: Notification.Name(rawValue: "UnexpectedCid"))
   }
   
   struct Driver {
-    static let logout = Notification<Any?, AnyObject>(name: "Logout")
-    static let vehicleAssociated = Notification<(driver: ShortTrips.Driver, vehicle: Vehicle), AnyObject>(name: "DriverAndVehicleAssociated")
+    static let logout = Notification(name: Notification.Name(rawValue: "Logout"))
+    static let vehicleAssociated = Notification(name: Notification.Name(rawValue: "DriverAndVehicleAssociated"))
   }
   
   struct Geofence {
-    static let foundInside = Notification<[SfoGeofence], AnyObject>(name: "FoundInsideGeofences")
-    static let notInTerminalExit = Notification<Any?, AnyObject>(name: "NotInTerminalExit")
-    static let outsideBufferedExit = Notification<Any?, AnyObject>(name: "OutsideBufferedExit")
-    static let outsideShortTrip = Notification<Any?, AnyObject>(name: "OutsideShortTrip")
+    static let foundInside = Notification(name: Notification.Name(rawValue: "FoundInsideGeofences"))
+    static let notInTerminalExit = Notification(name: Notification.Name(rawValue: "NotInTerminalExit"))
+    static let outsideBufferedExit = Notification(name: Notification.Name(rawValue: "OutsideBufferedExit"))
+    static let outsideShortTrip = Notification(name: Notification.Name(rawValue: "OutsideShortTrip"))
   }
   
   struct Location {
-    static let managerStarted = Notification<Any?, AnyObject>(name: "LocationManagerStarted")
-    static let read = Notification<CLLocation, AnyObject>(name: "LocationRead")
-    static let statusUpdated = Notification<CLAuthorizationStatus, AnyObject>(name: "LocationStatusUpdated")
+    static let managerStarted = Notification(name: Notification.Name(rawValue: "LocationManagerStarted"))
+    static let read = Notification(name: Notification.Name(rawValue: "LocationRead"))
+    static let statusUpdated = Notification(name: Notification.Name(rawValue: "LocationStatusUpdated"))
   }
   
   struct Ping {
-    static let created = Notification<ShortTrips.Ping, AnyObject>(name: "CreatedPing")
-    static let valid = Notification<ShortTrips.Ping, AnyObject>(name: "validPing")
-    static let invalid = Notification<ShortTrips.Ping, AnyObject>(name: "invalidPing")
+    static let created = Notification(name: Notification.Name(rawValue: "CreatedPing"))
+    static let valid = Notification(name: Notification.Name(rawValue: "validPing"))
+    static let invalid = Notification(name: Notification.Name(rawValue: "invalidPing"))
   }
   
   struct Reachability {
-    static let reachabilityChanged = Notification<Bool, AnyObject>(name: "ReachabilityChanged")
+    static let reachabilityChanged = Notification(name: Notification.Name(rawValue: "ReachabilityChanged"))
   }
   
   struct Request {
-    static let response = Notification<NSHTTPURLResponse, AnyObject>(name: "RequestResponse")
+    static let response = Notification(name: Notification.Name(rawValue: "RequestResponse"))
   }
   
   struct State {
-    static let update = Notification<TKState, AnyObject>(name: "StateUpdate")
+    static let update = Notification(name: Notification.Name(rawValue: "StateUpdate"))
   }
   
   struct Trip {
-    static let invalidated = Notification<[ValidationStepWrapper]?, AnyObject>(name: "TripInvalidated")
-    static let started = Notification<Int, AnyObject>(name: "TripStarted")
-    static let timeExpired = Notification<Any?, AnyObject>(name: "TripTimeExpired")
-    static let validated = Notification<NSDate, AnyObject>(name: "TripValidated")
-    static let warning = Notification<TripWarning, AnyObject>(name: "TripWarning")
+    static let invalidated = Notification(name: Notification.Name(rawValue: "TripInvalidated"))
+    static let started = Notification(name: Notification.Name(rawValue: "TripStarted"))
+    static let timeExpired = Notification(name: Notification.Name(rawValue: "TripTimeExpired"))
+    static let validated = Notification(name: Notification.Name(rawValue: "TripValidated"))
+    static let warning = Notification(name: Notification.Name(rawValue: "TripWarning"))
   }
 }

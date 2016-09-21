@@ -10,15 +10,15 @@ import Foundation
 
 struct PendingAppQuit {
   
-  private static let appQuitKey = "app_quit"
+  fileprivate static let appQuitKey = "app_quit"
   
   static func get() -> Int? {
-    let tripId = NSUserDefaults.standardUserDefaults().integerForKey(appQuitKey)
+    let tripId = UserDefaults.standard.integer(forKey: appQuitKey)
     return tripId != 0 ? tripId : nil
   }
   
-  static func set(pendingAppQuit: Int?) {
-    NSUserDefaults.standardUserDefaults()
-      .setInteger(pendingAppQuit ?? 0, forKey: appQuitKey)
+  static func set(_ pendingAppQuit: Int?) {
+    UserDefaults.standard
+      .set(pendingAppQuit ?? 0, forKey: appQuitKey)
   }
 }

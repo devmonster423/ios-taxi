@@ -10,40 +10,40 @@ import Foundation
 import UIKit
 
 class UiHelpers {
-  class func disableWidgetWithAnimation(widget: UIView) {
-    UIView.animateWithDuration(UiConstants.Fader.fadeDuration, animations: { () -> Void in
+  class func disableWidgetWithAnimation(_ widget: UIView) {
+    UIView.animate(withDuration: UiConstants.Fader.fadeDuration, animations: { () -> Void in
       widget.alpha = UiConstants.Fader.disabledWidgetAlpha
       if let widget = widget as? UIControl {
-        widget.enabled = false
+        widget.isEnabled = false
       }
     })
   }
 
-  class func enableWidgetWithAnimation(widget: UIView) {
+  class func enableWidgetWithAnimation(_ widget: UIView) {
     if widget is UIControl {
-      (widget as! UIControl).enabled = true
+      (widget as! UIControl).isEnabled = true
     }
-    UIView.animateWithDuration(UiConstants.Fader.fadeDuration, animations: { () -> Void in
+    UIView.animate(withDuration: UiConstants.Fader.fadeDuration, animations: { () -> Void in
       widget.alpha = 1.0
       if let widget = widget as? UIControl {
-        widget.enabled = true
+        widget.isEnabled = true
       }
     })
   }
   
-  class func displayComingSoonMessage(viewController: UIViewController) {
+  class func displayComingSoonMessage(_ viewController: UIViewController) {
     displayMessage(viewController, title: NSLocalizedString("Coming Soon!", comment: ""), message: "")
   }
   
-  class func displayErrorMessage(viewController: UIViewController, message: String) {
+  class func displayErrorMessage(_ viewController: UIViewController, message: String) {
     displayMessage(viewController, title: NSLocalizedString("Error", comment: ""), message: message)
   }
   
-  class func displayMessage(viewController: UIViewController, title: String, message: String) {
-    let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+  class func displayMessage(_ viewController: UIViewController, title: String, message: String) {
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
     let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
-      style: .Default, handler: nil)
+      style: .default, handler: nil)
     alertController.addAction(OKAction)
-    viewController.presentViewController(alertController, animated: true, completion: nil)
+    viewController.present(alertController, animated: true, completion: nil)
   }
 }

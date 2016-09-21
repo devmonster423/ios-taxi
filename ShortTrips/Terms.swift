@@ -10,13 +10,13 @@ import Foundation
 
 struct Terms {
   
-  private static let preferenceKey = "terms_and_conditions"
+  fileprivate static let preferenceKey = "terms_and_conditions"
   
   static func agreedTerms() -> String? {
-    return NSUserDefaults.standardUserDefaults().stringForKey(preferenceKey)
+    return UserDefaults.standard.string(forKey: preferenceKey)
   }
   
-  static func saveTerms(terms: String) {
-    NSUserDefaults.standardUserDefaults().setObject(terms, forKey: preferenceKey)
+  static func saveTerms(_ terms: String) {
+    UserDefaults.standard.set(terms, forKey: preferenceKey)
   }
 }

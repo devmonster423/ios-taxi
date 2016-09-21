@@ -13,14 +13,14 @@ typealias TimerCallback = () -> Void
 class TimerView: UIView {
 
   // behavior properties
-  private var callback: TimerCallback!
-  private var lastUpdateDate: NSDate?
-  private var timer: NSTimer?
-  private var updateInterval: NSTimeInterval!
+  fileprivate var callback: TimerCallback!
+  fileprivate var lastUpdateDate: Date?
+  fileprivate var timer: Timer?
+  fileprivate var updateInterval: TimeInterval!
   
   // subviews
-  private let progressView = UIProgressView(progressViewStyle: UIProgressViewStyle.Bar)
-  private let updateLabel = UILabel()
+  fileprivate let progressView = UIProgressView(progressViewStyle: UIProgressViewStyle.bar)
+  fileprivate let updateLabel = UILabel()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -44,7 +44,7 @@ class TimerView: UIView {
     }
 
     updateLabel.font = Font.OpenSansSemibold.size(UiConstants.Timer.updateHeight)
-    updateLabel.textAlignment = .Center
+    updateLabel.textAlignment = .center
     updateLabel.textColor = Color.Sfo.gray
     updateLabel.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
@@ -53,7 +53,7 @@ class TimerView: UIView {
     }
   }
 
-  func updateForTime(elapsedSeconds: NSTimeInterval) {
+  func updateForTime(_ elapsedSeconds: TimeInterval) {
     if elapsedSeconds < 60 {
       updateLabel.text = NSLocalizedString("LAST UPDATED LESS THAN A MINUTE AGO", comment: "")
     }
@@ -66,12 +66,12 @@ class TimerView: UIView {
     progressView.progress = Float(elapsedSeconds) / Float(updateInterval)
   }
   
-  func start(updateInterval: NSTimeInterval, callback: TimerCallback) {
+  func start(_ updateInterval: TimeInterval, callback: @escaping TimerCallback) {
     self.callback = callback
     self.updateInterval = updateInterval
     timer?.invalidate()
     weak var weakSelf = self
-    timer = NSTimer.scheduledTimerWithTimeInterval(UiConstants.Timer.updateInterval,
+    timer = Timer.scheduledTimer(timeInterval: UiConstants.Timer.updateInterval,
       target: weakSelf!,
       selector: #selector(eachSecond),
       userInfo: nil,
@@ -82,7 +82,7 @@ class TimerView: UIView {
   func resetProgress() {
     updateLabel.text = NSLocalizedString("LAST UPDATED LESS THAN A MINUTE AGO", comment: "")
     progressView.progress = 0.0
-    lastUpdateDate = NSDate()
+    lastUpdateDate = Date()
   }
   
   func updateAndRefresh() {

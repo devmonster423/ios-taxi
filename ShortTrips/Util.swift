@@ -14,12 +14,12 @@ struct Util {
   static var testingGps = false
   
   enum HttpStatusCodes: Int {
-    case Ok = 200
+    case ok = 200
   }
   
   static func testing() -> Bool {
-    let dict = NSProcessInfo.processInfo().environment
-    if let testing = dict["TESTING"] where testing == "true" {
+    let dict = ProcessInfo.processInfo.environment
+    if let testing = dict["TESTING"] , testing == "true" {
       return true
     } else {
       return false
@@ -27,10 +27,10 @@ struct Util {
   }
   
   static func versionString() -> String {
-    return NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+    return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
   }
   
   static func isIphone4Or5() -> Bool {
-    return UIScreen.mainScreen().bounds.size.height <= 568
+    return UIScreen.main.bounds.size.height <= 568
   }
 }

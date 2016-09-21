@@ -10,18 +10,18 @@ import Foundation
 import ObjectMapper
 import AlamofireObjectMapper
 
-typealias QueueLengthResponse = QueueLength? -> Void
-typealias QueueLengthAndCapacityResponse = (length: Int, capacity: Int)? -> Void
+typealias QueueLengthResponse = (QueueLength?) -> Void
+typealias QueueLengthAndCapacityResponse = ((length: Int, capacity: Int)?) -> Void
 
 extension ApiClient {
-  static func requestQueueLength(response: QueueLengthResponse) {
+  static func requestQueueLength(_ response: @escaping QueueLengthResponse) {
     authedRequest(.GET, Url.Queue.currentLength)
       .responseObject { (referenceConfig: QueueLength?, _) in
         response(referenceConfig)
     }
   }
   
-  static func requestQueueLengthAndCapacity(response: QueueLengthAndCapacityResponse) {
+  static func requestQueueLengthAndCapacity(_ response: @escaping QueueLengthAndCapacityResponse) {
     requestQueueLength { queueLength in
       if let length = queueLength?.longQueueLength {
         requestLotCapacity() { capacity in

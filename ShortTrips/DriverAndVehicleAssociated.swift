@@ -16,22 +16,22 @@ struct DriverAndVehicleAssociated {
     "driverAndVehicleAssociatedAtReEntry"]
   static let sharedInstance = DriverAndVehicleAssociated()
     
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     events = [
       TKEvent(name: eventNames[0],
         transitioningFromStates: [AssociatingDriverAndVehicleAtEntry.sharedInstance.getState()],
-        toState: WaitingForEntryAvi
+        to: WaitingForEntryAvi
           .sharedInstance.getState()),
       
       TKEvent(name: eventNames[1],
         transitioningFromStates: [AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState()],
-        toState: WaitingForTaxiLoopAvi.sharedInstance.getState()),
+        to: WaitingForTaxiLoopAvi.sharedInstance.getState()),
       
       TKEvent(name: eventNames[2],
         transitioningFromStates: [AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState()],
-        toState: WaitingForReEntryAvi.sharedInstance.getState())
+        to: WaitingForReEntryAvi.sharedInstance.getState())
     ]
   }
 }
@@ -43,7 +43,7 @@ extension DriverAndVehicleAssociated: Event {
 }
 
 extension DriverAndVehicleAssociated: Observable {
-  func eventIsFiring(info: Any?) {
+  func eventIsFiring(_ info: Any?) {
     if let info = info as? (driver: Driver, vehicle: Vehicle) {
       postNotification(SfoNotification.Driver.vehicleAssociated, value: info)
     }

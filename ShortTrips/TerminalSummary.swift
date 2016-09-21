@@ -14,20 +14,20 @@ import ObjectMapper
 // arrivals." That said, the nomenclature is, I presume, familiar to and useful for taxi
 // drivers notwithstanding any potential inaccuracy.
 enum TerminalId: Int {
-  case One = 1
-  case Two = 2
-  case Three = 3
-  case International = 4
+  case one = 1
+  case two = 2
+  case three = 3
+  case international = 4
   
   func asLocalizedString() -> String {
     switch self {
-    case .One:
+    case .one:
       return NSLocalizedString("Terminal One", comment: "")
-    case .Two:
+    case .two:
       return NSLocalizedString("Terminal Two", comment: "")
-    case .Three:
+    case .three:
       return NSLocalizedString("Terminal Three", comment: "")
-    case .International:
+    case .international:
       return NSLocalizedString("Int'l Terminal", comment: "")
     }
   }
@@ -46,13 +46,13 @@ struct TerminalSummary: Mappable {
     self.delayedCount = delayedCount
   }
   
-  mutating func mapping(map: Map) {
+  mutating func mapping(_ map: Map) {
     terminalId <- map["terminal_id"]
     onTimeCount <- map["count"]
     delayedCount <- map["delayed_count"]
   }
   
-  static func getTotals(summaries: [TerminalSummary]?) -> (onTime: Int, delayed: Int) {
+  static func getTotals(_ summaries: [TerminalSummary]?) -> (onTime: Int, delayed: Int) {
     var results = (onTime: 0, delayed: 0)
     if let summaries = summaries {
       for summary in summaries {
@@ -64,8 +64,8 @@ struct TerminalSummary: Mappable {
   }
 }
 
-extension SequenceType where Generator.Element == TerminalSummary {
-  func find(terminalId: TerminalId) -> TerminalSummary? {
+extension Sequence where Iterator.Element == TerminalSummary {
+  func find(_ terminalId: TerminalId) -> TerminalSummary? {
     for summary in self {
       if summary.terminalId == terminalId {
         return summary

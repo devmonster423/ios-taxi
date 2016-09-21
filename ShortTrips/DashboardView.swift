@@ -11,9 +11,9 @@ import SnapKit
 
 class DashboardView: UIView {
 
-  private let numberLabel = UILabel()
-  private let timerView = TimerView()
-  private let reachabilityNotice = ReachabilityNotice()
+  fileprivate let numberLabel = UILabel()
+  fileprivate let timerView = TimerView()
+  fileprivate let reachabilityNotice = ReachabilityNotice()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -21,14 +21,14 @@ class DashboardView: UIView {
 
   override init(frame: CGRect) {
     super.init(frame: frame)
-    backgroundColor = UIColor.whiteColor()
+    backgroundColor = UIColor.white
     addSubview(timerView)
     
     let taxisCaptionLabel = UILabel()
     taxisCaptionLabel.backgroundColor = Color.Dashboard.lightBlue
     taxisCaptionLabel.font = Font.OpenSansBold.size(32)
-    taxisCaptionLabel.text = NSLocalizedString("Taxis in lot", comment: "").uppercaseString
-    taxisCaptionLabel.textAlignment = .Center
+    taxisCaptionLabel.text = NSLocalizedString("Taxis in lot", comment: "").uppercased()
+    taxisCaptionLabel.textAlignment = .center
     taxisCaptionLabel.textColor = Color.Dashboard.darkBlue
     addSubview(taxisCaptionLabel)
     taxisCaptionLabel.snp_makeConstraints { make in
@@ -40,7 +40,7 @@ class DashboardView: UIView {
 
     let circlesImage = UIImageView()
     circlesImage.image = Image.bgCircles.image()
-    circlesImage.contentMode = .ScaleAspectFit
+    circlesImage.contentMode = .scaleAspectFit
     addSubview(circlesImage)
     circlesImage.snp_makeConstraints { make in
       make.top.equalTo(self).offset(20)
@@ -50,7 +50,7 @@ class DashboardView: UIView {
     }
 
     numberLabel.font = Font.OpenSansBold.size(180)
-    numberLabel.textAlignment = .Center
+    numberLabel.textAlignment = .center
     numberLabel.textColor = Color.Dashboard.darkBlue
     addSubview(numberLabel)
     numberLabel.snp_makeConstraints { (make) -> Void in
@@ -74,15 +74,15 @@ class DashboardView: UIView {
     }
   }
   
-  func updateSpots(length: Int) {
+  func updateSpots(_ length: Int) {
     numberLabel.text = "\(length)"
   }
   
-  func setReachabilityNoticeHidden(hidden: Bool) {
-    reachabilityNotice.hidden = hidden
+  func setReachabilityNoticeHidden(_ hidden: Bool) {
+    reachabilityNotice.isHidden = hidden
   }
   
-  func startTimerView(updateInterval: NSTimeInterval, callback: TimerCallback) {
+  func startTimerView(_ updateInterval: TimeInterval, callback: TimerCallback) {
     timerView.start(updateInterval, callback: callback)
   }
   

@@ -14,26 +14,26 @@ struct NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck {
   let eventNames = ["NotInsideTaxiLoopExitAfterFailedPaymentCheckHoldingLot", "NotInsideTaxiLoopExitAfterFailedPaymentCheckNotReady"]
   static let sharedInstance = NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     let event1 = TKEvent(name: eventNames[0],
       transitioningFromStates: [WaitingForPaymentCid.sharedInstance.getState(), AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState(), WaitingForTaxiLoopAvi.sharedInstance.getState()],
-      toState: WaitingInHoldingLot.sharedInstance.getState())
+      to: WaitingInHoldingLot.sharedInstance.getState())
     
     let event2 = TKEvent(name: eventNames[1],
       transitioningFromStates: [WaitingForPaymentCid.sharedInstance.getState(), AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState(), WaitingForTaxiLoopAvi.sharedInstance.getState()],
-      toState: NotReady.sharedInstance.getState())
+      to: NotReady.sharedInstance.getState())
     
-    event1.setShouldFireEventBlock { _, _ -> Bool in
+    event1?.setShouldFire { _, _ -> Bool in
       return AviManager.sharedInstance.latestAviInTaxiEntryOrStatus()
     }
     
-    event2.setShouldFireEventBlock { _, _ -> Bool in
+    event2?.setShouldFire { _, _ -> Bool in
       return !AviManager.sharedInstance.latestAviInTaxiEntryOrStatus()
     }
     
-    events = [event1, event2]
+    events = [event1!, event2!]
   }
 }
 

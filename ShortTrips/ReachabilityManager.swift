@@ -13,12 +13,12 @@ import ReachabilitySwift
 class ReachabilityManager {
   
   static let sharedInstance = ReachabilityManager()
-  private var reachability: Reachability?
-  private var lastAnnouncedAsConnected = true
-  private let waitTimeSec: Double = 15
-  private var pendingNotification: NSUUID?
+  fileprivate var reachability: Reachability?
+  fileprivate var lastAnnouncedAsConnected = true
+  fileprivate let waitTimeSec: Double = 15
+  fileprivate var pendingNotification: UUID?
   
-  private init() {
+  fileprivate init() {
     do {
       reachability = try Reachability.reachabilityForInternetConnection()
     } catch {
@@ -52,7 +52,7 @@ class ReachabilityManager {
     return reachability!.isReachable()
   }
   
-  func potentiallySpeak(connected: Bool) {
+  func potentiallySpeak(_ connected: Bool) {
     
     if lastAnnouncedAsConnected == connected {
       // cancel any pending notification
@@ -60,11 +60,11 @@ class ReachabilityManager {
       
     } else {
       // schedule notification in 15 seconds
-      let notificationId = NSUUID()
+      let notificationId = UUID()
       pendingNotification = notificationId
-      let waitTime = dispatch_time(DISPATCH_TIME_NOW, Int64(waitTimeSec * Double(NSEC_PER_SEC)))
-      dispatch_after(waitTime, dispatch_get_main_queue()) {
-        if let notification = self.pendingNotification where notification.isEqual(notificationId) {
+      let waitTime = DispatchTime.now() + Double(Int64(waitTimeSec * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+      DispatchQueue.main.asyncAfter(deadline: waitTime) {
+        if let notification = self.pendingNotification , (notification == notificationId) {
           Speaker.sharedInstance.speak(
             connected
               ? NSLocalizedString("Internet Connection Reestablished", comment: "")

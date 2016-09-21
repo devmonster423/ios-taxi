@@ -23,6 +23,6 @@ extension DebugVC {
   
   func turnOffPings() {
     PingKiller.sharedInstance.turnOffPingsForAWhile()
-    self.debugView().printDebugLine("pings will fail for 2 min", type: .Negative)
+    self.debugView().printDebugLine("pings will fail for 2 min", type: .negative)
   }
 }

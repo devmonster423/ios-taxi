@@ -26,7 +26,7 @@ struct Vehicle: Mappable {
   
   init?(_ map: Map){}
   
-  mutating func mapping(map: Map) {
+  mutating func mapping(_ map: Map) {
     
     let medallionTransform = TransformOf<String, Any>(fromJSON: { (input) -> String? in
       if let input = input as? String {

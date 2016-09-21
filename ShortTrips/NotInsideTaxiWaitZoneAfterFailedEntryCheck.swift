@@ -13,13 +13,13 @@ struct NotInsideTaxiWaitZoneAfterFailedEntryCheck {
   let eventNames = ["NotInsideTaxiWaitZoneAfterFailedEntryCheck"]
   static let sharedInstance = NotInsideTaxiWaitZoneAfterFailedEntryCheck()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     events = [
       TKEvent(name: eventNames[0],
         transitioningFromStates: [WaitingForEntryCid.sharedInstance.getState(), AssociatingDriverAndVehicleAtEntry.sharedInstance.getState(), WaitingForEntryAvi.sharedInstance.getState()],
-        toState: NotReady.sharedInstance.getState())
+        to: NotReady.sharedInstance.getState())
     ]
   }
 }

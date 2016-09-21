@@ -11,14 +11,14 @@ import Foundation
 
 struct ErrorLogger {
   
-  static func log(request: NSURLRequest, error: ErrorType?) {
+  static func log(_ request: URLRequest, error: Error?) {
     if let error = error as? NSError {
       logError(request.URLString, errorText: error.localizedDescription)
     }
   }
   
-  private static func logError(url: String, errorText: String) {
-    Answers.logCustomEventWithName("error",
+  fileprivate static func logError(_ url: String, errorText: String) {
+    Answers.logCustomEvent(withName: "error",
       customAttributes: [
         "url": url,
         "errorText": errorText

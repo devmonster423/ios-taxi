@@ -14,21 +14,21 @@ struct WaitingInHoldingLot {
   let stateName = "waitingInHoldingLot"
   static let sharedInstance = WaitingInHoldingLot()
   
-  private var state: TKState
+  fileprivate var state: TKState
   
-  private init() {
+  fileprivate init() {
     state = TKState(name: stateName)
     
-    state.setDidEnterStateBlock { _, transition  in
+    state.setDidEnter { _, transition  in
       postNotification(SfoNotification.State.update, value: self.getState())
       
       let intervalSec: Double = TripManager.sharedInstance.getRightAfterValidShort()
         ? 60
         : 60 * 10
       
-      let interval = dispatch_time(DISPATCH_TIME_NOW, Int64(intervalSec * Double(NSEC_PER_SEC)))
+      let interval = DispatchTime.now() + Double(Int64(intervalSec * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
       
-      dispatch_after(interval, dispatch_get_main_queue()) {
+      DispatchQueue.main.asyncAfter(deadline: interval) {
         InsideTaxiLoopExit.sharedInstance.fire()
       }
     }

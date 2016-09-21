@@ -14,12 +14,12 @@ struct NotInsideSfoAfterFailedReEntryCheck {
   let eventNames = ["NotInsideSfoAfterFailedReEntryCheck"]
   static let sharedInstance = NotInsideSfoAfterFailedReEntryCheck()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [WaitingForReEntryAvi.sharedInstance.getState(), AssociatingDriverAndVehicleAtReEntry.sharedInstance.getState(), WaitingForReEntryCid.sharedInstance.getState()],
-      toState: InProgress.sharedInstance.getState())]
+      to: InProgress.sharedInstance.getState())]
   }
 }
 

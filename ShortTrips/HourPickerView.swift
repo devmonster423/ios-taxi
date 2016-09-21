@@ -11,17 +11,17 @@ import SnapKit
 
 class HourPickerView: UIView {
   
-  private var currentHour = 1
+  fileprivate var currentHour = 1
   
-  private var maxHour: Int!
-  private var minHour: Int!
+  fileprivate var maxHour: Int!
+  fileprivate var minHour: Int!
   
-  private let decreaseButton = UIButton()
-  private let increaseButton = UIButton()
+  fileprivate let decreaseButton = UIButton()
+  fileprivate let increaseButton = UIButton()
   
-  private let bottomLabel = UILabel()
-  private let mainLabel = UILabel()
-  private let topLabel = UILabel()
+  fileprivate let bottomLabel = UILabel()
+  fileprivate let mainLabel = UILabel()
+  fileprivate let topLabel = UILabel()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -38,8 +38,8 @@ class HourPickerView: UIView {
     addSubview(mainLabel)
     addSubview(topLabel)
     
-    decreaseButton.setImage(Image.minus.image(), forState: .Normal)
-    decreaseButton.setImage(Image.minusPressed.image(), forState: .Highlighted)
+    decreaseButton.setImage(Image.minus.image(), for: UIControlState())
+    decreaseButton.setImage(Image.minusPressed.image(), for: .highlighted)
     decreaseButton.snp_makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
       make.centerY.equalTo(self)
@@ -47,8 +47,8 @@ class HourPickerView: UIView {
       make.width.equalTo(decreaseButton.snp_height)
     }
     
-    increaseButton.setImage(Image.plus.image(), forState: .Normal)
-    increaseButton.setImage(Image.plusPressed.image(), forState: .Highlighted)
+    increaseButton.setImage(Image.plus.image(), for: UIControlState())
+    increaseButton.setImage(Image.plusPressed.image(), for: .highlighted)
     increaseButton.snp_makeConstraints { (make) -> Void in
       make.trailing.equalTo(self)
       make.centerY.equalTo(self)
@@ -58,7 +58,7 @@ class HourPickerView: UIView {
     
     topLabel.font = Font.OpenSansSemibold.size(16)
     topLabel.text = NSLocalizedString("Flights In", comment: "")
-    topLabel.textAlignment = .Center
+    topLabel.textAlignment = .center
     topLabel.textColor = Color.Sfo.blue
     topLabel.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(25)
@@ -69,7 +69,7 @@ class HourPickerView: UIView {
     
     mainLabel.font = Font.OpenSansSemibold.size(40)
     mainLabel.text = String(format: NSLocalizedString("%dh", comment: ""), currentHour)
-    mainLabel.textAlignment = .Center
+    mainLabel.textAlignment = .center
     mainLabel.textColor = Color.Sfo.blue
     mainLabel.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(40)
@@ -78,7 +78,7 @@ class HourPickerView: UIView {
     }
     
     bottomLabel.font = Font.OpenSansSemibold.size(20)
-    bottomLabel.textAlignment = .Center
+    bottomLabel.textAlignment = .center
     bottomLabel.textColor = Color.Sfo.blue
     bottomLabel.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(20)
@@ -92,7 +92,7 @@ class HourPickerView: UIView {
     return currentHour
   }
   
-  func incrementHour(hourChange: Int) {
+  func incrementHour(_ hourChange: Int) {
     var hourChange = hourChange
     
     if (hourChange == 1 && currentHour == -1) || (hourChange == -1 && currentHour == 1) {
@@ -130,13 +130,13 @@ class HourPickerView: UIView {
     }
   }
   
-  func setMinMaxHours(minHour minHour: Int, maxHour: Int) {
+  func setMinMaxHours(minHour: Int, maxHour: Int) {
     self.minHour = minHour
     self.maxHour = maxHour
   }
   
-  func setButtonSelectors(target: AnyObject, decreaseAction: Selector, increaseAction: Selector) {
-    decreaseButton.addTarget(target, action: decreaseAction, forControlEvents: .TouchUpInside)
-    increaseButton.addTarget(target, action: increaseAction, forControlEvents: .TouchUpInside)
+  func setButtonSelectors(_ target: AnyObject, decreaseAction: Selector, increaseAction: Selector) {
+    decreaseButton.addTarget(target, action: decreaseAction, for: .touchUpInside)
+    increaseButton.addTarget(target, action: increaseAction, for: .touchUpInside)
   }
 }

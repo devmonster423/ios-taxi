@@ -14,7 +14,7 @@ struct FlightDetailsWrapper: Mappable {
   
   init?(_ map: Map){}
   
-  mutating func mapping(map: Map) {
+  mutating func mapping(_ map: Map) {
     flightDetails <- map["response.details"]
     terminalId <- map["response.terminal_id"]
   }

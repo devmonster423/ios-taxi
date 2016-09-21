@@ -17,19 +17,19 @@ struct LocalGeofence: Mappable {
   init?(_ map: Map){}
   
   init(jsonFileName: String, sfoGeofence: SfoGeofence) {
-    let path = NSBundle.mainBundle().pathForResource(jsonFileName, ofType: "json")!
+    let path = Bundle.main.path(forResource: jsonFileName, ofType: "json")!
     
     var jsonString: String!
     
     do {
-      jsonString = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
+      jsonString = try NSString(contentsOfFile: path, encoding: String.Encoding.utf8.rawValue) as String
     } catch {}
     
     self = Mapper<LocalGeofence>().map(jsonString!)!
     self.sfoGeofence = sfoGeofence
   }
 
-  mutating func mapping(map: Map) {
+  mutating func mapping(_ map: Map) {
     features <- map["features"]
   }
 }

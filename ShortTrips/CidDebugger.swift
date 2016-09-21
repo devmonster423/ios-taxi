@@ -32,17 +32,17 @@ extension DebugVC {
   }
   
   func fakeCidPayment() {
-    let cid = Cid(cidId: "456", cidLocation: "payment", cidTimeRead: NSDate())
+    let cid = Cid(cidId: "456", cidLocation: "payment", cidTimeRead: Date())
     LatestCidIsPaymentCid.sharedInstance.fire(cid)
   }
   
   func triggerEntryCid() {
-    let cid = Cid(cidId: "123", cidLocation: "entry", cidTimeRead: NSDate())
+    let cid = Cid(cidId: "123", cidLocation: "entry", cidTimeRead: Date())
     LatestCidIsEntryCid.sharedInstance.fire(cid)
   }
   
   func triggerReEntryCid() {
-    let cid = Cid(cidId: "123", cidLocation: "entry", cidTimeRead: NSDate())
+    let cid = Cid(cidId: "123", cidLocation: "entry", cidTimeRead: Date())
     LatestCidIsReEntryCid.sharedInstance.fire(cid)
   }
 }

@@ -11,16 +11,16 @@ import SnapKit
 
 class TerminalView: UIButton {
 
-  private var activeTerminalId: TerminalId?
+  fileprivate var activeTerminalId: TerminalId?
   
-  private let delayedImageView = UIImageView()
-  private let delayedLabel = UILabel()
-  private let delayedTitleLabel = UILabel()
-  private let indicatorImageView = UIImageView()
-  private let onTimeImageView = UIImageView()
-  private let onTimeLabel = UILabel()
-  private let onTimeTitleLabel = UILabel()
-  private let terminalTitleLabel = UILabel()
+  fileprivate let delayedImageView = UIImageView()
+  fileprivate let delayedLabel = UILabel()
+  fileprivate let delayedTitleLabel = UILabel()
+  fileprivate let indicatorImageView = UIImageView()
+  fileprivate let onTimeImageView = UIImageView()
+  fileprivate let onTimeLabel = UILabel()
+  fileprivate let onTimeTitleLabel = UILabel()
+  fileprivate let terminalTitleLabel = UILabel()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -30,8 +30,8 @@ class TerminalView: UIButton {
     super.init(frame: frame)
     
     // starts out hidden
-    hidden = true
-    setBackgroundImage(Image.from(Color.Sfo.gray), forState: .Highlighted)
+    isHidden = true
+    setBackgroundImage(Image.from(Color.Sfo.gray), for: .highlighted)
 
     addSubview(delayedImageView)
     addSubview(delayedLabel)
@@ -43,7 +43,7 @@ class TerminalView: UIButton {
     addSubview(terminalTitleLabel)
     
     terminalTitleLabel.sizeToFit()
-    terminalTitleLabel.textAlignment = .Left
+    terminalTitleLabel.textAlignment = .left
     terminalTitleLabel.textColor = Color.TerminalSummary.titleBlue
     terminalTitleLabel.snp_makeConstraints { (make) -> Void in
       make.left.equalTo(self).offset(25)
@@ -51,7 +51,7 @@ class TerminalView: UIButton {
     }
     
     onTimeImageView.image = Image.blueCircle.image()
-    onTimeImageView.contentMode = .ScaleAspectFit
+    onTimeImageView.contentMode = .scaleAspectFit
     onTimeImageView.snp_makeConstraints { (make) -> Void in
       make.centerX.equalTo(onTimeTitleLabel)
       make.bottom.equalTo(self.snp_centerY).offset(-2)
@@ -61,7 +61,7 @@ class TerminalView: UIButton {
     
     onTimeLabel.sizeToFit()
     onTimeLabel.font = Font.OpenSansSemibold.size(18)
-    onTimeLabel.textAlignment = .Center
+    onTimeLabel.textAlignment = .center
     onTimeLabel.textColor = Color.TerminalSummary.onTimeContent
     onTimeLabel.snp_makeConstraints { (make) -> Void in
       make.centerX.equalTo(onTimeTitleLabel)
@@ -70,8 +70,8 @@ class TerminalView: UIButton {
     
     onTimeTitleLabel.sizeToFit()
     onTimeTitleLabel.font = Font.OpenSansSemibold.size(13)
-    onTimeTitleLabel.textAlignment = .Center
-    onTimeTitleLabel.text = NSLocalizedString("On Time", comment: "").uppercaseString
+    onTimeTitleLabel.textAlignment = .center
+    onTimeTitleLabel.text = NSLocalizedString("On Time", comment: "").uppercased()
     onTimeTitleLabel.textColor = Color.TerminalSummary.onTimeTitle
     onTimeTitleLabel.snp_makeConstraints { (make) -> Void in
       make.centerX.equalTo(self)
@@ -79,7 +79,7 @@ class TerminalView: UIButton {
     }
     
     delayedImageView.image = Image.redCircle.image()
-    delayedImageView.contentMode = .ScaleAspectFit
+    delayedImageView.contentMode = .scaleAspectFit
     delayedImageView.snp_makeConstraints { (make) -> Void in
       make.centerX.equalTo(delayedTitleLabel)
       make.centerY.equalTo(onTimeImageView)
@@ -89,7 +89,7 @@ class TerminalView: UIButton {
     
     delayedLabel.sizeToFit()
     delayedLabel.font = onTimeLabel.font
-    delayedLabel.textAlignment = .Center
+    delayedLabel.textAlignment = .center
     delayedLabel.textColor = Color.TerminalSummary.delayedContent
     delayedLabel.snp_makeConstraints { (make) -> Void in
       make.centerX.equalTo(delayedTitleLabel)
@@ -98,8 +98,8 @@ class TerminalView: UIButton {
     
     delayedTitleLabel.sizeToFit()
     delayedTitleLabel.font = onTimeTitleLabel.font
-    delayedTitleLabel.text = NSLocalizedString("Delayed", comment: "").uppercaseString
-    delayedTitleLabel.textAlignment = .Center
+    delayedTitleLabel.text = NSLocalizedString("Delayed", comment: "").uppercased()
+    delayedTitleLabel.textAlignment = .center
     delayedTitleLabel.textColor = Color.TerminalSummary.delayedTitle
     delayedTitleLabel.snp_makeConstraints { (make) -> Void in
       make.trailing.equalTo(indicatorImageView.snp_leading).offset(-18)
@@ -107,7 +107,7 @@ class TerminalView: UIButton {
     }
     
     indicatorImageView.image = Image.indicatorArrow.image()
-    indicatorImageView.contentMode = .ScaleAspectFit
+    indicatorImageView.contentMode = .scaleAspectFit
     indicatorImageView.snp_makeConstraints { (make) -> Void in
       make.centerY.equalTo(self)
       make.trailing.equalTo(self).offset(-18)
@@ -128,63 +128,63 @@ class TerminalView: UIButton {
   
   func configureAsTitle() {
     
-    hidden = false
-    userInteractionEnabled = false
+    isHidden = false
+    isUserInteractionEnabled = false
     
-    delayedImageView.hidden = false
-    delayedLabel.hidden = true
-    delayedTitleLabel.hidden = false
-    indicatorImageView.hidden = true
-    onTimeImageView.hidden = false
-    onTimeLabel.hidden = true
-    onTimeTitleLabel.hidden = false
+    delayedImageView.isHidden = false
+    delayedLabel.isHidden = true
+    delayedTitleLabel.isHidden = false
+    indicatorImageView.isHidden = true
+    onTimeImageView.isHidden = false
+    onTimeLabel.isHidden = true
+    onTimeTitleLabel.isHidden = false
     terminalTitleLabel.font = Font.OpenSansBold.size(14)
-    terminalTitleLabel.text = NSLocalizedString("Terminals", comment: "").uppercaseString
+    terminalTitleLabel.text = NSLocalizedString("Terminals", comment: "").uppercased()
   }
   
-  func configureTotals(totals: (onTime: Int, delayed: Int)) {
+  func configureTotals(_ totals: (onTime: Int, delayed: Int)) {
     
-    hidden = false
-    userInteractionEnabled = false
+    isHidden = false
+    isUserInteractionEnabled = false
     
-    delayedImageView.hidden = true
+    delayedImageView.isHidden = true
     delayedLabel.text = "\(totals.delayed)"
-    delayedTitleLabel.hidden = true
-    indicatorImageView.hidden = true
-    onTimeImageView.hidden = true
+    delayedTitleLabel.isHidden = true
+    indicatorImageView.isHidden = true
+    onTimeImageView.isHidden = true
     onTimeLabel.text = "\(totals.onTime)"
-    onTimeTitleLabel.hidden = true
+    onTimeTitleLabel.isHidden = true
     terminalTitleLabel.font = Font.OpenSansBold.size(14)
-    terminalTitleLabel.text = NSLocalizedString("Totals", comment: "").uppercaseString
+    terminalTitleLabel.text = NSLocalizedString("Totals", comment: "").uppercased()
   }
 
-  func configureForTerminalSummary(summary: TerminalSummary?) {
+  func configureForTerminalSummary(_ summary: TerminalSummary?) {
 
     guard let summary = summary else { return }
     
-    hidden = false
-    userInteractionEnabled = true
+    isHidden = false
+    isUserInteractionEnabled = true
     
     activeTerminalId = summary.terminalId
-    delayedImageView.hidden = true
+    delayedImageView.isHidden = true
     delayedLabel.text = "\(summary.delayedCount)"
-    delayedTitleLabel.hidden = true
-    indicatorImageView.hidden = false
-    onTimeImageView.hidden = true
+    delayedTitleLabel.isHidden = true
+    indicatorImageView.isHidden = false
+    onTimeImageView.isHidden = true
     onTimeLabel.text = "\(summary.onTimeCount)"
-    onTimeTitleLabel.hidden = true
+    onTimeTitleLabel.isHidden = true
     terminalTitleLabel.font = Font.OpenSansSemibold.size(14)
 
     switch summary.terminalId! {
 
-    case .One:
-      terminalTitleLabel.text = NSLocalizedString("Terminal", comment: "").uppercaseString + " 1"
-    case .Two:
-      terminalTitleLabel.text = NSLocalizedString("Terminal", comment: "").uppercaseString + " 2"
-    case .Three:
-      terminalTitleLabel.text = NSLocalizedString("Terminal", comment: "").uppercaseString + " 3"
-    case .International:
-      terminalTitleLabel.text = NSLocalizedString("International", comment: "").uppercaseString
+    case .one:
+      terminalTitleLabel.text = NSLocalizedString("Terminal", comment: "").uppercased() + " 1"
+    case .two:
+      terminalTitleLabel.text = NSLocalizedString("Terminal", comment: "").uppercased() + " 2"
+    case .three:
+      terminalTitleLabel.text = NSLocalizedString("Terminal", comment: "").uppercased() + " 3"
+    case .international:
+      terminalTitleLabel.text = NSLocalizedString("International", comment: "").uppercased()
     }
   }
   
@@ -193,9 +193,9 @@ class TerminalView: UIButton {
     self.onTimeLabel.text = ""
   }
   
-  func setBackgroundDark(dark: Bool) {
-    let color = dark ? Color.TerminalSummary.darkBackground : UIColor.whiteColor()
-    setBackgroundImage(Image.from(color), forState: .Normal)
+  func setBackgroundDark(_ dark: Bool) {
+    let color = dark ? Color.TerminalSummary.darkBackground : UIColor.white
+    setBackgroundImage(Image.from(color), for: UIControlState())
   }
   
   func getActiveTerminalId() -> TerminalId? {

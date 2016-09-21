@@ -10,13 +10,13 @@ import Foundation
 import AlamofireImage
 import AlamofireObjectMapper
 
-typealias AirlinesClosure = ([Airline]?, ErrorType?) -> Void
-typealias ImageClosure = UIImage? -> Void
+typealias AirlinesClosure = ([Airline]?, Error?) -> Void
+typealias ImageClosure = (UIImage?) -> Void
 
 extension ApiClient {
   static var airlineImages:[String:UIImage] = Dictionary()
   
-  static func imageForIataCode(iataCode: String, width: Int, height: Int, completion: ImageClosure) {
+  static func imageForIataCode(_ iataCode: String, width: Int, height: Int, completion: ImageClosure) {
     if let airlineImage = airlineImages[iataCode] {
       completion(airlineImage);
     }
@@ -31,7 +31,7 @@ extension ApiClient {
     }
   }
   
-  static func codes(completion: AirlinesClosure) {
+  static func codes(_ completion: @escaping AirlinesClosure) {
     authedRequest(.GET, Url.Airline.codes).responseObject { (airlineListWrapper: AirlineListWrapper?, error) -> Void in
       completion(airlineListWrapper?.airlines, error)
     }

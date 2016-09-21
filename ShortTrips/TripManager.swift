@@ -7,17 +7,37 @@
 //
 
 import Foundation
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class TripManager: NSObject {
   
   static let sharedInstance = TripManager()
   
-  private var startTime: NSDate?
-  private var tripId: Int?
-  private var tripTimer: NSTimer?
-  private var rightAfterValidShort = false
-  private static let timerInterval: NSTimeInterval = 5.0
-  private static let tripLengthLimit: NSTimeInterval = 2 * 60 * 60 // 2 hours
+  fileprivate var startTime: Date?
+  fileprivate var tripId: Int?
+  fileprivate var tripTimer: Timer?
+  fileprivate var rightAfterValidShort = false
+  fileprivate static let timerInterval: TimeInterval = 5.0
+  fileprivate static let tripLengthLimit: TimeInterval = 2 * 60 * 60 // 2 hours
   
   func getTripId() -> Int? {
     return tripId
@@ -27,7 +47,7 @@ class TripManager: NSObject {
     return rightAfterValidShort
   }
   
-  func reset(validShort: Bool) {
+  func reset(_ validShort: Bool) {
     PingManager.sharedInstance.stop()
     tripTimer?.invalidate()
     tripId = nil
@@ -35,15 +55,15 @@ class TripManager: NSObject {
     rightAfterValidShort = validShort
   }
 
-  func setStartTime(time: NSDate) {
+  func setStartTime(_ time: Date) {
     self.startTime = time
   }
   
-  func getStartTime() -> NSDate? {
+  func getStartTime() -> Date? {
     return startTime
   }
   
-  func getElapsedTime() -> NSTimeInterval? {
+  func getElapsedTime() -> TimeInterval? {
     if let interval = startTime?.timeIntervalSinceNow {
       return -interval
     } else {
@@ -57,11 +77,11 @@ class TripManager: NSObject {
     }
   }
   
-  func start(tripId: Int) {
+  func start(_ tripId: Int) {
     self.tripId = tripId
     
     if startTime == nil {
-      startTime = NSDate()
+      startTime = Date()
     }
 
     PingManager.sharedInstance.start()
@@ -70,7 +90,7 @@ class TripManager: NSObject {
       tripTimer.invalidate()
     }
     
-    tripTimer = NSTimer.scheduledTimerWithTimeInterval(TripManager.timerInterval,
+    tripTimer = Timer.scheduledTimer(timeInterval: TripManager.timerInterval,
       target: self,
       selector: #selector(TripManager.checkLength),
       userInfo: nil,

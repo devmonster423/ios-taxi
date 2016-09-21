@@ -15,9 +15,9 @@ struct TripBody: Mappable {
   var vehicleId: Int!
   var smartCardId: String!
   var deviceUuid: String!
-  var deviceTimestamp: NSDate!
+  var deviceTimestamp: Date!
   
-  init(sessionId: Int, medallion: String?, vehicleId: Int, smartCardId: String, deviceTimestamp: NSDate) {
+  init(sessionId: Int, medallion: String?, vehicleId: Int, smartCardId: String, deviceTimestamp: Date) {
     self.sessionId = sessionId
     self.medallion = medallion
     self.vehicleId = vehicleId
@@ -28,7 +28,7 @@ struct TripBody: Mappable {
   
   init?(_ map: Map){}
   
-  mutating func mapping(map: Map) {
+  mutating func mapping(_ map: Map) {
     sessionId <- map["session_id"]
     medallion <- map["medallion"]
     vehicleId <- map["vehicle_id"]

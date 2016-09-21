@@ -10,23 +10,23 @@ import Foundation
 import ObjectMapper
 
 enum ValidationStep: Int {
-  case Unspecified = 0
-  case Duration = 1
-  case Vehicle = 2
-  case DriverCardId = 3
-  case MacAddress = 4
-  case Geofence = 5
-  case GpsFailure = 6
-  case NetworkFailure = 7
-  case UserLogout = 8
-  case AppQuit = 9
-  case AppCrash = 10
+  case unspecified = 0
+  case duration = 1
+  case vehicle = 2
+  case driverCardId = 3
+  case macAddress = 4
+  case geofence = 5
+  case gpsFailure = 6
+  case networkFailure = 7
+  case userLogout = 8
+  case appQuit = 9
+  case appCrash = 10
   
   func description() -> String? {
     switch self {
-    case .Vehicle:
+    case .vehicle:
       return "Vehicle miss match found (123,null)"
-    case .Geofence:
+    case .geofence:
       return "invalid geofence"
     default:
       return nil
@@ -35,27 +35,27 @@ enum ValidationStep: Int {
   
   func name() -> String {
     switch self {
-    case .Unspecified:
+    case .unspecified:
       return "unspecified"
-    case .Duration:
+    case .duration:
       return "validate_trip_duration"
-    case .Vehicle:
+    case .vehicle:
       return "validate_vehicle"
-    case .DriverCardId:
+    case .driverCardId:
       return "validate_driver_card_id"
-    case .MacAddress:
+    case .macAddress:
       return "validate_mac_address"
-    case .Geofence:
+    case .geofence:
       return "validate_geofence"
-    case .GpsFailure:
+    case .gpsFailure:
       return "gps_failure_exception"
-    case .NetworkFailure:
+    case .networkFailure:
       return "network_failure_exception"
-    case .UserLogout:
+    case .userLogout:
       return "user_logout_exception"
-    case .AppQuit:
+    case .appQuit:
       return "app_quit_exception"
-    case .AppCrash:
+    case .appCrash:
       return "app_crash_exception"
     }
   }
@@ -73,7 +73,7 @@ struct ValidationStepWrapper: Mappable {
     self.description = validationStep.description()
   }
   
-  mutating func mapping(map: Map) {
+  mutating func mapping(_ map: Map) {
     validationStep <- map["step_id"]
     description <- map["description"]
     name <- map["step_name"]

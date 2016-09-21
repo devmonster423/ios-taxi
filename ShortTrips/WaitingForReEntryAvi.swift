@@ -13,15 +13,15 @@ import JSQNotificationObserverKit
 struct WaitingForReEntryAvi {
   let stateName = "WaitingForReEntryAvi"
   static let sharedInstance = WaitingForReEntryAvi()
-  private let expectedAvi: GtmsLocation = .TaxiEntry
+  fileprivate let expectedAvi: GtmsLocation = .TaxiEntry
   
-  private var poller: Poller?
-  private var state: TKState
+  fileprivate var poller: Poller?
+  fileprivate var state: TKState
   
-  private init() {
+  fileprivate init() {
     state = TKState(name: stateName)
     
-    state.setDidEnterStateBlock { _, _ in
+    state.setDidEnter { _, _ in
       
       postNotification(SfoNotification.State.update, value: self.getState())
       

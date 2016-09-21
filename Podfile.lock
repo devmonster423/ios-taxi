@@ -1,84 +1,66 @@
 PODS:
-  - Alamofire (2.0.2)
-  - AlamofireImage (1.1.2):
-    - Alamofire (~> 2.0)
-  - AlamofireObjectMapper (1.0):
-    - Alamofire (~> 2.0.0)
-    - ObjectMapper (= 0.17)
-  - Crashlytics (3.3.4)
-  - Fabric (1.5.5):
-    - Fabric/Base (= 1.5.5)
-  - Fabric/Base (1.5.5)
-  - IQKeyboardManagerSwift (3.3.4)
-  - JSQNotificationObserverKit (2.0.0)
-  - MBProgressHUD (0.9.1)
-  - Mockingjay (1.1.0):
-    - Mockingjay/Core (= 1.1.0)
-    - Mockingjay/Session (= 1.1.0)
-    - Mockingjay/XCTest (= 1.1.0)
-  - Mockingjay/Core (1.1.0):
-    - URITemplate (~> 1.3)
-  - Mockingjay/Session (1.1.0):
-    - Mockingjay/Core
-  - Mockingjay/XCTest (1.1.0):
-    - Mockingjay/Core
-  - Nimble (3.2.0)
-  - ObjectMapper (0.17)
-  - PivotalCoreKit (0.3.0):
-    - PivotalCoreKit/Core (= 0.3.0)
-  - PivotalCoreKit/Core (0.3.0):
+  - Alamofire (4.0.0)
+  - AlamofireImage (3.0.0):
+    - Alamofire (~> 4.0)
+  - AlamofireObjectMapper (4.0.0):
+    - Alamofire (~> 4.0)
+    - ObjectMapper (~> 2.0)
+  - Crashlytics (3.8.2):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.8)
+  - IQKeyboardManagerSwift (4.0.6)
+  - MBProgressHUD (1.0.0)
+  - Nimble (5.0.0)
+  - ObjectMapper (2.0.0)
+  - PivotalCoreKit (0.3.2):
+    - PivotalCoreKit/Core (= 0.3.2)
+  - PivotalCoreKit/Core (0.3.2):
     - PivotalCoreKit/Foundation/Core
     - PivotalCoreKit/UIKit/Core
-  - PivotalCoreKit/Foundation/Core (0.3.0)
-  - PivotalCoreKit/UIKit/Core (0.3.0):
-    - PivotalCoreKit/UIKit/Core/Core-arc (= 0.3.0)
-  - PivotalCoreKit/UIKit/Core/Core-arc (0.3.0)
-  - PivotalCoreKit/UIKit/SpecHelper/Extensions (0.3.0):
+  - PivotalCoreKit/Foundation/Core (0.3.2)
+  - PivotalCoreKit/UIKit/Core (0.3.2):
+    - PivotalCoreKit/UIKit/Core/Core-arc (= 0.3.2)
+  - PivotalCoreKit/UIKit/Core/Core-arc (0.3.2)
+  - PivotalCoreKit/UIKit/SpecHelper/Extensions (0.3.2):
     - PivotalCoreKit/UIKit/SpecHelper/Support
-  - PivotalCoreKit/UIKit/SpecHelper/Support (0.3.0)
-  - Quick (0.9.0)
-  - ReachabilitySwift (2.3.3)
-  - SnapKit (0.15.0)
+  - PivotalCoreKit/UIKit/SpecHelper/Support (0.3.2)
+  - Quick (0.9.3)
+  - ReachabilitySwift (3)
+  - SnapKit (3.0.1)
   - TransitionKit (2.2.1)
-  - URITemplate (1.3.0)
 
 DEPENDENCIES:
-  - Alamofire (= 2.0.2)
-  - AlamofireImage (= 1.1.2)
-  - AlamofireObjectMapper (= 1.0)
-  - Crashlytics (= 3.3.4)
-  - Fabric (= 1.5.5)
-  - IQKeyboardManagerSwift (= 3.3.4)
-  - JSQNotificationObserverKit (= 2.0.0)
-  - MBProgressHUD (= 0.9.1)
-  - Mockingjay (= 1.1.0)
-  - Nimble (= 3.2.0)
-  - PivotalCoreKit (= 0.3.0)
+  - Alamofire (= 4.0.0)
+  - AlamofireImage (= 3.0.0)
+  - AlamofireObjectMapper (= 4.0.0)
+  - Crashlytics (= 3.8.2)
+  - Fabric (= 1.6.8)
+  - IQKeyboardManagerSwift (= 4.0.6)
+  - MBProgressHUD (= 1.0.0)
+  - Nimble (= 5.0.0)
+  - PivotalCoreKit (= 0.3.2)
   - PivotalCoreKit/UIKit/SpecHelper/Extensions
-  - Quick (= 0.9.0)
-  - ReachabilitySwift (= 2.3.3)
-  - SnapKit (= 0.15.0)
+  - Quick (= 0.9.3)
+  - ReachabilitySwift (= 3)
+  - SnapKit (= 3.0.1)
   - TransitionKit (= 2.2.1)
 
 SPEC CHECKSUMS:
-  Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
-  AlamofireImage: dc3d3de5d095fd9545b144ba8f6da5bfc539512a
-  AlamofireObjectMapper: 4f9d766a4742bb69258921723bafc260849f216c
-  Crashlytics: 41c082440d2e14da444186fff65e79c0b4b35d4c
-  Fabric: 190bf1a6eb65f7500de1347d027d2e59a7e53db1
-  IQKeyboardManagerSwift: 6f2290d093f5269dc07bdae8bc58e968cf9c4738
-  JSQNotificationObserverKit: 01d1411456cfab1418093cd54401e612744736e9
-  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
-  Mockingjay: 5782cb22c9e99dece7aad5bdf738bfa187cfcdcc
-  Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
-  ObjectMapper: fa286b7cb5a398f1b0d8d64d0dd33fd1b307022c
-  PivotalCoreKit: 3dab7cf9bff77eb49ce7ffc7a84e57fa8591f033
-  Quick: 332eb1da73125a2106dd637424c803f2ae97e4a9
-  ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
-  SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
+  Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
+  AlamofireImage: 6594aa1139a67dcd36cde6da79ea4e5b318e60fb
+  AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
+  Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
+  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
+  IQKeyboardManagerSwift: b3015e819559ca76381f87a0833f44d178564603
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  Nimble: 56fc9f5020effa2206de22c3dd910f4fb011b92f
+  ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
+  PivotalCoreKit: 6a850f72593da33bedd9b53fb03ac68b37c47e72
+  Quick: 13a2a2b19a5d8e3ed4fd0c36ee46597fd77ebf71
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+  SnapKit: f818b8326d45b4e1c777d0ab27b5c0a3624bfdeb
   TransitionKit: 9ceccda4cd0cdc0a05ef85eb235e5a3292c3c250
-  URITemplate: 0ebbec80d1eb59a89e29db9b14c99d5908d3e574
 
-PODFILE CHECKSUM: 8fa6de54bc5e501802a72faa94b3ebe4582c49ac
+PODFILE CHECKSUM: fe690df999927299d08450f70956dbd3666bee58
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1

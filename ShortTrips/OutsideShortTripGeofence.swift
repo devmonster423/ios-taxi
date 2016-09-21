@@ -14,12 +14,12 @@ struct OutsideShortTripGeofence {
   let eventNames = ["outsideShortTripGeofence"]
   static let sharedInstance = OutsideShortTripGeofence()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: StateManager.allStates,
-      toState: NotReady.sharedInstance.getState())]
+      to: NotReady.sharedInstance.getState())]
   }
 }
 
@@ -30,13 +30,13 @@ extension OutsideShortTripGeofence: Event {
 }
 
 extension OutsideShortTripGeofence: Observable {
-  func eventIsFiring(info: Any?) {
+  func eventIsFiring(_ info: Any?) {
     postNotification(SfoNotification.Geofence.outsideShortTrip, value: nil)
 
     if let tripId = TripManager.sharedInstance.getTripId(),
       let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
 
-      ApiClient.invalidate(tripId, invalidation: .Geofence, sessionId: sessionId)
+      ApiClient.invalidate(tripId, invalidation: .geofence, sessionId: sessionId)
       TripManager.sharedInstance.reset(false)
     }
   }

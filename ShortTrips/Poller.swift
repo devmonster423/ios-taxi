@@ -8,21 +8,21 @@
 
 import Foundation
 
-typealias Action = Void -> Void
+typealias Action = (Void) -> Void
 
 class Poller: NSObject {
   
-  private let interval: NSTimeInterval = 10
-  private var action: Action
-  private var timer: NSTimer!
+  fileprivate let interval: TimeInterval = 10
+  fileprivate var action: Action
+  fileprivate var timer: Timer!
 
-  init(action: Action) {
+  init(action: @escaping Action) {
 
     self.action = action
 
     super.init()
 
-    timer = NSTimer.scheduledTimerWithTimeInterval(interval,
+    timer = Timer.scheduledTimer(timeInterval: interval,
       target: self,
       selector: #selector(Poller.check),
       userInfo: nil,

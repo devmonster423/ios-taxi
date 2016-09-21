@@ -12,11 +12,11 @@ import SnapKit
 
 class NotificationView: UIView {
   
-  private let notificationLabel = UILabel()
-  private let notificationImageView = UIImageView()
+  fileprivate let notificationLabel = UILabel()
+  fileprivate let notificationImageView = UIImageView()
   
-  static var formatter: NSDateFormatter {
-    let formatter = NSDateFormatter()
+  static var formatter: DateFormatter {
+    let formatter = DateFormatter()
     formatter.dateFormat = "MM/dd/yyyy - hh:mm a"
     return formatter
   }
@@ -32,19 +32,19 @@ class NotificationView: UIView {
     addSubview(notificationImageView)
     
     notificationLabel.numberOfLines = 0
-    notificationLabel.textAlignment = .Center
+    notificationLabel.textAlignment = .center
     notificationLabel.textColor = Color.Trip.title
     
-    notificationImageView.contentMode = .ScaleAspectFit
+    notificationImageView.contentMode = .scaleAspectFit
   }
   
-  func notifySuccess(date: NSDate) {
+  func notifySuccess(_ date: Date) {
     
     backgroundColor = Color.Trip.Notification.green
     notificationLabel.font = Font.OpenSansSemibold.size(30)
-    notificationLabel.text = NSLocalizedString("Valid short trip", comment: "").uppercaseString
+    notificationLabel.text = NSLocalizedString("Valid short trip", comment: "").uppercased()
       + "\n"
-      + NotificationView.formatter.stringFromDate(date)
+      + NotificationView.formatter.string(from: date)
     notificationImageView.image = Image.checkmark.image()
     notificationImageView.alpha = 1
     Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a valid short trip.", comment: ""))
@@ -67,7 +67,7 @@ class NotificationView: UIView {
     self.layoutIfNeeded()
   }
   
-  func notifyFail(validationStep: ValidationStep, delay: NSTimeInterval, duration: NSTimeInterval) {
+  func notifyFail(_ validationStep: ValidationStep, delay: TimeInterval, duration: TimeInterval) {
     notificationLabel.font = Font.OpenSansSemibold.size(30)
     
     notificationLabel.snp_remakeConstraints { make in
@@ -90,38 +90,38 @@ class NotificationView: UIView {
     
     var notificationText = ""
     switch validationStep {
-    case .Duration:
+    case .duration:
       notificationText += NSLocalizedString("Long trip.\nDuration exceeded two hours.", comment: "")
       Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. The duration exceeded two hours.", comment: ""))
-    case .Vehicle:
+    case .vehicle:
       notificationText += NSLocalizedString("Long trip.\nVehicle mismatch.", comment: "")
       Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. The vehicle at the start was not the same at the end of the trip.", comment: ""))
-    case .DriverCardId:
+    case .driverCardId:
       notificationText += NSLocalizedString("Long trip.\nCard error.", comment: "")
       Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. The card tapped at the start was not identified at the end of the trip.", comment: ""))
-    case .MacAddress:
+    case .macAddress:
       notificationText += NSLocalizedString("Long trip.\nPhone error.", comment: "")
       Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. The phone at the start was not identified at the end of the trip.", comment: ""))
-    case .Geofence:
+    case .geofence:
       notificationText += NSLocalizedString("Long trip.\nOutside geofence.", comment: "")
       Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. The vehicle was located outside the geofence while trip was in progress.", comment: ""))
-    case .GpsFailure:
+    case .gpsFailure:
       notificationText += NSLocalizedString("Long trip.\nLocation services unavailable.", comment: "")
       Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. Location based services were unavailable while the trip was in progress.", comment: ""))
-    case .UserLogout:
+    case .userLogout:
       notificationText += NSLocalizedString("Long trip.\nUser logged out.", comment: "")
       Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a long trip. Logout occurred while the trip was in progress.", comment: ""))
-    case .AppQuit:
+    case .appQuit:
       notificationText += NSLocalizedString("App quit", comment: "")
-    case .AppCrash:
+    case .appCrash:
       notificationText += NSLocalizedString("App crash", comment: "")
-    case .NetworkFailure:
+    case .networkFailure:
       notificationText += NSLocalizedString("Network failure", comment: "")
     default:
       break
     }
     backgroundColor = Color.Trip.Notification.red
-    notificationLabel.text = notificationText.uppercaseString
+    notificationLabel.text = notificationText.uppercased()
     notificationImageView.image = Image.exclamation.image()
     Speaker.sharedInstance.speak(notificationLabel.text!)
     notificationLabel.snp_remakeConstraints { make in
@@ -132,10 +132,10 @@ class NotificationView: UIView {
     }
     notificationImageView.alpha = 1
     notificationLabel.setNeedsUpdateConstraints()
-    UIView.animateWithDuration(
-      duration,
+    UIView.animate(
+      withDuration: duration,
       delay: delay,
-      options: UIViewAnimationOptions.CurveEaseInOut,
+      options: UIViewAnimationOptions(),
       animations: {
         self.layoutIfNeeded()
         self.notificationLabel.alpha = 0
@@ -144,7 +144,7 @@ class NotificationView: UIView {
       completion: { completed in
         self.notificationLabel.font = Font.OpenSansSemibold.size(15)
         
-        UIView.animateWithDuration(duration,
+        UIView.animate(withDuration: duration,
           animations: {
             self.notificationLabel.alpha = 1
           },

@@ -22,7 +22,7 @@ struct ReferenceConfig: Mappable {
     self.gisBuffer = gisBuffer
   }
   
-  mutating func mapping(map: Map) {
+  mutating func mapping(_ map: Map) {
     pingInterval <- map["response.ping_interval"]
     tripDuration <- map["response.trip_duration"]
     gisBuffer <- map["response.gis_buffer"]

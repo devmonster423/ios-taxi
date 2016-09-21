@@ -11,18 +11,18 @@ import MessageUI
 import CoreTelephony
 
 struct FeedbackEmailMaker {
-  static func make(delegate: MFMailComposeViewControllerDelegate) -> MFMailComposeViewController? {
+  static func make(_ delegate: MFMailComposeViewControllerDelegate) -> MFMailComposeViewController? {
     
     if !MFMailComposeViewController.canSendMail() {
       return nil
     } else {
     
       var messageBody = "\n\n\n\n\n"
-        + UIDevice.currentDevice().modelName
+        + UIDevice.current.modelName
         + "\n"
-        + UIDevice.currentDevice().systemName
+        + UIDevice.current.systemName
         + " "
-        + UIDevice.currentDevice().systemVersion
+        + UIDevice.current.systemVersion
         + "\n"
         + "Version: "
         + Util.versionString()

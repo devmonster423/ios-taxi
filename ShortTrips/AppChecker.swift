@@ -16,31 +16,31 @@ protocol AppChecker {
 
 extension AppChecker where Self: UIViewController {
   func appDidBecomeActive() {
-    if self.isViewLoaded() && self.view.window != nil {
+    if self.isViewLoaded && self.view.window != nil {
       checkVersion()
     }
   }
   
   func showNetworkUnreachableRetry() {
-    let alertController = UIAlertController(title: NSLocalizedString("Please check your Internet connection.", comment: ""), message: nil, preferredStyle: .Alert)
+    let alertController = UIAlertController(title: NSLocalizedString("Please check your Internet connection.", comment: ""), message: nil, preferredStyle: .alert)
     let OKAction = UIAlertAction(
       title: NSLocalizedString("Retry", comment: ""),
-      style: .Default) { _ in
+      style: .default) { _ in
         self.checkVersion()
     }
     alertController.addAction(OKAction)
-    self.presentViewController(alertController, animated: true, completion: nil)
+    self.present(alertController, animated: true, completion: nil)
   }
   
   func showErrorRetry() {
-    let alertController = UIAlertController(title: NSLocalizedString("Error. Please contact support at taxiops@flysfo.com.", comment: ""), message: nil, preferredStyle: .Alert)
+    let alertController = UIAlertController(title: NSLocalizedString("Error. Please contact support at taxiops@flysfo.com.", comment: ""), message: nil, preferredStyle: .alert)
     let OKAction = UIAlertAction(
       title: NSLocalizedString("Retry", comment: ""),
-      style: .Default) { _ in
+      style: .default) { _ in
         self.checkVersion()
     }
     alertController.addAction(OKAction)
-    self.presentViewController(alertController, animated: true, completion: nil)
+    self.present(alertController, animated: true, completion: nil)
   }
   
   func checkVersion() {
@@ -59,15 +59,15 @@ extension AppChecker where Self: UIViewController {
           
         } else {
           // redirect to app store
-          let alertController = UIAlertController(title: NSLocalizedString("App version out of date.", comment: ""), message: NSLocalizedString("You will be redirected to the App Store.", comment: ""), preferredStyle: .Alert)
+          let alertController = UIAlertController(title: NSLocalizedString("App version out of date.", comment: ""), message: NSLocalizedString("You will be redirected to the App Store.", comment: ""), preferredStyle: .alert)
           let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
-            style: .Default) { _ in
+            style: .default) { _ in
               
               // go to app store
-              UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/us/app/sfo-taxiq/id1096206222?mt=8")!)
+              UIApplication.shared.openURL(URL(string: "https://itunes.apple.com/us/app/sfo-taxiq/id1096206222?mt=8")!)
           }
           alertController.addAction(OKAction)
-          self.presentViewController(alertController, animated: true, completion: nil)
+          self.present(alertController, animated: true, completion: nil)
         }
       } else {
         self.showErrorRetry()
@@ -79,30 +79,30 @@ extension AppChecker where Self: UIViewController {
     ApiClient.requestTermsAndConditions { terms in
       
       if let terms = terms {
-        if let agreedTerms = Terms.agreedTerms() where terms == agreedTerms {
+        if let agreedTerms = Terms.agreedTerms() , terms == agreedTerms {
           // terms are already approved
           self.appChecksSuccessful()
           
         } else {
           // display terms for agreement
-          let alertController = UIAlertController(title: NSLocalizedString("Terms and Conditions", comment: ""), message: NSLocalizedString("By tapping 'I agree' below, you are agreeing to these terms:\n\n", comment: "") + terms, preferredStyle: .Alert)
+          let alertController = UIAlertController(title: NSLocalizedString("Terms and Conditions", comment: ""), message: NSLocalizedString("By tapping 'I agree' below, you are agreeing to these terms:\n\n", comment: "") + terms, preferredStyle: .alert)
           let OKAction = UIAlertAction(title: "I agree",
-            style: .Default) { _ in
+            style: .default) { _ in
               Terms.saveTerms(terms)
               self.appChecksSuccessful()
           }
           alertController.addAction(OKAction)
-          self.presentViewController(alertController, animated: true, completion: nil)
+          self.present(alertController, animated: true, completion: nil)
         }
       } else {
         // retry
-        let alertController = UIAlertController(title: NSLocalizedString("Required terms and conditions check failed.", comment: ""), message: nil, preferredStyle: .Alert)
+        let alertController = UIAlertController(title: NSLocalizedString("Required terms and conditions check failed.", comment: ""), message: nil, preferredStyle: .alert)
         let OKAction = UIAlertAction(title: NSLocalizedString("Retry", comment: ""),
-          style: .Default) { _ in
+          style: .default) { _ in
             self.checkTerms()
         }
         alertController.addAction(OKAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
       }
     }
   }

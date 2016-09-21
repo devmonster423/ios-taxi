@@ -1437,13 +1437,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2DFE5E11B56D2CB0090B55F /* Build configuration list for PBXNativeTarget "ShortTrips" */;
 			buildPhases = (
-				E78CC5AE8DDC0F9970FA110F /* 📦 Check Pods Manifest.lock */,
+				E78CC5AE8DDC0F9970FA110F /* [CP] Check Pods Manifest.lock */,
 				C2DFE5BE1B56D2CB0090B55F /* Sources */,
 				C2DFE5BF1B56D2CB0090B55F /* Frameworks */,
 				C2DFE5C01B56D2CB0090B55F /* Resources */,
 				E179C6741BC08BA00093CAA3 /* ShellScript */,
-				6DF1183E24401E20915F9DAA /* 📦 Embed Pods Frameworks */,
-				08357352695D96A677EBDACC /* 📦 Copy Pods Resources */,
+				6DF1183E24401E20915F9DAA /* [CP] Embed Pods Frameworks */,
+				08357352695D96A677EBDACC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1458,12 +1458,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C2DFE5E41B56D2CB0090B55F /* Build configuration list for PBXNativeTarget "ShortTripsTests" */;
 			buildPhases = (
-				89558432B3FCB7C1259DAC8A /* 📦 Check Pods Manifest.lock */,
+				89558432B3FCB7C1259DAC8A /* [CP] Check Pods Manifest.lock */,
 				C2DFE5D31B56D2CB0090B55F /* Sources */,
 				C2DFE5D41B56D2CB0090B55F /* Frameworks */,
 				C2DFE5D51B56D2CB0090B55F /* Resources */,
-				593DC30FCC6D59EDCBB61A12 /* 📦 Embed Pods Frameworks */,
-				8C1E2F328F6E572E9D6E5C8C /* 📦 Copy Pods Resources */,
+				593DC30FCC6D59EDCBB61A12 /* [CP] Embed Pods Frameworks */,
+				8C1E2F328F6E572E9D6E5C8C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1482,12 +1482,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = SFO;
 				TargetAttributes = {
 					C2DFE5C11B56D2CB0090B55F = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = HLT4EP89K7;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
 								enabled = 0;
@@ -1496,6 +1497,7 @@
 					};
 					C2DFE5D61B56D2CB0090B55F = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0800;
 						TestTargetID = C2DFE5C11B56D2CB0090B55F;
 					};
 				};
@@ -1559,14 +1561,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		08357352695D96A677EBDACC /* 📦 Copy Pods Resources */ = {
+		08357352695D96A677EBDACC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1574,14 +1576,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		593DC30FCC6D59EDCBB61A12 /* 📦 Embed Pods Frameworks */ = {
+		593DC30FCC6D59EDCBB61A12 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1589,14 +1591,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6DF1183E24401E20915F9DAA /* 📦 Embed Pods Frameworks */ = {
+		6DF1183E24401E20915F9DAA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1604,14 +1606,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		89558432B3FCB7C1259DAC8A /* 📦 Check Pods Manifest.lock */ = {
+		89558432B3FCB7C1259DAC8A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1619,14 +1621,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		8C1E2F328F6E572E9D6E5C8C /* 📦 Copy Pods Resources */ = {
+		8C1E2F328F6E572E9D6E5C8C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1647,14 +1649,14 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" 70883f6b3a82956cddde2edee94634fd28752993 a4f893d80708afc610abe30ca3ef85271393ea93fd3124ee1ee7efdabe39cf03";
 		};
-		E78CC5AE8DDC0F9970FA110F /* 📦 Check Pods Manifest.lock */ = {
+		E78CC5AE8DDC0F9970FA110F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1958,6 +1960,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1967,8 +1970,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -2004,6 +2009,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2013,8 +2019,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -2034,6 +2042,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -2042,6 +2051,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4F9B7F376ADA1DEE447C0E56 /* Pods-ShortTrips.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2052,6 +2062,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.flysfo.taxiops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -2059,6 +2070,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0AAD3471E4865E0C89C4F4D8 /* Pods-ShortTrips.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Davis & Associates Communications, Inc. (68966928SB)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Davis & Associates Communications, Inc. (68966928SB)";
@@ -2069,6 +2081,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.flysfo.taxiops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ccb57de9-3199-4c6f-900b-9ea8437e1f35";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -2076,6 +2089,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01466A94906E687052C64C6D /* Pods-ShortTripsTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -2090,6 +2104,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flysfo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShortTrips.app/ShortTrips";
 			};
 			name = Debug;
@@ -2098,6 +2113,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 062B5E93B766904C17AAE8C4 /* Pods-ShortTripsTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -2108,6 +2124,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.flysfo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShortTrips.app/ShortTrips";
 			};
 			name = Release;

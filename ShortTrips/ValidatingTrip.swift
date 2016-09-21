@@ -14,20 +14,20 @@ struct ValidatingTrip {
   let stateName = "validatingTrip"
   static let sharedInstance = ValidatingTrip()
   
-  private var state: TKState
+  fileprivate var state: TKState
   
-  private init() {
+  fileprivate init() {
     state = TKState(name: stateName)
     
-    state.setDidEnterStateBlock { _, _ in
+    state.setDidEnter { _, _ in
       
       postNotification(SfoNotification.State.update, value: self.getState())
       
       guard let tripId = TripManager.sharedInstance.getTripId(),
-      driver = DriverManager.sharedInstance.getCurrentDriver(),
-      sessionId = driver.sessionId,
-      cardId = driver.cardId,
-      vehicleId = DriverManager.sharedInstance.getCurrentVehicle()?.vehicleId else {
+      let driver = DriverManager.sharedInstance.getCurrentDriver(),
+      let sessionId = driver.sessionId,
+      let cardId = driver.cardId,
+      let vehicleId = DriverManager.sharedInstance.getCurrentVehicle()?.vehicleId else {
       
         fatalError("invalid parameters for end trip")
       }
@@ -38,7 +38,7 @@ struct ValidatingTrip {
         medallion: medallion,
         vehicleId: vehicleId,
         smartCardId: cardId,
-        deviceTimestamp: NSDate()
+        deviceTimestamp: Date()
       )
   
       ApiClient.end(tripId, tripBody: tripBody) { validation in

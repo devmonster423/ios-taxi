@@ -18,7 +18,7 @@ class DebugVC: UIViewController {
   var reachabilityObserver: ReachabilityObserver?
   
   override func loadView() {
-    let debugView = DebugView(frame: UIScreen.mainScreen().bounds)
+    let debugView = DebugView(frame: UIScreen.main.bounds)
     debugView.setReachabilityNoticeHidden(ReachabilityManager.sharedInstance.isReachable())
     view = debugView
   }
@@ -55,20 +55,20 @@ class DebugVC: UIViewController {
     return self.view as! DebugView
   }
   
-  func updateFakeButtons(first: ButtonUpdateInfo?, second: ButtonUpdateInfo? = nil, third: ButtonUpdateInfo? = nil) {
+  func updateFakeButtons(_ first: ButtonUpdateInfo?, second: ButtonUpdateInfo? = nil, third: ButtonUpdateInfo? = nil) {
     updateButton(self.debugView().fakeButton, info: first)
     updateButton(self.debugView().secondFakeButton, info: second)
     updateButton(self.debugView().thirdFakeButton, info: third)
   }
   
-  private func updateButton(button: UIButton, info: ButtonUpdateInfo?) {
+  fileprivate func updateButton(_ button: UIButton, info: ButtonUpdateInfo?) {
     if let info = info {
-      button.setTitle(info.title, forState: .Normal)
-      button.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
-      button.addTarget(self, action: info.action, forControlEvents: .TouchUpInside)
+      button.setTitle(info.title, for: UIControlState())
+      button.removeTarget(nil, action: nil, for: .allEvents)
+      button.addTarget(self, action: info.action, for: .touchUpInside)
     } else {
-      button.setTitle("Not Active", forState: .Normal)
-      button.removeTarget(nil, action: nil, forControlEvents: .AllEvents)
+      button.setTitle("Not Active", for: UIControlState())
+      button.removeTarget(nil, action: nil, for: .allEvents)
     }
   }
 }

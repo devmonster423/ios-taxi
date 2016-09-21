@@ -20,7 +20,7 @@ struct AutomaticVehicleId: Mappable {
   
   init?(_ map: Map){}
   
-  mutating func mapping(map: Map) {
+  mutating func mapping(_ map: Map) {
     location <- map["location"]
     id <- map["id"]
   }

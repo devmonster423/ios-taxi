@@ -34,7 +34,7 @@ struct DriverCredential: Mappable {
   
   init?(_ map: Map){}
   
-  mutating func mapping(map: Map) {
+  mutating func mapping(_ map: Map) {
     username <- map["username"]
     password <- map["password"]
     osVersion <- map["os_version"]
@@ -85,7 +85,7 @@ struct DriverCredential: Mappable {
     }
   }
   
-  private static func credentialProtectionSpace() -> NSURLProtectionSpace {
+  fileprivate static func credentialProtectionSpace() -> NSURLProtectionSpace {
     let url = NSURL(string: Url.base)!
     return NSURLProtectionSpace(host: url.host!,
       port: (url.port?.integerValue)!,

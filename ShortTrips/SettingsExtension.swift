@@ -12,12 +12,12 @@ extension UIViewController {
   
   func addSettingsButton() {
     
-    let settingsBtn = UIButton(frame: CGRectMake(0, 0, 44, 44))
-    settingsBtn.setImage(Image.gear.image(), forState: .Normal)
+    let settingsBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
+    settingsBtn.setImage(Image.gear.image(), for: UIControlState())
     settingsBtn.imageEdgeInsets = UIEdgeInsetsMake(5, 10, 5, 0)
     settingsBtn.addTarget(self,
       action: #selector(UIViewController.settings),
-      forControlEvents: .TouchUpInside)
+      for: .touchUpInside)
     navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsBtn)
   }
   

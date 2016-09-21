@@ -14,13 +14,13 @@ struct WaitingForTaxiLoopAvi {
   let stateName = "WaitingForTaxiLoopAvi"
   static let sharedInstance = WaitingForTaxiLoopAvi()
   
-  private var poller: Poller?
-  private var state: TKState
+  fileprivate var poller: Poller?
+  fileprivate var state: TKState
   
-  private init() {
+  fileprivate init() {
     state = TKState(name: stateName)
     
-    state.setDidEnterStateBlock { _, _ in
+    state.setDidEnter { _, _ in
     
       postNotification(SfoNotification.State.update, value: self.getState())
       

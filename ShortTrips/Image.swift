@@ -61,14 +61,14 @@ enum Image: String {
     return UIImage(named: self.rawValue)!
   }
   
-  static func from(color: UIColor) -> UIImage {
-    let rect = CGRectMake(0, 0, 1, 1)
+  static func from(_ color: UIColor) -> UIImage {
+    let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
     UIGraphicsBeginImageContext(rect.size)
     let context = UIGraphicsGetCurrentContext()
-    CGContextSetFillColorWithColor(context, color.CGColor)
-    CGContextFillRect(context, rect)
+    context?.setFillColor(color.cgColor)
+    context?.fill(rect)
     let image = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
-    return image
+    return image!
   }
 }

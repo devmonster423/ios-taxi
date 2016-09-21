@@ -30,7 +30,7 @@ struct UiConstants {
     static let arrivalsDeparturesWidth: CGFloat = 100.0
     static let arrivalsDeparturesHeight: CGFloat = 40.0
     static let toggleFont = Font.OpenSansSemibold.size(20.0)
-    static let fadeDuration: NSTimeInterval = 0.3
+    static let fadeDuration: TimeInterval = 0.3
     static let grayViewAlpha: CGFloat = 0.5
   }
   
@@ -40,13 +40,13 @@ struct UiConstants {
   }
   
   struct Fader {
-    static let fadeDuration: NSTimeInterval = 1.0
+    static let fadeDuration: TimeInterval = 1.0
     static let disabledWidgetAlpha: CGFloat = 0.3
   }
   
   struct Timer {
     static let updatePeriod: Int = 300
-    static let updateInterval: NSTimeInterval = 1.0
+    static let updateInterval: TimeInterval = 1.0
     static let progressHeight: CGFloat = 10.0
     static let updateHeight: CGFloat = 13.0
     static let bottomOffset: CGFloat = -3.0
@@ -83,7 +83,7 @@ struct UiConstants {
   }
   
   struct Trip {
-    static let topMargin: CGFloat = UIScreen.mainScreen().bounds.height / 20.0
+    static let topMargin: CGFloat = UIScreen.main.bounds.height / 20.0
     static let dividerMargin: CGFloat = 15.0
     
     struct Notification {

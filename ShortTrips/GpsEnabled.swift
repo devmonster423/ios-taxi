@@ -13,12 +13,12 @@ struct GpsEnabled {
   let eventNames = ["GpsEnabled"]
   static let sharedInstance = GpsEnabled()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [GpsIsOff.sharedInstance.getState()],
-      toState: NotReady.sharedInstance.getState())]
+      to: NotReady.sharedInstance.getState())]
   }
 }
 

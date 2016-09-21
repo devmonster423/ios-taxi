@@ -17,7 +17,7 @@ class ErrorLoggerSpec: QuickSpec {
     describe("the ErrorLogger") {
       
       it("can log a request") {
-        ErrorLogger.log(NSURLRequest(URL: NSURL(string: "http://www.google.com")!), error: NSError(domain: "", code: 500, userInfo: nil))
+        ErrorLogger.log(URLRequest(URL: URL(string: "http://www.google.com")!), error: NSError(domain: "", code: 500, userInfo: nil))
       }
     }
   }

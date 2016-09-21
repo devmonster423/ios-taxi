@@ -13,9 +13,9 @@ struct InsideTaxiLoopExit {
   let eventNames = ["insideTaxiLoopExit"]
   static let sharedInstance = InsideTaxiLoopExit()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [
         WaitingInHoldingLot.sharedInstance.getState(),
@@ -23,7 +23,7 @@ struct InsideTaxiLoopExit {
         WaitingForEntryCid.sharedInstance.getState(),
         AssociatingDriverAndVehicleAtEntry.sharedInstance.getState(),
         WaitingForEntryAvi.sharedInstance.getState()],
-      toState: WaitingForPaymentCid.sharedInstance.getState())]
+      to: WaitingForPaymentCid.sharedInstance.getState())]
   }
 }
 

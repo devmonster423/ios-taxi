@@ -15,19 +15,19 @@ struct Ready {
   let stateName = "ready"
   static let sharedInstance = Ready()
   
-  private var state: TKState
+  fileprivate var state: TKState
   
-  private init() {
+  fileprivate init() {
     state = TKState(name: stateName)
     
-    state.setDidEnterStateBlock { _, _ in
+    state.setDidEnter { _, _ in
       
       postNotification(SfoNotification.State.update, value: self.getState())
       
       DriverManager.sharedInstance.callWithValidSession {
         
         guard let location = LocationManager.sharedInstance.getLastKnownLocation(),
-          sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId else {
+          let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId else {
             
             fatalError("can't update mobile state")
         }

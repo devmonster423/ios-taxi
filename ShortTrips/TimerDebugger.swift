@@ -12,7 +12,7 @@ import JSQNotificationObserverKit
 extension DebugVC {
     
   func fakeTimeExpired() {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(3 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(3 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
       TimeExpired.sharedInstance.fire()
     }
   }

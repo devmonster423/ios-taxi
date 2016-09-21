@@ -11,12 +11,12 @@ import ObjectMapper
 import AlamofireObjectMapper
 import JSQNotificationObserverKit
 
-typealias AviClosure = ([AutomaticVehicleId]?, ErrorType?) -> Void
-typealias AntennaClosure = Antenna? -> Void
-typealias CidClosure = Cid? -> Void
+typealias AviClosure = ([AutomaticVehicleId]?, Error?) -> Void
+typealias AntennaClosure = (Antenna?) -> Void
+typealias CidClosure = (Cid?) -> Void
 
 extension ApiClient {
-  static func updateMobileState(mobileState: MobileState, mobileStateInfo: MobileStateInfo) {
+  static func updateMobileState(_ mobileState: MobileState, mobileStateInfo: MobileStateInfo) {
     authedRequest(.PUT, Url.Device.mobileStateUpdate(mobileState.rawValue), parameters: Mapper().toJSON(mobileStateInfo))
       .response { _, raw, _, _ in
 
@@ -30,9 +30,9 @@ extension ApiClient {
     }
   }
   
-  static func requestAutomaticVehicleIds(response: AviClosure) {
+  static func requestAutomaticVehicleIds(_ response: @escaping AviClosure) {
     authedRequest(.GET, Url.Device.Avi.avi)
-      .responseObject { (_, raw, aviListWrapper: AutomaticVehicleIdListWrapper?, _, error: ErrorType?) in
+      .responseObject { (_, raw, aviListWrapper: AutomaticVehicleIdListWrapper?, _, error: Error?) in
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
         }
@@ -40,9 +40,9 @@ extension ApiClient {
     }
   }
   
-  static func requestAntenna(transponderId: Int, response: AntennaClosure) {
+  static func requestAntenna(_ transponderId: Int, response: @escaping AntennaClosure) {
     authedRequest(.GET, Url.Device.Avi.transponder(transponderId))
-      .responseObject { (_, raw, antenna: Antenna?, _, error: ErrorType?) in
+      .responseObject { (_, raw, antenna: Antenna?, _, error: Error?) in
   
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)
@@ -56,9 +56,9 @@ extension ApiClient {
     }
   }
   
-  static func requestCid(driverId: Int, response: CidClosure) {
+  static func requestCid(_ driverId: Int, response: @escaping CidClosure) {
     authedRequest(.GET, Url.Device.Cid.driver(driverId))
-      .responseObject { (_, raw, cid: Cid?, _, error: ErrorType?) in
+      .responseObject { (_, raw, cid: Cid?, _, error: Error?) in
         
         if let raw = raw {
           postNotification(SfoNotification.Request.response, value: raw)

@@ -10,36 +10,36 @@ import Foundation
 import UIKit
 
 enum StatePrompt {
-  case TurnOnGps
-  case GoToSfo
-  case Pay
-  case Ready
-  case InProgress
+  case turnOnGps
+  case goToSfo
+  case pay
+  case ready
+  case inProgress
   
   func visualString() -> String {
     switch self {
-    case .TurnOnGps:
-      return NSLocalizedString("Location Services Required", comment: "").uppercaseString
-    case .GoToSfo:
-      return NSLocalizedString("SFO Garage Entry Required Prior to Next Trip", comment: "").uppercaseString
-    case .Pay:
-      return NSLocalizedString("Waiting for dispatch", comment: "").uppercaseString
-    case .Ready:
-      return NSLocalizedString("Trip Pending Until Exit From SFO", comment: "").uppercaseString
-    case .InProgress:
-      return NSLocalizedString("Trip In Progress", comment: "").uppercaseString
+    case .turnOnGps:
+      return NSLocalizedString("Location Services Required", comment: "").uppercased()
+    case .goToSfo:
+      return NSLocalizedString("SFO Garage Entry Required Prior to Next Trip", comment: "").uppercased()
+    case .pay:
+      return NSLocalizedString("Waiting for dispatch", comment: "").uppercased()
+    case .ready:
+      return NSLocalizedString("Trip Pending Until Exit From SFO", comment: "").uppercased()
+    case .inProgress:
+      return NSLocalizedString("Trip In Progress", comment: "").uppercased()
     }
   }
   
   func audioString() -> String {
     switch self {
-    case .TurnOnGps:
+    case .turnOnGps:
       return NSLocalizedString("Location services must be turned on in order to monitor your trip.", comment: "")
-    case .InProgress:
+    case .inProgress:
       return NSLocalizedString("The trip has started and will be monitored.", comment: "")
-    case .Ready:
+    case .ready:
       return NSLocalizedString("The trip will start when the vehicle exits SFO.", comment: "")
-    case .Pay:
+    case .pay:
       return NSLocalizedString("Waiting for dispatch", comment: "")
     default:
       return visualString()
@@ -48,15 +48,15 @@ enum StatePrompt {
   
   func image() -> UIImage {
     switch self {
-    case .TurnOnGps:
+    case .turnOnGps:
       return Image.map.image()
-    case .GoToSfo:
+    case .goToSfo:
       return Image.map.image()
-    case .Pay:
+    case .pay:
       return Image.hourglass.image()
-    case .Ready:
+    case .ready:
       return Image.mapPin.image()
-    case .InProgress:
+    case .inProgress:
       return Image.car.image()
     }
   }

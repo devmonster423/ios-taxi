@@ -14,12 +14,12 @@ struct NotReady {
   let stateName = "notReady"
   static let sharedInstance = NotReady()
   
-  private var state: TKState
+  fileprivate var state: TKState
   
-  private init() {
+  fileprivate init() {
     state = TKState(name: stateName)
     
-    state.setDidEnterStateBlock { _, _ in
+    state.setDidEnter { _, _ in
       TripManager.sharedInstance.reset(false)
       postNotification(SfoNotification.State.update, value: self.getState())
     }

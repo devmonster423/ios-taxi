@@ -13,12 +13,12 @@ import JSQNotificationObserverKit
 class GeofenceManager {
   
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
-  private var lastCheckedLocation: CLLocation?
-  private var insideSfoBufferedExit = false
+  fileprivate var lastCheckedLocation: CLLocation?
+  fileprivate var insideSfoBufferedExit = false
   var checkThreshold: Double {
     return insideSfoBufferedExit ? 30 : 300
   }
-  private var lastKnownGeofences: [SfoGeofence]?
+  fileprivate var lastKnownGeofences: [SfoGeofence]?
   
   static let sharedInstance = GeofenceManager()
   
@@ -34,10 +34,10 @@ class GeofenceManager {
     locationObserver = nil
   }
   
-  func process(location: CLLocation) {
+  func process(_ location: CLLocation) {
     
     if lastCheckedLocation == nil
-      || location.distanceFromLocation(lastCheckedLocation!) > checkThreshold {
+      || location.distance(from: lastCheckedLocation!) > checkThreshold {
       
       GeofenceArbiter.requestGeofencesForLocation(location.coordinate) { geofences in
           
@@ -51,9 +51,9 @@ class GeofenceManager {
     }
   }
 
-  private func process(geofences: [SfoGeofence]) {
+  fileprivate func process(_ geofences: [SfoGeofence]) {
     
-    if geofences.contains(.TaxiExitBuffered) {
+    if geofences.contains(.taxiExitBuffered) {
       InsideBufferedExit.sharedInstance.fire()
       insideSfoBufferedExit = true
     } else {
@@ -61,12 +61,12 @@ class GeofenceManager {
       insideSfoBufferedExit = false
     }
     
-    if geofences.contains(.SfoTaxiDomesticExit)
-      && !geofences.contains(.TaxiWaitingZone) {
+    if geofences.contains(.sfoTaxiDomesticExit)
+      && !geofences.contains(.taxiWaitingZone) {
       InsideTaxiLoopExit.sharedInstance.fire()
     }
     
-    if geofences.contains(.TaxiWaitingZone) {
+    if geofences.contains(.taxiWaitingZone) {
       InsideTaxiWaitingZone.sharedInstance.fire()
     } else {
       OutsideTaxiWaitZone.sharedInstance.fire()
@@ -77,7 +77,7 @@ class GeofenceManager {
   
   func stillInsideTaxiWaitZone() -> Bool {
     if let lastKnownGeofences = lastKnownGeofences {
-      return lastKnownGeofences.contains(.TaxiWaitingZone)
+      return lastKnownGeofences.contains(.taxiWaitingZone)
     } else {
       return false
     }
@@ -85,7 +85,7 @@ class GeofenceManager {
   
   func stillInDomesticExitNotInHoldingLot() -> Bool {
     if let lastKnownGeofences = lastKnownGeofences {
-      return lastKnownGeofences.contains(.SfoTaxiDomesticExit) && !lastKnownGeofences.contains(.TaxiWaitingZone)
+      return lastKnownGeofences.contains(.sfoTaxiDomesticExit) && !lastKnownGeofences.contains(.taxiWaitingZone)
     } else {
       return false
     }

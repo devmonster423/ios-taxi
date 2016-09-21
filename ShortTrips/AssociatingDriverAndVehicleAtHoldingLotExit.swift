@@ -14,13 +14,13 @@ struct AssociatingDriverAndVehicleAtHoldingLotExit {
   let stateName = "associatingDriverAndVehicleAtHoldingLotExit"
   static let sharedInstance = AssociatingDriverAndVehicleAtHoldingLotExit()
 
-  private var poller: Poller?
-  private var state: TKState
+  fileprivate var poller: Poller?
+  fileprivate var state: TKState
 
-  private init() {
+  fileprivate init() {
     state = TKState(name: stateName)
 
-    state.setDidEnterStateBlock { _, _ in
+    state.setDidEnter { _, _ in
 
       postNotification(SfoNotification.State.update, value: self.getState())
 
@@ -28,7 +28,7 @@ struct AssociatingDriverAndVehicleAtHoldingLotExit {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
           ApiClient.getVehicle(driver.cardId) { vehicle in
 
-            if let vehicle = vehicle where vehicle.isValid() {
+            if let vehicle = vehicle , vehicle.isValid() {
               DriverManager.sharedInstance.setCurrentVehicle(vehicle)
               
             } else if !GeofenceManager.sharedInstance.stillInDomesticExitNotInHoldingLot() {

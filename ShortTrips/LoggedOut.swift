@@ -14,12 +14,12 @@ struct LoggedOut {
   let eventNames = ["loggedOut"]
   static let sharedInstance = LoggedOut()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: StateManager.allStates,
-      toState: NotReady.sharedInstance.getState())]
+      to: NotReady.sharedInstance.getState())]
   }
 }
 
@@ -30,17 +30,17 @@ extension LoggedOut: Event {
 }
 
 extension LoggedOut: Observable {
-  func eventIsFiring(info: Any?) {
+  func eventIsFiring(_ info: Any?) {
     
     postNotification(SfoNotification.Driver.logout, value: nil)
     
     if let tripId = TripManager.sharedInstance.getTripId(),
       let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
 
-      ApiClient.invalidate(tripId, invalidation: .UserLogout, sessionId: sessionId)
+      ApiClient.invalidate(tripId, invalidation: .userLogout, sessionId: sessionId)
       TripManager.sharedInstance.reset(false)
       
-      if let location = LocationManager.sharedInstance.getLastKnownLocation(), sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
+      if let location = LocationManager.sharedInstance.getLastKnownLocation(), let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
         ApiClient.updateMobileState(.LoggedOut, mobileStateInfo: MobileStateInfo(longitude: location.coordinate.longitude,
           latitude: location.coordinate.latitude,
           sessionId: sessionId,

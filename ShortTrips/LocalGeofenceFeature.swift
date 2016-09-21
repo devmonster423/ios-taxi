@@ -18,7 +18,7 @@ struct LocalGeofenceFeature: Mappable {
 
   init?(_ map: Map){}
 
-  mutating func mapping(map: Map) {
+  mutating func mapping(_ map: Map) {
     rings <- map["geometry.rings"]
   }
 
@@ -43,7 +43,7 @@ struct LocalGeofenceFeature: Mappable {
   }
   
   // thanks to http://stackoverflow.com/a/1165943/2577986
-  private func ringIsClockwise(ring: [[Double]]) -> Bool {
+  fileprivate func ringIsClockwise(_ ring: [[Double]]) -> Bool {
     var clockwisiness: Double = 0
     
     for i in 0..<ring.count {

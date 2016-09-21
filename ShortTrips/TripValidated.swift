@@ -14,12 +14,12 @@ struct TripValidated {
   let eventNames = ["tripValidated"]
   static let sharedInstance = TripValidated()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [ValidatingTrip.sharedInstance.getState()],
-      toState: WaitingInHoldingLot.sharedInstance.getState())]
+      to: WaitingInHoldingLot.sharedInstance.getState())]
   }
 }
 
@@ -30,8 +30,8 @@ extension TripValidated: Event {
 }
 
 extension TripValidated: Observable {
-  func eventIsFiring(info: Any?) {
-    postNotification(SfoNotification.Trip.validated, value: NSDate())
+  func eventIsFiring(_ info: Any?) {
+    postNotification(SfoNotification.Trip.validated, value: Date())
     TripManager.sharedInstance.reset(true)
   }
 }

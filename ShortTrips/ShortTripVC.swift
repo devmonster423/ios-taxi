@@ -13,10 +13,10 @@ import JSQNotificationObserverKit
 class ShortTripVC: UIViewController {
   var sfoObservers = SfoObservers()
   var reachabilityObserver: ReachabilityObserver?
-  private var tripTimer: NSTimer?
+  fileprivate var tripTimer: Timer?
   
   override func loadView() {
-    let shortTripView = ShortTripView(frame: UIScreen.mainScreen().bounds)
+    let shortTripView = ShortTripView(frame: UIScreen.main.bounds)
     shortTripView.setReachabilityNoticeHidden(ReachabilityManager.sharedInstance.isReachable())
     view = shortTripView
   }
@@ -26,7 +26,7 @@ class ShortTripVC: UIViewController {
     
     setupObservers()
   
-    configureNavBar(title: NSLocalizedString("Trip Status", comment: "").uppercaseString)
+    configureNavBar(title: NSLocalizedString("Trip Status", comment: "").uppercased())
     addSettingsButton()
     
     initializeForState(StateManager.sharedInstance.getMachine().currentState)
@@ -35,7 +35,7 @@ class ShortTripVC: UIViewController {
       tripTimer.invalidate()
     }
     
-    tripTimer = NSTimer.scheduledTimerWithTimeInterval(1,
+    tripTimer = Timer.scheduledTimer(timeInterval: 1,
       target: self,
       selector: #selector(ShortTripVC.checkTime),
       userInfo: nil,
@@ -48,13 +48,13 @@ class ShortTripVC: UIViewController {
     }
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
     shortTripView().skipAnyPendingNotifications()
   }
   
-  override func viewDidAppear(animated: Bool) {
+  override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     
     if let tripId = PendingAppQuit.get() {

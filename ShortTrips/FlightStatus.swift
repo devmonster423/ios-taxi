@@ -31,7 +31,7 @@ enum FlightStatus: String {
       return Color.FlightStatus.onTime
     case .Landing:
       return Color.FlightStatus.landing
-    case Landed:
+    case .Landed:
       return Color.FlightStatus.landed
     }
   }

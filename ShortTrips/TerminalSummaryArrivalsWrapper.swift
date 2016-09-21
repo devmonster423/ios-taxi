@@ -16,7 +16,7 @@ struct TerminalSummaryArrivalsWrapper: Mappable {
   
   init?(_ map: Map){}
   
-  mutating func mapping(map: Map) {
+  mutating func mapping(_ map: Map) {
     terminalSummaries <- map["response.arrivals.list"]
     totalCount <- map["response.total_count"]
     totalDelayedCount <- map["response.total_delayed_count"]

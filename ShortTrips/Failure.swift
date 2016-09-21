@@ -13,12 +13,12 @@ struct Failure {
   let eventNames = ["failure"]
   static let sharedInstance = Failure()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: StateManager.allStates,
-      toState: NotReady.sharedInstance.getState())]
+      to: NotReady.sharedInstance.getState())]
   }
 }
 

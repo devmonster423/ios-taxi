@@ -51,25 +51,25 @@ extension DebugVC {
   }
   
   func confirmEntryGateAviRead() {
-    let antenna = Antenna(antennaId: "L27AVI1", aviLocation: "Location #27 Taxi Entry", aviDate: NSDate())
+    let antenna = Antenna(antennaId: "L27AVI1", aviLocation: "Location #27 Taxi Entry", aviDate: Date())
     AviManager.sharedInstance.setLatestAviLocation(antenna.device()!)
     LatestAviAtEntry.sharedInstance.fire(antenna)
   }
   
   func confirmReEntryGateAviRead() {
-    let antenna = Antenna(antennaId: "L27AVI1", aviLocation: "Location #27 Taxi Entry", aviDate: NSDate())
+    let antenna = Antenna(antennaId: "L27AVI1", aviLocation: "Location #27 Taxi Entry", aviDate: Date())
     AviManager.sharedInstance.setLatestAviLocation(antenna.device()!)
     LatestAviAtReEntry.sharedInstance.fire(antenna)
   }
   
   func latestAviReadAtTaxiLoop() {
-    let antenna = Antenna(antennaId: "L14AVI1", aviLocation: "Location #14 Taxi Loop", aviDate: NSDate())
+    let antenna = Antenna(antennaId: "L14AVI1", aviLocation: "Location #14 Taxi Loop", aviDate: Date())
     AviManager.sharedInstance.setLatestAviLocation(antenna.device()!)
     LatestAviAtTaxiLoop.sharedInstance.fire(antenna)
   }
 
   func latestDomExitAviRead() {
-    let antenna = Antenna(antennaId: "L2AVI1", aviLocation: "Location #2 Domestic Exit", aviDate: NSDate())
+    let antenna = Antenna(antennaId: "L2AVI1", aviLocation: "Location #2 Domestic Exit", aviDate: Date())
     AviManager.sharedInstance.setLatestAviLocation(antenna.device()!)
     ExitAviCheckComplete.sharedInstance.fire(antenna)
   }

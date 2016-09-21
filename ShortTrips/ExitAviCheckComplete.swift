@@ -14,12 +14,12 @@ class ExitAviCheckComplete {
   let eventNames = ["ExitAviCheckComplete"]
   static let sharedInstance = ExitAviCheckComplete()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [WaitingForExitAvi.sharedInstance.getState()],
-      toState: StartingTrip.sharedInstance.getState())]
+      to: StartingTrip.sharedInstance.getState())]
   }
 }
 
@@ -30,7 +30,7 @@ extension ExitAviCheckComplete: Event {
 }
 
 extension ExitAviCheckComplete: Observable {
-  func eventIsFiring(info: Any?) {
+  func eventIsFiring(_ info: Any?) {
     if let antenna = info as? Antenna {
       TripManager.sharedInstance.setStartTime(antenna.aviDate)
       postNotification(SfoNotification.Avi.domExit, value: antenna)

@@ -14,21 +14,21 @@ struct StartingTrip {
   let stateName = "StartingTrip"
   static let sharedInstance = StartingTrip()
   
-  private var state: TKState
+  fileprivate var state: TKState
   
-  private init() {
+  fileprivate init() {
     state = TKState(name: stateName)
     
-    state.setDidEnterStateBlock { _, _ in
+    state.setDidEnter { _, _ in
       
       postNotification(SfoNotification.State.update, value: self.getState())
       
       DriverManager.sharedInstance.callWithValidSession {
         
         guard let driver = DriverManager.sharedInstance.getCurrentDriver(),
-          sessionId = driver.sessionId,
-          cardId = driver.cardId,
-          vehicleId = DriverManager.sharedInstance.getCurrentVehicle()?.vehicleId else {
+          let sessionId = driver.sessionId,
+          let cardId = driver.cardId,
+          let vehicleId = DriverManager.sharedInstance.getCurrentVehicle()?.vehicleId else {
           
             fatalError("invalid info when starting trip")
         }
@@ -39,7 +39,7 @@ struct StartingTrip {
           medallion: medallion,
           vehicleId: vehicleId,
           smartCardId: cardId,
-          deviceTimestamp: TripManager.sharedInstance.getStartTime() ?? NSDate()
+          deviceTimestamp: TripManager.sharedInstance.getStartTime() ?? Date()
         )
         
         ApiClient.start(tripBody) { tripId in

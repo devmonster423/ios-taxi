@@ -12,11 +12,11 @@ import MBProgressHUD
 
 class DashboardVC: UIViewController {
   
-  private var errorShown = false
-  private var reachabilityObserver: ReachabilityObserver?
+  fileprivate var errorShown = false
+  fileprivate var reachabilityObserver: ReachabilityObserver?
   
   override func loadView() {
-    let dashboardView = DashboardView(frame: UIScreen.mainScreen().bounds)
+    let dashboardView = DashboardView(frame: UIScreen.main.bounds)
     dashboardView.setReachabilityNoticeHidden(ReachabilityManager.sharedInstance.isReachable())
 //#if DEBUG
 //    let secretSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(DashboardVC.openDebugMode))
@@ -30,19 +30,19 @@ class DashboardVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.title = ""
-    configureNavBar(title: NSLocalizedString("Holding Lot", comment: "").uppercaseString)
+    configureNavBar(title: NSLocalizedString("Holding Lot", comment: "").uppercased())
     addSettingsButton()
     
-    NSNotificationCenter.defaultCenter().addObserver(
+    NotificationCenter.default.addObserver(
       self,
       selector: #selector(stopTimer),
-      name: UIApplicationDidEnterBackgroundNotification,
+      name: NSNotification.Name.UIApplicationDidEnterBackground,
       object: nil)
     
-    NSNotificationCenter.defaultCenter().addObserver(
+    NotificationCenter.default.addObserver(
       self,
       selector: #selector(startTimer),
-      name: UIApplicationWillEnterForegroundNotification,
+      name: NSNotification.Name.UIApplicationWillEnterForeground,
       object: nil)
 
     reachabilityObserver = NotificationObserver(notification: SfoNotification.Reachability.reachabilityChanged) { reachable, _ in
@@ -58,12 +58,12 @@ class DashboardVC: UIViewController {
     dashboardView().stopTimerView()
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     startTimer()
   }
   
-  override func viewWillDisappear(animated: Bool) {
+  override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     stopTimer()
   }
@@ -73,7 +73,7 @@ class DashboardVC: UIViewController {
   }
     
   func requestLotStatus() {
-    let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+    let hud = MBProgressHUD.showAdded(to: view, animated: true)
     hud.labelText = NSLocalizedString("Requesting Lot Status", comment: "")
     
     ApiClient.requestQueueLength { length in
@@ -84,7 +84,7 @@ class DashboardVC: UIViewController {
         self.dashboardView().updateSpots(length.longQueueLength)
         
       } else if !self.errorShown
-        && self.tabBarController?.selectedIndex == MainTabs.Lot.rawValue
+        && self.tabBarController?.selectedIndex == MainTabs.lot.rawValue
         && self.navigationController?.visibleViewController == self {
           
           UiHelpers.displayErrorMessage(self, message: NSLocalizedString("An error occurred while fetching parking-lot data.", comment: ""))

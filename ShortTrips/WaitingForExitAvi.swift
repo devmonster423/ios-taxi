@@ -14,12 +14,12 @@ struct WaitingForExitAvi {
   let stateName = "WaitingForExitAvi"
   static let sharedInstance = WaitingForExitAvi()
   
-  private var state: TKState
+  fileprivate var state: TKState
   
-  private init() {
+  fileprivate init() {
     state = TKState(name: stateName)
     
-    state.setDidEnterStateBlock { _, _ in
+    state.setDidEnter { _, _ in
       
       postNotification(SfoNotification.State.update, value: self.getState())
       

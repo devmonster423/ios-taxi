@@ -19,7 +19,7 @@ extension DebugVC {
     }
   }
   
-  func updateForState(state: TKState) {
+  func updateForState(_ state: TKState) {
     if state == AssociatingDriverAndVehicleAtEntry.sharedInstance.getState() {
       debugView().printDebugLine("Associating Driver And Vehicle")
       debugView().updateState("Associating Driver And Vehicle")

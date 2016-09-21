@@ -18,7 +18,7 @@ class TerminalSummaryVC: UIViewController {
   var errorShown = false
   
   override func loadView() {
-    let terminalSummaryView = TerminalSummaryView(frame: UIScreen.mainScreen().bounds)
+    let terminalSummaryView = TerminalSummaryView(frame: UIScreen.main.bounds)
     terminalSummaryView.setReachabilityNoticeHidden(ReachabilityManager.sharedInstance.isReachable())
     terminalSummaryView.setButtonSelectors(
       self,
@@ -28,9 +28,9 @@ class TerminalSummaryVC: UIViewController {
     terminalSummaryView.setTerminalViewSelector(self, action: #selector(TerminalSummaryVC.terminalSelected(_:)))
     terminalSummaryView.setPickerShowerTarget(self, action: #selector(TerminalSummaryVC.showPicker))
     terminalSummaryView.setPickerDismisserItems([
-      UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil),
+      UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
       UIBarButtonItem(title: NSLocalizedString("Done", comment: ""),
-        style: .Done,
+        style: .done,
         target: self,
         action: #selector(TerminalSummaryVC.hidePicker(_:)))])
     terminalSummaryView.setGrayAreaSelector(self, action: #selector(TerminalSummaryVC.hidePicker(_:)))
@@ -40,19 +40,19 @@ class TerminalSummaryVC: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    configureNavBar(title: NSLocalizedString("Flight Status", comment: "").uppercaseString)
+    configureNavBar(title: NSLocalizedString("Flight Status", comment: "").uppercased())
     addSettingsButton()
 
-    NSNotificationCenter.defaultCenter().addObserver(
+    NotificationCenter.default.addObserver(
       self,
       selector: #selector(stopTimer),
-      name: UIApplicationDidEnterBackgroundNotification,
+      name: NSNotification.Name.UIApplicationDidEnterBackground,
       object: nil)
     
-    NSNotificationCenter.defaultCenter().addObserver(
+    NotificationCenter.default.addObserver(
       self,
       selector: #selector(startTimer),
-      name: UIApplicationWillEnterForegroundNotification,
+      name: NSNotification.Name.UIApplicationWillEnterForeground,
       object: nil)
     
     reachabilityObserver = NotificationObserver(notification: SfoNotification.Reachability.reachabilityChanged) { reachable, _ in
@@ -60,12 +60,12 @@ class TerminalSummaryVC: UIViewController {
     }
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     startTimer()
   }
   
-  override func viewWillDisappear(animated: Bool) {
+  override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     stopTimer()
   }
@@ -82,12 +82,12 @@ class TerminalSummaryVC: UIViewController {
     terminalSummaryView().stopTimerView()
   }
   
-  private func updateTerminalTable() {
+  fileprivate func updateTerminalTable() {
     terminalSummaryView().clearTerminalTable()
     terminalSummaryView().resetTimerProgess() // TODO: is this line necessary?
     ApiClient.requestTerminalSummaries(terminalSummaryView().getCurrentHour(), flightType: terminalSummaryView().getCurrentFlightType()) { terminals, hour, statusCode in
       
-      if let hour = hour where hour == self.terminalSummaryView().getCurrentHour() {
+      if let hour = hour , hour == self.terminalSummaryView().getCurrentHour() {
         if let terminals = terminals {
           self.terminalSummaryView().reloadTerminalViews(terminals)
           
@@ -96,7 +96,7 @@ class TerminalSummaryVC: UIViewController {
           var message = NSLocalizedString("An error occurred while fetching flight data.", comment: "")
           
           if Util.debug {
-            if let statusCode = statusCode where statusCode != Util.HttpStatusCodes.Ok.rawValue {
+            if let statusCode = statusCode , statusCode != Util.HttpStatusCodes.ok.rawValue {
               message += NSLocalizedString("Status code: ", comment: "") + String(statusCode)
             } else {
               message += NSLocalizedString("The terminals object was nil.", comment:"")
@@ -110,7 +110,7 @@ class TerminalSummaryVC: UIViewController {
     }
   }
 
-  func changeHour(delta: Int) {
+  func changeHour(_ delta: Int) {
     let oldCurrentHour = terminalSummaryView().getCurrentHour()
     terminalSummaryView().incrementHour(delta)
     let newCurrentHour = terminalSummaryView().getCurrentHour()
@@ -127,7 +127,7 @@ class TerminalSummaryVC: UIViewController {
     changeHour(1)
   }
   
-  func hidePicker(sender: UITapGestureRecognizer) {
+  func hidePicker(_ sender: UITapGestureRecognizer) {
     terminalSummaryView().hidePicker()
     terminalSummaryView().updatePickerTitle()
     updateTerminalTable()
@@ -137,7 +137,7 @@ class TerminalSummaryVC: UIViewController {
     terminalSummaryView().showPicker()
   }
   
-  func terminalSelected(sender: TerminalView) {
+  func terminalSelected(_ sender: TerminalView) {
     let flightStatusVC = FlightStatusVC()
     flightStatusVC.currentHour = terminalSummaryView().getCurrentHour()
     flightStatusVC.selectedTerminalId = sender.getActiveTerminalId()
@@ -147,17 +147,17 @@ class TerminalSummaryVC: UIViewController {
 }
 
 extension TerminalSummaryVC: UIPickerViewDataSource {
-  func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+  func numberOfComponents(in pickerView: UIPickerView) -> Int {
     return 1
   }
   
-  func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     return FlightType.all().count
   }
 }
 
 extension TerminalSummaryVC: UIPickerViewDelegate {  
-  func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
     return FlightType.all()[row].asLocalizedString()
   }
 }

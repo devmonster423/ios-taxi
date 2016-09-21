@@ -14,12 +14,12 @@ struct GpsIsOff {
   let stateName = "GpsIsOff"
   static let sharedInstance = GpsIsOff()
   
-  private var state: TKState
+  fileprivate var state: TKState
   
-  private init() {
+  fileprivate init() {
     state = TKState(name: stateName)
     
-    state.setDidEnterStateBlock { _, _ in
+    state.setDidEnter { _, _ in
       TripManager.sharedInstance.reset(false)
       postNotification(SfoNotification.State.update, value: self.getState())
     }

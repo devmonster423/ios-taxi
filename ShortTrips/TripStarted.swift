@@ -14,12 +14,12 @@ struct TripStarted {
   let eventNames = ["tripStarted"]
   static let sharedInstance = TripStarted()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [StartingTrip.sharedInstance.getState()],
-      toState: InProgress.sharedInstance.getState())]
+      to: InProgress.sharedInstance.getState())]
   }
 }
 
@@ -30,7 +30,7 @@ extension TripStarted: Event {
 }
 
 extension TripStarted: Observable {
-  func eventIsFiring(info: Any?) {
+  func eventIsFiring(_ info: Any?) {
     
     if let info = info as? Int {
       postNotification(SfoNotification.Trip.started, value: info)

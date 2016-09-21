@@ -10,32 +10,32 @@ import Foundation
 import ObjectMapper
 
 enum MobileState: Int {
-  case Ready = 1
-  case NotReady = 2
-  case InProgress = 4
-  case Valid = 5
-  case Invalid = 6
-  case NoService = 7
-  case Crashed = 8
-  case LoggedOut = 9
+  case ready = 1
+  case notReady = 2
+  case inProgress = 4
+  case valid = 5
+  case invalid = 6
+  case noService = 7
+  case crashed = 8
+  case loggedOut = 9
   
   func name() -> String {
     switch self {
-    case Valid:
+    case .valid:
       return "trip_end_valid"
-    case Invalid:
+    case .invalid:
       return "trip_end_invalid"
-    case Ready:
+    case .ready:
       return "mobile_ready"
-    case NotReady:
+    case .notReady:
       return "mobile_not_ready"
-    case InProgress:
+    case .inProgress:
       return "trip_in_progress"
-    case LoggedOut:
+    case .loggedOut:
       return "user_logged_out"
-    case NoService:
+    case .noService:
       return "mobile_no_service"
-    case Crashed:
+    case .crashed:
       return "mobile_crashed"
     }
   }
@@ -56,7 +56,7 @@ struct MobileStateInfo: Mappable {
   
   init?(_ map: Map){}
   
-  mutating func mapping(map: Map) {
+  mutating func mapping(_ map: Map) {
     longitude <- map["longitude"]
     latitude <- map["latitude"]
     sessionId <- map["session_id"]

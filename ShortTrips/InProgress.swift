@@ -14,9 +14,9 @@ struct InProgress {
   let stateName = "inProgress"
   static let sharedInstance = InProgress()
   
-  private var state: TKState
+  fileprivate var state: TKState
   
-  private init() {
+  fileprivate init() {
     state = TKState(name: stateName)
     
     state.setDidEnterStateBlock { _, _ in

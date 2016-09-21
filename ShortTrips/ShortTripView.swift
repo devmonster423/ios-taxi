@@ -11,14 +11,14 @@ import SnapKit
 
 class ShortTripView: UIView {
   
-  private var animatingFail = false
+  fileprivate var animatingFail = false
   
-  private let countdown = CountdownView()
-  private let promptLabel = UILabel()
-  private let promptImageView = UIImageView()
-  private let notificationView = NotificationView()
-  private let reachabilityNotice = ReachabilityNotice()
-  private var currentPrompt: StatePrompt?
+  fileprivate let countdown = CountdownView()
+  fileprivate let promptLabel = UILabel()
+  fileprivate let promptImageView = UIImageView()
+  fileprivate let notificationView = NotificationView()
+  fileprivate let reachabilityNotice = ReachabilityNotice()
+  fileprivate var currentPrompt: StatePrompt?
   
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -27,7 +27,7 @@ class ShortTripView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    backgroundColor = UIColor.whiteColor()
+    backgroundColor = UIColor.white
     
     addSubview(countdown)
     addSubview(promptLabel)
@@ -41,7 +41,7 @@ class ShortTripView: UIView {
     }
     
     promptLabel.font = Font.OpenSansSemibold.size(30)
-    promptLabel.textAlignment = .Center
+    promptLabel.textAlignment = .center
     promptLabel.numberOfLines = 0
     promptLabel.textColor = Color.Trip.title
     promptLabel.snp_makeConstraints { make in
@@ -51,9 +51,9 @@ class ShortTripView: UIView {
     }
     
     addSubview(notificationView)
-    notificationView.hidden = true
+    notificationView.isHidden = true
     
-    promptImageView.contentMode = .ScaleAspectFit
+    promptImageView.contentMode = .scaleAspectFit
     promptImageView.snp_makeConstraints { make in
       make.leading.equalTo(self).offset(50)
       make.top.equalTo(promptLabel.snp_bottom)
@@ -62,9 +62,9 @@ class ShortTripView: UIView {
       make.trailing.equalTo(self).offset(-50)
     }
     
-    bringSubviewToFront(notificationView)
+    bringSubview(toFront: notificationView)
     
-    reachabilityNotice.hidden = ReachabilityManager.sharedInstance.isReachable()
+    reachabilityNotice.isHidden = ReachabilityManager.sharedInstance.isReachable()
     addSubview(reachabilityNotice)
     reachabilityNotice.snp_makeConstraints { make in
       make.top.equalTo(self)
@@ -74,7 +74,7 @@ class ShortTripView: UIView {
     }
   }
   
-  func updatePrompt(prompt: StatePrompt) {
+  func updatePrompt(_ prompt: StatePrompt) {
     if prompt != currentPrompt {
       promptLabel.text = prompt.visualString()
       promptImageView.image = prompt.image()
@@ -83,7 +83,7 @@ class ShortTripView: UIView {
     }
   }
   
-  func notifySuccess(date: NSDate) {
+  func notifySuccess(_ date: Date) {
     
     notificationView.snp_remakeConstraints { make in
       make.height.equalTo(self)
@@ -95,7 +95,7 @@ class ShortTripView: UIView {
     layoutIfNeeded()
     
     notificationView.notifySuccess(date)
-    notificationView.hidden = false
+    notificationView.isHidden = false
   }
   
   func skipAnyPendingNotifications() {
@@ -123,7 +123,7 @@ class ShortTripView: UIView {
     }
   }
   
-  func notifyFail(validationStep: ValidationStep) {
+  func notifyFail(_ validationStep: ValidationStep) {
     
     animatingFail = true
     
@@ -145,15 +145,15 @@ class ShortTripView: UIView {
     notificationView.setNeedsUpdateConstraints()
     promptImageView.setNeedsUpdateConstraints()
     layoutIfNeeded()
-    self.notificationView.hidden = false
+    self.notificationView.isHidden = false
     
-    let duration: NSTimeInterval = 0.5
-    let delay: NSTimeInterval = 5
+    let duration: TimeInterval = 0.5
+    let delay: TimeInterval = 5
     
     notificationView.notifyFail(validationStep, delay: delay, duration: duration)
     
-    let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC)))
-    dispatch_after(delayTime, dispatch_get_main_queue()) {
+    let delayTime = DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+    DispatchQueue.main.asyncAfter(deadline: delayTime) {
       
       if self.animatingFail {
         self.notificationView.snp_remakeConstraints { make in
@@ -173,9 +173,9 @@ class ShortTripView: UIView {
         
         self.notificationView.setNeedsUpdateConstraints()
         self.promptImageView.setNeedsUpdateConstraints()
-        UIView.animateWithDuration(duration,
+        UIView.animate(withDuration: duration,
           delay: 0,
-          options: UIViewAnimationOptions.CurveEaseInOut,
+          options: UIViewAnimationOptions(),
           animations: {
             self.layoutIfNeeded()
           },
@@ -196,10 +196,10 @@ class ShortTripView: UIView {
     }
     promptImageView.setNeedsUpdateConstraints()
     self.layoutIfNeeded()
-    notificationView.hidden = true
+    notificationView.isHidden = true
   }
   
-  func updateCountdown(elapsedTime: NSTimeInterval?) {
+  func updateCountdown(_ elapsedTime: TimeInterval?) {
     countdown.updateCountdown(elapsedTime)
   }
   
@@ -207,7 +207,7 @@ class ShortTripView: UIView {
     return promptLabel.text
   }
   
-  func toggleCountdown(visible: Bool) {
+  func toggleCountdown(_ visible: Bool) {
     if visible {
       countdown.snp_remakeConstraints { make in
         make.leading.equalTo(self)
@@ -227,7 +227,7 @@ class ShortTripView: UIView {
     self.layoutIfNeeded()
   }
   
-  func setReachabilityNoticeHidden(hidden: Bool) {
-    reachabilityNotice.hidden = hidden
+  func setReachabilityNoticeHidden(_ hidden: Bool) {
+    reachabilityNotice.isHidden = hidden
   }
 }

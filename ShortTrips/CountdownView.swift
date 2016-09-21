@@ -12,9 +12,9 @@ import SnapKit
 
 class CountdownView: UIView {
   
-  private let countdownLabel = UILabel()
-  private var numberFormatter: NSNumberFormatter {
-    let formatter = NSNumberFormatter()
+  fileprivate let countdownLabel = UILabel()
+  fileprivate var numberFormatter: NumberFormatter {
+    let formatter = NumberFormatter()
     formatter.minimumIntegerDigits = 2
     return formatter
   }
@@ -31,7 +31,7 @@ class CountdownView: UIView {
     backgroundColor = Color.Trip.Time.background
     
     countdownLabel.font = Font.OpenSansBold.size(36)
-    countdownLabel.textAlignment = .Center
+    countdownLabel.textAlignment = .center
     countdownLabel.textColor = Color.Trip.Time.title
     countdownLabel.snp_makeConstraints { make in
       make.leading.equalTo(self)
@@ -42,8 +42,8 @@ class CountdownView: UIView {
     
     let countdownSubtitleLabel = UILabel()
     countdownSubtitleLabel.font = Font.OpenSansSemibold.size(18)
-    countdownSubtitleLabel.text = NSLocalizedString("Short Trip expires in", comment: "").uppercaseString
-    countdownSubtitleLabel.textAlignment = .Center
+    countdownSubtitleLabel.text = NSLocalizedString("Short Trip expires in", comment: "").uppercased()
+    countdownSubtitleLabel.textAlignment = .center
     countdownSubtitleLabel.textColor = Color.Trip.Time.subtitle
     addSubview(countdownSubtitleLabel)
     countdownSubtitleLabel.snp_makeConstraints { make in
@@ -54,14 +54,14 @@ class CountdownView: UIView {
     }
   }
   
-  func updateCountdown(elapsedTime: NSTimeInterval?) {
+  func updateCountdown(_ elapsedTime: TimeInterval?) {
     if let elapsedTime = elapsedTime {
       let remainingTime = Int(2 * 60 * 60 - elapsedTime)
       let remainingHours = Int(remainingTime / (60 * 60))
       let remainingMinutes = Int((remainingTime - remainingHours * 60 * 60) / 60)
       let remainingSeconds = Int(remainingTime - remainingHours * 60 * 60 - remainingMinutes * 60)
       
-      countdownLabel.text = "\(remainingHours)h \(numberFormatter.stringFromNumber(remainingMinutes)!)m \(numberFormatter.stringFromNumber(remainingSeconds)!)s"
+      countdownLabel.text = "\(remainingHours)h \(numberFormatter.string(from: NSNumber(remainingMinutes))!)m \(numberFormatter.string(from: remainingSeconds)!)s"
     } else {
       countdownLabel.text = ""
     }

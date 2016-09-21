@@ -15,7 +15,7 @@ protocol Event {
 }
 
 extension Event {
-  func fire(userInfo: [NSObject: AnyObject]? = nil) {
+  func fire(_ userInfo: [AnyHashable: Any]? = nil) {
     for eventName in eventNames {
       do {
         try StateManager.sharedInstance.getMachine().fireEvent(eventName, userInfo: userInfo)
@@ -25,7 +25,7 @@ extension Event {
 }
 
 extension Event where Self:Observable {
-  func fire(info: Any? = nil, userInfo: [NSObject: AnyObject]? = nil) {
+  func fire(_ info: Any? = nil, userInfo: [AnyHashable: Any]? = nil) {
     eventIsFiring(info)
     
     for eventName in eventNames {

@@ -14,13 +14,13 @@ class InsideBufferedExit {
   let eventNames = ["InsideBufferedExit"]
   static let sharedInstance = InsideBufferedExit()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     events = [
       TKEvent(name: eventNames[0],
         transitioningFromStates: [InProgress.sharedInstance.getState()],
-        toState: WaitingForReEntryCid.sharedInstance.getState())
+        to: WaitingForReEntryCid.sharedInstance.getState())
     ]
   }
 }

@@ -10,10 +10,10 @@ import UIKit
 import SnapKit
 
 class FlightStatusView: UIView {
-  private let tableHeader = UILabel()
-  private let flightTable = UITableView()
-  private let timerView = TimerView()
-  private let reachabilityNotice = ReachabilityNotice()
+  fileprivate let tableHeader = UILabel()
+  fileprivate let flightTable = UITableView()
+  fileprivate let timerView = TimerView()
+  fileprivate let reachabilityNotice = ReachabilityNotice()
   
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -22,7 +22,7 @@ class FlightStatusView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    backgroundColor = UIColor.whiteColor()
+    backgroundColor = UIColor.white
   
     addSubview(tableHeader)
     addSubview(flightTable)
@@ -42,7 +42,7 @@ class FlightStatusView: UIView {
     tableHeader.font = UiConstants.FlightStatus.tableHeaderFont
     tableHeader.backgroundColor = Color.NavBar.subtitleBlue
     tableHeader.textColor = Color.FlightStatus.tableHeader
-    tableHeader.textAlignment = .Center
+    tableHeader.textAlignment = .center
     tableHeader.snp_makeConstraints { (make) -> Void in
       make.height.equalTo(UiConstants.FlightStatus.tableHeaderHeight)
       make.top.equalTo(divider.snp_bottom)
@@ -51,7 +51,7 @@ class FlightStatusView: UIView {
       make.bottom.equalTo(flightTable.snp_top)
     }
     
-    flightTable.separatorStyle = .None
+    flightTable.separatorStyle = .none
     flightTable.allowsSelection = false
     flightTable.snp_makeConstraints { (make) -> Void in
       make.left.equalTo(self)
@@ -66,7 +66,7 @@ class FlightStatusView: UIView {
       make.trailing.equalTo(self)
     }
     
-    reachabilityNotice.hidden = ReachabilityManager.sharedInstance.isReachable()
+    reachabilityNotice.isHidden = ReachabilityManager.sharedInstance.isReachable()
     addSubview(reachabilityNotice)
     reachabilityNotice.snp_makeConstraints { make in
       make.top.equalTo(self)
@@ -76,19 +76,19 @@ class FlightStatusView: UIView {
     }
   }
   
-  func setReachabilityNoticeHidden(hidden: Bool) {
-    reachabilityNotice.hidden = hidden
+  func setReachabilityNoticeHidden(_ hidden: Bool) {
+    reachabilityNotice.isHidden = hidden
   }
   
-  func setupTableView(dataSource dataSource: UITableViewDataSource?, delegate: UITableViewDelegate?, cellClasses:[(AnyClass, String)]) {
+  func setupTableView(dataSource: UITableViewDataSource?, delegate: UITableViewDelegate?, cellClasses:[(AnyClass, String)]) {
     flightTable.dataSource = dataSource
     flightTable.delegate = delegate
     for cellClass in cellClasses {
-      flightTable.registerClass(cellClass.0, forCellReuseIdentifier: cellClass.1)
+      flightTable.register(cellClass.0, forCellReuseIdentifier: cellClass.1)
     }
   }
   
-  func startTimerView(updateInterval: NSTimeInterval, callback: TimerCallback) {
+  func startTimerView(_ updateInterval: TimeInterval, callback: TimerCallback) {
     timerView.start(updateInterval, callback: callback)
   }
   
@@ -96,7 +96,7 @@ class FlightStatusView: UIView {
     timerView.stop()
   }
   
-  func setHeaderText(text: String?) {
+  func setHeaderText(_ text: String?) {
     tableHeader.text = text
   }
   

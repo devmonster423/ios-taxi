@@ -12,12 +12,12 @@ import JSQNotificationObserverKit
 
 class PingManager: NSObject {
 
-  private let updateFrequency = NSTimeInterval(30)
-  private var invalidPings: Int = 0
-  private let maxInvalidPings: Int = 3
-  private var missedPings = [Ping]()
+  fileprivate let updateFrequency = TimeInterval(30)
+  fileprivate var invalidPings: Int = 0
+  fileprivate let maxInvalidPings: Int = 3
+  fileprivate var missedPings = [Ping]()
   
-  private var timer: NSTimer?
+  fileprivate var timer: Timer?
 
   var pingObserver: NotificationObserver<Ping, AnyObject>?
   
@@ -26,7 +26,7 @@ class PingManager: NSObject {
   func start() {
     
     if timer == nil {
-      timer = NSTimer.scheduledTimerWithTimeInterval(updateFrequency,
+      timer = Timer.scheduledTimer(timeInterval: updateFrequency,
         target: self,
         selector: #selector(PingManager.sendPings),
         userInfo: nil,
@@ -90,7 +90,7 @@ class PingManager: NSObject {
     }
   }
   
-  func sendOldPings(tripId: Int?) {
+  func sendOldPings(_ tripId: Int?) {
     if let pingBatch = getPingBatch(),
       let tripId = tripId {
         
@@ -99,13 +99,13 @@ class PingManager: NSObject {
         
         ApiClient.pings(tripId, pings: pingBatch) { success in
           if !success {
-            self.missedPings.appendContentsOf(sentPings)
+            self.missedPings.append(contentsOf: sentPings)
           }
         }
     }
   }
   
-  func appendStrip(ping: Ping) {
+  func appendStrip(_ ping: Ping) {
     var ping = ping
     
     ping.medallion = nil
@@ -118,7 +118,7 @@ class PingManager: NSObject {
   func getPingBatch() -> PingBatch? {
     
     if let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId
-      where missedPings.count > 0 {
+      , missedPings.count > 0 {
       
       return PingBatch(sessionId: sessionId, pings: missedPings)
         

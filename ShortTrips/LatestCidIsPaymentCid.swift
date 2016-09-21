@@ -14,12 +14,12 @@ class LatestCidIsPaymentCid {
   let eventNames = ["latestCidIsPaymentCid"]
   static let sharedInstance = LatestCidIsPaymentCid()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
 
-  private init() {
+  fileprivate init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [WaitingForPaymentCid.sharedInstance.getState()],
-      toState: AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState())]
+      to: AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState())]
   }
 }
 
@@ -30,7 +30,7 @@ extension LatestCidIsPaymentCid: Event {
 }
 
 extension LatestCidIsPaymentCid: Observable {
-  func eventIsFiring(info: Any?) {
+  func eventIsFiring(_ info: Any?) {
     if let cid = info as? Cid {
       postNotification(SfoNotification.Cid.payment, value: cid)
     }

@@ -17,9 +17,9 @@ class ReachabilityNotice: UILabel {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    backgroundColor = UIColor.redColor()
-    textAlignment = .Center
-    textColor = UIColor.whiteColor()
+    backgroundColor = UIColor.red
+    textAlignment = .center
+    textColor = UIColor.white
     text = NSLocalizedString("Network Unreachable", comment: "")
   }
 }

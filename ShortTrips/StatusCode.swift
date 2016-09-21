@@ -9,7 +9,7 @@
 import Foundation
 
 struct StatusCode {
-  static func isSuccessful(statusCode: Int) -> Bool {
+  static func isSuccessful(_ statusCode: Int) -> Bool {
     return 200 <= statusCode && statusCode <= 299
   }
 }

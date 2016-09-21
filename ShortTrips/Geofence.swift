@@ -15,26 +15,26 @@ enum Category: String {
 }
 
 enum SfoGeofence: Int {
-  case Brisbane = 1
-  case Burlingame = 2
-  case FosterCity = 3
-  case Hillsborough = 4
-  case Millbrae = 5
-  case SanBruno = 6
-  case Unincorp = 7
-  case SanMateo = 8
-  case SouthSanFrancisco = 9
-  case Sfo = 10
-  case SfoTaxiDomesticExit = 11
-  case SfoTaxiEntryGate = 12
-  case SfoInternationalExit = 13
-  case OpenSpace = 15
-  case Colma = 16
-  case DalyCity = 17
-  case SfoTerminalExit = 18
-  case TaxiWaitingZone = 19
-  case TaxiSfoMerged = 23
-  case TaxiExitBuffered = 99 // not on server database
+  case brisbane = 1
+  case burlingame = 2
+  case fosterCity = 3
+  case hillsborough = 4
+  case millbrae = 5
+  case sanBruno = 6
+  case unincorp = 7
+  case sanMateo = 8
+  case southSanFrancisco = 9
+  case sfo = 10
+  case sfoTaxiDomesticExit = 11
+  case sfoTaxiEntryGate = 12
+  case sfoInternationalExit = 13
+  case openSpace = 15
+  case colma = 16
+  case dalyCity = 17
+  case sfoTerminalExit = 18
+  case taxiWaitingZone = 19
+  case taxiSfoMerged = 23
+  case taxiExitBuffered = 99 // not on server database
 }
 
 struct Geofence: Mappable {
@@ -56,7 +56,7 @@ struct Geofence: Mappable {
 
   init?(_ map: Map){}
   
-  mutating func mapping(map: Map) {
+  mutating func mapping(_ map: Map) {
     category <- map["category"]
     description <- map["description"]
     name <- map["name"]

@@ -10,8 +10,8 @@ import UIKit
 import MBProgressHUD
 
 class LoginVC: UIViewController {
-  private let credential: DriverCredential?
-  private let startup: Bool
+  fileprivate let credential: DriverCredential?
+  fileprivate let startup: Bool
   
   init(startup: Bool = false) {
     self.credential = DriverCredential.load()
@@ -25,13 +25,13 @@ class LoginVC: UIViewController {
   
   override func loadView() {
     if let _ = credential {
-      let loginView = AutoLoginView(frame: UIScreen.mainScreen().bounds)
+      let loginView = AutoLoginView(coder: UIScreen.mainScreen.bounds)
       view = loginView
     } else {
-      let loginView = LoginView(frame: UIScreen.mainScreen().bounds)
+      let loginView = LoginView(frame: UIScreen.main.bounds)
       loginView.loginButton.addTarget(self,
         action: #selector(LoginVC.login),
-        forControlEvents: .TouchUpInside)
+        for: .touchUpInside)
       view = loginView
       loginView.usernameTextField.becomeFirstResponder()
     }
@@ -53,7 +53,7 @@ class LoginVC: UIViewController {
     
     guard let fullCredential = optionalCredential else { return }
     
-    let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
+    let hud = MBProgressHUD.showAdded(to: view, animated: true)
     hud.labelText = NSLocalizedString("Logging In...", comment: "")
     ApiClient.authenticateDriver(fullCredential) { driver in
       
@@ -64,25 +64,25 @@ class LoginVC: UIViewController {
         DriverManager.sharedInstance.setCurrentDriver(driver)
         
         if self.startup {
-          self.presentViewController(MainTabBarController, animated: false, completion: nil)
+          self.present(MainTabBarController, animated: false, completion: nil)
           
         } else {
-          self.dismissViewControllerAnimated(true, completion: nil)
+          self.dismiss(animated: true, completion: nil)
         }
         
       } else {
         let alertController = UIAlertController(title: "",
           message: NSLocalizedString("An error occurred while logging in.", comment: ""),
-          preferredStyle: .Alert)
+          preferredStyle: .alert)
         let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
-          style: .Default) { _ in
+          style: .default) { _ in
             if let _ = self.credential {
               DriverCredential.clear()
-              self.presentViewController(LoginVC(startup: true), animated: true, completion: nil)
+              self.present(LoginVC(startup: true), animated: true, completion: nil)
             }
         }
         alertController.addAction(OKAction)
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
       }
     }
   }

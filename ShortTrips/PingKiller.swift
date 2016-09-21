@@ -11,13 +11,13 @@ import Foundation
 class PingKiller: NSObject {
   static let sharedInstance = PingKiller()
   
-  private var killPings = false
-  private var timer: NSTimer!
+  fileprivate var killPings = false
+  fileprivate var timer: Timer!
   
   func turnOffPingsForAWhile() {
     killPings = true
     
-    timer = NSTimer.scheduledTimerWithTimeInterval(2 * 60,
+    timer = Timer.scheduledTimer(timeInterval: 2 * 60,
       target: self,
       selector: #selector(PingKiller.turnPingsBackOn),
       userInfo: nil,

@@ -17,12 +17,12 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   
   static let sharedInstance = LocationManager()
   
-  private var lastKnownLocation: CLLocation?
+  fileprivate var lastKnownLocation: CLLocation?
   var locationObserver: NotificationObserver<CLLocation, AnyObject>?
   
-  private var bgId: UIBackgroundTaskIdentifier?
+  fileprivate var bgId: UIBackgroundTaskIdentifier?
   
-  private override init() {
+  fileprivate override init() {
     super.init()
     
     locationObserver = NotificationObserver(notification: SfoNotification.Location.read) { location, _ in
@@ -51,7 +51,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     manager.stopUpdatingLocation()
   }
   
-  func locationManager(manager: CLLocationManager,
+  func locationManager(_ manager: CLLocationManager,
                        didUpdateLocations locations: [CLLocation]) {
     
     if self.bgId == nil {
@@ -72,11 +72,11 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
   }
   
-  func locationManager(manager: CLLocationManager,
-                       didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+  func locationManager(_ manager: CLLocationManager,
+                       didChangeAuthorization status: CLAuthorizationStatus) {
     
     postNotification(SfoNotification.Location.statusUpdated, value: status)
-    if status == .AuthorizedAlways {
+    if status == .authorizedAlways {
       GpsEnabled.sharedInstance.fire()
     } else {
       GpsDisabled.sharedInstance.fire()

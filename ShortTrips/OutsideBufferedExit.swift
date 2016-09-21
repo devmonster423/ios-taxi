@@ -14,15 +14,15 @@ class OutsideBufferedExit {
   let eventNames = ["OutsideBufferedExit"]
   static let sharedInstance = OutsideBufferedExit()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     events = [
       TKEvent(name: eventNames[0],
         transitioningFromStates: [
           Ready.sharedInstance.getState()
         ],
-        toState: WaitingForExitAvi.sharedInstance.getState())
+        to: WaitingForExitAvi.sharedInstance.getState())
     ]
   }
 }
@@ -34,7 +34,7 @@ extension OutsideBufferedExit: Event {
 }
 
 extension OutsideBufferedExit: Observable {
-  func eventIsFiring(info: Any?) {
+  func eventIsFiring(_ info: Any?) {
     postNotification(SfoNotification.Geofence.outsideBufferedExit, value: nil)
   }
 }

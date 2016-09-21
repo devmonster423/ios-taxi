@@ -10,9 +10,9 @@ import UIKit
 import MessageUI
 
 enum SettingsSection: Int {
-  case Audio = 0
-  case Feedback = 1
-  case Logout = 2
+  case audio = 0
+  case feedback = 1
+  case logout = 2
 }
 
 class SettingsVC: UIViewController {
@@ -20,7 +20,7 @@ class SettingsVC: UIViewController {
   let cellId = "cell"
   
   override func loadView() {
-    let settingsView = SettingsView(frame: UIScreen.mainScreen().bounds)
+    let settingsView = SettingsView(coder: UIScreen.mainScreen.bounds)
     settingsView.tableView.dataSource = self
     settingsView.tableView.delegate = self
     view = settingsView
@@ -29,10 +29,10 @@ class SettingsVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    configureNavBar(back: true, title: NSLocalizedString("Settings", comment: "").uppercaseString)
+    configureNavBar(back: true, title: NSLocalizedString("Settings", comment: "").uppercased())
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     let settingsView = view as! SettingsView
     settingsView.tableView.reloadData()
@@ -41,28 +41,28 @@ class SettingsVC: UIViewController {
   func showUnableToSendMail() {
     let alertController = UIAlertController(title: NSLocalizedString("Unable to send email", comment: ""),
                                             message: "",
-                                            preferredStyle: .Alert)
+                                            preferredStyle: .alert)
     
-    let cancelAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Default, handler: nil)
+    let cancelAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil)
     alertController.addAction(cancelAction)
     
-    presentViewController(alertController, animated: true, completion: nil)
+    present(alertController, animated: true, completion: nil)
   }
   
   func showLogoutConfirm() {
     let alertController = UIAlertController(title: NSLocalizedString("Are you sure?", comment: ""),
       message: "",
-      preferredStyle: .Alert)
+      preferredStyle: .alert)
     
-    let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel, handler: nil)
+    let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
     alertController.addAction(cancelAction)
     
-    let logoutAction = UIAlertAction(title: NSLocalizedString("Logout", comment: ""), style: .Default) { (action) in
+    let logoutAction = UIAlertAction(title: NSLocalizedString("Logout", comment: ""), style: .default) { (action) in
       self.logout()
     }
     alertController.addAction(logoutAction)
     
-    presentViewController(alertController, animated: true, completion: nil)
+    present(alertController, animated: true, completion: nil)
   }
   
   func logout() {
@@ -75,7 +75,7 @@ class SettingsVC: UIViewController {
     DriverCredential.clear()
     DriverManager.sharedInstance.setCurrentDriver(nil)
     DriverManager.sharedInstance.setCurrentVehicle(nil)
-    self.presentViewController(LoginVC(), animated: true, completion: nil)
+    self.present(LoginVC(), animated: true, completion: nil)
     
     Speaker.sharedInstance.setAudioEnabled(originalSetting)
   }
@@ -83,24 +83,24 @@ class SettingsVC: UIViewController {
 
 extension SettingsVC: UITableViewDataSource {
   
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return 3
   }
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     switch SettingsSection(rawValue: section)! {
-    case .Audio:
+    case .audio:
       return 1
-    case .Feedback:
+    case .feedback:
       return 1
-    case .Logout:
+    case .logout:
       return 1
     }
   }
   
-  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     switch SettingsSection(rawValue: section)! {
-    case .Logout:
+    case .logout:
       if let name = DriverManager.sharedInstance.getCurrentDriver()?.fullName() {
         return NSLocalizedString("Logged in as: ", comment: "") + name + ". " + NSLocalizedString("Version: ", comment: "") + Util.versionString()
       } else {
@@ -111,19 +111,19 @@ extension SettingsVC: UITableViewDataSource {
     }
   }
   
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    let cell = UITableViewCell(style: .Default, reuseIdentifier: cellId)
-    cell.selectionStyle = .None
+    let cell = UITableViewCell(style: .default, reuseIdentifier: cellId)
+    cell.selectionStyle = .none
     
-    switch SettingsSection(rawValue: indexPath.section)! {
-    case .Audio:
+    switch SettingsSection(rawValue: (indexPath as NSIndexPath).section)! {
+    case .audio:
       cell.textLabel?.text = Speaker.sharedInstance.getAudioEnabled()
         ? NSLocalizedString("Audio ON. Tap to turn off.", comment: "")
         : NSLocalizedString("Audio OFF. Tap to turn on.", comment: "")
-    case .Feedback:
+    case .feedback:
       cell.textLabel?.text = NSLocalizedString("Email Feedback", comment: "")
-    case .Logout:
+    case .logout:
       cell.textLabel?.text = NSLocalizedString("Logout", comment: "")
     }
     
@@ -132,26 +132,26 @@ extension SettingsVC: UITableViewDataSource {
 }
 
 extension SettingsVC: UITableViewDelegate {
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-    switch SettingsSection(rawValue: indexPath.section)! {
-    case .Audio:
+    switch SettingsSection(rawValue: (indexPath as NSIndexPath).section)! {
+    case .audio:
       Speaker.sharedInstance.setAudioEnabled(!Speaker.sharedInstance.getAudioEnabled())
       tableView.reloadData()
-    case .Feedback:
+    case .feedback:
       if let emailMaker = FeedbackEmailMaker.make(self) {
-        self.presentViewController(emailMaker, animated: true, completion: nil)
+        self.present(emailMaker, animated: true, completion: nil)
       } else {
         showUnableToSendMail()
       }
-    case .Logout:
+    case .logout:
       showLogoutConfirm()
     }
   }
 }
 
 extension SettingsVC: MFMailComposeViewControllerDelegate {
-  func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-    dismissViewControllerAnimated(true, completion: nil)
+  func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+    dismiss(animated: true, completion: nil)
   }
 }

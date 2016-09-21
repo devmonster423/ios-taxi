@@ -13,13 +13,13 @@ struct OutsideTaxiWaitZone {
   let eventNames = ["OutsideTaxiWaitZone"]
   static let sharedInstance = OutsideTaxiWaitZone()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     events = [
       TKEvent(name: eventNames[0],
         transitioningFromStates: [WaitingInHoldingLot.sharedInstance.getState()],
-        toState: NotReady.sharedInstance.getState())
+        to: NotReady.sharedInstance.getState())
     ]
   }
 }

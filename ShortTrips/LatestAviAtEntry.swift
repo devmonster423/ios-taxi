@@ -14,13 +14,13 @@ struct LatestAviAtEntry {
   let eventNames = ["LatestAviAtEntryStart"]
   static let sharedInstance = LatestAviAtEntry()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
-  private init() {
+  fileprivate init() {
     events = [
       TKEvent(name: eventNames[0],
         transitioningFromStates: [WaitingForEntryAvi.sharedInstance.getState()],
-        toState: WaitingInHoldingLot.sharedInstance.getState())
+        to: WaitingInHoldingLot.sharedInstance.getState())
     ]
   }
 }
@@ -32,7 +32,7 @@ extension LatestAviAtEntry: Event {
 }
 
 extension LatestAviAtEntry: Observable {
-  func eventIsFiring(info: Any?) {
+  func eventIsFiring(_ info: Any?) {
     if let antenna = info as? Antenna {
       postNotification(SfoNotification.Avi.entryGate, value: antenna)
     }
