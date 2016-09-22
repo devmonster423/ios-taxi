@@ -40,38 +40,38 @@ class HourPickerView: UIView {
     
     decreaseButton.setImage(Image.minus.image(), for: UIControlState())
     decreaseButton.setImage(Image.minusPressed.image(), for: .highlighted)
-    decreaseButton.snp_makeConstraints { (make) -> Void in
+    decreaseButton.snp.makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
       make.centerY.equalTo(self)
       make.height.equalTo(self)
-      make.width.equalTo(decreaseButton.snp_height)
+      make.width.equalTo(decreaseButton.snp.height)
     }
     
     increaseButton.setImage(Image.plus.image(), for: UIControlState())
     increaseButton.setImage(Image.plusPressed.image(), for: .highlighted)
-    increaseButton.snp_makeConstraints { (make) -> Void in
+    increaseButton.snp.makeConstraints { (make) -> Void in
       make.trailing.equalTo(self)
       make.centerY.equalTo(self)
       make.height.equalTo(self)
-      make.width.equalTo(increaseButton.snp_height)
+      make.width.equalTo(increaseButton.snp.height)
     }
     
     topLabel.font = Font.OpenSansSemibold.size(16)
     topLabel.text = NSLocalizedString("Flights In", comment: "")
     topLabel.textAlignment = .center
     topLabel.textColor = Color.Sfo.blue
-    topLabel.snp_makeConstraints { (make) -> Void in
+    topLabel.snp.makeConstraints { (make) -> Void in
       make.height.equalTo(25)
       make.width.equalTo(100)
       make.centerX.equalTo(self)
-      make.bottom.equalTo(mainLabel.snp_top)
+      make.bottom.equalTo(mainLabel.snp.top)
     }
     
     mainLabel.font = Font.OpenSansSemibold.size(40)
     mainLabel.text = String(format: NSLocalizedString("%dh", comment: ""), currentHour)
     mainLabel.textAlignment = .center
     mainLabel.textColor = Color.Sfo.blue
-    mainLabel.snp_makeConstraints { (make) -> Void in
+    mainLabel.snp.makeConstraints { (make) -> Void in
       make.height.equalTo(40)
       make.width.equalTo(80)
       make.center.equalTo(self)
@@ -80,11 +80,11 @@ class HourPickerView: UIView {
     bottomLabel.font = Font.OpenSansSemibold.size(20)
     bottomLabel.textAlignment = .center
     bottomLabel.textColor = Color.Sfo.blue
-    bottomLabel.snp_makeConstraints { (make) -> Void in
+    bottomLabel.snp.makeConstraints { (make) -> Void in
       make.height.equalTo(20)
       make.width.equalTo(40)
       make.centerX.equalTo(self)
-      make.top.equalTo(mainLabel.snp_bottom)
+      make.top.equalTo(mainLabel.snp.bottom)
     }
   }
   

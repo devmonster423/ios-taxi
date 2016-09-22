@@ -36,7 +36,7 @@ class TimerView: UIView {
     addSubview(progressView)
     addSubview(updateLabel)
 
-    progressView.snp_makeConstraints { (make) -> Void in
+    progressView.snp.makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.bottom.equalTo(self)
@@ -46,10 +46,10 @@ class TimerView: UIView {
     updateLabel.font = Font.OpenSansSemibold.size(UiConstants.Timer.updateHeight)
     updateLabel.textAlignment = .center
     updateLabel.textColor = Color.Sfo.gray
-    updateLabel.snp_makeConstraints { (make) -> Void in
+    updateLabel.snp.makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.bottom.equalTo(progressView.snp_top).offset(UiConstants.Timer.bottomOffset)
+      make.bottom.equalTo(progressView.snp.top).offset(UiConstants.Timer.bottomOffset)
     }
   }
 

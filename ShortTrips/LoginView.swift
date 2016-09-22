@@ -25,7 +25,7 @@ class LoginView: UIView {
     let bgImageView = UIImageView()
     bgImageView.image = Image.blueGradient.image()
     addSubview(bgImageView)
-    bgImageView.snp_makeConstraints { make in
+    bgImageView.snp.makeConstraints { make in
       make.edges.equalTo(self)
     }
     
@@ -36,7 +36,7 @@ class LoginView: UIView {
     let logoImage = UIImageView(image: Image.sfoLogoAndName.image())
     logoImage.contentMode = .scaleAspectFit
     addSubview(logoImage)
-    logoImage.snp_makeConstraints { (make) -> Void in
+    logoImage.snp.makeConstraints { (make) -> Void in
       make.centerX.equalTo(self)
       make.top.equalTo(self).offset(75)
       make.height.equalTo(40)
@@ -48,8 +48,8 @@ class LoginView: UIView {
     usernameLabel.text = NSLocalizedString("Username", comment: "") + ":"
     usernameLabel.textColor = Color.Auth.offWhite
     addSubview(usernameLabel)
-    usernameLabel.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(logoImage.snp_bottom).offset(10)
+    usernameLabel.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(logoImage.snp.bottom).offset(10)
       make.leading.equalTo(self).offset(25)
       make.height.equalTo(50)
       make.width.equalTo(100)
@@ -59,8 +59,8 @@ class LoginView: UIView {
     usernameTextField.autocorrectionType = .no
     usernameTextField.spellCheckingType = .no
     usernameTextField.textColor = UIColor.white
-    usernameTextField.snp_makeConstraints { make in
-      make.leading.equalTo(usernameLabel.snp_trailing).offset(10)
+    usernameTextField.snp.makeConstraints { make in
+      make.leading.equalTo(usernameLabel.snp.trailing).offset(10)
       make.top.equalTo(usernameLabel)
       make.trailing.equalTo(self).offset(-25)
       make.height.equalTo(usernameLabel)
@@ -69,11 +69,11 @@ class LoginView: UIView {
     let divider = UIView()
     divider.backgroundColor = Color.Auth.fadedWhite
     addSubview(divider)
-    divider.snp_makeConstraints { (make) -> Void in
+    divider.snp.makeConstraints { (make) -> Void in
       make.leading.equalTo(usernameLabel)
       make.trailing.equalTo(usernameTextField)
       make.height.equalTo(1)
-      make.top.equalTo(usernameTextField.snp_bottom).offset(10)
+      make.top.equalTo(usernameTextField.snp.bottom).offset(10)
     }
     
     let passwordLabel = UILabel()
@@ -81,16 +81,16 @@ class LoginView: UIView {
     passwordLabel.text = NSLocalizedString("Password", comment: "") + ":"
     passwordLabel.textColor = Color.Auth.offWhite
     addSubview(passwordLabel)
-    passwordLabel.snp_makeConstraints { (make) -> Void in
+    passwordLabel.snp.makeConstraints { (make) -> Void in
       make.leading.equalTo(usernameLabel)
       make.trailing.equalTo(usernameLabel)
       make.height.equalTo(usernameLabel)
-      make.top.equalTo(divider.snp_bottom).offset(10)
+      make.top.equalTo(divider.snp.bottom).offset(10)
     }
     
     passwordTextField.isSecureTextEntry = true
     passwordTextField.textColor = UIColor.white
-    passwordTextField.snp_makeConstraints { make in
+    passwordTextField.snp.makeConstraints { make in
       make.leading.equalTo(usernameTextField)
       make.top.equalTo(passwordLabel)
       make.width.equalTo(usernameTextField)
@@ -100,9 +100,9 @@ class LoginView: UIView {
     loginButton.setTitle(NSLocalizedString("Login", comment: "").uppercased(), for: UIControlState())
     loginButton.titleLabel?.font = Font.OpenSans.size(24)
     loginButton.backgroundColor = Color.Auth.fadedWhite
-    loginButton.snp_makeConstraints { make in
+    loginButton.snp.makeConstraints { make in
       make.leading.equalTo(self)
-      make.top.equalTo(passwordTextField.snp_bottom).offset(10)
+      make.top.equalTo(passwordTextField.snp.bottom).offset(10)
       make.trailing.equalTo(self)
       make.height.equalTo(80)
     }

@@ -33,7 +33,7 @@ class CountdownView: UIView {
     countdownLabel.font = Font.OpenSansBold.size(36)
     countdownLabel.textAlignment = .center
     countdownLabel.textColor = Color.Trip.Time.title
-    countdownLabel.snp_makeConstraints { make in
+    countdownLabel.snp.makeConstraints { make in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.height.equalTo(self).dividedBy(2.5)
@@ -46,7 +46,7 @@ class CountdownView: UIView {
     countdownSubtitleLabel.textAlignment = .center
     countdownSubtitleLabel.textColor = Color.Trip.Time.subtitle
     addSubview(countdownSubtitleLabel)
-    countdownSubtitleLabel.snp_makeConstraints { make in
+    countdownSubtitleLabel.snp.makeConstraints { make in
       make.leading.equalTo(countdownLabel)
       make.trailing.equalTo(countdownLabel)
       make.height.equalTo(self).dividedBy(2.5)

@@ -45,16 +45,16 @@ class TerminalView: UIButton {
     terminalTitleLabel.sizeToFit()
     terminalTitleLabel.textAlignment = .left
     terminalTitleLabel.textColor = Color.TerminalSummary.titleBlue
-    terminalTitleLabel.snp_makeConstraints { (make) -> Void in
+    terminalTitleLabel.snp.makeConstraints { (make) -> Void in
       make.left.equalTo(self).offset(25)
       make.centerY.equalTo(self)
     }
     
     onTimeImageView.image = Image.blueCircle.image()
     onTimeImageView.contentMode = .scaleAspectFit
-    onTimeImageView.snp_makeConstraints { (make) -> Void in
+    onTimeImageView.snp.makeConstraints { (make) -> Void in
       make.centerX.equalTo(onTimeTitleLabel)
-      make.bottom.equalTo(self.snp_centerY).offset(-2)
+      make.bottom.equalTo(self.snp.centerY).offset(-2)
       make.width.equalTo(10)
       make.height.equalTo(10)
     }
@@ -63,7 +63,7 @@ class TerminalView: UIButton {
     onTimeLabel.font = Font.OpenSansSemibold.size(18)
     onTimeLabel.textAlignment = .center
     onTimeLabel.textColor = Color.TerminalSummary.onTimeContent
-    onTimeLabel.snp_makeConstraints { (make) -> Void in
+    onTimeLabel.snp.makeConstraints { (make) -> Void in
       make.centerX.equalTo(onTimeTitleLabel)
       make.centerY.equalTo(self)
     }
@@ -73,14 +73,14 @@ class TerminalView: UIButton {
     onTimeTitleLabel.textAlignment = .center
     onTimeTitleLabel.text = NSLocalizedString("On Time", comment: "").uppercased()
     onTimeTitleLabel.textColor = Color.TerminalSummary.onTimeTitle
-    onTimeTitleLabel.snp_makeConstraints { (make) -> Void in
+    onTimeTitleLabel.snp.makeConstraints { (make) -> Void in
       make.centerX.equalTo(self)
-      make.top.equalTo(self.snp_centerY).offset(2)
+      make.top.equalTo(self.snp.centerY).offset(2)
     }
     
     delayedImageView.image = Image.redCircle.image()
     delayedImageView.contentMode = .scaleAspectFit
-    delayedImageView.snp_makeConstraints { (make) -> Void in
+    delayedImageView.snp.makeConstraints { (make) -> Void in
       make.centerX.equalTo(delayedTitleLabel)
       make.centerY.equalTo(onTimeImageView)
       make.height.equalTo(onTimeImageView)
@@ -91,7 +91,7 @@ class TerminalView: UIButton {
     delayedLabel.font = onTimeLabel.font
     delayedLabel.textAlignment = .center
     delayedLabel.textColor = Color.TerminalSummary.delayedContent
-    delayedLabel.snp_makeConstraints { (make) -> Void in
+    delayedLabel.snp.makeConstraints { (make) -> Void in
       make.centerX.equalTo(delayedTitleLabel)
       make.centerY.equalTo(onTimeLabel)
     }
@@ -101,14 +101,14 @@ class TerminalView: UIButton {
     delayedTitleLabel.text = NSLocalizedString("Delayed", comment: "").uppercased()
     delayedTitleLabel.textAlignment = .center
     delayedTitleLabel.textColor = Color.TerminalSummary.delayedTitle
-    delayedTitleLabel.snp_makeConstraints { (make) -> Void in
-      make.trailing.equalTo(indicatorImageView.snp_leading).offset(-18)
+    delayedTitleLabel.snp.makeConstraints { (make) -> Void in
+      make.trailing.equalTo(indicatorImageView.snp.leading).offset(-18)
       make.centerY.equalTo(onTimeTitleLabel)
     }
     
     indicatorImageView.image = Image.indicatorArrow.image()
     indicatorImageView.contentMode = .scaleAspectFit
-    indicatorImageView.snp_makeConstraints { (make) -> Void in
+    indicatorImageView.snp.makeConstraints { (make) -> Void in
       make.centerY.equalTo(self)
       make.trailing.equalTo(self).offset(-18)
       make.width.equalTo(8)
@@ -118,7 +118,7 @@ class TerminalView: UIButton {
     let separatorView = UIView()
     separatorView.backgroundColor = Color.TerminalSummary.separator
     addSubview(separatorView)
-    separatorView.snp_makeConstraints { (make) -> Void in
+    separatorView.snp.makeConstraints { (make) -> Void in
       make.height.equalTo(2)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)

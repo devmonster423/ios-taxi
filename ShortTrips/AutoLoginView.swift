@@ -24,7 +24,7 @@ class AutoLoginView: UIView {
     logoImageView.contentMode = .ScaleAspectFit
     logoImageView.image = Image.splashLogo.image()
     addSubview(logoImageView)
-    logoImageView.snp_makeConstraints { make in
+    logoImageView.snp.makeConstraints { make in
       make.center.equalTo(self)
       make.height.equalTo(100)
       make.width.equalTo(100)

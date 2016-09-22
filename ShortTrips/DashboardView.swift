@@ -31,20 +31,20 @@ class DashboardView: UIView {
     taxisCaptionLabel.textAlignment = .center
     taxisCaptionLabel.textColor = Color.Dashboard.darkBlue
     addSubview(taxisCaptionLabel)
-    taxisCaptionLabel.snp_makeConstraints { make in
+    taxisCaptionLabel.snp.makeConstraints { make in
       make.height.equalTo(105)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.bottom.equalTo(timerView.snp_top)
+      make.bottom.equalTo(timerView.snp.top)
     }
 
     let circlesImage = UIImageView()
     circlesImage.image = Image.bgCircles.image()
     circlesImage.contentMode = .scaleAspectFit
     addSubview(circlesImage)
-    circlesImage.snp_makeConstraints { make in
+    circlesImage.snp.makeConstraints { make in
       make.top.equalTo(self).offset(20)
-      make.bottom.equalTo(taxisCaptionLabel.snp_top).offset(-20)
+      make.bottom.equalTo(taxisCaptionLabel.snp.top).offset(-20)
       make.leading.equalTo(self).offset(50)
       make.trailing.equalTo(self).offset(-50)
     }
@@ -53,12 +53,12 @@ class DashboardView: UIView {
     numberLabel.textAlignment = .center
     numberLabel.textColor = Color.Dashboard.darkBlue
     addSubview(numberLabel)
-    numberLabel.snp_makeConstraints { (make) -> Void in
-      make.centerX.equalTo(circlesImage.snp_centerX)
-      make.centerY.equalTo(circlesImage.snp_centerY)
+    numberLabel.snp.makeConstraints { (make) -> Void in
+      make.centerX.equalTo(circlesImage.snp.centerX)
+      make.centerY.equalTo(circlesImage.snp.centerY)
     }
     
-    timerView.snp_makeConstraints { make in
+    timerView.snp.makeConstraints { make in
       make.height.equalTo(UiConstants.Dashboard.progressHeight)
       make.bottom.equalTo(self)
       make.leading.equalTo(self)
@@ -66,7 +66,7 @@ class DashboardView: UIView {
     }
     
     addSubview(reachabilityNotice)
-    reachabilityNotice.snp_makeConstraints { make in
+    reachabilityNotice.snp.makeConstraints { make in
       make.height.equalTo(UiConstants.ReachabilityNotice.height)
       make.top.equalTo(self)
       make.leading.equalTo(self)

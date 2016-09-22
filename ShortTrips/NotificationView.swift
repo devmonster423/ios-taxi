@@ -49,17 +49,17 @@ class NotificationView: UIView {
     notificationImageView.alpha = 1
     Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a valid short trip.", comment: ""))
     
-    notificationLabel.snp_remakeConstraints { make in
+    notificationLabel.snp.remakeConstraints { make in
       make.leading.equalTo(self).offset(25)
       make.trailing.equalTo(self).offset(-25)
       make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
       make.height.equalTo(100)
     }
     
-    notificationImageView.snp_remakeConstraints { make in
+    notificationImageView.snp.remakeConstraints { make in
       make.leading.equalTo(self).offset(50)
       make.trailing.equalTo(self).offset(-50)
-      make.top.equalTo(notificationLabel.snp_bottom)
+      make.top.equalTo(notificationLabel.snp.bottom)
       make.bottom.equalTo(self).offset(-50)
     }
     
@@ -70,14 +70,14 @@ class NotificationView: UIView {
   func notifyFail(_ validationStep: ValidationStep, delay: TimeInterval, duration: TimeInterval) {
     notificationLabel.font = Font.OpenSansSemibold.size(30)
     
-    notificationLabel.snp_remakeConstraints { make in
+    notificationLabel.snp.remakeConstraints { make in
       make.leading.equalTo(self).offset(25)
       make.trailing.equalTo(self).offset(-25)
       make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
       make.height.equalTo(self).dividedBy(3)
     }
     
-    notificationImageView.snp_remakeConstraints { make in
+    notificationImageView.snp.remakeConstraints { make in
       make.leading.equalTo(self).offset(50)
       make.trailing.equalTo(self).offset(-50)
       make.bottom.equalTo(self).offset(-50)
@@ -124,7 +124,7 @@ class NotificationView: UIView {
     notificationLabel.text = notificationText.uppercased()
     notificationImageView.image = Image.exclamation.image()
     Speaker.sharedInstance.speak(notificationLabel.text!)
-    notificationLabel.snp_remakeConstraints { make in
+    notificationLabel.snp.remakeConstraints { make in
       make.leading.equalTo(self).offset(UiConstants.Trip.Notification.offset)
       make.trailing.equalTo(self).offset(-UiConstants.Trip.Notification.offset)
       make.top.equalTo(self)

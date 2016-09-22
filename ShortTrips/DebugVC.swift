@@ -13,8 +13,6 @@ import TransitionKit
 typealias ButtonUpdateInfo = (title: String, action: Selector)
 
 class DebugVC: UIViewController {
-  var sfoObservers = SfoObservers()
-  var reachabilityObserver: ReachabilityObserver?
   
   override func loadView() {
     let debugView = DebugView(frame: UIScreen.main.bounds)
@@ -25,24 +23,7 @@ class DebugVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    setupAviObservers()
-    setupCidObservers()
-    setupDriverObservers()
-    setupGeofenceObservers()
-    setupLocationObservers()
-    setupPingObservers()
-    setupRequestObservers()
-    setupStateObservers()
-    setupTripObservers()
-    
-    reachabilityObserver = NotificationObserver(notification: SfoNotification.Reachability.reachabilityChanged) { reachable, _ in
-      self.debugView().setReachabilityNoticeHidden(reachable)
-      if reachable {
-        self.debugView().printDebugLine("network reachable", type: .Positive)
-      } else {
-        self.debugView().printDebugLine("network unreachable", type: .Negative)
-      }
-    }
+    setupObservers()
     
     configureNavBar(back: true, title: "Debug")
     addSettingsButton()
@@ -60,7 +41,7 @@ class DebugVC: UIViewController {
     updateButton(self.debugView().thirdFakeButton, info: third)
   }
   
-  fileprivate func updateButton(_ button: UIButton, info: ButtonUpdateInfo?) {
+  private func updateButton(_ button: UIButton, info: ButtonUpdateInfo?) {
     if let info = info {
       button.setTitle(info.title, for: UIControlState())
       button.removeTarget(nil, action: nil, for: .allEvents)

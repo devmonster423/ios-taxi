@@ -32,7 +32,7 @@ class FlightStatusView: UIView {
     let divider = UIView()
     divider.backgroundColor = Color.Sfo.blue
     addSubview(divider)
-    divider.snp_makeConstraints { (make) -> Void in
+    divider.snp.makeConstraints { (make) -> Void in
       make.height.equalTo(1)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
@@ -43,23 +43,23 @@ class FlightStatusView: UIView {
     tableHeader.backgroundColor = Color.NavBar.subtitleBlue
     tableHeader.textColor = Color.FlightStatus.tableHeader
     tableHeader.textAlignment = .center
-    tableHeader.snp_makeConstraints { (make) -> Void in
+    tableHeader.snp.makeConstraints { (make) -> Void in
       make.height.equalTo(UiConstants.FlightStatus.tableHeaderHeight)
-      make.top.equalTo(divider.snp_bottom)
+      make.top.equalTo(divider.snp.bottom)
       make.left.equalTo(self)
       make.right.equalTo(self)
-      make.bottom.equalTo(flightTable.snp_top)
+      make.bottom.equalTo(flightTable.snp.top)
     }
     
     flightTable.separatorStyle = .none
     flightTable.allowsSelection = false
-    flightTable.snp_makeConstraints { (make) -> Void in
+    flightTable.snp.makeConstraints { (make) -> Void in
       make.left.equalTo(self)
       make.right.equalTo(self)
-      make.bottom.equalTo(timerView.snp_top).offset(-5)
+      make.bottom.equalTo(timerView.snp.top).offset(-5)
     }
     
-    timerView.snp_makeConstraints { (make) -> Void in
+    timerView.snp.makeConstraints { (make) -> Void in
       make.bottom.equalTo(self)
       make.height.equalTo(UiConstants.Dashboard.progressHeight)
       make.leading.equalTo(self)
@@ -68,7 +68,7 @@ class FlightStatusView: UIView {
     
     reachabilityNotice.isHidden = ReachabilityManager.sharedInstance.isReachable()
     addSubview(reachabilityNotice)
-    reachabilityNotice.snp_makeConstraints { make in
+    reachabilityNotice.snp.makeConstraints { make in
       make.top.equalTo(self)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)

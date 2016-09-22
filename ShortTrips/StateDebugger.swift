@@ -9,15 +9,7 @@
 import Foundation
 import TransitionKit
 
-extension DebugVC {
-  
-  func setupStateObservers() {
-    
-    sfoObservers.stateUpdateObserver = NotificationObserver(notification: SfoNotification.State.update) { state, _ in
-      self.updateForState(state)
-    }
-  }
-  
+extension DebugVC {  
   func updateForState(_ state: TKState) {
     if state == AssociatingDriverAndVehicleAtEntry.sharedInstance.getState() {
       debugView().printDebugLine("Associating Driver And Vehicle")

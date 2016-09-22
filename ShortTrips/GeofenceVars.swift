@@ -16,7 +16,7 @@ let allGeofences = [
   terminalExitBufferedGeofence
 ]
 
-let domesticPickupGeofence = LocalGeofence(jsonFileName: "Domestic_Pax_Pickup", sfoGeofence: .SfoTaxiDomesticExit)
-let taxiMergedGeofence = LocalGeofence(jsonFileName: "taxi_sfo_merged", sfoGeofence: .TaxiSfoMerged)
-let taxiWaitingZone = LocalGeofence(jsonFileName: "Taxi_Waiting_Zone", sfoGeofence: .TaxiWaitingZone)
-let terminalExitBufferedGeofence = LocalGeofence(jsonFileName: "Terminal_exit_buffered", sfoGeofence: .TaxiExitBuffered)
+let domesticPickupGeofence = LocalGeofence(jsonFileName: "Domestic_Pax_Pickup", sfoGeofence: .sfoTaxiDomesticExit)
+let taxiMergedGeofence = LocalGeofence(jsonFileName: "taxi_sfo_merged", sfoGeofence: .taxiSfoMerged)
+let taxiWaitingZone = LocalGeofence(jsonFileName: "Taxi_Waiting_Zone", sfoGeofence: .taxiWaitingZone)
+let terminalExitBufferedGeofence = LocalGeofence(jsonFileName: "Terminal_exit_buffered", sfoGeofence: .taxiExitBuffered)

@@ -33,7 +33,7 @@ class ShortTripView: UIView {
     addSubview(promptLabel)
     addSubview(promptImageView)
     
-    countdown.snp_makeConstraints { make in
+    countdown.snp.makeConstraints { make in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.bottom.equalTo(self).offset(-20)
@@ -44,7 +44,7 @@ class ShortTripView: UIView {
     promptLabel.textAlignment = .center
     promptLabel.numberOfLines = 0
     promptLabel.textColor = Color.Trip.title
-    promptLabel.snp_makeConstraints { make in
+    promptLabel.snp.makeConstraints { make in
       make.leading.equalTo(self).offset(25)
       make.trailing.equalTo(self).offset(-25)
       make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
@@ -54,10 +54,10 @@ class ShortTripView: UIView {
     notificationView.isHidden = true
     
     promptImageView.contentMode = .scaleAspectFit
-    promptImageView.snp_makeConstraints { make in
+    promptImageView.snp.makeConstraints { make in
       make.leading.equalTo(self).offset(50)
-      make.top.equalTo(promptLabel.snp_bottom)
-      make.bottom.equalTo(countdown.snp_top)
+      make.top.equalTo(promptLabel.snp.bottom)
+      make.bottom.equalTo(countdown.snp.top)
       make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
       make.trailing.equalTo(self).offset(-50)
     }
@@ -66,7 +66,7 @@ class ShortTripView: UIView {
     
     reachabilityNotice.isHidden = ReachabilityManager.sharedInstance.isReachable()
     addSubview(reachabilityNotice)
-    reachabilityNotice.snp_makeConstraints { make in
+    reachabilityNotice.snp.makeConstraints { make in
       make.top.equalTo(self)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
@@ -85,7 +85,7 @@ class ShortTripView: UIView {
   
   func notifySuccess(_ date: Date) {
     
-    notificationView.snp_remakeConstraints { make in
+    notificationView.snp.remakeConstraints { make in
       make.height.equalTo(self)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
@@ -100,17 +100,17 @@ class ShortTripView: UIView {
   
   func skipAnyPendingNotifications() {
     if animatingFail {
-      self.notificationView.snp_remakeConstraints { make in
+      self.notificationView.snp.remakeConstraints { make in
         make.height.equalTo(self).dividedBy(9)
         make.leading.equalTo(self)
         make.trailing.equalTo(self)
         make.bottom.equalTo(self)
       }
       
-      self.promptImageView.snp_remakeConstraints { make in
+      self.promptImageView.snp.remakeConstraints { make in
         make.leading.equalTo(self).offset(50)
-        make.top.equalTo(self.promptLabel.snp_bottom).offset(20)
-        make.bottom.equalTo(self.notificationView.snp_top).offset(-20)
+        make.top.equalTo(self.promptLabel.snp.bottom).offset(20)
+        make.bottom.equalTo(self.notificationView.snp.top).offset(-20)
         make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
         make.trailing.equalTo(self).offset(-50)
       }
@@ -127,17 +127,17 @@ class ShortTripView: UIView {
     
     animatingFail = true
     
-    notificationView.snp_remakeConstraints { make in
+    notificationView.snp.remakeConstraints { make in
       make.height.equalTo(self)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.bottom.equalTo(self)
     }
     
-    promptImageView.snp_remakeConstraints { make in
+    promptImageView.snp.remakeConstraints { make in
       make.leading.equalTo(self).offset(50)
-      make.top.equalTo(promptLabel.snp_bottom)
-      make.bottom.equalTo(countdown.snp_top)
+      make.top.equalTo(promptLabel.snp.bottom)
+      make.bottom.equalTo(countdown.snp.top)
       make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
       make.trailing.equalTo(self).offset(-50)
     }
@@ -156,17 +156,17 @@ class ShortTripView: UIView {
     DispatchQueue.main.asyncAfter(deadline: delayTime) {
       
       if self.animatingFail {
-        self.notificationView.snp_remakeConstraints { make in
+        self.notificationView.snp.remakeConstraints { make in
           make.height.equalTo(self).dividedBy(9)
           make.leading.equalTo(self)
           make.trailing.equalTo(self)
           make.bottom.equalTo(self)
         }
         
-        self.promptImageView.snp_remakeConstraints { make in
+        self.promptImageView.snp.remakeConstraints { make in
           make.leading.equalTo(self).offset(50)
-          make.top.equalTo(self.promptLabel.snp_bottom).offset(20)
-          make.bottom.equalTo(self.notificationView.snp_top).offset(-20)
+          make.top.equalTo(self.promptLabel.snp.bottom).offset(20)
+          make.bottom.equalTo(self.notificationView.snp.top).offset(-20)
           make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
           make.trailing.equalTo(self).offset(-50)
         }
@@ -187,10 +187,10 @@ class ShortTripView: UIView {
   }
   
   func hideNotification() {
-    promptImageView.snp_remakeConstraints { make in
+    promptImageView.snp.remakeConstraints { make in
       make.leading.equalTo(self).offset(50)
-      make.top.equalTo(promptLabel.snp_bottom)
-      make.bottom.equalTo(countdown.snp_top)
+      make.top.equalTo(promptLabel.snp.bottom)
+      make.bottom.equalTo(countdown.snp.top)
       make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
       make.trailing.equalTo(self).offset(-50)
     }
@@ -209,14 +209,14 @@ class ShortTripView: UIView {
   
   func toggleCountdown(_ visible: Bool) {
     if visible {
-      countdown.snp_remakeConstraints { make in
+      countdown.snp.remakeConstraints { make in
         make.leading.equalTo(self)
         make.trailing.equalTo(self)
         make.bottom.equalTo(self).offset(-20)
         make.height.equalTo(self).dividedBy(7)
       }
     } else {
-      countdown.snp_remakeConstraints { make in
+      countdown.snp.remakeConstraints { make in
         make.leading.equalTo(self)
         make.trailing.equalTo(self)
         make.bottom.equalTo(self).offset(-20)

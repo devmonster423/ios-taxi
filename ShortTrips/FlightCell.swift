@@ -45,7 +45,7 @@ class FlightCell: UITableViewCell {
     
     // airline icon imageview
     airlineImageView.contentMode = .scaleAspectFit
-    airlineImageView.snp_makeConstraints { (make) -> Void in
+    airlineImageView.snp.makeConstraints { (make) -> Void in
       make.top.equalTo(self).offset(UiConstants.FlightCell.standardMargin)
       make.bottom.equalTo(self).offset(-UiConstants.FlightCell.standardMargin)
       make.leading.equalTo(self).offset(UiConstants.FlightCell.standardMargin)
@@ -58,18 +58,18 @@ class FlightCell: UITableViewCell {
     airlineLabel.font = self.contentView.bounds.size.width <= UiConstants.FlightCell.iPhone5Width
       ? UiConstants.FlightCell.fontSmallish : UiConstants.FlightCell.fontNormal
     airlineLabel.textColor = Color.Sfo.blue
-    airlineLabel.snp_makeConstraints { (make) -> Void in
-      make.bottom.equalTo(self.snp_centerY)
-      make.leading.equalTo(airlineImageView.snp_trailing).offset(UiConstants.FlightCell.bigMargin)
-      make.trailing.equalTo(scheduledTimeTitleLabel.snp_leading).offset(-UiConstants.FlightCell.bigMargin)
+    airlineLabel.snp.makeConstraints { (make) -> Void in
+      make.bottom.equalTo(self.snp.centerY)
+      make.leading.equalTo(airlineImageView.snp.trailing).offset(UiConstants.FlightCell.bigMargin)
+      make.trailing.equalTo(scheduledTimeTitleLabel.snp.leading).offset(-UiConstants.FlightCell.bigMargin)
     }
 
     // flight #
     flightNumberLabel.numberOfLines = 0
     flightNumberLabel.font = self.contentView.bounds.size.width <= UiConstants.FlightCell.iPhone5Width
       ? UiConstants.FlightCell.fontSmallish : UiConstants.FlightCell.fontNormal
-    flightNumberLabel.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(self.snp_centerY)
+    flightNumberLabel.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(self.snp.centerY)
       make.leading.equalTo(airlineLabel)
       make.width.equalTo(airlineLabel)
     }
@@ -78,9 +78,9 @@ class FlightCell: UITableViewCell {
     scheduledTimeTitleLabel.textAlignment = .right
     scheduledTimeTitleLabel.textColor = Color.Sfo.blue
     scheduledTimeTitleLabel.font = UiConstants.FlightCell.fontNormal
-    scheduledTimeTitleLabel.snp_makeConstraints { (make) -> Void in
-      make.bottom.equalTo(self.snp_centerY)
-      make.trailing.equalTo(scheduledTimeLabel.snp_leading).offset(-2)
+    scheduledTimeTitleLabel.snp.makeConstraints { (make) -> Void in
+      make.bottom.equalTo(self.snp.centerY)
+      make.trailing.equalTo(scheduledTimeLabel.snp.leading).offset(-2)
       make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.timesTitleWidth)
     }
     
@@ -88,8 +88,8 @@ class FlightCell: UITableViewCell {
     estimatedTimeTitleLabel.textAlignment = .right
     estimatedTimeTitleLabel.font = UiConstants.FlightCell.fontNormal
     estimatedTimeTitleLabel.textColor = Color.Sfo.blue
-    estimatedTimeTitleLabel.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(self.snp_centerY)
+    estimatedTimeTitleLabel.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(self.snp.centerY)
       make.leading.equalTo(scheduledTimeTitleLabel)
       make.trailing.equalTo(scheduledTimeTitleLabel)
     }
@@ -97,25 +97,25 @@ class FlightCell: UITableViewCell {
     // scheduled time
     scheduledTimeLabel.font = UiConstants.FlightCell.fontNormal
     scheduledTimeLabel.textAlignment = .left
-    scheduledTimeLabel.snp_makeConstraints { (make) -> Void in
-      make.bottom.equalTo(self.snp_centerY)
-      make.trailing.equalTo(statusLabel.snp_leading).offset(-UiConstants.FlightCell.standardMargin)
+    scheduledTimeLabel.snp.makeConstraints { (make) -> Void in
+      make.bottom.equalTo(self.snp.centerY)
+      make.trailing.equalTo(statusLabel.snp.leading).offset(-UiConstants.FlightCell.standardMargin)
       make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.timesWidth)
     }
 
     // estimated time
     estimatedTimeLabel.font = UiConstants.FlightCell.fontNormal
     estimatedTimeLabel.textAlignment = .left
-    estimatedTimeLabel.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(self.snp_centerY)
+    estimatedTimeLabel.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(self.snp.centerY)
       make.leading.equalTo(scheduledTimeLabel)
       make.trailing.equalTo(scheduledTimeLabel)
     }
     
     // status image
     statusImageView.contentMode = .scaleAspectFit
-    statusImageView.snp_makeConstraints { (make) -> Void in
-      make.bottom.equalTo(self.contentView.snp_centerY).offset(UiConstants.FlightCell.statusImageVerticalOffset)
+    statusImageView.snp.makeConstraints { (make) -> Void in
+      make.bottom.equalTo(self.contentView.snp.centerY).offset(UiConstants.FlightCell.statusImageVerticalOffset)
       make.centerX.equalTo(statusLabel)
       make.width.equalTo(UiConstants.FlightCell.statusImageDiameter)
       make.height.equalTo(UiConstants.FlightCell.statusImageDiameter)
@@ -125,8 +125,8 @@ class FlightCell: UITableViewCell {
     statusLabel.font = UiConstants.FlightCell.fontSmall
     statusLabel.sizeToFit()
     statusLabel.textAlignment = .center
-    statusLabel.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(statusImageView.snp_bottom).offset(UiConstants.FlightCell.standardMargin)
+    statusLabel.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(statusImageView.snp.bottom).offset(UiConstants.FlightCell.standardMargin)
       make.trailing.equalTo(self).offset(-UiConstants.FlightCell.standardMargin)
       make.width.equalTo(self).multipliedBy(UiConstants.FlightCell.statusWidth)
     }
@@ -134,7 +134,7 @@ class FlightCell: UITableViewCell {
     // separator
     separatorView.backgroundColor = Color.FlightStatus.separator
     addSubview(separatorView)
-    separatorView.snp_makeConstraints { (make) -> Void in
+    separatorView.snp.makeConstraints { (make) -> Void in
       make.height.equalTo(UiConstants.FlightCell.separatorHeight)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)

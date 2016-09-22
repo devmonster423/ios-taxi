@@ -67,11 +67,11 @@ class DebugView: UIView {
     
     debugTextView.backgroundColor = UIColor(red: 0.95, green: 0.9, blue: 0.9, alpha: 1.0)
     debugTextView.isEditable = false
-    debugTextView.snp_makeConstraints { make in
+    debugTextView.snp.makeConstraints { make in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.bottom.equalTo(fakeButton.snp_top)
-      make.top.equalTo(stateLabel.snp_bottom)
+      make.bottom.equalTo(fakeButton.snp.top)
+      make.top.equalTo(stateLabel.snp.bottom)
     }
     
     geofenceLabel.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.5, alpha: 1.0)
@@ -79,7 +79,7 @@ class DebugView: UIView {
     geofenceLabel.numberOfLines = 0
     geofenceLabel.text = NSLocalizedString("Last verified geofence(s)", comment: "")
       + ":"
-    geofenceLabel.snp_makeConstraints { make in
+    geofenceLabel.snp.makeConstraints { make in
       make.leading.equalTo(self)
       make.width.equalTo(self).multipliedBy(0.5)
       make.top.equalTo(self)
@@ -90,7 +90,7 @@ class DebugView: UIView {
     gpsLabel.font = Font.OpenSans.size(14)
     gpsLabel.numberOfLines = 0
     gpsLabel.text = NSLocalizedString("Last verified location", comment: "") + ":"
-    gpsLabel.snp_makeConstraints { make in
+    gpsLabel.snp.makeConstraints { make in
       make.trailing.equalTo(self)
       make.width.equalTo(geofenceLabel)
       make.top.equalTo(geofenceLabel)
@@ -100,22 +100,22 @@ class DebugView: UIView {
     stateLabel.backgroundColor = UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1.0)
     stateLabel.font = Font.OpenSans.size(14)
     stateLabel.numberOfLines = 0
-    stateLabel.snp_makeConstraints { make in
+    stateLabel.snp.makeConstraints { make in
       make.height.equalTo(50)
       make.leading.equalTo(self)
       make.width.equalTo(self).dividedBy(2)
-      make.top.equalTo(geofenceLabel.snp_bottom)
+      make.top.equalTo(geofenceLabel.snp.bottom)
     }
     
     gtmsLabel.backgroundColor = UIColor(red: 0.90, green: 0.20, blue: 0.90, alpha: 1.0)
     gtmsLabel.font = Font.OpenSans.size(14)
     gtmsLabel.numberOfLines = 0
     updateGtms()
-    gtmsLabel.snp_makeConstraints { make in
+    gtmsLabel.snp.makeConstraints { make in
       make.height.equalTo(50)
       make.trailing.equalTo(self)
       make.width.equalTo(self).dividedBy(2)
-      make.top.equalTo(geofenceLabel.snp_bottom)
+      make.top.equalTo(geofenceLabel.snp.bottom)
     }
     
     cidLabel.backgroundColor = UIColor(red: 0.25, green: 0.25, blue: 0.95, alpha: 1.0)
@@ -123,11 +123,11 @@ class DebugView: UIView {
     cidLabel.textColor = UIColor.white
     cidLabel.numberOfLines = 0
     cidLabel.text = NSLocalizedString("Last CID", comment: "") + ":"
-    cidLabel.snp_makeConstraints { make in
+    cidLabel.snp.makeConstraints { make in
       make.height.equalTo(80)
       make.leading.equalTo(self)
       make.width.equalTo(self).dividedBy(2)
-      make.top.equalTo(stateLabel.snp_bottom)
+      make.top.equalTo(stateLabel.snp.bottom)
     }
     
     aviLabel.backgroundColor = UIColor(red: 0.95, green: 0.25, blue: 0.5, alpha: 1.0)
@@ -135,25 +135,25 @@ class DebugView: UIView {
     aviLabel.textColor = UIColor.white
     aviLabel.numberOfLines = 0
     aviLabel.text = NSLocalizedString("Last AVI", comment: "") + ":"
-    aviLabel.snp_makeConstraints { make in
+    aviLabel.snp.makeConstraints { make in
       make.height.equalTo(80)
       make.trailing.equalTo(self)
       make.width.equalTo(self).dividedBy(2)
-      make.top.equalTo(stateLabel.snp_bottom)
+      make.top.equalTo(stateLabel.snp.bottom)
     }
 
     fakeButton.backgroundColor = UIColor.blue
-    fakeButton.snp_makeConstraints { make in
+    fakeButton.snp.makeConstraints { make in
       make.height.equalTo(44)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.bottom.equalTo(secondFakeButton.snp_top)
+      make.bottom.equalTo(secondFakeButton.snp.top)
     }
 
     secondFakeButton.backgroundColor = UIColor(red: 0.25, green: 0.5, blue: 0.5, alpha: 1.0)
     secondFakeButton.titleLabel?.font = Font.OpenSans.size(12)
     secondFakeButton.titleLabel?.numberOfLines = 2
-    secondFakeButton.snp_makeConstraints { (make) -> Void in
+    secondFakeButton.snp.makeConstraints { (make) -> Void in
       make.height.equalTo(44)
       make.leading.equalTo(self)
       make.width.equalTo(self).dividedBy(2)
@@ -162,15 +162,15 @@ class DebugView: UIView {
 
     thirdFakeButton.backgroundColor = UIColor.black
     thirdFakeButton.titleLabel?.font = Font.OpenSans.size(12)
-    thirdFakeButton.snp_makeConstraints { (make) -> Void in
+    thirdFakeButton.snp.makeConstraints { (make) -> Void in
       make.height.equalTo(secondFakeButton)
-      make.leading.equalTo(secondFakeButton.snp_trailing)
+      make.leading.equalTo(secondFakeButton.snp.trailing)
       make.width.equalTo(self).dividedBy(2)
       make.bottom.equalTo(self)
     }
     
     addSubview(reachabilityNotice)
-    reachabilityNotice.snp_makeConstraints { make in
+    reachabilityNotice.snp.makeConstraints { make in
       make.height.equalTo(UiConstants.ReachabilityNotice.height)
       make.top.equalTo(self)
       make.leading.equalTo(self)

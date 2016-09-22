@@ -55,7 +55,7 @@ class TerminalSummaryView: UIView {
     let divider = UIView()
     divider.backgroundColor = Color.Sfo.blue
     addSubview(divider)
-    divider.snp_makeConstraints { (make) -> Void in
+    divider.snp.makeConstraints { (make) -> Void in
       make.height.equalTo(1)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
@@ -64,45 +64,45 @@ class TerminalSummaryView: UIView {
     
     titleTerminalView.configureAsTitle()
     titleTerminalView.setBackgroundDark(true)
-    titleTerminalView.snp_makeConstraints { (make) -> Void in
+    titleTerminalView.snp.makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
-      make.top.equalTo(pickerShower.snp_bottom)
+      make.top.equalTo(pickerShower.snp.bottom)
       make.height.equalTo(self).multipliedBy(0.104)
     }
     
-    internationalTerminalView.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(titleTerminalView.snp_bottom)
+    internationalTerminalView.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(titleTerminalView.snp.bottom)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.height.equalTo(self).multipliedBy(0.096)
     }
 
     terminalView1.setBackgroundDark(true)
-    terminalView1.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(internationalTerminalView.snp_bottom)
+    terminalView1.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(internationalTerminalView.snp.bottom)
       make.leading.equalTo(self)
       make.height.equalTo(internationalTerminalView)
       make.trailing.equalTo(self)
     }
 
-    terminalView2.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(terminalView1.snp_bottom)
+    terminalView2.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(terminalView1.snp.bottom)
       make.trailing.equalTo(self)
       make.height.equalTo(terminalView1)
       make.leading.equalTo(self)
     }
 
     terminalView3.setBackgroundDark(true)
-    terminalView3.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(terminalView2.snp_bottom)
+    terminalView3.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(terminalView2.snp.bottom)
       make.leading.equalTo(self)
       make.height.equalTo(terminalView2)
       make.trailing.equalTo(self)
     }
     
-    totalTerminalView.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(terminalView3.snp_bottom)
+    totalTerminalView.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(terminalView3.snp.bottom)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.height.equalTo(terminalView3)
@@ -110,8 +110,8 @@ class TerminalSummaryView: UIView {
     
     pickerShower.setBackgroundImage(Image.from(Color.NavBar.subtitleBlue), for: UIControlState())
     pickerShower.setBackgroundImage(Image.from(Color.NavBar.subtitleBluePressed), for: .highlighted)
-    pickerShower.snp_makeConstraints { (make) -> Void in
-      make.top.equalTo(divider.snp_bottom)
+    pickerShower.snp.makeConstraints { (make) -> Void in
+      make.top.equalTo(divider.snp.bottom)
       make.height.equalTo(44)
       make.centerX.equalTo(self)
       make.width.equalTo(self)
@@ -122,7 +122,7 @@ class TerminalSummaryView: UIView {
     pickerTitle.textAlignment = .center
     pickerTitle.textColor = UIColor.white
     pickerShower.addSubview(pickerTitle)
-    pickerTitle.snp_makeConstraints { (make) -> Void in
+    pickerTitle.snp.makeConstraints { (make) -> Void in
       make.width.equalTo(150)
       make.height.equalTo(30)
       make.center.equalTo(pickerShower)
@@ -132,23 +132,23 @@ class TerminalSummaryView: UIView {
     downArrowImageView.image = Image.downArrow.image()
     downArrowImageView.contentMode = .scaleAspectFit
     pickerShower.addSubview(downArrowImageView)
-    downArrowImageView.snp_makeConstraints { (make) -> Void in
+    downArrowImageView.snp.makeConstraints { (make) -> Void in
       make.width.equalTo(15)
       make.height.equalTo(15)
       make.centerY.equalTo(pickerShower)
-      make.leading.equalTo(pickerTitle.snp_trailing).offset(10)
+      make.leading.equalTo(pickerTitle.snp.trailing).offset(10)
     }
     
 
     hourPickerView.setMinMaxHours(minHour: -2, maxHour: 12)
-    hourPickerView.snp_makeConstraints { (make) -> Void in
+    hourPickerView.snp.makeConstraints { (make) -> Void in
       make.leading.equalTo(self)
-      make.top.equalTo(totalTerminalView.snp_bottom)
-      make.bottom.equalTo(timerView.snp_top)
+      make.top.equalTo(totalTerminalView.snp.bottom)
+      make.bottom.equalTo(timerView.snp.top)
       make.trailing.equalTo(self)
     }
     
-    timerView.snp_makeConstraints { (make) -> Void in
+    timerView.snp.makeConstraints { (make) -> Void in
       make.bottom.equalTo(self)
       make.height.equalTo(UiConstants.Dashboard.progressHeight)
       make.leading.equalTo(self)
@@ -158,7 +158,7 @@ class TerminalSummaryView: UIView {
     picker.alpha = 0.0
     picker.backgroundColor = UIColor.white
     picker.isHidden = true
-    picker.snp_makeConstraints { (make) -> Void in
+    picker.snp.makeConstraints { (make) -> Void in
       make.bottom.equalTo(self)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
@@ -166,25 +166,25 @@ class TerminalSummaryView: UIView {
     
     pickerDismissToolbar.alpha = 0.0
     pickerDismissToolbar.isHidden = true
-    pickerDismissToolbar.snp_makeConstraints { (make) -> Void in
+    pickerDismissToolbar.snp.makeConstraints { (make) -> Void in
       make.width.equalTo(self)
-      make.bottom.equalTo(picker.snp_top)
+      make.bottom.equalTo(picker.snp.top)
       make.centerX.equalTo(self)
     }
     
     grayView.alpha = UiConstants.TerminalSummary.grayViewAlpha
     grayView.backgroundColor = UIColor.black
     grayView.isHidden = true
-    grayView.snp_makeConstraints { (make) -> Void in
+    grayView.snp.makeConstraints { (make) -> Void in
       make.top.equalTo(self)
-      make.bottom.equalTo(picker.snp_top)
+      make.bottom.equalTo(picker.snp.top)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
     }
     
     reachabilityNotice.isHidden = ReachabilityManager.sharedInstance.isReachable()
     addSubview(reachabilityNotice)
-    reachabilityNotice.snp_makeConstraints { make in
+    reachabilityNotice.snp.makeConstraints { make in
       make.top.equalTo(self)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
