@@ -12,9 +12,9 @@ import ObjectMapper
 struct AutomaticVehicleIdListWrapper: Mappable {
   var automaticVehicleIds: [AutomaticVehicleId]!
   
-  init?(_ map: Map){}
+  init?(map: Map){}
   
-  mutating func mapping(_ map: Map) {
+  mutating func mapping(map: Map) {
     automaticVehicleIds <- map["response.list"]
   }
 }

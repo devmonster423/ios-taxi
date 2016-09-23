@@ -10,9 +10,7 @@ import UIKit
 import CoreLocation
 
 class ShortTripVC: UIViewController {
-  var sfoObservers = SfoObservers()
-  var reachabilityObserver: ReachabilityObserver?
-  fileprivate var tripTimer: Timer?
+  private var tripTimer: Timer?
   
   override func loadView() {
     let shortTripView = ShortTripView(frame: UIScreen.main.bounds)
@@ -41,10 +39,6 @@ class ShortTripVC: UIViewController {
       repeats: true)
     
     checkTime()
-    
-    reachabilityObserver = NotificationObserver(notification: SfoNotification.Reachability.reachabilityChanged) { reachable, _ in
-      self.shortTripView().setReachabilityNoticeHidden(reachable)
-    }
   }
   
   override func viewWillAppear(_ animated: Bool) {

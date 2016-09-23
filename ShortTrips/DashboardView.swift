@@ -82,7 +82,7 @@ class DashboardView: UIView {
     reachabilityNotice.isHidden = hidden
   }
   
-  func startTimerView(_ updateInterval: TimeInterval, callback: TimerCallback) {
+  func startTimerView(_ updateInterval: TimeInterval, callback: @escaping TimerCallback) {
     timerView.start(updateInterval, callback: callback)
   }
   

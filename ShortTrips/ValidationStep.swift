@@ -66,14 +66,14 @@ struct ValidationStepWrapper: Mappable {
   var description: String!
   var name: String!
   
-  init?(_ map: Map){}
+  init?(map: Map){}
   
   init(validationStep: ValidationStep) {
     self.validationStep = validationStep
     self.description = validationStep.description()
   }
   
-  mutating func mapping(_ map: Map) {
+  mutating func mapping(map: Map) {
     validationStep <- map["step_id"]
     description <- map["description"]
     name <- map["step_name"]

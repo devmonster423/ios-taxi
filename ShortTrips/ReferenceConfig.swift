@@ -14,7 +14,7 @@ struct ReferenceConfig: Mappable {
   var tripDuration: Int!
   var gisBuffer: Float!
     
-  init?(_ map: Map){}
+  init?(map: Map){}
   
   init(pingInterval: Int, tripDuration: Int, gisBuffer: Float) {
     self.pingInterval = pingInterval
@@ -22,7 +22,7 @@ struct ReferenceConfig: Mappable {
     self.gisBuffer = gisBuffer
   }
   
-  mutating func mapping(_ map: Map) {
+  mutating func mapping(map: Map) {
     pingInterval <- map["response.ping_interval"]
     tripDuration <- map["response.trip_duration"]
     gisBuffer <- map["response.gis_buffer"]

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 struct ApiClient {
   
@@ -15,24 +14,13 @@ struct ApiClient {
     return DispatchTime.now() + Double(Int64(5.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
   }
   
-  fileprivate static let sfoUsername = "taxi_short@sfo"
-  fileprivate static let sfoPassword = "mvUh6tYEwU9nYDrQ"
-  
-  static func authedRequest(
-    _ method: Alamofire.Method,
-    _ URLString: URLStringConvertible,
-    parameters: [String: AnyObject]? = nil,
-    encoding: ParameterEncoding = .URL)
-    -> Request
-  {
-    let request = Alamofire.request(method, URLString, parameters: parameters, encoding: encoding, headers: headers())
-    return request // request.authenticate(user: sfoUsername, password: sfoPassword, persistence: .Permanent)
-  }
+  // "taxi_short@sfo", "mvUh6tYEwU9nYDrQ"
+  private static let auth = "Basic dGF4aV9zaG9ydEBzZm86bXZVaDZ0WUV3VTluWURyUQ=="
   
   static func headers() -> [String: String]? {
     var headers = [String: String]()
     
-    headers["Authorization"] = "Basic dGF4aV9zaG9ydEBzZm86bXZVaDZ0WUV3VTluWURyUQ=="
+    headers["Authorization"] = auth
     
     if let driverId = DriverManager.sharedInstance.getCurrentDriver()?.driverId {
       headers["driver"] = "\(driverId)"

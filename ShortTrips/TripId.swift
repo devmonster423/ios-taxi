@@ -16,9 +16,9 @@ struct TripId: Mappable {
     self.tripId = tripId
   }
   
-  init?(_ map: Map){}
+  init?(map: Map){}
   
-  mutating func mapping(_ map: Map) {
+  mutating func mapping(map: Map) {
     tripId <- map["response.trip_id"]
   }
 }

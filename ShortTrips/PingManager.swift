@@ -11,15 +11,13 @@ import CoreLocation
 
 class PingManager: NSObject {
 
-  fileprivate let updateFrequency = TimeInterval(30)
-  fileprivate var invalidPings: Int = 0
-  fileprivate let maxInvalidPings: Int = 3
-  fileprivate var missedPings = [Ping]()
+  private let updateFrequency = TimeInterval(30)
+  private var invalidPings: Int = 0
+  private let maxInvalidPings: Int = 3
+  private var missedPings = [Ping]()
   
-  fileprivate var timer: Timer?
+  private var timer: Timer?
 
-  var pingObserver: NotificationObserver<Ping, AnyObject>?
-  
   static let sharedInstance = PingManager()
 
   func start() {
@@ -32,20 +30,22 @@ class PingManager: NSObject {
         repeats: true)
     }
     
-    if pingObserver == nil {
-      self.pingObserver = NotificationObserver(notification: SfoNotification.Ping.created) { ping, _ in
+    let nc = NotificationCenter.default
+    
+    nc.addObserver(forName: .pingCreated, object: nil, queue: nil) { note in
       
-        if ping.geofenceStatus.toBool() {
-          postNotification(SfoNotification.Ping.valid, value: ping)
-          self.invalidPings = 0 // must be consecutive
-          
-        } else {
-          postNotification(SfoNotification.Ping.invalid, value: ping)
-          self.invalidPings += 1
-          if self.invalidPings >= self.maxInvalidPings {
-            OutsideShortTripGeofence.sharedInstance.fire()
-            self.invalidPings = 0 // reset invalid pings
-          }
+      let ping = note.userInfo![InfoKey.ping] as! Ping
+      
+      if ping.geofenceStatus.toBool() {
+        nc.post(name: .pingValid, object: nil, userInfo: [InfoKey.ping: ping])
+        self.invalidPings = 0 // must be consecutive
+        
+      } else {
+        nc.post(name: .pingInvalid, object: nil, userInfo: [InfoKey.ping: ping])
+        self.invalidPings += 1
+        if self.invalidPings >= self.maxInvalidPings {
+          OutsideShortTripGeofence.sharedInstance.fire()
+          self.invalidPings = 0 // reset invalid pings
         }
       }
     }
@@ -54,7 +54,7 @@ class PingManager: NSObject {
   func stop() {
     timer?.invalidate()
     timer = nil
-    pingObserver = nil
+    NotificationCenter.default.removeObserver(self)
   }
 
   func sendPings() {
@@ -80,7 +80,7 @@ class PingManager: NSObject {
       sessionId: sessionId,
       medallion: medallion)
     
-    postNotification(SfoNotification.Ping.created, value: ping)
+    NotificationCenter.default.post(name: .pingCreated, object: nil, userInfo: [InfoKey.ping: ping])
     ApiClient.ping(tripId, ping: ping) { success in
       
       if !success {
@@ -98,7 +98,7 @@ class PingManager: NSObject {
         
         ApiClient.pings(tripId, pings: pingBatch) { success in
           if !success {
-            self.missedPings.append(contentsOf: sentPings)
+            self.missedPings.append(contentsOf: sentPings!)
           }
         }
     }

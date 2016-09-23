@@ -9,20 +9,21 @@
 import Foundation
 import TransitionKit
 
-struct WaitingForPaymentCid {
+class WaitingForPaymentCid {
   let stateName = "waitingForPaymentCid"
   static let sharedInstance = WaitingForPaymentCid()
-  fileprivate let expectedCid: GtmsLocation = .TaxiMainLot
+  private let expectedCid: GtmsLocation = .TaxiMainLot
 
-  fileprivate var poller: Poller?
-  fileprivate var state: TKState
+  private var poller: Poller?
+  private var state: TKState
 
-  fileprivate init() {
+  private init() {
     state = TKState(name: stateName)
     
     state.setDidEnter { _, _ in
       
-      postNotification(SfoNotification.State.update, value: self.getState())
+      let nc = NotificationCenter.default
+      nc.post(name: .stateUpdate, object: nil, userInfo: [InfoKey.state: self.getState()])
       
       self.poller = Poller.init() {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
@@ -32,7 +33,7 @@ struct WaitingForPaymentCid {
               if device == self.expectedCid {
                 LatestCidIsPaymentCid.sharedInstance.fire(cid)
               } else {
-                postNotification(SfoNotification.Cid.unexpected, value: (expected: self.expectedCid, found: device))
+                nc.post(name: .cidUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: self.expectedCid, InfoKey.foundGtmsLocation: device])
                 
                 if !GeofenceManager.sharedInstance.stillInDomesticExitNotInHoldingLot() {
                   NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.sharedInstance.fire()

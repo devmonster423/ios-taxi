@@ -11,8 +11,7 @@ import MBProgressHUD
 
 class DashboardVC: UIViewController {
   
-  fileprivate var errorShown = false
-  fileprivate var reachabilityObserver: ReachabilityObserver?
+  private var errorShown = false
   
   override func loadView() {
     let dashboardView = DashboardView(frame: UIScreen.main.bounds)
@@ -32,19 +31,22 @@ class DashboardVC: UIViewController {
     configureNavBar(title: NSLocalizedString("Holding Lot", comment: "").uppercased())
     addSettingsButton()
     
-    NotificationCenter.default.addObserver(
+    let nc = NotificationCenter.default
+    
+    nc.addObserver(
       self,
       selector: #selector(stopTimer),
-      name: NSNotification.Name.UIApplicationDidEnterBackground,
+      name: .UIApplicationDidEnterBackground,
       object: nil)
     
-    NotificationCenter.default.addObserver(
+    nc.addObserver(
       self,
       selector: #selector(startTimer),
-      name: NSNotification.Name.UIApplicationWillEnterForeground,
+      name: .UIApplicationWillEnterForeground,
       object: nil)
-
-    reachabilityObserver = NotificationObserver(notification: SfoNotification.Reachability.reachabilityChanged) { reachable, _ in
+    
+    nc.addObserver(forName: .reachabilityChanged, object: nil, queue: nil) { note in
+      let reachable = note.userInfo![InfoKey.reachable] as! Bool
       self.dashboardView().setReachabilityNoticeHidden(reachable)
     }
   }
@@ -73,11 +75,11 @@ class DashboardVC: UIViewController {
     
   func requestLotStatus() {
     let hud = MBProgressHUD.showAdded(to: view, animated: true)
-    hud.labelText = NSLocalizedString("Requesting Lot Status", comment: "")
+    hud.label.text = NSLocalizedString("Requesting Lot Status", comment: "")
     
     ApiClient.requestQueueLength { length in
       
-      hud.hide(true)
+      hud.hide(animated: true)
       
       if let length = length {
         self.dashboardView().updateSpots(length.longQueueLength)

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 import AlamofireObjectMapper
 import ObjectMapper
 
@@ -25,11 +26,11 @@ extension ApiClient {
       return
     }
     
-    authedRequest(.POST, Url.Trip.ping(tripId), parameters: Mapper().toJSON(ping))
-      .response { _, raw, _, _ in
-        
-        if let raw = raw {
-          postNotification(SfoNotification.Request.response, value: raw)
+    Alamofire.request(Url.Trip.ping(tripId), method: .post, parameters: ping.toJSON() as [String: AnyObject], headers: headers())
+      .response { defaultDataResponse in
+      
+        if let raw = defaultDataResponse.response {
+          NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])
           response(StatusCode.isSuccessful(raw.statusCode))
         } else {
           response(false)
@@ -44,11 +45,11 @@ extension ApiClient {
       return
     }
     
-    authedRequest(.POST, Url.Trip.pings(tripId), parameters: Mapper().toJSON(pings), encoding: .JSON)
-      .response { _, raw, _, _ in
+    Alamofire.request(Url.Trip.pings(tripId), method: .post, parameters: pings.toJSON() as [String : AnyObject], encoding: JSONEncoding.default, headers: headers())
+      .response { defaultDataResponse in
         
-        if let raw = raw {
-          postNotification(SfoNotification.Request.response, value: raw)
+        if let raw = defaultDataResponse.response {
+          NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])
           response(StatusCode.isSuccessful(raw.statusCode))
         } else {
           response(false)
@@ -57,17 +58,17 @@ extension ApiClient {
   }
   
   static func start(_ tripBody: TripBody, retryCount: Int = 0, response: @escaping TripIdClosure) {
-    authedRequest(.POST, Url.Trip.start, parameters: Mapper().toJSON(tripBody))
-      .responseObject { (_, raw, tripId: TripId?, _, _) in
+    Alamofire.request(Url.Trip.start, method: .post, parameters: Mapper().toJSON(tripBody), headers: headers())
+      .responseObject { (dataResponse: DataResponse<TripId>) in
         
-        if let raw = raw {
-          postNotification(SfoNotification.Request.response, value: raw)
+        if let raw = dataResponse.response {
+          NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])
         }
         
-        if let tripId = tripId?.tripId {
+        if let tripId = dataResponse.result.value?.tripId {
           response(tripId)
         } else if retryCount < maxTripRestarts {
-          dispatch_after(retryInterval(), dispatch_get_main_queue()) {
+          DispatchQueue.main.asyncAfter(deadline: retryInterval()) {
             start(tripBody, retryCount: retryCount + 1, response: response)
           }
         } else {
@@ -77,17 +78,17 @@ extension ApiClient {
   }
   
   static func end(_ tripId: Int, tripBody: TripBody, response: @escaping ValidationClosure) {
-    authedRequest(.POST, Url.Trip.end(tripId), parameters: Mapper().toJSON(tripBody))
-      .responseObject { (_, raw, validation: TripValidation?, _, _) in
+    Alamofire.request(Url.Trip.end(tripId), method: .post, parameters: Mapper().toJSON(tripBody), headers: headers())
+      .responseObject { (dataResponse: DataResponse<TripValidation>) in
         
-        if let raw = raw {
-          postNotification(SfoNotification.Request.response, value: raw)
+        if let raw = dataResponse.response {
+          NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])
         }
         
-        if let validation = validation {
+        if let validation = dataResponse.result.value {
           response(validation)
         } else {
-          dispatch_after(retryInterval(), dispatch_get_main_queue()) {
+          DispatchQueue.main.asyncAfter(deadline: retryInterval()) {
             end(tripId, tripBody: tripBody, response: response)
           }
         }
@@ -98,20 +99,21 @@ extension ApiClient {
     
     PingManager.sharedInstance.sendOldPings(tripId)
     
-    authedRequest(.POST, Url.Trip.invalidate(tripId), parameters: Mapper().toJSON(TripInvalidation(validationStep: invalidation, sessionId: sessionId)))
-    .response { _, raw, _, _ in
+    Alamofire.request(Url.Trip.invalidate(tripId), method: .post, parameters: Mapper().toJSON(TripInvalidation(validationStep: invalidation, sessionId: sessionId)), headers: headers())
+    .response { defaultDataResponse in
       
-      if let raw = raw {
-        postNotification(SfoNotification.Request.response, value: raw)
+      if let raw = defaultDataResponse.response {
+        NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])
+        
         if StatusCode.isSuccessful(raw.statusCode) {
           PendingAppQuit.set(nil)
         } else {
-          dispatch_after(retryInterval(), dispatch_get_main_queue()) {
+          DispatchQueue.main.asyncAfter(deadline: retryInterval()) {
             invalidate(tripId, invalidation: invalidation, sessionId: sessionId)
           }
         }
       } else {
-        dispatch_after(retryInterval(), dispatch_get_main_queue()) {
+        DispatchQueue.main.asyncAfter(deadline: retryInterval()) {
           invalidate(tripId, invalidation: invalidation, sessionId: sessionId)
         }
       }

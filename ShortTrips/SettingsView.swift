@@ -11,7 +11,7 @@ import SnapKit
 
 class SettingsView: UIView {
   
-  let tableView = UITableView(frame: CGRectZero, style: .Grouped)
+  let tableView = UITableView(frame: CGRect.zero, style: .grouped)
   
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")

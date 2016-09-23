@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 import TransitionKit
 
-enum InfoKey {
+enum InfoKey: String {
   case antenna = "antenna"
   case cid = "cid"
   case driver = "driver"

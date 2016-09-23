@@ -30,7 +30,8 @@ extension OutsideShortTripGeofence: Event {
 
 extension OutsideShortTripGeofence: Observable {
   func eventIsFiring(_ info: Any?) {
-    postNotification(SfoNotification.Geofence.outsideShortTrip, value: nil)
+    
+    NotificationCenter.default.post(name: .outsideShortTrip, object:nil)
 
     if let tripId = TripManager.sharedInstance.getTripId(),
       let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {

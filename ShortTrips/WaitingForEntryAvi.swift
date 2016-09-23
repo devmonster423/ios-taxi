@@ -9,20 +9,22 @@
 import Foundation
 import TransitionKit
 
-struct WaitingForEntryAvi {
+class WaitingForEntryAvi {
   let stateName = "WaitingForEntryAvi"
   static let sharedInstance = WaitingForEntryAvi()
-  fileprivate let expectedAvi: GtmsLocation = .TaxiEntry
+  private let expectedAvi: GtmsLocation = .TaxiEntry
   
-  fileprivate var poller: Poller?
-  fileprivate var state: TKState
+  private var poller: Poller?
+  private var state: TKState
   
-  fileprivate init() {
+  private init() {
     state = TKState(name: stateName)
     
     state.setDidEnter { _, _ in
       
-      postNotification(SfoNotification.State.update, value: self.getState())
+      let nc = NotificationCenter.default
+      
+      nc.post(name: .stateUpdate, object: nil, userInfo: [InfoKey.state: self.getState()])
       
       self.poller = Poller.init() {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
@@ -32,7 +34,7 @@ struct WaitingForEntryAvi {
               if device == .TaxiEntry {
                 LatestAviAtEntry.sharedInstance.fire(antenna)
               } else {
-                postNotification(SfoNotification.Avi.unexpected, value: (expected: self.expectedAvi, found: device))
+                nc.post(name: .aviUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: self.expectedAvi, InfoKey.foundGtmsLocation: device])
                 
                 if !GeofenceManager.sharedInstance.stillInsideTaxiWaitZone() {
                   NotInsideTaxiWaitZoneAfterFailedEntryCheck.sharedInstance.fire()

@@ -22,13 +22,13 @@ struct TripBody: Mappable {
     self.medallion = medallion
     self.vehicleId = vehicleId
     self.smartCardId = smartCardId
-    self.deviceUuid = UIDevice.currentDevice().identifierForVendor!.UUIDString
+    self.deviceUuid = UIDevice.current.identifierForVendor!.uuidString
     self.deviceTimestamp = deviceTimestamp
   }
   
-  init?(_ map: Map){}
+  init?(map: Map){}
   
-  mutating func mapping(_ map: Map) {
+  mutating func mapping(map: Map) {
     sessionId <- map["session_id"]
     medallion <- map["medallion"]
     vehicleId <- map["vehicle_id"]

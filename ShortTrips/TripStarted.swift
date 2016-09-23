@@ -31,8 +31,8 @@ extension TripStarted: Event {
 extension TripStarted: Observable {
   func eventIsFiring(_ info: Any?) {
     
-    if let info = info as? Int {
-      postNotification(SfoNotification.Trip.started, value: info)
+    if let tripId = info as? Int {
+      NotificationCenter.default.post(name: .tripStarted, object: nil, userInfo: [InfoKey.tripId: tripId])
     }
   }
 }

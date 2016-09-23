@@ -10,10 +10,10 @@ import UIKit
 import SnapKit
 
 class FlightStatusView: UIView {
-  fileprivate let tableHeader = UILabel()
-  fileprivate let flightTable = UITableView()
-  fileprivate let timerView = TimerView()
-  fileprivate let reachabilityNotice = ReachabilityNotice()
+  private let tableHeader = UILabel()
+  private let flightTable = UITableView()
+  private let timerView = TimerView()
+  private let reachabilityNotice = ReachabilityNotice()
   
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")
@@ -88,7 +88,7 @@ class FlightStatusView: UIView {
     }
   }
   
-  func startTimerView(_ updateInterval: TimeInterval, callback: TimerCallback) {
+  func startTimerView(_ updateInterval: TimeInterval, callback: @escaping TimerCallback) {
     timerView.start(updateInterval, callback: callback)
   }
   

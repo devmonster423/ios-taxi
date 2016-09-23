@@ -10,24 +10,23 @@ import Foundation
 import UIKit
 import MBProgressHUD
 
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
+//fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+//  switch (lhs, rhs) {
+//  case let (l?, r?):
+//    return l < r
+//  case (nil, _?):
+//    return true
+//  default:
+//    return false
+//  }
+//}
 
 class FlightStatusVC: UIViewController {
   
-  fileprivate let minimumSpinnerDuration = TimeInterval(2) // seconds
-  fileprivate var earliestTimeToDismiss: Date?
-  fileprivate var timer: Timer?
-  fileprivate var hud: MBProgressHUD?
-  var reachabilityObserver: ReachabilityObserver?
+  private let minimumSpinnerDuration = TimeInterval(2) // seconds
+  private var earliestTimeToDismiss: Date?
+  private var timer: Timer?
+  private var hud: MBProgressHUD?
   
   var selectedTerminalId: TerminalId!
   var currentHour: Int!
@@ -47,19 +46,22 @@ class FlightStatusVC: UIViewController {
     configureNavBar(back: true, title: NSLocalizedString("Flight Status", comment: "").uppercased())
     addSettingsButton()
     
-    NotificationCenter.default.addObserver(
+    let nc = NotificationCenter.default
+    
+    nc.addObserver(
       self,
       selector: #selector(stopTimer),
       name: NSNotification.Name.UIApplicationDidEnterBackground,
       object: nil)
     
-    NotificationCenter.default.addObserver(
+    nc.addObserver(
       self,
       selector: #selector(startTimer),
       name: NSNotification.Name.UIApplicationWillEnterForeground,
       object: nil)
     
-    reachabilityObserver = NotificationObserver(notification: SfoNotification.Reachability.reachabilityChanged) { reachable, _ in
+    nc.addObserver(forName: .reachabilityChanged, object: nil, queue: nil) { note in
+      let reachable = note.userInfo![InfoKey.reachable] as! Bool
       self.flightStatusView().setReachabilityNoticeHidden(reachable)
     }
   }
@@ -88,15 +90,17 @@ class FlightStatusVC: UIViewController {
   }
   
   func attemptToHideSpinner() {
-    if earliestTimeToDismiss?.timeIntervalSinceNow < 0 {
-      hud?.hide(true)
+    if let timeInterval = earliestTimeToDismiss?.timeIntervalSinceNow,
+      timeInterval < 0.0 {
+      
+      hud?.hide(animated: true)
       timer?.invalidate()
     }
   }
   
   func updateFlightTable() {
     hud = MBProgressHUD.showAdded(to: view, animated: true)
-    hud?.labelText = NSLocalizedString("Requesting Flights...", comment: "")
+    hud?.label.text = NSLocalizedString("Requesting Flights...", comment: "")
     earliestTimeToDismiss = Date().addingTimeInterval(minimumSpinnerDuration)
     
     ApiClient.requestFlightsForTerminal(selectedTerminalId.rawValue, hour: currentHour, flightType: flightType) { flights, statusCode in

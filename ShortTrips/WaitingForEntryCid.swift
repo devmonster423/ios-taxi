@@ -9,19 +9,21 @@
 import Foundation
 import TransitionKit
 
-struct WaitingForEntryCid {
+class WaitingForEntryCid {
   let stateName = "waitingForEntryCid"
   static let sharedInstance = WaitingForEntryCid()
-  fileprivate let expectedCid: GtmsLocation = .TaxiEntry
+  private let expectedCid: GtmsLocation = .TaxiEntry
 
-  fileprivate var poller: Poller?
-  fileprivate var state: TKState
+  private var poller: Poller?
+  private var state: TKState
 
-  fileprivate init() {
+  private init() {
     state = TKState(name: stateName)
 
     state.setDidEnter { _, _ in
-      postNotification(SfoNotification.State.update, value: self.getState())
+      
+      let nc = NotificationCenter.default
+      nc.post(name: .stateUpdate, object: nil, userInfo: [InfoKey.state: self.getState()])
       
       self.poller = Poller.init() {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
@@ -31,7 +33,7 @@ struct WaitingForEntryCid {
               if device == self.expectedCid {
                 LatestCidIsEntryCid.sharedInstance.fire(cid)
               } else {
-                postNotification(SfoNotification.Cid.unexpected, value: (expected: self.expectedCid, found: device))
+                nc.post(name: .cidUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: self.expectedCid, InfoKey.foundGtmsLocation: device])
                 
                 if !GeofenceManager.sharedInstance.stillInsideTaxiWaitZone() {
                   NotInsideTaxiWaitZoneAfterFailedEntryCheck.sharedInstance.fire()

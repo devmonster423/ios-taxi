@@ -9,18 +9,18 @@
 import Foundation
 import TransitionKit
 
-struct NotReady {
+class NotReady {
   let stateName = "notReady"
   static let sharedInstance = NotReady()
   
-  fileprivate var state: TKState
+  private var state: TKState
   
-  fileprivate init() {
+  private init() {
     state = TKState(name: stateName)
     
     state.setDidEnter { _, _ in
       TripManager.sharedInstance.reset(false)
-      postNotification(SfoNotification.State.update, value: self.getState())
+      NotificationCenter.default.post(name: .stateUpdate, object: nil, userInfo: [InfoKey.state: self.getState()])
     }
   }
   

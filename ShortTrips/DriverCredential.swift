@@ -22,8 +22,8 @@ struct DriverCredential: Mappable {
     self.username = username
     self.password = password
     self.deviceOs = "ios"
-    self.osVersion = UIDevice.currentDevice().systemVersion
-    self.deviceUuid = UIDevice.currentDevice().identifierForVendor!.UUIDString
+    self.osVersion = UIDevice.current.systemVersion
+    self.deviceUuid = UIDevice.current.identifierForVendor!.uuidString
     if let location = LocationManager.sharedInstance.getLastKnownLocation() {
       self.latitude = "\(location.coordinate.latitude)"
       self.longitude = "\(location.coordinate.longitude)"
@@ -32,9 +32,9 @@ struct DriverCredential: Mappable {
   
   init() {}
   
-  init?(_ map: Map){}
+  init?(map: Map){}
   
-  mutating func mapping(_ map: Map) {
+  mutating func mapping(map: Map) {
     username <- map["username"]
     password <- map["password"]
     osVersion <- map["os_version"]
@@ -54,18 +54,18 @@ struct DriverCredential: Mappable {
     
     DriverCredential.clear()
     
-    let credential = NSURLCredential(user: username,
+    let credential = URLCredential(user: username,
       password: password,
-      persistence: .Permanent)
+      persistence: .permanent)
     
-    NSURLCredentialStorage.sharedCredentialStorage()
+    URLCredentialStorage.shared
       .setCredential(credential,
         forProtectionSpace: DriverCredential.credentialProtectionSpace())
   }
   
   static func load() -> DriverCredential? {
-    let credentials = NSURLCredentialStorage.sharedCredentialStorage()
-      .credentialsForProtectionSpace(DriverCredential.credentialProtectionSpace())
+    let credentials = URLCredentialStorage.shared
+      .credentials(for: DriverCredential.credentialProtectionSpace())
     if let credential = credentials?.first?.1,
       let username = credential.user,
       let password = credential.password {
@@ -76,19 +76,19 @@ struct DriverCredential: Mappable {
   }
   
   static func clear() {
-    let credentials = NSURLCredentialStorage.sharedCredentialStorage()
-      .credentialsForProtectionSpace(DriverCredential.credentialProtectionSpace())
+    let credentials = URLCredentialStorage.shared
+      .credentials(for: DriverCredential.credentialProtectionSpace())
     if let credential = credentials?.first?.1 {
-      NSURLCredentialStorage.sharedCredentialStorage()
+      URLCredentialStorage.shared
         .removeCredential(credential,
           forProtectionSpace: DriverCredential.credentialProtectionSpace())
     }
   }
   
-  fileprivate static func credentialProtectionSpace() -> NSURLProtectionSpace {
+  fileprivate static func credentialProtectionSpace() -> URLProtectionSpace {
     let url = NSURL(string: Url.base)!
-    return NSURLProtectionSpace(host: url.host!,
-      port: (url.port?.integerValue)!,
+    return URLProtectionSpace(host: url.host!,
+      port: (url.port?.intValue)!,
       protocol: url.scheme,
       realm: nil,
       authenticationMethod: NSURLAuthenticationMethodHTTPDigest)

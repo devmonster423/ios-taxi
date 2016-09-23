@@ -9,19 +9,19 @@
 import Foundation
 import TransitionKit
 
-struct AssociatingDriverAndVehicleAtReEntry {
+class AssociatingDriverAndVehicleAtReEntry {
   let stateName = "associatingDriverAndVehicleAtReEntry"
   static let sharedInstance = AssociatingDriverAndVehicleAtReEntry()
   
-  fileprivate var poller: Poller?
-  fileprivate var state: TKState
+  private var poller: Poller?
+  private var state: TKState
   
-  fileprivate init() {
+  private init() {
     state = TKState(name: stateName)
     
     state.setDidEnter { _, _ in
       
-      postNotification(SfoNotification.State.update, value: self.getState())
+      NotificationCenter.default.post(name: .stateUpdate, object: nil, userInfo: [InfoKey.state: self.getState()])
       
       self.poller = Poller.init() {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {

@@ -99,7 +99,7 @@ extension DebugVC {
                       sessionId: sessionId,
                       medallion: medallion)
       
-      postNotification(SfoNotification.Ping.created, value: ping)
+      NotificationCenter.default.post(name: .pingCreated, object: nil, userInfo: [InfoKey.ping: ping])
     }
   }
   

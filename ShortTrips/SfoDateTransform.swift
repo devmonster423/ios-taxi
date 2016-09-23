@@ -1,5 +1,5 @@
 //
-//  DateTransform.swift
+//  SfoDateTransform.swift
 //  ShortTrips
 //
 //  Created by Matt Luedke on 9/22/15.
@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-public struct DateTransform: TransformType {
+public struct SfoDateTransform: TransformType {
 
   var dateFormat: String
 
@@ -17,7 +17,7 @@ public struct DateTransform: TransformType {
     self.dateFormat = dateFormat
   }
 
-  public func transformFromJSON(_ value: AnyObject?) -> Date? {
+  public func transformFromJSON(_ value: Any?) -> Date? {
     if let stringValue = value as? String {
       let dateFormatter = DateFormatter()
       dateFormatter.locale = Locale(identifier: "en_US_POSIX")

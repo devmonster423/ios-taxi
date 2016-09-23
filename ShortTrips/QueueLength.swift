@@ -13,9 +13,9 @@ struct QueueLength: Mappable {
   var longQueueLength: Int!
   var shortQueueLength: Int!
   
-  init?(_ map: Map){}
+  init?(map: Map){}
   
-  mutating func mapping(_ map: Map) {
+  mutating func mapping(map: Map) {
     longQueueLength <- map["response.long_queue_length"]
     shortQueueLength <- map["response.short_queue_length"]
   }

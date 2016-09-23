@@ -54,9 +54,9 @@ struct MobileStateInfo: Mappable {
     self.tripId = tripId
   }
   
-  init?(_ map: Map){}
+  init?(map: Map){}
   
-  mutating func mapping(_ map: Map) {
+  mutating func mapping(map: Map) {
     longitude <- map["longitude"]
     latitude <- map["latitude"]
     sessionId <- map["session_id"]

@@ -11,26 +11,25 @@ import CoreLocation
 
 class GeofenceManager {
   
-  var locationObserver: NotificationObserver<CLLocation, AnyObject>?
-  fileprivate var lastCheckedLocation: CLLocation?
-  fileprivate var insideSfoBufferedExit = false
+  private var lastCheckedLocation: CLLocation?
+  private var insideSfoBufferedExit = false
   var checkThreshold: Double {
     return insideSfoBufferedExit ? 30 : 300
   }
-  fileprivate var lastKnownGeofences: [SfoGeofence]?
+  private var lastKnownGeofences: [SfoGeofence]?
   
   static let sharedInstance = GeofenceManager()
   
   func start() {
-    if locationObserver == nil {
-      self.locationObserver = NotificationObserver(notification: SfoNotification.Location.read) { location, _ in
-        self.process(location)
-      }
+    NotificationCenter.default.removeObserver(self)
+    NotificationCenter.default.addObserver(forName: .locRead, object: nil, queue: nil) { note in
+      let location = note.userInfo![InfoKey.location] as! CLLocation
+      self.process(location)
     }
   }
 
   func stop() {
-    locationObserver = nil
+    NotificationCenter.default.removeObserver(self)
   }
   
   func process(_ location: CLLocation) {

@@ -20,9 +20,9 @@ struct TripInvalidation: Mappable {
     self.deviceTimestamp = Date()
   }
   
-  init?(_ map: Map){}
+  init?(map: Map){}
   
-  mutating func mapping(_ map: Map) {
+  mutating func mapping(map: Map) {
     deviceTimestamp <- (map["device_timestamp"], TripDateTransform)
     sessionId <- map["session_id"]
     validationStep <- map["step"]

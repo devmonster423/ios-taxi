@@ -14,7 +14,7 @@ struct Airline: Mappable {
   
   init?(_ map: Map){}
   
-  mutating func mapping(_ map: Map) {
+  mutating func mapping(map: Map) {
     airlineCode <- map["airlineCode"]
     airlineName <- map["airlineName"]
   }  

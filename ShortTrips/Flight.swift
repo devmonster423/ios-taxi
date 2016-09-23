@@ -28,8 +28,8 @@ struct Flight: Mappable {
   var flightNumber: String!
   var flightStatus: FlightStatus?
   var scheduledTime: NSDate!
-  static let timeCushion: NSTimeInterval = 900.0
-  static let transform = DateTransform(dateFormat: "hh:mm a") // "2:50 PM"
+  static let timeCushion: TimeInterval = 900.0
+  static let transform = SfoDateTransform(dateFormat: "hh:mm a") // "2:50 PM"
   
   init(airline: String, bags: Int, estimatedTime: NSDate, flightStatus: FlightStatus, flightNumber: String, scheduledTime: NSDate) {
     self.airline = airline
@@ -42,7 +42,7 @@ struct Flight: Mappable {
   
   init?(_ map: Map){}
   
-  mutating func mapping(_ map: Map) {
+  mutating func mapping(map: Map) {
     airline <- map["airline_name"]
     bags <- map["bags"]
     estimatedTime <- (map["estimated_time"], Flight.transform)

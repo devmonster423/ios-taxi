@@ -31,7 +31,7 @@ extension LatestCidIsReEntryCid: Event {
 extension LatestCidIsReEntryCid: Observable {
   func eventIsFiring(_ info: Any?) {
     if let cid = info as? Cid {
-      postNotification(SfoNotification.Cid.entry, value: cid)
+      NotificationCenter.default.post(name: .cidRead, object: nil, userInfo: [InfoKey.cid: cid])
     }
   }
 }

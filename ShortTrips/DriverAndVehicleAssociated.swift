@@ -44,7 +44,7 @@ extension DriverAndVehicleAssociated: Event {
 extension DriverAndVehicleAssociated: Observable {
   func eventIsFiring(_ info: Any?) {
     if let info = info as? (driver: Driver, vehicle: Vehicle) {
-      postNotification(SfoNotification.Driver.vehicleAssociated, value: info)
+      NotificationCenter.default.post(name: .driverVehicleAssociated, object: nil, userInfo: [InfoKey.driver: info.driver, InfoKey.vehicle: info.vehicle])
     }
   }
 }

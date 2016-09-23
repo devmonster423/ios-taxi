@@ -9,19 +9,20 @@
 import Foundation
 import TransitionKit
 
-struct WaitingForTaxiLoopAvi {
+class WaitingForTaxiLoopAvi {
   let stateName = "WaitingForTaxiLoopAvi"
   static let sharedInstance = WaitingForTaxiLoopAvi()
   
-  fileprivate var poller: Poller?
-  fileprivate var state: TKState
+  private var poller: Poller?
+  private var state: TKState
   
-  fileprivate init() {
+  private init() {
     state = TKState(name: stateName)
     
     state.setDidEnter { _, _ in
     
-      postNotification(SfoNotification.State.update, value: self.getState())
+      let nc = NotificationCenter.default
+      nc.post(name: .stateUpdate, object: nil, userInfo: [InfoKey.state: self.getState()])
       
       self.poller = Poller.init() {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
@@ -34,7 +35,7 @@ struct WaitingForTaxiLoopAvi {
                 LatestAviAtTaxiLoop.sharedInstance.fire(antenna)
                   
               } else {
-                postNotification(SfoNotification.Avi.unexpected, value: (expected: .DtaRecirculation, found: device))
+                nc.post(name: .aviUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: .DtaRecirculation, InfoKey.foundGtmsLocation: device])
                 
                 if !GeofenceManager.sharedInstance.stillInDomesticExitNotInHoldingLot() {
                   NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.sharedInstance.fire()

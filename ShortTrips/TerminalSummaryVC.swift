@@ -12,8 +12,6 @@ import MBProgressHUD
 
 class TerminalSummaryVC: UIViewController {
 
-  var reachabilityObserver: ReachabilityObserver?
-  
   var errorShown = false
   
   override func loadView() {
@@ -42,19 +40,22 @@ class TerminalSummaryVC: UIViewController {
     configureNavBar(title: NSLocalizedString("Flight Status", comment: "").uppercased())
     addSettingsButton()
 
-    NotificationCenter.default.addObserver(
+    let nc = NotificationCenter.default
+    
+    nc.addObserver(
       self,
       selector: #selector(stopTimer),
       name: NSNotification.Name.UIApplicationDidEnterBackground,
       object: nil)
     
-    NotificationCenter.default.addObserver(
+    nc.addObserver(
       self,
       selector: #selector(startTimer),
       name: NSNotification.Name.UIApplicationWillEnterForeground,
       object: nil)
     
-    reachabilityObserver = NotificationObserver(notification: SfoNotification.Reachability.reachabilityChanged) { reachable, _ in
+    nc.addObserver(forName: .reachabilityChanged, object: nil, queue: nil) { note in
+      let reachable = note.userInfo![InfoKey.reachable] as! Bool
       self.terminalSummaryView().setReachabilityNoticeHidden(reachable)
     }
   }

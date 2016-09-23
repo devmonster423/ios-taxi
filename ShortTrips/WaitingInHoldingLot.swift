@@ -9,17 +9,18 @@
 import Foundation
 import TransitionKit
 
-struct WaitingInHoldingLot {
+class WaitingInHoldingLot {
   let stateName = "waitingInHoldingLot"
   static let sharedInstance = WaitingInHoldingLot()
   
-  fileprivate var state: TKState
+  private var state: TKState
   
-  fileprivate init() {
+  private init() {
     state = TKState(name: stateName)
     
     state.setDidEnter { _, transition  in
-      postNotification(SfoNotification.State.update, value: self.getState())
+      
+      NotificationCenter.default.post(name: .stateUpdate, object: nil, userInfo: [InfoKey.state: self.getState()])
       
       let intervalSec: Double = TripManager.sharedInstance.getRightAfterValidShort()
         ? 60

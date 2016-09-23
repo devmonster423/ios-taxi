@@ -31,7 +31,7 @@ extension TripInvalidated: Event {
 extension TripInvalidated: Observable {
   func eventIsFiring(_ info: Any?) {
     if let info = info as? [ValidationStepWrapper]? {
-      postNotification(SfoNotification.Trip.invalidated, value: info)
+      NotificationCenter.default.post(name: .tripInvalidated, object: nil, userInfo: [InfoKey.validationSteps: info])
       TripManager.sharedInstance.reset(false)
     }
   }

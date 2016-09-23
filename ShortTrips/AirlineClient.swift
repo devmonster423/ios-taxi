@@ -7,33 +7,37 @@
 //
 
 import Foundation
+import Alamofire
 import AlamofireImage
 import AlamofireObjectMapper
 
-typealias AirlinesClosure = ([Airline]?, Error?) -> Void
+typealias AirlinesClosure = ([Airline]?) -> Void
 typealias ImageClosure = (UIImage?) -> Void
 
 extension ApiClient {
   static var airlineImages:[String:UIImage] = Dictionary()
   
-  static func imageForIataCode(_ iataCode: String, width: Int, height: Int, completion: ImageClosure) {
+  static func imageForIataCode(_ iataCode: String, width: Int, height: Int, completion: @escaping ImageClosure) {
     if let airlineImage = airlineImages[iataCode] {
       completion(airlineImage);
     }
     else {
       let params = ["width": width, "height": height]
-      authedRequest(.GET, Url.Airline.logoPng(iataCode), parameters: params).responseImage { (_, _, result) -> Void in
-        if airlineImages[iataCode] == nil {
-          airlineImages[iataCode] = result.value
+      Alamofire.request(Url.Airline.logoPng(iataCode), parameters: params, headers: headers())
+        .responseImage { response in
+          
+          if airlineImages[iataCode] == nil {
+            airlineImages[iataCode] = response.result.value
+          }
+          completion(response.result.value)
         }
-        completion(result.value)
-      }
     }
   }
   
   static func codes(_ completion: @escaping AirlinesClosure) {
-    authedRequest(.GET, Url.Airline.codes).responseObject { (airlineListWrapper: AirlineListWrapper?, error) -> Void in
-      completion(airlineListWrapper?.airlines, error)
+    Alamofire.request(Url.Airline.codes, headers: headers())
+      .responseObject { (dataResponse: DataResponse<AirlineListWrapper>) in
+        completion(dataResponse.result.value?.airlines)
     }
   }
 }

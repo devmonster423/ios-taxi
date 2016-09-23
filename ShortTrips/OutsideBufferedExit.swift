@@ -34,6 +34,6 @@ extension OutsideBufferedExit: Event {
 
 extension OutsideBufferedExit: Observable {
   func eventIsFiring(_ info: Any?) {
-    postNotification(SfoNotification.Geofence.outsideBufferedExit, value: nil)
+    NotificationCenter.default.post(name: .outsideBufferedExit, object: nil)
   }
 }

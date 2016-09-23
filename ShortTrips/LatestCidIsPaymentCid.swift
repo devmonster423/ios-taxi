@@ -31,7 +31,7 @@ extension LatestCidIsPaymentCid: Event {
 extension LatestCidIsPaymentCid: Observable {
   func eventIsFiring(_ info: Any?) {
     if let cid = info as? Cid {
-      postNotification(SfoNotification.Cid.payment, value: cid)
+      NotificationCenter.default.post(name: .cidRead, object: nil, userInfo: [InfoKey.cid: cid])
     }
   }
 }

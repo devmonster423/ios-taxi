@@ -9,18 +9,18 @@
 import Foundation
 import TransitionKit
 
-struct StartingTrip {
+class StartingTrip {
   let stateName = "StartingTrip"
   static let sharedInstance = StartingTrip()
   
-  fileprivate var state: TKState
+  private var state: TKState
   
-  fileprivate init() {
+  private init() {
     state = TKState(name: stateName)
     
     state.setDidEnter { _, _ in
       
-      postNotification(SfoNotification.State.update, value: self.getState())
+      NotificationCenter.default.post(name: .stateUpdate, object: nil, userInfo: [InfoKey.state: self.getState()])
       
       DriverManager.sharedInstance.callWithValidSession {
         

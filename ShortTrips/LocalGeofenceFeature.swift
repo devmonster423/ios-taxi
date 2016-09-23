@@ -16,9 +16,9 @@ struct LocalGeofenceFeature: Mappable {
 
   var rings: [[[Double]]]!
 
-  init?(_ map: Map){}
+  init?(map: Map){}
 
-  mutating func mapping(_ map: Map) {
+  mutating func mapping(map: Map) {
     rings <- map["geometry.rings"]
   }
 

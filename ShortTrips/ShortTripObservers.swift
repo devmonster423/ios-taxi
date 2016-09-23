@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 import TransitionKit
 
 extension ShortTripVC {
@@ -19,38 +20,48 @@ extension ShortTripVC {
   
   func setupObservers() {
     
-    sfoObservers.invalidatedObserver = NotificationObserver(notification: SfoNotification.Trip.invalidated) { validationSteps, _ in
-      if let validationSteps = validationSteps , validationSteps.count > 0 {
+    let nc = NotificationCenter.default
+
+    nc.addObserver(forName: .tripInvalidated, object: nil, queue: nil) { note in
+      if let validationSteps = note.userInfo?[InfoKey.validationSteps] as? [ValidationStepWrapper], validationSteps.count > 0 {
+        
         self.notifyFail(validationSteps.first!.validationStep)
       } else {
-        self.notifyFail(.Unspecified)
+        self.notifyFail(.unspecified)
       }
     }
     
-    sfoObservers.locationStatusObserver = NotificationObserver(notification: SfoNotification.Location.statusUpdated) { status, _ in
-      if status != .AuthorizedAlways {
-        self.notifyFail(.GpsFailure)
+    nc.addObserver(forName: .locStatusUpdated, object: nil, queue: nil) { note in
+      let status = note.userInfo![InfoKey.locationStatus] as! CLAuthorizationStatus
+      if status != .authorizedAlways {
+        self.notifyFail(.gpsFailure)
       }
     }
     
-    sfoObservers.logoutObserver = NotificationObserver(notification: SfoNotification.Driver.logout) { _, _ in
-      self.notifyFail(.UserLogout)
+    nc.addObserver(forName: .logout, object: nil, queue: nil) { note in
+      self.notifyFail(.userLogout)
       self.shortTripView().hideNotification()
     }
     
-    sfoObservers.stateUpdateObserver = NotificationObserver(notification: SfoNotification.State.update) { state, _ in
+    nc.addObserver(forName: .reachabilityChanged, object: nil, queue: nil) { note in
+      let reachable = note.userInfo![InfoKey.reachable] as! Bool
+      self.shortTripView().setReachabilityNoticeHidden(reachable)
+    }
+    
+    nc.addObserver(forName: .stateUpdate, object: nil, queue: nil) { note in
+      let state = note.userInfo![InfoKey.state] as! TKState
       self.updateForState(state)
     }
     
-    sfoObservers.outsideShortTripObserver = NotificationObserver(notification: SfoNotification.Geofence.outsideShortTrip) { _, _ in
-      self.notifyFail(.Geofence)
+    nc.addObserver(forName: .outsideShortTrip, object: nil, queue: nil) { note in
+      self.notifyFail(.geofence)
     }
     
-    sfoObservers.timeExpiredObserver = NotificationObserver(notification: SfoNotification.Trip.timeExpired) { _, _ in
-      self.notifyFail(.Duration)
+    nc.addObserver(forName: .timeExpired, object: nil, queue: nil) { note in
+      self.notifyFail(.duration)
     }
     
-    sfoObservers.validatedObserver = NotificationObserver(notification: SfoNotification.Trip.validated) { date, _ in
+    nc.addObserver(forName: .tripValidated, object: nil, queue: nil) { note in
       self.shortTripView().notifySuccess(date)
     }
   }

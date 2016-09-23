@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import CoreLocation
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
@@ -16,15 +17,16 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   
   static let sharedInstance = LocationManager()
   
-  fileprivate var lastKnownLocation: CLLocation?
-  var locationObserver: NotificationObserver<CLLocation, AnyObject>?
+  private var lastKnownLocation: CLLocation?
   
-  fileprivate var bgId: UIBackgroundTaskIdentifier?
+  private var bgId: UIBackgroundTaskIdentifier?
   
-  fileprivate override init() {
+  private override init() {
     super.init()
     
-    locationObserver = NotificationObserver(notification: SfoNotification.Location.read) { location, _ in
+    NotificationCenter.default.addObserver(forName: .locRead, object: nil, queue: nil) { note in
+      
+      let location = note.userInfo![InfoKey.location] as! CLLocation
       self.lastKnownLocation = location
     }
   }
@@ -43,7 +45,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     manager.distanceFilter = kCLDistanceFilterNone
     manager.requestAlwaysAuthorization()
     manager.startUpdatingLocation()
-    postNotification(SfoNotification.Location.managerStarted, value: nil)
+    NotificationCenter.default.post(name: .locManagerStarted, object: nil)
   }
   
   func stop() {
@@ -54,9 +56,9 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
                        didUpdateLocations locations: [CLLocation]) {
     
     if self.bgId == nil {
-      self.bgId = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { _ in
+      self.bgId = UIApplication.shared.beginBackgroundTask { _ in
         if let bgId = self.bgId {
-          UIApplication.sharedApplication().endBackgroundTask(bgId)
+          UIApplication.shared.endBackgroundTask(bgId)
           self.bgId = nil
         }
       }
@@ -66,7 +68,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
       self.lastKnownLocation = location
       
       if location.horizontalAccuracy < requiredAccuracy {
-        postNotification(SfoNotification.Location.read, value: location)
+        NotificationCenter.default.post(name: .locRead, object: nil, userInfo: [InfoKey.location: location])
       }
     }
   }
@@ -74,7 +76,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
   func locationManager(_ manager: CLLocationManager,
                        didChangeAuthorization status: CLAuthorizationStatus) {
     
-    postNotification(SfoNotification.Location.statusUpdated, value: status)
+    NotificationCenter.default.post(name: .locStatusUpdated, object: nil, userInfo: [InfoKey.locationStatus: status])
     if status == .authorizedAlways {
       GpsEnabled.sharedInstance.fire()
     } else {

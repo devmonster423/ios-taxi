@@ -38,7 +38,7 @@ struct TerminalSummary: Mappable {
   var delayedCount: Int!
   var onTimeCount: Int!
   
-  init?(_ map: Map){}
+  init?(map: Map){}
   
   init(terminalId: TerminalId, onTimeCount: Int, delayedCount: Int) {
     self.terminalId = terminalId
@@ -46,7 +46,7 @@ struct TerminalSummary: Mappable {
     self.delayedCount = delayedCount
   }
   
-  mutating func mapping(_ map: Map) {
+  mutating func mapping(map: Map) {
     terminalId <- map["terminal_id"]
     onTimeCount <- map["count"]
     delayedCount <- map["delayed_count"]

@@ -190,7 +190,6 @@
 		E13F40981B7D39C200A98B99 /* TerminalSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */; };
 		E1472CF41C0E7A7A00D27D60 /* ShortTripVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472CF31C0E7A7A00D27D60 /* ShortTripVC.swift */; };
 		E1472D041C0E7B6900D27D60 /* ShortTripObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472D031C0E7B6900D27D60 /* ShortTripObservers.swift */; };
-		E1472D081C0E7BC900D27D60 /* SfoObservers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472D071C0E7BC900D27D60 /* SfoObservers.swift */; };
 		E1472D0B1C0E7C2400D27D60 /* ShortTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1472D0A1C0E7C2400D27D60 /* ShortTripView.swift */; };
 		E14A39261BE945960053F741 /* TripScenario4Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14A39251BE945960053F741 /* TripScenario4Spec.swift */; };
 		E14A39281BE957340053F741 /* AppQuit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14A39271BE957340053F741 /* AppQuit.swift */; };
@@ -256,7 +255,7 @@
 		FA32EC0A1B8836B7001428B5 /* yellow_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC071B8836B7001428B5 /* yellow_bg.jpg */; };
 		FA32EC0E1B883B44001428B5 /* terminal_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC0D1B883B44001428B5 /* terminal_bg.jpg */; };
 		FA6380F21BED1FEA00CF51CC /* GtmsLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */; };
-		FA650FF81BB20CDB003D1939 /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA650FF71BB20CDB003D1939 /* DateTransform.swift */; };
+		FA650FF81BB20CDB003D1939 /* SfoDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA650FF71BB20CDB003D1939 /* SfoDateTransform.swift */; };
 		FA93FFF41C588298008A2F22 /* FeedbackEmailMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FFF31C588298008A2F22 /* FeedbackEmailMaker.swift */; };
 		FA93FFF61C5889D6008A2F22 /* DeviceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FFF51C5889D6008A2F22 /* DeviceUtil.swift */; };
 		FAB97C721C23867F008F5421 /* GeofenceVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB97C711C23867F008F5421 /* GeofenceVars.swift */; };
@@ -472,7 +471,6 @@
 		E13F40971B7D39C200A98B99 /* TerminalSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryVC.swift; sourceTree = "<group>"; };
 		E1472CF31C0E7A7A00D27D60 /* ShortTripVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortTripVC.swift; sourceTree = "<group>"; };
 		E1472D031C0E7B6900D27D60 /* ShortTripObservers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortTripObservers.swift; sourceTree = "<group>"; };
-		E1472D071C0E7BC900D27D60 /* SfoObservers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SfoObservers.swift; sourceTree = "<group>"; };
 		E1472D0A1C0E7C2400D27D60 /* ShortTripView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortTripView.swift; sourceTree = "<group>"; };
 		E14A39251BE945960053F741 /* TripScenario4Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TripScenario4Spec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E14A39271BE957340053F741 /* AppQuit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppQuit.swift; sourceTree = "<group>"; };
@@ -539,7 +537,7 @@
 		FA32EC0D1B883B44001428B5 /* terminal_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = terminal_bg.jpg; sourceTree = "<group>"; };
 		FA32EC0F1B885B92001428B5 /* ShortTrips.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ShortTrips.entitlements; sourceTree = "<group>"; };
 		FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GtmsLocation.swift; sourceTree = "<group>"; };
-		FA650FF71BB20CDB003D1939 /* DateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTransform.swift; sourceTree = "<group>"; };
+		FA650FF71BB20CDB003D1939 /* SfoDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SfoDateTransform.swift; sourceTree = "<group>"; };
 		FA93FFF31C588298008A2F22 /* FeedbackEmailMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEmailMaker.swift; sourceTree = "<group>"; };
 		FA93FFF51C5889D6008A2F22 /* DeviceUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceUtil.swift; sourceTree = "<group>"; };
 		FAB97C711C23867F008F5421 /* GeofenceVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceVars.swift; sourceTree = "<group>"; };
@@ -1170,7 +1168,6 @@
 				FA0CD4BE1C49866500C071AC /* Settings */,
 				E1472CF21C0E7A4300D27D60 /* ShortTrip */,
 				C220E0671BC339E200AC7C85 /* StateManagement */,
-				E1472D071C0E7BC900D27D60 /* SfoObservers.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1342,12 +1339,12 @@
 			children = (
 				FAF34DA91C97847000061A2D /* AppChecker.swift */,
 				C21775F81BB08CAC008B24EA /* Color.swift */,
-				FA650FF71BB20CDB003D1939 /* DateTransform.swift */,
 				FA93FFF51C5889D6008A2F22 /* DeviceUtil.swift */,
 				C220E0611BC3322F00AC7C85 /* ErrorLogger.swift */,
 				FA0E1FD11BAF1DD500B8F921 /* Font.swift */,
 				C2B15ADE1BBB16010049B97C /* Image.swift */,
 				FA22DCCC1CC69AAC004B4104 /* PendingAppQuit.swift */,
+				FA650FF71BB20CDB003D1939 /* SfoDateTransform.swift */,
 				C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */,
 				C26ABD121C45936100EF4684 /* Speaker.swift */,
 				E1CDE70E1B66D79800AB27D2 /* UiConstants.swift */,
@@ -1666,7 +1663,6 @@
 				C24388431C447B4E00984CB8 /* NotificationView.swift in Sources */,
 				FA0CD4B91C4968FB00C071AC /* OutsideBufferedExit.swift in Sources */,
 				C220E06D1BC33C1D00AC7C85 /* NotReady.swift in Sources */,
-				E1472D081C0E7BC900D27D60 /* SfoObservers.swift in Sources */,
 				C220E0711BC3440C00AC7C85 /* InsideTaxiLoopExit.swift in Sources */,
 				E1A2EBAF1B6E920500C27EB2 /* TerminalSummary.swift in Sources */,
 				C20A988C1BE1A066009E29E7 /* StartingTrip.swift in Sources */,
@@ -1769,7 +1765,7 @@
 				FA6380F21BED1FEA00CF51CC /* GtmsLocation.swift in Sources */,
 				E1A2EBAD1B6E8FEF00C27EB2 /* FlightStatus.swift in Sources */,
 				8EEFB7A41BE04AD900B8A962 /* WaitingForTaxiLoopAvi.swift in Sources */,
-				FA650FF81BB20CDB003D1939 /* DateTransform.swift in Sources */,
+				FA650FF81BB20CDB003D1939 /* SfoDateTransform.swift in Sources */,
 				E18229031BC495A000614256 /* TripValidated.swift in Sources */,
 				C221EDE51BE2CB1700BDB4CD /* TripWarning.swift in Sources */,
 				C29F59EE1C220B2F007EFA1D /* NotInsideTaxiWaitZoneAfterFailedEntryCheck.swift in Sources */,

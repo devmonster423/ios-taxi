@@ -25,7 +25,7 @@ class LoginVC: UIViewController {
   
   override func loadView() {
     if let _ = credential {
-      let loginView = AutoLoginView(coder: UIScreen.mainScreen.bounds)
+      let loginView = LoginView(frame: UIScreen.main.bounds)
       view = loginView
     } else {
       let loginView = LoginView(frame: UIScreen.main.bounds)
@@ -54,10 +54,10 @@ class LoginVC: UIViewController {
     guard let fullCredential = optionalCredential else { return }
     
     let hud = MBProgressHUD.showAdded(to: view, animated: true)
-    hud.labelText = NSLocalizedString("Logging In...", comment: "")
+    hud.label.text = NSLocalizedString("Logging In...", comment: "")
     ApiClient.authenticateDriver(fullCredential) { driver in
       
-      hud.hide(true)
+      hud.hide(animated: true)
       
       if let driver = driver {
         fullCredential.save()

@@ -13,9 +13,9 @@ struct TimeExpired {
   let eventNames = ["timeExpired"]
   static let sharedInstance = TimeExpired()
   
-  fileprivate var events: [TKEvent]
+  private var events: [TKEvent]
   
-  fileprivate init() {
+  private init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: StateManager.allStates,
       to: NotReady.sharedInstance.getState())]
@@ -30,7 +30,8 @@ extension TimeExpired: Event {
 
 extension TimeExpired: Observable {
   func eventIsFiring(_ info: Any?) {
-    postNotification(SfoNotification.Trip.timeExpired, value: nil)
+    
+    NotificationCenter.default.post(name: .timeExpired, object: nil)
 
     if let tripId = TripManager.sharedInstance.getTripId(),
       let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {

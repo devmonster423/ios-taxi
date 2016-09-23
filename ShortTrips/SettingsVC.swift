@@ -20,7 +20,7 @@ class SettingsVC: UIViewController {
   let cellId = "cell"
   
   override func loadView() {
-    let settingsView = SettingsView(coder: UIScreen.mainScreen.bounds)
+    let settingsView = SettingsView(frame: UIScreen.main.bounds)
     settingsView.tableView.dataSource = self
     settingsView.tableView.delegate = self
     view = settingsView

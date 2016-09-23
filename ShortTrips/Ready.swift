@@ -10,18 +10,18 @@ import Foundation
 import CoreLocation
 import TransitionKit
 
-struct Ready {
+class Ready {
   let stateName = "ready"
   static let sharedInstance = Ready()
   
-  fileprivate var state: TKState
+  private var state: TKState
   
-  fileprivate init() {
+  private init() {
     state = TKState(name: stateName)
     
     state.setDidEnter { _, _ in
       
-      postNotification(SfoNotification.State.update, value: self.getState())
+      NotificationCenter.default.post(name: .stateUpdate, object: nil, userInfo: [InfoKey.state: self.getState()])
       
       DriverManager.sharedInstance.callWithValidSession {
         
@@ -31,7 +31,7 @@ struct Ready {
             fatalError("can't update mobile state")
         }
         
-        ApiClient.updateMobileState(.Ready, mobileStateInfo: MobileStateInfo(longitude: location.coordinate.longitude,
+        ApiClient.updateMobileState(.ready, mobileStateInfo: MobileStateInfo(longitude: location.coordinate.longitude,
           latitude: location.coordinate.latitude,
           sessionId: sessionId))
       }

@@ -107,9 +107,9 @@ extension DebugVC {
     
     // MARK: RESPONSE
     nc.addObserver(forName: .response, object: nil, queue: nil) { note in
-      let response = note.userInfo![InfoKey.response] as! Response
+      let response = note.userInfo![InfoKey.response] as! HTTPURLResponse
       self.debugView().printDebugLine(
-        "URL: \(response.URL!)\nstatusCode: \(response.statusCode)", type: StatusCode.isSuccessful(response.statusCode) ? .positive : .negative
+        "URL: \(response.url!)\nstatusCode: \(response.statusCode)", type: StatusCode.isSuccessful(response.statusCode) ? .positive : .negative
       )
     }
     
@@ -134,7 +134,7 @@ extension DebugVC {
     }
     
     nc.addObserver(forName: .tripInvalidated, object: nil, queue: nil) { note in
-      if let validationSteps = note.userInfo?[InfoKey.validationSteps] as? [ValidationStep] {
+      if let validationSteps = note.userInfo?[InfoKey.validationSteps] as? [ValidationStepWrapper] {
         self.debugView().printDebugLine("Trip is invalid for reasons:", type: .negative)
         for validationStep in validationSteps {
           self.debugView().printDebugLine("\(validationStep.description)", type: .negative)

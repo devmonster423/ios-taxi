@@ -9,29 +9,30 @@
 import Foundation
 import TransitionKit
 
-struct WaitingForExitAvi {
+class WaitingForExitAvi {
   let stateName = "WaitingForExitAvi"
   static let sharedInstance = WaitingForExitAvi()
   
-  fileprivate var state: TKState
+  private var state: TKState
   
-  fileprivate init() {
+  private init() {
     state = TKState(name: stateName)
     
     state.setDidEnter { _, _ in
       
-      postNotification(SfoNotification.State.update, value: self.getState())
+      let nc = NotificationCenter.default
+      nc.post(name: .stateUpdate, object: nil, userInfo: [InfoKey.state: self.getState()])
       
       if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
         ApiClient.requestAntenna(vehicle.transponderId) { antenna in
           
           if let antenna = antenna, let device = antenna.device() {
             
-            if device == .DomExit || device == .IntlArrivalExit {
+            if device == .domExit || device == .intlArrivalExit {
               ExitAviCheckComplete.sharedInstance.fire(antenna)
             } else {
               ExitAviCheckComplete.sharedInstance.fire()
-              postNotification(SfoNotification.Avi.unexpected, value: (expected: .DomExit, found: device))
+              nc.post(name: .aviUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: .domExit, InfoKey.foundGtmsLocation: device])
             }
           } else {
             ExitAviCheckComplete.sharedInstance.fire()

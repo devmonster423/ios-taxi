@@ -12,43 +12,44 @@ import ReachabilitySwift
 class ReachabilityManager {
   
   static let sharedInstance = ReachabilityManager()
-  fileprivate var reachability: Reachability?
-  fileprivate var lastAnnouncedAsConnected = true
-  fileprivate let waitTimeSec: Double = 15
-  fileprivate var pendingNotification: UUID?
+  private var reachability: Reachability?
+  private var lastAnnouncedAsConnected = true
+  private let waitTimeSec: Double = 15
+  private var pendingNotification: UUID?
   
-  fileprivate init() {
-    do {
-      reachability = try Reachability.reachabilityForInternetConnection()
-    } catch {
+  private init() {
+  
+    let nc = NotificationCenter.default
+    
+    guard let reachability = Reachability() else {
       print("Unable to create Reachability")
       return
     }
     
-    reachability!.whenReachable = { reachability in
+    reachability.whenReachable = { reachability in
       self.potentiallySpeak(true)
-      dispatch_async(dispatch_get_main_queue()) {
-        postNotification(SfoNotification.Reachability.reachabilityChanged, value: true)
+      DispatchQueue.main.async {
+        nc.post(name: .reachabilityChanged, object: nil, userInfo: [InfoKey.reachable: true])
       }
     }
     
-    reachability!.whenUnreachable = { reachability in
+    reachability.whenUnreachable = { reachability in
       self.potentiallySpeak(false)
-      dispatch_async(dispatch_get_main_queue()) {
-        postNotification(SfoNotification.Reachability.reachabilityChanged, value: false)
+      DispatchQueue.main.async {
+        nc.post(name: .reachabilityChanged, object: nil, userInfo: [InfoKey.reachable: false])
       }
     }
     
     do {
-      try reachability?.startNotifier()
-      lastAnnouncedAsConnected = reachability!.isReachable()
+      try reachability.startNotifier()
+      lastAnnouncedAsConnected = reachability.isReachable
     } catch {
       print("could not start reachability notifier")
     }
   }
   
   func isReachable() -> Bool {
-    return reachability!.isReachable()
+    return reachability!.isReachable
   }
   
   func potentiallySpeak(_ connected: Bool) {

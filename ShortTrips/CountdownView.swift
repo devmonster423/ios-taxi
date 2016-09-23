@@ -61,7 +61,7 @@ class CountdownView: UIView {
       let remainingMinutes = Int((remainingTime - remainingHours * 60 * 60) / 60)
       let remainingSeconds = Int(remainingTime - remainingHours * 60 * 60 - remainingMinutes * 60)
       
-      countdownLabel.text = "\(remainingHours)h \(numberFormatter.string(from: NSNumber(remainingMinutes))!)m \(numberFormatter.string(from: remainingSeconds)!)s"
+      countdownLabel.text = "\(remainingHours)h \(numberFormatter.string(from: NSNumber(value: remainingMinutes))!)m \(numberFormatter.string(from: NSNumber(value: remainingSeconds))!)s"
     } else {
       countdownLabel.text = ""
     }

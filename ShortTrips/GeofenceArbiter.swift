@@ -17,8 +17,7 @@ struct GeofenceArbiter {
   
   static func requestGeofencesForLocation(_ location: CLLocationCoordinate2D, response: @escaping MultipleGeofencesClosure) {
     
-    let priority = DispatchQueue.GlobalQueuePriority.default
-    DispatchQueue.global(priority: priority).async {
+    DispatchQueue.global(qos: .background).async {
       
       var validGeofences = [SfoGeofence]()
       
@@ -55,9 +54,9 @@ struct GeofenceArbiter {
     return true
   }
   
-  fileprivate static func location(_ location: CLLocationCoordinate2D, isInsideRegion region: MKPolygon) -> Bool {
+  private static func location(_ location: CLLocationCoordinate2D, isInsideRegion region: MKPolygon) -> Bool {
     
-    let mutablePathRef = CGMutablePath()
+    let mutablePath = CGMutablePath()
     
     let polygonPoints = region.points()
     
@@ -66,15 +65,13 @@ struct GeofenceArbiter {
       let mapPoint = polygonPoints[index]
       
       if index == 0 {
-        CGPathMoveToPoint(mutablePathRef, nil, CGFloat(mapPoint.x), CGFloat(mapPoint.y))
+        mutablePath.move(to: CGPoint(x: mapPoint.x, y: mapPoint.y))
       } else {
-        CGPathAddLineToPoint(mutablePathRef, nil, CGFloat(mapPoint.x), CGFloat(mapPoint.y))
+        mutablePath.addLine(to: CGPoint(x: mapPoint.x, y: mapPoint.y))
       }
     }
     
-    let mapPoint = MKMapPointForCoordinate(location)
-    let pointasCGP = CGPoint(x: CGFloat(mapPoint.x), y: CGFloat(mapPoint.y))
-
-    return CGPathContainsPoint(mutablePathRef, nil, pointasCGP, false)
+    let targetMapPoint = MKMapPointForCoordinate(location)
+    return mutablePath.contains(CGPoint(x: targetMapPoint.x, y: targetMapPoint.y))
   }
 }

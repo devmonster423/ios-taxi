@@ -39,7 +39,7 @@ struct Ping: Mappable {
   var vehicleId: Int!
   var geofenceStatus: GeofenceStatus!
   
-  init?(_ map: Map){}
+  init?(map: Map){}
   
   init(location: CLLocation, tripId: Int, vehicleId: Int, sessionId: Int, medallion: String?) {
     self.latitude = location.coordinate.latitude
@@ -52,7 +52,7 @@ struct Ping: Mappable {
     self.geofenceStatus = GeofenceStatus.fromBool(GeofenceArbiter.checkLocation(location.coordinate))
   }
   
-  mutating func mapping(_ map: Map) {
+  mutating func mapping(map: Map) {
     tripId <- map["trip_id"]
     sessionId <- map["session_id"]
     medallion <- map["medallion"]

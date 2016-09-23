@@ -58,7 +58,7 @@ class ShortTripView: UIView {
       make.leading.equalTo(self).offset(50)
       make.top.equalTo(promptLabel.snp.bottom)
       make.bottom.equalTo(countdown.snp.top)
-      make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
+      make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priority(250)
       make.trailing.equalTo(self).offset(-50)
     }
     
@@ -111,7 +111,7 @@ class ShortTripView: UIView {
         make.leading.equalTo(self).offset(50)
         make.top.equalTo(self.promptLabel.snp.bottom).offset(20)
         make.bottom.equalTo(self.notificationView.snp.top).offset(-20)
-        make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
+        make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priority(250)
         make.trailing.equalTo(self).offset(-50)
       }
       
@@ -138,7 +138,7 @@ class ShortTripView: UIView {
       make.leading.equalTo(self).offset(50)
       make.top.equalTo(promptLabel.snp.bottom)
       make.bottom.equalTo(countdown.snp.top)
-      make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
+      make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priority(250)
       make.trailing.equalTo(self).offset(-50)
     }
     
@@ -167,7 +167,7 @@ class ShortTripView: UIView {
           make.leading.equalTo(self).offset(50)
           make.top.equalTo(self.promptLabel.snp.bottom).offset(20)
           make.bottom.equalTo(self.notificationView.snp.top).offset(-20)
-          make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
+          make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priority(250)
           make.trailing.equalTo(self).offset(-50)
         }
         
@@ -191,7 +191,7 @@ class ShortTripView: UIView {
       make.leading.equalTo(self).offset(50)
       make.top.equalTo(promptLabel.snp.bottom)
       make.bottom.equalTo(countdown.snp.top)
-      make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priorityLow()
+      make.height.equalTo(self).dividedBy(Util.isIphone4Or5() ? 2.5 : 1.5).priority(250)
       make.trailing.equalTo(self).offset(-50)
     }
     promptImageView.setNeedsUpdateConstraints()

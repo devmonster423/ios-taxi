@@ -15,7 +15,7 @@ class LatestAviAtTaxiLoop {
   
   fileprivate var events: [TKEvent]
   
-  fileprivate init() {
+  private init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: [WaitingForTaxiLoopAvi.sharedInstance.getState()],
       to: Ready.sharedInstance.getState())]
@@ -31,7 +31,7 @@ extension LatestAviAtTaxiLoop: Event {
 extension LatestAviAtTaxiLoop: Observable {
   func eventIsFiring(_ info: Any?) {
     if let antenna = info as? Antenna {
-      postNotification(SfoNotification.Avi.taxiLoop, value: antenna)
+      NotificationCenter.default.post(name: .aviRead, object: nil, userInfo: [InfoKey.antenna: antenna])
     }
   }
 }

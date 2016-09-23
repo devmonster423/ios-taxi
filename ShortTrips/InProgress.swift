@@ -9,17 +9,17 @@
 import Foundation
 import TransitionKit
 
-struct InProgress {
+class InProgress {
   let stateName = "inProgress"
   static let sharedInstance = InProgress()
   
-  fileprivate var state: TKState
+  private var state: TKState
   
-  fileprivate init() {
+  private init() {
     state = TKState(name: stateName)
     
     state.setDidEnterStateBlock { _, _ in
-      postNotification(SfoNotification.State.update, value: self.getState())
+      NotificationCenter.default.post(name: .stateUpdate, object: nil, userInfo: [InfoKey.state: self.getState()])
     }
   }
   
