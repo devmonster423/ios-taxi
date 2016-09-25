@@ -49,7 +49,11 @@ class ReachabilityManager {
   }
   
   func isReachable() -> Bool {
-    return reachability!.isReachable
+    if let reachable = reachability?.isReachable {
+      return reachable
+    } else {
+      return false
+    }
   }
   
   func potentiallySpeak(_ connected: Bool) {

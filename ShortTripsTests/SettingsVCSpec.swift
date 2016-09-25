@@ -9,7 +9,7 @@
 @testable import ShortTrips
 import Quick
 import Nimble
-import PivotalCoreKit
+import MessageUI
 
 class SettingsVCSpec: QuickSpec {
   
@@ -43,7 +43,12 @@ class SettingsVCSpec: QuickSpec {
       }
       
       it("can make an email") {
-        expect(FeedbackEmailMaker.make(viewController)).toNot(beNil())
+        let mailVC = FeedbackEmailMaker.make(viewController)
+        if MFMailComposeViewController.canSendMail() {
+          expect(mailVC).toNot(beNil())
+        } else {
+          expect(mailVC).to(beNil())
+        }
       }
     }
   }
