@@ -19,7 +19,7 @@ class TerminalExitBufferedGeofenceSpec: QuickSpec {
       
       it("can parse") {
         expect(terminalExitBufferedGeofence).toNot(beNil())
-        expect(terminalExitBufferedGeofence.sfoGeofence) == SfoGeofence.TaxiExitBuffered
+        expect(terminalExitBufferedGeofence.sfoGeofence) == SfoGeofence.taxiExitBuffered
       }
       
       it("denotes a bad point as being outside the geofence") {

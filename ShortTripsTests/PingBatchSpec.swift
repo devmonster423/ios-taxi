@@ -21,7 +21,7 @@ class PingBatchSpec: QuickSpec {
   override func spec() {
     describe("the PingBatch") {
       beforeEach {
-        self.pingBatch = Mapper<PingBatch>().map(MockPingBatchString)
+        self.pingBatch = Mapper<PingBatch>().map(JSONString: MockPingBatchString)
       }
       
       it("is non-nil") {

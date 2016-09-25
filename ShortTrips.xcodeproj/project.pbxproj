@@ -76,7 +76,6 @@
 		C221678B1BD587A4002D7994 /* FlightClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221678A1BD587A4002D7994 /* FlightClientSpec.swift */; };
 		C221678D1BD5886A002D7994 /* FlightArrivalMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221678C1BD5886A002D7994 /* FlightArrivalMock.swift */; };
 		C221678F1BD58AAF002D7994 /* TerminalSummaryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221678E1BD58AAF002D7994 /* TerminalSummaryMock.swift */; };
-		C22167911BD590E8002D7994 /* GeofenceClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22167901BD590E8002D7994 /* GeofenceClientSpec.swift */; };
 		C22167931BD59199002D7994 /* AllGeofenceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22167921BD59199002D7994 /* AllGeofenceMock.swift */; };
 		C22167951BD592C4002D7994 /* SingleGeofenceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22167941BD592C4002D7994 /* SingleGeofenceMock.swift */; };
 		C22167971BD59419002D7994 /* MultipleGeofenceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22167961BD59419002D7994 /* MultipleGeofenceMock.swift */; };
@@ -353,7 +352,6 @@
 		C221678A1BD587A4002D7994 /* FlightClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightClientSpec.swift; sourceTree = "<group>"; };
 		C221678C1BD5886A002D7994 /* FlightArrivalMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightArrivalMock.swift; sourceTree = "<group>"; };
 		C221678E1BD58AAF002D7994 /* TerminalSummaryMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryMock.swift; sourceTree = "<group>"; };
-		C22167901BD590E8002D7994 /* GeofenceClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceClientSpec.swift; sourceTree = "<group>"; };
 		C22167921BD59199002D7994 /* AllGeofenceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllGeofenceMock.swift; sourceTree = "<group>"; };
 		C22167941BD592C4002D7994 /* SingleGeofenceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleGeofenceMock.swift; sourceTree = "<group>"; };
 		C22167961BD59419002D7994 /* MultipleGeofenceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleGeofenceMock.swift; sourceTree = "<group>"; };
@@ -841,7 +839,6 @@
 				8EEFB7B81BE1A6BA00B8A962 /* DeviceClientSpec.swift */,
 				8EEFB7AE1BE198C300B8A962 /* DriverClientSpec.swift */,
 				C221678A1BD587A4002D7994 /* FlightClientSpec.swift */,
-				C22167901BD590E8002D7994 /* GeofenceClientSpec.swift */,
 				8EEFB7C21BE1B03500B8A962 /* ReferenceClientSpec.swift */,
 				8EEFB7CC1BE28DCD00B8A962 /* StatusCodeSpec.swift */,
 				8EEFB7C61BE1B24500B8A962 /* TripClientSpec.swift */,
@@ -1886,7 +1883,6 @@
 				8EEFB7DF1BE2A81B00B8A962 /* VehicleSpec.swift in Sources */,
 				8EEFB7BB1BE1ACE000B8A962 /* RequestAutomaticVehicleIdsMock.swift in Sources */,
 				8EEFB7BD1BE1AF5000B8A962 /* RequestAntennaMock.swift in Sources */,
-				C22167911BD590E8002D7994 /* GeofenceClientSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,6 @@
 import Quick
 import Nimble
 import PivotalCoreKit
-import JSQNotificationObserverKit
 import CoreLocation
 
 class DebugVCSpec: QuickSpec {
@@ -30,7 +29,7 @@ class DebugVCSpec: QuickSpec {
         viewController = DebugVC()
         let navigationController = UINavigationController(rootViewController: viewController)
         
-        UIApplication.sharedApplication().keyWindow!.rootViewController = navigationController
+        UIApplication.shared.keyWindow!.rootViewController = navigationController
         let _ = navigationController.view
         let _ = viewController.view
       }
@@ -41,7 +40,7 @@ class DebugVCSpec: QuickSpec {
       
       it("can receive notifications and debug things") {
         
-        let antenna = Antenna(antennaId: "123", aviLocation: "Location #15 Taxi Main Lot", aviDate: NSDate())
+        let antenna = Antenna(antennaId: "123", aviLocation: "Location #15 Taxi Main Lot", aviDate: Date())
         let location = CLLocation(latitude: 37.615716, longitude: -122.388321)
         let _ = Ping(location: CLLocation(latitude: 37.615716, longitude: -122.388321),
           tripId: 123,
@@ -55,19 +54,21 @@ class DebugVCSpec: QuickSpec {
           transponderId: 2005887,
           vehicleId: 12999)
         
-        postNotification(SfoNotification.Geofence.foundInside, value: [SfoGeofence]())
+        let nc = NotificationCenter.default
         
-        postNotification(SfoNotification.Location.managerStarted, value: nil)
+        nc.post(name: .foundInside, object: nil, userInfo: [InfoKey.geofences: [SfoGeofence]()])
         
-        postNotification(SfoNotification.Location.read, value: location)
+        nc.post(name: .locManagerStarted, object: nil)
         
-        postNotification(SfoNotification.Request.response, value: NSHTTPURLResponse(URL: NSURL(string: Url.Flight.Departure.summary)!, statusCode: 200, HTTPVersion: "HTTP/1.1", headerFields: nil)!)
+        nc.post(name: .locRead, object: nil, userInfo: [InfoKey.location: location])
         
-        postNotification(SfoNotification.Avi.entryGate, value: antenna)
+        nc.post(name: .response, object: nil, userInfo: [InfoKey.response: HTTPURLResponse(url: URL(string: Url.Flight.Departure.summary)!, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!])
         
-        postNotification(SfoNotification.Driver.vehicleAssociated, value: (driver: driver, vehicle: vehicle))
+        nc.post(name: .aviRead, object: nil, userInfo: [InfoKey.antenna: antenna])
         
-        postNotification(SfoNotification.Request.response, value: NSHTTPURLResponse(URL: NSURL(string: Url.Flight.Departure.summary)!, statusCode: 200, HTTPVersion: "HTTP/1.1", headerFields: nil)!)
+        nc.post(name: .driverVehicleAssociated, object: nil, userInfo: [InfoKey.driver: driver, InfoKey.vehicle: vehicle])
+        
+        nc.post(name: .response, object: nil, userInfo: [InfoKey.response: HTTPURLResponse(url: URL(string: Url.Flight.Departure.summary)!, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!])
         
         viewController.fakeTimeExpired()
         
@@ -98,8 +99,9 @@ class DebugVCSpec: QuickSpec {
         viewController.triggerReEntryCid()
         
         PingKiller.sharedInstance.turnOffPingsForAWhile()
+        expect(PingKiller.sharedInstance.shouldKillPings()) == true
         PingKiller.sharedInstance.turnPingsBackOn()
-        PingKiller.sharedInstance.shouldKillPings()
+        expect(PingKiller.sharedInstance.shouldKillPings()) == false
         
         expect(viewController).toNot(beNil())
       }

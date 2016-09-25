@@ -18,7 +18,7 @@ class TerminalSummaryDeparturesWrapperSpec: QuickSpec {
   override func spec() {
     describe("the TerminalSummaryDeparturesWrapper") {
       beforeEach {
-        self.terminalSummaryDeparturesWrapper = Mapper<TerminalSummaryDeparturesWrapper>().map(MockTerminalSummaryDeparturesWrapperString)
+        self.terminalSummaryDeparturesWrapper = Mapper<TerminalSummaryDeparturesWrapper>().map(JSONString: MockTerminalSummaryDeparturesWrapperString)
       }
       
       it("is non-nil") {

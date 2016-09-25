@@ -18,7 +18,7 @@ class AirlineListWrapperSpec: QuickSpec {
   override func spec() {
     describe("the AirlineList") {
       beforeEach {
-        self.airlineListWrapper = Mapper<AirlineListWrapper>().map(MockAirlineListResponseString)
+        self.airlineListWrapper = Mapper<AirlineListWrapper>().map(JSONString: MockAirlineListResponseString)
       }
       
       it("is non-nil") {

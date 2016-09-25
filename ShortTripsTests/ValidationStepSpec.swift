@@ -21,9 +21,9 @@ class ValidationStepSpec: QuickSpec {
   override func spec() {
     describe("the FoundGeofenceStatus") {
       beforeEach {
-        self.validationStepWrapper1 = Mapper<ValidationStepWrapper>().map(MockValidationStepString)
+        self.validationStepWrapper1 = Mapper<ValidationStepWrapper>().map(JSONString: MockValidationStepString)
         
-        let validationStep = ValidationStep.Vehicle
+        let validationStep = ValidationStep.vehicle
         validationStep.name()
         validationStep.description()
         

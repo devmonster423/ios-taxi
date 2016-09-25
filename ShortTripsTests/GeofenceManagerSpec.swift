@@ -10,12 +10,10 @@
 import Quick
 import Nimble
 import CoreLocation
-import JSQNotificationObserverKit
 
 class GeofenceManagerSpec: QuickSpec {
   
-  var foundInsideObserver: NotificationObserver<[SfoGeofence], AnyObject>?
-  var bufferedExitobserver: NotificationObserver<Any?, AnyObject>?
+  let nc = NotificationCenter.default
   
   override func spec() {
     
@@ -42,17 +40,17 @@ class GeofenceManagerSpec: QuickSpec {
         
         var count = 0
         
-        self.foundInsideObserver = NotificationObserver(notification: SfoNotification.Geofence.foundInside) { _, _ in
+        self.nc.addObserver(forName: .foundInside, object: nil, queue: nil) { _ in
           count = 1
         }
         
-        expect(self.foundInsideObserver).toNot(beNil())
         expect(count) == 0
         
         let location = CLLocation(latitude: 37.615716, longitude: -122.388321) // is inside SFO
-        postNotification(SfoNotification.Location.read, value: location)
         
-        NSRunLoop.mainRunLoop().runUntilDate(NSDate())
+        self.nc.post(name: .locRead, object: nil, userInfo: [InfoKey.location: location])
+        
+        RunLoop.main.run(until: Date())
         expect(count).toEventually(equal(1), timeout: 10)
       }
       
@@ -60,17 +58,16 @@ class GeofenceManagerSpec: QuickSpec {
         
         var count = 0
         
-        self.bufferedExitobserver = NotificationObserver(notification: SfoNotification.Geofence.outsideBufferedExit) { _, _ in
+        self.nc.addObserver(forName: .outsideBufferedExit, object: nil, queue: nil) { _ in
           count = 1
         }
         
-        expect(self.bufferedExitobserver).toNot(beNil())
         expect(count) == 0
         
         let location = CLLocation(latitude: 37.65, longitude: -122.405) // is outside SFO
-        postNotification(SfoNotification.Location.read, value: location)
+        self.nc.post(name: .locRead, object: nil, userInfo: [InfoKey.location: location])
         
-        NSRunLoop.mainRunLoop().runUntilDate(NSDate())
+        RunLoop.main.run(until: Date())
         expect(count).toEventually(equal(1), timeout: 10)
       }
       

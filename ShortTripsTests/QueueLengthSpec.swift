@@ -20,7 +20,7 @@ class QueueLengthSpec: QuickSpec {
   override func spec() {
     describe("the QueueLength") {
       beforeEach {
-        self.queueLength = Mapper<QueueLength>().map(MockQueueLengthString)
+        self.queueLength = Mapper<QueueLength>().map(JSONString: MockQueueLengthString)
       }
       
       it("is non-nil") {

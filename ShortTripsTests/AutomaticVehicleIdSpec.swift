@@ -18,7 +18,7 @@ class AutomaticVehicleIdSpec: QuickSpec {
   override func spec() {
     describe("the AutomaticVehicleId") {
       beforeEach {
-        self.automaticVehicleId = Mapper<AutomaticVehicleId>().map(MockAutomaticVehicleIdString)
+        self.automaticVehicleId = Mapper<AutomaticVehicleId>().map(JSONString: MockAutomaticVehicleIdString)
       }
       
       it("is non-nil") {

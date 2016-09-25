@@ -18,7 +18,7 @@ class DriverSpec: QuickSpec {
   override func spec() {
     describe("the Driver") {
       beforeEach {
-        self.driver = Mapper<Driver>().map(MockDriverString)
+        self.driver = Mapper<Driver>().map(JSONString: MockDriverString)
       }
       
       it("is non-nil") {

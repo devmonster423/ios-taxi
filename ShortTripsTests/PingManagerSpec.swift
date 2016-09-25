@@ -10,7 +10,6 @@
 import Quick
 import Nimble
 import CoreLocation
-import JSQNotificationObserverKit
 
 class PingManagerSpec: QuickSpec {
   
@@ -37,7 +36,7 @@ class PingManagerSpec: QuickSpec {
       
       it("can process a location") {
         let location = CLLocation(latitude: 37.615716, longitude: -122.388321)
-        postNotification(SfoNotification.Location.read, value: location)
+        NotificationCenter.default.post(name: .locRead, object: nil, userInfo: [InfoKey.location: location])
         expect(pingManager).toNot(beNil())
       }
       

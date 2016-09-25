@@ -31,7 +31,7 @@ class AutoLoginVCSpec: QuickSpec {
         
         viewController = LoginVC()
         
-        UIApplication.sharedApplication().keyWindow!.rootViewController = viewController
+        UIApplication.shared.keyWindow!.rootViewController = viewController
         let _ = viewController.view
       }
       

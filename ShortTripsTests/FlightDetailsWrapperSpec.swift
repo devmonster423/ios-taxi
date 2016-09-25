@@ -19,7 +19,7 @@ class FlightDetailResponseSpec: QuickSpec {
   override func spec() {
     describe("the FlightDetailsWrapper") {
       beforeEach {
-        self.flightDetailsWrapper = Mapper<FlightDetailsWrapper>().map(MockFlightDetailsWrapperString)
+        self.flightDetailsWrapper = Mapper<FlightDetailsWrapper>().map(JSONString: MockFlightDetailsWrapperString)
       }
       
       it("is non-nil") {

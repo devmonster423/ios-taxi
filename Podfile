@@ -21,7 +21,7 @@ end
 target 'ShortTripsTests' do
   shared_pods
   
-  pod 'Quick', '0.9.3'
+  pod 'Quick', '0.10.0'
   pod 'Nimble', '5.0.0'
   pod 'PivotalCoreKit', '0.3.2'
   pod 'PivotalCoreKit/UIKit/SpecHelper/Extensions'

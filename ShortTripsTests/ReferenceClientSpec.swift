@@ -10,7 +10,6 @@
 @testable import ShortTrips
 import Quick
 import Nimble
-import Mockingjay
 
 class ReferenceClientSpec: QuickSpec {
   
@@ -25,7 +24,7 @@ class ReferenceClientSpec: QuickSpec {
       }
       
       xit("can request reference config") {
-        self.stub(uri(Url.Reference.config), builder: json(RequestReferenceConfigMock))
+        //self.stub(uri(Url.Reference.config), builder: json(RequestReferenceConfigMock))
         ApiClient.requestReferenceConfig { geofences, _ in
           expect(geofences).toNot(beNil())
         }

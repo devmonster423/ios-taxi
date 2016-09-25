@@ -15,13 +15,11 @@ import ObjectMapper
 
 class MobileStateInfoSpec: QuickSpec {
   var mobileStateInfo: MobileStateInfo!
-  var map: Map!
   
   override func spec() {
     describe("the Ping") {
       beforeEach {
         self.mobileStateInfo = MobileStateInfo(longitude: 37.615716, latitude: -122.388321, sessionId: 1, tripId: 41)
-        self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
       }
       
       it("is non-nil") {
@@ -29,7 +27,7 @@ class MobileStateInfoSpec: QuickSpec {
       }
       
       it("can map") {
-        self.mobileStateInfo.mapping(self.map)
+        expect(self.mobileStateInfo.toJSON()).toNot(beNil())
       }
     }
   }

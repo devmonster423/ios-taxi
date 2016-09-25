@@ -18,7 +18,7 @@ class TerminalSummarySpec: QuickSpec {
   override func spec() {
     describe("the TerminalSummary") {
       beforeEach {
-        self.terminalSummary = Mapper<TerminalSummary>().map(MockTerminalSummaryString)
+        self.terminalSummary = TerminalSummary(JSONString: MockTerminalSummaryString)
       }
       
       it("is non-nil") {

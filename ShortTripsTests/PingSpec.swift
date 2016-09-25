@@ -15,7 +15,6 @@ import ObjectMapper
 
 class PingSpec: QuickSpec {
   var ping: Ping!
-  var map: Map!
   
   override func spec() {
     describe("the Ping") {
@@ -25,7 +24,6 @@ class PingSpec: QuickSpec {
           vehicleId: 123,
           sessionId: 456,
           medallion: "789")
-        self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
       }
       
       it("is non-nil") {
@@ -33,7 +31,7 @@ class PingSpec: QuickSpec {
       }
       
       it("can map") {
-        self.ping.mapping(self.map)
+        expect(self.ping.toJSON()).toNot(beNil())
       }
     }
   }

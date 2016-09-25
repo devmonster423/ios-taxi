@@ -9,7 +9,6 @@
 @testable import ShortTrips
 import Quick
 import Nimble
-import Mockingjay
 
 class AirlineClientSpec: QuickSpec {
   
@@ -25,8 +24,8 @@ class AirlineClientSpec: QuickSpec {
       
       xit("can request codes") {
         
-        self.stub(uri(Url.Airline.codes), builder: json(IataCodeMock))        
-        ApiClient.codes { airlines, error in
+//        self.stub(uri(Url.Airline.codes), builder: json(IataCodeMock))        
+        ApiClient.codes { airlines in
           expect(airlines).toNot(beNil())
         }
       }

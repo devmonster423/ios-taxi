@@ -10,7 +10,6 @@
 import CoreLocation
 import Quick
 import Nimble
-import Mockingjay
 
 class TripClientSpec: QuickSpec {
   
@@ -34,7 +33,7 @@ class TripClientSpec: QuickSpec {
           sessionId: 456,
           medallion: "789")
         
-        self.stub(uri(Url.Trip.ping(tripId)), builder: json(TripPingMock))
+//        self.stub(uri(Url.Trip.ping(tripId)), builder: json(TripPingMock))
         
         ApiClient.ping(tripId, ping: ping) { geofences in
           expect(geofences).toNot(beNil())
@@ -46,10 +45,10 @@ class TripClientSpec: QuickSpec {
           medallion: "456",
           vehicleId: 789,
           smartCardId: "1234",
-          deviceTimestamp: NSDate()
+          deviceTimestamp: Date()
         )
         
-        self.stub(uri(Url.Trip.start), builder: json(TripStartMock))
+//        self.stub(uri(Url.Trip.start), builder: json(TripStartMock))
         
         ApiClient.start(tripBody) { geofences in
           expect(geofences).toNot(beNil())

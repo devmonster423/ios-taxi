@@ -26,12 +26,12 @@ class FlightStatusVCSpec: QuickSpec {
         }
         
         viewController = FlightStatusVC()
-        viewController.selectedTerminalId = .International
+        viewController.selectedTerminalId = .international
         viewController.currentHour = 0
         viewController.flightType = .Arrivals
         let navigationController = UINavigationController(rootViewController: viewController)
         
-        UIApplication.sharedApplication().keyWindow!.rootViewController = navigationController
+        UIApplication.shared.keyWindow!.rootViewController = navigationController
         let _ = navigationController.view
         let _ = viewController.view
       }
@@ -47,10 +47,10 @@ class FlightStatusVCSpec: QuickSpec {
       describe("after loading in fake flight data") {
         beforeEach {
           viewController.flights = [
-            Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .OnTime, flightNumber: "421", scheduledTime: NSDate()),
-            Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .Delayed, flightNumber: "422", scheduledTime: NSDate()),
-            Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .Landed, flightNumber: "423", scheduledTime: NSDate()),
-            Flight(airline: "United Airlines", bags: 5, estimatedTime: NSDate(), flightStatus: .Landing, flightNumber: "424", scheduledTime: NSDate())
+            Flight(airline: "United Airlines", bags: 5, estimatedTime: Date(), flightStatus: .OnTime, flightNumber: "421", scheduledTime: Date()),
+            Flight(airline: "United Airlines", bags: 5, estimatedTime: Date(), flightStatus: .Delayed, flightNumber: "422", scheduledTime: Date()),
+            Flight(airline: "United Airlines", bags: 5, estimatedTime: Date(), flightStatus: .Landed, flightNumber: "423", scheduledTime: Date()),
+            Flight(airline: "United Airlines", bags: 5, estimatedTime: Date(), flightStatus: .Landing, flightNumber: "424", scheduledTime: Date())
           ]
           viewController.flightStatusView().reloadTableData()
         }

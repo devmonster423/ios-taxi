@@ -14,13 +14,11 @@ import ObjectMapper
 
 class DriverCredentialSpec: QuickSpec {
   var credential: DriverCredential!
-  var map: Map!
   
   override func spec() {
     describe("the Credential") {
       beforeEach {
-        self.credential = DriverCredential(username: "🐅", password: "🐃")
-        self.map = Map(mappingType: MappingType.FromJSON, JSONDictionary: ["key": NSString(string: "value")])
+        self.credential = DriverCredential(username: "username", password: "password")
       }
       
       it("is non-nil") {
@@ -28,7 +26,7 @@ class DriverCredentialSpec: QuickSpec {
       }
       
       it("can map") {
-        self.credential.mapping(self.map)
+        expect(self.credential.toJSON()).toNot(beNil())
       }
     }
   }

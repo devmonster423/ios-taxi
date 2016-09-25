@@ -18,7 +18,7 @@ class CidSpec: QuickSpec {
   override func spec() {
     describe("the CID") {
       beforeEach {
-        self.cid = Mapper<Cid>().map(MockCidString)
+        self.cid = Mapper<Cid>().map(JSONString: MockCidString)
       }
       
       it("is non-nil") {

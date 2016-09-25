@@ -9,4 +9,4 @@
 import Foundation
 
 // TODO: true data
-var RequestCidForSmartCardMock = []
+//var RequestCidForSmartCardMock = []

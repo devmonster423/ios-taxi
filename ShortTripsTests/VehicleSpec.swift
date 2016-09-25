@@ -19,8 +19,8 @@ class VehicleSpec: QuickSpec {
   override func spec() {
     describe("the Vehicle") {
       beforeEach {
-        self.vehicle1 = Mapper<Vehicle>().map(MockVehicleString1)
-        self.vehicle2 = Mapper<Vehicle>().map(MockVehicleString2)
+        self.vehicle1 = Mapper<Vehicle>().map(JSONString: MockVehicleString1)
+        self.vehicle2 = Mapper<Vehicle>().map(JSONString: MockVehicleString2)
       }
       
       it("is non-nil") {

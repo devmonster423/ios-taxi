@@ -18,7 +18,7 @@ class TripValidationSpec: QuickSpec {
   override func spec() {
     describe("the TripValidation") {
       beforeEach {
-        self.tripValidation = Mapper<TripValidation>().map(MockTripValidationString)
+        self.tripValidation = TripValidation(JSONString: MockTripValidationString)
       }
       
       it("is non-nil") {

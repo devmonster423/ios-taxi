@@ -9,7 +9,6 @@
 @testable import ShortTrips
 import Quick
 import Nimble
-import Mockingjay
 
 class DriverClientSpec: QuickSpec {
   
@@ -24,7 +23,7 @@ class DriverClientSpec: QuickSpec {
       }
       
       xit("can login") {
-        self.stub(uri(Url.Driver.login), builder: json(DriverLoginMock))
+//        self.stub(uri(Url.Driver.login), builder: json(DriverLoginMock))
 
         let credential = DriverCredential(username: "🐅", password: "🐃");
         ApiClient.authenticateDriver(credential) { driver in
@@ -34,7 +33,7 @@ class DriverClientSpec: QuickSpec {
       
       xit("can request driver vehicle") {
         let driverId = "1"
-        self.stub(uri(Url.Driver.vehicle(driverId)), builder: json(DriverVehicleMock))
+//        self.stub(uri(Url.Driver.vehicle(driverId)), builder: json(DriverVehicleMock))
         ApiClient.getVehicle(driverId) { vehicle in
           expect(vehicle).toNot(beNil())
         }

@@ -29,7 +29,7 @@ class LoginVCSpec: QuickSpec {
         
         viewController = LoginVC(startup: false)
         
-        UIApplication.sharedApplication().keyWindow!.rootViewController = viewController
+        UIApplication.shared.keyWindow!.rootViewController = viewController
         let _ = viewController.view
       }
       

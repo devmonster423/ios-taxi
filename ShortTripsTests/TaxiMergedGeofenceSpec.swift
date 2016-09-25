@@ -19,7 +19,7 @@ class TaxiMergedGeofenceSpec: QuickSpec {
       
       it("can parse") {
         expect(taxiMergedGeofence).toNot(beNil())
-        expect(taxiMergedGeofence.sfoGeofence) == SfoGeofence.TaxiSfoMerged
+        expect(taxiMergedGeofence.sfoGeofence) == SfoGeofence.taxiSfoMerged
       }
       
       it("finds a point in SF outside the geofence") {

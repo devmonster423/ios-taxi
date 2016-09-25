@@ -18,7 +18,7 @@ class GeofenceListWrapperSpec: QuickSpec {
   override func spec() {
     describe("the GeofenceListWrapper") {
       beforeEach {
-        self.geofenceListWrapper = Mapper<GeofenceListWrapper>().map(MockGeofenceListWrapperString)
+        self.geofenceListWrapper = Mapper<GeofenceListWrapper>().map(JSONString: MockGeofenceListWrapperString)
       }
       
       it("is non-nil") {

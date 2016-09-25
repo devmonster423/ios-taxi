@@ -29,44 +29,44 @@ class TripScenario3Spec: QuickSpec {
         expect(machine).toNot(beNil())
         
         // has initial state of not ready
-        expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
+        expect(machine.is(inState: NotReady.sharedInstance.getState())).to(beTrue())
         
         InsideTaxiWaitingZone.sharedInstance.fire()
-        expect(machine.isInState(WaitingForEntryCid.sharedInstance.getState())).to(beTrue())
+        expect(machine.is(inState: WaitingForEntryCid.sharedInstance.getState())).to(beTrue())
         
         LatestCidIsEntryCid.sharedInstance.fire()
-        expect(machine.isInState(AssociatingDriverAndVehicleAtEntry.sharedInstance.getState())).to(beTrue())
+        expect(machine.is(inState: AssociatingDriverAndVehicleAtEntry.sharedInstance.getState())).to(beTrue())
         
         DriverAndVehicleAssociated.sharedInstance.fire()
-        expect(machine.isInState(WaitingForEntryAvi.sharedInstance.getState())).to(beTrue())
+        expect(machine.is(inState: WaitingForEntryAvi.sharedInstance.getState())).to(beTrue())
         
         LatestAviAtEntry.sharedInstance.fire()
-        expect(machine.isInState(WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
+        expect(machine.is(inState: WaitingInHoldingLot.sharedInstance.getState())).to(beTrue())
         
         // can fire DriverDispatched and make correct state change
         InsideTaxiLoopExit.sharedInstance.fire()
-        expect(machine.isInState(WaitingForPaymentCid.sharedInstance.getState())).to(beTrue())
+        expect(machine.is(inState: WaitingForPaymentCid.sharedInstance.getState())).to(beTrue())
         
         LatestCidIsPaymentCid.sharedInstance.fire()
-        expect(machine.isInState(AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState())).to(beTrue())
+        expect(machine.is(inState: AssociatingDriverAndVehicleAtHoldingLotExit.sharedInstance.getState())).to(beTrue())
 
         DriverAndVehicleAssociated.sharedInstance.fire()
-        expect(machine.isInState(WaitingForTaxiLoopAvi.sharedInstance.getState())).to(beTrue())
+        expect(machine.is(inState: WaitingForTaxiLoopAvi.sharedInstance.getState())).to(beTrue())
         
         LatestAviAtTaxiLoop.sharedInstance.fire()
-        expect(machine.isInState(Ready.sharedInstance.getState())).to(beTrue())
+        expect(machine.is(inState: Ready.sharedInstance.getState())).to(beTrue())
         
         OutsideBufferedExit.sharedInstance.fire()
-        expect(machine.isInState(WaitingForExitAvi.sharedInstance.getState())).to(beTrue())
+        expect(machine.is(inState: WaitingForExitAvi.sharedInstance.getState())).to(beTrue())
         
         ExitAviCheckComplete.sharedInstance.fire()
-        expect(machine.isInState(StartingTrip.sharedInstance.getState())).to(beTrue())
+        expect(machine.is(inState: StartingTrip.sharedInstance.getState())).to(beTrue())
         
         TripManager.sharedInstance.start(123)
-        expect(machine.isInState(InProgress.sharedInstance.getState())).to(beTrue())
+        expect(machine.is(inState: InProgress.sharedInstance.getState())).to(beTrue())
         
         OutsideShortTripGeofence.sharedInstance.fire()
-        expect(machine.isInState(NotReady.sharedInstance.getState())).to(beTrue())
+        expect(machine.is(inState: NotReady.sharedInstance.getState())).to(beTrue())
       }
     }
   }

@@ -9,7 +9,6 @@
 @testable import ShortTrips
 import Quick
 import Nimble
-import Mockingjay
 
 class DeviceClientSpec: QuickSpec {
   
@@ -27,11 +26,11 @@ class DeviceClientSpec: QuickSpec {
 //        self.stub(uri(Url.Device.mobileStateUpdate(MobileState.Ready.rawValue)), builder: json(AllGeofenceMock))
         
         let mobileState = MobileStateInfo(longitude: 10.0, latitude: 10.0, sessionId: 1, tripId: 1)
-        ApiClient.updateMobileState(MobileState.Ready, mobileStateInfo: mobileState)
+        ApiClient.updateMobileState(MobileState.ready, mobileStateInfo: mobileState)
       }
       
       xit("can request automatic vehicle ids") {
-        self.stub(uri(Url.Device.Avi.avi), builder: json(RequestAutomaticVehicleIdsMock))
+//        self.stub(uri(Url.Device.Avi.avi), builder: json(RequestAutomaticVehicleIdsMock))
         ApiClient.requestAutomaticVehicleIds() { response, _ in
           expect(response).toNot(beNil())
         }
@@ -39,7 +38,7 @@ class DeviceClientSpec: QuickSpec {
       
       xit("can request automatic vehicle ids") {
         let transponderId = 2005887;
-        self.stub(uri(Url.Device.Avi.transponder(transponderId)), builder: json(RequestAntennaMock))
+//        self.stub(uri(Url.Device.Avi.transponder(transponderId)), builder: json(RequestAntennaMock))
         ApiClient.requestAntenna(transponderId) { response in
           expect(response).toNot(beNil())
         }
@@ -47,7 +46,7 @@ class DeviceClientSpec: QuickSpec {
       
       xit("can request automatic vehicle ids") {
         let driverId = 5;
-        self.stub(uri(Url.Device.Cid.driver(driverId)), builder: json(RequestCidForSmartCardMock))
+//        self.stub(uri(Url.Device.Cid.driver(driverId)), builder: json(RequestCidForSmartCardMock))
         ApiClient.requestCid(driverId) { response in
           expect(response).toNot(beNil())
         }

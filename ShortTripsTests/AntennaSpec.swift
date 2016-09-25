@@ -18,7 +18,7 @@ class AntennaSpec: QuickSpec {
   override func spec() {
     describe("the Antenna") {
       beforeEach {
-        self.antenna = Mapper<Antenna>().map(MockAntennaString)
+        self.antenna = Mapper<Antenna>().map(JSONString: MockAntennaString)
       }
       
       it("is non-nil") {

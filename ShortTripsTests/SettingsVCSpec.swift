@@ -28,7 +28,7 @@ class SettingsVCSpec: QuickSpec {
         viewController = SettingsVC()
         let navigationController = UINavigationController(rootViewController: viewController)
         
-        UIApplication.sharedApplication().keyWindow!.rootViewController = navigationController
+        UIApplication.shared.keyWindow!.rootViewController = navigationController
         let _ = navigationController.view
         let _ = viewController.view
         (viewController.view as! SettingsView).tableView.reloadData()
@@ -39,7 +39,7 @@ class SettingsVCSpec: QuickSpec {
       }
       
       it("can get the phone model name") {
-        expect(UIDevice.currentDevice().modelName).toNot(beNil())
+        expect(UIDevice.current.modelName).toNot(beNil())
       }
       
       it("can make an email") {

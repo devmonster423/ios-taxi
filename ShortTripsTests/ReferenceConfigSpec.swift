@@ -18,7 +18,7 @@ class ReferenceConfigSpec: QuickSpec {
   override func spec() {
     describe("the ReferenceConfig") {
       beforeEach {
-        self.referenceConfig = Mapper<ReferenceConfig>().map(MockReferenceConfigString)
+        self.referenceConfig = ReferenceConfig(JSONString: MockReferenceConfigString)
       }
       
       it("is non-nil") {

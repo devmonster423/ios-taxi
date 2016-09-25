@@ -19,7 +19,7 @@ class TaxiWaitZoneGeofenceSpec: QuickSpec {
       
       it("can parse") {
         expect(taxiWaitingZone).toNot(beNil())
-        expect(taxiWaitingZone.sfoGeofence) == SfoGeofence.TaxiWaitingZone
+        expect(taxiWaitingZone.sfoGeofence) == SfoGeofence.taxiWaitingZone
       }
       
       it("denotes a bad point as being outside the geofence") {

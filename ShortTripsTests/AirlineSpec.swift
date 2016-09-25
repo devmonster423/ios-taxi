@@ -18,7 +18,7 @@ class AirlineSpec: QuickSpec {
   override func spec() {
     describe("the Airline") {
       beforeEach {
-        self.airline = Mapper<Airline>().map(MockAirlineString)
+        self.airline = Mapper<Airline>().map(JSONString: MockAirlineString)
       }
       
       it("is non-nil") {

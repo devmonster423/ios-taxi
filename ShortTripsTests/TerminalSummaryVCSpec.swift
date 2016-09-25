@@ -28,7 +28,7 @@ class TerminalSummaryVCSpec: QuickSpec {
         viewController = TerminalSummaryVC()
         let navigationController = UINavigationController(rootViewController: viewController)
         
-        UIApplication.sharedApplication().keyWindow!.rootViewController = navigationController
+        UIApplication.shared.keyWindow!.rootViewController = navigationController
         let _ = navigationController.view
         let _ = viewController.view
       }
