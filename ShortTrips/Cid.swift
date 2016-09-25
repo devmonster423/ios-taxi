@@ -22,7 +22,7 @@ struct Cid: Mappable {
     self.cidTimeRead = cidTimeRead
   }
   
-  init?(_ map: Map){}
+  init?(map: Map){}
   
   mutating func mapping(map: Map) {
     cidId <- map["response.device_id"]

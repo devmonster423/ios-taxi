@@ -58,9 +58,9 @@ struct DriverCredential: Mappable {
       password: password,
       persistence: .permanent)
     
-    URLCredentialStorage.shared
-      .setCredential(credential,
-        forProtectionSpace: DriverCredential.credentialProtectionSpace())
+    URLCredentialStorage.shared.set(
+      credential, for: DriverCredential.credentialProtectionSpace()
+    )
   }
   
   static func load() -> DriverCredential? {
@@ -79,9 +79,9 @@ struct DriverCredential: Mappable {
     let credentials = URLCredentialStorage.shared
       .credentials(for: DriverCredential.credentialProtectionSpace())
     if let credential = credentials?.first?.1 {
-      URLCredentialStorage.shared
-        .removeCredential(credential,
-          forProtectionSpace: DriverCredential.credentialProtectionSpace())
+      URLCredentialStorage.shared.remove(
+          credential, for: DriverCredential.credentialProtectionSpace()
+      )
     }
   }
   

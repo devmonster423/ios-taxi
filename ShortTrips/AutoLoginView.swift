@@ -18,10 +18,10 @@ class AutoLoginView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    backgroundColor = UIColor.whiteColor()
+    backgroundColor = .white
     
     let logoImageView = UIImageView()
-    logoImageView.contentMode = .ScaleAspectFit
+    logoImageView.contentMode = .scaleAspectFit
     logoImageView.image = Image.splashLogo.image()
     addSubview(logoImageView)
     logoImageView.snp.makeConstraints { make in

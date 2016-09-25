@@ -11,8 +11,8 @@ import Foundation
 
 struct ErrorLogger {
   
-  static func log(_ request: URLRequest, error: Error?) {
-    if let error = error as? NSError, let url = request.url?.absoluteString {
+  static func log(_ request: URLRequest?, error: Error?) {
+    if let error = error as? NSError, let url = request?.url?.absoluteString {
       logError(url, errorText: error.localizedDescription)
     }
   }

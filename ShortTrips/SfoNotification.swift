@@ -13,6 +13,7 @@ import TransitionKit
 enum InfoKey: String {
   case antenna = "antenna"
   case cid = "cid"
+  case date = "date"
   case driver = "driver"
   case expectedGtmsLocation = "expectedGtmsLocation"
   case foundGtmsLocation = "foundGtmsLocation"

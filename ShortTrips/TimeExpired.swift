@@ -13,7 +13,7 @@ struct TimeExpired {
   let eventNames = ["timeExpired"]
   static let sharedInstance = TimeExpired()
   
-  private var events: [TKEvent]
+  fileprivate var events: [TKEvent]
   
   private init() {
     events = [TKEvent(name: eventNames[0],

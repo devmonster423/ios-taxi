@@ -11,11 +11,13 @@ import Foundation
 import CoreLocation
 import MapKit
 
+typealias GeofencesClosure = ([SfoGeofence]?) -> Void
+
 struct GeofenceArbiter {
   
   static let buffer: Double = 0
   
-  static func requestGeofencesForLocation(_ location: CLLocationCoordinate2D, response: @escaping MultipleGeofencesClosure) {
+  static func requestGeofencesForLocation(_ location: CLLocationCoordinate2D, response: @escaping GeofencesClosure) {
     
     DispatchQueue.global(qos: .background).async {
       

@@ -254,7 +254,7 @@ class TerminalSummaryView: UIView {
     hourPickerView.setButtonSelectors(target, decreaseAction: decreaseAction, increaseAction: increaseAction)
   }
   
-  func startTimerView(_ updateInterval: TimeInterval, callback: TimerCallback) {
+  func startTimerView(_ updateInterval: TimeInterval, callback: @escaping TimerCallback) {
     timerView.start(updateInterval, callback: callback)
   }
   

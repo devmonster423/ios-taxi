@@ -31,7 +31,7 @@ extension LoggedOut: Event {
 extension LoggedOut: Observable {
   func eventIsFiring(_ info: Any?) {
     
-    postNotification(SfoNotification.Driver.logout, value: nil)
+    NotificationCenter.default.post(name: .logout, object: nil)
     
     if let tripId = TripManager.sharedInstance.getTripId(),
       let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
@@ -40,7 +40,7 @@ extension LoggedOut: Observable {
       TripManager.sharedInstance.reset(false)
       
       if let location = LocationManager.sharedInstance.getLastKnownLocation(), let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
-        ApiClient.updateMobileState(.LoggedOut, mobileStateInfo: MobileStateInfo(longitude: location.coordinate.longitude,
+        ApiClient.updateMobileState(.loggedOut, mobileStateInfo: MobileStateInfo(longitude: location.coordinate.longitude,
           latitude: location.coordinate.latitude,
           sessionId: sessionId,
           tripId: tripId))

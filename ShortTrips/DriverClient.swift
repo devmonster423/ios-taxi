@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 import AlamofireObjectMapper
 import ObjectMapper
 
@@ -15,23 +16,23 @@ typealias VehicleClosure = (Vehicle?) -> Void
 
 extension ApiClient {
   static func authenticateDriver(_ credential: DriverCredential, completion: @escaping DriverClosure) {
-    authedRequest(.POST, Url.Driver.login, parameters: Mapper().toJSON(credential))
-      .responseObject { (_, raw, driver: Driver?, _, _) in
-        if let raw = raw {
-          postNotification(SfoNotification.Request.response, value: raw)
+    Alamofire.request(Url.Driver.login, method: .post, parameters: Mapper().toJSON(credential), headers: headers())
+      .responseObject { (dataResponse: DataResponse<Driver>) in
+        if let raw = dataResponse.response {
+          NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])
         }
-        completion(driver)
+        completion(dataResponse.result.value)
     }
   }
   
   static func getVehicle(_ smartCard: String, completion: @escaping VehicleClosure) {
-    authedRequest(.GET, Url.Driver.vehicle(smartCard))
-      .responseObject { (_, raw, vehicle: Vehicle?, _, _) in
+    Alamofire.request(Url.Driver.vehicle(smartCard), headers: headers())
+      .responseObject { (dataResponse: DataResponse<Vehicle>) in
         
-        if let raw = raw {
-          postNotification(SfoNotification.Request.response, value: raw)
+        if let raw = dataResponse.response {
+          NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])
         }
-        completion(vehicle)
+        completion(dataResponse.result.value)
     }
   }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
@@ -16,13 +17,13 @@ typealias CidClosure = (Cid?) -> Void
 
 extension ApiClient {
   static func updateMobileState(_ mobileState: MobileState, mobileStateInfo: MobileStateInfo) {
-    authedRequest(.PUT, Url.Device.mobileStateUpdate(mobileState.rawValue), parameters: Mapper().toJSON(mobileStateInfo))
-      .response { _, raw, _, _ in
+    Alamofire.request(Url.Device.mobileStateUpdate(mobileState.rawValue), method: .put, parameters: Mapper().toJSON(mobileStateInfo), headers: headers())
+      .response { dataResponse in
 
-        if let raw = raw {
-          postNotification(SfoNotification.Request.response, value: raw)
+        if let raw = dataResponse.response {
+          NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])
         } else {
-          dispatch_after(retryInterval(), dispatch_get_main_queue()) {
+          DispatchQueue.main.asyncAfter(deadline: retryInterval()) {
             updateMobileState(mobileState, mobileStateInfo: mobileStateInfo)
           }
         }
@@ -30,40 +31,40 @@ extension ApiClient {
   }
   
   static func requestAutomaticVehicleIds(_ response: @escaping AviClosure) {
-    authedRequest(.GET, Url.Device.Avi.avi)
-      .responseObject { (_, raw, aviListWrapper: AutomaticVehicleIdListWrapper?, _, error: Error?) in
-        if let raw = raw {
-          postNotification(SfoNotification.Request.response, value: raw)
+    Alamofire.request(Url.Device.Avi.avi, headers: headers())
+      .responseObject { (dataResponse: DataResponse<AutomaticVehicleIdListWrapper>) in
+        if let raw = dataResponse.response {
+          NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])
         }
-        response(aviListWrapper?.automaticVehicleIds, error)
+        response(dataResponse.result.value?.automaticVehicleIds, dataResponse.result.error)
     }
   }
   
   static func requestAntenna(_ transponderId: Int, response: @escaping AntennaClosure) {
-    authedRequest(.GET, Url.Device.Avi.transponder(transponderId))
-      .responseObject { (_, raw, antenna: Antenna?, _, error: Error?) in
+    Alamofire.request(Url.Device.Avi.transponder(transponderId), headers: headers())
+      .responseObject { (dataResponse: DataResponse<Antenna>) in
   
-        if let raw = raw {
-          postNotification(SfoNotification.Request.response, value: raw)
+        if let raw = dataResponse.response {
+          NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])
         }
         
-        if let device = antenna?.device() {
+        if let device = dataResponse.result.value?.device() {
           AviManager.sharedInstance.setLatestAviLocation(device)
         }
         
-        response(antenna)
+        response(dataResponse.result.value)
     }
   }
   
   static func requestCid(_ driverId: Int, response: @escaping CidClosure) {
-    authedRequest(.GET, Url.Device.Cid.driver(driverId))
-      .responseObject { (_, raw, cid: Cid?, _, error: Error?) in
+    Alamofire.request(Url.Device.Cid.driver(driverId), headers: headers())
+      .responseObject { (dataResponse: DataResponse<Cid>) in
         
-        if let raw = raw {
-          postNotification(SfoNotification.Request.response, value: raw)
+        if let raw = dataResponse.response {
+          NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])
         }
         
-        response(cid)
+        response(dataResponse.result.value)
     }
   }
 }

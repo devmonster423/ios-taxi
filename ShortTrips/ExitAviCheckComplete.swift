@@ -32,7 +32,7 @@ extension ExitAviCheckComplete: Observable {
   func eventIsFiring(_ info: Any?) {
     if let antenna = info as? Antenna {
       TripManager.sharedInstance.setStartTime(antenna.aviDate)
-      postNotification(SfoNotification.Avi.domExit, value: antenna)
+      NotificationCenter.default.post(name: .aviRead, object: nil, userInfo: [InfoKey.antenna: antenna])
     }
   }
 }

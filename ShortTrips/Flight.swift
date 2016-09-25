@@ -24,14 +24,14 @@ enum FlightType: String {
 struct Flight: Mappable {
   var airline: String!
   var bags: Int!
-  var estimatedTime: NSDate!
+  var estimatedTime: Date!
   var flightNumber: String!
   var flightStatus: FlightStatus?
-  var scheduledTime: NSDate!
+  var scheduledTime: Date!
   static let timeCushion: TimeInterval = 900.0
   static let transform = SfoDateTransform(dateFormat: "hh:mm a") // "2:50 PM"
   
-  init(airline: String, bags: Int, estimatedTime: NSDate, flightStatus: FlightStatus, flightNumber: String, scheduledTime: NSDate) {
+  init(airline: String, bags: Int, estimatedTime: Date, flightStatus: FlightStatus, flightNumber: String, scheduledTime: Date) {
     self.airline = airline
     self.bags = bags
     self.estimatedTime = estimatedTime
@@ -40,7 +40,7 @@ struct Flight: Mappable {
     self.scheduledTime = scheduledTime
   }
   
-  init?(_ map: Map){}
+  init?(map: Map){}
   
   mutating func mapping(map: Map) {
     airline <- map["airline_name"]
@@ -67,7 +67,7 @@ struct Flight: Mappable {
     return true
   }
   
-  static func airlineImageForFlight(_ flightNumber: String, width: Int, height: Int, completion: ImageClosure) {
+  static func airlineImageForFlight(_ flightNumber: String, width: Int, height: Int, completion: @escaping ImageClosure) {
     ApiClient.imageForIataCode(iataCodeForFlightNumber(flightNumber), width: width, height: height, completion: completion)
   }
   
@@ -76,7 +76,7 @@ struct Flight: Mappable {
       flightNumber.startIndex ..< flightNumber.characters.index(flightNumber.startIndex, offsetBy: 2)))
   }
 
-  static func mungeStatus(_ scheduled: NSDate, estimated: NSDate) -> FlightStatus {
-    return scheduled.dateByAddingTimeInterval(timeCushion).compare(estimated) == .OrderedAscending ? .Delayed : .OnTime
+  static func mungeStatus(_ scheduled: Date, estimated: Date) -> FlightStatus {
+    return scheduled.addingTimeInterval(timeCushion).compare(estimated) == .orderedAscending ? .Delayed : .OnTime
   }
 }

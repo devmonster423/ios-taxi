@@ -88,13 +88,6 @@ extension DebugVC {
       self.debugView().updateState("Waiting for Exit Avi")
       self.updateFakeButtons((title: "Fake Dom Exit AVI Read", action: #selector(DebugVC.latestDomExitAviRead)))
       
-      NotificationCenter.default.addObserver(forName: <#T##NSNotification.Name?#>, object: <#T##Any?#>, queue: <#T##OperationQueue?#>, using: <#T##(Notification) -> Void#>)
-      
-      sfoObservers.notInTerminalExitObserver = NotificationObserver(notification: SfoNotification.Geofence.notInTerminalExit) { _, _ in
-        self.debugView().printDebugLine("not exiting terminals")
-        self.sfoObservers.notInTerminalExitObserver = nil
-      }
-      
     } else if state == WaitingForTaxiLoopAvi.sharedInstance.getState() {
       debugView().printDebugLine("Entered Waiting For Taxi Loop Avi")
       debugView().updateState("Waiting for Taxi Loop Avi")

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
@@ -19,11 +20,12 @@ extension ApiClient {
   static func requestFlightsForTerminal(_ terminal: Int, hour: Int, flightType: FlightType, response: @escaping FlightDetailsClosure) {
     let params = ["terminal_id": terminal, "hour": hour]
     let url = flightType == .Arrivals ? Url.Flight.Arrival.details : Url.Flight.Departure.details
-    authedRequest(.GET, url, parameters: params)
-      .responseObject { (request, urlResponse, flightDetailsWrapper: FlightDetailsWrapper?, _, error: Error?) in
-        response(flightDetailsWrapper?.flightDetails, urlResponse?.statusCode)
+    
+    Alamofire.request(url, parameters: params)
+      .responseObject { (dataResponse: DataResponse<FlightDetailsWrapper>) in
+        response(dataResponse.result.value?.flightDetails, dataResponse.response?.statusCode)
         if Util.debug {
-          ErrorLogger.log(request, error: error)
+          ErrorLogger.log(dataResponse.request, error: dataResponse.result.error)
         }
       }
   }
@@ -32,19 +34,22 @@ extension ApiClient {
     let params = ["hour": hour]
     switch flightType {
     case .Arrivals:
-      authedRequest(.GET, Url.Flight.Arrival.summary, parameters: params)
-        .responseObject { (request, urlResponse, terminalSummaryArrivalsWrapper: TerminalSummaryArrivalsWrapper?, _, error: Error?) in
-          response(terminalSummaryArrivalsWrapper?.terminalSummaries, hour, urlResponse?.statusCode)
+      
+      
+      
+      Alamofire.request(Url.Flight.Arrival.summary, parameters: params)
+        .responseObject { (dataResponse: DataResponse<TerminalSummaryArrivalsWrapper>) in
+          response(dataResponse.result.value?.terminalSummaries, hour, dataResponse.response?.statusCode)
           if Util.debug {
-            ErrorLogger.log(request, error: error)
+            ErrorLogger.log(dataResponse.request, error: dataResponse.result.error)
           }
       }
     case .Departures:
-      authedRequest(.GET, Url.Flight.Departure.summary, parameters: params)
-        .responseObject { (request, urlResponse, terminalSummaryDeparturesWrapper: TerminalSummaryDeparturesWrapper?, _, error: Error?) in
-          response(terminalSummaryDeparturesWrapper?.terminalSummaries, hour, urlResponse?.statusCode)
+      Alamofire.request(Url.Flight.Departure.summary, parameters: params)
+        .responseObject { (dataResponse: DataResponse<TerminalSummaryDeparturesWrapper>) in
+          response(dataResponse.result.value?.terminalSummaries, hour, dataResponse.response?.statusCode)
           if Util.debug {
-            ErrorLogger.log(request, error: error)
+            ErrorLogger.log(dataResponse.request, error: dataResponse.result.error)
           }
       }
     }

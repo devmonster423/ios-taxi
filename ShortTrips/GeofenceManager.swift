@@ -41,7 +41,7 @@ class GeofenceManager {
           
           if let geofences = geofences {
             self.process(geofences)
-            postNotification(SfoNotification.Geofence.foundInside, value: geofences)
+            NotificationCenter.default.post(name: .foundInside, object: nil, userInfo: [InfoKey.geofences: geofences])
           }
           
           self.lastCheckedLocation = location

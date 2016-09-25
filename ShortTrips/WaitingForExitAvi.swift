@@ -28,11 +28,11 @@ class WaitingForExitAvi {
           
           if let antenna = antenna, let device = antenna.device() {
             
-            if device == .domExit || device == .intlArrivalExit {
+            if device == .DomExit || device == .IntlArrivalExit {
               ExitAviCheckComplete.sharedInstance.fire(antenna)
             } else {
               ExitAviCheckComplete.sharedInstance.fire()
-              nc.post(name: .aviUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: .domExit, InfoKey.foundGtmsLocation: device])
+              nc.post(name: .aviUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: .DomExit as GtmsLocation, InfoKey.foundGtmsLocation: device])
             }
           } else {
             ExitAviCheckComplete.sharedInstance.fire()

@@ -22,7 +22,9 @@ class WaitingForReEntryCid {
     
     state.setDidEnter { _, _ in
       
-      NotificationCenter.default.post(name: .stateUpdate, object: nil, userInfo: [InfoKey.state: self.getState()])
+      let nc = NotificationCenter.default
+      
+      nc.post(name: .stateUpdate, object: nil, userInfo: [InfoKey.state: self.getState()])
       
       self.poller = Poller.init() {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
@@ -32,7 +34,7 @@ class WaitingForReEntryCid {
               if device == self.expectedCid {
                 LatestCidIsReEntryCid.sharedInstance.fire(cid)
               } else {
-                postNotification(SfoNotification.Cid.unexpected, value: (expected: self.expectedCid, found: device))
+                nc.post(name: .cidUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: self.expectedCid, InfoKey.foundGtmsLocation: device])
                 
                 if !GeofenceManager.sharedInstance.stillInsideSfoBufferedExit() {
                   NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()

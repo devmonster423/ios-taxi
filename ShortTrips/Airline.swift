@@ -12,7 +12,7 @@ struct Airline: Mappable {
   var airlineCode: String!
   var airlineName: String!
   
-  init?(_ map: Map){}
+  init?(map: Map){}
   
   mutating func mapping(map: Map) {
     airlineCode <- map["airlineCode"]

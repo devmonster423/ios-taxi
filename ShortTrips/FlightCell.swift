@@ -169,8 +169,8 @@ class FlightCell: UITableViewCell {
       FlightCell.dateFormatter.amSymbol = NSLocalizedString("am", comment: "")
       FlightCell.dateFormatter.pmSymbol = NSLocalizedString("pm", comment: "")
     }
-    scheduledTimeLabel.text = FlightCell.dateFormatter.stringFromDate(flight.scheduledTime)
-    estimatedTimeLabel.text = FlightCell.dateFormatter.stringFromDate(flight.estimatedTime)
+    scheduledTimeLabel.text = FlightCell.dateFormatter.string(from: flight.scheduledTime as Date)
+    estimatedTimeLabel.text = FlightCell.dateFormatter.string(from: flight.estimatedTime as Date)
     
     let mungedFlightStatus = Flight.mungeStatus(flight.scheduledTime, estimated: flight.estimatedTime)
     switch mungedFlightStatus {

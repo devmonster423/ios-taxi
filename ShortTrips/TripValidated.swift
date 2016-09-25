@@ -30,7 +30,7 @@ extension TripValidated: Event {
 
 extension TripValidated: Observable {
   func eventIsFiring(_ info: Any?) {
-    postNotification(SfoNotification.Trip.validated, value: Date())
+    NotificationCenter.default.post(name: .tripValidated, object: nil, userInfo: [InfoKey.date: Date()])
     TripManager.sharedInstance.reset(true)
   }
 }

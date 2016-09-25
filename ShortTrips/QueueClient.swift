@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 import ObjectMapper
 import AlamofireObjectMapper
 
@@ -15,9 +16,9 @@ typealias QueueLengthAndCapacityResponse = ((length: Int, capacity: Int)?) -> Vo
 
 extension ApiClient {
   static func requestQueueLength(_ response: @escaping QueueLengthResponse) {
-    authedRequest(.GET, Url.Queue.currentLength)
-      .responseObject { (referenceConfig: QueueLength?, _) in
-        response(referenceConfig)
+    Alamofire.request(Url.Queue.currentLength)
+      .responseObject { (dataResponse: DataResponse<QueueLength>) in
+        response(dataResponse.result.value)
     }
   }
   

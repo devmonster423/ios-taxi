@@ -33,7 +33,7 @@ extension LatestAviAtEntry: Event {
 extension LatestAviAtEntry: Observable {
   func eventIsFiring(_ info: Any?) {
     if let antenna = info as? Antenna {
-      postNotification(SfoNotification.Avi.entryGate, value: antenna)
+      NotificationCenter.default.post(name: .aviRead, object: nil, userInfo: [InfoKey.antenna: antenna])
     }
   }
 }

@@ -35,7 +35,7 @@ class WaitingForTaxiLoopAvi {
                 LatestAviAtTaxiLoop.sharedInstance.fire(antenna)
                   
               } else {
-                nc.post(name: .aviUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: .DtaRecirculation, InfoKey.foundGtmsLocation: device])
+                nc.post(name: .aviUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: .DtaRecirculation as GtmsLocation, InfoKey.foundGtmsLocation: device])
                 
                 if !GeofenceManager.sharedInstance.stillInDomesticExitNotInHoldingLot() {
                   NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.sharedInstance.fire()

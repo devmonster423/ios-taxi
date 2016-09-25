@@ -18,7 +18,7 @@ class InProgress {
   private init() {
     state = TKState(name: stateName)
     
-    state.setDidEnterStateBlock { _, _ in
+    state.setDidEnter { _, _ in
       NotificationCenter.default.post(name: .stateUpdate, object: nil, userInfo: [InfoKey.state: self.getState()])
     }
   }

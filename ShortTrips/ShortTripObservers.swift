@@ -62,6 +62,7 @@ extension ShortTripVC {
     }
     
     nc.addObserver(forName: .tripValidated, object: nil, queue: nil) { note in
+      let date = note.userInfo![InfoKey.date] as! Date
       self.shortTripView().notifySuccess(date)
     }
   }
