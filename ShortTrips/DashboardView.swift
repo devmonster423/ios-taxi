@@ -11,9 +11,9 @@ import SnapKit
 
 class DashboardView: UIView {
 
-  fileprivate let numberLabel = UILabel()
-  fileprivate let timerView = TimerView()
-  fileprivate let reachabilityNotice = ReachabilityNotice()
+  private let numberLabel = UILabel()
+  private let timerView = TimerView()
+  private let reachabilityNotice = ReachabilityNotice()
 
   required init(coder aDecoder: NSCoder) {
     fatalError("This class does not support NSCoding")

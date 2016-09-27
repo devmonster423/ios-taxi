@@ -20,6 +20,6 @@ class ReachabilityNotice: UILabel {
     backgroundColor = UIColor.red
     textAlignment = .center
     textColor = UIColor.white
-    text = NSLocalizedString("Network Unreachable", comment: "")
+    text = NSLocalizedString("No Internet Connection", comment: "")
   }
 }

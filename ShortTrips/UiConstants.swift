@@ -62,7 +62,7 @@ struct UiConstants {
   }
   
   struct ReachabilityNotice {
-    static let height: CGFloat = 25
+    static let height: CGFloat = 45
   }
   
   struct FlightCell {
