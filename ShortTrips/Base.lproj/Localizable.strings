@@ -10,7 +10,7 @@
 "App version out of date." = "App version out of date.";
 "You will be redirected to the App Store." = "You will be redirected to the App Store.";
 "Please check your Internet connection." = "Please check your Internet connection.";
-"Error. Please contact support at taxiops@flysfo.com." = "Error. Please contact support at taxiops@flysfo.com.";
+"Unable to connect to TaxiQ system. Please try again later." = "Unable to connect to TaxiQ system. Please try again later.";
 "Required terms and conditions check failed." = "Required terms and conditions check failed.";
 "Terms and Conditions" = "Terms and Conditions";
 "By tapping 'I agree' below, you are agreeing to these terms:\n\n" = "By tapping 'I agree' below, you are agreeing to these terms:\n\n";

@@ -33,7 +33,7 @@ extension AppChecker where Self: UIViewController {
   }
   
   func showErrorRetry() {
-    let alertController = UIAlertController(title: NSLocalizedString("Error. Please contact support at taxiops@flysfo.com.", comment: ""), message: nil, preferredStyle: .alert)
+    let alertController = UIAlertController(title: NSLocalizedString("Unable to connect to TaxiQ system. Please try again later.", comment: ""), message: nil, preferredStyle: .alert)
     let OKAction = UIAlertAction(
       title: NSLocalizedString("Retry", comment: ""),
       style: .default) { _ in
