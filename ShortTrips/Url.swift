@@ -21,7 +21,7 @@ struct Url {
   }
   
   struct Airline {
-    fileprivate static let airline = base + "airline/"
+    private static let airline = base + "airline/"
     
     static let codes = airline + "codes"
     static func logoPng(_ iataCode: String) -> String {
@@ -30,7 +30,7 @@ struct Url {
   }
   
   struct Device {
-    fileprivate static let device = base + "device/"
+    private static let device = base + "device/"
     
     static func mobileStateUpdate(_ stateId: Int) -> String {
       return device + "mobile/state/\(stateId)/update"
@@ -45,7 +45,7 @@ struct Url {
     }
     
     struct Cid {
-      fileprivate static let cid = device + "cid"
+      private static let cid = device + "cid"
       
       static func driver(_ driverId: Int) -> String {
         return cid + "/driver/\(driverId)"
@@ -57,7 +57,7 @@ struct Url {
   }
   
   struct Driver {
-    fileprivate static let driver = base + "driver/"
+    private static let driver = base + "driver/"
     
     static let login = driver + "login"
     
@@ -67,17 +67,17 @@ struct Url {
   }
   
   struct Flight {
-    fileprivate static let flight = base + "flight/"
+    private static let flight = base + "flight/"
     
     struct Arrival {
-      fileprivate static let arrival = flight + "arrival/"
+      private static let arrival = flight + "arrival/"
       
       static let summary = arrival + "summary"
       static let details = arrival + "details"
     }
     
     struct Departure {
-      fileprivate static let departure = flight + "departure/"
+      private static let departure = flight + "departure/"
       
       static let summary = departure + "summary"
       static let details = departure + "details"
@@ -99,7 +99,7 @@ struct Url {
   }
   
   struct Reference {
-    fileprivate static let reference = base + "reference/"
+    private static let reference = base + "reference/"
     
     static let clientVersion = reference + "client_version"
     static let config = reference + "config"
@@ -108,7 +108,7 @@ struct Url {
   }
   
   struct Trip {
-    fileprivate static let trip = base + "trip/"
+    private static let trip = base + "trip/"
     
     static let start = trip + "start"
     static let status = trip + "status"

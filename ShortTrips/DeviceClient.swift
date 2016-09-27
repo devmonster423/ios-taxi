@@ -16,12 +16,19 @@ typealias AntennaClosure = (Antenna?) -> Void
 typealias CidClosure = (Cid?) -> Void
 
 extension ApiClient {
+  
   static func updateMobileState(_ mobileState: MobileState, mobileStateInfo: MobileStateInfo) {
+    
+    if lastKnownRemoteState == mobileState {
+      return
+    }
+    
     Alamofire.request(Url.Device.mobileStateUpdate(mobileState.rawValue), method: .put, parameters: Mapper().toJSON(mobileStateInfo), headers: headers())
       .response { dataResponse in
-
+        
         if let raw = dataResponse.response {
           NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])
+          lastKnownRemoteState = mobileState
         } else {
           DispatchQueue.main.asyncAfter(deadline: retryInterval()) {
             updateMobileState(mobileState, mobileStateInfo: mobileStateInfo)
