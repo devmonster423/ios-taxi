@@ -24,8 +24,8 @@ class ValidationStepSpec: QuickSpec {
         self.validationStepWrapper1 = Mapper<ValidationStepWrapper>().map(JSONString: MockValidationStepString)
         
         let validationStep = ValidationStep.vehicle
-        validationStep.name()
-        validationStep.description()
+        _ = validationStep.name()
+        _ = validationStep.description()
         
         self.validationStepWrapper2 = ValidationStepWrapper(validationStep: validationStep)
       }

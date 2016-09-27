@@ -31,6 +31,6 @@ extension UIViewController {
   }
     
   func goBack() {
-    navigationController?.popViewController(animated: true)
+    _ = navigationController?.popViewController(animated: true)
   }
 }
