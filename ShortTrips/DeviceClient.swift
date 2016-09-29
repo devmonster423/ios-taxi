@@ -30,7 +30,10 @@ extension ApiClient {
           NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])
           lastKnownRemoteState = mobileState
         } else {
-          DispatchQueue.main.asyncAfter(deadline: retryInterval()) {
+          
+          let stateRetryInterval = DispatchTime.now() + Double(Int64(15.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+          
+          DispatchQueue.main.asyncAfter(deadline: stateRetryInterval) {
             updateMobileState(mobileState, mobileStateInfo: mobileStateInfo)
           }
         }
