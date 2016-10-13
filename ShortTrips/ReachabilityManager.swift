@@ -12,7 +12,7 @@ import ReachabilitySwift
 class ReachabilityManager {
   
   static let sharedInstance = ReachabilityManager()
-  private var reachability: Reachability?
+  private let reachability = Reachability()!
   private var lastAnnouncedAsConnected = true
   private let waitTimeSec: Double = 15
   private var pendingNotification: UUID?
@@ -20,11 +20,6 @@ class ReachabilityManager {
   private init() {
   
     let nc = NotificationCenter.default
-    
-    guard let reachability = Reachability() else {
-      print("Unable to create Reachability")
-      return
-    }
     
     reachability.whenReachable = { reachability in
       self.potentiallySpeak(true)
@@ -49,11 +44,7 @@ class ReachabilityManager {
   }
   
   func isReachable() -> Bool {
-    if let reachable = reachability?.isReachable {
-      return reachable
-    } else {
-      return false
-    }
+    return reachability.isReachable
   }
   
   func potentiallySpeak(_ connected: Bool) {
