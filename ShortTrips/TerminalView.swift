@@ -167,11 +167,11 @@ class TerminalView: UIButton {
     
     activeTerminalId = summary.terminalId
     delayedImageView.isHidden = true
-    delayedLabel.text = "\(summary.delayedCount)"
+    delayedLabel.text = "\(summary.delayedCount!)"
     delayedTitleLabel.isHidden = true
     indicatorImageView.isHidden = false
     onTimeImageView.isHidden = true
-    onTimeLabel.text = "\(summary.onTimeCount)"
+    onTimeLabel.text = "\(summary.onTimeCount!)"
     onTimeTitleLabel.isHidden = true
     terminalTitleLabel.font = Font.OpenSansSemibold.size(14)
 

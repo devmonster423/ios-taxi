@@ -84,7 +84,7 @@ class TerminalSummaryVC: UIViewController {
   
   fileprivate func updateTerminalTable() {
     terminalSummaryView().clearTerminalTable()
-    terminalSummaryView().resetTimerProgess() // TODO: is this line necessary?
+    terminalSummaryView().resetTimerProgess()
     ApiClient.requestTerminalSummaries(terminalSummaryView().getCurrentHour(), flightType: terminalSummaryView().getCurrentFlightType()) { terminals, hour, statusCode in
       
       if let hour = hour , hour == self.terminalSummaryView().getCurrentHour() {

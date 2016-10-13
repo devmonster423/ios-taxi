@@ -162,7 +162,7 @@ class FlightCell: UITableViewCell {
     
     airlineLabel.text = flight.airline.uppercased()
     
-    flightNumberLabel.text = "#\(flight.flightNumber)"
+    flightNumberLabel.text = "#\(flight.flightNumber!)"
     
     if FlightCell.dateFormatter.dateFormat == "" {
       FlightCell.dateFormatter.dateFormat = NSLocalizedString("h:mma", comment: "")

@@ -16,7 +16,7 @@ typealias QueueLengthAndCapacityResponse = ((length: Int, capacity: Int)?) -> Vo
 
 extension ApiClient {
   static func requestQueueLength(_ response: @escaping QueueLengthResponse) {
-    Alamofire.request(Url.Queue.currentLength)
+    Alamofire.request(Url.Queue.currentLength, headers: headers())
       .responseObject { (dataResponse: DataResponse<QueueLength>) in
         response(dataResponse.result.value)
     }
