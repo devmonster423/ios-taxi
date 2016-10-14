@@ -50,8 +50,8 @@ class NotificationView: UIView {
     Speaker.sharedInstance.speak(NSLocalizedString("The trip has ended and was recorded as a valid short trip.", comment: ""))
     
     notificationLabel.snp.remakeConstraints { make in
-      make.leading.equalTo(self).offset(25)
-      make.trailing.equalTo(self).offset(-25)
+      make.leading.equalTo(self).offset(UiConstants.Trip.Notification.offset)
+      make.trailing.equalTo(self).offset(-UiConstants.Trip.Notification.offset)
       make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
       make.height.equalTo(100)
     }
@@ -71,8 +71,8 @@ class NotificationView: UIView {
     notificationLabel.font = Font.OpenSansSemibold.size(30)
     
     notificationLabel.snp.remakeConstraints { make in
-      make.leading.equalTo(self).offset(25)
-      make.trailing.equalTo(self).offset(-25)
+      make.leading.equalTo(self).offset(UiConstants.Trip.Notification.offset)
+      make.trailing.equalTo(self).offset(-UiConstants.Trip.Notification.offset)
       make.top.equalTo(self).offset(UiConstants.Trip.topMargin)
       make.height.equalTo(self).dividedBy(3)
     }

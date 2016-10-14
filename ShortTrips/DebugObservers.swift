@@ -86,7 +86,7 @@ extension DebugVC {
     // MARK: PING
     nc.addObserver(forName: .pingInvalid, object: nil, queue: nil) { note in
       let ping = note.userInfo![InfoKey.ping] as! Ping
-      self.debugView().printDebugLine("invalid ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)", type: .negative)
+      self.debugView().printDebugLine("invalid ping: (\(ping.latitude!), \(ping.longitude!)) at \(ping.timestamp!)", type: .negative)
     }
     
     nc.addObserver(forName: .pingValid, object: nil, queue: nil) { note in
