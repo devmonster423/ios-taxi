@@ -73,7 +73,8 @@ class ConeView: UIView {
     }
   }
   
-  func setLastUpdated(_ lastUpdated: String) {
-    lastUpdatedLabel.text = lastUpdated
+  func updateForCone(_ cone: Cone) {
+    isHidden = !cone.isConed
+    lastUpdatedLabel.text = cone.lastUpdatedString()
   }
 }

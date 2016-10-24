@@ -71,7 +71,7 @@ struct Flight: Mappable {
     ApiClient.imageForIataCode(iataCodeForFlightNumber(flightNumber), width: width, height: height, completion: completion)
   }
   
-  fileprivate static func iataCodeForFlightNumber(_ flightNumber: String) -> String {
+  private static func iataCodeForFlightNumber(_ flightNumber: String) -> String {
      return flightNumber.substring(with: Range<String.Index>(
       flightNumber.startIndex ..< flightNumber.characters.index(flightNumber.startIndex, offsetBy: 2)))
   }

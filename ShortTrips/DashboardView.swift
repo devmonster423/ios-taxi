@@ -58,8 +58,8 @@ class DashboardView: UIView {
     }
   }
   
-  func setConeLastUpdated(_ lastUpdated: String) {
-    coneView.setLastUpdated(lastUpdated)
+  func updateForCone(_ cone: Cone) {
+    coneView.updateForCone(cone)
   }
   
   func updateSpots(_ length: Int) {

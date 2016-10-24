@@ -12,9 +12,9 @@ import AVFoundation
 class Speaker {
   
   static let sharedInstance = Speaker()
-  fileprivate init() { }
+  private init() { }
   
-  fileprivate let audioEnabledKey = "audioEnabled"
+  private let audioEnabledKey = "audioEnabled"
   
   func speak(_ input: String) {
     var input = input

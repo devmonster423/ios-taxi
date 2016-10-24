@@ -254,6 +254,8 @@
 		FA32EC0E1B883B44001428B5 /* terminal_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC0D1B883B44001428B5 /* terminal_bg.jpg */; };
 		FA6380F21BED1FEA00CF51CC /* GtmsLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */; };
 		FA650FF81BB20CDB003D1939 /* SfoDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA650FF71BB20CDB003D1939 /* SfoDateTransform.swift */; };
+		FA7E5D1E1DBDD6470053C97A /* Cone.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7E5D1D1DBDD6470053C97A /* Cone.swift */; };
+		FA7E5D201DBDD82E0053C97A /* DispatcherClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7E5D1F1DBDD82E0053C97A /* DispatcherClient.swift */; };
 		FA89B0D61DBB275E00647E27 /* ConeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89B0D51DBB275E00647E27 /* ConeView.swift */; };
 		FA89B0D81DBB278400647E27 /* LotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89B0D71DBB278400647E27 /* LotView.swift */; };
 		FA93FFF41C588298008A2F22 /* FeedbackEmailMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FFF31C588298008A2F22 /* FeedbackEmailMaker.swift */; };
@@ -536,6 +538,8 @@
 		FA32EC0F1B885B92001428B5 /* ShortTrips.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ShortTrips.entitlements; sourceTree = "<group>"; };
 		FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GtmsLocation.swift; sourceTree = "<group>"; };
 		FA650FF71BB20CDB003D1939 /* SfoDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SfoDateTransform.swift; sourceTree = "<group>"; };
+		FA7E5D1D1DBDD6470053C97A /* Cone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cone.swift; sourceTree = "<group>"; };
+		FA7E5D1F1DBDD82E0053C97A /* DispatcherClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatcherClient.swift; sourceTree = "<group>"; };
 		FA89B0D51DBB275E00647E27 /* ConeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConeView.swift; sourceTree = "<group>"; };
 		FA89B0D71DBB278400647E27 /* LotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotView.swift; sourceTree = "<group>"; };
 		FA93FFF31C588298008A2F22 /* FeedbackEmailMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEmailMaker.swift; sourceTree = "<group>"; };
@@ -650,6 +654,7 @@
 				C20A53011BB36D04001D1F90 /* AirlineClient.swift */,
 				E1B8271B1B7CEF4200CC32EF /* ApiClient.swift */,
 				C21905691BB0C87200A3E779 /* DeviceClient.swift */,
+				FA7E5D1F1DBDD82E0053C97A /* DispatcherClient.swift */,
 				C2635E2B1BB0CCE4003C22B1 /* DriverClient.swift */,
 				C2635E291BB0CC86003C22B1 /* FlightClient.swift */,
 				C27E3A8F1C472A8000F1A163 /* QueueClient.swift */,
@@ -1173,6 +1178,7 @@
 				E1B393731BAC601900FC2970 /* Antenna */,
 				E1B393741BAC610E00FC2970 /* AutomaticVehicleId */,
 				E187368A1BA8E9D000B6C7D8 /* Cid */,
+				FA7E5D1C1DBDD6380053C97A /* Dispatcher */,
 				E1B393771BAC620E00FC2970 /* Driver */,
 				E13BCEEF1BABAD32006FDFF5 /* Flight */,
 				C24486EE1BA89DD100A19A9D /* Geofence */,
@@ -1376,6 +1382,14 @@
 				FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */,
 			);
 			name = Gtms;
+			sourceTree = "<group>";
+		};
+		FA7E5D1C1DBDD6380053C97A /* Dispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				FA7E5D1D1DBDD6470053C97A /* Cone.swift */,
+			);
+			name = Dispatcher;
 			sourceTree = "<group>";
 		};
 		FA89B0D91DBB278C00647E27 /* Flights */ = {
@@ -1717,6 +1731,7 @@
 				C21528C71BC855460073502F /* DebugVC.swift in Sources */,
 				C220E0731BC3446600AC7C85 /* Ready.swift in Sources */,
 				C28ECB261BCECE5F00887763 /* Ping.swift in Sources */,
+				FA7E5D201DBDD82E0053C97A /* DispatcherClient.swift in Sources */,
 				C21528C51BC83A820073502F /* LoginView.swift in Sources */,
 				E11D60971BA7A40100FD4276 /* Geofence.swift in Sources */,
 				FA0CD4C31C49876E00C071AC /* SettingsView.swift in Sources */,
@@ -1801,6 +1816,7 @@
 				E16399D51BA7B99400EDE0AE /* Driver.swift in Sources */,
 				C2B667291BA7833400BA28E2 /* TerminalSummaryView.swift in Sources */,
 				C2635E2E1BB0CD9A003C22B1 /* ReferenceClient.swift in Sources */,
+				FA7E5D1E1DBDD6470053C97A /* Cone.swift in Sources */,
 				C20A988A1BE17AEC009E29E7 /* Observable.swift in Sources */,
 				C21528C91BC8557B0073502F /* DebugView.swift in Sources */,
 				E1A2EBA91B6D747F00C27EB2 /* Flight.swift in Sources */,

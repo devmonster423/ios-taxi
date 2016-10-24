@@ -56,6 +56,12 @@ struct Url {
     }
   }
   
+  struct Dispatcher {
+    private static let dispatcher = base + "dispatcher/"
+    
+    static let cone = dispatcher + "cone"
+  }
+  
   struct Driver {
     private static let driver = base + "driver/"
     
