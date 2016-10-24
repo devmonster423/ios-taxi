@@ -74,12 +74,16 @@ class DashboardVC: UIViewController {
   }
     
   func requestLotStatus() {
+    var requestsInProgress = 2
     let hud = MBProgressHUD.showAdded(to: view, animated: true)
     hud.label.text = NSLocalizedString("Requesting Lot Status", comment: "")
     
     ApiClient.requestQueueLength { length in
       
-      hud.hide(animated: true)
+      requestsInProgress -= 1
+      if requestsInProgress == 0 {
+        hud.hide(animated: true)
+      }
       
       if let length = length {
         self.dashboardView().updateSpots(length.longQueueLength)
@@ -90,6 +94,24 @@ class DashboardVC: UIViewController {
           
           UiHelpers.displayErrorMessage(self, message: NSLocalizedString("An error occurred while fetching parking-lot data.", comment: ""))
           self.errorShown = true
+      }
+    }
+    
+    ApiClient.fetchCone { cone in
+      requestsInProgress -= 1
+      if requestsInProgress == 0 {
+        hud.hide(animated: true)
+      }
+      
+      if let cone = cone {
+        self.dashboardView().updateForCone(cone)
+        
+      } else if !self.errorShown
+        && self.tabBarController?.selectedIndex == MainTabs.lot.rawValue
+        && self.navigationController?.visibleViewController == self {
+        
+        UiHelpers.displayErrorMessage(self, message: NSLocalizedString("An error occurred while fetching parking-lot data.", comment: ""))
+        self.errorShown = true
       }
     }
   }

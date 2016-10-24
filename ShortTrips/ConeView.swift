@@ -20,7 +20,7 @@ class ConeView: UIView {
   override init(frame: CGRect) {
     super.init(frame: frame)
     
-    addSubview(lastUpdatedLabel)
+    backgroundColor = UIColor.white
     
     let footerBgView = UIView()
     footerBgView.backgroundColor = Color.Dashboard.gray
@@ -37,6 +37,7 @@ class ConeView: UIView {
     fullLabel.text = NSLocalizedString("Full", comment: "")
     fullLabel.textColor = UIColor.white
     fullLabel.backgroundColor = Color.Dashboard.orange
+    fullLabel.textAlignment = .center
     addSubview(fullLabel)
     fullLabel.snp.makeConstraints { make in
       make.leading.equalTo(self)
@@ -47,29 +48,37 @@ class ConeView: UIView {
     
     let coneImageView = UIImageView()
     coneImageView.image = Image.cone.image()
+    coneImageView.contentMode = .scaleAspectFit
     addSubview(coneImageView)
     coneImageView.snp.makeConstraints { make in
       make.leading.equalTo(self).offset(20)
-      make.trailing.equalTo(self).offset(20)
-      make.top.equalTo(fullLabel.snp.bottom)
-      make.bottom.equalTo(footerBgView.snp.top)
-    }
-    
-    let placedAtLabel = UILabel()
-    addSubview(placedAtLabel)
-    placedAtLabel.snp.makeConstraints { make in
-      make.leading.equalTo(self)
-      make.trailing.equalTo(self)
-      make.top.equalTo(footerBgView).offset(20)
-      make.bottom.equalTo(lastUpdatedLabel.snp.top)
+      make.trailing.equalTo(self).offset(-20)
+      make.top.equalTo(fullLabel.snp.bottom).offset(20)
+      make.bottom.equalTo(footerBgView.snp.top).offset(-20)
     }
     
     lastUpdatedLabel.textColor = Color.Dashboard.darkBlue
+    lastUpdatedLabel.textAlignment = .left
+    lastUpdatedLabel.font = Font.OpenSansSemibold.size(36)
+    addSubview(lastUpdatedLabel)
     lastUpdatedLabel.snp.makeConstraints { make in
       make.leading.equalTo(self).offset(20)
       make.trailing.equalTo(self).offset(20)
-      make.bottom.equalTo(self).offset(20)
-      make.height.equalTo(40)
+      make.bottom.equalTo(footerBgView).offset(-10)
+      make.height.equalTo(30)
+    }
+    
+    let placedAtLabel = UILabel()
+    placedAtLabel.font = Font.OpenSans.size(28)
+    placedAtLabel.text = NSLocalizedString("Placed at", comment: "")
+    placedAtLabel.textColor = Color.Dashboard.darkGray
+    placedAtLabel.textAlignment = .left
+    addSubview(placedAtLabel)
+    placedAtLabel.snp.makeConstraints { make in
+      make.leading.equalTo(self).offset(20)
+      make.trailing.equalTo(self)
+      make.top.equalTo(footerBgView).offset(10)
+      make.height.equalTo(30)
     }
   }
   

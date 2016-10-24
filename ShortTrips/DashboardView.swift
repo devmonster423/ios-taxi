@@ -27,7 +27,7 @@ class DashboardView: UIView {
     
     addSubview(lotView)
     lotView.snp.makeConstraints { make in
-      make.height.equalTo(self)
+      make.top.equalTo(self)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.bottom.equalTo(timerView.snp.top)
@@ -36,7 +36,7 @@ class DashboardView: UIView {
     coneView.isHidden = true
     addSubview(coneView)
     coneView.snp.makeConstraints { make in
-      make.height.equalTo(self)
+      make.top.equalTo(self)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.bottom.equalTo(timerView.snp.top)

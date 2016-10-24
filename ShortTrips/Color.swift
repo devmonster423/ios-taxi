@@ -33,6 +33,7 @@ struct Color {
     static let darkBlue = UIColor(red: 22.0/255.0, green: 103.0/255.0, blue: 131/255.0, alpha: 1.0)
     static let black = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
     static let orange = UIColor(red: 246/255.0, green: 93/255.0, blue: 9/255.0, alpha: 1.0)
+    static let darkGray = UIColor(red: 86/255.0, green: 86/255.0, blue: 90/255.0, alpha: 1.0)
   }
   
   struct StatusColor {
