@@ -11,7 +11,8 @@ import SnapKit
 
 class DashboardView: UIView {
 
-  private let numberLabel = UILabel()
+  private let coneView = ConeView()
+  private let lotView = LotView()
   private let timerView = TimerView()
   private let reachabilityNotice = ReachabilityNotice()
 
@@ -24,38 +25,21 @@ class DashboardView: UIView {
     backgroundColor = UIColor.white
     addSubview(timerView)
     
-    let taxisCaptionLabel = UILabel()
-    taxisCaptionLabel.backgroundColor = Color.Dashboard.lightBlue
-    taxisCaptionLabel.font = Font.OpenSansBold.size(32)
-    taxisCaptionLabel.text = NSLocalizedString("Taxis in lot", comment: "").uppercased()
-    taxisCaptionLabel.textAlignment = .center
-    taxisCaptionLabel.textColor = Color.Dashboard.darkBlue
-    addSubview(taxisCaptionLabel)
-    taxisCaptionLabel.snp.makeConstraints { make in
-      make.height.equalTo(105)
+    addSubview(lotView)
+    lotView.snp.makeConstraints { make in
+      make.height.equalTo(self)
       make.leading.equalTo(self)
       make.trailing.equalTo(self)
       make.bottom.equalTo(timerView.snp.top)
     }
-
-    let circlesImage = UIImageView()
-    circlesImage.image = Image.bgCircles.image()
-    circlesImage.contentMode = .scaleAspectFit
-    addSubview(circlesImage)
-    circlesImage.snp.makeConstraints { make in
-      make.top.equalTo(self).offset(20)
-      make.bottom.equalTo(taxisCaptionLabel.snp.top).offset(-20)
-      make.leading.equalTo(self).offset(50)
-      make.trailing.equalTo(self).offset(-50)
-    }
-
-    numberLabel.font = Font.OpenSansBold.size(180)
-    numberLabel.textAlignment = .center
-    numberLabel.textColor = Color.Dashboard.darkBlue
-    addSubview(numberLabel)
-    numberLabel.snp.makeConstraints { (make) -> Void in
-      make.centerX.equalTo(circlesImage.snp.centerX)
-      make.centerY.equalTo(circlesImage.snp.centerY)
+    
+    coneView.isHidden = true
+    addSubview(coneView)
+    coneView.snp.makeConstraints { make in
+      make.height.equalTo(self)
+      make.leading.equalTo(self)
+      make.trailing.equalTo(self)
+      make.bottom.equalTo(timerView.snp.top)
     }
     
     timerView.snp.makeConstraints { make in
@@ -74,8 +58,12 @@ class DashboardView: UIView {
     }
   }
   
+  func setConeLastUpdated(_ lastUpdated: String) {
+    coneView.setLastUpdated(lastUpdated)
+  }
+  
   func updateSpots(_ length: Int) {
-    numberLabel.text = "\(length)"
+    lotView.updateSpots(length)
   }
   
   func setReachabilityNoticeHidden(_ hidden: Bool) {

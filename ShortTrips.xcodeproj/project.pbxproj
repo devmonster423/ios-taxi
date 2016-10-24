@@ -254,6 +254,8 @@
 		FA32EC0E1B883B44001428B5 /* terminal_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA32EC0D1B883B44001428B5 /* terminal_bg.jpg */; };
 		FA6380F21BED1FEA00CF51CC /* GtmsLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */; };
 		FA650FF81BB20CDB003D1939 /* SfoDateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA650FF71BB20CDB003D1939 /* SfoDateTransform.swift */; };
+		FA89B0D61DBB275E00647E27 /* ConeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89B0D51DBB275E00647E27 /* ConeView.swift */; };
+		FA89B0D81DBB278400647E27 /* LotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89B0D71DBB278400647E27 /* LotView.swift */; };
 		FA93FFF41C588298008A2F22 /* FeedbackEmailMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FFF31C588298008A2F22 /* FeedbackEmailMaker.swift */; };
 		FA93FFF61C5889D6008A2F22 /* DeviceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93FFF51C5889D6008A2F22 /* DeviceUtil.swift */; };
 		FAB97C721C23867F008F5421 /* GeofenceVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB97C711C23867F008F5421 /* GeofenceVars.swift */; };
@@ -534,6 +536,8 @@
 		FA32EC0F1B885B92001428B5 /* ShortTrips.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ShortTrips.entitlements; sourceTree = "<group>"; };
 		FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GtmsLocation.swift; sourceTree = "<group>"; };
 		FA650FF71BB20CDB003D1939 /* SfoDateTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SfoDateTransform.swift; sourceTree = "<group>"; };
+		FA89B0D51DBB275E00647E27 /* ConeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConeView.swift; sourceTree = "<group>"; };
+		FA89B0D71DBB278400647E27 /* LotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LotView.swift; sourceTree = "<group>"; };
 		FA93FFF31C588298008A2F22 /* FeedbackEmailMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackEmailMaker.swift; sourceTree = "<group>"; };
 		FA93FFF51C5889D6008A2F22 /* DeviceUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceUtil.swift; sourceTree = "<group>"; };
 		FAB97C711C23867F008F5421 /* GeofenceVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceVars.swift; sourceTree = "<group>"; };
@@ -1071,12 +1075,8 @@
 		E177ED031BB4710400DD4499 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				C2B667101BA7577600BA28E2 /* DashboardView.swift */,
-				E1AE8CE21BB5A2E3004E243E /* FlightCell.swift */,
-				C207D6FB1BAB86D800273374 /* FlightStatusView.swift */,
-				C200BE261BA8D3A300B7F56F /* HourPickerView.swift */,
-				C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */,
-				C200BE201BA8C21600B7F56F /* TerminalView.swift */,
+				FA89B0D91DBB278C00647E27 /* Flights */,
+				FA89B0DC1DBB27AA00647E27 /* Lot */,
 				C200BE221BA8D05D00B7F56F /* TimerView.swift */,
 			);
 			name = Dashboard;
@@ -1376,6 +1376,28 @@
 				FA6380F11BED1FEA00CF51CC /* GtmsLocation.swift */,
 			);
 			name = Gtms;
+			sourceTree = "<group>";
+		};
+		FA89B0D91DBB278C00647E27 /* Flights */ = {
+			isa = PBXGroup;
+			children = (
+				E1AE8CE21BB5A2E3004E243E /* FlightCell.swift */,
+				C207D6FB1BAB86D800273374 /* FlightStatusView.swift */,
+				C200BE261BA8D3A300B7F56F /* HourPickerView.swift */,
+				C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */,
+				C200BE201BA8C21600B7F56F /* TerminalView.swift */,
+			);
+			name = Flights;
+			sourceTree = "<group>";
+		};
+		FA89B0DC1DBB27AA00647E27 /* Lot */ = {
+			isa = PBXGroup;
+			children = (
+				C2B667101BA7577600BA28E2 /* DashboardView.swift */,
+				FA89B0D71DBB278400647E27 /* LotView.swift */,
+				FA89B0D51DBB275E00647E27 /* ConeView.swift */,
+			);
+			name = Lot;
 			sourceTree = "<group>";
 		};
 		FAB97C6F1C238644008F5421 /* JSON */ = {
@@ -1740,6 +1762,7 @@
 				C2635E2A1BB0CC86003C22B1 /* FlightClient.swift in Sources */,
 				C28ECB2C1BCF01F200887763 /* WaitingForEntryCid.swift in Sources */,
 				C283AB351BE936B30004E8CD /* DebugActions.swift in Sources */,
+				FA89B0D81DBB278400647E27 /* LotView.swift in Sources */,
 				FA0E1FD21BAF1DD500B8F921 /* Font.swift in Sources */,
 				E18FF6911BA870AF00FE93B9 /* Cid.swift in Sources */,
 				C28ECB421BCF21DE00887763 /* GeofenceManager.swift in Sources */,
@@ -1750,6 +1773,7 @@
 				C20A98851BE153BA009E29E7 /* TripId.swift in Sources */,
 				C2DAD68B1BE7F06200CB142C /* TripManager.swift in Sources */,
 				C21905681BB0B74E00A3E779 /* Url.swift in Sources */,
+				FA89B0D61DBB275E00647E27 /* ConeView.swift in Sources */,
 				E1472D041C0E7B6900D27D60 /* ShortTripObservers.swift in Sources */,
 				E15FF4981BD5F0C700ECDF27 /* Util.swift in Sources */,
 				C221EDE31BE2C57700BDB4CD /* WaitingForExitAvi.swift in Sources */,

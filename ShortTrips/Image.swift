@@ -14,6 +14,8 @@ enum Image: String {
   case blueGradient = "blue_gradient_bg"
   case sfoLogoAndName = "sfo_logo2"
   
+  case cone = "cone"
+  
   case sfoLogoAlpha = "sfo_logo_alpha"
   
   case greenCircle = "green_circle"

@@ -2,18 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "planes.png"
+      "filename" : "cone_hdpi.png",
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "planes@2x.png"
+      "filename" : "cone-xhdpi.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "planes@3x.png"
+      "filename" : "cone_xxhdpi.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

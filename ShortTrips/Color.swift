@@ -28,9 +28,11 @@ struct Color {
   }
   
   struct Dashboard {
+    static let gray = UIColor(red: 240/255.0, green: 245/255.0, blue: 249/255.0, alpha: 1.0)
     static let lightBlue = UIColor(red: 242.0/255.0, green: 246.0/255.0, blue: 248.0/255.0, alpha: 1.0)
     static let darkBlue = UIColor(red: 22.0/255.0, green: 103.0/255.0, blue: 131/255.0, alpha: 1.0)
     static let black = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+    static let orange = UIColor(red: 246/255.0, green: 93/255.0, blue: 9/255.0, alpha: 1.0)
   }
   
   struct StatusColor {
