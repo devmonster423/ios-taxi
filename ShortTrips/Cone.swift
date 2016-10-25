@@ -9,7 +9,7 @@
 import ObjectMapper
 
 struct Cone: Mappable {
-  static let inTransform = SfoDateTransform(dateFormat: "yyyy-MM-dd HH:mm:ss")
+  static let inTransform = SfoDateTransform(dateFormat: "yyyy-MM-dd HH:mm:ss.SSS")
   static let outTransform = SfoDateTransform(dateFormat: "hh:mm a") // "2:50 PM"
   
   var isConed: Bool!
