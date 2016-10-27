@@ -58,12 +58,12 @@ class ConeView: UIView {
     }
     
     lastUpdatedLabel.textColor = Color.Dashboard.darkBlue
-    lastUpdatedLabel.textAlignment = .left
+    lastUpdatedLabel.textAlignment = .center
     lastUpdatedLabel.font = Font.OpenSansSemibold.size(36)
     addSubview(lastUpdatedLabel)
     lastUpdatedLabel.snp.makeConstraints { make in
       make.leading.equalTo(self).offset(20)
-      make.trailing.equalTo(self).offset(20)
+      make.trailing.equalTo(self).offset(-20)
       make.bottom.equalTo(footerBgView).offset(-10)
       make.height.equalTo(30)
     }
@@ -72,11 +72,11 @@ class ConeView: UIView {
     placedAtLabel.font = Font.OpenSans.size(28)
     placedAtLabel.text = NSLocalizedString("Placed at", comment: "")
     placedAtLabel.textColor = Color.Dashboard.darkGray
-    placedAtLabel.textAlignment = .left
+    placedAtLabel.textAlignment = .center
     addSubview(placedAtLabel)
     placedAtLabel.snp.makeConstraints { make in
       make.leading.equalTo(self).offset(20)
-      make.trailing.equalTo(self)
+      make.trailing.equalTo(self).offset(-20)
       make.top.equalTo(footerBgView).offset(10)
       make.height.equalTo(30)
     }
