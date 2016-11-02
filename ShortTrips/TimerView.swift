@@ -96,7 +96,7 @@ class TimerView: UIView {
     if let lastUpdateDate = lastUpdateDate {
       let elapsedSeconds = -lastUpdateDate.timeIntervalSinceNow
       updateForTime(elapsedSeconds)
-      if elapsedSeconds >= updateInterval {
+      if elapsedSeconds >= updateInterval! {
         updateAndRefresh()
       }
     } else {

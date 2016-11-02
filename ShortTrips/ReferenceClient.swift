@@ -47,7 +47,7 @@ extension ApiClient {
   }
   
   static func requestTermsAndConditions(_ response: @escaping StringClosure) {
-    Alamofire.request(Url.Reference.terms, headers: headers())
+    Alamofire.request(Url.Reference.terms, parameters: ["platform":"ios"], headers: headers())
       .responseString { resultString in
         response(resultString.result.value)
     }
