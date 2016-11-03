@@ -85,6 +85,7 @@
 		C221EDEB1BE2E12E00BDB4CD /* MockAntennaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDEA1BE2E12E00BDB4CD /* MockAntennaResponse.swift */; };
 		C22A7F671D4148060091607E /* Domestic_Pax_Pickup.json in Resources */ = {isa = PBXBuildFile; fileRef = C22A7F661D4148060091607E /* Domestic_Pax_Pickup.json */; };
 		C23315851BB472490079B916 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23315841BB472490079B916 /* Airline.swift */; };
+		C23DDD0B1DCBD367008D2448 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C23DDD0A1DCBD367008D2448 /* GoogleService-Info.plist */; };
 		C24388431C447B4E00984CB8 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24388421C447B4E00984CB8 /* NotificationView.swift */; };
 		C24AA69F1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AA69E1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift */; };
 		C24C8C5D1C77EB09000835F6 /* taxi_sfo_merged.json in Resources */ = {isa = PBXBuildFile; fileRef = C24C8C5C1C77EB09000835F6 /* taxi_sfo_merged.json */; };
@@ -365,6 +366,7 @@
 		C221EDEA1BE2E12E00BDB4CD /* MockAntennaResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAntennaResponse.swift; sourceTree = "<group>"; };
 		C22A7F661D4148060091607E /* Domestic_Pax_Pickup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Domestic_Pax_Pickup.json; sourceTree = "<group>"; };
 		C23315841BB472490079B916 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
+		C23DDD0A1DCBD367008D2448 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C24388421C447B4E00984CB8 /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		C24AA69E1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingAppQuitSpec.swift; sourceTree = "<group>"; };
 		C24C8C5C1C77EB09000835F6 /* taxi_sfo_merged.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taxi_sfo_merged.json; sourceTree = "<group>"; };
@@ -967,6 +969,7 @@
 			isa = PBXGroup;
 			children = (
 				C2DFE5C71B56D2CB0090B55F /* AppDelegate.swift */,
+				C23DDD0A1DCBD367008D2448 /* GoogleService-Info.plist */,
 				C2DFE5C61B56D2CB0090B55F /* Info.plist */,
 				FA32EC0F1B885B92001428B5 /* ShortTrips.entitlements */,
 			);
@@ -1552,6 +1555,7 @@
 				C26ABD221C45ADAF00EF4684 /* OpenSans-Italic.ttf in Resources */,
 				C26ABD241C45ADAF00EF4684 /* OpenSans-LightItalic.ttf in Resources */,
 				E122649E1B795A65002B36CA /* Localizable.strings in Resources */,
+				C23DDD0B1DCBD367008D2448 /* GoogleService-Info.plist in Resources */,
 				C2DFE5CF1B56D2CB0090B55F /* Images.xcassets in Resources */,
 				C26ABD251C45ADAF00EF4684 /* OpenSans-Regular.ttf in Resources */,
 			);
@@ -2051,7 +2055,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4F9B7F376ADA1DEE447C0E56 /* Pods-ShortTrips.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Davis & Associates Communications, Inc. (68966928SB)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Davis & Associates Communications, Inc. (68966928SB)";
@@ -2070,7 +2074,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0AAD3471E4865E0C89C4F4D8 /* Pods-ShortTrips.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Davis & Associates Communications, Inc. (68966928SB)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Davis & Associates Communications, Inc. (68966928SB)";
@@ -2089,7 +2093,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01466A94906E687052C64C6D /* Pods-ShortTripsTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -2109,7 +2113,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 062B5E93B766904C17AAE8C4 /* Pods-ShortTripsTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = ShortTripsTests/Info.plist;
