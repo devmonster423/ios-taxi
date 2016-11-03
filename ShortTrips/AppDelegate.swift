@@ -7,9 +7,12 @@
 //
 
 import UIKit
-import Fabric
+
 import Crashlytics
+import Fabric
+import Firebase
 import IQKeyboardManagerSwift
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,10 +29,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window?.rootViewController = loginVC
     window?.makeKeyAndVisible()
     Fabric.with([Crashlytics.self()])
+    FIRApp.configure()
+    registerForPushNotifications(application)
     IQKeyboardManager.sharedManager().enable = true
     UIApplication.shared.isIdleTimerDisabled = true
     Speaker.sharedInstance.enableBackgroundAudio()
     return true
+  }
+  
+  func registerForPushNotifications(_ application: UIApplication) {
+    if #available(iOS 10.0, *) {
+      let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+      UNUserNotificationCenter.current().requestAuthorization(options: authOptions) {_, _ in }
+      
+    } else {
+      let settings: UIUserNotificationSettings =
+        UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+      application.registerUserNotificationSettings(settings)
+    }
+
+    // dev only
+//    NotificationCenter.default.addObserver(forName: .firInstanceIDTokenRefresh, object: nil, queue: nil) { _ in
+//      if let refreshedToken = FIRInstanceID.instanceID().token() {
+//        print("InstanceID token: \(refreshedToken)")
+//        Answers.logCustomEvent(withName: "instance token", customAttributes: ["token": refreshedToken])
+//      }
+//    }
+    
+    application.registerForRemoteNotifications()
   }
 
   func applicationWillResignActive(_ application: UIApplication) {
@@ -56,4 +83,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     AppQuit.sharedInstance.fire()
   }
 }
-
