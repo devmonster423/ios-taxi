@@ -7,6 +7,7 @@ def shared_pods
   pod 'AlamofireObjectMapper', '4.0.0'
   pod 'Crashlytics', '3.8.2'
   pod 'Fabric', '1.6.8'
+  pod 'Firebase/Core', '3.6.0'
   pod 'IQKeyboardManagerSwift', '4.0.6'
   pod 'MBProgressHUD', '1.0.0'
   pod 'ReachabilitySwift', '3'
