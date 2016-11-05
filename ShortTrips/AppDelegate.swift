@@ -49,12 +49,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // dev only
-//    NotificationCenter.default.addObserver(forName: .firInstanceIDTokenRefresh, object: nil, queue: nil) { _ in
-//      if let refreshedToken = FIRInstanceID.instanceID().token() {
-//        print("InstanceID token: \(refreshedToken)")
-//        Answers.logCustomEvent(withName: "instance token", customAttributes: ["token": refreshedToken])
-//      }
-//    }
+    NotificationCenter.default.addObserver(forName: .firInstanceIDTokenRefresh, object: nil, queue: nil) { _ in
+      if let refreshedToken = FIRInstanceID.instanceID().token() {
+        print("InstanceID token: \(refreshedToken)")
+        FIRMessaging.messaging().subscribe(toTopic: "/topics/cone")
+        
+        // only DEBUG!
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(3 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
+//          FIRMessaging.messaging().subscribe(toTopic: "/topics/debug")
+//        }
+      }
+    }
     
     application.registerForRemoteNotifications()
   }
