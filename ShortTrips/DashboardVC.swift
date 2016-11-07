@@ -19,7 +19,7 @@ class DashboardVC: UIViewController {
 //#if DEBUG
 //    let secretSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(DashboardVC.openDebugMode))
 //    secretSwipeRecognizer.numberOfTouchesRequired = 2
-//    secretSwipeRecognizer.direction = .Down
+//    secretSwipeRecognizer.direction = .down
 //    dashboardView.addGestureRecognizer(secretSwipeRecognizer)
 //#endif
     view = dashboardView
