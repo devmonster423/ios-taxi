@@ -21,6 +21,7 @@ enum InfoKey: String {
   case location = "location"
   case locationStatus = "locationStatus"
   case ping = "ping"
+  case pushText = "pushText"
   case reachable = "reachable"
   case response = "response"
   case state = "state"
@@ -59,6 +60,9 @@ extension Notification.Name {
   static let pingCreated = Notification.Name("CreatedPing")
   static let pingInvalid = Notification.Name("invalidPing")
   static let pingValid = Notification.Name("validPing")
+  
+  // MARK: PUSH
+  static let pushReceived = Notification.Name("pushReceived")
   
   // MARK: REACHABILITY
   static let reachabilityChanged = Notification.Name("ReachabilityChanged")

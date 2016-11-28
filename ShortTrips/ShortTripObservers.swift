@@ -65,6 +65,10 @@ extension ShortTripVC {
       let date = note.userInfo![InfoKey.date] as! Date
       self.shortTripView().notifySuccess(date)
     }
+    
+    nc.addObserver(forName: .pushReceived, object: nil, queue: nil) { note in
+      self.hideAndShowAlert(note.userInfo![InfoKey.pushText] as! String)
+    }
   }
   
   func initializeForState(_ state: TKState) {

@@ -87,4 +87,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     PendingAppQuit.set(TripManager.sharedInstance.getTripId())
     AppQuit.sharedInstance.fire()
   }
+  func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+    if let aps = userInfo["aps"] as? [String: Any], let message = aps["alert"] {
+      NotificationCenter.default.post(name: .pushReceived, object: nil, userInfo: [InfoKey.pushText: message])
+    }
+  }
 }
