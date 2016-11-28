@@ -67,7 +67,11 @@ extension ShortTripVC {
     }
     
     nc.addObserver(forName: .pushReceived, object: nil, queue: nil) { note in
-      self.hideAndShowAlert(note.userInfo![InfoKey.pushText] as! String)
+      if let active = note.userInfo![InfoKey.appActive] as? Bool, active {
+        self.hideAndShowAlert(note.userInfo![InfoKey.pushText] as! String)
+      } else {
+        self.tabBarController?.selectedIndex = MainTabs.lot.rawValue
+      }
     }
   }
   
