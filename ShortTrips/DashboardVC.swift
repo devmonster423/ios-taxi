@@ -103,7 +103,7 @@ class DashboardVC: UIViewController {
         hud.hide(animated: true)
       }
       
-      if let cone = cone {
+      if let cone = cone, cone.isValid() {
         self.dashboardView().updateForCone(cone)
         
       } else if !self.errorShown

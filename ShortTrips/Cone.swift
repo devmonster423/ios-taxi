@@ -25,4 +25,8 @@ struct Cone: Mappable {
   func lastUpdatedString() -> String {
     return Cone.outTransform.transformToJSON(lastUpdated)!
   }
+  
+  func isValid() -> Bool {
+    return isConed != nil && lastUpdated != nil
+  }
 }
