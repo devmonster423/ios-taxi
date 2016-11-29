@@ -103,9 +103,10 @@ class DashboardVC: UIViewController {
         hud.hide(animated: true)
       }
       
-      if let cone = cone, cone.isValid() {
-        self.dashboardView().updateForCone(cone)
-        
+      if let cone = cone {
+        if cone.isValid() {
+          self.dashboardView().updateForCone(cone)
+        }
       } else if !self.errorShown
         && self.tabBarController?.selectedIndex == MainTabs.lot.rawValue
         && self.navigationController?.visibleViewController == self {
