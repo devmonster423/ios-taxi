@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 class ShortTripVC: UIViewController {
-
+  
   private var tripTimer: Timer?
   private var alertController: UIAlertController?
   
@@ -64,7 +64,7 @@ class ShortTripVC: UIViewController {
   func checkTime() {
     shortTripView().updateCountdown(TripManager.sharedInstance.getElapsedTime())
   }
-
+  
   func hideAndShowAlert(_ message: String) {
     if let alertController = self.alertController {
       alertController.dismiss(animated: true) {
@@ -75,7 +75,7 @@ class ShortTripVC: UIViewController {
       showNewAlert(message)
     }
   }
-
+  
   private func showNewAlert(_ message: String) {
     alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
     let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
