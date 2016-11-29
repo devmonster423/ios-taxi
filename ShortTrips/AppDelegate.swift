@@ -20,8 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   let stateManager = StateManager.sharedInstance // needed, to start the state machine
   var appCheckDelegate: AppChecker?
   var window: UIWindow?
+  var appActiveFromPush = false
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+    if launchOptions != nil,
+    let _ = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [NSObject : AnyObject]? {
+      appActiveFromPush = true
+    }
+
     UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
     window = UIWindow(frame: UIScreen.main.bounds)
     let loginVC = LoginVC(startup: true)

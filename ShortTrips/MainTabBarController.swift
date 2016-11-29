@@ -33,7 +33,11 @@ var MainTabBarController: UITabBarController {
     shortTripNavVC
   ]
   
-  mainTabBarController.selectedIndex = MainTabs.trip.rawValue
+  let delegate = UIApplication.shared.delegate as! AppDelegate
+  
+  mainTabBarController.selectedIndex = delegate.appActiveFromPush
+    ? MainTabs.lot.rawValue
+    : MainTabs.trip.rawValue
   mainTabBarController.tabBar.barTintColor = Color.TabBar.background
   mainTabBarController.tabBar.tintColor = UIColor.white
   mainTabBarController.tabBar.isTranslucent = false
