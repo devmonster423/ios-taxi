@@ -72,8 +72,11 @@ extension ShortTripVC {
         self.tabBarController?.selectedIndex == MainTabs.trip.rawValue,
         self.navigationController?.visibleViewController == self {
         
-        self.hideAndShowAlert(note.userInfo![InfoKey.pushText] as! String)
-        
+        if let title = note.userInfo![InfoKey.pushText] as? String {
+          self.hideAndShowAlert(title)
+        } else if let message = note.userInfo![InfoKey.pushText] as? [String: String] {
+          self.hideAndShowAlert(message["title"], message["body"])
+        }
       } else {
         self.tabBarController?.selectedIndex = MainTabs.lot.rawValue
       }

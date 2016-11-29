@@ -65,19 +65,19 @@ class ShortTripVC: UIViewController {
     shortTripView().updateCountdown(TripManager.sharedInstance.getElapsedTime())
   }
   
-  func hideAndShowAlert(_ message: String) {
+  func hideAndShowAlert(_ title: String? = nil, _ body: String? = nil) {
     if let alertController = self.alertController {
       alertController.dismiss(animated: true) {
         self.alertController = nil
-        self.showNewAlert(message)
+        self.showNewAlert(title, body)
       }
     } else {
-      showNewAlert(message)
+      showNewAlert(title, body)
     }
   }
   
-  private func showNewAlert(_ message: String) {
-    alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+  private func showNewAlert(_ title: String?, _ body: String?) {
+    alertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
     let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
                                  style: .default) { _ in self.alertController = nil }
     alertController!.addAction(OKAction)
