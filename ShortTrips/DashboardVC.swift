@@ -49,6 +49,10 @@ class DashboardVC: UIViewController {
       let reachable = note.userInfo![InfoKey.reachable] as! Bool
       self.dashboardView().setReachabilityNoticeHidden(reachable)
     }
+
+    nc.addObserver(forName: .pushReceived, object: nil, queue: nil) { note in
+      self.dashboardView().forceUpdateTimerView()
+    }
   }
   
   func startTimer() {

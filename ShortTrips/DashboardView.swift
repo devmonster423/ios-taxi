@@ -77,4 +77,8 @@ class DashboardView: UIView {
   func stopTimerView() {
     timerView.stop()
   }
+
+  func forceUpdateTimerView() {
+    timerView.updateAndRefresh()
+  }
 }
