@@ -11,7 +11,9 @@ import UIKit
 import MBProgressHUD
 
 class TerminalSummaryVC: UIViewController {
-
+  
+  private var alertController: UIAlertController?
+  
   var errorShown = false
   
   override func loadView() {
@@ -57,6 +59,23 @@ class TerminalSummaryVC: UIViewController {
     nc.addObserver(forName: .reachabilityChanged, object: nil, queue: nil) { note in
       let reachable = note.userInfo![InfoKey.reachable] as! Bool
       self.terminalSummaryView().setReachabilityNoticeHidden(reachable)
+    }
+    
+    nc.addObserver(forName: .pushReceived, object: nil, queue: nil) { note in
+      if let active = note.userInfo![InfoKey.appActive] as? Bool,
+        active,
+        self.tabBarController?.selectedIndex != MainTabs.lot.rawValue {
+        
+        if self.tabBarController?.selectedIndex == MainTabs.flights.rawValue {
+          if let title = note.userInfo![InfoKey.pushText] as? String {
+            self.hideAndShowAlert(title)
+          } else if let message = note.userInfo![InfoKey.pushText] as? [String: String] {
+            self.hideAndShowAlert(message["title"], message["body"])
+          }
+        }
+      } else {
+        self.tabBarController?.selectedIndex = MainTabs.lot.rawValue
+      }
     }
   }
   
@@ -143,6 +162,25 @@ class TerminalSummaryVC: UIViewController {
     flightStatusVC.selectedTerminalId = sender.getActiveTerminalId()
     flightStatusVC.flightType = terminalSummaryView().getCurrentFlightType()
     navigationController?.pushViewController(flightStatusVC, animated: true)
+  }
+  
+  func hideAndShowAlert(_ title: String? = nil, _ body: String? = nil) {
+    if let alertController = self.alertController {
+      alertController.dismiss(animated: true) {
+        self.alertController = nil
+        self.showNewAlert(title, body)
+      }
+    } else {
+      showNewAlert(title, body)
+    }
+  }
+  
+  private func showNewAlert(_ title: String?, _ body: String?) {
+    alertController = UIAlertController(title: title, message: body, preferredStyle: .alert)
+    let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""),
+                                 style: .default) { _ in self.alertController = nil }
+    alertController!.addAction(OKAction)
+    present(alertController!, animated: true, completion: nil)
   }
 }
 
