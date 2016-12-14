@@ -28,7 +28,11 @@ class Speaker {
     input = input.replacingOccurrences(of: "reestablished", with: "ree established")
     
     if getAudioEnabled() {
+      #if LOCALDEV
+      print("not going to talk")
+      #else
       AVSpeechSynthesizer().speak(AVSpeechUtterance(string: input))
+      #endif
     }
   }
   

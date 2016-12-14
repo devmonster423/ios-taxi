@@ -8,11 +8,11 @@
 
 struct Url {
   
-//#if DEBUG
-//  static let base = "https://216.9.96.29:9000/taxiws/services/taxi/" // dev
-//#else
+#if DEBUG
+  static let base = "https://216.9.96.29:9000/taxiws/services/taxi/" // dev
+#else
   static let base = "https://216.9.96.29:9999/taxiws/services/taxi/" // prod
-//#endif
+#endif
   
   static let queueStatus = base + "status/queue"
 

@@ -88,6 +88,7 @@
 		C23DDD0B1DCBD367008D2448 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C23DDD0A1DCBD367008D2448 /* GoogleService-Info.plist */; };
 		C24388431C447B4E00984CB8 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24388421C447B4E00984CB8 /* NotificationView.swift */; };
 		C24AA69F1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AA69E1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift */; };
+		C24AA7D71E01D54C006F79B4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AA7D61E01D54C006F79B4 /* NotificationManager.swift */; };
 		C24C8C5D1C77EB09000835F6 /* taxi_sfo_merged.json in Resources */ = {isa = PBXBuildFile; fileRef = C24C8C5C1C77EB09000835F6 /* taxi_sfo_merged.json */; };
 		C257FB3D1BC44E4200468CF1 /* GeofenceArbiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C257FB3C1BC44E4200468CF1 /* GeofenceArbiter.swift */; };
 		C25C9D2B1BEC057A0028FA81 /* TripScenario7Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25C9D2A1BEC057A0028FA81 /* TripScenario7Spec.swift */; };
@@ -369,6 +370,7 @@
 		C23DDD0A1DCBD367008D2448 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C24388421C447B4E00984CB8 /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		C24AA69E1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingAppQuitSpec.swift; sourceTree = "<group>"; };
+		C24AA7D61E01D54C006F79B4 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		C24C8C5C1C77EB09000835F6 /* taxi_sfo_merged.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taxi_sfo_merged.json; sourceTree = "<group>"; };
 		C257FB3C1BC44E4200468CF1 /* GeofenceArbiter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceArbiter.swift; sourceTree = "<group>"; };
 		C25C9D2A1BEC057A0028FA81 /* TripScenario7Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TripScenario7Spec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -1346,6 +1348,7 @@
 				C220E0611BC3322F00AC7C85 /* ErrorLogger.swift */,
 				FA0E1FD11BAF1DD500B8F921 /* Font.swift */,
 				C2B15ADE1BBB16010049B97C /* Image.swift */,
+				C24AA7D61E01D54C006F79B4 /* NotificationManager.swift */,
 				FA22DCCC1CC69AAC004B4104 /* PendingAppQuit.swift */,
 				FA650FF71BB20CDB003D1939 /* SfoDateTransform.swift */,
 				C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */,
@@ -1794,6 +1797,7 @@
 				C27E3A901C472A8000F1A163 /* QueueClient.swift in Sources */,
 				C20A98851BE153BA009E29E7 /* TripId.swift in Sources */,
 				C2DAD68B1BE7F06200CB142C /* TripManager.swift in Sources */,
+				C24AA7D71E01D54C006F79B4 /* NotificationManager.swift in Sources */,
 				C21905681BB0B74E00A3E779 /* Url.swift in Sources */,
 				FA89B0D61DBB275E00647E27 /* ConeView.swift in Sources */,
 				E1472D041C0E7B6900D27D60 /* ShortTripObservers.swift in Sources */,
@@ -1963,6 +1967,85 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C24AA7D81E01F84A006F79B4 /* App Store */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "App Store";
+		};
+		C24AA7D91E01F84A006F79B4 /* App Store */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AAD3471E4865E0C89C4F4D8 /* Pods-ShortTrips.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ShortTrips/ShortTrips.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Davis & Associates Communications, Inc. (68966928SB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Davis & Associates Communications, Inc. (68966928SB)";
+				DEVELOPMENT_TEAM = 68966928SB;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				INFOPLIST_FILE = ShortTrips/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flysfo.taxiops;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "2016nov29-sfo-dev";
+				SWIFT_VERSION = 3.0;
+			};
+			name = "App Store";
+		};
+		C24AA7DA1E01F84A006F79B4 /* App Store */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 062B5E93B766904C17AAE8C4 /* Pods-ShortTripsTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				INFOPLIST_FILE = ShortTripsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.flysfo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShortTrips.app/ShortTrips";
+			};
+			name = "App Store";
+		};
 		C2DFE5DF1B56D2CB0090B55F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2012,7 +2095,7 @@
 			};
 			name = Debug;
 		};
-		C2DFE5E01B56D2CB0090B55F /* Release */ = {
+		C2DFE5E01B56D2CB0090B55F /* Beta */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -2052,7 +2135,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Beta;
 		};
 		C2DFE5E21B56D2CB0090B55F /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2061,13 +2144,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ShortTrips/ShortTrips.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Matt Luedke (KUN79NTXY7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Matt Luedke (KUN79NTXY7)";
 				DEVELOPMENT_TEAM = 68966928SB;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = ShortTrips/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DLOCALDEV\" \"-DDEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flysfo.taxiops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "2016nov3-sfo-dev";
@@ -2075,25 +2159,27 @@
 			};
 			name = Debug;
 		};
-		C2DFE5E31B56D2CB0090B55F /* Release */ = {
+		C2DFE5E31B56D2CB0090B55F /* Beta */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0AAD3471E4865E0C89C4F4D8 /* Pods-ShortTrips.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ShortTrips/ShortTrips.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Davis & Associates Communications, Inc. (68966928SB)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Davis & Associates Communications, Inc. (68966928SB)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Matt Luedke (KUN79NTXY7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Matt Luedke (KUN79NTXY7)";
+				DEVELOPMENT_TEAM = 68966928SB;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = ShortTrips/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flysfo.taxiops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "2016mar18-1-taxiops";
+				PROVISIONING_PROFILE_SPECIFIER = "2016nov29-sfo-dev";
 				SWIFT_VERSION = 3.0;
 			};
-			name = Release;
+			name = Beta;
 		};
 		C2DFE5E51B56D2CB0090B55F /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2115,7 +2201,7 @@
 			};
 			name = Debug;
 		};
-		C2DFE5E61B56D2CB0090B55F /* Release */ = {
+		C2DFE5E61B56D2CB0090B55F /* Beta */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 062B5E93B766904C17AAE8C4 /* Pods-ShortTripsTests.release.xcconfig */;
 			buildSettings = {
@@ -2129,7 +2215,7 @@
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShortTrips.app/ShortTrips";
 			};
-			name = Release;
+			name = Beta;
 		};
 /* End XCBuildConfiguration section */
 
@@ -2138,28 +2224,31 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2DFE5DF1B56D2CB0090B55F /* Debug */,
-				C2DFE5E01B56D2CB0090B55F /* Release */,
+				C2DFE5E01B56D2CB0090B55F /* Beta */,
+				C24AA7D81E01F84A006F79B4 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C2DFE5E11B56D2CB0090B55F /* Build configuration list for PBXNativeTarget "ShortTrips" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2DFE5E21B56D2CB0090B55F /* Debug */,
-				C2DFE5E31B56D2CB0090B55F /* Release */,
+				C2DFE5E31B56D2CB0090B55F /* Beta */,
+				C24AA7D91E01F84A006F79B4 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C2DFE5E41B56D2CB0090B55F /* Build configuration list for PBXNativeTarget "ShortTripsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C2DFE5E51B56D2CB0090B55F /* Debug */,
-				C2DFE5E61B56D2CB0090B55F /* Release */,
+				C2DFE5E61B56D2CB0090B55F /* Beta */,
+				C24AA7DA1E01F84A006F79B4 /* App Store */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

@@ -18,8 +18,8 @@
 
 /* Settings */
 "Settings" = "Settings";
-"Audio ON. Tap to turn off.";
-"Audio OFF. Tap to turn on.";
+"Audio ON. Tap to turn off." = "Audio ON. Tap to turn off.";
+"Audio OFF. Tap to turn on." = "Audio OFF. Tap to turn on.";
 "Email Feedback" = "Email Feedback";
 "Logged in as: " = "Logged in as: ";
 "Version: " = "Version: ";
@@ -27,6 +27,11 @@
 "Are you sure?" = "Are you sure?";
 "Cancel" = "Cancel";
 "Unable to send email" = "Unable to send email";
+
+/* Notifications */
+"Notifications" = "Notifications";
+"Cone Notifications ON." = "Cone Notifications ON.";
+"Cone Notifications OFF." = "Cone Notifications OFF.";
 
 /* Reachability */
 "No Internet Connection" = "No Internet Connection";

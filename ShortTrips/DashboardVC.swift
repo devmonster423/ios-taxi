@@ -16,12 +16,12 @@ class DashboardVC: UIViewController {
   override func loadView() {
     let dashboardView = DashboardView(frame: UIScreen.main.bounds)
     dashboardView.setReachabilityNoticeHidden(ReachabilityManager.sharedInstance.isReachable())
-//#if DEBUG
-//    let secretSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(DashboardVC.openDebugMode))
-//    secretSwipeRecognizer.numberOfTouchesRequired = 2
-//    secretSwipeRecognizer.direction = .down
-//    dashboardView.addGestureRecognizer(secretSwipeRecognizer)
-//#endif
+#if DEBUG
+    let secretSwipeRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(DashboardVC.openDebugMode))
+    secretSwipeRecognizer.numberOfTouchesRequired = 2
+    secretSwipeRecognizer.direction = .down
+    dashboardView.addGestureRecognizer(secretSwipeRecognizer)
+#endif
     view = dashboardView
   }
 

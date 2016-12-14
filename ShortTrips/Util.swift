@@ -19,7 +19,7 @@ struct Util {
   
   static func testing() -> Bool {
     let dict = ProcessInfo.processInfo.environment
-    if let testing = dict["TESTING"] , testing == "true" {
+    if let testing = dict["TESTING"], testing == "true" {
       return true
     } else {
       return false
