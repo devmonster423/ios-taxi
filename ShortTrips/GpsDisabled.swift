@@ -36,7 +36,9 @@ extension GpsDisabled: Observable {
     if let tripId = TripManager.sharedInstance.getTripId(),
       let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
 
-      ApiClient.invalidate(tripId, invalidation: .gpsFailure, sessionId: sessionId)
+      DriverManager.sharedInstance.callWithValidSession {
+        ApiClient.invalidate(tripId, invalidation: .gpsFailure, sessionId: sessionId)
+      }
       TripManager.sharedInstance.reset(false)
     }
   }

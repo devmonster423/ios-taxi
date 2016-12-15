@@ -26,19 +26,21 @@ class WaitingForTaxiLoopAvi {
       
       self.poller = Poller.init() {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
-          ApiClient.requestAntenna(vehicle.transponderId) { antenna in
-            if let antenna = antenna, let device = antenna.device() {
-              
-              if (device == .DtaRecirculation || device == .TaxiMainLot)
-                && antenna.aviDate.timeIntervalSinceNow > -(15*60) {
-                  
-                LatestAviAtTaxiLoop.sharedInstance.fire(antenna)
-                  
-              } else {
-                nc.post(name: .aviUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: .DtaRecirculation as GtmsLocation, InfoKey.foundGtmsLocation: device])
+          DriverManager.sharedInstance.callWithValidSession {
+            ApiClient.requestAntenna(vehicle.transponderId) { antenna in
+              if let antenna = antenna, let device = antenna.device() {
                 
-                if !GeofenceManager.sharedInstance.stillInDomesticExitNotInHoldingLot() {
-                  NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.sharedInstance.fire()
+                if (device == .DtaRecirculation || device == .TaxiMainLot)
+                  && antenna.aviDate.timeIntervalSinceNow > -(15*60) {
+                    
+                  LatestAviAtTaxiLoop.sharedInstance.fire(antenna)
+                    
+                } else {
+                  nc.post(name: .aviUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: .DtaRecirculation as GtmsLocation, InfoKey.foundGtmsLocation: device])
+                  
+                  if !GeofenceManager.sharedInstance.stillInDomesticExitNotInHoldingLot() {
+                    NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.sharedInstance.fire()
+                  }
                 }
               }
             }

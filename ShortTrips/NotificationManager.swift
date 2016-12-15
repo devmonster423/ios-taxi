@@ -13,7 +13,7 @@ import UserNotifications
 
 enum NotificationType: String {
   case cone = "cone"
-  case debug = "debug"
+  case debug = "debug1"
   case localdev = "localdev"
   
   static let allValues: [NotificationType] = {
@@ -51,11 +51,11 @@ struct NotificationManager {
     }
   }
   
-  static func topicString(_ notificationType: NotificationType) -> String {
+  private static func topicString(_ notificationType: NotificationType) -> String {
     return "/topics/" + notificationType.rawValue
   }
   
-  static func refreshSubscription(_ notificationType: NotificationType) {
+  private static func refreshSubscription(_ notificationType: NotificationType) {
     if NotificationManager.getNotificationEnabled(notificationType) {
       FIRMessaging.messaging().subscribe(toTopic: topicString(notificationType))
     } else {

@@ -28,16 +28,18 @@ class WaitingForReEntryCid {
       
       self.poller = Poller.init() {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
-          ApiClient.requestCid(driver.driverId) { cid in
-            
-            if let cid = cid, let device = cid.device() {
-              if device == self.expectedCid {
-                LatestCidIsReEntryCid.sharedInstance.fire(cid)
-              } else {
-                nc.post(name: .cidUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: self.expectedCid, InfoKey.foundGtmsLocation: device])
-                
-                if !GeofenceManager.sharedInstance.stillInsideSfoBufferedExit() {
-                  NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
+          DriverManager.sharedInstance.callWithValidSession {
+            ApiClient.requestCid(driver.driverId) { cid in
+              
+              if let cid = cid, let device = cid.device() {
+                if device == self.expectedCid {
+                  LatestCidIsReEntryCid.sharedInstance.fire(cid)
+                } else {
+                  nc.post(name: .cidUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: self.expectedCid, InfoKey.foundGtmsLocation: device])
+                  
+                  if !GeofenceManager.sharedInstance.stillInsideSfoBufferedExit() {
+                    NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
+                  }
                 }
               }
             }

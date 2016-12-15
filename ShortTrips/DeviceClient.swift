@@ -40,16 +40,6 @@ extension ApiClient {
     }
   }
   
-  static func requestAutomaticVehicleIds(_ response: @escaping AviClosure) {
-    Alamofire.request(Url.Device.Avi.avi, headers: headers())
-      .responseObject { (dataResponse: DataResponse<AutomaticVehicleIdListWrapper>) in
-        if let raw = dataResponse.response {
-          NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])
-        }
-        response(dataResponse.result.value?.automaticVehicleIds, dataResponse.result.error)
-    }
-  }
-  
   static func requestAntenna(_ transponderId: Int, response: @escaping AntennaClosure) {
     Alamofire.request(Url.Device.Avi.transponder(transponderId), headers: headers())
       .responseObject { (dataResponse: DataResponse<Antenna>) in

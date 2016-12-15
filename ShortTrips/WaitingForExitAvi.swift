@@ -24,18 +24,20 @@ class WaitingForExitAvi {
       nc.post(name: .stateUpdate, object: nil, userInfo: [InfoKey.state: self.getState()])
       
       if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
-        ApiClient.requestAntenna(vehicle.transponderId) { antenna in
-          
-          if let antenna = antenna, let device = antenna.device() {
+        DriverManager.sharedInstance.callWithValidSession {
+          ApiClient.requestAntenna(vehicle.transponderId) { antenna in
             
-            if device == .DomExit || device == .IntlArrivalExit {
-              ExitAviCheckComplete.sharedInstance.fire(antenna)
+            if let antenna = antenna, let device = antenna.device() {
+              
+              if device == .DomExit || device == .IntlArrivalExit {
+                ExitAviCheckComplete.sharedInstance.fire(antenna)
+              } else {
+                ExitAviCheckComplete.sharedInstance.fire()
+                nc.post(name: .aviUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: .DomExit as GtmsLocation, InfoKey.foundGtmsLocation: device])
+              }
             } else {
               ExitAviCheckComplete.sharedInstance.fire()
-              nc.post(name: .aviUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: .DomExit as GtmsLocation, InfoKey.foundGtmsLocation: device])
             }
-          } else {
-            ExitAviCheckComplete.sharedInstance.fire()
           }
         }
       } else {

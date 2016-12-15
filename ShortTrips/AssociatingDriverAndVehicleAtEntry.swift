@@ -25,13 +25,15 @@ class AssociatingDriverAndVehicleAtEntry {
 
       self.poller = Poller.init() {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
-          ApiClient.getVehicle(driver.cardId) { vehicle in
+          DriverManager.sharedInstance.callWithValidSession {
+            ApiClient.getVehicle(driver.cardId) { vehicle in
 
-            if let vehicle = vehicle , vehicle.isValid() {
-              DriverManager.sharedInstance.setCurrentVehicle(vehicle)
-              
-            } else if !GeofenceManager.sharedInstance.stillInsideTaxiWaitZone() {
-              NotInsideTaxiWaitZoneAfterFailedEntryCheck.sharedInstance.fire()
+              if let vehicle = vehicle , vehicle.isValid() {
+                DriverManager.sharedInstance.setCurrentVehicle(vehicle)
+                
+              } else if !GeofenceManager.sharedInstance.stillInsideTaxiWaitZone() {
+                NotInsideTaxiWaitZoneAfterFailedEntryCheck.sharedInstance.fire()
+              }
             }
           }
         }

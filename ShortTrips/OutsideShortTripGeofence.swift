@@ -36,7 +36,9 @@ extension OutsideShortTripGeofence: Observable {
     if let tripId = TripManager.sharedInstance.getTripId(),
       let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
 
-      ApiClient.invalidate(tripId, invalidation: .geofence, sessionId: sessionId)
+      DriverManager.sharedInstance.callWithValidSession {
+        ApiClient.invalidate(tripId, invalidation: .geofence, sessionId: sessionId)
+      }
       TripManager.sharedInstance.reset(false)
     }
   }

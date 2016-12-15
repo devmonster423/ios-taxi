@@ -81,26 +81,29 @@ class PingManager: NSObject {
       medallion: medallion)
     
     NotificationCenter.default.post(name: .pingCreated, object: nil, userInfo: [InfoKey.ping: ping])
-    ApiClient.ping(tripId, ping: ping) { success in
-      
-      if !success {
-        self.appendStrip(ping)
+    
+    DriverManager.sharedInstance.callWithValidSession {
+      ApiClient.ping(tripId, ping: ping) { success in
+        if !success {
+          self.appendStrip(ping)
+        }
       }
     }
   }
   
   func sendOldPings(_ tripId: Int?) {
-    if let pingBatch = getPingBatch(),
-      let tripId = tripId {
+    if let pingBatch = getPingBatch(), let tripId = tripId {
         
-        let sentPings = pingBatch.pings
-        self.missedPings.removeAll()
-        
+      let sentPings = pingBatch.pings
+      self.missedPings.removeAll()
+      
+      DriverManager.sharedInstance.callWithValidSession {
         ApiClient.pings(tripId, pings: pingBatch) { success in
           if !success {
             self.missedPings.append(contentsOf: sentPings!)
           }
         }
+      }
     }
   }
   

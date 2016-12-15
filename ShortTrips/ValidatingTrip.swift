@@ -40,12 +40,13 @@ class ValidatingTrip {
         deviceTimestamp: Date()
       )
   
-      ApiClient.end(tripId, tripBody: tripBody) { validation in
-        
-        if validation.valid! {
-          TripValidated.sharedInstance.fire()
-        } else {
-          TripInvalidated.sharedInstance.fire(validation.validationSteps)
+      DriverManager.sharedInstance.callWithValidSession {
+        ApiClient.end(tripId, tripBody: tripBody) { validation in
+          if validation.valid! {
+            TripValidated.sharedInstance.fire()
+          } else {
+            TripInvalidated.sharedInstance.fire(validation.validationSteps)
+          }
         }
       }
     }

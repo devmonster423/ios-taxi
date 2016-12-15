@@ -15,7 +15,7 @@ struct LoggedOut {
   
   fileprivate var events: [TKEvent]
   
-  fileprivate init() {
+  private init() {
     events = [TKEvent(name: eventNames[0],
       transitioningFromStates: StateManager.allStates,
       to: NotReady.sharedInstance.getState())]
@@ -39,11 +39,13 @@ extension LoggedOut: Observable {
       ApiClient.invalidate(tripId, invalidation: .userLogout, sessionId: sessionId)
       TripManager.sharedInstance.reset(false)
       
-      if let location = LocationManager.sharedInstance.getLastKnownLocation(), let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
+      if let location = LocationManager.sharedInstance.getLastKnownLocation(),
+        let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
+        
         ApiClient.updateMobileState(.loggedOut, mobileStateInfo: MobileStateInfo(longitude: location.coordinate.longitude,
-          latitude: location.coordinate.latitude,
-          sessionId: sessionId,
-          tripId: tripId))
+                                                                                 latitude: location.coordinate.latitude,
+                                                                                 sessionId: sessionId,
+                                                                                 tripId: tripId))
       }
     }
   }

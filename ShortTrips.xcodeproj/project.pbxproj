@@ -19,7 +19,6 @@
 		8EEFB7B11BE19A1900B8A962 /* DriverLoginMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7B01BE19A1900B8A962 /* DriverLoginMock.swift */; };
 		8EEFB7B31BE1A1AC00B8A962 /* DriverVehicleMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7B21BE1A1AC00B8A962 /* DriverVehicleMock.swift */; };
 		8EEFB7B91BE1A6BA00B8A962 /* DeviceClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7B81BE1A6BA00B8A962 /* DeviceClientSpec.swift */; };
-		8EEFB7BB1BE1ACE000B8A962 /* RequestAutomaticVehicleIdsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7BA1BE1ACE000B8A962 /* RequestAutomaticVehicleIdsMock.swift */; };
 		8EEFB7BD1BE1AF5000B8A962 /* RequestAntennaMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7BC1BE1AF5000B8A962 /* RequestAntennaMock.swift */; };
 		8EEFB7BF1BE1AF8D00B8A962 /* RequestAllCidsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7BE1BE1AF8D00B8A962 /* RequestAllCidsMock.swift */; };
 		8EEFB7C11BE1AFBB00B8A962 /* RequestCidForSmartCardMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEFB7C01BE1AFBB00B8A962 /* RequestCidForSmartCardMock.swift */; };
@@ -299,7 +298,6 @@
 		8EEFB7B01BE19A1900B8A962 /* DriverLoginMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverLoginMock.swift; sourceTree = "<group>"; };
 		8EEFB7B21BE1A1AC00B8A962 /* DriverVehicleMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverVehicleMock.swift; sourceTree = "<group>"; };
 		8EEFB7B81BE1A6BA00B8A962 /* DeviceClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceClientSpec.swift; sourceTree = "<group>"; };
-		8EEFB7BA1BE1ACE000B8A962 /* RequestAutomaticVehicleIdsMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestAutomaticVehicleIdsMock.swift; sourceTree = "<group>"; };
 		8EEFB7BC1BE1AF5000B8A962 /* RequestAntennaMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestAntennaMock.swift; sourceTree = "<group>"; };
 		8EEFB7BE1BE1AF8D00B8A962 /* RequestAllCidsMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestAllCidsMock.swift; sourceTree = "<group>"; };
 		8EEFB7C01BE1AFBB00B8A962 /* RequestCidForSmartCardMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestCidForSmartCardMock.swift; sourceTree = "<group>"; };
@@ -774,7 +772,6 @@
 				C22167941BD592C4002D7994 /* SingleGeofenceMock.swift */,
 				C221678E1BD58AAF002D7994 /* TerminalSummaryMock.swift */,
 				8EEFB7BC1BE1AF5000B8A962 /* RequestAntennaMock.swift */,
-				8EEFB7BA1BE1ACE000B8A962 /* RequestAutomaticVehicleIdsMock.swift */,
 				8EEFB7BE1BE1AF8D00B8A962 /* RequestAllCidsMock.swift */,
 				8EEFB7C01BE1AFBB00B8A962 /* RequestCidForSmartCardMock.swift */,
 				8EEFB7C41BE1B1F700B8A962 /* RequestReferenceConfigMock.swift */,
@@ -1940,7 +1937,6 @@
 				C28224681BB09C32007F284F /* FlightStatusVCSpec.swift in Sources */,
 				E1F18B1B1BE96FDD007BC7F8 /* TripScenario8Spec.swift in Sources */,
 				8EEFB7DF1BE2A81B00B8A962 /* VehicleSpec.swift in Sources */,
-				8EEFB7BB1BE1ACE000B8A962 /* RequestAutomaticVehicleIdsMock.swift in Sources */,
 				8EEFB7BD1BE1AF5000B8A962 /* RequestAntennaMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,11 +33,15 @@ extension AppQuit: Observable {
     if let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId {
       if let tripId = TripManager.sharedInstance.getTripId() {
 
-        ApiClient.invalidate(tripId, invalidation: .appQuit, sessionId: sessionId)
+        DriverManager.sharedInstance.callWithValidSession {
+          ApiClient.invalidate(tripId, invalidation: .appQuit, sessionId: sessionId)
+        }
         TripManager.sharedInstance.reset(false)
 
       } else if let tripId = info as? Int {
-        ApiClient.invalidate(tripId, invalidation: .appQuit, sessionId: sessionId)
+        DriverManager.sharedInstance.callWithValidSession {
+          ApiClient.invalidate(tripId, invalidation: .appQuit, sessionId: sessionId)
+        }
       }
     }
   }

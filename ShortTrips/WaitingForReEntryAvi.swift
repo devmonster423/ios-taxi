@@ -28,16 +28,18 @@ class WaitingForReEntryAvi {
       
       self.poller = Poller.init() {
         if let vehicle = DriverManager.sharedInstance.getCurrentVehicle() {
-          ApiClient.requestAntenna(vehicle.transponderId) { antenna in
-            
-            if let antenna = antenna, let device = antenna.device() {
-              if device == .TaxiEntry || device == .TaxiStatus {
-                LatestAviAtReEntry.sharedInstance.fire(antenna)
-              } else {
-                nc.post(name: .aviUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: self.expectedAvi, InfoKey.foundGtmsLocation: device])
-                
-                if !GeofenceManager.sharedInstance.stillInsideSfoBufferedExit() {
-                  NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
+          DriverManager.sharedInstance.callWithValidSession {
+            ApiClient.requestAntenna(vehicle.transponderId) { antenna in
+              
+              if let antenna = antenna, let device = antenna.device() {
+                if device == .TaxiEntry || device == .TaxiStatus {
+                  LatestAviAtReEntry.sharedInstance.fire(antenna)
+                } else {
+                  nc.post(name: .aviUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: self.expectedAvi, InfoKey.foundGtmsLocation: device])
+                  
+                  if !GeofenceManager.sharedInstance.stillInsideSfoBufferedExit() {
+                    NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
+                  }
                 }
               }
             }

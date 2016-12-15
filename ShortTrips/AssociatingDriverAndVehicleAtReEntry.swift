@@ -25,13 +25,15 @@ class AssociatingDriverAndVehicleAtReEntry {
       
       self.poller = Poller.init() {
         if let driver = DriverManager.sharedInstance.getCurrentDriver() {
-          ApiClient.getVehicle(driver.cardId) { vehicle in
-            
-            if let vehicle = vehicle , vehicle.isValid() {
-              DriverManager.sharedInstance.setCurrentVehicle(vehicle)
+          DriverManager.sharedInstance.callWithValidSession {
+            ApiClient.getVehicle(driver.cardId) { vehicle in
               
-            } else if !GeofenceManager.sharedInstance.stillInsideSfoBufferedExit() {
-              NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
+              if let vehicle = vehicle , vehicle.isValid() {
+                DriverManager.sharedInstance.setCurrentVehicle(vehicle)
+                
+              } else if !GeofenceManager.sharedInstance.stillInsideSfoBufferedExit() {
+                NotInsideSfoAfterFailedReEntryCheck.sharedInstance.fire()
+              }
             }
           }
         }

@@ -41,7 +41,7 @@ class DriverManager {
     return currentVehicle
   }
   
-  fileprivate func hasValidSession() -> Bool {
+  private func hasValidSession() -> Bool {
     if let sessionCreationDate = sessionCreationDate {
       return sessionCreationDate.timeIntervalSinceNow > -validSessionAge
     } else {
