@@ -317,8 +317,10 @@
 		8EEFB7EB1BE2C74D00B8A962 /* PingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingSpec.swift; sourceTree = "<group>"; };
 		8EEFB7ED1BE2C89700B8A962 /* MobileStateChangeSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileStateChangeSpec.swift; sourceTree = "<group>"; };
 		8EEFB7EF1BE2CA0500B8A962 /* GeofenceStatusSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceStatusSpec.swift; sourceTree = "<group>"; };
+		91DE87A60EAD748E485343B8 /* Pods-ShortTrips.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.app store.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.app store.xcconfig"; sourceTree = "<group>"; };
 		A2D0D6B3C64F34F0EC817BB2 /* Pods_ShortTripsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTripsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7EB32C7BD6117654D80E8F0 /* Pods_ShortTrips.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShortTrips.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC735ECECADB14A8B0ECF017 /* Pods-ShortTrips.beta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTrips.beta.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTrips/Pods-ShortTrips.beta.xcconfig"; sourceTree = "<group>"; };
 		C200BE201BA8C21600B7F56F /* TerminalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalView.swift; sourceTree = "<group>"; };
 		C200BE221BA8D05D00B7F56F /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		C200BE261BA8D3A300B7F56F /* HourPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourPickerView.swift; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 		C2FE05E71C1B5BE8005D6705 /* TripFallbackSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripFallbackSpec.swift; sourceTree = "<group>"; };
 		C2FE05EA1C1B7308005D6705 /* ShortTripVCSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortTripVCSpec.swift; sourceTree = "<group>"; };
 		C2FE05ED1C1B74B1005D6705 /* GtmsLocationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GtmsLocationSpec.swift; sourceTree = "<group>"; };
+		CC1043BE32852608A9E0EF95 /* Pods-ShortTripsTests.app store.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTripsTests.app store.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests.app store.xcconfig"; sourceTree = "<group>"; };
 		E107DDA21C6C3C3C00280F01 /* TallTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TallTabBarController.swift; sourceTree = "<group>"; };
 		E108B1741BA7C1DE00481AF1 /* ReferenceConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceConfig.swift; sourceTree = "<group>"; };
 		E10CE67F1BED1DD600322077 /* MockDriverResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDriverResponse.swift; sourceTree = "<group>"; };
@@ -526,6 +529,7 @@
 		E1F18B1A1BE96FDD007BC7F8 /* TripScenario8Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TripScenario8Spec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		E1FBA9171BF1580B0042358F /* MockVehicleResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockVehicleResponse.swift; sourceTree = "<group>"; };
 		E1FDB2671BBC47E500F8F452 /* DriverCredentialSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverCredentialSpec.swift; sourceTree = "<group>"; };
+		EEE0C40C6F90DEFC44790F22 /* Pods-ShortTripsTests.beta.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShortTripsTests.beta.xcconfig"; path = "Pods/Target Support Files/Pods-ShortTripsTests/Pods-ShortTripsTests.beta.xcconfig"; sourceTree = "<group>"; };
 		FA0CD4B81C4968FB00C071AC /* OutsideBufferedExit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutsideBufferedExit.swift; sourceTree = "<group>"; };
 		FA0CD4BA1C496A6700C071AC /* TerminalExitBufferedGeofenceSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalExitBufferedGeofenceSpec.swift; sourceTree = "<group>"; };
 		FA0CD4BC1C4972A300C071AC /* Terminal_exit_buffered.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Terminal_exit_buffered.json; sourceTree = "<group>"; };
@@ -1310,6 +1314,10 @@
 				0AAD3471E4865E0C89C4F4D8 /* Pods-ShortTrips.release.xcconfig */,
 				01466A94906E687052C64C6D /* Pods-ShortTripsTests.debug.xcconfig */,
 				062B5E93B766904C17AAE8C4 /* Pods-ShortTripsTests.release.xcconfig */,
+				AC735ECECADB14A8B0ECF017 /* Pods-ShortTrips.beta.xcconfig */,
+				91DE87A60EAD748E485343B8 /* Pods-ShortTrips.app store.xcconfig */,
+				EEE0C40C6F90DEFC44790F22 /* Pods-ShortTripsTests.beta.xcconfig */,
+				CC1043BE32852608A9E0EF95 /* Pods-ShortTripsTests.app store.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -2011,7 +2019,7 @@
 		};
 		C24AA7D91E01F84A006F79B4 /* App Store */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0AAD3471E4865E0C89C4F4D8 /* Pods-ShortTrips.release.xcconfig */;
+			baseConfigurationReference = 91DE87A60EAD748E485343B8 /* Pods-ShortTrips.app store.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2032,7 +2040,7 @@
 		};
 		C24AA7DA1E01F84A006F79B4 /* App Store */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 062B5E93B766904C17AAE8C4 /* Pods-ShortTripsTests.release.xcconfig */;
+			baseConfigurationReference = CC1043BE32852608A9E0EF95 /* Pods-ShortTripsTests.app store.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2161,7 +2169,7 @@
 		};
 		C2DFE5E31B56D2CB0090B55F /* Beta */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0AAD3471E4865E0C89C4F4D8 /* Pods-ShortTrips.release.xcconfig */;
+			baseConfigurationReference = AC735ECECADB14A8B0ECF017 /* Pods-ShortTrips.beta.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2203,7 +2211,7 @@
 		};
 		C2DFE5E61B56D2CB0090B55F /* Beta */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 062B5E93B766904C17AAE8C4 /* Pods-ShortTripsTests.release.xcconfig */;
+			baseConfigurationReference = EEE0C40C6F90DEFC44790F22 /* Pods-ShortTripsTests.beta.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
