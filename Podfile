@@ -2,9 +2,9 @@ platform :ios, '9.0'
 use_frameworks!
 
 def shared_pods
-  pod 'Alamofire', '4.0.0'
-  pod 'AlamofireImage', '3.0.0'
-  pod 'AlamofireObjectMapper', '4.0.0'
+  pod 'Alamofire', '4.2.0'
+  pod 'AlamofireImage', '3.2.0'
+  pod 'AlamofireObjectMapper', '4.0.1'
   pod 'Crashlytics', '3.8.2'
   pod 'Fabric', '1.6.8'
   pod 'Firebase/Messaging', '3.6.0'
