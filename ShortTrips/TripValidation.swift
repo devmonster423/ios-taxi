@@ -15,6 +15,11 @@ struct TripValidation: Mappable {
   
   init?(map: Map){}
   
+  init(valid: Bool, validationSteps: [ValidationStepWrapper]? = nil) {
+    self.valid = valid
+    self.validationSteps = validationSteps
+  }
+  
   mutating func mapping(map: Map) {
     valid <- map["response.trip_valid"]
     validationSteps <- map["response.validation_steps"]

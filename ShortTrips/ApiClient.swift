@@ -17,8 +17,9 @@ struct ApiClient {
   
   static var lastKnownRemoteState: MobileState?
   
-  static func retryInterval() -> DispatchTime {
-    return DispatchTime.now() + Double(Int64(5.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+  static let maxRetries = 10
+  static func retryInterval(_ retryCount: Int) -> DispatchTime {
+    return DispatchTime.now() + Double(Int64(Double(retryCount + 1) * 5.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
   }
   
   static func setupAuthChallengeResponse() {

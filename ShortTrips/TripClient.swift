@@ -17,8 +17,6 @@ typealias ValidationClosure = (TripValidation) -> Void
 
 extension ApiClient {
   
-  static let maxTripRestarts = 50
-  
   static func ping(_ tripId: Int, ping: Ping, response: @escaping SuccessClosure) {
     
     if PingKiller.sharedInstance.shouldKillPings() && Util.debug {
@@ -67,17 +65,19 @@ extension ApiClient {
         
         if let tripId = dataResponse.result.value?.tripId {
           response(tripId)
-        } else if retryCount < maxTripRestarts {
-          DispatchQueue.main.asyncAfter(deadline: retryInterval()) {
+          
+        } else if retryCount < maxRetries {
+          DispatchQueue.main.asyncAfter(deadline: retryInterval(retryCount)) {
             start(tripBody, retryCount: retryCount + 1, response: response)
           }
+          
         } else {
           Failure.sharedInstance.fire()
         }
     }
   }
   
-  static func end(_ tripId: Int, tripBody: TripBody, response: @escaping ValidationClosure) {
+  static func end(_ tripId: Int, tripBody: TripBody, retryCount: Int = 0, response: @escaping ValidationClosure) {
     Alamofire.request(Url.Trip.end(tripId), method: .post, parameters: Mapper().toJSON(tripBody), headers: headers())
       .responseObject { (dataResponse: DataResponse<TripValidation>) in
         
@@ -87,15 +87,20 @@ extension ApiClient {
         
         if let validation = dataResponse.result.value {
           response(validation)
-        } else {
-          DispatchQueue.main.asyncAfter(deadline: retryInterval()) {
-            end(tripId, tripBody: tripBody, response: response)
+          
+        } else if retryCount < maxRetries {
+          DispatchQueue.main.asyncAfter(deadline: retryInterval(retryCount)) {
+            end(tripId, tripBody: tripBody, retryCount: retryCount + 1, response: response)
           }
+          
+        } else {
+          let validation = TripValidation(valid: false)
+          response(validation)
         }
     }
   }
   
-  static func invalidate(_ tripId: Int, invalidation: ValidationStep, sessionId: Int) {
+  static func invalidate(_ tripId: Int, invalidation: ValidationStep, retryCount: Int = 0, sessionId: Int) {
     
     PingManager.sharedInstance.sendOldPings(tripId)
     
@@ -107,14 +112,15 @@ extension ApiClient {
         
         if StatusCode.isSuccessful(raw.statusCode) {
           PendingAppQuit.set(nil)
-        } else {
-          DispatchQueue.main.asyncAfter(deadline: retryInterval()) {
-            invalidate(tripId, invalidation: invalidation, sessionId: sessionId)
+          
+        } else if retryCount < maxRetries {
+          DispatchQueue.main.asyncAfter(deadline: retryInterval(retryCount)) {
+            invalidate(tripId, invalidation: invalidation, retryCount: retryCount + 1, sessionId: sessionId)
           }
         }
-      } else {
-        DispatchQueue.main.asyncAfter(deadline: retryInterval()) {
-          invalidate(tripId, invalidation: invalidation, sessionId: sessionId)
+      } else if retryCount < maxRetries {
+        DispatchQueue.main.asyncAfter(deadline: retryInterval(retryCount)) {
+          invalidate(tripId, invalidation: invalidation, retryCount: retryCount + 1, sessionId: sessionId)
         }
       }
     }

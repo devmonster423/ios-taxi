@@ -49,7 +49,7 @@ class DriverManager {
     }
   }
   
-  func callWithValidSession(_ callback: @escaping () -> ()) {
+  func callWithValidSession(retryCount: Int = 0, _ callback: @escaping () -> ()) {
     if hasValidSession() {
       callback()
       
@@ -64,8 +64,12 @@ class DriverManager {
           credential.save()
           DriverManager.sharedInstance.setCurrentDriver(driver)
           callback()
+        } else if retryCount < ApiClient.maxRetries {
+          DispatchQueue.main.asyncAfter(deadline: ApiClient.retryInterval(retryCount)) {
+            self.callWithValidSession(callback)
+          }
         } else {
-          self.callWithValidSession(callback)
+          ErrorLogger.log(errorString: "failed to authenticate many times")
         }
       }
     }
