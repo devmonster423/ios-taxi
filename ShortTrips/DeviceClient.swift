@@ -17,7 +17,7 @@ typealias CidClosure = (Cid?) -> Void
 
 extension ApiClient {
   
-  static func updateMobileState(_ mobileState: MobileState, mobileStateInfo: MobileStateInfo) {
+  static func updateMobileState(_ mobileState: MobileState, mobileStateInfo: MobileStateInfo, retryCount: Int = 0) {
     
     if lastKnownRemoteState == mobileState {
       return
@@ -29,12 +29,10 @@ extension ApiClient {
         if let raw = dataResponse.response {
           NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])
           lastKnownRemoteState = mobileState
-        } else {
           
-          let stateRetryInterval = DispatchTime.now() + Double(Int64(15.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-          
-          DispatchQueue.main.asyncAfter(deadline: stateRetryInterval) {
-            updateMobileState(mobileState, mobileStateInfo: mobileStateInfo)
+        } else if retryCount < maxRetries {
+          DispatchQueue.main.asyncAfter(deadline: retryInterval(retryCount)) {
+            updateMobileState(mobileState, mobileStateInfo: mobileStateInfo, retryCount: retryCount + 1)
           }
         }
     }
