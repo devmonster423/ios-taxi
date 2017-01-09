@@ -13,8 +13,8 @@ struct Driver: Mappable {
   var sessionId: Int!
   var driverId: Int!
   var cardId: String!
-  var firstName: String!
-  var lastName: String!
+  var firstName: String?
+  var lastName: String?
   var driverLicense: String!
 
   init(sessionId: Int, driverId: Int, cardId: String, firstName: String, lastName: String, driverLicense: String) {
@@ -37,7 +37,11 @@ struct Driver: Mappable {
     driverLicense <- map["response.driver_license"]
   }
   
-  func fullName() -> String {
-    return firstName + " " + lastName
+  func fullName() -> String? {
+    if let firstName = firstName, let lastName = lastName {
+      return firstName + " " + lastName
+    } else {
+      return nil
+    }
   }
 }
