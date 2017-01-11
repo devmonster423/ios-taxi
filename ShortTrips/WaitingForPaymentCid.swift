@@ -13,7 +13,6 @@ class WaitingForPaymentCid {
   let stateName = "waitingForPaymentCid"
   static let sharedInstance = WaitingForPaymentCid()
   private let expectedCid: GtmsLocation = .TaxiMainLot
-  private let acceptablePaymentAge: TimeInterval = 4 * 60 * 60
 
   private var poller: Poller?
   private var state: TKState
@@ -31,8 +30,8 @@ class WaitingForPaymentCid {
           DriverManager.sharedInstance.callWithValidSession {
             ApiClient.requestCid(driver.driverId) { cid in
             
-              if let cid = cid, let device = cid.device(), let date = cid.cidTimeRead {
-                if device == self.expectedCid && date.timeIntervalSinceNow > -self.acceptablePaymentAge {
+              if let cid = cid, let device = cid.device() {
+                if device == self.expectedCid {
                   LatestCidIsPaymentCid.sharedInstance.fire(cid)
                 } else {
                   nc.post(name: .cidUnexpected, object: nil, userInfo: [InfoKey.expectedGtmsLocation: self.expectedCid, InfoKey.foundGtmsLocation: device])
