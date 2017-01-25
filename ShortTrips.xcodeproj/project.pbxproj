@@ -2029,7 +2029,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.flysfo.taxiops;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "2016nov29-sfo-dev";
+				PROVISIONING_PROFILE = "232544f5-0502-4e8e-9603-8a93b0a9c519";
+				PROVISIONING_PROFILE_SPECIFIER = "2017jan25-sfo-prod-exygy";
 				SWIFT_VERSION = 3.0;
 			};
 			name = "App Store";
