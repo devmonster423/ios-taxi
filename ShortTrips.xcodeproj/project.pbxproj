@@ -88,7 +88,6 @@
 		C24388431C447B4E00984CB8 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24388421C447B4E00984CB8 /* NotificationView.swift */; };
 		C24AA69F1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AA69E1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift */; };
 		C24AA7D71E01D54C006F79B4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AA7D61E01D54C006F79B4 /* NotificationManager.swift */; };
-		C24C8C5D1C77EB09000835F6 /* taxi_sfo_merged.json in Resources */ = {isa = PBXBuildFile; fileRef = C24C8C5C1C77EB09000835F6 /* taxi_sfo_merged.json */; };
 		C257FB3D1BC44E4200468CF1 /* GeofenceArbiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C257FB3C1BC44E4200468CF1 /* GeofenceArbiter.swift */; };
 		C25C9D2B1BEC057A0028FA81 /* TripScenario7Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25C9D2A1BEC057A0028FA81 /* TripScenario7Spec.swift */; };
 		C2635E2A1BB0CC86003C22B1 /* FlightClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2635E291BB0CC86003C22B1 /* FlightClient.swift */; };
@@ -138,6 +137,7 @@
 		C29F59EE1C220B2F007EFA1D /* NotInsideTaxiWaitZoneAfterFailedEntryCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F59ED1C220B2F007EFA1D /* NotInsideTaxiWaitZoneAfterFailedEntryCheck.swift */; };
 		C29F59F01C220EB9007EFA1D /* NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F59EF1C220EB9007EFA1D /* NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.swift */; };
 		C29F59F21C221148007EFA1D /* NotInsideSfoAfterFailedReEntryCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29F59F11C221148007EFA1D /* NotInsideSfoAfterFailedReEntryCheck.swift */; };
+		C2A70F581E7B34BD00BFA404 /* taxi_sfo_merged.json in Resources */ = {isa = PBXBuildFile; fileRef = C2A70F571E7B34BD00BFA404 /* taxi_sfo_merged.json */; };
 		C2AB513A1BD02CC0003ACB4C /* LatestCidIsEntryCid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB51391BD02CC0003ACB4C /* LatestCidIsEntryCid.swift */; };
 		C2AB513C1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift */; };
 		C2AB513E1BD052F7003ACB4C /* SfoNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */; };
@@ -371,7 +371,6 @@
 		C24388421C447B4E00984CB8 /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		C24AA69E1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingAppQuitSpec.swift; sourceTree = "<group>"; };
 		C24AA7D61E01D54C006F79B4 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		C24C8C5C1C77EB09000835F6 /* taxi_sfo_merged.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taxi_sfo_merged.json; sourceTree = "<group>"; };
 		C257FB3C1BC44E4200468CF1 /* GeofenceArbiter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeofenceArbiter.swift; sourceTree = "<group>"; };
 		C25C9D2A1BEC057A0028FA81 /* TripScenario7Spec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TripScenario7Spec.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C2635E291BB0CC86003C22B1 /* FlightClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightClient.swift; sourceTree = "<group>"; };
@@ -421,6 +420,7 @@
 		C29F59ED1C220B2F007EFA1D /* NotInsideTaxiWaitZoneAfterFailedEntryCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotInsideTaxiWaitZoneAfterFailedEntryCheck.swift; sourceTree = "<group>"; };
 		C29F59EF1C220EB9007EFA1D /* NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotInTaxiLoopOrInHoldingLotAfterFailedPaymentCheck.swift; sourceTree = "<group>"; };
 		C29F59F11C221148007EFA1D /* NotInsideSfoAfterFailedReEntryCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotInsideSfoAfterFailedReEntryCheck.swift; sourceTree = "<group>"; };
+		C2A70F571E7B34BD00BFA404 /* taxi_sfo_merged.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = taxi_sfo_merged.json; sourceTree = "<group>"; };
 		C2AB51391BD02CC0003ACB4C /* LatestCidIsEntryCid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatestCidIsEntryCid.swift; sourceTree = "<group>"; };
 		C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatingDriverAndVehicleAtEntry.swift; sourceTree = "<group>"; };
 		C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SfoNotification.swift; sourceTree = "<group>"; };
@@ -1429,8 +1429,8 @@
 			isa = PBXGroup;
 			children = (
 				C22A7F661D4148060091607E /* Domestic_Pax_Pickup.json */,
-				C24C8C5C1C77EB09000835F6 /* taxi_sfo_merged.json */,
 				FA0CD4BC1C4972A300C071AC /* Terminal_exit_buffered.json */,
+				C2A70F571E7B34BD00BFA404 /* taxi_sfo_merged.json */,
 				C2196B6B1CAB1573008E0D93 /* Taxi_Waiting_Zone.json */,
 			);
 			name = JSON;
@@ -1561,8 +1561,8 @@
 				C26ABD261C45ADAF00EF4684 /* OpenSans-Semibold.ttf in Resources */,
 				FA0CD4BD1C4972A300C071AC /* Terminal_exit_buffered.json in Resources */,
 				C26ABD211C45ADAF00EF4684 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				C2A70F581E7B34BD00BFA404 /* taxi_sfo_merged.json in Resources */,
 				C26ABD201C45ADAF00EF4684 /* OpenSans-ExtraBold.ttf in Resources */,
-				C24C8C5D1C77EB09000835F6 /* taxi_sfo_merged.json in Resources */,
 				C26ABD221C45ADAF00EF4684 /* OpenSans-Italic.ttf in Resources */,
 				C26ABD241C45ADAF00EF4684 /* OpenSans-LightItalic.ttf in Resources */,
 				E122649E1B795A65002B36CA /* Localizable.strings in Resources */,
