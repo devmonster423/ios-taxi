@@ -56,10 +56,18 @@ struct NotificationManager {
   }
   
   private static func refreshSubscription(_ notificationType: NotificationType) {
-    if NotificationManager.getNotificationEnabled(notificationType) {
+    if NotificationManager.getNotificationEnabled(notificationType)
+      && DriverManager.sharedInstance.getCurrentDriver() != nil {
+      
       FIRMessaging.messaging().subscribe(toTopic: topicString(notificationType))
     } else {
       FIRMessaging.messaging().unsubscribe(fromTopic: topicString(notificationType))
+    }
+  }
+  
+  static func refreshAll() {
+    for notificationType in NotificationType.allValues {
+      refreshSubscription(notificationType)
     }
   }
   
@@ -81,9 +89,7 @@ struct NotificationManager {
       if let refreshedToken = FIRInstanceID.instanceID().token() {
         print("InstanceID token: \(refreshedToken)")
         
-        for notificationType in NotificationType.allValues {
-          refreshSubscription(notificationType)
-        }
+        refreshAll()
       }
     }
     

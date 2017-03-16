@@ -78,6 +78,7 @@ class SettingsVC: UIViewController {
     DriverCredential.clear()
     DriverManager.sharedInstance.setCurrentDriver(nil)
     DriverManager.sharedInstance.setCurrentVehicle(nil)
+    NotificationManager.refreshAll()
     self.present(LoginVC(), animated: true, completion: nil)
     
     Speaker.sharedInstance.setAudioEnabled(originalSetting)

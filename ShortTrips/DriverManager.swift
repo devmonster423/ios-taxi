@@ -63,6 +63,7 @@ class DriverManager {
         if let driver = driver {
           credential.save()
           DriverManager.sharedInstance.setCurrentDriver(driver)
+          NotificationManager.refreshAll()
           callback()
         } else if retryCount < ApiClient.maxRetries {
           DispatchQueue.main.asyncAfter(deadline: ApiClient.retryInterval(retryCount)) {

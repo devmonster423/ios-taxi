@@ -62,6 +62,7 @@ class LoginVC: UIViewController {
       if let driver = driver {
         fullCredential.save()
         DriverManager.sharedInstance.setCurrentDriver(driver)
+        NotificationManager.refreshAll()
         
         if self.startup {
           self.present(MainTabBarController, animated: false, completion: nil)
