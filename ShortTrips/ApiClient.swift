@@ -14,6 +14,8 @@ struct ApiClient {
   private static let username = "taxi_short@sfo"
   private static let password = "mvUh6tYEwU9nYDrQ"
   private static let auth = "Basic dGF4aV9zaG9ydEBzZm86bXZVaDZ0WUV3VTluWURyUQ=="
+  private static let headerApiKey = "apikey"
+  private static let stagingApiKey = "Se2wwq4oWy5pxBrqLdsilBXDnscRGZrJ"
   
   static var lastKnownRemoteState: MobileState?
   
@@ -31,7 +33,11 @@ struct ApiClient {
   static func headers() -> [String: String]? {
     var headers = [String: String]()
     
-    headers["Authorization"] = auth
+    if Url.isDevUrl() {
+      headers[headerApiKey] = stagingApiKey
+    } else {
+      headers["Authorization"] = auth
+    }
     
     if let driverId = DriverManager.sharedInstance.getCurrentDriver()?.driverId {
       headers["driver"] = "\(driverId)"

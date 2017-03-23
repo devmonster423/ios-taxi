@@ -9,7 +9,7 @@
 struct Url {
   
 #if DEBUG
-  static let base = "https://216.9.96.29:9000/taxiws/services/taxi/" // dev
+  static let base = "https://api-stage.flysfo.com/taxi_ws/services/taxi/" // staging
 #else
   static let base = "https://216.9.96.29:9999/taxiws/services/taxi/" // prod
 #endif
@@ -17,7 +17,7 @@ struct Url {
   static let queueStatus = base + "status/queue"
 
   static func isDevUrl() -> Bool {
-    return base == "https://216.9.96.29:9000/taxiws/services/taxi/"
+    return base == "https://api-stage.flysfo.com/taxi_ws/services/taxi/"
   }
   
   struct Airline {
