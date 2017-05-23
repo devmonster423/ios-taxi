@@ -91,7 +91,7 @@ extension DebugVC {
     
     nc.addObserver(forName: .pingValid, object: nil, queue: nil) { note in
       let ping = note.userInfo![InfoKey.ping] as! Ping
-      self.debugView().printDebugLine("valid ping: (\(ping.latitude), \(ping.longitude)) at \(ping.timestamp)")
+      self.debugView().printDebugLine("valid ping: (\(ping.latitude!), \(ping.longitude!)) at \(ping.timestamp!)")
     }
     
     // MARK: REACHABILITY

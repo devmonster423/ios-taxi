@@ -88,19 +88,8 @@ extension DebugVC {
   }
   
   func fakeOutsideGeofences() {
-    
-    if let medallion = DriverManager.sharedInstance.getCurrentVehicle()?.medallion,
-      let sessionId = DriverManager.sharedInstance.getCurrentDriver()?.sessionId,
-      let tripId = TripManager.sharedInstance.getTripId() {
-      
-      let ping = Ping(location: CLLocation(latitude: 37.760661, longitude: -122.434092),
-                      tripId: tripId,
-                      vehicleId: 123,
-                      sessionId: sessionId,
-                      medallion: medallion)
-      
-      NotificationCenter.default.post(name: .pingCreated, object: nil, userInfo: [InfoKey.ping: ping])
-    }
+    Util.testingGps = true
+    NotificationCenter.default.post(name: .locRead, object: nil, userInfo: [InfoKey.location: CLLocation(latitude: 37.760661, longitude: -122.434092)])
   }
   
   func crash() {
