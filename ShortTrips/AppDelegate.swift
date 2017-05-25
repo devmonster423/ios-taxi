@@ -33,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     appCheckDelegate = loginVC
     window?.rootViewController = loginVC
     window?.makeKeyAndVisible()
-    ApiClient.setupAuthChallengeResponse()
     Fabric.with([Crashlytics.self()])
     NotificationManager.registerForPushNotifications(application)
     IQKeyboardManager.sharedManager().enable = true

@@ -11,7 +11,7 @@ struct Url {
 #if DEBUG
   static let base = "https://api-stage.flysfo.com/taxi_ws/services/taxi/" // staging
 #else
-  static let base = "https://216.9.96.29:9999/taxiws/services/taxi/" // prod
+  static let base = "https://api.flysfo.com/taxi_ws/services/taxi/" // prod
 #endif
   
   static let queueStatus = base + "status/queue"

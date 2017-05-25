@@ -11,9 +11,6 @@ import Alamofire
 
 struct ApiClient {
   
-  private static let username = "taxi_short@sfo"
-  private static let password = "mvUh6tYEwU9nYDrQ"
-  private static let auth = "Basic dGF4aV9zaG9ydEBzZm86bXZVaDZ0WUV3VTluWURyUQ=="
   private static let headerApiKey = "apikey"
   private static let stagingApiKey = "Se2wwq4oWy5pxBrqLdsilBXDnscRGZrJ"
   
@@ -23,21 +20,11 @@ struct ApiClient {
   static func retryInterval(_ retryCount: Int) -> DispatchTime {
     return DispatchTime.now() + Double(Int64(Double(retryCount + 1) * 5.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
   }
-  
-  static func setupAuthChallengeResponse() {
-    Alamofire.SessionManager.default.delegate.sessionDidReceiveChallenge = { (session: URLSession, challenge: URLAuthenticationChallenge) in
-      return (.useCredential, URLCredential(user: username, password: password, persistence: .permanent))
-    }
-  }
     
   static func headers() -> [String: String]? {
     var headers = [String: String]()
     
-    if Url.isDevUrl() {
-      headers[headerApiKey] = stagingApiKey
-    } else {
-      headers["Authorization"] = auth
-    }
+    headers[headerApiKey] = stagingApiKey
     
     if let driverId = DriverManager.sharedInstance.getCurrentDriver()?.driverId {
       headers["driver"] = "\(driverId)"
