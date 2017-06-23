@@ -35,6 +35,13 @@ enum Image: String {
   
   case splashLogo = "splashLogo"
   
+  // nav bar
+  case gear = "gear"
+  case infoCircle = "info-circle"
+  
+  // security screen
+  case exclamationTriangle = "exclamation-triangle"
+  
   // tab bar
   case dashboardIcon = "dashboard_icon"
   case flightsIcon = "flights_icon"
@@ -54,7 +61,6 @@ enum Image: String {
   case car = "car"
   case checkmark = "check"
   case exclamation = "exclamation"
-  case gear = "gear"
   case hourglass = "hourglass"
   case taxi = "taxi"
   case bgCircles = "bg_circles"
