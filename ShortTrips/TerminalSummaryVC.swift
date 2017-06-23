@@ -40,7 +40,7 @@ class TerminalSummaryVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureNavBar(title: NSLocalizedString("Flight Status", comment: "").uppercased())
-    addSettingsButton()
+    addSettingsAndSecurityButtons()
 
     let nc = NotificationCenter.default
     

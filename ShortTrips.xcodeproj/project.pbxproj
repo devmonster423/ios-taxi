@@ -146,7 +146,7 @@
 		C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667101BA7577600BA28E2 /* DashboardView.swift */; };
 		C2B667291BA7833400BA28E2 /* TerminalSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */; };
 		C2BC85101C24832B005FC6F8 /* AutoLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC850F1C24832B005FC6F8 /* AutoLoginView.swift */; };
-		C2BC85141C24912F005FC6F8 /* SettingsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85131C24912F005FC6F8 /* SettingsExtension.swift */; };
+		C2BC85141C24912F005FC6F8 /* NavItemsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85131C24912F005FC6F8 /* NavItemsExtension.swift */; };
 		C2BC85171C249CA0005FC6F8 /* NavBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */; };
 		C2C04A671D70EE6800037E4E /* ReachabilityNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C04A661D70EE6800037E4E /* ReachabilityNotice.swift */; };
 		C2C04A691D70F97900037E4E /* ReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C04A681D70F97900037E4E /* ReachabilityManager.swift */; };
@@ -429,7 +429,7 @@
 		C2B667101BA7577600BA28E2 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryView.swift; sourceTree = "<group>"; };
 		C2BC850F1C24832B005FC6F8 /* AutoLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLoginView.swift; sourceTree = "<group>"; };
-		C2BC85131C24912F005FC6F8 /* SettingsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsExtension.swift; sourceTree = "<group>"; };
+		C2BC85131C24912F005FC6F8 /* NavItemsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavItemsExtension.swift; sourceTree = "<group>"; };
 		C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavBarExtension.swift; sourceTree = "<group>"; };
 		C2C04A661D70EE6800037E4E /* ReachabilityNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityNotice.swift; sourceTree = "<group>"; };
 		C2C04A681D70F97900037E4E /* ReachabilityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityManager.swift; sourceTree = "<group>"; };
@@ -913,7 +913,7 @@
 			isa = PBXGroup;
 			children = (
 				C2BC85161C249CA0005FC6F8 /* NavBarExtension.swift */,
-				C2BC85131C24912F005FC6F8 /* SettingsExtension.swift */,
+				C2BC85131C24912F005FC6F8 /* NavItemsExtension.swift */,
 			);
 			name = ViewControllerExtensions;
 			sourceTree = "<group>";
@@ -1784,7 +1784,7 @@
 				C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */,
 				E1BE7B701BE4025C0085D3CA /* TimeExpired.swift in Sources */,
 				C26ABD291C45C31000EF4684 /* CountdownView.swift in Sources */,
-				C2BC85141C24912F005FC6F8 /* SettingsExtension.swift in Sources */,
+				C2BC85141C24912F005FC6F8 /* NavItemsExtension.swift in Sources */,
 				8EEFB79C1BE0320A00B8A962 /* DriverAndVehicleAssociated.swift in Sources */,
 				C283AB3F1BE93B790004E8CD /* StateDebugger.swift in Sources */,
 				C285F1D51C18F46D00AA3363 /* WaitingForReEntryCid.swift in Sources */,

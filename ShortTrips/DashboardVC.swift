@@ -29,7 +29,7 @@ class DashboardVC: UIViewController {
     super.viewDidLoad()
     navigationItem.title = ""
     configureNavBar(title: NSLocalizedString("Holding Lot", comment: "").uppercased())
-    addSettingsButton()
+    addSettingsAndSecurityButtons()
     
     let nc = NotificationCenter.default
     

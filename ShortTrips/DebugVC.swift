@@ -26,7 +26,7 @@ class DebugVC: UIViewController {
     setupObservers()
     
     configureNavBar(back: true, title: "Debug")
-    addSettingsButton()
+    addSettingsAndSecurityButtons()
     
     updateForState(StateManager.sharedInstance.getMachine().currentState)
   }

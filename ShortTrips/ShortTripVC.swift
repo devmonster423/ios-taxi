@@ -26,7 +26,7 @@ class ShortTripVC: UIViewController {
     setupObservers()
   
     configureNavBar(title: NSLocalizedString("Trip Status", comment: "").uppercased())
-    addSettingsButton()
+    addSettingsAndSecurityButtons()
     
     initializeForState(StateManager.sharedInstance.getMachine().currentState)
     
