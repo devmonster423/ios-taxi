@@ -142,6 +142,10 @@
 		C2AB513C1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift */; };
 		C2AB513E1BD052F7003ACB4C /* SfoNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */; };
 		C2B15ADF1BBB16010049B97C /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B15ADE1BBB16010049B97C /* Image.swift */; };
+		C2B276B41F01934A00494179 /* SecurityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B276B31F01934A00494179 /* SecurityVC.swift */; };
+		C2B276B51F01934A00494179 /* SecurityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B276B31F01934A00494179 /* SecurityVC.swift */; };
+		C2B276B81F0193B300494179 /* SecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B276B71F0193B300494179 /* SecurityView.swift */; };
+		C2B276B91F0193B300494179 /* SecurityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B276B71F0193B300494179 /* SecurityView.swift */; };
 		C2B60A7E1BF66A8E00A8A452 /* TripBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B60A7D1BF66A8E00A8A452 /* TripBody.swift */; };
 		C2B667111BA7577600BA28E2 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667101BA7577600BA28E2 /* DashboardView.swift */; };
 		C2B667291BA7833400BA28E2 /* TerminalSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */; };
@@ -425,6 +429,8 @@
 		C2AB513B1BD02D1B003ACB4C /* AssociatingDriverAndVehicleAtEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatingDriverAndVehicleAtEntry.swift; sourceTree = "<group>"; };
 		C2AB513D1BD052F7003ACB4C /* SfoNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SfoNotification.swift; sourceTree = "<group>"; };
 		C2B15ADE1BBB16010049B97C /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		C2B276B31F01934A00494179 /* SecurityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityVC.swift; sourceTree = "<group>"; };
+		C2B276B71F0193B300494179 /* SecurityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityView.swift; sourceTree = "<group>"; };
 		C2B60A7D1BF66A8E00A8A452 /* TripBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripBody.swift; sourceTree = "<group>"; };
 		C2B667101BA7577600BA28E2 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		C2B667281BA7833400BA28E2 /* TerminalSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TerminalSummaryView.swift; sourceTree = "<group>"; };
@@ -900,6 +906,22 @@
 			name = FlightStatus;
 			sourceTree = "<group>";
 		};
+		C2B276B21F01932E00494179 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				C2B276B31F01934A00494179 /* SecurityVC.swift */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
+		C2B276B61F0193A400494179 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				C2B276B71F0193B300494179 /* SecurityView.swift */,
+			);
+			name = Security;
+			sourceTree = "<group>";
+		};
 		C2BC850E1C2482E6005FC6F8 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -1170,6 +1192,7 @@
 				C2AC81F71C3B03C4003695C8 /* FlightStatus */,
 				C257FB3B1BC44E2000468CF1 /* LocationManagement */,
 				C21905661BB0B73E00A3E779 /* Networking */,
+				C2B276B21F01932E00494179 /* Security */,
 				FA0CD4BE1C49866500C071AC /* Settings */,
 				E1472CF21C0E7A4300D27D60 /* ShortTrip */,
 				C220E0671BC339E200AC7C85 /* StateManagement */,
@@ -1203,6 +1226,7 @@
 				C2BC850E1C2482E6005FC6F8 /* Auth */,
 				C21528C31BC83A610073502F /* Debug */,
 				E177ED031BB4710400DD4499 /* Dashboard */,
+				C2B276B61F0193A400494179 /* Security */,
 				FA0CD4C11C49875F00C071AC /* Settings */,
 				E1472D091C0E7C0600D27D60 /* ShortTrip */,
 				C2DFE5D01B56D2CB0090B55F /* LaunchScreen.xib */,
@@ -1758,6 +1782,7 @@
 				FA0CD4C01C4986EA00C071AC /* SettingsVC.swift in Sources */,
 				E18FF68D1BA8667500FE93B9 /* AutomaticVehicleId.swift in Sources */,
 				C27E3A931C472B2400F1A163 /* QueueLength.swift in Sources */,
+				C2B276B81F0193B300494179 /* SecurityView.swift in Sources */,
 				C21528C21BC839990073502F /* LoginVC.swift in Sources */,
 				C20A988E1BE1A1BC009E29E7 /* TripStarted.swift in Sources */,
 				C2D2899B1C3B094300A636AA /* MainTabBarController.swift in Sources */,
@@ -1765,6 +1790,7 @@
 				C28ECB3D1BCF193300887763 /* PingManager.swift in Sources */,
 				C21775F91BB08CAC008B24EA /* Color.swift in Sources */,
 				C2CE0B141C1219AB00496607 /* LocalGeofenceFeature.swift in Sources */,
+				C2B276B41F01934A00494179 /* SecurityVC.swift in Sources */,
 				E14A39281BE957340053F741 /* AppQuit.swift in Sources */,
 				C2AB513A1BD02CC0003ACB4C /* LatestCidIsEntryCid.swift in Sources */,
 				C26530B41BE3F7CB002C0A97 /* TripInvalidated.swift in Sources */,
@@ -1876,6 +1902,7 @@
 				C2EAD0B01C03E50600EAEBBF /* MockFoundGeofenceStatusString.swift in Sources */,
 				FA0CD4C61C4991BD00C071AC /* SettingsVCSpec.swift in Sources */,
 				C221EDEB1BE2E12E00BDB4CD /* MockAntennaResponse.swift in Sources */,
+				C2B276B91F0193B300494179 /* SecurityView.swift in Sources */,
 				C27E3A961C4731FF00F1A163 /* QueueLengthSpec.swift in Sources */,
 				8EEFB7C71BE1B24500B8A962 /* TripClientSpec.swift in Sources */,
 				8EEFB7B91BE1A6BA00B8A962 /* DeviceClientSpec.swift in Sources */,
@@ -1927,6 +1954,7 @@
 				C221678B1BD587A4002D7994 /* FlightClientSpec.swift in Sources */,
 				8EEFB7D01BE29CFC00B8A962 /* AirlineSpec.swift in Sources */,
 				FAF6F5D21C2AF55D004B93ED /* ValidationStepSpec.swift in Sources */,
+				C2B276B51F01934A00494179 /* SecurityVC.swift in Sources */,
 				E1B8120A1BEC1562002EC540 /* MockAirlineListResponse.swift in Sources */,
 				E1F153C71BF02E0200E212ED /* TerminalSummaryDeparturesWrapperSpec.swift in Sources */,
 				C22167931BD59199002D7994 /* AllGeofenceMock.swift in Sources */,

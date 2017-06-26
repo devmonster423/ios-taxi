@@ -31,6 +31,7 @@ struct Color {
     static let gray = UIColor(red: 240/255.0, green: 245/255.0, blue: 249/255.0, alpha: 1.0)
     static let lightBlue = UIColor(red: 242.0/255.0, green: 246.0/255.0, blue: 248.0/255.0, alpha: 1.0)
     static let darkBlue = UIColor(red: 22.0/255.0, green: 103.0/255.0, blue: 131/255.0, alpha: 1.0)
+    static let darkBlueHexString = "166783"
     static let black = UIColor(red: 0.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
     static let orange = UIColor(red: 246/255.0, green: 93/255.0, blue: 9/255.0, alpha: 1.0)
     static let darkGray = UIColor(red: 86/255.0, green: 86/255.0, blue: 90/255.0, alpha: 1.0)
@@ -44,6 +45,7 @@ struct Color {
   
   struct Sfo {
     static let blue = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 226.0/255.0, alpha: 1.0)
+    static let blueHexString = "4A90E2"
     static let blueWithAlpha = UIColor(red: 74.0/255.0, green: 144.0/255.0, blue: 226.0/255.0, alpha: 0.5)
     static let gray = UIColor(red: 115.0/255.0, green: 115.0/255.0, blue: 115.0/255.0, alpha: 1.0)
     static let turquoise = UIColor(red: 26.0/255.0, green: 120.0/255.0, blue: 167.0/255.0, alpha: 1.0)

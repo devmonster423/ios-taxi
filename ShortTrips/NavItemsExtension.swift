@@ -29,11 +29,12 @@ extension UIViewController {
     navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: settingsBtn), UIBarButtonItem(customView: securityBtn)]
   }
   
+  func security() {
+    self.navigationController?.pushViewController(SecurityVC(), animated: true)
+  }
+  
   func settings() {
     self.navigationController?.pushViewController(SettingsVC(), animated: true)
   }
   
-  func security() {
-    self.navigationController?.pushViewController(SettingsVC(), animated: true)
-  }
 }
