@@ -13,7 +13,9 @@ struct Url {
 #else
   static let base = "https://api.flysfo.com/taxi_ws/services/taxi/" // prod
 #endif
-  
+
+  static let oldBase = "https://216.9.96.29:9999/taxiws/services/taxi/" // old prod
+
   static let queueStatus = base + "status/queue"
 
   static func isDevUrl() -> Bool {

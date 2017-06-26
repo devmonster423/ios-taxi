@@ -59,13 +59,22 @@ struct DriverCredential: Mappable {
       persistence: .permanent)
     
     URLCredentialStorage.shared.set(
-      credential, for: DriverCredential.credentialProtectionSpace()
+      credential, for: DriverCredential.credentialProtectionSpace(newUrl: true)
     )
   }
   
   static func load() -> DriverCredential? {
+    if let newCredential = load(newUrl: true) {
+      return newCredential
+    } else {
+      return load(newUrl: false)
+    }
+  }
+  
+  static func load(newUrl: Bool) -> DriverCredential? {
+    let space = DriverCredential.credentialProtectionSpace(newUrl: newUrl)
     let credentials = URLCredentialStorage.shared
-      .credentials(for: DriverCredential.credentialProtectionSpace())
+      .credentials(for: space)
     if let credential = credentials?.first?.1,
       let username = credential.user,
       let password = credential.password {
@@ -76,17 +85,23 @@ struct DriverCredential: Mappable {
   }
   
   static func clear() {
+    clear(newUrl: true)
+    clear(newUrl: false)
+  }
+  
+  static func clear(newUrl: Bool) {
+    let space = DriverCredential.credentialProtectionSpace(newUrl: newUrl)
     let credentials = URLCredentialStorage.shared
-      .credentials(for: DriverCredential.credentialProtectionSpace())
+      .credentials(for: space)
     if let credential = credentials?.first?.1 {
       URLCredentialStorage.shared.remove(
-          credential, for: DriverCredential.credentialProtectionSpace()
+          credential, for: space
       )
     }
   }
   
-  private static func credentialProtectionSpace() -> URLProtectionSpace {
-    let url = NSURL(string: Url.base)!
+  private static func credentialProtectionSpace(newUrl: Bool) -> URLProtectionSpace {
+    let url = NSURL(string: newUrl ? Url.base : Url.oldBase)!
     return URLProtectionSpace(host: url.host!,
       port: (url.port?.intValue) ?? 8080,
       protocol: url.scheme,
