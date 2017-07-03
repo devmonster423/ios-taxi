@@ -21,7 +21,7 @@ extension UIViewController {
     
     let securityBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
     securityBtn.setImage(Image.infoCircle.image(), for: UIControlState())
-    securityBtn.imageEdgeInsets = UIEdgeInsetsMake(5, 10, 5, 0)
+    securityBtn.imageEdgeInsets = UIEdgeInsetsMake(10, 16, 6, 0)
     securityBtn.addTarget(self,
                           action: #selector(UIViewController.security),
                           for: .touchUpInside)
@@ -36,5 +36,4 @@ extension UIViewController {
   func settings() {
     self.navigationController?.pushViewController(SettingsVC(), animated: true)
   }
-  
 }
