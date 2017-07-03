@@ -16,6 +16,9 @@
 "By tapping 'I agree' below, you are agreeing to these terms:\n\n" = "By tapping 'I agree' below, you are agreeing to these terms:\n\n";
 "Retry" = "Retry";
 
+/* Information */
+"Information" = "Information";
+
 /* Settings */
 "Settings" = "Settings";
 "Audio ON. Tap to turn off." = "Audio ON. Tap to turn off.";

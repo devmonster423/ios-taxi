@@ -30,5 +30,7 @@ class SecurityVC: UIViewController {
       }
       hud.hide(animated: true)
     }
+    
+    configureNavBar(back: true, title: NSLocalizedString("Information", comment: "").uppercased())
   }
 }
