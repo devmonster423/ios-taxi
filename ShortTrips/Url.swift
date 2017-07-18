@@ -22,10 +22,10 @@ struct Url {
   
   struct Taxi {
     
-    static let taxiBase = base + "taxi/"
+    static let taxi = base + "taxi/"
     
     struct Airline {
-      private static let airline = taxiBase + "airline/"
+      private static let airline = taxi + "airline/"
       
       static let codes = airline + "codes"
       static func logoPng(_ iataCode: String) -> String {
@@ -34,7 +34,7 @@ struct Url {
     }
     
     struct Device {
-      private static let device = taxiBase + "device/"
+      private static let device = taxi + "device/"
       
       static func mobileStateUpdate(_ stateId: Int) -> String {
         return device + "mobile/state/\(stateId)/update"
@@ -61,13 +61,13 @@ struct Url {
     }
     
     struct Dispatcher {
-      private static let dispatcher = taxiBase + "dispatcher/"
+      private static let dispatcher = taxi + "dispatcher/"
       
       static let cone = dispatcher + "cone"
     }
     
     struct Driver {
-      private static let driver = taxiBase + "driver/"
+      private static let driver = taxi + "driver/"
       
       static let login = driver + "login"
       
@@ -77,7 +77,7 @@ struct Url {
     }
     
     struct Flight {
-      private static let flight = taxiBase + "flight/"
+      private static let flight = taxi + "flight/"
       
       struct Arrival {
         private static let arrival = flight + "arrival/"
@@ -95,7 +95,7 @@ struct Url {
     }
     
     struct Geofence {
-      static let geofence = taxiBase + "geofence/"
+      static let geofence = taxi + "geofence/"
       
       static let location = geofence + "location"
       static let locations = geofence + "locations"
@@ -105,11 +105,11 @@ struct Url {
     }
     
     struct Queue {
-      static let currentLength = taxiBase + "queue/current_size"
+      static let currentLength = taxi + "queue/current_size"
     }
     
     struct Reference {
-      private static let reference = taxiBase + "reference/"
+      private static let reference = taxi + "reference/"
       
       static let clientVersion = reference + "client_version"
       static let config = reference + "config"
@@ -118,13 +118,13 @@ struct Url {
     }
     
     struct Status {
-      private static let status = taxiBase + "status/"
+      private static let status = taxi + "status/"
       
       static let queue = status + "queue"
     }
     
     struct Trip {
-      private static let trip = taxiBase + "trip/"
+      private static let trip = taxi + "trip/"
       
       static let start = trip + "start"
       static let status = trip + "status"
