@@ -19,7 +19,7 @@ extension ApiClient {
   
   static func requestFlightsForTerminal(_ terminal: Int, hour: Int, flightType: FlightType, response: @escaping FlightDetailsClosure) {
     let params = ["terminal_id": terminal, "hour": hour]
-    let url = flightType == .Arrivals ? Url.Flight.Arrival.details : Url.Flight.Departure.details
+    let url = flightType == .Arrivals ? Url.Taxi.Flight.Arrival.details : Url.Taxi.Flight.Departure.details
     
     Alamofire.request(url, parameters: params, headers: headers())
       .responseObject { (dataResponse: DataResponse<FlightDetailsWrapper>) in
@@ -35,7 +35,7 @@ extension ApiClient {
     switch flightType {
       
     case .Arrivals:
-      Alamofire.request(Url.Flight.Arrival.summary, parameters: params, headers: headers())
+      Alamofire.request(Url.Taxi.Flight.Arrival.summary, parameters: params, headers: headers())
         .responseObject { (dataResponse: DataResponse<TerminalSummaryArrivalsWrapper>) in
           response(dataResponse.result.value?.terminalSummaries, hour, dataResponse.response?.statusCode)
           if Util.debug {
@@ -44,7 +44,7 @@ extension ApiClient {
       }
       
     case .Departures:
-      Alamofire.request(Url.Flight.Departure.summary, parameters: params, headers: headers())
+      Alamofire.request(Url.Taxi.Flight.Departure.summary, parameters: params, headers: headers())
         .responseObject { (dataResponse: DataResponse<TerminalSummaryDeparturesWrapper>) in
           response(dataResponse.result.value?.terminalSummaries, hour, dataResponse.response?.statusCode)
           if Util.debug {

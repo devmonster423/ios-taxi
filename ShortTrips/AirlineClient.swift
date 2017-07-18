@@ -23,7 +23,7 @@ extension ApiClient {
     }
     else {
       let params = ["width": width, "height": height]
-      Alamofire.request(Url.Airline.logoPng(iataCode), parameters: params, headers: headers())
+      Alamofire.request(Url.Taxi.Airline.logoPng(iataCode), parameters: params, headers: headers())
         .responseImage { response in
           
           if airlineImages[iataCode] == nil {
@@ -35,7 +35,7 @@ extension ApiClient {
   }
   
   static func codes(_ completion: @escaping AirlinesClosure) {
-    Alamofire.request(Url.Airline.codes, headers: headers())
+    Alamofire.request(Url.Taxi.Airline.codes, headers: headers())
       .responseObject { (dataResponse: DataResponse<AirlineListWrapper>) in
         completion(dataResponse.result.value?.airlines)
     }

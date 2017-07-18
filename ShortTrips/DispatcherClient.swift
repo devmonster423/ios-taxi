@@ -15,7 +15,7 @@ typealias ConeClosure = (Cone?) -> Void
 
 extension ApiClient {
   static func fetchCone(_ completion: @escaping ConeClosure) {
-    Alamofire.request(Url.Dispatcher.cone, headers: headers())
+    Alamofire.request(Url.Taxi.Dispatcher.cone, headers: headers())
       .responseObject { (dataResponse: DataResponse<Cone>) in
         if let raw = dataResponse.response {
           NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])

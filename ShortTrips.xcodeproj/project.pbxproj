@@ -84,6 +84,8 @@
 		C221EDEB1BE2E12E00BDB4CD /* MockAntennaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221EDEA1BE2E12E00BDB4CD /* MockAntennaResponse.swift */; };
 		C22A7F671D4148060091607E /* Domestic_Pax_Pickup.json in Resources */ = {isa = PBXBuildFile; fileRef = C22A7F661D4148060091607E /* Domestic_Pax_Pickup.json */; };
 		C23315851BB472490079B916 /* Airline.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23315841BB472490079B916 /* Airline.swift */; };
+		C23ACA111F1EA9D700E90BE1 /* SecurityPageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23ACA101F1EA9D700E90BE1 /* SecurityPageData.swift */; };
+		C23ACA121F1EA9D700E90BE1 /* SecurityPageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23ACA101F1EA9D700E90BE1 /* SecurityPageData.swift */; };
 		C23DDD0B1DCBD367008D2448 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C23DDD0A1DCBD367008D2448 /* GoogleService-Info.plist */; };
 		C24388431C447B4E00984CB8 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24388421C447B4E00984CB8 /* NotificationView.swift */; };
 		C24AA69F1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24AA69E1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift */; };
@@ -371,6 +373,7 @@
 		C221EDEA1BE2E12E00BDB4CD /* MockAntennaResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAntennaResponse.swift; sourceTree = "<group>"; };
 		C22A7F661D4148060091607E /* Domestic_Pax_Pickup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Domestic_Pax_Pickup.json; sourceTree = "<group>"; };
 		C23315841BB472490079B916 /* Airline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Airline.swift; sourceTree = "<group>"; };
+		C23ACA101F1EA9D700E90BE1 /* SecurityPageData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityPageData.swift; sourceTree = "<group>"; };
 		C23DDD0A1DCBD367008D2448 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C24388421C447B4E00984CB8 /* NotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		C24AA69E1D6F6E5C003CBC0F /* PendingAppQuitSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PendingAppQuitSpec.swift; sourceTree = "<group>"; };
@@ -785,6 +788,14 @@
 				8EEFB7CA1BE28D1400B8A962 /* TripStartMock.swift */,
 			);
 			name = MockJSON;
+			sourceTree = "<group>";
+		};
+		C23ACA0E1F1EA9AC00E90BE1 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				C23ACA101F1EA9D700E90BE1 /* SecurityPageData.swift */,
+			);
+			name = Security;
 			sourceTree = "<group>";
 		};
 		C24486EE1BA89DD100A19A9D /* Geofence */ = {
@@ -1214,6 +1225,7 @@
 				FA6380F01BED1FD900CF51CC /* Gtms */,
 				C27E3A911C472AA700F1A163 /* Queue */,
 				E1B393781BAC625E00FC2970 /* ReferenceConfig */,
+				C23ACA0E1F1EA9AC00E90BE1 /* Security */,
 				E13BCEF41BABB895006FDFF5 /* TerminalSummary */,
 				C2635E281BB0CB5F003C22B1 /* Trip */,
 			);
@@ -1841,6 +1853,7 @@
 				8EEFB7A41BE04AD900B8A962 /* WaitingForTaxiLoopAvi.swift in Sources */,
 				FA650FF81BB20CDB003D1939 /* SfoDateTransform.swift in Sources */,
 				E18229031BC495A000614256 /* TripValidated.swift in Sources */,
+				C23ACA111F1EA9D700E90BE1 /* SecurityPageData.swift in Sources */,
 				C221EDE51BE2CB1700BDB4CD /* TripWarning.swift in Sources */,
 				C29F59EE1C220B2F007EFA1D /* NotInsideTaxiWaitZoneAfterFailedEntryCheck.swift in Sources */,
 				C285F1DD1C18FFC400AA3363 /* OutsideTaxiWaitZone.swift in Sources */,
@@ -1887,6 +1900,7 @@
 				C29341CE1BD1C6F100A7CB9E /* PingManagerSpec.swift in Sources */,
 				E1BE7B6E1BE3FD510085D3CA /* TripScenario2Spec.swift in Sources */,
 				C2EAD0A71C03E11A00EAEBBF /* TripValidation.swift in Sources */,
+				C23ACA121F1EA9D700E90BE1 /* SecurityPageData.swift in Sources */,
 				E12A62471BF1157700440B57 /* MockReferenceConfigResponse.swift in Sources */,
 				E1ADA7031BBC325B00766DB1 /* ReferenceConfigSpec.swift in Sources */,
 				E1259FD21BF167B200EA0628 /* MockTripIdResponse.swift in Sources */,

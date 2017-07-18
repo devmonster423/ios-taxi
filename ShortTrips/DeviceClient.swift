@@ -23,7 +23,7 @@ extension ApiClient {
       return
     }
     
-    Alamofire.request(Url.Device.mobileStateUpdate(mobileState.rawValue), method: .put, parameters: Mapper().toJSON(mobileStateInfo), headers: headers())
+    Alamofire.request(Url.Taxi.Device.mobileStateUpdate(mobileState.rawValue), method: .put, parameters: Mapper().toJSON(mobileStateInfo), headers: headers())
       .response { dataResponse in
         
         if let raw = dataResponse.response {
@@ -39,7 +39,7 @@ extension ApiClient {
   }
   
   static func requestAntenna(_ transponderId: Int, response: @escaping AntennaClosure) {
-    Alamofire.request(Url.Device.Avi.transponder(transponderId), headers: headers())
+    Alamofire.request(Url.Taxi.Device.Avi.transponder(transponderId), headers: headers())
       .responseObject { (dataResponse: DataResponse<Antenna>) in
   
         if let raw = dataResponse.response {
@@ -55,7 +55,7 @@ extension ApiClient {
   }
   
   static func requestCid(_ driverId: Int, response: @escaping CidClosure) {
-    Alamofire.request(Url.Device.Cid.driver(driverId), headers: headers())
+    Alamofire.request(Url.Taxi.Device.Cid.driver(driverId), headers: headers())
       .responseObject { (dataResponse: DataResponse<Cid>) in
         
         if let raw = dataResponse.response {

@@ -9,129 +9,140 @@
 struct Url {
   
 #if DEBUG
-  static let base = "https://api-stage.flysfo.com/taxi_ws/services/taxi/" // staging
+  static let base = "https://api-stage.flysfo.com/taxi_ws/services/" // staging
 #else
-  static let base = "https://api.flysfo.com/taxi_ws/services/taxi/" // prod
+  static let base = "https://api.flysfo.com/taxi_ws/services/" // prod
 #endif
-  
-  static let queueStatus = base + "status/queue"
 
   static func isDevUrl() -> Bool {
-    return base == "https://api-stage.flysfo.com/taxi_ws/services/taxi/"
+    return base == "https://api-stage.flysfo.com/taxi_ws/services/"
   }
   
-  struct Airline {
-    private static let airline = base + "airline/"
-    
-    static let codes = airline + "codes"
-    static func logoPng(_ iataCode: String) -> String {
-      return airline + "logo/\(iataCode)"
-    }
-  }
+  static let securities = base + "securities/"
   
-  struct Device {
-    private static let device = base + "device/"
+  struct Taxi {
     
-    static func mobileStateUpdate(_ stateId: Int) -> String {
-      return device + "mobile/state/\(stateId)/update"
-    }
+    static let taxiBase = base + "taxi/"
     
-    struct Avi {
-      static let avi = device + "avi"
+    struct Airline {
+      private static let airline = taxiBase + "airline/"
       
-      static func transponder(_ transponderId: Int) -> String {
-        return avi + "/transponder/\(transponderId)"
+      static let codes = airline + "codes"
+      static func logoPng(_ iataCode: String) -> String {
+        return airline + "logo/\(iataCode)"
       }
     }
     
-    struct Cid {
-      private static let cid = device + "cid"
+    struct Device {
+      private static let device = taxiBase + "device/"
       
-      static func driver(_ driverId: Int) -> String {
-        return cid + "/driver/\(driverId)"
+      static func mobileStateUpdate(_ stateId: Int) -> String {
+        return device + "mobile/state/\(stateId)/update"
       }
-      static func singleCid(_ cidId: Int) -> String {
-        return cid + "/\(cidId)"
+      
+      struct Avi {
+        static let avi = device + "avi"
+        
+        static func transponder(_ transponderId: Int) -> String {
+          return avi + "/transponder/\(transponderId)"
+        }
+      }
+      
+      struct Cid {
+        private static let cid = device + "cid"
+        
+        static func driver(_ driverId: Int) -> String {
+          return cid + "/driver/\(driverId)"
+        }
+        static func singleCid(_ cidId: Int) -> String {
+          return cid + "/\(cidId)"
+        }
       }
     }
-  }
-  
-  struct Dispatcher {
-    private static let dispatcher = base + "dispatcher/"
     
-    static let cone = dispatcher + "cone"
-  }
-  
-  struct Driver {
-    private static let driver = base + "driver/"
-    
-    static let login = driver + "login"
-    
-    static func vehicle(_ smartCard: String) -> String {
-      return driver + "vehicle/smart_card/\(smartCard)"
-    }
-  }
-  
-  struct Flight {
-    private static let flight = base + "flight/"
-    
-    struct Arrival {
-      private static let arrival = flight + "arrival/"
+    struct Dispatcher {
+      private static let dispatcher = taxiBase + "dispatcher/"
       
-      static let summary = arrival + "summary"
-      static let details = arrival + "details"
+      static let cone = dispatcher + "cone"
     }
     
-    struct Departure {
-      private static let departure = flight + "departure/"
+    struct Driver {
+      private static let driver = taxiBase + "driver/"
       
-      static let summary = departure + "summary"
-      static let details = departure + "details"
+      static let login = driver + "login"
+      
+      static func vehicle(_ smartCard: String) -> String {
+        return driver + "vehicle/smart_card/\(smartCard)"
+      }
     }
-  }
-  
-  struct Geofence {
-    static let geofence = base + "geofence/"
     
-    static let location = geofence + "location"
-    static let locations = geofence + "locations"
-    static func singleGeofence(_ geofenceId: Int) -> String {
-      return geofence + "\(geofenceId)"
+    struct Flight {
+      private static let flight = taxiBase + "flight/"
+      
+      struct Arrival {
+        private static let arrival = flight + "arrival/"
+        
+        static let summary = arrival + "summary"
+        static let details = arrival + "details"
+      }
+      
+      struct Departure {
+        private static let departure = flight + "departure/"
+        
+        static let summary = departure + "summary"
+        static let details = departure + "details"
+      }
     }
-  }
-  
-  struct Queue {
-    static let currentLength = base + "queue/current_size"
-  }
-  
-  struct Reference {
-    private static let reference = base + "reference/"
     
-    static let clientVersion = reference + "client_version"
-    static let config = reference + "config"
-    static let lotCapacity = reference + "lot_capacity"
-    static let terms = reference + "terms"
-  }
-  
-  struct Trip {
-    private static let trip = base + "trip/"
+    struct Geofence {
+      static let geofence = taxiBase + "geofence/"
+      
+      static let location = geofence + "location"
+      static let locations = geofence + "locations"
+      static func singleGeofence(_ geofenceId: Int) -> String {
+        return geofence + "\(geofenceId)"
+      }
+    }
     
-    static let start = trip + "start"
-    static let status = trip + "status"
-    static func end(_ tripId: Int) -> String {
-      return trip + "\(tripId)/end"
+    struct Queue {
+      static let currentLength = taxiBase + "queue/current_size"
     }
-    static func invalidGeofenceDetails(_ tripId: Int) -> String {
-      return trip + "\(tripId)/invalid_geofence_details"
+    
+    struct Reference {
+      private static let reference = taxiBase + "reference/"
+      
+      static let clientVersion = reference + "client_version"
+      static let config = reference + "config"
+      static let lotCapacity = reference + "lot_capacity"
+      static let terms = reference + "terms"
     }
-    static func invalidate(_ tripId: Int) -> String {
-      return trip + "\(tripId)/invalidate"
+    
+    struct Status {
+      private static let status = taxiBase + "status/"
+      
+      static let queue = status + "queue"
     }
-    static func ping(_ tripId: Int) -> String {
-      return trip + "\(tripId)/ping"
-    }
-    static func pings(_ tripId: Int) -> String {
-      return trip + "\(tripId)/delayed_pings"
+    
+    struct Trip {
+      private static let trip = taxiBase + "trip/"
+      
+      static let start = trip + "start"
+      static let status = trip + "status"
+      static func end(_ tripId: Int) -> String {
+        return trip + "\(tripId)/end"
+      }
+      static func invalidGeofenceDetails(_ tripId: Int) -> String {
+        return trip + "\(tripId)/invalid_geofence_details"
+      }
+      static func invalidate(_ tripId: Int) -> String {
+        return trip + "\(tripId)/invalidate"
+      }
+      static func ping(_ tripId: Int) -> String {
+        return trip + "\(tripId)/ping"
+      }
+      static func pings(_ tripId: Int) -> String {
+        return trip + "\(tripId)/delayed_pings"
+      }
     }
   }
 }

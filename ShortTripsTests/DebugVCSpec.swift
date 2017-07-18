@@ -62,13 +62,13 @@ class DebugVCSpec: QuickSpec {
         
         nc.post(name: .locRead, object: nil, userInfo: [InfoKey.location: location])
         
-        nc.post(name: .response, object: nil, userInfo: [InfoKey.response: HTTPURLResponse(url: URL(string: Url.Flight.Departure.summary)!, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!])
+        nc.post(name: .response, object: nil, userInfo: [InfoKey.response: HTTPURLResponse(url: URL(string: Url.Taxi.Flight.Departure.summary)!, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!])
         
         nc.post(name: .aviRead, object: nil, userInfo: [InfoKey.antenna: antenna])
         
         nc.post(name: .driverVehicleAssociated, object: nil, userInfo: [InfoKey.driver: driver, InfoKey.vehicle: vehicle])
         
-        nc.post(name: .response, object: nil, userInfo: [InfoKey.response: HTTPURLResponse(url: URL(string: Url.Flight.Departure.summary)!, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!])
+        nc.post(name: .response, object: nil, userInfo: [InfoKey.response: HTTPURLResponse(url: URL(string: Url.Taxi.Flight.Departure.summary)!, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)!])
         
         viewController.fakeTimeExpired()
         

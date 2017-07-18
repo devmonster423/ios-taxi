@@ -16,7 +16,7 @@ typealias VehicleClosure = (Vehicle?) -> Void
 
 extension ApiClient {
   static func authenticateDriver(_ credential: DriverCredential, completion: @escaping DriverClosure) {
-    Alamofire.request(Url.Driver.login, method: .post, parameters: Mapper().toJSON(credential), headers: headers())
+    Alamofire.request(Url.Taxi.Driver.login, method: .post, parameters: Mapper().toJSON(credential), headers: headers())
       .responseObject { (dataResponse: DataResponse<Driver>) in
         if let raw = dataResponse.response {
           NotificationCenter.default.post(name: .response, object: nil, userInfo: [InfoKey.response: raw])
@@ -26,7 +26,7 @@ extension ApiClient {
   }
   
   static func getVehicle(_ smartCard: String, completion: @escaping VehicleClosure) {
-    Alamofire.request(Url.Driver.vehicle(smartCard), headers: headers())
+    Alamofire.request(Url.Taxi.Driver.vehicle(smartCard), headers: headers())
       .responseObject { (dataResponse: DataResponse<Vehicle>) in
         
         if let raw = dataResponse.response {
