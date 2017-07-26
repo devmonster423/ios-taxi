@@ -14,6 +14,8 @@ struct Url {
   static let base = "https://api.flysfo.com/taxi_ws/services/" // prod
 #endif
 
+  static let oldBase = "https://216.9.96.29:9999/taxiws/services/taxi/" // old prod
+
   static func isDevUrl() -> Bool {
     return base == "https://api-stage.flysfo.com/taxi_ws/services/"
   }
